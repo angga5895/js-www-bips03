@@ -1,0 +1,48 @@
+{
+  "name": "bips01",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@devexpress/dx-react-core": "^2.0.3",
+    "@devexpress/dx-react-grid": "^2.0.3",
+    "@devexpress/dx-react-grid-bootstrap3": "^2.0.3",
+    "@devexpress/dx-react-grid-bootstrap4": "^2.0.3",
+    "anychart": "^8.7.0",
+    "anychart-react": "^1.4.1",
+    "bootstrap": "^3.3.7",
+    "bootstrap-select": "^1.13.10",
+    "jquery": "^1.12.4",
+    "react": "^16.9.0",
+    "react-bootstrap": "^1.0.0-beta.11",
+    "react-data-grid": "^6.1.0",
+    "react-data-grid-addons": "^6.1.0",
+    "react-dom": "^16.9.0",
+    "react-pin-input": "^0.9.0",
+    "react-scripts": "3.0.1",
+    "react-select": "^3.0.4",
+    "react-websocket": "^2.0.1",
+    "semantic-ui-react": "^0.87.3",
+    "uuid": "^3.3.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
