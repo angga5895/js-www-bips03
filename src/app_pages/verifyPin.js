@@ -125,7 +125,7 @@ class VerifyPIN extends React.PureComponent{
         return(
             <>
                 <AppFrameAction ref="frameAction" />
-                <div className="text-white">
+                <div className="text-white f-12">
                     <div className="text-center align-self-center align-middle">
                         <div className="d-border-bold img-round-icon">
                             <i className="icofont icofont-lock icofont-4x"></i>
@@ -187,7 +187,7 @@ class detailBuyModal extends React.Component {
         return (
             <>
                 <AppFrameAction ref="frameAction" />
-                <div className="col-sm-12 text-white px-0 mx-0">
+                <div className="col-sm-12 text-white px-0 mx-0 f-12">
                     <div className="col-sm-12 row mx-0 px-0">
                         <div className="col-sm-6 px-0 mx-0">
                             Order Information
@@ -268,7 +268,7 @@ class detailSellModal extends React.Component {
         return (
             <>
                 <AppFrameAction ref="frameAction" />
-                <div className="col-sm-12 text-white px-0 mx-0">
+                <div className="col-sm-12 text-white px-0 mx-0 f-12">
                     <div className="col-sm-12 row mx-0 px-0">
                         <div className="col-sm-6 px-0 mx-0">
                             Order Information
@@ -349,7 +349,7 @@ class detailWithdrawModal extends React.Component {
         return (
             <>
                 <AppFrameAction ref="frameAction" />
-                <div className="col-sm-12 text-white px-0 mx-0">
+                <div className="col-sm-12 text-white px-0 mx-0 f-12">
                     <div className="col-sm-12 row mx-0 px-0">
                         <div className="col-sm-6 px-0 mx-0">
                             Order Information
@@ -430,7 +430,7 @@ class detailAmendModal extends React.Component {
         return (
             <>
                 <AppFrameAction ref="frameAction" />
-                <div className="col-sm-12 row mx-0 px-0 mb-2">
+                <div className="col-sm-12 row mx-0 px-0 mb-2 f-12">
                     <div className="col-sm-9 px-1 mx-0 f-14">
                         <span className="pr-4">[Order No: <span className="text-primary">#123456</span>]</span>
                         <span className="text-right pl-5 ml-5">
@@ -440,14 +440,14 @@ class detailAmendModal extends React.Component {
                         </span>
                     </div>
                 </div>
-                <div className="col-sm-12 px-0 mx-0 row">
+                <div className="col-sm-12 px-0 mx-0 row f-12">
                     <div className="col-sm-6 text-white px-0 mx-0">
                         <div className="col-sm-12 mx-0 px-0">
                             <Table size="sm" responsive borderless className="text-white">
                                 <thead></thead>
                                 <tbody className="no-wrap d-border-table">
                                 <tr>
-                                    <th colSpan="3">BUY</th>
+                                    <td colSpan="3">BUY</td>
                                 </tr>
                                 <tr>
                                     <td>Code</td>
@@ -489,7 +489,7 @@ class detailAmendModal extends React.Component {
                                 <thead></thead>
                                 <tbody className="no-wrap d-border-table">
                                 <tr>
-                                    <th colSpan="3" className="text-danger">BUY</th>
+                                    <td colSpan="3" className="text-danger">BUY</td>
                                 </tr>
                                 <tr>
                                     <td>Code</td>
@@ -557,7 +557,7 @@ class ForgotPINModal extends React.Component {
 
     render() {
         return (
-            <>
+            <div className="f-12">
                 <AppFrameAction ref="frameAction" />
                 <label className="col-sm-12 px-5 py-2 col-form-label text-gray-tradding">Forgot PIN</label>
                 <div className="text-white">
@@ -587,7 +587,7 @@ class ForgotPINModal extends React.Component {
                         </label>
                     </div>
                 </div>
-            </>
+            </div>
         );
     }
 }

@@ -42,15 +42,59 @@
     opacity: 1;
 }
 
+.font-weight-bold {
+    font-weight: 700!important
+}
+
+.text-underline{
+    text-decoration: underline;
+}
+
+.ui.input.gray>input {
+    margin: 0;
+    max-width: 100%;
+    flex: 1 0 auto;
+    outline: 0;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    text-align: left;
+    line-height: 1.21428571em;
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    padding: .67857143em 1em;
+    background: var(--warna-d-border)!important;
+    border: 1px solid var(--warna-d-border);
+    color: #fff!important;
+    border-radius: 0rem;
+    transition: box-shadow .1s ease, border-color .1s ease;
+    box-shadow: none;
+}
+
 .scroll-tbody {
     display: inline-block;
     height: 145px;
     overflow: auto
 }
 
+.scroll-tbody-120 {
+    display: inline-block;
+    height: 120px;
+    overflow: auto
+}
+
 .scroll-tbody-tab {
     display: inline-block;
     height: 470px;
+    overflow: auto
+}
+
+.scroll-tbody-220 {
+    display: inline-block;
+    height: 200px;
+    overflow: auto
+}
+
+.scroll-tbody-245 {
+    display: inline-block;
+    height: 230px;
     overflow: auto
 }
 
@@ -75,6 +119,7 @@ thead tr:nth-child(1) th {
     position: sticky!important;
     top: 0!important;
     text-align: center!important;
+    z-index: 1;
 }
 
 .w-search{
@@ -328,7 +373,7 @@ thead tr:nth-child(1) th {
         -ms-flex: 0 0 16%;
         flex: 0 0 16%;
         max-width: 16%;
-        font-size: 14px!important;
+        font-size: 10px!important;
         display: inline-block !important;
     }
     .col-radio {
@@ -555,10 +600,25 @@ input[type=radio]:checked ~ label{
     border: var(--warna-btn-dark) solid 1px!important;
 }
 
+.bg-grey-0 {
+    background-color: var(--warna-table-striped)!important;
+    border: var(--warna-table-striped) solid 1px!important;
+}
+
 .bg-gold {
     background-color: #94752C!important;
     border: #94752C solid 1px!important;
     color :white!important;
+}
+
+.hover-gold:hover{
+    background-color: #ad8735 !important;
+    border: #ad8735 solid 1px!important;
+}
+
+.hover-gold:focus,
+.hover-gold:active{
+    border: #0071BC solid 1px!important;
 }
 
 a.bg-gold:focus,
@@ -1759,6 +1819,10 @@ button.bg-gold:hover {
     height: 160px;
 }
 
+.card-180{
+    height: 180px;
+}
+
 .card-xmini{
     height: 135px;
 }
@@ -1781,6 +1845,26 @@ button.bg-gold:hover {
 
 .card-100{
   height: 700px;
+}
+
+.card-667{
+  height: 667px;
+}
+
+.card-320{
+  height: 320px;
+}
+
+.card-295{
+  height: 295px;
+}
+
+.card-215 {
+  height: 215px;
+}
+
+.card-200 {
+  height: 200px;
 }
 
 .card-tab-trading{

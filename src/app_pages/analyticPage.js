@@ -5,7 +5,7 @@ import '../../node_modules/anychart/dist/css/anychart-ui.min.css';
 import '../../node_modules/anychart/dist/js/anychart-ui.min.js';
 import '../../node_modules/anychart/dist/fonts/css/anychart-font.min.css';
 import '../../node_modules/anychart/dist/js/anychart-data-adapter.min.js'
-import '../../node_modules/anychart/dist/js/dark_earth.min.js';
+/*import '../../node_modules/anychart/dist/js/dark_earth.min.js';*/
 import '../../node_modules/anychart/dist/js/anychart-annotations.min.js';
 
 import '../../node_modules/bootstrap-select/dist/css/bootstrap-select.min.css';
@@ -228,7 +228,7 @@ class AnalyticPage extends React.PureComponent {
                     indicatorsSettings['defaultSettings'][indicatorName]['overview']['description'] = description;
                 });
 
-                // sort option in select 
+                // sort option in select
                 var options = $indicatorTypeSelect.find('option').sort(function (a, b) {
                     return a.value.toUpperCase().localeCompare(b.value.toUpperCase())
                 });

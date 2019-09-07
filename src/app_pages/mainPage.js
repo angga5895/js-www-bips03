@@ -10,10 +10,11 @@ import { BIPSAppContext } from '../AppData.js';
 import UISelectionTab from '../selectiontab.js';
 import { ContextConnector } from '../appcontext.js';
 import SideBar from "../SideBar";
+import './../bootstrap-3.3.7/dark_chart_style.min';
 
 const CustomFrameHeader = (props) => {
   return (
-    <div className="bg-black-trading d-border-top d-border-bottom">
+    <div className="bg-black-trading d-border-top">
       <h2>{props.title}</h2>
     </div>
   );
@@ -59,11 +60,10 @@ class MainPage_Base extends React.Component {
 
   state = {
       fullscreenmode:false,
-      thememode:'night'
+      thememode:'night',
   }
 
   componentDidMount () {
-
   }
 
   doLogin = (userID, password) => {
@@ -72,13 +72,15 @@ class MainPage_Base extends React.Component {
 
   changeThemeModeNight = () => {
       this.setState({
-          thememode : 'night'
+          thememode : 'night',
+          chartstyle:'dark_chart_style.min',
       })
   }
 
   changeThemeModeLight = () => {
       this.setState({
-          thememode : 'light'
+          thememode : 'light',
+          chartstyle:'light_chart_style.min',
       })
   }
 
@@ -203,6 +205,7 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--warna-bg-trading-gray', this.state.thememode == 'night' ? "#262626" : "#E3E3E3");
       document.body.style.setProperty('--warna-text-menu', this.state.thememode == 'night' ? "#FFFFFF" : "#E7E7E7");
       document.body.style.setProperty('--warna-hover-menu', this.state.thememode == 'night' ? "#111111" : "#CCCCCC");
+      document.body.style.setProperty('--warna-table-striped', this.state.thememode == 'night' ? "#272727" : "#E7E8E8");
     /*
       Important system components:
 
@@ -268,9 +271,9 @@ class MainPage_Base extends React.Component {
                 }
               } 
           />
-          <div className="row col-lg-12 px-0 mx-0">
+          <div className="row col-lg-12 px-0 mx-0 card card-667">
               <SideBar thememode={this.selectStyleGroup}/>
-              <div className="col-lg-11 px-0 mx-0">
+              <div className="col-lg-11 px-0 mx-0 d-border-bottom">
                   <AppFrame headerComponent={CustomFrameHeader}/>
               </div>
           </div>

@@ -17,7 +17,7 @@ import StockSummaryPage from './app_pages/stockSummary.js';
 import AnalyticPage from './app_pages/analyticPage';
 import ChatSupportPage from './app_pages/chatsupportPage';
 import LiveTradePage from './app_pages/livetradePage';
-import MarketStatistikPage from './app_pages/marketstatistikPage';
+import MarketStatistikPage, {CustomFrameHeaderMarketStatistik, MarketStatistik} from './app_pages/marketstatistikPage';
 import StockPage, {CustomFrameHeaderStock, Stock} from './app_pages/stockPage';
 import TradePage from './app_pages/tradePage';
 
@@ -31,11 +31,11 @@ class App extends React.Component {
   render() {
     return (
       <AppFrameProvider
-          initialClasses={{Landing, MarketStatistikPage, Stock, TradePage, AnalyticPage, ChatSupportPage, LiveTradePage}}
+          initialClasses={{Landing, MarketStatistik, Stock, TradePage, AnalyticPage, ChatSupportPage, LiveTradePage}}
         initialFrames={
           [
               {className: 'Landing', title: <CustomFrameHeaderLanding/>, instanceName: 'landingPage'},
-              {className: 'MarketStatistikPage', title: '', instanceName: 'marketstatistikPage'},
+              {className: 'MarketStatistik', title: <CustomFrameHeaderMarketStatistik/>, instanceName: 'marketstatistikPage'},
               {className: 'Stock', title: <CustomFrameHeaderStock/>, instanceName: 'stockPage'},
               {className: 'TradePage', title: 'TRADE PAGE', instanceName: 'tradePage'},
               {className: 'AnalyticPage', title: '', instanceName: 'analyticPage'},

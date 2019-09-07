@@ -1,11 +1,9 @@
 import React from 'react';
 import { AppFrameAction } from '../appframe.js';
-import {Table as TableBS} from "react-bootstrap";
 import {WSConnectionAction} from "../appnetwork";
-/*import ModalBuy from "./app_modals/modal_buy";*/
-/*import ModalSell from "./app_modals/modal_sell";*/
+import ModalBuy from "./../app_modals/modal_buy";
+import ModalSell from "./../app_modals/modal_sell";
 import TableInfoTransaction from "./../app_transaction/tableInfoTransaction";
-
 import {
     ColumnChooser,
     DragDropProvider,
@@ -52,7 +50,7 @@ class LiveTradePage extends React.PureComponent {
 
     render () {
         return (
-            <div className="d-border-bottom">
+            <div>
                 <AppFrameAction ref="frameAction" />
                 <WSConnectionAction />
                 <div className="col-sm-12 px-0 mx-0 row">
@@ -420,7 +418,7 @@ class BuyModal extends React.Component {
             <>
                 <AppFrameAction ref="frameAction" />
                 <WSConnectionAction /> {/* websocket connection component */}
-                {/*<ModalBuy/>*/}
+                <ModalBuy/>
             </>
         );
     }
@@ -436,7 +434,7 @@ class SellModal extends React.Component  {
             <>
                 <AppFrameAction ref="frameAction" />
                 <WSConnectionAction /> {/* websocket connection component */}
-                {/*<ModalSell/>*/}
+                <ModalSell/>
             </>
         );
     }
@@ -641,15 +639,15 @@ class LiveTradeGrid extends React.PureComponent {
                     board: "RG" },
             ],
             defaultColumnWidths: [
-                { columnName: "time", align:'center', width: 79},
-                { columnName: "code", align:'center', width: 79},
-                { columnName: "price", align:'right', width: 79},
+                { columnName: "time", align:'center', width: 77},
+                { columnName: "code", align:'center', width: 77},
+                { columnName: "price", align:'right', width: 77},
                 { columnName: "change", align:'right', width: 79},
-                { columnName: "percent", align:'right', width: 79},
-                { columnName: "vol", align:'right', width: 79},
-                { columnName: "buyer", align:'center', width: 79},
-                { columnName: "seller", align:'center', width: 79},
-                { columnName: "board", align:'center', width: 79},
+                { columnName: "percent", align:'right', width: 77},
+                { columnName: "vol", align:'right', width: 77},
+                { columnName: "buyer", align:'center', width: 77},
+                { columnName: "seller", align:'center', width: 77},
+                { columnName: "board", align:'center', width: 77},
             ],
             defaultHiddenColumnNames: [''],
         };
@@ -725,7 +723,7 @@ class LiveTradeGrid extends React.PureComponent {
             <>
                 <style>{'' +
                 '.t-live-trade{' +
-                '    padding-top: 6px!important;' +
+                '    padding-top: 5px!important;' +
                 '    padding-bottom: 5.5px!important;' +
                 '}' +
                 'thead.h-live-trade th {' +

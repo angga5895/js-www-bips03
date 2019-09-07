@@ -5,7 +5,7 @@ import '../../node_modules/anychart/dist/css/anychart-ui.min.css';
 import '../../node_modules/anychart/dist/js/anychart-ui.min.js';
 import '../../node_modules/anychart/dist/fonts/css/anychart-font.min.css';
 import '../../node_modules/anychart/dist/js/anychart-data-adapter.min.js'
-import '../../node_modules/anychart/dist/js/dark_earth.min.js';
+/*import '../../node_modules/anychart/dist/js/dark_earth.min.js';*/
 import '../../node_modules/anychart/dist/js/anychart-annotations.min.js';
 
 import '../../node_modules/bootstrap-select/dist/css/bootstrap-select.min.css';
@@ -114,8 +114,8 @@ class StreamChart extends React.PureComponent {
 
         return (
             <div>
-                <button id="streamButton" className="btn btn-default" style={pddngBtn}>Start Stream</button>
-                <div id="container" style={marginCntr}></div>
+                <button id="streamButton" className="btn btn-sm btn-grey py-3 px-3 d-border">Start Stream</button>
+                <div id="container" className="mt-2 py-3 px-3 card-430"></div>
             </div>
         );
 

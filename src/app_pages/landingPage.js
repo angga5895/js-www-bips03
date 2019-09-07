@@ -21,11 +21,12 @@ import {IntegratedFiltering, IntegratedSorting, SearchState, SortingState} from 
 import {Plugin, Template, TemplatePlaceholder} from "@devexpress/dx-react-core";
 
 // import frames goes here
-/*import ModalBuy from './app_modals/modal_buy';
-import ModalSell from "./app_modals/modal_sell";
-import ModalAmend from "./app_modals/modal_amend";
+import ModalBuy from './../app_modals/modal_buy';
+import ModalSell from "./../app_modals/modal_sell";
+import ModalAmend from "./../app_modals/modal_amend";
 import VerifyPIN from "./verifyPin";
-import ModalOrderDetail from "./app_modals/modal_order_detail";*/
+import ModalOrderDetail from "./../app_modals/modal_order_detail";
+import ReactTooltip from "react-tooltip";
 
 const CustomFrameHeaderLanding_Base = (props) =>{
     // console.log(props.isGrid)
@@ -96,7 +97,7 @@ class LandingPage_Base extends React.PureComponent {
             headerClass: () => <div className="text-right"><i className="icofont icofont-close text-icofont-close text-border click-pointer"
                                                               onClick={this.closeClick}></i></div>,
             size: 'large',
-            /*contentClass: BuyModal,*/
+            contentClass: BuyModal,
             onClose: (result) => {console.log('Modal 1 result = ', result)}
         })
     }
@@ -106,7 +107,7 @@ class LandingPage_Base extends React.PureComponent {
             headerClass: () => <div className="text-right"><i className="icofont icofont-close text-icofont-close text-border click-pointer"
                                                               onClick={this.closeClick}></i></div>,
             size: 'large',
-            /*contentClass: SellModal,*/
+            contentClass: SellModal,
             onClose: (result) => {console.log('Modal 1 result = ', result)}
         })
     }
@@ -116,7 +117,7 @@ class LandingPage_Base extends React.PureComponent {
             headerClass: () => <div className="text-right"><i className="icofont icofont-close text-icofont-close text-border click-pointer"
                                                               onClick={this.closeClick}></i></div>,
             size: 'large',
-            /*contentClass: AmendModal,*/
+            contentClass: AmendModal,
             onClose: (result) => {console.log('Modal 1 result = ', result)}
         })
     }
@@ -126,7 +127,7 @@ class LandingPage_Base extends React.PureComponent {
             headerClass: () => <div className="text-right"><i className="icofont icofont-close text-icofont-close text-border click-pointer"
                                                               onClick={this.closeClick}></i></div>,
             size: 'mini',
-            /*contentClass: WithdrawModal,*/
+            contentClass: WithdrawModal,
             onClose: (result) => {console.log('Modal 1 result = ', result)}
         })
     }
@@ -138,7 +139,7 @@ class LandingPage_Base extends React.PureComponent {
                     <i className="icofont icofont-close text-icofont-close text-border click-pointer" onClick={this.closeClick}></i>
                 </div>,
             size: 'large',
-            /*contentClass: OrderDetailModal,*/
+            contentClass: OrderDetailModal,
             onClose: (result) => {console.log('Modal 1 result = ', result)}
         })
     }
@@ -181,7 +182,7 @@ class LandingPage_Base extends React.PureComponent {
                                     {/* order list */}
                                     <div className="col-md-6 px-1 py-2">
                                         <div className="bg-black-inactive card card-trading">
-                                            <OrderListGrid gridView="grid" classView="f-9" />
+                                            <OrderListGrid clickorderdetail={this.buttonClickOrderDetail} clickamend={this.buttonClickAmend} clickwithdraw={this.buttonClickWithdraw} gridView="grid" classView="f-9" />
                                         </div>
                                     </div>
 
@@ -230,7 +231,7 @@ class OrderList_Base extends React.Component{
             headerClass: () => <div className="text-right"><i className="icofont icofont-close text-icofont-close text-border click-pointer"
                                                               onClick={this.closeClick}></i></div>,
             size: 'large',
-            /*contentClass: BuyModal,*/
+            contentClass: BuyModal,
             onClose: (result) => {console.log('Modal 1 result = ', result)}
         })
     }
@@ -240,7 +241,7 @@ class OrderList_Base extends React.Component{
             headerClass: () => <div className="text-right"><i className="icofont icofont-close text-icofont-close text-border click-pointer"
                                                               onClick={this.closeClick}></i></div>,
             size: 'large',
-            /*contentClass: SellModal,*/
+            contentClass: SellModal,
             onClose: (result) => {console.log('Modal 1 result = ', result)}
         })
     }
@@ -250,7 +251,7 @@ class OrderList_Base extends React.Component{
             headerClass: () => <div className="text-right"><i className="icofont icofont-close text-icofont-close text-border click-pointer"
                                                               onClick={this.closeClick}></i></div>,
             size: 'large',
-            /*contentClass: AmendModal,*/
+            contentClass: AmendModal,
             onClose: (result) => {console.log('Modal 1 result = ', result)}
         })
     }
@@ -260,7 +261,7 @@ class OrderList_Base extends React.Component{
             headerClass: () => <div className="text-right"><i className="icofont icofont-close text-icofont-close text-border click-pointer"
                                                               onClick={this.closeClick}></i></div>,
             size: 'mini',
-            /*contentClass: WithdrawModal,*/
+            contentClass: WithdrawModal,
             onClose: (result) => {console.log('Modal 1 result = ', result)}
         })
     }
@@ -272,7 +273,7 @@ class OrderList_Base extends React.Component{
                     <i className="icofont icofont-close text-icofont-close text-border click-pointer" onClick={this.closeClick}></i>
                 </div>,
             size: 'large',
-            /*contentClass: OrderDetailModal,*/
+            contentClass: OrderDetailModal,
             onClose: (result) => {console.log('Modal 1 result = ', result)}
         })
     }
@@ -299,7 +300,7 @@ class OrderList_Base extends React.Component{
                                     {/* portofolio */}
                                     <div className="col-md-6 px-1 py-2">
                                         <div className="bg-black-inactive card card-trading">
-                                            <PortofolioGrid gridView="grid" classView="f-9" />
+                                            <PortofolioGrid clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} gridView="grid" classView="f-9" />
                                         </div>
                                     </div>
 
@@ -313,7 +314,7 @@ class OrderList_Base extends React.Component{
                                     {/* OrderList */}
                                     <div className="col-md-6 px-1 py-2">
                                         <div className="d-border-active-tab card card-trading">
-                                            <OrderListGrid gridView="grid" classView="f-9" />
+                                            <OrderListGrid clickorderdetail={this.buttonClickOrderDetail} clickamend={this.buttonClickAmend} clickwithdraw={this.buttonClickWithdraw} gridView="grid" classView="f-9" />
                                         </div>
                                     </div>
 
@@ -343,7 +344,7 @@ class OrderList_Base extends React.Component{
 
                         <div className="card card-75">
                             <AppFrameAction ref="frameAction" />
-                            <OrderListGrid gridView="tab" classView="f-12" clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} tp1="otooltip1" tp2="otooltip2" tp3="otooltip3" tp4="otooltip4" tp5="otooltip5" />
+                            <OrderListGrid clickorderdetail={this.buttonClickOrderDetail} gridView="tab" classView="f-12" clickwithdraw={this.buttonClickWithdraw} clickamend={this.buttonClickAmend} tp1="otooltip1" tp2="otooltip2" tp3="otooltip3" tp4="otooltip4" tp5="otooltip5" />
                         </div>
                     </>)
                 }
@@ -362,7 +363,7 @@ class FixedIncome_Base extends React.PureComponent {
             headerClass: () => <div className="text-right"><i className="icofont icofont-close text-icofont-close text-border click-pointer"
                                                               onClick={this.closeClick}></i></div>,
             size: 'large',
-            /*contentClass: BuyModal,*/
+            contentClass: BuyModal,
             onClose: (result) => {console.log('Modal 1 result = ', result)}
         })
     }
@@ -372,7 +373,7 @@ class FixedIncome_Base extends React.PureComponent {
             headerClass: () => <div className="text-right"><i className="icofont icofont-close text-icofont-close text-border click-pointer"
                                                               onClick={this.closeClick}></i></div>,
             size: 'large',
-            /*contentClass: SellModal,*/
+            contentClass: SellModal,
             onClose: (result) => {console.log('Modal 1 result = ', result)}
         })
     }
@@ -382,7 +383,7 @@ class FixedIncome_Base extends React.PureComponent {
             headerClass: () => <div className="text-right"><i className="icofont icofont-close text-icofont-close text-border click-pointer"
                                                               onClick={this.closeClick}></i></div>,
             size: 'large',
-            /*contentClass: AmendModal,*/
+            contentClass: AmendModal,
             onClose: (result) => {console.log('Modal 1 result = ', result)}
         })
     }
@@ -392,7 +393,7 @@ class FixedIncome_Base extends React.PureComponent {
             headerClass: () => <div className="text-right"><i className="icofont icofont-close text-icofont-close text-border click-pointer"
                                                               onClick={this.closeClick}></i></div>,
             size: 'mini',
-            /*contentClass: WithdrawModal,*/
+            contentClass: WithdrawModal,
             onClose: (result) => {console.log('Modal 1 result = ', result)}
         })
     }
@@ -404,7 +405,7 @@ class FixedIncome_Base extends React.PureComponent {
                     <i className="icofont icofont-close text-icofont-close text-border click-pointer" onClick={this.closeClick}></i>
                 </div>,
             size: 'large',
-            /*contentClass: OrderDetailModal,*/
+            contentClass: OrderDetailModal,
             onClose: (result) => {console.log('Modal 1 result = ', result)}
         })
     }
@@ -421,7 +422,7 @@ class FixedIncome_Base extends React.PureComponent {
                                         {/* portofolio */}
                                         <div className="col-md-6 px-1 py-2">
                                             <div className="bg-black-inactive card card-trading">
-                                                <PortofolioGrid gridView="grid" classView="f-9" />
+                                                <PortofolioGrid clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} gridView="grid" classView="f-9" />
                                             </div>
                                         </div>
 
@@ -435,7 +436,7 @@ class FixedIncome_Base extends React.PureComponent {
                                         {/* order list */}
                                         <div className="col-md-6 px-1 py-2">
                                             <div className="bg-black-inactive card card-trading">
-                                                <OrderListGrid gridView="grid" classView="f-9" />
+                                                <OrderListGrid clickorderdetail={this.buttonClickOrderDetail} clickamend={this.buttonClickAmend} clickwithdraw={this.buttonClickWithdraw} gridView="grid" classView="f-9" />
                                             </div>
                                         </div>
 
@@ -474,7 +475,7 @@ class MutualFund_Base extends React.PureComponent {
             headerClass: () => <div className="text-right"><i className="icofont icofont-close text-icofont-close text-border click-pointer"
                                                               onClick={this.closeClick}></i></div>,
             size: 'large',
-            /*contentClass: BuyModal,*/
+            contentClass: BuyModal,
             onClose: (result) => {console.log('Modal 1 result = ', result)}
         })
     }
@@ -484,7 +485,7 @@ class MutualFund_Base extends React.PureComponent {
             headerClass: () => <div className="text-right"><i className="icofont icofont-close text-icofont-close text-border click-pointer"
                                                               onClick={this.closeClick}></i></div>,
             size: 'large',
-            /*contentClass: SellModal,*/
+            contentClass: SellModal,
             onClose: (result) => {console.log('Modal 1 result = ', result)}
         })
     }
@@ -494,7 +495,7 @@ class MutualFund_Base extends React.PureComponent {
             headerClass: () => <div className="text-right"><i className="icofont icofont-close text-icofont-close text-border click-pointer"
                                                               onClick={this.closeClick}></i></div>,
             size: 'large',
-            /*contentClass: AmendModal,*/
+            contentClass: AmendModal,
             onClose: (result) => {console.log('Modal 1 result = ', result)}
         })
     }
@@ -504,7 +505,7 @@ class MutualFund_Base extends React.PureComponent {
             headerClass: () => <div className="text-right"><i className="icofont icofont-close text-icofont-close text-border click-pointer"
                                                               onClick={this.closeClick}></i></div>,
             size: 'mini',
-            /*contentClass: WithdrawModal,*/
+            contentClass: WithdrawModal,
             onClose: (result) => {console.log('Modal 1 result = ', result)}
         })
     }
@@ -516,7 +517,7 @@ class MutualFund_Base extends React.PureComponent {
                     <i className="icofont icofont-close text-icofont-close text-border click-pointer" onClick={this.closeClick}></i>
                 </div>,
             size: 'large',
-            /*contentClass: OrderDetailModal,*/
+            contentClass: OrderDetailModal,
             onClose: (result) => {console.log('Modal 1 result = ', result)}
         })
     }
@@ -532,7 +533,7 @@ class MutualFund_Base extends React.PureComponent {
                                 {/* portofolio */}
                                 <div className="col-md-6 px-1 py-2">
                                     <div className="bg-black-inactive card card-trading">
-                                        <PortofolioGrid gridView="grid" classView="f-9" />
+                                        <PortofolioGrid clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} gridView="grid" classView="f-9" />
                                     </div>
                                 </div>
 
@@ -546,7 +547,7 @@ class MutualFund_Base extends React.PureComponent {
                                 {/* Order list */}
                                 <div className="col-md-6 px-1 py-2">
                                     <div className="bg-black-inactive card card-trading">
-                                        <OrderListGrid gridView="grid" classView="f-9" />
+                                        <OrderListGrid clickorderdetail={this.buttonClickOrderDetail} clickamend={this.buttonClickAmend} clickwithdraw={this.buttonClickWithdraw} gridView="grid" classView="f-9" />
                                     </div>
                                 </div>
 
@@ -635,8 +636,8 @@ class PortofolioGrid extends React.PureComponent {
                     shares: "122",
                     stockval: "12,650,000",
                     pl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -60,240 &nbsp; -0,40%</div>,
-                    remark: <i class="fa fa-info-circle text-danger" id="ptooltip1"></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50">Sell</button></div>},
+                    remark: <i class="fa fa-info-circle text-danger" id="ptooltip1" data-tip data-for='errorTooltip'></i>,
+                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},
                 { code: "ADHI",
                     avgprice: <div className="text-danger">1,529</div>,
                     lastprice: "1,429",
@@ -644,8 +645,8 @@ class PortofolioGrid extends React.PureComponent {
                     shares: "100",
                     stockval: "1,529,000",
                     pl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -15,000 &nbsp; -1,50%</div>,
-                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1"></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50">Sell</button></div>},
+                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1" data-tip data-for='infoTooltip'></i>,
+                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},
                 { code: "ANTM",
                     avgprice: <div className="text-danger">1,025</div>,
                     lastprice: "1,025",
@@ -653,8 +654,8 @@ class PortofolioGrid extends React.PureComponent {
                     shares: "210",
                     stockval: "1,025,000",
                     pl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -25,000 &nbsp; -2,50%</div>,
-                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1"></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50">Sell</button></div>},
+                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1" data-tip data-for='infoTooltip'></i>,
+                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},
                 { code: "ASII",
                     avgprice: <div className="text-danger">7,125</div>,
                     lastprice: "7,125",
@@ -662,8 +663,8 @@ class PortofolioGrid extends React.PureComponent {
                     shares: "930",
                     stockval: "7,125,000",
                     pl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -50,000 &nbsp; -5,78%</div>,
-                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1"></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50">Sell</button></div>},
+                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1" data-tip data-for='infoTooltip'></i>,
+                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},
                 { code: "BBCA",
                     avgprice: <div className="text-success">27,400</div>,
                     lastprice: "27,400",
@@ -671,16 +672,16 @@ class PortofolioGrid extends React.PureComponent {
                     shares: "410",
                     stockval: "27,400,000",
                     pl: <div className="text-success"><i className="icofont icofont-caret-down"></i>&nbsp; +250,650 &nbsp; +2,50%</div>,
-                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1"></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50">Sell</button></div>},{ code: "AALI",
+                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1" data-tip data-for='infoTooltip'></i>,
+                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},{ code: "AALI",
                     avgprice: <div className="text-danger">12,650</div>,
                     lastprice: "12,650",
                     lot: "12",
                     shares: "122",
                     stockval: "12,650,000",
                     pl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -60,240 &nbsp; -0,40%</div>,
-                    remark: <i class="fa fa-info-circle text-danger" id="ptooltip1"></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50">Sell</button></div>},
+                    remark: <i class="fa fa-info-circle text-danger" id="ptooltip1" data-tip data-for='errorTooltip'></i>,
+                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},
                 { code: "ADHI",
                     avgprice: <div className="text-danger">1,529</div>,
                     lastprice: "1,429",
@@ -688,8 +689,8 @@ class PortofolioGrid extends React.PureComponent {
                     shares: "100",
                     stockval: "1,529,000",
                     pl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -15,000 &nbsp; -1,50%</div>,
-                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1"></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50">Sell</button></div>},
+                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1" data-tip data-for='infoTooltip'></i>,
+                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},
                 { code: "ANTM",
                     avgprice: <div className="text-danger">1,025</div>,
                     lastprice: "1,025",
@@ -697,8 +698,8 @@ class PortofolioGrid extends React.PureComponent {
                     shares: "210",
                     stockval: "1,025,000",
                     pl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -25,000 &nbsp; -2,50%</div>,
-                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1"></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50">Sell</button></div>},
+                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1" data-tip data-for='infoTooltip'></i>,
+                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},
                 { code: "ASII",
                     avgprice: <div className="text-danger">7,125</div>,
                     lastprice: "7,125",
@@ -706,8 +707,8 @@ class PortofolioGrid extends React.PureComponent {
                     shares: "930",
                     stockval: "7,125,000",
                     pl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -50,000 &nbsp; -5,78%</div>,
-                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1"></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50">Sell</button></div>},
+                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1" data-tip data-for='infoTooltip'></i>,
+                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},
                 { code: "BBCA",
                     avgprice: <div className="text-success">27,400</div>,
                     lastprice: "27,400",
@@ -715,16 +716,16 @@ class PortofolioGrid extends React.PureComponent {
                     shares: "410",
                     stockval: "27,400,000",
                     pl: <div className="text-success"><i className="icofont icofont-caret-down"></i>&nbsp; +250,650 &nbsp; +2,50%</div>,
-                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1"></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50">Sell</button></div>},{ code: "AALI",
+                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1" data-tip data-for='infoTooltip'></i>,
+                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},{ code: "AALI",
                     avgprice: <div className="text-danger">12,650</div>,
                     lastprice: "12,650",
                     lot: "12",
                     shares: "122",
                     stockval: "12,650,000",
                     pl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -60,240 &nbsp; -0,40%</div>,
-                    remark: <i class="fa fa-info-circle text-danger" id="ptooltip1"></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50">Sell</button></div>},
+                    remark: <i class="fa fa-info-circle text-danger" id="ptooltip1" data-tip data-for='errorTooltip'></i>,
+                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},
                 { code: "ADHI",
                     avgprice: <div className="text-danger">1,529</div>,
                     lastprice: "1,429",
@@ -732,8 +733,8 @@ class PortofolioGrid extends React.PureComponent {
                     shares: "100",
                     stockval: "1,529,000",
                     pl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -15,000 &nbsp; -1,50%</div>,
-                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1"></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50">Sell</button></div>},
+                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1" data-tip data-for='infoTooltip'></i>,
+                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},
                 { code: "ANTM",
                     avgprice: <div className="text-danger">1,025</div>,
                     lastprice: "1,025",
@@ -741,8 +742,8 @@ class PortofolioGrid extends React.PureComponent {
                     shares: "210",
                     stockval: "1,025,000",
                     pl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -25,000 &nbsp; -2,50%</div>,
-                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1"></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50">Sell</button></div>},
+                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1" data-tip data-for='infoTooltip'></i>,
+                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},
                 { code: "ASII",
                     avgprice: <div className="text-danger">7,125</div>,
                     lastprice: "7,125",
@@ -750,8 +751,8 @@ class PortofolioGrid extends React.PureComponent {
                     shares: "930",
                     stockval: "7,125,000",
                     pl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -50,000 &nbsp; -5,78%</div>,
-                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1"></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50">Sell</button></div>},
+                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1" data-tip data-for='infoTooltip'></i>,
+                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},
                 { code: "BBCA",
                     avgprice: <div className="text-success">27,400</div>,
                     lastprice: "27,400",
@@ -759,8 +760,8 @@ class PortofolioGrid extends React.PureComponent {
                     shares: "410",
                     stockval: "27,400,000",
                     pl: <div className="text-success"><i className="icofont icofont-caret-down"></i>&nbsp; +250,650 &nbsp; +2,50%</div>,
-                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1"></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50">Sell</button></div>},
+                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1" data-tip data-for='infoTooltip'></i>,
+                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},
             ],
             defaultColumnWidths: [
                 { columnName: 'code', align:'center', width: this.props.gridView == 'grid' ? 10 : 135},
@@ -845,6 +846,8 @@ class PortofolioGrid extends React.PureComponent {
         const { rows, columns, defaultColumnWidths, defaultHiddenColumnNames, colspan } = this.state;
         return (
             <>
+                <ReactTooltip id='errorTooltip' place="bottom" type="error" effect="solid" getContent={(dataTip) => 'Not yet submit annual financial report'}/>
+                <ReactTooltip id='infoTooltip' place="bottom" type="info" effect="solid" getContent={(dataTip) => 'Not issue'}/>
                 <Grid rows={rows} columns={columns} className={"bg-primary "+this.props.classView}>
                     <SearchState defaultValue="" />
                     <IntegratedFiltering />
@@ -952,7 +955,7 @@ class OrderListGrid extends React.PureComponent {
                 ],
             }],
             rows: [
-                {order :<div className="text-primary">001682</div>,
+                {order :<div className="text-primary click-pointer" onClick={props.clickorderdetail}>001682</div>,
                     marketorder :"MKT021",
                     code :<div className="text-primary">AALI</div>,
                     cmd :<div className="text-danger">BUY</div>,
@@ -968,8 +971,8 @@ class OrderListGrid extends React.PureComponent {
                     avgmatchprice :"12,625",
                     amount :"12,625,000",
                     time :"11:22:17",
-                    action:<div className="px-4"><button className="btn btn-sm btn-primary mx-1 f-9 w-50">Amend</button><button className="btn btn-sm btn-brown mx-1 f-9 w-50">Withdraw</button></div>},
-                {order :<div className="text-primary">001681</div>,
+                    action:<div className="px-4"><button className="btn btn-sm btn-primary mx-1 f-9 w-50" onClick={props.clickamend}>Amend</button><button className="btn btn-sm btn-brown mx-1 f-9 w-50" onClick={props.clickwithdraw}>Withdraw</button></div>},
+                {order :<div className="text-primary click-pointer" onClick={props.clickorderdetail}>001681</div>,
                     marketorder :"-",
                     code :<div className="text-primary">AALI</div>,
                     cmd :<div className="text-success">SELL</div>,
@@ -985,8 +988,8 @@ class OrderListGrid extends React.PureComponent {
                     avgmatchprice :"12,650",
                     amount :"12,650,000",
                     time :"11:22:10",
-                    action:<div className="px-4"><button className="btn btn-sm btn-primary mx-1 f-9 w-50">Amend</button><button className="btn btn-sm btn-brown mx-1 f-9 w-50">Withdraw</button></div>},
-                {order :<div className="text-primary">001680</div>,
+                    action:<div className="px-4"><button className="btn btn-sm btn-primary mx-1 f-9 w-50" onClick={props.clickamend}>Amend</button><button className="btn btn-sm btn-brown mx-1 f-9 w-50" onClick={props.clickwithdraw}>Withdraw</button></div>},
+                {order :<div className="text-primary click-pointer" onClick={props.clickorderdetail}>001680</div>,
                     marketorder :"MKT012",
                     code :<div className="text-primary">AALI</div>,
                     cmd :<div className="text-success">SELL</div>,
@@ -1002,8 +1005,8 @@ class OrderListGrid extends React.PureComponent {
                     avgmatchprice :"12,650",
                     amount :"12,650,000",
                     time :"11:20:17",
-                    action:<div className="px-4"><button className="btn btn-sm btn-primary mx-1 f-9 w-50">Amend</button><button className="btn btn-sm btn-brown mx-1 f-9 w-50">Withdraw</button></div>},
-                {order :<div className="text-primary">001679</div>,
+                    action:<div className="px-4"><button className="btn btn-sm btn-primary mx-1 f-9 w-50" onClick={props.clickamend}>Amend</button><button className="btn btn-sm btn-brown mx-1 f-9 w-50" onClick={props.clickwithdraw}>Withdraw</button></div>},
+                {order :<div className="text-primary click-pointer" onClick={props.clickorderdetail}>001679</div>,
                     marketorder :"MKT010",
                     code :<div className="text-primary">AALI</div>,
                     cmd :<div className="text-danger">BUY</div>,
@@ -1019,8 +1022,8 @@ class OrderListGrid extends React.PureComponent {
                     avgmatchprice :"12,650",
                     amount :"12,650,000",
                     time :"11:19:17",
-                    action:<div className="px-4"><button className="btn btn-sm btn-primary mx-1 f-9 w-50">Amend</button><button className="btn btn-sm btn-brown mx-1 f-9 w-50">Withdraw</button></div>},
-                {order :<div className="text-primary">001678</div>,
+                    action:<div className="px-4"><button className="btn btn-sm btn-primary mx-1 f-9 w-50" onClick={props.clickamend}>Amend</button><button className="btn btn-sm btn-brown mx-1 f-9 w-50" onClick={props.clickwithdraw}>Withdraw</button></div>},
+                {order :<div className="text-primary click-pointer" onClick={props.clickorderdetail}>001678</div>,
                     marketorder :"MKT009",
                     code :<div className="text-primary">BBCA</div>,
                     cmd :<div className="text-danger">BUY</div>,
@@ -1036,7 +1039,7 @@ class OrderListGrid extends React.PureComponent {
                     avgmatchprice :"29,500",
                     amount :"23,600,000",
                     time :"11:10:12",
-                    action:<div className="px-4"><button className="btn btn-sm btn-primary mx-1 f-9 w-50">Amend</button><button className="btn btn-sm btn-brown mx-1 f-9 w-50">Withdraw</button></div>},
+                    action:<div className="px-4"><button className="btn btn-sm btn-primary mx-1 f-9 w-50" onClick={props.clickamend}>Amend</button><button className="btn btn-sm btn-brown mx-1 f-9 w-50" onClick={props.clickwithdraw}>Withdraw</button></div>},
             ],
             defaultColumnWidths: [
                 { columnName: "order", align:'center', width: this.props.gridView == 'grid' ? 10 : 135},
@@ -1607,7 +1610,7 @@ class CustomToolbarFixedIncome extends React.PureComponent {
     }
 }
 
-/*class BuyModal extends React.Component {
+class BuyModal extends React.Component {
     closeClick = (e) => {
         this.refs.frameAction.closeModal(100);
     }
@@ -1667,6 +1670,7 @@ class WithdrawModal extends React.Component {
     }
 }
 
+
 class OrderDetailModal extends React.Component {
 
     render() {
@@ -1677,7 +1681,7 @@ class OrderDetailModal extends React.Component {
             </>
         );
     }
-}*/
+}
 
 const CustomFrameHeaderLanding = ContextConnector(BIPSAppContext,
     (vars, actions, props) => ({

@@ -44,7 +44,7 @@ class FormBuy extends React.PureComponent{
                         <Input defaultValue='AALI' placeholder='Code' size='small' className="col-sm-3 pl-0 pr-2 text-center align-self-center"/>
                         <Input label={{ color: 'bg-gold', content: '90%' }} defaultValue='Argo Astra Lestari Tbk.'
                                labelPosition='left' placeholder='Code' size='small' className="col-sm-7 px-2 align-self-center"/>
-                        <Checkbox label='Prevent same order' className="f-12 text-white my-3" />
+                        <Checkbox label='Prevent same order' className="f-12 text-white my-3 align-self-center" />
                     </div>
                 </div>
 
@@ -52,7 +52,7 @@ class FormBuy extends React.PureComponent{
                     <div className="col-sm-2">Price</div>
                     <div className="col-sm-10 mr-0 pr-0 row">
                         <Input defaultValue='12,600' placeholder='Price' size='small' className="col-sm-6 pl-0 pr-2 f-12 text-center align-self-center"/>
-                        <Checkbox label='Auto Last' className="f-12 text-white col-sm-5 px-4 my-0" />
+                        <Checkbox label='Auto Last' className="f-12 text-white col-sm-5 px-4 my-0 align-self-center" />
                     </div>
                 </div>
 
@@ -60,8 +60,8 @@ class FormBuy extends React.PureComponent{
                     <div className="col-sm-2">Vol</div>
                     <div className="col-sm-10 mr-0 pr-0 row">
                         <Input defaultValue='10' placeholder='Vol' size='small' className="col-sm-6 pl-0 pr-2 f-12 text-center align-self-center"/>
-                        <label className="col-sm-2 bg-dark-grey py-2">Lot</label>
-                        <Button className="col-sm-2 btn btn-sm btn-dark py-2" size="md">Max</Button>
+                        <label className="col-sm-2 bg-dark-grey py-2 align-self-center">Lot</label>
+                        <Button className="col-sm-2 btn btn-sm btn-dark py-2 align-self-center" size="md">Max</Button>
                     </div>
                 </div>
 
@@ -71,7 +71,7 @@ class FormBuy extends React.PureComponent{
                         <div className="col-sm-6 pl-0 pr-2">
                             <Dropdown placeholder='Mkt' search selection options={stateOptions} className="col-sm-12 f-12" defaultValue="rg"/>
                         </div>
-                        <Checkbox label='Order Booking' className="f-12 text-white col-sm-6 px-4 my-0" />
+                        <Checkbox label='Order Booking' className="f-12 text-white col-sm-6 px-4 my-0 align-self-center" />
                     </div>
                 </div>
 

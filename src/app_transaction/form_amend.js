@@ -10,7 +10,7 @@ const stateOptions = [
     { key: 'day', value: 'day', text: 'Day' },
 ];
 
-class FormSell extends React.PureComponent{
+class FormAmend extends React.PureComponent{
     constructor(props) {
         super(props);
     }
@@ -35,7 +35,7 @@ class FormSell extends React.PureComponent{
             <div className="f-12">
                 <AppFrameAction ref="frameAction" />
                 <div className="form-group row">
-                    <div className="col-sm-6 f-18 text-success">Sell</div>
+                    <div className="col-sm-6 f-18 text-primary">Amend <span className="text-success"> [Sell]</span></div>
                     <div className="col-sm-6 text-right"><i className="fa fa-calendar-alt"></i> {tanggal()}</div>
                 </div>
                 <div className="form-group row mb-0">
@@ -69,9 +69,8 @@ class FormSell extends React.PureComponent{
                     <div className="col-sm-2">Mkt.</div>
                     <div className="col-sm-10 mr-0 pr-0 row">
                         <div className="col-sm-6 pl-0 pr-2">
-                            <Dropdown placeholder='Mkt' search selection options={stateOptions} className="col-sm-12 f-12" defaultValue="rg"/>
+                            <Dropdown placeholder='Mkt' search selection options={stateOptions} className="col-sm-12 f-12" defaultValue="rg" disabled/>
                         </div>
-                        <Checkbox label='Order Booking' className="f-12 text-white col-sm-6 px-4 my-0 align-self-center" />
                     </div>
                 </div>
 
@@ -79,7 +78,7 @@ class FormSell extends React.PureComponent{
                     <div className="col-sm-7 mx-0 px-0 row">
                         <div className="col-sm-3">Expire</div>
                         <div className="col-sm-9 mx-0 px-2 mb-3 form-select">
-                            <Dropdown placeholder='Expire' search selection options={stateOptions} className="col-sm-12 f-12" defaultValue="day"/>
+                            <Dropdown placeholder='Expire' search selection options={stateOptions} className="col-sm-12 f-12" defaultValue="day" disabled/>
                         </div>
 
                         <div className="col-sm-3">Value</div>
@@ -89,9 +88,9 @@ class FormSell extends React.PureComponent{
                     </div>
 
                     <div className="col-sm-5 mx-0 px-2 text-center align-middle align-self-center">
-                        <Button size="sm" className="btn btn-lg btn-success col-sm-8" onClick={this.buttonClickPIN}>
-                            <i className="icon-icon-sell-btn fa-2x"></i>
-                            <br/>Sell
+                        <Button size="sm" className="btn btn-lg btn-primary col-sm-8" onClick={this.buttonClickPIN}>
+                            <i className="icon-icon-amend-btn fa-2x"></i>
+                            <br/>Amend
                         </Button>
                     </div>
                 </div>
@@ -100,22 +99,10 @@ class FormSell extends React.PureComponent{
                     <thead></thead>
                     <tbody>
                     <tr>
-                        <td className="bg-gray-tradding d-border-tr-black">Cash On <br/> T+2</td>
+                        <td className="bg-gray-tradding">Cash On <br/> T+2</td>
                         <td className="d-border-tr-gray">5,911,198</td>
-                        <td className="bg-gray-tradding d-border-tr-black">Remain <br/> Trade Limit</td>
+                        <td className="bg-gray-tradding">Remain <br/> Trade Limit</td>
                         <td className="d-border-tr-gray">15,000,980</td>
-                    </tr>
-                    <tr>
-                        <td className="bg-gray-tradding d-border-tr-black">Investment)</td>
-                        <td className="d-border-tr-gray">7,545,000</td>
-                        <td className="bg-gray-tradding d-border-tr-black">% Change</td>
-                        <td className="d-border-tr-gray">-1.18%</td>
-                    </tr>
-                    <tr>
-                        <td className="bg-gray-tradding">Vol</td>
-                        <td>6</td>
-                        <td className="bg-gray-tradding">P/L</td>
-                        <td>-90,240</td>
                     </tr>
                     </tbody>
                 </Table>
@@ -130,10 +117,10 @@ class PINVerify extends React.Component {
         return (
             <>
                 <AppFrameAction ref="frameAction" />
-                <VerifyPIN tipe = 'sell'/>
+                <VerifyPIN tipe = 'amend'/>
             </>
         );
     }
 }
 
-export default FormSell;
+export default FormAmend;

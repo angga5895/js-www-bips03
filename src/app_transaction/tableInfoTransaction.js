@@ -1,7 +1,7 @@
 import React from "react";
 /*import {Input, InputGroup, InputGroupAddon, InputGroupText, Table, UncontrolledTooltip} from "reactstrap";*/
 import {Table} from 'react-bootstrap';
-import { Input } from 'semantic-ui-react';
+import { Input,Popup } from 'semantic-ui-react';
 
 class TableInfoTransaction extends React.PureComponent{
     constructor(props){
@@ -38,10 +38,12 @@ class TableInfoTransaction extends React.PureComponent{
                     </div>
 
                     <div className="col-sm-2 px-0 mx-0">
-                        <label className="col-sm-12 f-12 f-xs-14 px-0 mx-0 text-primary text-center" id={this.props.lotshare}>
-                            <span id="lotShare">6</span>
-                            <br/><span className="text-white f-9">Lot</span>
-                        </label>
+                        <Popup content='600 Share' position='top center' trigger={
+                            <label className="col-sm-12 f-12 f-xs-14 px-0 mx-0 text-primary text-center" id={this.props.lotshare}>
+                                <span id="lotShare">6</span>
+                                <br/><span className="text-white f-9">Lot</span>
+                            </label>
+                        } />
                     </div>
 
                     <div className="col-sm-2 px-0 mx-0">

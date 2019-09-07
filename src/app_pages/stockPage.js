@@ -13,8 +13,8 @@ import FillHeaderTab from "../tabheaderfill";
 import { NetAppContext, WSConnectionAction } from '../appnetwork.js';
 import { ContextConnector } from '../appcontext.js';
 
-/*import ModalBuy from "./app_modals/modal_buy";
-import ModalSell from "./app_modals/modal_sell";*/
+import ModalBuy from "./../app_modals/modal_buy";
+import ModalSell from "./../app_modals/modal_sell";
 import MenuOfContent from "./../menuofcontent";
 import TableInfoTransaction from "./../app_transaction/tableInfoTransaction";
 import {
@@ -32,13 +32,22 @@ import FormSell from "./app_transaction/form_sell";*/
 import FormBuy from "./../app_transaction/form_buy";
 import FormSell from "../app_transaction/form_sell";
 
+//datepicker
+import '../bootstrap-3.3.7/bootstrap-datepicker.min.css';
+import $ from 'jquery';
+window.$ = window.jQuery = $;
+require('../../node_modules/bootstrap/dist/js/bootstrap.js');
+require('../bootstrap-3.3.7/bootstrap-datepicker.standalone.min.css');
+require('../../node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.js');
+
+
 const CustomFrameHeaderStock = (props) => {
     return (
         <AppFrameProvider
             initialClasses={{ StockWatchlist, StockHistoryPage, StockPage}}
             initialFrames={
                 [
-                    {className: 'StockPage', title: 'STOCK PAGE', instanceName: 'stockPage'},
+                    {className: 'StockPage', title: 'STOCK PAGES', instanceName: 'stockPage'},
                     {className: 'StockWatchlist', title: 'STOCK WATCHLIST PAGE', instanceName: 'stockWatchlistPage'},
                     {className: 'StockHistoryPage', title: 'STOCK HISTORY PAGE', instanceName: 'stockHistoryPage'},
                 ]
@@ -307,6 +316,28 @@ class StockPage extends React.PureComponent {
 
 class StockHistoryPage extends React.PureComponent {
 
+    componentDidMount() {
+        $(document).ready(function() {
+            var sd = new Date(), ed = new Date();
+            var isRtl = $('html').attr('dir') === 'rtl';
+            $('.input-daterange').datepicker({
+                orientation: isRtl ? 'auto right' : 'auto left',
+                format: "dd/mm/yyyy",
+                changeMonth: true,
+                changeYear: true,
+                startDate: '01/01/1920',
+                autoclose: true,
+                endDate : sd,
+                todayHighlight: true,
+                todayBtn: "linked",
+            });
+        });
+
+        $("#btn-clear-date").click(function () {
+            $(".date-clear").datepicker("clearDates");
+        })
+    }
+
     render () {
         return (
             <div className="bg-black-trading">
@@ -321,29 +352,26 @@ class StockHistoryPage extends React.PureComponent {
                                 <Input defaultValue='Arga Argo Lestari Tbk.' placeholder='Name' size='small' className="col-sm-3 align-self-center"/>
                             </div>
 
-                            <div className="px-2 mx-0 mt-3 col-sm-12 row">
-                                <div className="col-sm-2 px-0 mx-0">
-                                    {/*<Form>
-                                        <FormGroup>
-                                            <InputGroup>
-                                                <Input
-                                                    type="date"
-                                                    name="date"
-                                                    id="exampleDate"
-                                                    placeholder="date placeholder"
-                                                    className="bg-gray-tradding d-border"
-                                                />
-                                                <InputGroupAddon addonType="prepend" className="bg-gray-tradding d-border text-white">
-                                                    <InputGroupText className="bg-gray-tradding d-border">
-                                                        <i className="fa fa-calendar-alt"></i>
-                                                    </InputGroupText>
-                                                </InputGroupAddon>
-                                            </InputGroup>
-                                        </FormGroup>
-                                    </Form>*/}
+                            <div className="px-2 mx-0 mt-3 col-sm-12 mb-3 row">
+                                <div className="col-sm-4 px-0 mx-0">
+                                    <div className="input-group input-daterange">
+                                        <span className="input-group-addon">Start</span>
+                                        <input placeholder="dd/mm/yyyy" id="startDate1" name="startDate1" type="text" className="form-control date-clear" readOnly="readonly" />
+                                        <span className="input-group-addon">
+                                            <span className="fa fa-calendar-alt"></span>
+                                        </span>
+                                        <span className="input-group-addon">to</span>
+                                        <input placeholder="dd/mm/yyyy" id="endDate1" name="endDate1" type="text" className="form-control date-clear" readOnly="readonly" />
+                                        <span className="input-group-addon">
+                                            <span className="fa fa-calendar-alt"></span>
+                                        </span>
+                                        <span id="btn-clear-date" className="input-group-addon bg-gold click-pointer hover-gold">
+                                            <span className="ion ion-ios-close"></span>
+                                        </span>
+                                    </div>
                                 </div>
-                                <div className="col-sm-10 px-2 mx-0">
-                                    <TableBS borderless responsive size="sm" className="bg-black-trading">
+                                <div className="col-sm-8 px-2 mx-0 align-self-center">
+                                    <TableBS borderless responsive size="sm" className="bg-black-trading mb-0">
                                         <thead></thead>
                                         <tbody className="t-border-top t-border-bottom">
                                         <tr>
@@ -366,7 +394,7 @@ class StockHistoryPage extends React.PureComponent {
                                                 T.Vol <span className="text-danger"> 156</span>
                                             </td>
                                             <td>
-                                                Value(T) <span className="text-danger"> 156,000</span>
+                                                Value(Tn) <span className="text-danger"> 156,000</span>
                                             </td>
                                         </tr>
                                         </tbody>
@@ -558,7 +586,7 @@ class BuyModal extends React.Component {
             <>
                 <AppFrameAction ref="frameAction" />
                 <WSConnectionAction /> {/* websocket connection component */}
-                {/*<ModalBuy/>*/}
+                <ModalBuy/>
             </>
         );
     }
@@ -574,7 +602,7 @@ class SellModal extends React.Component  {
             <>
                 <AppFrameAction ref="frameAction" />
                 <WSConnectionAction /> {/* websocket connection component */}
-                {/*<ModalSell/>*/}
+                <ModalSell/>
             </>
         );
     }
@@ -622,11 +650,78 @@ class RegisterAmendModal extends React.Component {
                             <li className={ this.state.activeTab === '2' ? 'd-border-bottom active click-pointer col-sm-6 px-0 mx-0 f-12 text-center' : 'd-border-bottom text-white click-pointer col-sm-6 px-0 mx-0 f-12 text-center' } onClick={() => { this.toggle('2'); }}><a><span className="f-11">&nbsp; Add Group</span></a></li>
                         </ul>
                     </div>
-                    {/*<TabContent activeTab={this.state.activeTab} className="card-475">
-                        <TabPane tabId="1" className="d-border">
+                    <div className="card-475">
+                        <div className={this.state.activeTab === '1' ? 'd-border d-block f-12' : 'd-none'}>
+                            <div className="card card-xmini bg-grey">
+                                <AmendGroupNameGrid />
+                            </div>
+                            <div className="form-group row col-sm-12 px-0 mx-0 my-4 py-3 text-white">
+                                <div className="col-sm-5">
+                                    <label className="col-sm-12">Name</label>
+                                </div>
+                                <div className="col-sm-7">
+                                    <Input defaultValue='Group A' placeholder='Group Name' size='small' className="gray col-sm-12 align-self-center"/>
+                                </div>
+                            </div>
+                            <div className="card card-xs bg-grey">
+                                <AmendGroupCodeGrid />
+                            </div>
+                            <div className="form-group row col-sm-12 px-0 mx-0 my-4 py-3 text-white">
+                                <div className="col-sm-7">
+                                    <Input defaultValue='BBCA' placeholder='Code' size='small' className="gray pl-0 col-sm-12 align-self-center"/>
+                                </div>
+                                <div className="col-sm-1 px-0 mx-0 align-self-center align-middle">
+                                    <i className="fa fa-search click-pointer f-18"></i>
+                                </div>
+                                <div className="col-sm-1 px-0 mx-0 align-self-center align-middle">
+                                    <button className="btn btn-sm bg-gray-tradding border-gray-tradding"><i className="fa fa-plus"></i></button>
+                                </div>
+                            </div>
+                            <div className="form-group row col-sm-12 px-0 mx-0 mt-5 pt-5 text-white">
+                                <div className="col-sm-9 align-self-center align-middle">
+                                    <label className="text-muted">Max Group is 10 group with 45 stock list</label>
+                                </div>
+                                <div className="col-sm-3 align-self-center align-middle">
+                                    <button className="btn btn-sm bg-gray-tradding border-gray-tradding col-sm-12">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={this.state.activeTab === '2' ? 'd-border d-block f-12' : 'd-none'}>
+                            <div className="form-group row col-sm-12 px-0 mx-0 my-4 py-3 text-white">
+                                <div className="col-sm-5">
+                                    <label className="col-sm-12">Group Name</label>
+                                </div>
+                                <div className="col-sm-7">
+                                    <Input defaultValue='Group A' placeholder='Group Name' size='small' className="gray col-sm-12 align-self-center"/>
+                                </div>
+                            </div>
+                            <div className="card card-xs bg-grey">
+                                <AddGroupCodeGrid />
+                            </div>
+                            <div className="form-group row col-sm-12 px-0 mx-0 my-4 py-3 text-white">
+                                <div className="col-sm-7">
+                                    <Input defaultValue='BBCA' placeholder='Code' size='small' className="gray pl-0 col-sm-12 align-self-center"/>
+                                </div>
+                                <div className="col-sm-1 px-0 mx-0 align-self-center align-middle">
+                                    <i className="fa fa-search click-pointer f-18"></i>
+                                </div>
+                                <div className="col-sm-1 px-0 mx-0 align-self-center align-middle">
+                                    <button className="btn btn-sm bg-gray-tradding border-gray-tradding"><i className="fa fa-plus"></i></button>
+                                </div>
+                            </div><br/><br/><br/><br/><br/><br/><br/>
+                            <div className="form-group row col-sm-12 px-0 mx-0 mt-5 pt-5 text-white">
+                                <div className="col-sm-9 align-self-center align-middle">
+                                    <label className="text-muted">Max Group is 10 group with 45 stock list</label>
+                                </div>
+                                <div className="col-sm-3 align-self-center align-middle">
+                                    <button className="btn btn-sm bg-gray-tradding border-gray-tradding col-sm-12">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                        {/*<div className={this.state.activeTab === "1" ? "d-border d-block" : "d-none"}>
                             <div className="card card-xmini bg-grey">
                                 <div className="card-body scrollable">
-                                    <Table responsive size="sm" borderless className="text-white text-center">
+                                    <TableBS responsive size="sm" borderless className="text-white text-center">
                                         <thead className="t-border-bottom-bold">
                                         <tr>
                                             <th>Group Name</th>
@@ -661,7 +756,7 @@ class RegisterAmendModal extends React.Component {
                                             <td><a className="text-primary click-pointer">Edit</a> | <a className="text-danger click-pointer">Delete</a></td>
                                         </tr>
                                         </tbody>
-                                    </Table>
+                                    </TableBS>
                                 </div>
                             </div>
 
@@ -676,7 +771,7 @@ class RegisterAmendModal extends React.Component {
 
                             <div className="card card-xs bg-grey">
                                 <div className="card-body scrollable">
-                                    <Table responsive size="sm" borderless className="text-white">
+                                    <TableBS responsive size="sm" borderless className="text-white">
                                         <thead>
                                         <tr>
                                             <th>Code</th>
@@ -695,9 +790,9 @@ class RegisterAmendModal extends React.Component {
                                             </td>
                                             <td className="no-wrap align-middle align-self-center">12,650</td>
                                             <td className="no-wrap align-middle align-self-center text-danger"><i className="icofont icofont-caret-down"></i> -175(-1.36%)</td>
-                                            <td className="no-wrap align-middle align-self-center"><Button size="sm" className="btn btn-sm btn-danger">
+                                            <td className="no-wrap align-middle align-self-center"><button className="btn btn-sm btn-danger">
                                                 <i className="fa fa-minus"></i>
-                                            </Button></td>
+                                            </button></td>
                                         </tr>
                                         <tr>
                                             <td className="text-primary no-wrap align-middle align-self-center">
@@ -708,12 +803,12 @@ class RegisterAmendModal extends React.Component {
                                             </td>
                                             <td className="no-wrap align-middle align-self-center">15,650</td>
                                             <td className="no-wrap align-middle align-self-center text-success"><i className="icofont icofont-caret-up"></i> +175(+1.36%)</td>
-                                            <td className="no-wrap align-middle align-self-center"><Button size="sm" className="btn btn-sm btn-danger">
+                                            <td className="no-wrap align-middle align-self-center"><button className="btn btn-sm btn-danger">
                                                 <i className="fa fa-minus"></i>
-                                            </Button></td>
+                                            </button></td>
                                         </tr>
                                         </tbody>
-                                    </Table>
+                                    </TableBS>
                                 </div>
                             </div>
 
@@ -725,7 +820,7 @@ class RegisterAmendModal extends React.Component {
                                     <i className="fa fa-search click-pointer f-18"></i>
                                 </div>
                                 <div className="col-sm-1 px-0 mx-0 align-self-center align-middle">
-                                    <Button size="sm" className="btn bg-gray-tradding border-gray-tradding"><i className="fa fa-plus"></i></Button>
+                                    <button className="btn btn-sm bg-gray-tradding border-gray-tradding"><i className="fa fa-plus"></i></button>
                                 </div>
                             </div>
 
@@ -734,11 +829,11 @@ class RegisterAmendModal extends React.Component {
                                     <label className="text-muted">Max Group is 10 group with 45 stock list</label>
                                 </div>
                                 <div className="col-sm-3 align-self-center align-middle">
-                                    <Button size="sm" className="btn bg-gray-tradding border-gray-tradding col-sm-12">Save</Button>
+                                    <button className="btn btn-sm bg-gray-tradding border-gray-tradding col-sm-12">Save</button>
                                 </div>
                             </div>
-                        </TabPane>
-                        <TabPane tabId="2" className="d-border">
+                        </div>
+                        <div className={this.state.activeTab === "2" ? "d-border d-block" : "d-none"}>
                             <div className="form-group row col-sm-12 px-0 mx-0 my-4 text-white">
                                 <div className="col-sm-5">
                                     <label className="col-sm-12">Group Name</label>
@@ -792,7 +887,7 @@ class RegisterAmendModal extends React.Component {
                                     <i className="fa fa-search click-pointer f-18"></i>
                                 </div>
                                 <div className="col-sm-1 px-0 mx-0 align-self-center align-middle">
-                                    <Button size="sm" className="btn bg-gray-tradding border-gray-tradding"><i className="fa fa-plus"></i></Button>
+                                    <button className="btn btn-sm bg-gray-tradding border-gray-tradding"><i className="fa fa-plus"></i></button>
                                 </div>
                             </div>
 
@@ -802,11 +897,11 @@ class RegisterAmendModal extends React.Component {
                                     <label className="text-muted">Max Group is 10 group with 45 stock list</label>
                                 </div>
                                 <div className="col-sm-3 align-self-center align-middle">
-                                    <Button size="sm" className="btn bg-gray-tradding border-gray-tradding col-sm-12">Save</Button>
+                                    <button className="btn btn-sm bg-gray-tradding border-gray-tradding col-sm-12">Save</button>
                                 </div>
                             </div>
-                        </TabPane>
-                    </TabContent>*/}
+                        </div>*/}
+                    </div>
                 </div>
             </>
         );
@@ -1128,7 +1223,7 @@ class HistoryPriceGrid extends React.PureComponent {
                 { name: "price", title: "Price"},
                 { name: "freq", title: "Freq"},
                 { name: "vol", title: "Vol" },
-                { name: "value", title: "Value(T)" },
+                { name: "value", title: "Value(Tn)" },
             ],
             rows: [
                 { price: <div className="text-success">10,870</div>,
@@ -1676,14 +1771,166 @@ class HistoryBrokerGrid extends React.PureComponent {
             columns: [
                 { name: 'broker', title: "Broker"},
                 { name: 'bidvol', title: "Bid Vol"},
-                { name: 'bidval', title: "Bid Val (B)" },
+                { name: 'bidval', title: "Bid Val (Bn)" },
                 { name: 'avgbid', title: "Avg. Bid" },
                 { name: 'sellvol', title: "Sell Vol"},
-                { name: 'sellval', title: "Sell Val (B)"},
+                { name: 'sellval', title: "Sell Val (Bn)"},
                 { name: 'avgsell', title: "Avg. Sell" },
-                { name: 'netval', title: "Net Val (B)" }
+                { name: 'netval', title: "Net Val (Bn)" }
             ],
             rows: [
+                { broker: <div className="text-warning">DX</div>,
+                    bidvol: <div className="text-success">2,000</div>,
+                    bidval: <div className="text-success">2,000</div>,
+                    avgbid: <div className="text-success">10,800</div>,
+                    sellvol: <div className="text-success">3,000</div>,
+                    sellval: <div className="text-success">3,000</div>,
+                    avgsell: <div className="text-success">2,100</div>,
+                    netval: <div className="text-success">500,000</div>},
+                { broker: <div className="text-warning">DX</div>,
+                    bidvol: <div className="text-success">2,000</div>,
+                    bidval: <div className="text-success">2,000</div>,
+                    avgbid: <div className="text-success">10,800</div>,
+                    sellvol: <div className="text-success">3,000</div>,
+                    sellval: <div className="text-success">3,000</div>,
+                    avgsell: <div className="text-success">2,100</div>,
+                    netval: <div className="text-success">500,000</div>},
+                { broker: <div className="text-warning">DX</div>,
+                    bidvol: <div className="text-success">2,000</div>,
+                    bidval: <div className="text-success">2,000</div>,
+                    avgbid: <div className="text-success">10,800</div>,
+                    sellvol: <div className="text-success">3,000</div>,
+                    sellval: <div className="text-success">3,000</div>,
+                    avgsell: <div className="text-success">2,100</div>,
+                    netval: <div className="text-success">500,000</div>},
+                { broker: <div className="text-warning">DX</div>,
+                    bidvol: <div className="text-success">2,000</div>,
+                    bidval: <div className="text-success">2,000</div>,
+                    avgbid: <div className="text-success">10,800</div>,
+                    sellvol: <div className="text-success">3,000</div>,
+                    sellval: <div className="text-success">3,000</div>,
+                    avgsell: <div className="text-success">2,100</div>,
+                    netval: <div className="text-success">500,000</div>},
+                { broker: <div className="text-warning">DX</div>,
+                    bidvol: <div className="text-success">2,000</div>,
+                    bidval: <div className="text-success">2,000</div>,
+                    avgbid: <div className="text-success">10,800</div>,
+                    sellvol: <div className="text-success">3,000</div>,
+                    sellval: <div className="text-success">3,000</div>,
+                    avgsell: <div className="text-success">2,100</div>,
+                    netval: <div className="text-success">500,000</div>},
+                { broker: <div className="text-warning">DX</div>,
+                    bidvol: <div className="text-success">2,000</div>,
+                    bidval: <div className="text-success">2,000</div>,
+                    avgbid: <div className="text-success">10,800</div>,
+                    sellvol: <div className="text-success">3,000</div>,
+                    sellval: <div className="text-success">3,000</div>,
+                    avgsell: <div className="text-success">2,100</div>,
+                    netval: <div className="text-success">500,000</div>},
+                { broker: <div className="text-warning">DX</div>,
+                    bidvol: <div className="text-success">2,000</div>,
+                    bidval: <div className="text-success">2,000</div>,
+                    avgbid: <div className="text-success">10,800</div>,
+                    sellvol: <div className="text-success">3,000</div>,
+                    sellval: <div className="text-success">3,000</div>,
+                    avgsell: <div className="text-success">2,100</div>,
+                    netval: <div className="text-success">500,000</div>},
+                { broker: <div className="text-warning">DX</div>,
+                    bidvol: <div className="text-success">2,000</div>,
+                    bidval: <div className="text-success">2,000</div>,
+                    avgbid: <div className="text-success">10,800</div>,
+                    sellvol: <div className="text-success">3,000</div>,
+                    sellval: <div className="text-success">3,000</div>,
+                    avgsell: <div className="text-success">2,100</div>,
+                    netval: <div className="text-success">500,000</div>},
+                { broker: <div className="text-warning">DX</div>,
+                    bidvol: <div className="text-success">2,000</div>,
+                    bidval: <div className="text-success">2,000</div>,
+                    avgbid: <div className="text-success">10,800</div>,
+                    sellvol: <div className="text-success">3,000</div>,
+                    sellval: <div className="text-success">3,000</div>,
+                    avgsell: <div className="text-success">2,100</div>,
+                    netval: <div className="text-success">500,000</div>},
+                { broker: <div className="text-warning">DX</div>,
+                    bidvol: <div className="text-success">2,000</div>,
+                    bidval: <div className="text-success">2,000</div>,
+                    avgbid: <div className="text-success">10,800</div>,
+                    sellvol: <div className="text-success">3,000</div>,
+                    sellval: <div className="text-success">3,000</div>,
+                    avgsell: <div className="text-success">2,100</div>,
+                    netval: <div className="text-success">500,000</div>},
+                { broker: <div className="text-warning">DX</div>,
+                    bidvol: <div className="text-success">2,000</div>,
+                    bidval: <div className="text-success">2,000</div>,
+                    avgbid: <div className="text-success">10,800</div>,
+                    sellvol: <div className="text-success">3,000</div>,
+                    sellval: <div className="text-success">3,000</div>,
+                    avgsell: <div className="text-success">2,100</div>,
+                    netval: <div className="text-success">500,000</div>},
+                { broker: <div className="text-warning">DX</div>,
+                    bidvol: <div className="text-success">2,000</div>,
+                    bidval: <div className="text-success">2,000</div>,
+                    avgbid: <div className="text-success">10,800</div>,
+                    sellvol: <div className="text-success">3,000</div>,
+                    sellval: <div className="text-success">3,000</div>,
+                    avgsell: <div className="text-success">2,100</div>,
+                    netval: <div className="text-success">500,000</div>},
+                { broker: <div className="text-warning">DX</div>,
+                    bidvol: <div className="text-success">2,000</div>,
+                    bidval: <div className="text-success">2,000</div>,
+                    avgbid: <div className="text-success">10,800</div>,
+                    sellvol: <div className="text-success">3,000</div>,
+                    sellval: <div className="text-success">3,000</div>,
+                    avgsell: <div className="text-success">2,100</div>,
+                    netval: <div className="text-success">500,000</div>},
+                { broker: <div className="text-warning">DX</div>,
+                    bidvol: <div className="text-success">2,000</div>,
+                    bidval: <div className="text-success">2,000</div>,
+                    avgbid: <div className="text-success">10,800</div>,
+                    sellvol: <div className="text-success">3,000</div>,
+                    sellval: <div className="text-success">3,000</div>,
+                    avgsell: <div className="text-success">2,100</div>,
+                    netval: <div className="text-success">500,000</div>},
+                { broker: <div className="text-warning">DX</div>,
+                    bidvol: <div className="text-success">2,000</div>,
+                    bidval: <div className="text-success">2,000</div>,
+                    avgbid: <div className="text-success">10,800</div>,
+                    sellvol: <div className="text-success">3,000</div>,
+                    sellval: <div className="text-success">3,000</div>,
+                    avgsell: <div className="text-success">2,100</div>,
+                    netval: <div className="text-success">500,000</div>},
+                { broker: <div className="text-warning">DX</div>,
+                    bidvol: <div className="text-success">2,000</div>,
+                    bidval: <div className="text-success">2,000</div>,
+                    avgbid: <div className="text-success">10,800</div>,
+                    sellvol: <div className="text-success">3,000</div>,
+                    sellval: <div className="text-success">3,000</div>,
+                    avgsell: <div className="text-success">2,100</div>,
+                    netval: <div className="text-success">500,000</div>},
+                { broker: <div className="text-warning">DX</div>,
+                    bidvol: <div className="text-success">2,000</div>,
+                    bidval: <div className="text-success">2,000</div>,
+                    avgbid: <div className="text-success">10,800</div>,
+                    sellvol: <div className="text-success">3,000</div>,
+                    sellval: <div className="text-success">3,000</div>,
+                    avgsell: <div className="text-success">2,100</div>,
+                    netval: <div className="text-success">500,000</div>},
+                { broker: <div className="text-warning">DX</div>,
+                    bidvol: <div className="text-success">2,000</div>,
+                    bidval: <div className="text-success">2,000</div>,
+                    avgbid: <div className="text-success">10,800</div>,
+                    sellvol: <div className="text-success">3,000</div>,
+                    sellval: <div className="text-success">3,000</div>,
+                    avgsell: <div className="text-success">2,100</div>,
+                    netval: <div className="text-success">500,000</div>},
+                { broker: <div className="text-warning">DX</div>,
+                    bidvol: <div className="text-success">2,000</div>,
+                    bidval: <div className="text-success">2,000</div>,
+                    avgbid: <div className="text-success">10,800</div>,
+                    sellvol: <div className="text-success">3,000</div>,
+                    sellval: <div className="text-success">3,000</div>,
+                    avgsell: <div className="text-success">2,100</div>,
+                    netval: <div className="text-success">500,000</div>},
                 { broker: <div className="text-warning">DX</div>,
                     bidvol: <div className="text-success">2,000</div>,
                     bidval: <div className="text-success">2,000</div>,
@@ -1965,6 +2212,312 @@ class CorpActionGrid extends React.PureComponent {
                     <TableColumnResizing defaultColumnWidths={defaultColumnWidths} />
                     <TableColumnReordering
                         defaultOrder={['type', 'cumdate', 'distdate', 'ratio', 'exprice']}
+                    />
+                    <TableHeaderRow showSortingControls />
+                    <TableColumnVisibility
+                        defaultHiddenColumnNames={defaultHiddenColumnNames}
+                    />
+                </Grid>
+            </>
+        );
+    }
+}
+
+class AmendGroupNameGrid extends React.PureComponent {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            columns: [
+                { name: "groupname", title: "Group Name"},
+                { name: "totalmember", title: "Total Member"},
+                { name: "action", title: "Action"}
+            ],
+            rows: [
+                { groupname: <div className="text-primary">Group A</div>,
+                    totalmember: "5",
+                    action: <div><a className="text-primary click-pointer">Edit</a> | <a className="text-danger click-pointer">Delete</a></div> },
+
+                { groupname: <div className="text-primary">Group B</div>,
+                    totalmember: "15",
+                    action: <div><a className="text-primary click-pointer">Edit</a> | <a className="text-danger click-pointer">Delete</a></div> },
+
+                { groupname: <div className="text-primary">Group C</div>,
+                    totalmember: "27",
+                    action: <div><a className="text-primary click-pointer">Edit</a> | <a className="text-danger click-pointer">Delete</a></div> },
+
+                { groupname: <div className="text-primary">Group D</div>,
+                    totalmember: "18",
+                    action: <div><a className="text-primary click-pointer">Edit</a> | <a className="text-danger click-pointer">Delete</a></div> },
+
+                { groupname: <div className="text-primary">Group E</div>,
+                    totalmember: "45",
+                    action: <div><a className="text-primary click-pointer">Edit</a> | <a className="text-danger click-pointer">Delete</a></div> },
+            ],
+            defaultColumnWidths: [
+                { columnName: "groupname", align:'center', width: 155},
+                { columnName: "totalmember", align:'center', width: 155},
+                { columnName: "action", align:'center', width: 155},
+            ],
+            defaultHiddenColumnNames: [''],
+        };
+    }
+
+    render() {
+        const TableComponent = ({ ...restProps }) => (
+            <Table.Table
+                {...restProps}
+                className={"scroll-tbody bg-grey table-borderless table-responsive scrollable px-4 f-12"}
+            />
+        );
+
+        const HeadComponent = ({ ...restProps }) => (
+            <Table.TableHead
+                {...restProps}
+                className={"bg-grey f-12 amend-groupname"}
+            />
+        );
+
+        const HighlightedCell = ({ value, style, ...restProps }) => (
+            <Table.Cell
+                {...restProps}
+                className={"grid-table-p5 f-12"}>
+                {value}
+            </Table.Cell>
+        );
+
+        const Cell = (props) => {
+            const { column } = props;
+            return <HighlightedCell {...props} />;
+            return <Table.Cell {...props} />;
+        };
+
+        const { rows, columns, defaultColumnWidths, defaultHiddenColumnNames, colspan } = this.state;
+        return (
+            <>
+                <style>{'' +
+                'thead.amend-groupname th {' +
+                '    background-color: var(--warna-header-card)!important;' +
+                '}' +
+                '.grid-table-p5 {' +
+                '    padding: 5px!important;' +
+                '    line-height: 1.42857143!important;' +
+                '    vertical-align: middle!important;' +
+                '}' +
+                ''}
+                </style>
+                <Grid rows={rows} columns={columns} className={"bg-primary f-12"}>
+                    <SearchState defaultValue="" />
+                    <IntegratedFiltering />
+                    <SortingState
+                        defaultSorting={[{ columnName: 'groupname', direction: 'desc' }]}
+                    />
+                    <IntegratedSorting />
+                    <DragDropProvider />
+                    <Table height={300} headComponent={HeadComponent} tableComponent={TableComponent} cellComponent={Cell} columnExtensions={defaultColumnWidths} />
+                    <TableColumnResizing defaultColumnWidths={defaultColumnWidths} />
+                    <TableColumnReordering
+                        defaultOrder={['groupname', 'totalmember', 'action']}
+                    />
+                    <TableHeaderRow showSortingControls />
+                    <TableColumnVisibility
+                        defaultHiddenColumnNames={defaultHiddenColumnNames}
+                    />
+                </Grid>
+            </>
+        );
+    }
+}
+
+class AmendGroupCodeGrid extends React.PureComponent {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            columns: [
+                { name: "code", title: "Code"},
+                { name: "price", title: "Price"},
+                { name: "change", title: "Change/%"}
+            ],
+            rows: [
+                { code: <div className="f-9">
+                        <Input defaultValue='AALI' placeholder='Code' size='small' className="gray col-sm-4 align-self-center px-0" disabled/>
+                        &nbsp; Astra Argo Lestari Tbk.</div>,
+                    price: "12,650",
+                    change: <div className="text-danger"><i className="icofont icofont-caret-down"></i> -175(-1.36%) <button className="btn btn-sm btn-danger">
+                        <i className="fa fa-minus"></i>
+                    </button></div> },
+                { code: <div className="f-9">
+                        <Input defaultValue='TLKM' placeholder='Code' size='small' className="gray col-sm-4 align-self-center px-0" disabled/>
+                        &nbsp; Telekomunikasi Indonesia Tbk.</div>,
+                    price: "15,600",
+                    change: <div className="text-success"><i className="icofont icofont-caret-up"></i> +175(+1.36%) <button className="btn btn-sm btn-danger">
+                        <i className="fa fa-minus"></i>
+                    </button></div> },
+            ],
+            defaultColumnWidths: [
+                { columnName: "code", align:'left', width: 10},
+                { columnName: "price", align:'right', width: 10},
+                { columnName: "change", align:'right', width: 10},
+            ],
+            defaultHiddenColumnNames: [''],
+        };
+    }
+
+    render() {
+        const TableComponent = ({ ...restProps }) => (
+            <Table.Table
+                {...restProps}
+                className={"scroll-tbody-xs bg-grey table-borderless table-responsive scrollable px-4 f-12"}
+            />
+        );
+
+        const HeadComponent = ({ ...restProps }) => (
+            <Table.TableHead
+                {...restProps}
+                className={"bg-grey f-12 amend-codename"}
+            />
+        );
+
+        const HighlightedCell = ({ value, style, ...restProps }) => (
+            <Table.Cell
+                {...restProps}
+                className={"grid-table f-12"}>
+                {value}
+            </Table.Cell>
+        );
+
+        const Cell = (props) => {
+            const { column } = props;
+            return <HighlightedCell {...props} />;
+            return <Table.Cell {...props} />;
+        };
+
+        const { rows, columns, defaultColumnWidths, defaultHiddenColumnNames } = this.state;
+        return (
+            <>
+                <style>{'' +
+                'thead.amend-codename th {' +
+                '    background-color: var(--warna-header-card)!important;' +
+                '    border-bottom: 0!important' +
+                '}' +
+                '.scroll-tbody-xs {' +
+                '    display: inline-block;' +
+                '    height: 90px;' +
+                '    overflow: auto;' +
+                '}' +
+                ''}
+                </style>
+                <Grid rows={rows} columns={columns} className={"bg-primary f-12"}>
+                    <SearchState defaultValue="" />
+                    <IntegratedFiltering />
+                    <SortingState
+                        defaultSorting={[{ columnName: 'code', direction: 'desc' }]}
+                    />
+                    <IntegratedSorting />
+                    <DragDropProvider />
+                    <Table height={300} headComponent={HeadComponent} tableComponent={TableComponent} cellComponent={Cell} columnExtensions={defaultColumnWidths} />
+                    <TableColumnResizing defaultColumnWidths={defaultColumnWidths} />
+                    <TableColumnReordering
+                        defaultOrder={['code', 'price', 'change']}
+                    />
+                    <TableHeaderRow showSortingControls />
+                    <TableColumnVisibility
+                        defaultHiddenColumnNames={defaultHiddenColumnNames}
+                    />
+                </Grid>
+            </>
+        );
+    }
+}
+
+class AddGroupCodeGrid extends React.PureComponent {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            columns: [
+                { name: "code", title: "Code"},
+                { name: "price", title: "Price"},
+                { name: "change", title: "Change/%"}
+            ],
+            rows: [
+                { code: <div className="f-9">
+                        <Input defaultValue='AALI' placeholder='Code' size='small' className="gray col-sm-4 align-self-center px-0" disabled/>
+                        &nbsp; Astra Argo Lestari Tbk.</div>,
+                    price: "12,650",
+                    change: <div className="text-danger"><i className="icofont icofont-caret-down"></i> -175(-1.36%)</div> },
+                { code: <div className="f-9">
+                        <Input defaultValue='TLKM' placeholder='Code' size='small' className="gray col-sm-4 align-self-center px-0" disabled/>
+                        &nbsp; Telekomunikasi Indonesia Tbk.</div>,
+                    price: "15,600",
+                    change: <div className="text-success"><i className="icofont icofont-caret-up"></i> +175(+1.36%)</div> },
+            ],
+            defaultColumnWidths: [
+                { columnName: "code", align:'left', width: 10},
+                { columnName: "price", align:'right', width: 10},
+                { columnName: "change", align:'right', width: 10},
+            ],
+            defaultHiddenColumnNames: [''],
+        };
+    }
+
+    render() {
+        const TableComponent = ({ ...restProps }) => (
+            <Table.Table
+                {...restProps}
+                className={"scroll-tbody-xs bg-grey table-borderless table-responsive scrollable px-4 f-12"}
+            />
+        );
+
+        const HeadComponent = ({ ...restProps }) => (
+            <Table.TableHead
+                {...restProps}
+                className={"bg-grey f-12 amend-codename"}
+            />
+        );
+
+        const HighlightedCell = ({ value, style, ...restProps }) => (
+            <Table.Cell
+                {...restProps}
+                className={"grid-table f-12"}>
+                {value}
+            </Table.Cell>
+        );
+
+        const Cell = (props) => {
+            const { column } = props;
+            return <HighlightedCell {...props} />;
+            return <Table.Cell {...props} />;
+        };
+
+        const { rows, columns, defaultColumnWidths, defaultHiddenColumnNames } = this.state;
+        return (
+            <>
+                <style>{'' +
+                'thead.amend-codename th {' +
+                '    background-color: var(--warna-header-card)!important;' +
+                '    border-bottom: 0!important' +
+                '}' +
+                '.scroll-tbody-xs {' +
+                '    display: inline-block;' +
+                '    height: 90px;' +
+                '    overflow: auto;' +
+                '}' +
+                ''}
+                </style>
+                <Grid rows={rows} columns={columns} className={"bg-primary f-12"}>
+                    <SearchState defaultValue="" />
+                    <IntegratedFiltering />
+                    <SortingState
+                        defaultSorting={[{ columnName: 'code', direction: 'desc' }]}
+                    />
+                    <IntegratedSorting />
+                    <DragDropProvider />
+                    <Table height={300} headComponent={HeadComponent} tableComponent={TableComponent} cellComponent={Cell} columnExtensions={defaultColumnWidths} />
+                    <TableColumnResizing defaultColumnWidths={defaultColumnWidths} />
+                    <TableColumnReordering
+                        defaultOrder={['code', 'price', 'change']}
                     />
                     <TableHeaderRow showSortingControls />
                     <TableColumnVisibility

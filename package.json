@@ -10,6 +10,7 @@
     "anychart": "^8.7.0",
     "anychart-react": "^1.4.1",
     "bootstrap": "^3.3.7",
+    "bootstrap-datepicker": "^1.6.4",
     "bootstrap-select": "^1.13.10",
     "jquery": "^1.12.4",
     "react": "^16.9.0",
@@ -20,6 +21,7 @@
     "react-pin-input": "^0.9.0",
     "react-scripts": "3.0.1",
     "react-select": "^3.0.4",
+    "react-tooltip": "^3.11.0",
     "react-websocket": "^2.0.1",
     "semantic-ui-react": "^0.87.3",
     "uuid": "^3.3.2"
