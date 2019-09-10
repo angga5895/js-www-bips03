@@ -800,595 +800,595 @@ class MarketStatistikGrid extends React.PureComponent {
                     no : 1,
                     code : "TLKM",
                     prev : "4,010",
-                    last : <div>7,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='icofont icofont-caret-down'></i></div>,
-                    change : "-20",
-                    persen : "-0.35",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "3,980",
+                    change : "-30",
+                    persen : "-0.7",
+                    open : "4,020",
+                    low : "3,980",
+                    high : "4,050",
+                    avg : "4,018",
+                    val : "225.3",
+                    vol : "560,801",
+                    freq : "4,010",
+                    fbuy : "3,980",
+                    fsell : "30",
+                    fnet : "3,950",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action:""
                 },
                 {
                     no : 2,
                     code : "AALI",
                     prev : "29,550",
-                    last : <div>7,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='icofont icofont-caret-up'></i></div>,
-                    change : "+720",
-                    persen : "+1.27",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "29,325",
+                    change : "-225",
+                    persen : "-0.8",
+                    open : "29,700",
+                    low : "29,300",
+                    high : "29,700",
+                    avg : "29,440",
+                    val : "333.1",
+                    vol : "113,160",
+                    freq : "29,825",
+                    fbuy : "29,325",
+                    fsell : "500",
+                    fnet : "28,825",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
                 {
                     no : 3,
                     code : "BBCA",
                     prev : "7,950",
-                    last : <div>27,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='fa fa-circle f-11'></i></div>,
+                    last : "7,950",
                     change : "0",
                     persen : "0",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    open : "7,850",
+                    low : "7,850",
+                    high : "8,000",
+                    avg : "7,953",
+                    val : "286.8",
+                    vol : "350,576",
+                    freq : "54,247",
+                    fbuy : "7,950",
+                    fsell : "46,297",
+                    fnet : "38,347",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
                 {
                     no : 4,
                     code : "WSKT",
                     prev : "4,330",
-                    last : <div>7,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='icofont icofont-caret-up'></i></div>,
-                    change : "+720",
-                    persen : "+1.27",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "4,360",
+                    change : "+30",
+                    persen : "+0.7",
+                    open : "4,330",
+                    low : "4,320",
+                    high : "4,370",
+                    avg : "4,352",
+                    val : "447.6",
+                    vol : "1.0 M",
+                    freq : "6,274",
+                    fbuy : "4,350",
+                    fsell : "1,924",
+                    fnet : "2,426",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
                 {
                     no : 5,
                     code : "BBRI",
                     prev : "1,980",
-                    last : <div>27,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='fa fa-circle f-11'></i></div>,
-                    change : "0",
-                    persen : "0",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "1,945",
+                    change : "-35",
+                    persen : "-1.8",
+                    open : "1,980",
+                    low : "1,945",
+                    high : "1,985",
+                    avg : "1,961",
+                    val : "24.9",
+                    vol : "126.783",
+                    freq : "4,092",
+                    fbuy : "1,945",
+                    fsell : "2,147",
+                    fnet : "-202",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
                 {
                     no : 6,
                     code : "WIKA",
                     prev : "2,240",
-                    last : <div>7,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='icofont icofont-caret-up'></i></div>,
-                    change : "+720",
-                    persen : "+1.27",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "2,180",
+                    change : "-60",
+                    persen : "-2.7",
+                    open : "2,240",
+                    low : "2,150",
+                    high : "2,240",
+                    avg : "2,186",
+                    val : "49.7",
+                    vol : "227,402",
+                    freq : "2,794",
+                    fbuy : "2,170",
+                    fsell : "624",
+                    fnet : "1,546",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
                 {
                     no : 7,
                     code : "ASRI",
                     prev : "2,350",
-                    last : <div>7,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='icofont icofont-caret-up'></i></div>,
-                    change : "+720",
-                    persen : "+1.27",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "2,340",
+                    change : "-10",
+                    persen : "-0.4",
+                    open : "2,350",
+                    low : "2,300",
+                    high : "2,370",
+                    avg : "2,337",
+                    val : "41.2",
+                    vol : "176,162",
+                    freq : "3,255",
+                    fbuy : "2,330",
+                    fsell : "925",
+                    fnet : "1,405",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
                 { no : 8,
                     code : "PPTP",
                     prev : "1,160",
-                    last : <div>7,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='icofont icofont-caret-down'></i></div>,
-                    change : "-20",
-                    persen : "0.35",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "1,170",
+                    change : "+10",
+                    persen : "+0.9",
+                    open : "1,155",
+                    low : "1,155",
+                    high : "1,200",
+                    avg : "1,182",
+                    val : "9.6",
+                    vol : "81,047",
+                    freq : "1,201",
+                    fbuy : "1,170",
+                    fsell : "31",
+                    fnet : "1,139",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
                 {
                     no : 9,
                     code : "BMRI",
                     prev : "346",
-                    last : <div>7,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='icofont icofont-caret-up'></i></div>,
-                    change : "+720",
-                    persen : "+1.27",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "346",
+                    change : "0",
+                    persen : "0",
+                    open : "346",
+                    low : "338",
+                    high : "350",
+                    avg : "343",
+                    val : "1.9",
+                    vol : "54,681",
+                    freq : "12,378",
+                    fbuy : "344",
+                    fsell : "12,034",
+                    fnet : "11,690",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
                 { no : 10,
                     code : "CTRA",
                     prev : "1,075",
-                    last : <div>7,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='icofont icofont-caret-down'></i></div>,
-                    change : "-20",
-                    persen : "-0.35",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "1,065",
+                    change : "-10",
+                    persen : "-0.9",
+                    open : "1,080",
+                    low : "1,050",
+                    high : "1,115",
+                    avg : "1,073",
+                    val : "38.2",
+                    vol : "355,717",
+                    freq : "2,692",
+                    fbuy : "1,065",
+                    fsell : "1,627",
+                    fnet : "-562",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
                 {
                     no : 11,
                     code : "TLKM",
                     prev : "4,010",
-                    last : <div>7,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='icofont icofont-caret-down'></i></div>,
-                    change : "-20",
-                    persen : "-0.35",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "3,980",
+                    change : "-30",
+                    persen : "-0.7",
+                    open : "4,020",
+                    low : "3,980",
+                    high : "4,050",
+                    avg : "4,018",
+                    val : "225.3",
+                    vol : "560,801",
+                    freq : "4,010",
+                    fbuy : "3,980",
+                    fsell : "30",
+                    fnet : "3,950",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action:""
                 },
                 {
                     no : 12,
                     code : "AALI",
                     prev : "29,550",
-                    last : <div>7,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='icofont icofont-caret-up'></i></div>,
-                    change : "+720",
-                    persen : "+1.27",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "29,325",
+                    change : "-225",
+                    persen : "-0.8",
+                    open : "29,700",
+                    low : "29,300",
+                    high : "29,700",
+                    avg : "29,440",
+                    val : "333.1",
+                    vol : "113,160",
+                    freq : "29,825",
+                    fbuy : "29,325",
+                    fsell : "500",
+                    fnet : "28,825",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
                 {
                     no : 13,
                     code : "BBCA",
                     prev : "7,950",
-                    last : <div>27,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='fa fa-circle f-11'></i></div>,
+                    last : "7,950",
                     change : "0",
                     persen : "0",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    open : "7,850",
+                    low : "7,850",
+                    high : "8,000",
+                    avg : "7,953",
+                    val : "286.8",
+                    vol : "350,576",
+                    freq : "54,247",
+                    fbuy : "7,950",
+                    fsell : "46,297",
+                    fnet : "38,347",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
                 {
                     no : 14,
                     code : "WSKT",
                     prev : "4,330",
-                    last : <div>7,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='icofont icofont-caret-up'></i></div>,
-                    change : "+720",
-                    persen : "+1.27",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "4,360",
+                    change : "+30",
+                    persen : "+0.7",
+                    open : "4,330",
+                    low : "4,320",
+                    high : "4,370",
+                    avg : "4,352",
+                    val : "447.6",
+                    vol : "1.0 M",
+                    freq : "6,274",
+                    fbuy : "4,350",
+                    fsell : "1,924",
+                    fnet : "2,426",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
                 {
                     no : 15,
                     code : "BBRI",
                     prev : "1,980",
-                    last : <div>27,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='fa fa-circle f-11'></i></div>,
-                    change : "0",
-                    persen : "0",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "1,945",
+                    change : "-35",
+                    persen : "-1.8",
+                    open : "1,980",
+                    low : "1,945",
+                    high : "1,985",
+                    avg : "1,961",
+                    val : "24.9",
+                    vol : "126.783",
+                    freq : "4,092",
+                    fbuy : "1,945",
+                    fsell : "2,147",
+                    fnet : "-202",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
                 {
                     no : 16,
                     code : "WIKA",
                     prev : "2,240",
-                    last : <div>7,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='icofont icofont-caret-up'></i></div>,
-                    change : "+720",
-                    persen : "+1.27",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "2,180",
+                    change : "-60",
+                    persen : "-2.7",
+                    open : "2,240",
+                    low : "2,150",
+                    high : "2,240",
+                    avg : "2,186",
+                    val : "49.7",
+                    vol : "227,402",
+                    freq : "2,794",
+                    fbuy : "2,170",
+                    fsell : "624",
+                    fnet : "1,546",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
                 {
                     no : 17,
                     code : "ASRI",
                     prev : "2,350",
-                    last : <div>7,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='icofont icofont-caret-up'></i></div>,
-                    change : "+720",
-                    persen : "+1.27",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "2,340",
+                    change : "-10",
+                    persen : "-0.4",
+                    open : "2,350",
+                    low : "2,300",
+                    high : "2,370",
+                    avg : "2,337",
+                    val : "41.2",
+                    vol : "176,162",
+                    freq : "3,255",
+                    fbuy : "2,330",
+                    fsell : "925",
+                    fnet : "1,405",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
                 { no : 18,
                     code : "PPTP",
                     prev : "1,160",
-                    last : <div>7,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='icofont icofont-caret-down'></i></div>,
-                    change : "-20",
-                    persen : "0.35",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "1,170",
+                    change : "+10",
+                    persen : "+0.9",
+                    open : "1,155",
+                    low : "1,155",
+                    high : "1,200",
+                    avg : "1,182",
+                    val : "9.6",
+                    vol : "81,047",
+                    freq : "1,201",
+                    fbuy : "1,170",
+                    fsell : "31",
+                    fnet : "1,139",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
                 {
                     no : 19,
                     code : "BMRI",
                     prev : "346",
-                    last : <div>7,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='icofont icofont-caret-up'></i></div>,
-                    change : "+720",
-                    persen : "+1.27",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "346",
+                    change : "0",
+                    persen : "0",
+                    open : "346",
+                    low : "338",
+                    high : "350",
+                    avg : "343",
+                    val : "1.9",
+                    vol : "54,681",
+                    freq : "12,378",
+                    fbuy : "344",
+                    fsell : "12,034",
+                    fnet : "11,690",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
                 { no : 20,
                     code : "CTRA",
                     prev : "1,075",
-                    last : <div>7,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='icofont icofont-caret-down'></i></div>,
-                    change : "-20",
-                    persen : "-0.35",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "1,065",
+                    change : "-10",
+                    persen : "-0.9",
+                    open : "1,080",
+                    low : "1,050",
+                    high : "1,115",
+                    avg : "1,073",
+                    val : "38.2",
+                    vol : "355,717",
+                    freq : "2,692",
+                    fbuy : "1,065",
+                    fsell : "1,627",
+                    fnet : "-562",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
                 {
                     no : 21,
                     code : "TLKM",
                     prev : "4,010",
-                    last : <div>7,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='icofont icofont-caret-down'></i></div>,
-                    change : "-20",
-                    persen : "-0.35",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "3,980",
+                    change : "-30",
+                    persen : "-0.7",
+                    open : "4,020",
+                    low : "3,980",
+                    high : "4,050",
+                    avg : "4,018",
+                    val : "225.3",
+                    vol : "560,801",
+                    freq : "4,010",
+                    fbuy : "3,980",
+                    fsell : "30",
+                    fnet : "3,950",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action:""
                 },
                 {
                     no : 22,
                     code : "AALI",
                     prev : "29,550",
-                    last : <div>7,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='icofont icofont-caret-up'></i></div>,
-                    change : "+720",
-                    persen : "+1.27",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "29,325",
+                    change : "-225",
+                    persen : "-0.8",
+                    open : "29,700",
+                    low : "29,300",
+                    high : "29,700",
+                    avg : "29,440",
+                    val : "333.1",
+                    vol : "113,160",
+                    freq : "29,825",
+                    fbuy : "29,325",
+                    fsell : "500",
+                    fnet : "28,825",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
                 {
                     no : 23,
                     code : "BBCA",
                     prev : "7,950",
-                    last : <div>27,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='fa fa-circle f-11'></i></div>,
+                    last : "7,950",
                     change : "0",
                     persen : "0",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    open : "7,850",
+                    low : "7,850",
+                    high : "8,000",
+                    avg : "7,953",
+                    val : "286.8",
+                    vol : "350,576",
+                    freq : "54,247",
+                    fbuy : "7,950",
+                    fsell : "46,297",
+                    fnet : "38,347",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
                 {
                     no : 24,
                     code : "WSKT",
                     prev : "4,330",
-                    last : <div>7,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='icofont icofont-caret-up'></i></div>,
-                    change : "+720",
-                    persen : "+1.27",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "4,360",
+                    change : "+30",
+                    persen : "+0.7",
+                    open : "4,330",
+                    low : "4,320",
+                    high : "4,370",
+                    avg : "4,352",
+                    val : "447.6",
+                    vol : "1.0 M",
+                    freq : "6,274",
+                    fbuy : "4,350",
+                    fsell : "1,924",
+                    fnet : "2,426",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
                 {
                     no : 25,
                     code : "BBRI",
                     prev : "1,980",
-                    last : <div>27,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='fa fa-circle f-11'></i></div>,
-                    change : "0",
-                    persen : "0",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "1,945",
+                    change : "-35",
+                    persen : "-1.8",
+                    open : "1,980",
+                    low : "1,945",
+                    high : "1,985",
+                    avg : "1,961",
+                    val : "24.9",
+                    vol : "126.783",
+                    freq : "4,092",
+                    fbuy : "1,945",
+                    fsell : "2,147",
+                    fnet : "-202",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
                 {
                     no : 26,
                     code : "WIKA",
                     prev : "2,240",
-                    last : <div>7,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='icofont icofont-caret-up'></i></div>,
-                    change : "+720",
-                    persen : "+1.27",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "2,180",
+                    change : "-60",
+                    persen : "-2.7",
+                    open : "2,240",
+                    low : "2,150",
+                    high : "2,240",
+                    avg : "2,186",
+                    val : "49.7",
+                    vol : "227,402",
+                    freq : "2,794",
+                    fbuy : "2,170",
+                    fsell : "624",
+                    fnet : "1,546",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
                 {
                     no : 27,
                     code : "ASRI",
                     prev : "2,350",
-                    last : <div>7,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='icofont icofont-caret-up'></i></div>,
-                    change : "+720",
-                    persen : "+1.27",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "2,340",
+                    change : "-10",
+                    persen : "-0.4",
+                    open : "2,350",
+                    low : "2,300",
+                    high : "2,370",
+                    avg : "2,337",
+                    val : "41.2",
+                    vol : "176,162",
+                    freq : "3,255",
+                    fbuy : "2,330",
+                    fsell : "925",
+                    fnet : "1,405",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
                 { no : 28,
                     code : "PPTP",
                     prev : "1,160",
-                    last : <div>7,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='icofont icofont-caret-down'></i></div>,
-                    change : "-20",
-                    persen : "0.35",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "1,170",
+                    change : "+10",
+                    persen : "+0.9",
+                    open : "1,155",
+                    low : "1,155",
+                    high : "1,200",
+                    avg : "1,182",
+                    val : "9.6",
+                    vol : "81,047",
+                    freq : "1,201",
+                    fbuy : "1,170",
+                    fsell : "31",
+                    fnet : "1,139",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
                 {
                     no : 29,
                     code : "BMRI",
                     prev : "346",
-                    last : <div>7,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='icofont icofont-caret-up'></i></div>,
-                    change : "+720",
-                    persen : "+1.27",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "346",
+                    change : "0",
+                    persen : "0",
+                    open : "346",
+                    low : "338",
+                    high : "350",
+                    avg : "343",
+                    val : "1.9",
+                    vol : "54,681",
+                    freq : "12,378",
+                    fbuy : "344",
+                    fsell : "12,034",
+                    fnet : "11,690",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
                 { no : 30,
                     code : "CTRA",
                     prev : "1,075",
-                    last : <div>7,400 &nbsp;&nbsp;&nbsp;&nbsp;<i className='icofont icofont-caret-down'></i></div>,
-                    change : "-20",
-                    persen : "-0.35",
-                    open : "4,200",
-                    low : "3,100",
-                    high : "3,100",
-                    avg : "3,100",
-                    val : "3,100",
-                    vol : "3,100",
-                    freq : "3,100",
-                    fbuy : "3,100",
-                    fsell : "3,100",
-                    fnet : "3,100",
+                    last : "1,065",
+                    change : "-10",
+                    persen : "-0.9",
+                    open : "1,080",
+                    low : "1,050",
+                    high : "1,115",
+                    avg : "1,073",
+                    val : "38.2",
+                    vol : "355,717",
+                    freq : "2,692",
+                    fbuy : "1,065",
+                    fsell : "1,627",
+                    fnet : "-562",
                     financial : "3,000,000,000,000",
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>
+                    action: ""
                 },
             ],
             defaultColumnWidths: [
@@ -1482,42 +1482,179 @@ class MarketStatistikGrid extends React.PureComponent {
             </Table.Cell>
         );
 
-        const Cell = ({ column, value, style, ...restProps }) => {
+        const Cell = ({ row, column, value, style, ...restProps }) => {
             //compare
-            var prev, open, low, high, avg = 0.0;
 
-            //global color
-            if (column.name == 'code') {
-                return <Table.Cell
-                    {...restProps}
-                    className={"grid-table f-12 text-primary"}>{value}</Table.Cell>;
+            if(row.change.includes('-')){
+                //global color3
+                var prev = parseFloat(row.prev.replace(/,/g,""));
+                if (column.name == 'code') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table f-12 text-primary"}>{value}</Table.Cell>;
+                } else if (column.name == 'open') {
+                    var open = parseFloat(value.replace(/,/g,""));
+                    return <Table.Cell
+                        {...restProps}
+                        className={open < prev ? "grid-table f-12 text-danger" : open > prev ? "grid-table f-12 text-success" : "grid-table f-12 text-warning" }>{value}</Table.Cell>;
+                } else if (column.name == 'low') {
+                    var low = parseFloat(value.replace(/,/g,""));
+                    return <Table.Cell
+                        {...restProps}
+                        className={low < prev ? "grid-table f-12 text-danger" : low > prev ? "grid-table f-12 text-success" : "grid-table f-12 text-warning" }>{value}</Table.Cell>;
+                } else if (column.name == 'high') {
+                    var high = parseFloat(value.replace(/,/g,""));
+                    return <Table.Cell
+                        {...restProps}
+                        className={high < prev ? "grid-table f-12 text-danger" : high > prev ? "grid-table f-12 text-success" : "grid-table f-12 text-warning" }>{value}</Table.Cell>;
+                } else if (column.name == 'avg') {
+                    var avg = parseFloat(value.replace(/,/g,""));
+                    return <Table.Cell
+                        {...restProps}
+                        className={avg < prev ? "grid-table f-12 text-danger" : avg > prev ? "grid-table f-12 text-success" : "grid-table f-12 text-warning" }>{value}</Table.Cell>;
+                } else if (column.name == 'prev') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table f-12 text-warning "}>{value}</Table.Cell>;
+                } else if (column.name == 'last' || column.name == 'change'
+                    || column.name == 'persen'|| column.name == 'val'|| column.name == 'vol') {
+                    if(column.name == 'last'){
+                        return <Table.Cell
+                            {...restProps}
+                            className={"grid-table f-12 text-danger"}>{value} &nbsp;&nbsp;&nbsp; <i className="icofont icofont-caret-down"></i></Table.Cell>;
+                    } else{
+                        return <Table.Cell
+                            {...restProps}
+                            className={"grid-table f-12 text-danger"}>{value}</Table.Cell>;
+                    }
+                } else if (column.name == 'action') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table f-12"}>
+                        <div className="px-4">
+                            <button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button>
+                            <button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button>
+                        </div>
+                    </Table.Cell>;
+                } else {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table f-12"}>{value}</Table.Cell>;
+                }
+            } else if(row.change.includes('+')){
+                //global color
+                var prev = parseFloat(row.prev.replace(/,/g,""));
+                if (column.name == 'code') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table f-12 text-primary"}>{value}</Table.Cell>;
+                } else if (column.name == 'open') {
+                    var open = parseFloat(value.replace(/,/g,""));
+                    return <Table.Cell
+                        {...restProps}
+                        className={open < prev ? "grid-table f-12 text-danger" : open > prev ? "grid-table f-12 text-success" : "grid-table f-12 text-warning" }>{value}</Table.Cell>;
+                } else if (column.name == 'low') {
+                    var low = parseFloat(value.replace(/,/g,""));
+                    return <Table.Cell
+                        {...restProps}
+                        className={low < prev ? "grid-table f-12 text-danger" : low > prev ? "grid-table f-12 text-success" : "grid-table f-12 text-warning" }>{value}</Table.Cell>;
+                } else if (column.name == 'high') {
+                    var high = parseFloat(value.replace(/,/g,""));
+                    return <Table.Cell
+                        {...restProps}
+                        className={high < prev ? "grid-table f-12 text-danger" : high > prev ? "grid-table f-12 text-success" : "grid-table f-12 text-warning" }>{value}</Table.Cell>;
+                } else if (column.name == 'avg') {
+                    var avg = parseFloat(value.replace(/,/g,""));
+                    return <Table.Cell
+                        {...restProps}
+                        className={avg < prev ? "grid-table f-12 text-danger" : avg > prev ? "grid-table f-12 text-success" : "grid-table f-12 text-warning" }>{value}</Table.Cell>;
+                } else if (column.name == 'prev') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table f-12 text-warning "}>{value}</Table.Cell>;
+                } else if (column.name == 'last' || column.name == 'change'
+                    || column.name == 'persen'|| column.name == 'val'|| column.name == 'vol') {
+                    if(column.name == 'last'){
+                        return <Table.Cell
+                            {...restProps}
+                            className={"grid-table f-12 text-success"}>{value} &nbsp;&nbsp;&nbsp; <i className="icofont icofont-caret-up"></i></Table.Cell>;
+                    } else{
+                        return <Table.Cell
+                            {...restProps}
+                            className={"grid-table f-12 text-success"}>{value}</Table.Cell>;
+                    }
+                } else if (column.name == 'action') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table f-12"}>
+                        <div className="px-4">
+                            <button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button>
+                            <button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button>
+                        </div>
+                    </Table.Cell>;
+                } else {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table f-12"}>{value}</Table.Cell>;
+                }
+            } else{
+                //global color
+                var prev = parseFloat(row.prev.replace(/,/g,""));
+                if (column.name == 'code') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table f-12 text-primary"}>{value}</Table.Cell>;
+                } else if (column.name == 'open') {
+                    var open = parseFloat(value.replace(/,/g,""));
+                    return <Table.Cell
+                        {...restProps}
+                        className={open < prev ? "grid-table f-12 text-danger" : open > prev ? "grid-table f-12 text-success" : "grid-table f-12 text-warning" }>{value}</Table.Cell>;
+                } else if (column.name == 'low') {
+                    var low = parseFloat(value.replace(/,/g,""));
+                    return <Table.Cell
+                        {...restProps}
+                        className={low < prev ? "grid-table f-12 text-danger" : low > prev ? "grid-table f-12 text-success" : "grid-table f-12 text-warning" }>{value}</Table.Cell>;
+                } else if (column.name == 'high') {
+                    var high = parseFloat(value.replace(/,/g,""));
+                    return <Table.Cell
+                        {...restProps}
+                        className={high < prev ? "grid-table f-12 text-danger" : high > prev ? "grid-table f-12 text-success" : "grid-table f-12 text-warning" }>{value}</Table.Cell>;
+                } else if (column.name == 'avg') {
+                    var avg = parseFloat(value.replace(/,/g,""));
+                    return <Table.Cell
+                        {...restProps}
+                        className={avg < prev ? "grid-table f-12 text-danger" : avg > prev ? "grid-table f-12 text-success" : "grid-table f-12 text-warning" }>{value}</Table.Cell>;
+                } else if (column.name == 'prev') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table f-12 text-warning "}>{value}</Table.Cell>;
+                } else if (column.name == 'last' || column.name == 'change'
+                    || column.name == 'persen'|| column.name == 'val'|| column.name == 'vol') {
+                    if(column.name == 'last'){
+                        return <Table.Cell
+                            {...restProps}
+                            className={"grid-table f-12 text-warning"}>{value} &nbsp;&nbsp;&nbsp; <i className='fa fa-circle f-11'></i></Table.Cell>;
+                    } else{
+                        return <Table.Cell
+                            {...restProps}
+                            className={"grid-table f-12 text-warning"}>{value}</Table.Cell>;
+                    }
+                } else if (column.name == 'action') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table f-12"}>
+                        <div className="px-4">
+                            <button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button>
+                            <button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button>
+                        </div>
+                    </Table.Cell>;
+                } else {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table f-12"}>{value}</Table.Cell>;
+                }
             }
-            else if (column.name == 'prev') {
-                return <Table.Cell
-                    {...restProps}
-                    className={"grid-table f-12 text-warning "}>{value}</Table.Cell>;
-            }
-            else if (column.name == 'no' || column.name == 'freq' || column.name == 'fbuy' || column.name == 'fsell' || column.name == 'fnet') {
-                return <Table.Cell
-                    {...restProps}
-                    className={"grid-table f-12 text-white"}>{value}</Table.Cell>;
-            } else {
-                return <Table.Cell
-                    {...restProps}
-                    className={"grid-table f-12"}>{value}</Table.Cell>;
-            }
-        };
 
-        const TableRow = ({ row, ...restProps }) => {
-
-            return(
-                <Table.Row
-                    {...restProps}
-                    // eslint-disable-next-line no-alert
-                    className={row.change.includes('+') ? "text-success" :
-                        row.change.includes('-') ? "text-danger" : "text-warning"}
-                />
-            )
         };
 
         const { rows, columns, defaultColumnWidths, defaultHiddenColumnNames } = this.state;
@@ -1538,7 +1675,7 @@ class MarketStatistikGrid extends React.PureComponent {
                     />
                     <IntegratedSorting />
                     <DragDropProvider />
-                    <Table height={300} headComponent={HeadComponent} tableComponent={TableComponent} rowComponent={TableRow} cellComponent={Cell} columnExtensions={defaultColumnWidths} />
+                    <Table height={300} headComponent={HeadComponent} tableComponent={TableComponent} cellComponent={Cell} columnExtensions={defaultColumnWidths} />
                     <TableColumnResizing defaultColumnWidths={defaultColumnWidths} />
                     <TableColumnReordering
                         defaultOrder={['no', 'code', 'prev', 'last', 'change', 'persen', 'open', 'low', 'high', 'avg', 'val', 'vol', 'freq', 'fbuy', 'fsell', 'fnet', 'financial', 'action']}
@@ -1672,13 +1809,13 @@ class MarketIndicesGrid extends React.PureComponent {
             rows: [
                 {
                     sector : "AGRI",
-                    last : "1,450,000",
-                    change : "12,137",
+                    last : "1,450,595",
+                    change : "12,139",
                     persen : "12",
-                    prevclosed : "1,467.73",
-                    open : "4.323",
-                    high: "4,500",
-                    low : "4,100",
+                    prevclosed : "1,462,73",
+                    open : "1,462,73",
+                    high: "1,488,19",
+                    low : "1,450,07",
                     volume : "10,454,100",
                     value : "73,000,000,100",
                     fbuy : "6K",
@@ -1687,13 +1824,13 @@ class MarketIndicesGrid extends React.PureComponent {
                 },
                 {
                     sector : "BASIC-IND",
-                    last : "750,000",
-                    change : "12,137",
-                    persen : "12",
-                    prevclosed : "1,467.73",
-                    open : "4.323",
-                    high: "4,500",
-                    low : "4,100",
+                    last : "764,357",
+                    change : "8,727",
+                    persen : "8",
+                    prevclosed : "773,084",
+                    open : "773,084",
+                    high: "773,837",
+                    low : "765,718",
                     volume : "10,454,100",
                     value : "73,000,000,100",
                     fbuy : "6K",
@@ -1702,13 +1839,13 @@ class MarketIndicesGrid extends React.PureComponent {
                 },
                 {
                     sector : "CONSUMER",
-                    last : "750,000",
-                    change : "12,137",
-                    persen : "12",
-                    prevclosed : "1,467.73",
-                    open : "4.323",
-                    high: "4,500",
-                    low : "4,100",
+                    last : "2,401,342",
+                    change : "3,777",
+                    persen : "3",
+                    prevclosed : "2,405,119",
+                    open : "2,405,119",
+                    high: "2,420,738",
+                    low : "2,395,573",
                     volume : "10,454,100",
                     value : "73,000,000,100",
                     fbuy : "6K",
@@ -1717,13 +1854,13 @@ class MarketIndicesGrid extends React.PureComponent {
                 },
                 {
                     sector : "FINANCE",
-                    last : "750,000",
-                    change : "12,137",
-                    persen : "12",
-                    prevclosed : "1,467.73",
-                    open : "4.323",
-                    high: "4,500",
-                    low : "4,100",
+                    last : "1,289,866",
+                    change : "1,492",
+                    persen : "1",
+                    prevclosed : "1,291,358",
+                    open : "1,291,358",
+                    high: "1,291,937",
+                    low : "1,288,628",
                     volume : "10,454,100",
                     value : "73,000,000,100",
                     fbuy : "6K",
@@ -1732,13 +1869,13 @@ class MarketIndicesGrid extends React.PureComponent {
                 },
                 {
                     sector : "INFRASTUCTUR",
-                    last : "750,000",
-                    change : "-10,137",
-                    persen : "-2.10",
-                    prevclosed : "1,467.73",
-                    open : "4.323",
-                    high: "4,500",
-                    low : "4,100",
+                    last : "1,184,857",
+                    change : "6,146",
+                    persen : "6",
+                    prevclosed : "1,191,003",
+                    open : "1,191,003",
+                    high: "1,198,257",
+                    low : "1,188,002",
                     volume : "10,454,100",
                     value : "73,000,000,100",
                     fbuy : "6K",
@@ -1747,13 +1884,13 @@ class MarketIndicesGrid extends React.PureComponent {
                 },
                 {
                     sector : "MINING",
-                    last : "750,000",
-                    change : "12,137",
-                    persen : "12",
-                    prevclosed : "1,467.73",
-                    open : "4.323",
-                    high: "4,500",
-                    low : "4,100",
+                    last : "16,452",
+                    change : "84,267",
+                    persen : "8",
+                    prevclosed : "1,729,467",
+                    open : "1,729,467",
+                    high: "1,729,911",
+                    low : "1,646,26",
                     volume : "10,454,100",
                     value : "73,000,000,100",
                     fbuy : "6K",
@@ -1762,13 +1899,13 @@ class MarketIndicesGrid extends React.PureComponent {
                 },
                 {
                     sector : "MISC-IND",
-                    last : "750,000",
-                    change : "-10,137",
-                    persen : "-2.10",
-                    prevclosed : "1,467.73",
-                    open : "4.323",
-                    high: "4,500",
-                    low : "4,100",
+                    last : "1,275,075",
+                    change : "-1,017",
+                    persen : "-1",
+                    prevclosed : "1,274,058",
+                    open : "1,274,058",
+                    high: "1,283,462",
+                    low : "1,261,231",
                     volume : "10,454,100",
                     value : "73,000,000,100",
                     fbuy : "6K",
@@ -1777,13 +1914,13 @@ class MarketIndicesGrid extends React.PureComponent {
                 },
                 {
                     sector : "PROPERTY",
-                    last : "750,000",
-                    change : "12,137",
-                    persen : "12",
-                    prevclosed : "1,467.73",
-                    open : "4.323",
-                    high: "4,500",
-                    low : "4,100",
+                    last : "4,883",
+                    change : "-1,769",
+                    persen : "-17",
+                    prevclosed : "486,531",
+                    open : "486,531",
+                    high: "491,971",
+                    low : "485,299",
                     volume : "10,454,100",
                     value : "73,000,000,100",
                     fbuy : "6K",
@@ -1792,13 +1929,13 @@ class MarketIndicesGrid extends React.PureComponent {
                 },
                 {
                     sector : "TRADE",
-                    last : "750,000",
-                    change : "12,137",
-                    persen : "12",
-                    prevclosed : "1,467.73",
-                    open : "4.323",
-                    high: "4,500",
-                    low : "4,100",
+                    last : "799,128",
+                    change : "3,053",
+                    persen : "3",
+                    prevclosed : "802,181",
+                    open : "802,181",
+                    high: "803,575",
+                    low : "798,562",
                     volume : "10,454,100",
                     value : "73,000,000,100",
                     fbuy : "6K",
@@ -1892,38 +2029,72 @@ class MarketIndicesGrid extends React.PureComponent {
             </Table.Cell>
         );
 
-        const Cell = ({ column, value, style, ...restProps }) => {
+        const Cell = ({ row, column, value, style, ...restProps }) => {
             //global color
-            if (column.name == 'sector') {
-                return <Table.Cell
-                    {...restProps}
-                    className={"grid-table f-12 text-primary"}>{value}</Table.Cell>;
-            }
-            else if (column.name == 'open') {
-                return <Table.Cell
-                    {...restProps}
-                    className={"grid-table f-12 text-warning "}>{value}</Table.Cell>;
-            }
-            else if (column.name == 'value' || column.name == 'volume' || column.name == 'fbuy' || column.name == 'fsell' || column.name == 'fnet') {
-                return <Table.Cell
-                    {...restProps}
-                    className={"grid-table f-12 text-white"}>{value}</Table.Cell>;
-            } else {
-                return <Table.Cell
-                    {...restProps}
-                    className={"grid-table f-12"}>{value}</Table.Cell>;
-            }
-        };
 
-        const TableRow = ({ row, ...restProps }) => {
-
-            return(
-                <Table.Row
-                    {...restProps}
-                    // eslint-disable-next-line no-alert
-                    className={row.change.includes('-') ? "text-danger" : "text-success"}
-                />
-            )
+            if(row.change.includes('-')){
+                var prevclosed = parseFloat(row.prevclosed.replace(/,/g,""));
+                if (column.name == 'sector') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table f-12 text-primary"}>{value}</Table.Cell>;
+                } else if (column.name == 'open') {
+                    var open = parseFloat(value.replace(/,/g,""));
+                    return <Table.Cell
+                        {...restProps}
+                        className={open < prevclosed ? "grid-table f-12 text-danger" : open > prevclosed ? "grid-table f-12 text-success" : "grid-table f-12 text-warning"}>{value}</Table.Cell>;
+                } else if (column.name == 'high') {
+                    var high = parseFloat(value.replace(/,/g,""));
+                    return <Table.Cell
+                        {...restProps}
+                        className={high < prevclosed ? "grid-table f-12 text-danger" : high > prevclosed ? "grid-table f-12 text-success" : "grid-table f-12 text-warning"}>{value}</Table.Cell>;
+                } else if (column.name == 'low') {
+                    var low = parseFloat(value.replace(/,/g,""));
+                    return <Table.Cell
+                        {...restProps}
+                        className={low < prevclosed ? "grid-table f-12 text-danger" : low > prevclosed ? "grid-table f-12 text-success" : "grid-table f-12 text-warning"}>{value}</Table.Cell>;
+                } else if (column.name == 'last' || column.name == 'change'
+                    || column.name == 'persen'|| column.name == 'prevclosed') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table f-12 text-danger"}>{value}</Table.Cell>;
+                } else {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table f-12"}>{value}</Table.Cell>;
+                }
+            } else{
+                var prevclosed = parseFloat(row.prevclosed.replace(/,/g,""));
+                if (column.name == 'sector') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table f-12 text-primary"}>{value}</Table.Cell>;
+                } else if (column.name == 'open') {
+                    var open = parseFloat(value.replace(/,/g,""));
+                    return <Table.Cell
+                        {...restProps}
+                        className={open < prevclosed ? "grid-table f-12 text-danger" : open > prevclosed ? "grid-table f-12 text-success" : "grid-table f-12 text-warning"}>{value}</Table.Cell>;
+                } else if (column.name == 'high') {
+                    var high = parseFloat(value.replace(/,/g,""));
+                    return <Table.Cell
+                        {...restProps}
+                        className={high < prevclosed ? "grid-table f-12 text-danger" : high > prevclosed ? "grid-table f-12 text-success" : "grid-table f-12 text-warning"}>{value}</Table.Cell>;
+                } else if (column.name == 'low') {
+                    var low = parseFloat(value.replace(/,/g,""));
+                    return <Table.Cell
+                        {...restProps}
+                        className={low < prevclosed ? "grid-table f-12 text-danger" : low > prevclosed ? "grid-table f-12 text-success" : "grid-table f-12 text-warning"}>{value}</Table.Cell>;
+                } else if (column.name == 'last' || column.name == 'change'
+                    || column.name == 'persen'|| column.name == 'prevclosed') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table f-12 text-success"}>{value}</Table.Cell>;
+                } else {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table f-12"}>{value}</Table.Cell>;
+                }
+            }
         };
 
         const { rows, columns, defaultColumnWidths, defaultHiddenColumnNames } = this.state;
@@ -1937,7 +2108,7 @@ class MarketIndicesGrid extends React.PureComponent {
                     />
                     <IntegratedSorting />
                     <DragDropProvider />
-                    <Table height={300} headComponent={HeadComponent} tableComponent={TableComponent} rowComponent={TableRow} cellComponent={Cell} columnExtensions={defaultColumnWidths} />
+                    <Table height={300} headComponent={HeadComponent} tableComponent={TableComponent} cellComponent={Cell} columnExtensions={defaultColumnWidths} />
                     <TableColumnResizing defaultColumnWidths={defaultColumnWidths} />
                     <TableColumnReordering
                         defaultOrder={['sector', 'last', 'change', 'persen', 'prevclosed', 'open', 'high', 'low', 'volume', 'value', 'fbuy', 'fsell', 'fnet']}

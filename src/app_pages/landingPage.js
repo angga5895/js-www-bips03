@@ -630,138 +630,138 @@ class PortofolioGrid extends React.PureComponent {
             }],
             rows: [
                 { code: "AALI",
-                    avgprice: <div className="text-danger">12,650</div>,
+                    avgprice: "12,650",
                     lastprice: "12,650",
                     lot: "12",
                     shares: "122",
                     stockval: "12,650,000",
-                    pl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -60,240 &nbsp; -0,40%</div>,
-                    remark: <i class="fa fa-info-circle text-danger" id="ptooltip1" data-tip data-for='errorTooltip'></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},
+                    pl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    remark: ""   ,
+                    action:""   },
                 { code: "ADHI",
-                    avgprice: <div className="text-danger">1,529</div>,
+                    avgprice: "1,529",
                     lastprice: "1,429",
                     lot: "10",
                     shares: "100",
                     stockval: "1,529,000",
-                    pl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -15,000 &nbsp; -1,50%</div>,
-                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1" data-tip data-for='infoTooltip'></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},
+                    pl: "-15,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-1,50%",
+                    remark: ""   ,
+                    action:""   },
                 { code: "ANTM",
-                    avgprice: <div className="text-danger">1,025</div>,
+                    avgprice: "1,025",
                     lastprice: "1,025",
                     lot: "2",
                     shares: "210",
                     stockval: "1,025,000",
-                    pl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -25,000 &nbsp; -2,50%</div>,
-                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1" data-tip data-for='infoTooltip'></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},
+                    pl: "-25,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-2,50%",
+                    remark: ""   ,
+                    action:""   },
                 { code: "ASII",
-                    avgprice: <div className="text-danger">7,125</div>,
+                    avgprice: "7,125",
                     lastprice: "7,125",
                     lot: "9",
                     shares: "930",
                     stockval: "7,125,000",
-                    pl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -50,000 &nbsp; -5,78%</div>,
-                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1" data-tip data-for='infoTooltip'></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},
+                    pl: "-50,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-5,78%",
+                    remark: ""   ,
+                    action:""   },
                 { code: "BBCA",
-                    avgprice: <div className="text-success">27,400</div>,
+                    avgprice: "27,400",
                     lastprice: "27,400",
                     lot: "4",
                     shares: "410",
                     stockval: "27,400,000",
-                    pl: <div className="text-success"><i className="icofont icofont-caret-down"></i>&nbsp; +250,650 &nbsp; +2,50%</div>,
-                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1" data-tip data-for='infoTooltip'></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},{ code: "AALI",
-                    avgprice: <div className="text-danger">12,650</div>,
+                    pl: "+250,650"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"+2,50%",
+                    remark: ""   ,
+                    action:""   },{ code: "AALI",
+                    avgprice: "12,650",
                     lastprice: "12,650",
                     lot: "12",
                     shares: "122",
                     stockval: "12,650,000",
-                    pl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -60,240 &nbsp; -0,40%</div>,
-                    remark: <i class="fa fa-info-circle text-danger" id="ptooltip1" data-tip data-for='errorTooltip'></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},
+                    pl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    remark: ""   ,
+                    action:""   },
                 { code: "ADHI",
-                    avgprice: <div className="text-danger">1,529</div>,
+                    avgprice: "1,529",
                     lastprice: "1,429",
                     lot: "10",
                     shares: "100",
                     stockval: "1,529,000",
-                    pl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -15,000 &nbsp; -1,50%</div>,
-                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1" data-tip data-for='infoTooltip'></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},
+                    pl: "-15,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-1,50%",
+                    remark: ""   ,
+                    action:""   },
                 { code: "ANTM",
-                    avgprice: <div className="text-danger">1,025</div>,
+                    avgprice: "1,025",
                     lastprice: "1,025",
                     lot: "2",
                     shares: "210",
                     stockval: "1,025,000",
-                    pl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -25,000 &nbsp; -2,50%</div>,
-                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1" data-tip data-for='infoTooltip'></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},
+                    pl: "-25,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-2,50%",
+                    remark: ""   ,
+                    action:""   },
                 { code: "ASII",
-                    avgprice: <div className="text-danger">7,125</div>,
+                    avgprice: "7,125",
                     lastprice: "7,125",
                     lot: "9",
                     shares: "930",
                     stockval: "7,125,000",
-                    pl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -50,000 &nbsp; -5,78%</div>,
-                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1" data-tip data-for='infoTooltip'></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},
+                    pl: "-50,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-5,78%",
+                    remark: ""   ,
+                    action:""   },
                 { code: "BBCA",
-                    avgprice: <div className="text-success">27,400</div>,
+                    avgprice: "27,400",
                     lastprice: "27,400",
                     lot: "4",
                     shares: "410",
                     stockval: "27,400,000",
-                    pl: <div className="text-success"><i className="icofont icofont-caret-down"></i>&nbsp; +250,650 &nbsp; +2,50%</div>,
-                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1" data-tip data-for='infoTooltip'></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},{ code: "AALI",
-                    avgprice: <div className="text-danger">12,650</div>,
+                    pl: "+250,650"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"+2,50%",
+                    remark: ""   ,
+                    action:""   },{ code: "AALI",
+                    avgprice: "12,650",
                     lastprice: "12,650",
                     lot: "12",
                     shares: "122",
                     stockval: "12,650,000",
-                    pl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -60,240 &nbsp; -0,40%</div>,
-                    remark: <i class="fa fa-info-circle text-danger" id="ptooltip1" data-tip data-for='errorTooltip'></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},
+                    pl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    remark: "",
+                    action:""   },
                 { code: "ADHI",
-                    avgprice: <div className="text-danger">1,529</div>,
+                    avgprice: "1,529",
                     lastprice: "1,429",
                     lot: "10",
                     shares: "100",
                     stockval: "1,529,000",
-                    pl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -15,000 &nbsp; -1,50%</div>,
-                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1" data-tip data-for='infoTooltip'></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},
+                    pl: "-15,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-1,50%",
+                    remark: ""   ,
+                    action:""   },
                 { code: "ANTM",
-                    avgprice: <div className="text-danger">1,025</div>,
+                    avgprice: "1,025",
                     lastprice: "1,025",
                     lot: "2",
                     shares: "210",
                     stockval: "1,025,000",
-                    pl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -25,000 &nbsp; -2,50%</div>,
-                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1" data-tip data-for='infoTooltip'></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},
+                    pl: "-25,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-2,50%",
+                    remark: "",
+                    action: ""},
                 { code: "ASII",
-                    avgprice: <div className="text-danger">7,125</div>,
+                    avgprice: "7,125",
                     lastprice: "7,125",
                     lot: "9",
                     shares: "930",
                     stockval: "7,125,000",
-                    pl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -50,000 &nbsp; -5,78%</div>,
-                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1" data-tip data-for='infoTooltip'></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},
+                    pl: "-50,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-5,78%",
+                    remark: ""   ,
+                    action:""   },
                 { code: "BBCA",
-                    avgprice: <div className="text-success">27,400</div>,
+                    avgprice: "27,400",
                     lastprice: "27,400",
                     lot: "4",
                     shares: "410",
                     stockval: "27,400,000",
-                    pl: <div className="text-success"><i className="icofont icofont-caret-down"></i>&nbsp; +250,650 &nbsp; +2,50%</div>,
-                    remark: <i class="fa fa-info-circle text-info" id="ptooltip1" data-tip data-for='infoTooltip'></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button><button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button></div>},
+                    pl: "+250,650"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"+2,50%",
+                    remark: ""   ,
+                    action:""   },
             ],
             defaultColumnWidths: [
                 { columnName: 'code', align:'center', width: this.props.gridView == 'grid' ? 10 : 135},
@@ -837,10 +837,82 @@ class PortofolioGrid extends React.PureComponent {
             </Table.Cell>
         );
 
-        const Cell = (props) => {
-            const { column } = props;
-            return <HighlightedCell {...props} />;
-            return <Table.Cell {...props} />;
+        const Cell = ({ row, column, value, style, ...restProps }) => {
+            //compare
+
+            if(row.pl.includes('-') === true) {
+                //global color
+                if (column.name == 'avgprice') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"text-danger t-border-bottom grid-table " + this.props.classView}>{value}&nbsp;&nbsp;&nbsp;
+                        <i className="icofont icofont-caret-down text-danger"></i></Table.Cell>;
+                } else if (column.name == 'pl') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"text-danger t-border-bottom grid-table " + this.props.classView}>{value}</Table.Cell>;
+                } else if (column.name == 'action') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"t-border-bottom grid-table " + this.props.classView}>
+                        <div className="px-4">
+                            <button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button>
+                            <button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button>
+                        </div>
+                    </Table.Cell>;
+                } else if (column.name == 'remark') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"t-border-bottom grid-table " + this.props.classView}>
+                        {
+                            (row.code.includes('AALI') === true ?
+                                <i className="fa fa-info-circle text-danger" id="ptooltip1" data-tip data-for='errorTooltip'></i> :
+                                <i className="fa fa-info-circle text-info" id="ptooltip1" data-tip data-for='infoTooltip'></i>)
+                        }
+                    </Table.Cell>;
+                } else {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"t-border-bottom grid-table " + this.props.classView}>{value}</Table.Cell>;
+
+                }
+            } else{
+                //global color
+                if (column.name == 'avgprice') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"text-success t-border-bottom grid-table " + this.props.classView}>{value} &nbsp;&nbsp;&nbsp;
+                        <i className="icofont icofont-caret-up text-success"></i></Table.Cell>;
+                } else if (column.name == 'pl') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"text-success t-border-bottom grid-table " + this.props.classView}>{value}</Table.Cell>;
+                } else if (column.name == 'action') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"t-border-bottom grid-table " + this.props.classView}>
+                        <div className="px-4">
+                            <button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy more</button>
+                            <button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button>
+                        </div>
+                    </Table.Cell>;
+                } else if (column.name == 'remark') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"t-border-bottom grid-table " + this.props.classView}>
+                        {
+                            (row.code.includes('AALI') === true ?
+                                <i className="fa fa-info-circle text-danger" id="ptooltip1" data-tip data-for='errorTooltip'></i> :
+                                <i className="fa fa-info-circle text-info" id="ptooltip1" data-tip data-for='infoTooltip'></i>)
+                        }
+                    </Table.Cell>;
+                } else {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"t-border-bottom grid-table " + this.props.classView}>{value}</Table.Cell>;
+
+                }
+            }
         };
 
         const { rows, columns, defaultColumnWidths, defaultHiddenColumnNames, colspan } = this.state;
@@ -955,12 +1027,12 @@ class OrderListGrid extends React.PureComponent {
                 ],
             }],
             rows: [
-                {order :<div className="text-primary click-pointer" onClick={props.clickorderdetail}>001682</div>,
+                {order : "001682",
                     marketorder :"MKT021",
-                    code :<div className="text-primary">AALI</div>,
-                    cmd :<div className="text-danger">BUY</div>,
+                    code : "AALI",
+                    cmd : "BUY",
                     status :"Done",
-                    remark : <div><i className="fa fa-check text-success"></i> &nbsp;&nbsp; Amended</div>,
+                    remark : "Amended",
                     type :"Day",
                     mkt :"RG",
                     vlot :"10",
@@ -971,13 +1043,13 @@ class OrderListGrid extends React.PureComponent {
                     avgmatchprice :"12,625",
                     amount :"12,625,000",
                     time :"11:22:17",
-                    action:<div className="px-4"><button className="btn btn-sm btn-primary mx-1 f-9 w-50" onClick={props.clickamend}>Amend</button><button className="btn btn-sm btn-brown mx-1 f-9 w-50" onClick={props.clickwithdraw}>Withdraw</button></div>},
-                {order :<div className="text-primary click-pointer" onClick={props.clickorderdetail}>001681</div>,
+                    action: "",},
+                {order : "001681",
                     marketorder :"-",
-                    code :<div className="text-primary">AALI</div>,
-                    cmd :<div className="text-success">SELL</div>,
+                    code : "AALI",
+                    cmd : "SELL",
                     status :"Sending...",
-                    remark : <div><i className="fas fa-hourglass-half text-tosca"></i> &nbsp;&nbsp; to Server</div>,
+                    remark : "to Server",
                     type :"Day",
                     mkt :"RG",
                     vlot :"10",
@@ -988,13 +1060,13 @@ class OrderListGrid extends React.PureComponent {
                     avgmatchprice :"12,650",
                     amount :"12,650,000",
                     time :"11:22:10",
-                    action:<div className="px-4"><button className="btn btn-sm btn-primary mx-1 f-9 w-50" onClick={props.clickamend}>Amend</button><button className="btn btn-sm btn-brown mx-1 f-9 w-50" onClick={props.clickwithdraw}>Withdraw</button></div>},
-                {order :<div className="text-primary click-pointer" onClick={props.clickorderdetail}>001680</div>,
+                    action: "",},
+                {order : "001680",
                     marketorder :"MKT012",
-                    code :<div className="text-primary">AALI</div>,
-                    cmd :<div className="text-success">SELL</div>,
+                    code : "AALI",
+                    cmd : "SELL",
                     status :"Done",
-                    remark : <div><i className="fa fa-check text-success"></i> &nbsp;&nbsp;</div>,
+                    remark : "",
                     type :"Day",
                     mkt :"RG",
                     vlot :"10",
@@ -1005,13 +1077,13 @@ class OrderListGrid extends React.PureComponent {
                     avgmatchprice :"12,650",
                     amount :"12,650,000",
                     time :"11:20:17",
-                    action:<div className="px-4"><button className="btn btn-sm btn-primary mx-1 f-9 w-50" onClick={props.clickamend}>Amend</button><button className="btn btn-sm btn-brown mx-1 f-9 w-50" onClick={props.clickwithdraw}>Withdraw</button></div>},
-                {order :<div className="text-primary click-pointer" onClick={props.clickorderdetail}>001679</div>,
+                    action: "",},
+                {order : "001679",
                     marketorder :"MKT010",
-                    code :<div className="text-primary">AALI</div>,
-                    cmd :<div className="text-danger">BUY</div>,
+                    code : "AALI",
+                    cmd : "BUY",
                     status :"Partial",
-                    remark : <div><i className="fa fa-check text-success"></i> &nbsp;&nbsp; Amended</div>,
+                    remark : "Amended",
                     type :"Day",
                     mkt :"RG",
                     vlot :"15",
@@ -1022,13 +1094,13 @@ class OrderListGrid extends React.PureComponent {
                     avgmatchprice :"12,650",
                     amount :"12,650,000",
                     time :"11:19:17",
-                    action:<div className="px-4"><button className="btn btn-sm btn-primary mx-1 f-9 w-50" onClick={props.clickamend}>Amend</button><button className="btn btn-sm btn-brown mx-1 f-9 w-50" onClick={props.clickwithdraw}>Withdraw</button></div>},
-                {order :<div className="text-primary click-pointer" onClick={props.clickorderdetail}>001678</div>,
+                    action: "",},
+                {order : "001678",
                     marketorder :"MKT009",
-                    code :<div className="text-primary">BBCA</div>,
-                    cmd :<div className="text-danger">BUY</div>,
+                    code : "BBCA",
+                    cmd : "BUY",
                     status :"Open",
-                    remark : <div><i className="fa fa-check text-success"></i> &nbsp;&nbsp; Amended</div>,
+                    remark : "Amended",
                     type :"Day",
                     mkt :"RG",
                     vlot :"8",
@@ -1039,7 +1111,7 @@ class OrderListGrid extends React.PureComponent {
                     avgmatchprice :"29,500",
                     amount :"23,600,000",
                     time :"11:10:12",
-                    action:<div className="px-4"><button className="btn btn-sm btn-primary mx-1 f-9 w-50" onClick={props.clickamend}>Amend</button><button className="btn btn-sm btn-brown mx-1 f-9 w-50" onClick={props.clickwithdraw}>Withdraw</button></div>},
+                    action: "",},
             ],
             defaultColumnWidths: [
                 { columnName: "order", align:'center', width: this.props.gridView == 'grid' ? 10 : 135},
@@ -1123,10 +1195,49 @@ class OrderListGrid extends React.PureComponent {
             </Table.Cell>
         );
 
-        const Cell = (props) => {
-            const { column } = props;
-            return <HighlightedCell {...props} />;
-            return <Table.Cell {...props} />;
+        const Cell = ({ row, column, value, style, ...restProps }) => {
+            //compare
+
+                //global color
+                if (column.name == 'order') {
+                    return <Table.Cell
+                        {...restProps}
+                        onClick={this.props.clickorderdetail} className={"text-primary grid-table click-pointer "+this.props.classView}>{value}</Table.Cell>;
+                } else if (column.name == 'code') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"text-primary grid-table "+this.props.classView}>{value}</Table.Cell>;
+                } else if (column.name == 'action') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table " + this.props.classView}>
+                        <div className="px-4">
+                            <button className="btn btn-sm btn-primary mx-1 f-9 w-50" onClick={this.props.clickamend}>Amend</button>
+                            <button className="btn btn-sm btn-brown mx-1 f-9 w-50" onClick={this.props.clickwithdraw}>Withdraw</button>
+                        </div>
+                    </Table.Cell>;
+                } else if (column.name == 'cmd') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={value == 'BUY' ? "grid-table text-danger " + this.props.classView : "grid-table text-success " + this.props.classView}>
+                            {value}
+                        </Table.Cell>;
+                } else if (column.name == 'remark') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table " + this.props.classView}>
+                        {
+                            (row.status.includes('Sending') === true ?
+                                <div><i className="fas fa-hourglass-half text-tosca"></i> &nbsp;&nbsp; {value}</div>:
+                                <div><i className="fa fa-check text-success"></i> &nbsp;&nbsp; {value}</div> )
+                        }
+                    </Table.Cell>;
+                } else {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table " + this.props.classView}>{value}</Table.Cell>;
+
+                }
         };
 
         const { rows, columns, defaultColumnWidths, defaultHiddenColumnNames, colspan } = this.state;
@@ -1214,42 +1325,42 @@ class MutualFundGrid extends React.PureComponent {
                 { name: "action", title: "Action" },
             ],
             rows: [
-                { code: <div><span class="font-weight-bold">000D7Q</span><br /><span>RDPT BUMN Fund...</span></div>,
+                { code: "000D7Q-RDPT BUMN Fund...",
                     nav: "12,650",
                     navdate: "06/03/2019",
                     currency: "12,650,000",
-                    potentialpl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -60,240 &nbsp; -0,40%</div>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy Fund</button><button className="btn btn-sm btn-primary mx-1 f-9 w-50">Redemption</button></div>},
-                { code: <div><span class="font-weight-bold">000D7T</span><br /><span>Reksa Dana Penyataan...</span></div>,
+                    potentialpl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    action:""},
+                { code: "000D7T-Reksa Dana Penyataan...",
                     nav: "1,529",
                     navdate: "06/03/2019",
                     currency: "1,529,000",
-                    potentialpl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -15,000 &nbsp; -1,50%</div>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy Fund</button><button className="btn btn-sm btn-primary mx-1 f-9 w-50">Redemption</button></div>},
-                { code: <div><span className="font-weight-bold">000D7Q</span><br/><span>RDPT BUMN Fund...</span></div>,
+                    potentialpl: "-15,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-1,50%",
+                    action:""},
+                { code: "000D7Q-RDPT BUMN Fund...",
                     nav: "1,025",
                     navdate: "06/03/2019",
                     currency: "1,025,000",
-                    potentialpl: <div className="text-success"><i className="icofont icofont-caret-up"></i>&nbsp; +250,660 &nbsp; +2,50%</div>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy Fund</button><button className="btn btn-sm btn-primary mx-1 f-9 w-50">Redemption</button></div>},
-                { code: <div><span className="font-weight-bold">000D7T</span><br/><span>Reksa Dana Penyataan...</span></div>,
+                    potentialpl: "+250,660"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"+2,50%",
+                    action:""},
+                { code: "000D7T-Reksa Dana Penyataan...",
                     nav: "7,125",
                     navdate: "06/03/2019",
                     currency: "7,125,000",
-                    potentialpl: <div className="text-success"><i className="icofont icofont-caret-up"></i>&nbsp; +175 &nbsp; +1,75%</div>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy Fund</button><button className="btn btn-sm btn-primary mx-1 f-9 w-50">Redemption</button></div>},
-                { code: <div><span className="font-weight-bold">000D7Q</span><br/><span>RDPT BUMN Fund...</span></div>,
+                    potentialpl: "+175"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"+1,75%",
+                    action:""},
+                { code: "000D7Q-RDPT BUMN Fund...",
                     nav: "12,650",
                     navdate: "06/03/2019",
                     currency: "12,650,000",
-                    potentialpl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -60,240 &nbsp; -0,40%</div>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy Fund</button><button className="btn btn-sm btn-primary mx-1 f-9 w-50">Redemption</button></div>},
-                { code: <div><span className="font-weight-bold">000D7T</span><br/><span>Reksa Dana Penyataan...</span></div>,
+                    potentialpl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    action:""},
+                { code: "000D7T-Reksa Dana Penyataan...",
                     nav: "1,529",
                     navdate: "06/03/2019",
                     currency: "1,529,000",
-                    potentialpl: <div className="text-danger"><i className="icofont icofont-caret-down"></i>&nbsp; -15,000 &nbsp; -1,50%</div>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy Fund</button><button className="btn btn-sm btn-primary mx-1 f-9 w-50">Redemption</button></div>},
+                    potentialpl: "-15,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-1,50%",
+                    action:""},
             ],
             defaultColumnWidths: [
                 { columnName: "code", align:'left', width: this.props.gridView == 'grid' ? 10 : 200},
@@ -1322,10 +1433,86 @@ class MutualFundGrid extends React.PureComponent {
             </Table.Cell>
         );
 
-        const Cell = (props) => {
-            const { column } = props;
-            return <HighlightedCell {...props} />;
-            return <Table.Cell {...props} />;
+        const Cell = ({ row, column, value, style, ...restProps }) => {
+            //compare
+
+            if(row.potentialpl.includes('-') === true){
+                //global color
+                if (column.name == 'code') {
+                    var data = value.split('-');
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table "+this.props.classView}>
+                        <span className="font-weight-bold">{data[0]}</span>
+                        <br /><span>{data[1]}</span>
+                    </Table.Cell>;
+                } else if (column.name == 'currency') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table "+this.props.classView}>
+                        {value} &nbsp;&nbsp;&nbsp; <i className="icofont icofont-caret-down text-danger"></i>
+                    </Table.Cell>;
+                } else if (column.name == 'potentialpl') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={value.includes('-') === true ? "text-danger grid-table "+this.props.classView : "text-success grid-table "+this.props.classView}>
+                        {value}
+                    </Table.Cell>;
+                } else if (column.name == 'action') {
+                    var data = value.split('-');
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table "+this.props.classView}>
+                        <div className="px-4">
+                            <button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy Fund</button>
+                            <button className="btn btn-sm btn-primary mx-1 f-9 w-50">Redemption</button>
+                        </div>
+                    </Table.Cell>;
+                } else {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table " + this.props.classView}>{value}</Table.Cell>;
+
+                }
+            } else {
+                //global color
+                if (column.name == 'code') {
+                    var data = value.split('-');
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table "+this.props.classView}>
+                        <span className="font-weight-bold">{data[0]}</span>
+                        <br /><span>{data[1]}</span>
+                    </Table.Cell>;
+                } else if (column.name == 'currency') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table "+this.props.classView}>
+                        {value} &nbsp;&nbsp;&nbsp; <i className="icofont icofont-caret-up text-success"></i>
+                    </Table.Cell>;
+                } else if (column.name == 'potentialpl') {
+                    return <Table.Cell
+                        {...restProps}
+                        className={value.includes('-') === true ? "text-danger grid-table "+this.props.classView : "text-success grid-table "+this.props.classView}>
+                        {value}
+                    </Table.Cell>;
+                } else if (column.name == 'action') {
+                    var data = value.split('-');
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table "+this.props.classView}>
+                        <div className="px-4">
+                            <button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy Fund</button>
+                            <button className="btn btn-sm btn-primary mx-1 f-9 w-50">Redemption</button>
+                        </div>
+                    </Table.Cell>;
+                } else {
+                    return <Table.Cell
+                        {...restProps}
+                        className={"grid-table " + this.props.classView}>{value}</Table.Cell>;
+
+                }
+            }
         };
 
         const { rows, columns, defaultColumnWidths, defaultHiddenColumnNames, colspan } = this.state;
@@ -1417,56 +1604,56 @@ class FixedIncomeGrid extends React.PureComponent {
                     coupon: "8,0%",
                     couponpdate: "date 20 every month",
                     duedate: "02 Jan 2021",
-                    detail: <i class="fa fa-search click-pointer text-danger"></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy more</button><button className="btn btn-sm btn-primary mx-1 f-9 w-50">Redemption</button></div>},
+                    detail: "",
+                    action: ""},
                 { no: "2",
                     serial: "SUNMP16042019",
                     nominal: "5,000,000",
                     coupon: "7,0%",
                     couponpdate: "date 21 every month",
                     duedate: "03 Jan 2021",
-                    detail: <i class="fa fa-search click-pointer text-danger"></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy more</button><button className="btn btn-sm btn-primary mx-1 f-9 w-50">Redemption</button></div>},
+                    detail: "",
+                    action: ""},
                 { no: "3",
                     serial: "SUNMP17042019",
                     nominal: "2,000,000",
                     coupon: "5,0%",
                     couponpdate: "date 22 every month",
                     duedate: "04 Jan 2021",
-                    detail: <i class="fa fa-search click-pointer text-danger"></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy more</button><button className="btn btn-sm btn-primary mx-1 f-9 w-50">Redemption</button></div>},
+                    detail: "",
+                    action: ""},
                 { no: "4",
                     serial: "SUNMP18042019",
                     nominal: "6,000,000",
                     coupon: "8,0%",
                     couponpdate: "date 23 every month",
                     duedate: "05 Jan 2021",
-                    detail: <i class="fa fa-search click-pointer text-danger"></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy more</button><button className="btn btn-sm btn-primary mx-1 f-9 w-50">Redemption</button></div>},
+                    detail: "",
+                    action: ""},
                 { no: "5",
                     serial: "SUNMP19042019",
                     nominal: "4,000,000",
                     coupon: "9,0%",
                     couponpdate: "date 24 every month",
                     duedate: "06 Jan 2021",
-                    detail: <i class="fa fa-search click-pointer text-danger"></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy more</button><button className="btn btn-sm btn-primary mx-1 f-9 w-50">Redemption</button></div>},
+                    detail: "",
+                    action: ""},
                 { no: "6",
                     serial: "SUNMP20042019",
                     nominal: "12,000,000",
                     coupon: "6,0%",
                     couponpdate: "date 25 every month",
                     duedate: "07 Jan 2021",
-                    detail: <i class="fa fa-search click-pointer text-danger"></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy more</button><button className="btn btn-sm btn-primary mx-1 f-9 w-50">Redemption</button></div>},
+                    detail: "",
+                    action: ""},
                 { no: "7",
                     serial: "SUNMP21042019",
                     nominal: "10,000,000",
                     coupon: "6,0%",
                     couponpdate: "date 26 every month",
                     duedate: "08 Jan 2021",
-                    detail: <i class="fa fa-search click-pointer text-danger"></i>,
-                    action:<div className="px-4"><button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy more</button><button className="btn btn-sm btn-primary mx-1 f-9 w-50">Redemption</button></div>},
+                    detail: "",
+                    action: ""},
             ],
             defaultColumnWidths: [
                 { columnName: "no", align:'center', width: this.props.gridView == 'grid' ? 10 : 140},
@@ -1541,10 +1728,30 @@ class FixedIncomeGrid extends React.PureComponent {
             </Table.Cell>
         );
 
-        const Cell = (props) => {
-            const { column } = props;
-            return <HighlightedCell {...props} />;
-            return <Table.Cell {...props} />;
+        const Cell = ({ row, column, value, style, ...restProps }) => {
+            //compare
+
+            //global color
+            if (column.name == 'detail') {
+                return <Table.Cell
+                    {...restProps}
+                    className={"grid-table "+this.props.classView}><i
+                    className="fa fa-search click-pointer text-danger"></i></Table.Cell>;
+            } else if (column.name == 'action') {
+                return <Table.Cell
+                    {...restProps}
+                    className={"grid-table "+this.props.classView}>
+                    <div className="px-4">
+                        <button className="btn btn-sm btn-danger mx-1 f-9 w-50">Buy more</button>
+                        <button className="btn btn-sm btn-primary mx-1 f-9 w-50">Redemption</button>
+                    </div>
+                </Table.Cell>;
+            } else {
+                return <Table.Cell
+                    {...restProps}
+                    className={"grid-table " + this.props.classView}>{value}</Table.Cell>;
+
+            }
         };
 
         const { rows, columns, defaultColumnWidths, defaultHiddenColumnNames, colspan } = this.state;
