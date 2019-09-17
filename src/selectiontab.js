@@ -50,6 +50,40 @@ class MenuHeader extends React.PureComponent {
     }
 }
 
+class MenuHeaderScale extends React.PureComponent {
+    constructor(props){
+        super(props);
+    }
+
+    render() {
+        return (
+            <>
+                {
+                    Object.keys(this.props.id.instances).map((k) => {
+                            var e = this.props.id.instances[k];
+                            return (
+                                <Menu.Item
+                                    className = "col-sm-tab-scale"
+                                    key={e.instanceName}
+                                    name={e.instanceName}
+                                    active={this.props.id.activeInstance === e}
+                                    onClick={
+                                        () => this.props.id.activateFrame(e.instanceName)
+                                    }
+                                >
+                                    {
+                                        this.props.id.linkTitles[e.instanceName] || e.title
+                                    }
+                                </Menu.Item>
+                            )
+                        }
+                    )
+                }
+            </>
+        );
+    }
+}
+
 const UISelectionTab_Base = (props) => {
   // expected in props:
   // instances: array of pageInstance object
@@ -247,6 +281,213 @@ const UISelectionTab_Base = (props) => {
   )
 };
 
+const UISelectionTab_Base_Scale = (props) => {
+    // expected in props:
+    // instances: array of pageInstance object
+    // activeInstance: current pageInstance object
+    // activateFrame: (instanceName) => {} hook to activate selected frame ID
+    // linkTitles: object, mapping instanceName to link title
+    return (
+        <div>
+
+            <div className="d-xxl-none d-xxl-block d-border-bottom-bold mb-1">
+                <Navbar className="navbar-trading my-0">
+                    <div className="col-sm-12 px-0 mx-0 row">
+                        <div className="col-sm-1 px-0 mx-0 align-self-center text-center click-pointer">
+                            <Navbar.Brand href="/" className="mr-auto text-white">
+                                <h2>BIPS</h2>
+                            </Navbar.Brand>
+                        </div>
+                        <div className="col-sm-10 px-0 mx-0 align-self-center text-center">
+                            <div className="col-sm-12 align-self-center text-center row">
+                                <div className="col-sm-8 px-0 mx-0 row">
+                                    <Menu.Menu className="col-sm-6 px-4 align-self-center">
+                                        <SelectItem1 thememode={props.modeoftheme}/>
+                                    </Menu.Menu>
+
+                                    <Menu.Menu className="col-sm-6 px-5 align-self-center">
+                                        <SelectItem2 thememode={props.modeoftheme}/>
+                                    </Menu.Menu>
+                                </div>
+                                <div className="col-sm-4 px-0 mx-0 row">
+                                    <Menu.Menu className="col-sm-8 px-4 mx-0">
+                                        <InfoCash/>
+                                    </Menu.Menu>
+
+                                    <Menu.Menu className="col-sm-4 px-1 mx-0">
+                                        <UserInfo/>
+                                    </Menu.Menu>
+                                </div>
+                            </div>
+                        </div>
+                        <MenuCollapse>
+                            <Menu className="row col-sm-12">
+                                <MenuHeaderScale id={props}/>
+                            </Menu>
+                        </MenuCollapse>
+                    </div>
+                </Navbar>
+            </div>
+
+            <div className="d-sml-none d-sml-block d-border-bottom-bold mb-1">
+                <Navbar className="navbar-trading my-0">
+                    <div className="col-sm-12 px-0 mx-0 row">
+                        <div className="col-sm-1 px-0 mx-0 align-self-center text-center click-pointer">
+                            <Navbar.Brand href="/" className="mr-auto text-white">
+                                <h2>BIPS</h2>
+                            </Navbar.Brand>
+                        </div>
+                        <div className="col-sm-10 px-0 mx-0 align-self-center text-center">
+                            <div className="col-sm-12 align-self-center text-center row">
+                                <div className="col-sm-8 px-0 mx-0 row">
+                                    <Menu.Menu className="col-sm-6 px-4 align-self-center">
+                                        <SelectItem1 thememode={props.modeoftheme}/>
+                                    </Menu.Menu>
+
+                                    <Menu.Menu className="col-sm-6 px-5 align-self-center">
+                                        <SelectItem2 thememode={props.modeoftheme}/>
+                                    </Menu.Menu>
+                                </div>
+                                <div className="col-sm-4 px-0 mx-0 row">
+                                    <Menu.Menu className="col-sm-8 px-4 mx-0">
+                                        <InfoCash/>
+                                    </Menu.Menu>
+
+                                    <Menu.Menu className="col-sm-4 px-1 mx-0">
+                                        <UserInfo/>
+                                    </Menu.Menu>
+                                </div>
+                            </div>
+                        </div>
+                        <MenuCollapse>
+                            <Menu className="row col-sm-12">
+                                <MenuHeader id={props}/>
+                            </Menu>
+                        </MenuCollapse>
+                    </div>
+                </Navbar>
+            </div>
+
+            <div className="d-xsml-none d-xsml-block d-border-bottom-bold mb-1">
+                <Navbar className="navbar-trading my-0">
+                    <div className="col-smb-12 px-0 mx-0 row">
+                        <div className="col-smb-1 px-0 mx-0 align-self-center text-center click-pointer">
+                            <Navbar.Brand href="/" className="mr-auto text-white">
+                                <h2>BIPS</h2>
+                            </Navbar.Brand>
+                        </div>
+                        <div className="col-smb-10 px-0 mx-0 align-self-center text-center">
+                            <div className="col-smb-12 align-self-center text-center row">
+                                <div className="col-smb-7 pr-0 pl-5 mx-0 row">
+                                    <Menu.Menu className="col-smb-6 pl-2 pr-2 align-self-center">
+                                        <SelectItem1 thememode={props.modeoftheme}/>
+                                    </Menu.Menu>
+
+                                    <Menu.Menu className="col-smb-6 pr-2 pl-2 align-self-center">
+                                        <SelectItem2 thememode={props.modeoftheme}/>
+                                    </Menu.Menu>
+                                </div>
+                                <div className="col-smb-5 px-0 mx-0 row">
+                                    <Menu.Menu className="col-smb-8 px-4 mx-0">
+                                        <InfoCash/>
+                                    </Menu.Menu>
+
+                                    <Menu.Menu className="col-smb-4 px-1 mx-0">
+                                        <UserInfo/>
+                                    </Menu.Menu>
+                                </div>
+                            </div>
+                        </div>
+                        <MenuCollapse>
+                            <Menu className="row col-smb-12">
+                                <MenuHeader id={props}/>
+                            </Menu>
+                        </MenuCollapse>
+                    </div>
+                </Navbar>
+            </div>
+
+            <div className="d-xxsml-none d-xxsml-block d-border-bottom-bold mb-1">
+                <Navbar className="navbar-trading my-0">
+                    <div className="col-smb-12 px-0 mx-0 row">
+                        <div className="col-smb-1 px-0 mx-0 align-self-center text-center click-pointer">
+                            <Navbar.Brand href="/" className="mr-auto text-white">
+                                <h2>BIPS</h2>
+                            </Navbar.Brand>
+                        </div>
+                        <div className="col-smb-10 px-4 mx-0 align-self-center text-center">
+                            <div className="col-smb-12 align-self-center text-center row">
+                                <div className="col-smb-7 pr-0 pl-5 mx-0 row">
+                                    <Menu.Menu className="col-smb-6 pl-0 pr-2 align-self-center">
+                                        <SelectItem1 thememode={props.modeoftheme}/>
+                                    </Menu.Menu>
+
+                                    <Menu.Menu className="col-smb-6 pr-0 pl-2 align-self-center">
+                                        <SelectItem2 thememode={props.modeoftheme}/>
+                                    </Menu.Menu>
+                                </div>
+                                <div className="col-smb-5 px-0 mx-0 row">
+                                    <Menu.Menu className="col-smb-8 px-1 mx-0">
+                                        <InfoCash/>
+                                    </Menu.Menu>
+
+                                    <Menu.Menu className="col-smb-4 px-1 mx-0">
+                                        <UserInfo/>
+                                    </Menu.Menu>
+                                </div>
+                            </div>
+                        </div>
+                        <MenuCollapse>
+                            <Menu className="row col-smb-12">
+                                <MenuHeader id={props}/>
+                            </Menu>
+                        </MenuCollapse>
+                    </div>
+                </Navbar>
+            </div>
+
+            <div className="d-xsm-none d-xsm-block d-border-bottom-bold mb-1">
+                <Navbar className="navbar-trading my-0">
+                    <div className="col-smb-12 px-0 mx-0 row text-center align-self-center">
+                        <div className="col-smb-3 px-2 text-center align-self-center click-pointer">
+                            <Navbar.Brand href="/" className="mr-auto text-white">
+                                <h2>BIPS</h2>
+                            </Navbar.Brand>
+                        </div>
+                        <div className="col-smb-4 px-4 text-center align-self-center">
+                            <Menu.Menu>
+                                <InfoCash/>
+                            </Menu.Menu>
+                        </div>
+                        <div className="col-smb-4 px-3 align-self-center">
+                            <Menu.Menu>
+                                <UserInfo/>
+                            </Menu.Menu>
+                        </div>
+
+                        <MenuCollapse>
+                            <Menu className="row col-smb-12">
+                                <MenuHeader id={props}/>
+                            </Menu>
+                        </MenuCollapse>
+                    </div>
+
+                    <div className="col-smb-12 px-0 mx-0 row text-center align-self-center">
+                        <Menu.Menu className="col-smb-6 px-2 align-self-center text-center">
+                            <SelectItem1 thememode={props.modeoftheme}/>
+                        </Menu.Menu>
+
+                        <Menu.Menu className="col-smb-6 px-2 align-self-center text-center align-self-center">
+                            <SelectItem2 thememode={props.modeoftheme}/>
+                        </Menu.Menu>
+                    </div>
+                </Navbar>
+            </div>
+
+        </div>
+    )
+};
+
 const UISelectionTab = ContextConnector(AppFrameContext,
   (v, act, props) => ({
     instances: v.pageInstances,
@@ -254,6 +495,14 @@ const UISelectionTab = ContextConnector(AppFrameContext,
     activateFrame: (instanceName) => act.sendAction('switchPage', {instanceName})
   })
 )(UISelectionTab_Base);
+
+const UISelectionTab_Scale = ContextConnector(AppFrameContext,
+  (v, act, props) => ({
+    instances: v.pageInstances,
+    activeInstance: v.activeInstance,
+    activateFrame: (instanceName) => act.sendAction('switchPage', {instanceName})
+  })
+)(UISelectionTab_Base_Scale);
 
 class SelectItem1 extends React.Component {
     constructor(props) {
@@ -301,7 +550,7 @@ class SelectItem1 extends React.Component {
             <div className="nav-link col-sm-12 px-0 mx-0 py-3 text-white">
                 <div className="col-md-12 bg-black-trading px-0 text-center">
                     <Select
-                        className="f-12"
+                        className="f-12-fix"
                         defaultValue={option[0]}
                         label="Single select"
                         options={option}
@@ -360,7 +609,7 @@ class SelectItem2 extends React.Component {
             <div className="nav-link col-sm-12 px-0 mx-0 py-3 text-white">
                 <div className="col-md-12 bg-black-trading px-0">
                     <Select
-                        className="f-12"
+                        className="f-12-fix"
                         defaultValue={options[0]}
                         label="Single select"
                         options={options}
@@ -382,7 +631,7 @@ class InfoCash extends React.Component {
                         <Table size="sm" className="text-white cursor-menu py-0 my-0">
                             <thead></thead>
                             <tbody>
-                            <tr className="f-12 text-center">
+                            <tr className="f-12-fix text-center">
                                 <td className="text-success"><i className="fa fa-square"></i></td>
                                 <td>Cash Balance</td>
                                 <td rowSpan="2" className="py-2"><i className="f-11-center text-gray-tradding oi oi-caret-bottom"></i></td>
@@ -537,3 +786,4 @@ class MenuCollapse extends React.Component {
 }
 
 export default UISelectionTab;
+export {UISelectionTab_Scale};

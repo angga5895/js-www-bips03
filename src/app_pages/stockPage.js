@@ -35,6 +35,7 @@ import FormSell from "../app_transaction/form_sell";
 //datepicker
 import '../bootstrap-3.3.7/bootstrap-datepicker.min.css';
 import $ from 'jquery';
+import {AgGridReact} from "ag-grid-react";
 window.$ = window.jQuery = $;
 require('../../node_modules/bootstrap/dist/js/bootstrap.js');
 require('../bootstrap-3.3.7/bootstrap-datepicker.standalone.min.css');
@@ -213,8 +214,8 @@ class TableCorpAction extends React.PureComponent{
                 <WSConnectionAction ref="wsAction" />
                 <main>
                     <div className="container px-0 mx-0 col-sm-12">
-                        <div className="bg-black-inactive card card-160">
-                            <CorpActionGrid />
+                        <div className="bg-black-inactive card card-small">
+                            <CorpActionAgGrid />
                         </div>
                     </div>
                 </main>
@@ -405,19 +406,19 @@ class StockHistoryPage extends React.PureComponent {
                             <div className="px-1 mx-0 col-sm-12 row">
                                 <div className="col-sm-8 px-1 py-2">
                                     <div className="bg-trading-gray">
-                                        <HistoryBrokerGrid/>
+                                        <HistoryBrokerAgGrid/>
                                     </div>
                                 </div>
 
                                 <div className="col-sm-4 px-1 py-2">
                                     <div className="bg-trading-gray mb-3">
-                                        <HistoryPriceGrid/>
+                                        <HistoryPriceAgGrid/>
                                     </div>
                                     <div className="bg-trading-gray mb-3">
-                                        <HistoryBuyerGrid/>
+                                        <HistoryBuyerAgGrid/>
                                     </div>
                                     <div className="bg-trading-gray mb-3">
-                                        <HistorySellerGrid/>
+                                        <HistorySellerAgGrid/>
                                     </div>
                                 </div>
                             </div>
@@ -522,13 +523,13 @@ class TableStockWatchlist_Base extends React.Component{
                                 </Dropdown.Menu>
                             </Dropdown>
                         </div>
-                        <div className="col-sm-6 px-0 mx-0 text-right pt-3 pb-2">
+                        <div className="col-sm-6 px-0 mx-0 text-right pt-3 pb-1">
                             <button className="btn btn-sm btn-grey" onClick={this.buttonClickAmendRegister}>Register/Amend</button>
                         </div>
                     </div>
                 </div>
-                <div className="px-4">
-                    <StockWatchlistGrid/>
+                <div className="px-4 py-4">
+                    <StockWatchlistAgGrid />
                 </div>
             </div>
         </>);
@@ -651,30 +652,32 @@ class RegisterAmendModal extends React.Component {
                         </ul>
                     </div>
                     <div className="card-475">
-                        <div className={this.state.activeTab === '1' ? 'd-border d-block f-12' : 'd-none'}>
-                            <div className="card card-xmini bg-grey">
-                                <AmendGroupNameGrid />
-                            </div>
-                            <div className="form-group row col-sm-12 px-0 mx-0 my-4 py-3 text-white">
-                                <div className="col-sm-5">
-                                    <label className="col-sm-12">Name</label>
+                        <div className={this.state.activeTab === '1' ? 'card card-475 d-border d-block f-12' : 'd-none'}>
+                            <div className="card card-375 d-border-transparent-grey">
+                                <div className="card card-xmini bg-grey">
+                                    <AmendGroupNameAgGrid />
                                 </div>
-                                <div className="col-sm-7">
-                                    <Input defaultValue='Group A' placeholder='Group Name' size='small' className="gray col-sm-12 align-self-center"/>
+                                <div className="form-group row col-sm-12 px-0 mx-0 my-4 py-3 text-white">
+                                    <div className="col-sm-5">
+                                        <label className="col-sm-12">Name</label>
+                                    </div>
+                                    <div className="col-sm-7">
+                                        <Input defaultValue='Group A' placeholder='Group Name' size='small' className="gray col-sm-12 align-self-center"/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="card card-xs bg-grey">
-                                <AmendGroupCodeGrid />
-                            </div>
-                            <div className="form-group row col-sm-12 px-0 mx-0 my-4 py-3 text-white">
-                                <div className="col-sm-7">
-                                    <Input defaultValue='BBCA' placeholder='Code' size='small' className="gray pl-0 col-sm-12 align-self-center"/>
+                                <div className="card card-xs bg-grey">
+                                    <AmendGroupCodeAgGrid />
                                 </div>
-                                <div className="col-sm-1 px-0 mx-0 align-self-center align-middle">
-                                    <i className="fa fa-search click-pointer f-18"></i>
-                                </div>
-                                <div className="col-sm-1 px-0 mx-0 align-self-center align-middle">
-                                    <button className="btn btn-sm bg-gray-tradding border-gray-tradding"><i className="fa fa-plus"></i></button>
+                                <div className="form-group row col-sm-12 px-0 mx-0 my-4 py-3 text-white">
+                                    <div className="col-sm-7">
+                                        <Input defaultValue='BBCA' placeholder='Code' size='small' className="gray pl-0 col-sm-12 align-self-center"/>
+                                    </div>
+                                    <div className="col-sm-1 px-0 mx-0 align-self-center align-middle">
+                                        <i className="fa fa-search click-pointer f-18"></i>
+                                    </div>
+                                    <div className="col-sm-1 px-0 mx-0 align-self-center align-middle">
+                                        <button className="btn btn-sm bg-gray-tradding border-gray-tradding"><i className="fa fa-plus"></i></button>
+                                    </div>
                                 </div>
                             </div>
                             <div className="form-group row col-sm-12 px-0 mx-0 mt-5 pt-5 text-white">
@@ -686,29 +689,31 @@ class RegisterAmendModal extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div className={this.state.activeTab === '2' ? 'd-border d-block f-12' : 'd-none'}>
-                            <div className="form-group row col-sm-12 px-0 mx-0 my-4 py-3 text-white">
-                                <div className="col-sm-5">
-                                    <label className="col-sm-12">Group Name</label>
+                        <div className={this.state.activeTab === '2' ? 'card card-475 d-border d-block f-12' : 'd-none'}>
+                            <div className="card card-375 d-border-transparent-grey">
+                                <div className="form-group row col-sm-12 px-0 mx-0 my-4 py-3 text-white">
+                                    <div className="col-sm-5">
+                                        <label className="col-sm-12">Group Name</label>
+                                    </div>
+                                    <div className="col-sm-7">
+                                        <Input defaultValue='Group A' placeholder='Group Name' size='small' className="gray col-sm-12 align-self-center"/>
+                                    </div>
                                 </div>
-                                <div className="col-sm-7">
-                                    <Input defaultValue='Group A' placeholder='Group Name' size='small' className="gray col-sm-12 align-self-center"/>
+                                <div className="card card-xs bg-grey">
+                                    <AddGroupCodeAgGrid />
+                                </div>
+                                <div className="form-group row col-sm-12 px-0 mx-0 my-4 py-3 text-white">
+                                    <div className="col-sm-7">
+                                        <Input defaultValue='BBCA' placeholder='Code' size='small' className="gray pl-0 col-sm-12 align-self-center"/>
+                                    </div>
+                                    <div className="col-sm-1 px-0 mx-0 align-self-center align-middle">
+                                        <i className="fa fa-search click-pointer f-18"></i>
+                                    </div>
+                                    <div className="col-sm-1 px-0 mx-0 align-self-center align-middle">
+                                        <button className="btn btn-sm bg-gray-tradding border-gray-tradding"><i className="fa fa-plus"></i></button>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="card card-xs bg-grey">
-                                <AddGroupCodeGrid />
-                            </div>
-                            <div className="form-group row col-sm-12 px-0 mx-0 my-4 py-3 text-white">
-                                <div className="col-sm-7">
-                                    <Input defaultValue='BBCA' placeholder='Code' size='small' className="gray pl-0 col-sm-12 align-self-center"/>
-                                </div>
-                                <div className="col-sm-1 px-0 mx-0 align-self-center align-middle">
-                                    <i className="fa fa-search click-pointer f-18"></i>
-                                </div>
-                                <div className="col-sm-1 px-0 mx-0 align-self-center align-middle">
-                                    <button className="btn btn-sm bg-gray-tradding border-gray-tradding"><i className="fa fa-plus"></i></button>
-                                </div>
-                            </div><br/><br/><br/><br/><br/><br/><br/>
                             <div className="form-group row col-sm-12 px-0 mx-0 mt-5 pt-5 text-white">
                                 <div className="col-sm-9 align-self-center align-middle">
                                     <label className="text-muted">Max Group is 10 group with 45 stock list</label>
@@ -2626,6 +2631,1300 @@ class AddGroupCodeGrid extends React.PureComponent {
                         defaultHiddenColumnNames={defaultHiddenColumnNames}
                     />
                 </Grid>
+            </>
+        );
+    }
+}
+
+class StockWatchlistAgGrid extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        const self = this;
+        this.state = {
+            columnDefs: [
+                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 70,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12";
+                    }},
+                { field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 70,
+                    cellClass : function (params) {
+                        var change = params.data.change;
+                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
+                            "text-success text-right grid-table f-12";
+                    }},
+                { field: "change", headerName: "Change", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 75,
+                    cellClass : function (params) {
+                        var change = params.data.change;
+                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
+                            "text-success text-right grid-table f-12";
+                    } },
+                { field: "persen", headerName: "(%)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 60,
+                    cellClass : function (params) {
+                        var change = params.data.change;
+                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
+                            "text-success text-right grid-table f-12";
+                    } },
+                { field: "tvol", headerName: "T. Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 70,
+                    cellClass : function (params) {
+                        var change = params.data.change;
+                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
+                            "text-success text-right grid-table f-12";
+                    } },
+            ],
+            defaultColDef: {
+                sortable: true,
+                filter: true,
+            },
+            getRowHeight : function(params){
+                return 27.5;
+            },
+            rowData: [
+                { code: "AALI",
+                    price: "3,870",
+                    change: "50",
+                    persen: "0.2",
+                    tvol: "156,450"},
+                { code: "ANTM",
+                    price: "3,870",
+                    change: "-50",
+                    persen: "-0.2",
+                    tvol: "156,450"},
+                { code: "BBCA",
+                    price: "3,870",
+                    change: "-50",
+                    persen: "-0.2",
+                    tvol: "156,450"},
+                { code: "TLKM",
+                    price: "3,870",
+                    change: "50",
+                    persen: "0.2",
+                    tvol: "156,450"},
+                { code: "BBRI",
+                    price: "3,870",
+                    change: "-50",
+                    persen: "-0.2",
+                    tvol: "156,450"},
+                { code: "ASII",
+                    price: "3,870",
+                    change: "-50",
+                    persen: "-0.2",
+                    tvol: "156,450"},
+                { code: "BBMR",
+                    price: "3,870",
+                    change: "-50",
+                    persen: "-0.2",
+                    tvol: "156,450"},
+                { code: "WSKT",
+                    price: "3,870",
+                    change: "50",
+                    persen: "0.2",
+                    tvol: "156,450"},
+                { code: "AGII",
+                    price: "3,870",
+                    change: "50",
+                    persen: "0.2",
+                    tvol: "156,450"},
+                { code: "ADHI",
+                    price: "3,870",
+                    change: "-50",
+                    persen: "-0.2",
+                    tvol: "156,450"},
+                { code: "SMGR",
+                    price: "3,870",
+                    change: "50",
+                    persen: "0.2",
+                    tvol: "156,450"},
+                { code: "EMTK",
+                    price: "3,870",
+                    change: "-50",
+                    persen: "-0.2",
+                    tvol: "156,450"},
+                { code: "MREI",
+                    price: "3,870",
+                    change: "-50",
+                    persen: "-0.2",
+                    tvol: "156,450"},
+                { code: "PTSP",
+                    price: "3,870",
+                    change: "-50",
+                    persen: "-0.2",
+                    tvol: "156,450"},
+                { code: "TCPI",
+                    price: "3,870",
+                    change: "-50",
+                    persen: "-0.2",
+                    tvol: "156,450"},
+                { code: "BRAM",
+                    price: "3,870",
+                    change: "50",
+                    persen: "0.2",
+                    tvol: "156,450"},
+                { code: "INDF",
+                    price: "3,870",
+                    change: "50",
+                    persen: "0.2",
+                    tvol: "156,450"},
+                { code: "JECC",
+                    price: "3,870",
+                    change: "50",
+                    persen: "0.2",
+                    tvol: "156,450"},
+                { code: "RDTX",
+                    price: "3,870",
+                    change: "-50",
+                    persen: "-0.2",
+                    tvol: "156,450"},
+                { code: "DUTI",
+                    price: "3,870",
+                    change: "-50",
+                    persen: "-0.2",
+                    tvol: "156,450"},
+                { code: "FASW",
+                    price: "3,870",
+                    change: "-50",
+                    persen: "-0.2",
+                    tvol: "156,450"},
+                { code: "IBST",
+                    price: "3,870",
+                    change: "-50",
+                    persen: "-0.2",
+                    tvol: "156,450"},
+                { code: "SMMA",
+                    price: "3,870",
+                    change: "-50",
+                    persen: "-0.2",
+                    tvol: "156,450"},
+                { code: "TKIM",
+                    price: "3,870",
+                    change: "50",
+                    persen: "0.2",
+                    tvol: "156,450"},
+                { code: "JSMR",
+                    price: "3,870",
+                    change: "-50",
+                    persen: "-0.2",
+                    tvol: "156,450"},
+                { code: "SONA",
+                    price: "3,870",
+                    change: "50",
+                    persen: "0.2",
+                    tvol: "156,450"},
+                { code: "AMFG",
+                    price: "3,870",
+                    change: "-50",
+                    persen: "-0.2",
+                    tvol: "156,450"},
+                { code: "SCCO",
+                    price: "3,870",
+                    change: "-50",
+                    persen: "-0.2",
+                    tvol: "156,450"},
+                { code: "BYAN",
+                    price: "3,870",
+                    change: "50",
+                    persen: "0.2",
+                    tvol: "156,450"},
+                { code: "UNTR",
+                    price: "3,870",
+                    change: "50",
+                    persen: "0.2",
+                    tvol: "156,450"},
+                { code: "GGRM",
+                    price: "3,870",
+                    change: "-50",
+                    persen: "-0.2",
+                    tvol: "156,450"},
+                { code: "UNVR",
+                    price: "3,870",
+                    change: "-50",
+                    persen: "-0.2",
+                    tvol: "156,450"},
+            ],
+            sideBar: {
+                toolPanels: [
+                    {
+                        id: "columns",
+                        labelDefault: "Columns",
+                        labelKey: "columns",
+                        iconKey: "columns",
+                        toolPanel: "agColumnsToolPanel",
+                        toolPanelParams: {
+                            suppressRowGroups: true,
+                            suppressValues: true,
+                            suppressPivots: true,
+                            suppressPivotMode: true,
+                            suppressSideButtons: true,
+                            suppressColumnFilter: true,
+                            suppressColumnSelectAll: true,
+                            suppressColumnExpandAll: true
+                        },
+                    }, {
+                        id: "filters",
+                        labelDefault: "Filters",
+                        labelKey: "filters",
+                        iconKey: "filter",
+                        toolPanel: "agFiltersToolPanel"
+                    }
+                ],
+                defaultToolPanel: ""
+            },
+        }
+    }
+
+    render() {
+        return (
+            <>
+                <div
+                    className="card-530 ag-theme-balham-dark ag-header-border d-border"
+                    style={{
+                        width: 'auto' }}>
+                    <AgGridReact
+                        columnDefs={this.state.columnDefs}
+                        rowData={this.state.rowData}
+                        defaultColDef={this.state.defaultColDef}
+                        getRowHeight={this.state.getRowHeight}>
+                    </AgGridReact>
+                </div>
+            </>
+        );
+    }
+}
+
+class AmendGroupNameAgGrid extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        const self = this;
+        this.state = {
+            columnDefs: [
+                { field: "groupname", headerName: "Group Name", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 160,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12 text-primary";
+                    }},
+                { field: "totalmember", headerName: "Total Member",  sortable: true, filter: "agTextColumnFilter", resizable: true, width: 160,
+                    cellClass : function (params) {
+                        return "text-right grid-table f-12";
+                    }},
+                { field: "action", headerName: "Action", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 160,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12";
+                    },
+                    cellRenderer : function (params) {
+                        return '<div><a class="text-primary click-pointer">Edit</a> | <a class="text-danger click-pointer">Delete</a></div>'
+                    }},
+            ],
+            defaultColDef: {
+                sortable: true,
+                filter: true,
+            },
+            getRowHeight : function(params){
+                return 27.5;
+            },
+            rowData: [
+                { groupname: "Group A",
+                    totalmember: "5",
+                    action: "" },
+                { groupname: "Group B",
+                    totalmember: "15",
+                    action: "" },
+                { groupname: "Group C",
+                    totalmember: "27",
+                    action: "" },
+                { groupname: "Group D",
+                    totalmember: "18",
+                    action: "" },
+                { groupname: "Group E",
+                    totalmember: "45",
+                    action: "" },],
+            sideBar: {
+                toolPanels: [
+                    {
+                        id: "columns",
+                        labelDefault: "Columns",
+                        labelKey: "columns",
+                        iconKey: "columns",
+                        toolPanel: "agColumnsToolPanel",
+                        toolPanelParams: {
+                            suppressRowGroups: true,
+                            suppressValues: true,
+                            suppressPivots: true,
+                            suppressPivotMode: true,
+                            suppressSideButtons: true,
+                            suppressColumnFilter: true,
+                            suppressColumnSelectAll: true,
+                            suppressColumnExpandAll: true
+                        },
+                    }, {
+                        id: "filters",
+                        labelDefault: "Filters",
+                        labelKey: "filters",
+                        iconKey: "filter",
+                        toolPanel: "agFiltersToolPanel"
+                    }
+                ],
+                defaultToolPanel: ""
+            },
+        }
+    }
+
+    render() {
+        return (
+            <>
+                <div
+                    className="card-xmini ag-theme-balham-dark ag-header-border-grey d-border"
+                    style={{
+                        width: 'auto' }}>
+                    <AgGridReact
+                        columnDefs={this.state.columnDefs}
+                        rowData={this.state.rowData}
+                        defaultColDef={this.state.defaultColDef}
+                        getRowHeight={this.state.getRowHeight}>
+                    </AgGridReact>
+                </div>
+            </>
+        );
+    }
+}
+
+class AmendGroupCodeAgGrid extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        const self = this;
+        this.state = {
+            columnDefs: [
+                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 220,
+                    cellClass : function (params) {
+                        return "text-left grid-table f-12";
+                    }, cellRenderer : function (params) {
+                        var code = params.data.code;
+                        var sCode = code.split('-');
+
+                        return '<div class="ui small disabled input gray col-sm-4 align-self-center px-0">' +
+                            '<input placeholder="Code" disabled="" type="text" tabindex="-1" value="'+sCode[0]+'">' +
+                            '</div>&nbsp; '+sCode[1];
+                    }},
+                { field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 70,
+                    cellClass : function (params) {
+                        return "text-right grid-table f-12";
+                    }},
+                { field: "indicator", headerName: "#", sortable: true, filter: "agTextColumnFilter", width: 30,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    },
+                    cellRenderer : function (params) {
+                        var change = params.data.change;
+                        return change.includes('-') === true ? '<i class="icofont icofont-caret-down text-danger"></i>' :
+                            '<i class="icofont icofont-caret-up text-success"></i>'
+                    }},
+                { field: "change", headerName: "Change/%", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 100,
+                    cellClass : function (params) {
+                        var change = params.data.change;
+                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
+                            change.includes('+') === true ? "text-success text-right grid-table f-12" :
+                                "text-warning text-right grid-table f-12";
+                    } },
+                { field: "action", headerName: "", sortable: true, filter: "agTextColumnFilter", width: 50, pinned : "right",
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12";
+                    }, cellRenderer : function (params) {
+                        return '<button class="btn btn-sm btn-danger">' +
+                            '<i class="fa fa-minus"></i>';
+                    }},
+            ],
+            defaultColDef: {
+                sortable: true,
+                filter: true,
+            },
+            getRowHeight : function(params){
+                return 27.5;
+            },
+            rowData: [
+                { code: "AALI-Astra Argo Lestari Tbk.",
+                    price: "12,650",
+                    indicator: "",
+                    change: "+175(+1.36%)",
+                    action: "" },
+                { code: "TLKM-Telekomunikasi Indonesia Tbk.",
+                    price: "15,600",
+                    indicator: "",
+                    change: "-175(-1.36%)",
+                    action: "" },
+            ],
+            sideBar: {
+                toolPanels: [
+                    {
+                        id: "columns",
+                        labelDefault: "Columns",
+                        labelKey: "columns",
+                        iconKey: "columns",
+                        toolPanel: "agColumnsToolPanel",
+                        toolPanelParams: {
+                            suppressRowGroups: true,
+                            suppressValues: true,
+                            suppressPivots: true,
+                            suppressPivotMode: true,
+                            suppressSideButtons: true,
+                            suppressColumnFilter: true,
+                            suppressColumnSelectAll: true,
+                            suppressColumnExpandAll: true
+                        },
+                    }, {
+                        id: "filters",
+                        labelDefault: "Filters",
+                        labelKey: "filters",
+                        iconKey: "filter",
+                        toolPanel: "agFiltersToolPanel"
+                    }
+                ],
+                defaultToolPanel: ""
+            },
+        }
+    }
+
+    render() {
+        return (
+            <>
+                <div
+                    className="card-xs ag-theme-balham-dark ag-header-border-grey d-border"
+                    style={{
+                        width: 'auto' }}>
+                    <AgGridReact
+                        columnDefs={this.state.columnDefs}
+                        rowData={this.state.rowData}
+                        defaultColDef={this.state.defaultColDef}
+                        getRowHeight={this.state.getRowHeight}>
+                    </AgGridReact>
+                </div>
+            </>
+        );
+    }
+}
+
+class AddGroupCodeAgGrid extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        const self = this;
+        this.state = {
+            columnDefs: [
+                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 220,
+                    cellClass : function (params) {
+                        return "text-left grid-table f-12";
+                    }, cellRenderer : function (params) {
+                        var code = params.data.code;
+                        var sCode = code.split('-');
+
+                        return '<div class="ui small disabled input gray col-sm-4 align-self-center px-0">' +
+                            '<input placeholder="Code" disabled="" type="text" tabindex="-1" value="'+sCode[0]+'">' +
+                            '</div>&nbsp; '+sCode[1];
+                    }},
+                { field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 70,
+                    cellClass : function (params) {
+                        return "text-right grid-table f-12";
+                    }},
+                { field: "indicator", headerName: "#", sortable: true, filter: "agTextColumnFilter", width: 30,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    },
+                    cellRenderer : function (params) {
+                        var change = params.data.change;
+                        return change.includes('-') === true ? '<i class="icofont icofont-caret-down text-danger"></i>' :
+                            '<i class="icofont icofont-caret-up text-success"></i>'
+                    }},
+                { field: "change", headerName: "Change/%", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 100,
+                    cellClass : function (params) {
+                        var change = params.data.change;
+                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
+                            change.includes('+') === true ? "text-success text-right grid-table f-12" :
+                                "text-warning text-right grid-table f-12";
+                    } },
+            ],
+            defaultColDef: {
+                sortable: true,
+                filter: true,
+            },
+            getRowHeight : function(params){
+                return 27.5;
+            },
+            rowData: [
+                { code: "AALI-Astra Argo Lestari Tbk.",
+                    price: "12,650",
+                    indicator: "",
+                    change: "+175(+1.36%)" },
+                { code: "TLKM-Telekomunikasi Indonesia Tbk.",
+                    price: "15,600",
+                    indicator: "",
+                    change: "-175(-1.36%)"},
+            ],
+            sideBar: {
+                toolPanels: [
+                    {
+                        id: "columns",
+                        labelDefault: "Columns",
+                        labelKey: "columns",
+                        iconKey: "columns",
+                        toolPanel: "agColumnsToolPanel",
+                        toolPanelParams: {
+                            suppressRowGroups: true,
+                            suppressValues: true,
+                            suppressPivots: true,
+                            suppressPivotMode: true,
+                            suppressSideButtons: true,
+                            suppressColumnFilter: true,
+                            suppressColumnSelectAll: true,
+                            suppressColumnExpandAll: true
+                        },
+                    }, {
+                        id: "filters",
+                        labelDefault: "Filters",
+                        labelKey: "filters",
+                        iconKey: "filter",
+                        toolPanel: "agFiltersToolPanel"
+                    }
+                ],
+                defaultToolPanel: ""
+            },
+        }
+    }
+
+    render() {
+        return (
+            <>
+                <div
+                    className="card-xs ag-theme-balham-dark ag-header-border-grey d-border"
+                    style={{
+                        width: 'auto' }}>
+                    <AgGridReact
+                        columnDefs={this.state.columnDefs}
+                        rowData={this.state.rowData}
+                        defaultColDef={this.state.defaultColDef}
+                        getRowHeight={this.state.getRowHeight}>
+                    </AgGridReact>
+                </div>
+            </>
+        );
+    }
+}
+
+class HistoryBrokerAgGrid extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        const self = this;
+        this.state = {
+            columnDefs: [
+                { field: 'broker', headerName: "Broker", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12 text-warning";
+                    },},
+                { field: 'bidvol', headerName: "Bid Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12 text-success";
+                    },},
+                { field: 'bidval', headerName: "Bid Val (Bn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12 text-success";
+                    }, },
+                { field: 'avgbid', headerName: "Avg. Bid", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12 text-success";
+                    }, },
+                { field: 'sellvol', headerName: "Sell Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12 text-success";
+                    },},
+                { field: 'sellval', headerName: "Sell Val (Bn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12 text-success";
+                    },},
+                { field: 'avgsell', headerName: "Avg. Sell", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12 text-success";
+                    }, },
+                { field: 'netval', headerName: "Net Val (Bn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12 text-success";
+                    }, },
+            ],
+            defaultColDef: {
+                sortable: true,
+                filter: true,
+            },
+            getRowHeight : function(params){
+                return 27.5;
+            },
+            rowData: [
+                { broker: "DX",
+                    bidvol: "2,000",
+                    bidval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    bidvol: "2,000",
+                    bidval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    bidvol: "2,000",
+                    bidval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    bidvol: "2,000",
+                    bidval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    bidvol: "2,000",
+                    bidval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    bidvol: "2,000",
+                    bidval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    bidvol: "2,000",
+                    bidval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    bidvol: "2,000",
+                    bidval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    bidvol: "2,000",
+                    bidval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    bidvol: "2,000",
+                    bidval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    bidvol: "2,000",
+                    bidval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    bidvol: "2,000",
+                    bidval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    bidvol: "2,000",
+                    bidval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    bidvol: "2,000",
+                    bidval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    bidvol: "2,000",
+                    bidval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    bidvol: "2,000",
+                    bidval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    bidvol: "2,000",
+                    bidval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    bidvol: "2,000",
+                    bidval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    bidvol: "2,000",
+                    bidval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    bidvol: "2,000",
+                    bidval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},],
+            sideBar: {
+                toolPanels: [
+                    {
+                        id: "columns",
+                        labelDefault: "Columns",
+                        labelKey: "columns",
+                        iconKey: "columns",
+                        toolPanel: "agColumnsToolPanel",
+                        toolPanelParams: {
+                            suppressRowGroups: true,
+                            suppressValues: true,
+                            suppressPivots: true,
+                            suppressPivotMode: true,
+                            suppressSideButtons: true,
+                            suppressColumnFilter: true,
+                            suppressColumnSelectAll: true,
+                            suppressColumnExpandAll: true
+                        },
+                    }, {
+                        id: "filters",
+                        labelDefault: "Filters",
+                        labelKey: "filters",
+                        iconKey: "filter",
+                        toolPanel: "agFiltersToolPanel"
+                    }
+                ],
+                defaultToolPanel: ""
+            },
+        }
+    }
+
+    render() {
+        return (
+            <>
+                <div
+                    className="card card-500 ag-theme-balham-dark ag-header-border-gray"
+                    style={{
+                        width: 'auto' }}>
+                    <AgGridReact
+                        columnDefs={this.state.columnDefs}
+                        rowData={this.state.rowData}
+                        defaultColDef={this.state.defaultColDef}
+                        getRowHeight={this.state.getRowHeight}
+                        sideBar={this.state.sideBar}>
+                    </AgGridReact>
+                </div>
+            </>
+        );
+    }
+}
+
+class HistoryPriceAgGrid extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        const self = this;
+        this.state = {
+            columnDefs: [
+
+                { field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12 text-success";
+                    },},
+                { field: "freq", headerName: "Freq", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12 text-success";
+                    },},
+                { field: "vol", headerName: "Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12 text-success";
+                    }, },
+                { field: "value", headerName: "Value(Tn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12 text-success";
+                    }, },
+            ],
+            defaultColDef: {
+                sortable: true,
+                filter: true,
+            },
+            getRowHeight : function(params){
+                return 27;
+            },
+            rowData: [
+                { price: "10,870",
+                    freq: "9",
+                    vol: "20",
+                    value: "156"},
+                { price: "10,860",
+                    freq: "8",
+                    vol: "21",
+                    value: "156"},
+                { price: "10,850",
+                    freq: "7",
+                    vol: "22",
+                    value: "156"},
+                { price: "10,840",
+                    freq: "6",
+                    vol: "23",
+                    value: "156"},
+                { price: "10,830",
+                    freq: "5",
+                    vol: "24",
+                    value: "156"},
+                { price: "10,820",
+                    freq: "4",
+                    vol: "25",
+                    value: "156"},
+                { price: "10,810",
+                    freq: "3",
+                    vol: "26",
+                    value: "156"},
+                { price: "10,800",
+                    freq: "2",
+                    vol: "27",
+                    value: "156"},
+            ],
+            sideBar: {
+                toolPanels: [
+                    {
+                        id: "columns",
+                        labelDefault: "Columns",
+                        labelKey: "columns",
+                        iconKey: "columns",
+                        toolPanel: "agColumnsToolPanel",
+                        toolPanelParams: {
+                            suppressRowGroups: true,
+                            suppressValues: true,
+                            suppressPivots: true,
+                            suppressPivotMode: true,
+                            suppressSideButtons: true,
+                            suppressColumnFilter: true,
+                            suppressColumnSelectAll: true,
+                            suppressColumnExpandAll: true
+                        },
+                    }, {
+                        id: "filters",
+                        labelDefault: "Filters",
+                        labelKey: "filters",
+                        iconKey: "filter",
+                        toolPanel: "agFiltersToolPanel"
+                    }
+                ],
+                defaultToolPanel: ""
+            },
+        }
+    }
+
+    render() {
+        return (
+            <>
+                <div
+                    className="card card-160 ag-theme-balham-dark ag-header-border-gray"
+                    style={{
+                        width: 'auto' }}>
+                    <AgGridReact
+                        columnDefs={this.state.columnDefs}
+                        rowData={this.state.rowData}
+                        defaultColDef={this.state.defaultColDef}
+                        getRowHeight={this.state.getRowHeight}>
+                    </AgGridReact>
+                </div>
+            </>
+        );
+    }
+}
+
+class HistoryBuyerAgGrid extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        const self = this;
+        this.state = {
+            columnDefs: [
+                { field: "buyer", headerName: "Buyer", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        var volume = parseInt(params.data.volume);
+                        if (volume < 22 || volume > 26) {
+                            var value = 'text-center grid-table f-12 text-warning';
+                        } else {
+                            var value = 'text-center grid-table f-12 text-warning';
+                        }
+
+                        return value;
+                    }, },
+                { field: "volume", headerName: "Volume", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12 text-success";
+                    }, },
+                { field: "freq", headerName: "Freq", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12 text-success";
+                    }, },
+                { field: "avg", headerName: "Avg", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12 text-success";
+                    }, },
+            ],
+            defaultColDef: {
+                sortable: true,
+                filter: true,
+            },
+            getRowHeight : function(params){
+                return 27;
+            },
+            rowData: [
+                { buyer: "DX",
+                    volume: "20",
+                    freq: "5",
+                    avg: "10,820"},
+                { buyer: "DX",
+                    volume: "21",
+                    freq: "6",
+                    avg: "10,830"},
+                { buyer: "DX",
+                    volume: "22",
+                    freq: "7",
+                    avg: "10,840"},
+                { buyer: "DX",
+                    volume: "23",
+                    freq: "8",
+                    avg: "10,850"},
+                { buyer: "DX",
+                    volume: "24",
+                    freq: "9",
+                    avg: "10,860"},
+                { buyer: "DX",
+                    volume: "25",
+                    freq: "4",
+                    avg: "10,870"},
+                { buyer: "DX",
+                    volume: "26",
+                    freq: "3",
+                    avg: "10,880"},
+                { buyer: "DX",
+                    volume: "27",
+                    freq: "2",
+                    avg: "10,890"},
+            ],
+            sideBar: {
+                toolPanels: [
+                    {
+                        id: "columns",
+                        labelDefault: "Columns",
+                        labelKey: "columns",
+                        iconKey: "columns",
+                        toolPanel: "agColumnsToolPanel",
+                        toolPanelParams: {
+                            suppressRowGroups: true,
+                            suppressValues: true,
+                            suppressPivots: true,
+                            suppressPivotMode: true,
+                            suppressSideButtons: true,
+                            suppressColumnFilter: true,
+                            suppressColumnSelectAll: true,
+                            suppressColumnExpandAll: true
+                        },
+                    }, {
+                        id: "filters",
+                        labelDefault: "Filters",
+                        labelKey: "filters",
+                        iconKey: "filter",
+                        toolPanel: "agFiltersToolPanel"
+                    }
+                ],
+                defaultToolPanel: ""
+            },
+        }
+    }
+
+    render() {
+        return (
+            <>
+                <div
+                    className="card card-160 ag-theme-balham-dark ag-header-border-gray"
+                    style={{
+                        width: 'auto' }}>
+                    <AgGridReact
+                        columnDefs={this.state.columnDefs}
+                        rowData={this.state.rowData}
+                        defaultColDef={this.state.defaultColDef}
+                        getRowHeight={this.state.getRowHeight}>
+                    </AgGridReact>
+                </div>
+            </>
+        );
+    }
+}
+
+class HistorySellerAgGrid extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        const self = this;
+        this.state = {
+            columnDefs: [
+                { field: "seller", headerName: "Seller", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        var volume = parseInt(params.data.volume);
+                        if (volume < 22 || volume > 26) {
+                            var value = 'text-center grid-table f-12 text-warning';
+                        } else {
+                            var value = 'text-center grid-table f-12 text-warning';
+                        }
+
+                        return value;
+                    }, },
+                { field: "volume", headerName: "Volume", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12 text-success";
+                    }, },
+                { field: "freq", headerName: "Freq", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12 text-success";
+                    }, },
+                { field: "avg", headerName: "Avg", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12 text-success";
+                    }, },
+            ],
+            defaultColDef: {
+                sortable: true,
+                filter: true,
+            },
+            getRowHeight : function(params){
+                return 27;
+            },
+            rowData: [
+                { seller: "DX",
+                    volume: "20",
+                    freq: "5",
+                    avg: "10,820"},
+                { seller: "DX",
+                    volume: "21",
+                    freq: "6",
+                    avg: "10,830"},
+                { seller: "DX",
+                    volume: "22",
+                    freq: "7",
+                    avg: "10,840"},
+                { seller: "DX",
+                    volume: "23",
+                    freq: "8",
+                    avg: "10,850"},
+                { seller: "DX",
+                    volume: "24",
+                    freq: "9",
+                    avg: "10,860"},
+                { seller: "DX",
+                    volume: "25",
+                    freq: "4",
+                    avg: "10,870"},
+                { seller: "DX",
+                    volume: "26",
+                    freq: "3",
+                    avg: "10,880"},
+                { seller: "DX",
+                    volume: "27",
+                    freq: "2",
+                    avg: "10,890"},
+            ],
+            sideBar: {
+                toolPanels: [
+                    {
+                        id: "columns",
+                        labelDefault: "Columns",
+                        labelKey: "columns",
+                        iconKey: "columns",
+                        toolPanel: "agColumnsToolPanel",
+                        toolPanelParams: {
+                            suppressRowGroups: true,
+                            suppressValues: true,
+                            suppressPivots: true,
+                            suppressPivotMode: true,
+                            suppressSideButtons: true,
+                            suppressColumnFilter: true,
+                            suppressColumnSelectAll: true,
+                            suppressColumnExpandAll: true
+                        },
+                    }, {
+                        id: "filters",
+                        labelDefault: "Filters",
+                        labelKey: "filters",
+                        iconKey: "filter",
+                        toolPanel: "agFiltersToolPanel"
+                    }
+                ],
+                defaultToolPanel: ""
+            },
+        }
+    }
+
+    render() {
+        return (
+            <>
+                <div
+                    className="card card-160 ag-theme-balham-dark ag-header-border-gray"
+                    style={{
+                        width: 'auto' }}>
+                    <AgGridReact
+                        columnDefs={this.state.columnDefs}
+                        rowData={this.state.rowData}
+                        defaultColDef={this.state.defaultColDef}
+                        getRowHeight={this.state.getRowHeight}>
+                    </AgGridReact>
+                </div>
+            </>
+        );
+    }
+}
+
+class CorpActionAgGrid extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        const self = this;
+        this.state = {
+            columnDefs: [
+                { field: "type", headerName: "Type", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 135,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12";
+                    },},
+                { field: "cumdate", headerName: "Cum Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 135,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12";
+                    },},
+                { field: "distdate", headerName: "Dist. Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 135,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12";
+                    },},
+                { field: "ratio", headerName: "Ratio", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 135,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12";
+                    }, },
+                { field: "exprice", headerName: "Ex. Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 135,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12";
+                    }, },
+            ],
+            defaultColDef: {
+                sortable: true,
+                filter: true,
+            },
+            getRowHeight : function(params){
+                return 27;
+            },
+            rowData: [
+                { type: "CASH DIVIDEND",
+                    cumdate: "2018-04-17",
+                    distdate: "2018-05-09",
+                    ratio: "1.00 : 322.00",
+                    exprice: "0.00" },
+                { type: "CASH DIVIDEND",
+                    cumdate: "2018-04-20",
+                    distdate: "2018-05-12",
+                    ratio: "1.00 : 322.00",
+                    exprice: "0.00" },
+                { type: "CASH DIVIDEND",
+                    cumdate: "2018-04-19",
+                    distdate: "2018-05-15",
+                    ratio: "1.00 : 370.00",
+                    exprice: "0.00" },
+                { type: "CASH DIVIDEND",
+                    cumdate: "2018-04-21",
+                    distdate: "2018-05-15",
+                    ratio: "1.00 : 370.00",
+                    exprice: "0.00" },
+                { type: "CASH DIVIDEND",
+                    cumdate: "2018-04-22",
+                    distdate: "2018-05-15",
+                    ratio: "1.00 : 472.00",
+                    exprice: "0.00" },
+            ],
+            sideBar: {
+                toolPanels: [
+                    {
+                        id: "columns",
+                        labelDefault: "Columns",
+                        labelKey: "columns",
+                        iconKey: "columns",
+                        toolPanel: "agColumnsToolPanel",
+                        toolPanelParams: {
+                            suppressRowGroups: true,
+                            suppressValues: true,
+                            suppressPivots: true,
+                            suppressPivotMode: true,
+                            suppressSideButtons: true,
+                            suppressColumnFilter: true,
+                            suppressColumnSelectAll: true,
+                            suppressColumnExpandAll: true
+                        },
+                    }, {
+                        id: "filters",
+                        labelDefault: "Filters",
+                        labelKey: "filters",
+                        iconKey: "filter",
+                        toolPanel: "agFiltersToolPanel"
+                    }
+                ],
+                defaultToolPanel: ""
+            },
+        }
+    }
+
+    render() {
+        return (
+            <>
+                <div
+                    className="card card-small ag-theme-balham-dark ag-striped-odd ag-header-border"
+                    style={{
+                        width: 'auto' }}>
+                    <AgGridReact
+                        columnDefs={this.state.columnDefs}
+                        rowData={this.state.rowData}
+                        defaultColDef={this.state.defaultColDef}
+                        getRowHeight={this.state.getRowHeight}>
+                    </AgGridReact>
+                </div>
             </>
         );
     }

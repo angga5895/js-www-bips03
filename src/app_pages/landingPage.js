@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // internal framework libraries
+import { Popup } from 'semantic-ui-react';
 import { AppFrameAction } from '../appframe.js';
 import {AppFrame, AppFrameProvider, AppModal} from "../appframe";
 import { NetAppProvider, WSConnection } from '../appnetwork';
@@ -27,6 +28,7 @@ import ModalAmend from "./../app_modals/modal_amend";
 import VerifyPIN from "./verifyPin";
 import ModalOrderDetail from "./../app_modals/modal_order_detail";
 import ReactTooltip from "react-tooltip";
+import {AgGridReact} from "ag-grid-react";
 
 const CustomFrameHeaderLanding_Base = (props) =>{
     // console.log(props.isGrid)
@@ -52,7 +54,7 @@ const CustomFrameHeaderLanding_Base = (props) =>{
                     <FillHeaderTab linkTitles={
                         {
                             landingPageInvboard: 'PORTOFOLIO',
-                            orderListPageInvboard: 'ORDER LIST',
+                            orderListPageInvboard: 'PEGADAIAN',
                             fixIncomePageInvboard: 'FIXED INCOME',
                             mutualFundPageInvboard: 'MUTUAL FUND'
                         }
@@ -168,28 +170,103 @@ class LandingPage_Base extends React.PureComponent {
                                     {/* portofolio */}
                                     <div className="col-md-6 px-1 py-2">
                                         <div className="d-border-active-tab card card-trading">
-                                            <PortofolioGrid gridView="grid" classView="f-9" clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} tp1="ptooltip1" tp2="ptooltip2" tp3="ptooltip3" tp4="ptooltip4" tp5="ptooltip5" />
+                                            <div className="card-header bg-grey">
+                                                <div className="row col-sm-12 px-0 mx-0 py-0">
+                                                    <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">PORTOFOLIO EQUITY</div>
+                                                    <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
+                                                        <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                    </div>
+                                                </div>
+                                                <div className="row col-sm-12 px-0 mx-0 py-1">
+                                                    <div className="col-sm-4 px-0 mx-0 text-center f-14">
+                                                        <span className="text-primary">15,234,000</span>
+                                                        <br/> Stock Val
+                                                    </div>
+                                                    <div className="col-sm-4 px-0 mx-0 text-center f-14">
+                                                        <span className="text-success">+1,496,198 (+7.50%)</span>
+                                                        <br/> P/L
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="card-body">
+                                                <PortofolioAgGrid gridView="grid" classView="f-12" clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} tp1="ptooltip1" tp2="ptooltip2" tp3="ptooltip3" tp4="ptooltip4" tp5="ptooltip5"/>
+                                            </div>
+                                            {/*<PortofolioGrid gridView="grid" classView="f-9" clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} tp1="ptooltip1" tp2="ptooltip2" tp3="ptooltip3" tp4="ptooltip4" tp5="ptooltip5" />*/}
                                         </div>
                                     </div>
 
                                     {/* FixedIncome */}
                                     <div className="col-md-6 px-1 py-2">
                                         <div className="bg-black-inactive card card-trading">
-                                            <FixedIncomeGrid gridView="grid" classView="f-9" />
+                                            <div className="card-header bg-grey">
+                                                <div className="row col-sm-12 px-0 mx-0 py-0">
+                                                    <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">FIXED INCOME</div>
+                                                    <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
+                                                        <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                    </div>
+                                                </div>
+                                                <div className="row col-sm-12 px-0 mx-0 py-1">
+                                                    <div className="col-sm-6 px-0 mx-0 text-center f-14">
+                                                        <span className="text-primary">46,000,000</span>
+                                                        <br/> Total Nominal
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="card-body">
+                                                <FixedIncomeAgGrid gridView="grid" classView="f-12" />
+                                            </div>
+                                            {/*<FixedIncomeGrid gridView="grid" classView="f-9" />*/}
                                         </div>
                                     </div>
 
                                     {/* order list */}
                                     <div className="col-md-6 px-1 py-2">
                                         <div className="bg-black-inactive card card-trading">
-                                            <OrderListGrid clickorderdetail={this.buttonClickOrderDetail} clickamend={this.buttonClickAmend} clickwithdraw={this.buttonClickWithdraw} gridView="grid" classView="f-9" />
+                                            <div className="card-header bg-grey">
+                                                <div className="row col-sm-12 px-0 mx-0 py-0">
+                                                    <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">PEGADAIAN</div>
+                                                    <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
+                                                        <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="card-body card-249 align-self-center text-center bg-grey f-12 py-5">
+                                                <div className="py-5">
+                                                    <div className="py-5">
+                                                        <i className="icofont icofont-warning-alt f-16"></i>
+                                                        <p>Not Available</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {/*<OrderListGrid clickorderdetail={this.buttonClickOrderDetail} clickamend={this.buttonClickAmend} clickwithdraw={this.buttonClickWithdraw} gridView="grid" classView="f-9" />*/}
                                         </div>
                                     </div>
 
                                     {/* Mutual Funs */}
                                     <div className="col-md-6 px-1 py-2">
                                         <div className="bg-black-inactive card card-trading">
-                                            <MutualFundGrid gridView="grid" classView="f-9" />
+                                            <div className="card-header bg-grey">
+                                                <div className="row col-sm-12 px-0 mx-0 py-0">
+                                                    <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">MUTUAL FUND</div>
+                                                    <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
+                                                        <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                    </div>
+                                                </div>
+                                                <div className="row col-sm-12 px-0 mx-0 py-1">
+                                                    <div className="col-sm-4 px-0 mx-0 text-center f-14">
+                                                        <span className="text-primary">4,088,802</span>
+                                                        <br/> Invested
+                                                    </div>
+                                                    <div className="col-sm-4 px-0 mx-0 text-center f-14">
+                                                        <span className="text-success">+496,198 (+9.50%)</span>
+                                                        <br/> P/L
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="card-body">
+                                                <MutualFundAgGrid gridView="grid" classView="f-12" />
+                                            </div>
+                                            {/*<MutualFundGrid gridView="grid" classView="f-9" />*/}
                                         </div>
                                     </div>
 
@@ -212,7 +289,25 @@ class LandingPage_Base extends React.PureComponent {
 
                         <div className="card card-75">
                             <AppFrameAction ref="frameAction" />
-                            <PortofolioGrid gridView="tab" classView="f-12" clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} tp1="ptooltip1" tp2="ptooltip2" tp3="ptooltip3" tp4="ptooltip4" tp5="ptooltip5" />
+                            <div className="card-header bg-grey">
+                                <div className="row col-sm-12 px-0 mx-0 pt-4 pb-1">
+                                    <div className="col-sm-4 px-0 mx-0 text-center f-14">
+                                        <span className="text-primary">15,234,000</span>
+                                        <br/> Stock Val
+                                    </div>
+                                    <div className="col-sm-4 px-0 mx-0 text-center f-14">
+                                        <span className="text-success">+1,496,198 (+7.50%)</span>
+                                        <br/> P/L
+                                    </div>
+                                    <div className="col-sm-4 text-right font-weight-bold px-0 mx-0">
+                                        <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="card-body">
+                                <PortofolioAgGrid gridView="tab" classView="f-12" clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} tp1="ptooltip1" tp2="ptooltip2" tp3="ptooltip3" tp4="ptooltip4" tp5="ptooltip5"/>
+                            </div>
+                            {/*<PortofolioGrid gridView="tab" classView="f-12" clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} tp1="ptooltip1" tp2="ptooltip2" tp3="ptooltip3" tp4="ptooltip4" tp5="ptooltip5" />*/}
                         </div>
                     </>)
                 }
@@ -300,28 +395,103 @@ class OrderList_Base extends React.Component{
                                     {/* portofolio */}
                                     <div className="col-md-6 px-1 py-2">
                                         <div className="bg-black-inactive card card-trading">
-                                            <PortofolioGrid clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} gridView="grid" classView="f-9" />
+                                            <div className="card-header bg-grey">
+                                                <div className="row col-sm-12 px-0 mx-0 py-0">
+                                                    <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">PORTOFOLIO EQUITY</div>
+                                                    <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
+                                                        <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                    </div>
+                                                </div>
+                                                <div className="row col-sm-12 px-0 mx-0 py-1">
+                                                    <div className="col-sm-4 px-0 mx-0 text-center f-14">
+                                                        <span className="text-primary">15,234,000</span>
+                                                        <br/> Stock Val
+                                                    </div>
+                                                    <div className="col-sm-4 px-0 mx-0 text-center f-14">
+                                                        <span className="text-success">+1,496,198 (+7.50%)</span>
+                                                        <br/> P/L
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="card-body">
+                                                <PortofolioAgGrid gridView="grid" classView="f-12" clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} tp1="ptooltip1" tp2="ptooltip2" tp3="ptooltip3" tp4="ptooltip4" tp5="ptooltip5"/>
+                                            </div>
+                                            {/*<PortofolioGrid clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} gridView="grid" classView="f-9" />*/}
                                         </div>
                                     </div>
 
                                     {/* FixedIncome */}
                                     <div className="col-md-6 px-1 py-2">
                                         <div className="bg-black-inactive card card-trading">
-                                            <FixedIncomeGrid gridView="grid" classView="f-9" />
+                                            <div className="card-header bg-grey">
+                                                <div className="row col-sm-12 px-0 mx-0 py-0">
+                                                    <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">FIXED INCOME</div>
+                                                    <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
+                                                        <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                    </div>
+                                                </div>
+                                                <div className="row col-sm-12 px-0 mx-0 py-1">
+                                                    <div className="col-sm-6 px-0 mx-0 text-center f-14">
+                                                        <span className="text-primary">46,000,000</span>
+                                                        <br/> Total Nominal
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="card-body">
+                                                <FixedIncomeAgGrid gridView="grid" classView="f-12" />
+                                            </div>
+                                            {/*<FixedIncomeGrid gridView="grid" classView="f-9" />*/}
                                         </div>
                                     </div>
 
                                     {/* OrderList */}
                                     <div className="col-md-6 px-1 py-2">
                                         <div className="d-border-active-tab card card-trading">
-                                            <OrderListGrid clickorderdetail={this.buttonClickOrderDetail} clickamend={this.buttonClickAmend} clickwithdraw={this.buttonClickWithdraw} gridView="grid" classView="f-9" />
+                                            <div className="card-header bg-grey">
+                                                <div className="row col-sm-12 px-0 mx-0 py-0">
+                                                    <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">PEGADAIAN</div>
+                                                    <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
+                                                        <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="card-body card-249 align-self-center text-center bg-grey f-12 py-5">
+                                                <div className="py-5">
+                                                    <div className="py-5">
+                                                        <i className="icofont icofont-warning-alt f-16"></i>
+                                                        <p>Not Available</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {/*<OrderListGrid clickorderdetail={this.buttonClickOrderDetail} clickamend={this.buttonClickAmend} clickwithdraw={this.buttonClickWithdraw} gridView="grid" classView="f-9" />*/}
                                         </div>
                                     </div>
 
                                     {/* Mutual Funs */}
                                     <div className="col-md-6 px-1 py-2">
                                         <div className="bg-black-inactive card card-trading">
-                                            <MutualFundGrid gridView="grid" classView="f-9" />
+                                            <div className="card-header bg-grey">
+                                                <div className="row col-sm-12 px-0 mx-0 py-0">
+                                                    <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">MUTUAL FUND</div>
+                                                    <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
+                                                        <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                    </div>
+                                                </div>
+                                                <div className="row col-sm-12 px-0 mx-0 py-1">
+                                                    <div className="col-sm-4 px-0 mx-0 text-center f-14">
+                                                        <span className="text-primary">4,088,802</span>
+                                                        <br/> Invested
+                                                    </div>
+                                                    <div className="col-sm-4 px-0 mx-0 text-center f-14">
+                                                        <span className="text-success">+496,198 (+9.50%)</span>
+                                                        <br/> P/L
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="card-body">
+                                                <MutualFundAgGrid gridView="grid" classView="f-12" />
+                                            </div>
+                                            {/*<MutualFundGrid gridView="grid" classView="f-9" />*/}
                                         </div>
                                     </div>
 
@@ -344,7 +514,23 @@ class OrderList_Base extends React.Component{
 
                         <div className="card card-75">
                             <AppFrameAction ref="frameAction" />
-                            <OrderListGrid clickorderdetail={this.buttonClickOrderDetail} gridView="tab" classView="f-12" clickwithdraw={this.buttonClickWithdraw} clickamend={this.buttonClickAmend} tp1="otooltip1" tp2="otooltip2" tp3="otooltip3" tp4="otooltip4" tp5="otooltip5" />
+                            <div className="card-header bg-grey">
+                                <div className="row col-sm-12 px-0 mx-0 py-3">
+                                    <div className="col-sm-10 px-0 mx-0 f-14 align-self-center"></div>
+                                    <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
+                                        <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="card-body card-550 align-self-center text-center bg-grey f-16 py-5">
+                                <div className="py-5">
+                                    <div className="py-5">
+                                        <i className="icofont icofont-warning-alt f-18"></i>
+                                        <p>Not Available</p>
+                                    </div>
+                                </div>
+                            </div>
+                            {/*<OrderListGrid clickorderdetail={this.buttonClickOrderDetail} gridView="tab" classView="f-12" clickwithdraw={this.buttonClickWithdraw} clickamend={this.buttonClickAmend} tp1="otooltip1" tp2="otooltip2" tp3="otooltip3" tp4="otooltip4" tp5="otooltip5" />*/}
                         </div>
                     </>)
                 }
@@ -422,28 +608,103 @@ class FixedIncome_Base extends React.PureComponent {
                                         {/* portofolio */}
                                         <div className="col-md-6 px-1 py-2">
                                             <div className="bg-black-inactive card card-trading">
-                                                <PortofolioGrid clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} gridView="grid" classView="f-9" />
+                                                <div className="card-header bg-grey">
+                                                    <div className="row col-sm-12 px-0 mx-0 py-0">
+                                                        <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">PORTOFOLIO EQUITY</div>
+                                                        <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
+                                                            <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div className="row col-sm-12 px-0 mx-0 py-1">
+                                                        <div className="col-sm-4 px-0 mx-0 text-center f-14">
+                                                            <span className="text-primary">15,234,000</span>
+                                                            <br/> Stock Val
+                                                        </div>
+                                                        <div className="col-sm-4 px-0 mx-0 text-center f-14">
+                                                            <span className="text-success">+1,496,198 (+7.50%)</span>
+                                                            <br/> P/L
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="card-body">
+                                                    <PortofolioAgGrid gridView="grid" classView="f-12" clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} tp1="ptooltip1" tp2="ptooltip2" tp3="ptooltip3" tp4="ptooltip4" tp5="ptooltip5"/>
+                                                </div>
+                                                {/*<PortofolioGrid clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} gridView="grid" classView="f-9" />*/}
                                             </div>
                                         </div>
 
                                         {/* FixedIncome */}
                                         <div className="col-md-6 px-1 py-2">
                                             <div className="d-border-active-tab card card-trading">
-                                                <FixedIncomeGrid gridView="grid" classView="f-9" />
+                                                <div className="card-header bg-grey">
+                                                    <div className="row col-sm-12 px-0 mx-0 py-0">
+                                                        <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">FIXED INCOME</div>
+                                                        <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
+                                                            <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div className="row col-sm-12 px-0 mx-0 py-1">
+                                                        <div className="col-sm-6 px-0 mx-0 text-center f-14">
+                                                            <span className="text-primary">46,000,000</span>
+                                                            <br/> Total Nominal
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="card-body">
+                                                    <FixedIncomeAgGrid gridView="grid" classView="f-12" />
+                                                </div>
+                                                {/*<FixedIncomeGrid gridView="grid" classView="f-9" />*/}
                                             </div>
                                         </div>
 
                                         {/* order list */}
                                         <div className="col-md-6 px-1 py-2">
                                             <div className="bg-black-inactive card card-trading">
-                                                <OrderListGrid clickorderdetail={this.buttonClickOrderDetail} clickamend={this.buttonClickAmend} clickwithdraw={this.buttonClickWithdraw} gridView="grid" classView="f-9" />
+                                                <div className="card-header bg-grey">
+                                                    <div className="row col-sm-12 px-0 mx-0 py-0">
+                                                        <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">PEGADAIAN</div>
+                                                        <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
+                                                            <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="card-body card-249 align-self-center text-center bg-grey f-12 py-5">
+                                                    <div className="py-5">
+                                                        <div className="py-5">
+                                                            <i className="icofont icofont-warning-alt f-16"></i>
+                                                            <p>Not Available</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {/*<OrderListGrid clickorderdetail={this.buttonClickOrderDetail} clickamend={this.buttonClickAmend} clickwithdraw={this.buttonClickWithdraw} gridView="grid" classView="f-9" />*/}
                                             </div>
                                         </div>
 
                                         {/* Mutual Funs */}
                                         <div className="col-md-6 px-1 py-2">
                                             <div className="bg-black-inactive card card-trading">
-                                                <MutualFundGrid gridView="grid" classView="f-9" />
+                                                <div className="card-header bg-grey">
+                                                    <div className="row col-sm-12 px-0 mx-0 py-0">
+                                                        <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">MUTUAL FUND</div>
+                                                        <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
+                                                            <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div className="row col-sm-12 px-0 mx-0 py-1">
+                                                        <div className="col-sm-4 px-0 mx-0 text-center f-14">
+                                                            <span className="text-primary">4,088,802</span>
+                                                            <br/> Invested
+                                                        </div>
+                                                        <div className="col-sm-4 px-0 mx-0 text-center f-14">
+                                                            <span className="text-success">+496,198 (+9.50%)</span>
+                                                            <br/> P/L
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="card-body">
+                                                    <MutualFundAgGrid gridView="grid" classView="f-12" />
+                                                </div>
+                                                {/*<MutualFundGrid gridView="grid" classView="f-9" />*/}
                                             </div>
                                         </div>
 
@@ -456,7 +717,22 @@ class FixedIncome_Base extends React.PureComponent {
                     (<>
                         <div className="card card-75">
                             <AppFrameAction ref="frameAction" />
-                            <FixedIncomeGrid gridView="tab" classView="f-12"  />
+                            <div className="card-header bg-grey">
+                                <div className="row col-sm-12 px-0 mx-0 pt-4 pb-1">
+                                    <div className="col-sm-4 px-0 mx-0 text-center f-14">
+                                        <span className="text-primary">46,000,000</span>
+                                        <br/> Total Nominal
+                                    </div>
+                                    <div className="col-sm-4 px-0 mx-0 text-center f-14"></div>
+                                    <div className="col-sm-4 text-right font-weight-bold px-0 mx-0">
+                                        <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="card-body">
+                                <FixedIncomeAgGrid gridView="tab" classView="f-12"/>
+                            </div>
+                            {/*<FixedIncomeGrid gridView="tab" classView="f-12"  />*/}
                         </div>
                     </>)
                 }
@@ -533,28 +809,103 @@ class MutualFund_Base extends React.PureComponent {
                                 {/* portofolio */}
                                 <div className="col-md-6 px-1 py-2">
                                     <div className="bg-black-inactive card card-trading">
-                                        <PortofolioGrid clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} gridView="grid" classView="f-9" />
+                                        <div className="card-header bg-grey">
+                                            <div className="row col-sm-12 px-0 mx-0 py-0">
+                                                <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">PORTOFOLIO EQUITY</div>
+                                                <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
+                                                    <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                </div>
+                                            </div>
+                                            <div className="row col-sm-12 px-0 mx-0 py-1">
+                                                <div className="col-sm-4 px-0 mx-0 text-center f-14">
+                                                    <span className="text-primary">15,234,000</span>
+                                                    <br/> Stock Val
+                                                </div>
+                                                <div className="col-sm-4 px-0 mx-0 text-center f-14">
+                                                    <span className="text-success">+1,496,198 (+7.50%)</span>
+                                                    <br/> P/L
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="card-body">
+                                            <PortofolioAgGrid gridView="grid" classView="f-12" clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} tp1="ptooltip1" tp2="ptooltip2" tp3="ptooltip3" tp4="ptooltip4" tp5="ptooltip5"/>
+                                        </div>
+                                        {/*<PortofolioGrid clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} gridView="grid" classView="f-9" />*/}
                                     </div>
                                 </div>
 
                                 {/* FixedIncome */}
                                 <div className="col-md-6 px-1 py-2">
                                     <div className="bg-black-inactive card card-trading">
-                                        <FixedIncomeGrid gridView="grid" classView="f-9" />
+                                        <div className="card-header bg-grey">
+                                            <div className="row col-sm-12 px-0 mx-0 py-0">
+                                                <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">FIXED INCOME</div>
+                                                <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
+                                                    <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                </div>
+                                            </div>
+                                            <div className="row col-sm-12 px-0 mx-0 py-1">
+                                                <div className="col-sm-6 px-0 mx-0 text-center f-14">
+                                                    <span className="text-primary">46,000,000</span>
+                                                    <br/> Total Nominal
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="card-body">
+                                            <FixedIncomeAgGrid gridView="grid" classView="f-12" />
+                                        </div>
+                                        {/*<FixedIncomeGrid gridView="grid" classView="f-9" />*/}
                                     </div>
                                 </div>
 
                                 {/* Order list */}
                                 <div className="col-md-6 px-1 py-2">
                                     <div className="bg-black-inactive card card-trading">
-                                        <OrderListGrid clickorderdetail={this.buttonClickOrderDetail} clickamend={this.buttonClickAmend} clickwithdraw={this.buttonClickWithdraw} gridView="grid" classView="f-9" />
+                                        <div className="card-header bg-grey">
+                                            <div className="row col-sm-12 px-0 mx-0 py-0">
+                                                <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">PEGADAIAN</div>
+                                                <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
+                                                    <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="card-body card-249 align-self-center text-center bg-grey f-12 py-5">
+                                            <div className="py-5">
+                                                <div className="py-5">
+                                                    <i className="icofont icofont-warning-alt f-16"></i>
+                                                    <p>Not Available</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {/*<OrderListGrid clickorderdetail={this.buttonClickOrderDetail} clickamend={this.buttonClickAmend} clickwithdraw={this.buttonClickWithdraw} gridView="grid" classView="f-9" />*/}
                                     </div>
                                 </div>
 
                                 {/* Mutual Funs */}
                                 <div className="col-md-6 px-1 py-2">
                                     <div className="d-border-active-tab card card-trading">
-                                        <MutualFundGrid gridView="grid" classView="f-9" />
+                                        <div className="card-header bg-grey">
+                                            <div className="row col-sm-12 px-0 mx-0 py-0">
+                                                <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">MUTUAL FUND</div>
+                                                <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
+                                                    <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                </div>
+                                            </div>
+                                            <div className="row col-sm-12 px-0 mx-0 py-1">
+                                                <div className="col-sm-4 px-0 mx-0 text-center f-14">
+                                                    <span className="text-primary">4,088,802</span>
+                                                    <br/> Invested
+                                                </div>
+                                                <div className="col-sm-4 px-0 mx-0 text-center f-14">
+                                                    <span className="text-success">+496,198 (+9.50%)</span>
+                                                    <br/> P/L
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="card-body">
+                                            <MutualFundAgGrid gridView="grid" classView="f-12" />
+                                        </div>
+                                        {/*<MutualFundGrid gridView="grid" classView="f-9" />*/}
                                     </div>
                                 </div>
 
@@ -566,7 +917,25 @@ class MutualFund_Base extends React.PureComponent {
                 (<>
                     <div className="card card-75">
                         <AppFrameAction ref="frameAction" />
-                        <MutualFundGrid gridView="tab" classView="f-12" clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} tp1="ptooltip1" tp2="ptooltip2" tp3="ptooltip3" tp4="ptooltip4" tp5="ptooltip5" />
+                        <div className="card-header bg-grey">
+                            <div className="row col-sm-12 px-0 mx-0 pt-4 pb-1">
+                                <div className="col-sm-4 px-0 mx-0 text-center f-14">
+                                    <span className="text-primary">4,088,802</span>
+                                    <br/> Invested
+                                </div>
+                                <div className="col-sm-4 px-0 mx-0 text-center f-14">
+                                    <span className="text-success">+496,198 (+9.50%)</span>
+                                    <br/> P/L
+                                </div>
+                                <div className="col-sm-4 text-right font-weight-bold px-0 mx-0">
+                                    <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="card-body">
+                            <MutualFundAgGrid gridView="tab" classView="f-12" />
+                        </div>
+                        {/*<MutualFundGrid gridView="tab" classView="f-12" clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} tp1="ptooltip1" tp2="ptooltip2" tp3="ptooltip3" tp4="ptooltip4" tp5="ptooltip5" />*/}
                     </div>
                 </>)
             }
@@ -1885,6 +2254,687 @@ class OrderDetailModal extends React.Component {
             <>
                 <AppFrameAction ref="frameAction" />
                 <ModalOrderDetail/>
+            </>
+        );
+    }
+}
+
+class PortofolioAgGrid extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        const self = this;
+        this.state = {
+            columnDefs: [
+                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 85 : 150,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    }
+                },
+                { field: "avgprice", headerName: "Avg. Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 110 : 150,
+                    cellClass : function (params) {
+                        var pl = params.data.pl;
+                        return pl.includes('-') === true ? "text-danger text-right  grid-table f-12" :
+                            "text-success text-right  grid-table f-12";
+                    }
+                },
+                { field: "indicator", headerName: "", sortable: true, filter: false, resizable: false, width: this.props.gridView == 'grid' ? 20 : 30,
+                    cellClass : function (params) {
+                        return " text-center grid-table f-12";
+                    },
+                    cellRenderer : function (params) {
+                        var pl = params.data.pl;
+                        return pl.includes('-') === true ? '<i class="icofont icofont-caret-down text-danger"></i>' :
+                            '<i class="icofont icofont-caret-up text-success"></i>';
+                    }
+                },
+                { field: "lastprice", headerName: "Last Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 110 : 150,
+                    cellClass : function (params) {
+                        return " text-right grid-table f-12";
+                    }
+                },
+                { headerName: "Vol", children:[
+                        { field: "lot", headerName: "Lot", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 80 : 90,
+                            cellClass : function (params) {
+                                return " text-right grid-table f-12";
+                            }
+                        },
+                        { field: "shares", headerName: "Shares", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 80 : 90,
+                            cellClass : function (params) {
+                                return " text-right grid-table f-12";
+                            }
+                        },
+                    ]},
+                { field: "stockval", headerName: "Stock Val", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 150,
+                    cellClass : function (params) {
+                        return " text-right grid-table f-12";
+                    }
+                },
+                { field: "pl", headerName: "P/L", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 130 : 150,
+                    cellClass : function (params) {
+                        var pl = params.data.pl;
+                        return pl.includes('-') === true ? "text-danger text-right  grid-table f-12":
+                            "text-success text-right  grid-table f-12";
+                    }
+                },
+                { field: "remark", headerName: "Remark", sortable: false, resizable: true, width: this.props.gridView == 'grid' ? 90 : 110,
+                    tooltip: (params) => {
+                        var code = params.data.code;
+
+                        if (code.includes('AALI') === true){
+                            var toltp = 'Not yet submit annual financial report';
+                        } else{
+                            var toltp = 'Not Issue';
+                        }
+
+                        return toltp;
+                    },
+                    cellClass : function (params) {
+                        return " text-center grid-table f-12";
+                    },
+                    cellRenderer : function (params) {
+                        var code = params.data.code;
+                        var eDiv = document.createElement('div');
+
+                        if (code.includes('AALI') === true){
+                            eDiv.innerHTML = '<span>' +
+                                '<i class="tolTipRemaks fa fa-info-circle text-danger" id="ptooltip1" data-tip="true" data-for="errorTooltip"></i>' +
+                                '</span>';
+                        } else {
+                            eDiv.innerHTML = '<span>' +
+                                '<i class="tolTipRemaks fa fa-info-circle text-info" id="ptooltip1" data-tip="true" data-for="infoTooltip"></i>' +
+                                '</span>';
+                        }
+
+                        /*var bTooltip = eDiv.querySelectorAll('.tolTipRemaks')[0];
+                        bTooltip.addEventListener('mouseover', function () {
+                            return '<span></span>';
+                        });*/
+
+                        return eDiv;
+                    }
+                },
+                { field: "action", headerName: "Action", sortable: false, width: this.props.gridView == 'grid' ? 150 : 150, pinned: "right", lockPosition: true, lockVisible: true,
+                    cellClass : function (params) {
+                        return " grid-table locked-col locked-visible";
+                    },
+                    cellRenderer : function (params) {
+                        var eDiv = document.createElement('div');
+                        eDiv.innerHTML = '<span class="px-1">' +
+                            '<button class="btn-cellbuy btn btn-sm btn-danger mx-1 f-9 w-50">Buy more</button>' +
+                            '<button class="btn-cellsell btn btn-sm btn-success mx-1 f-9 w-50">Sell</button>' +
+                            '</span>';
+                        var bButton = eDiv.querySelectorAll('.btn-cellbuy')[0];
+                        var sButton = eDiv.querySelectorAll('.btn-cellsell')[0];
+
+                        bButton.addEventListener('click', self.props.clickbuy);
+                        sButton.addEventListener('click', self.props.clicksell);
+
+                        return eDiv;
+                    }
+                },
+            ],
+            defaultColDef: {
+                sortable: true,
+                filter: true,
+            },
+            rowData: [
+                { code: "AALI",
+                avgprice: "12,650",
+                lastprice: "12,650",
+                lot: "12",
+                shares: "122",
+                stockval: "12,650,000",
+                pl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                remark: ""   ,
+                action:""   },
+                { code: "ADHI",
+                    avgprice: "1,529",
+                    indicator : "",
+                    lastprice: "1,429",
+                    lot: "10",
+                    shares: "100",
+                    stockval: "1,529,000",
+                    pl: "-15,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-1,50%",
+                    remark: "",
+                    action:""   },
+                { code: "ANTM",
+                    avgprice: "1,025",
+                    indicator : "",
+                    lastprice: "1,025",
+                    lot: "2",
+                    shares: "210",
+                    stockval: "1,025,000",
+                    pl: "-25,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-2,50%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "ASII",
+                    avgprice: "7,125",
+                    indicator : "",
+                    lastprice: "7,125",
+                    lot: "9",
+                    shares: "930",
+                    stockval: "7,125,000",
+                    pl: "-50,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-5,78%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "BBCA",
+                    avgprice: "27,400",
+                    indicator : "",
+                    lastprice: "27,400",
+                    lot: "4",
+                    shares: "410",
+                    stockval: "27,400,000",
+                    pl: "+250,650"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"+2,50%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "AALI",
+                    avgprice: "12,650",
+                    indicator : "",
+                    lastprice: "12,650",
+                    lot: "12",
+                    shares: "122",
+                    stockval: "12,650,000",
+                    pl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "ASII",
+                    avgprice: "7,125",
+                    indicator : "",
+                    lastprice: "7,125",
+                    lot: "9",
+                    shares: "930",
+                    stockval: "7,125,000",
+                    pl: "-50,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-5,78%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "BBCA",
+                    avgprice: "27,400",
+                    indicator : "",
+                    lastprice: "27,400",
+                    lot: "4",
+                    shares: "410",
+                    stockval: "27,400,000",
+                    pl: "+250,650"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"+2,50%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "AALI",
+                    avgprice: "12,650",
+                    indicator : "",
+                    lastprice: "12,650",
+                    lot: "12",
+                    shares: "122",
+                    stockval: "12,650,000",
+                    pl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "ADHI",
+                    avgprice: "1,529",
+                    indicator : "",
+                    lastprice: "1,429",
+                    lot: "10",
+                    shares: "100",
+                    stockval: "1,529,000",
+                    pl: "-15,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-1,50%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "ANTM",
+                    avgprice: "1,025",
+                    indicator : "",
+                    lastprice: "1,025",
+                    lot: "2",
+                    shares: "210",
+                    stockval: "1,025,000",
+                    pl: "-25,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-2,50%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "ASII",
+                    avgprice: "7,125",
+                    indicator : "",
+                    lastprice: "7,125",
+                    lot: "9",
+                    shares: "930",
+                    stockval: "7,125,000",
+                    pl: "-50,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-5,78%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "BBCA",
+                    avgprice: "27,400",
+                    indicator : "",
+                    lastprice: "27,400",
+                    lot: "4",
+                    shares: "410",
+                    stockval: "27,400,000",
+                    pl: "+250,650"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"+2,50%",
+                    remark: ""   ,
+                    action:""   },{ code: "AALI",
+                    avgprice: "12,650",
+                    lastprice: "12,650",
+                    lot: "12",
+                    shares: "122",
+                    stockval: "12,650,000",
+                    pl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    remark: "",
+                    action:""   },
+                { code: "ADHI",
+                    avgprice: "1,529",
+                    indicator : "",
+                    lastprice: "1,429",
+                    lot: "10",
+                    shares: "100",
+                    stockval: "1,529,000",
+                    pl: "-15,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-1,50%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "ANTM",
+                    avgprice: "1,025",
+                    indicator : "",
+                    lastprice: "1,025",
+                    lot: "2",
+                    shares: "210",
+                    stockval: "1,025,000",
+                    pl: "-25,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-2,50%",
+                    remark: "",
+                    action: ""},
+                { code: "ASII",
+                    avgprice: "7,125",
+                    indicator : "",
+                    lastprice: "7,125",
+                    lot: "9",
+                    shares: "930",
+                    stockval: "7,125,000",
+                    pl: "-50,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-5,78%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "BBCA",
+                    avgprice: "27,400",
+                    indicator : "",
+                    lastprice: "27,400",
+                    lot: "4",
+                    shares: "410",
+                    stockval: "27,400,000",
+                    pl: "+250,650"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"+2,50%",
+                    remark: ""   ,
+                    action:""
+                }
+            ],
+            sideBar: {
+                toolPanels: [
+                    {
+                        id: "columns",
+                        labelDefault: "Columns",
+                        labelKey: "columns",
+                        iconKey: "columns",
+                        toolPanel: "agColumnsToolPanel",
+                        toolPanelParams: {
+                            suppressRowGroups: true,
+                            suppressValues: true,
+                            suppressPivots: true,
+                            suppressPivotMode: true,
+                            suppressSideButtons: true,
+                            suppressColumnFilter: true,
+                            suppressColumnSelectAll: true,
+                            suppressColumnExpandAll: true
+                        },
+                    }, {
+                        id: "filters",
+                        labelDefault: "Filters",
+                        labelKey: "filters",
+                        iconKey: "filter",
+                        toolPanel: "agFiltersToolPanel"
+                    }
+                ],
+                defaultToolPanel: ""
+            },
+        }
+    }
+
+    render() {
+        return (
+            <>
+                <div
+                    className={this.props.gridView == 'grid' ? "card-213 ag-theme-balham-dark ag-bordered" : "card-550 ag-theme-balham-dark ag-bordered"}
+                    style={{
+                        width: 'auto' }}>
+                    <AgGridReact
+                        columnDefs={this.state.columnDefs}
+                        rowData={this.state.rowData}
+                        defaultColDef={this.state.defaultColDef}
+                        sideBar={this.state.sideBar}>
+                    </AgGridReact>
+                </div>
+            </>
+        );
+    }
+}
+
+class FixedIncomeAgGrid extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        const self = this;
+        this.state = {
+            columnDefs: [
+                { field: "no", headerName: "#", sortable: true, filter: "agTextColumnFilter", width: this.props.gridView == 'grid' ? 30 : 40,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    }},
+                { field: "serial", headerName: "Serial", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 110 : 170,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    }},
+                { field: "nominal", headerName: "Nominal (IDR)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 170,
+                    cellClass : function (params) {
+                        return " grid-table text-right f-12";
+                    }},
+                { field: "coupon", headerName: "Coupon", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 100 : 170,
+                    cellClass : function (params) {
+                        return " grid-table text-right f-12";
+                    } },
+                { field: "couponpdate", headerName: "Coupon Payment Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 150 : 200,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    } },
+                { field: "duedate", headerName: "Due Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 170,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    } },
+                { field: "detail", headerName: "Detail", resizable: true, width: this.props.gridView == 'grid' ? 90 : 160,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    },
+                    cellRenderer : function (params) {
+                        return '<i class="fa fa-search click-pointer text-danger"></i>'
+                    } },
+                { field: "action", headerName: "Action", width: this.props.gridView == 'grid' ? 180 : 200, pinned: "right", lockPosition: true, lockVisible: true,
+                    cellClass : function (params) {
+                        return " grid-table text-center locked-col locked-visible";
+                    },
+                    cellRenderer : function (params) {
+                        var eDiv = document.createElement('div');
+                        eDiv.innerHTML = '<span class="px-1">' +
+                            '<button class="btn-cellbuy btn btn-sm btn-danger mx-1 f-9 w-50">Buy</button>' +
+                            '<button class="btn-cellredemption btn btn-sm btn-primary mx-1 f-9 w-50">Redemption</button>' +
+                            '</span>';
+                        var bButton = eDiv.querySelectorAll('.btn-cellbuy')[0];
+                        var sButton = eDiv.querySelectorAll('.btn-cellredemption')[0];
+
+                        /*bButton.addEventListener('click', function () {});
+                        sButton.addEventListener('click', function () {});*/
+
+                        return eDiv;
+                    } },
+            ],
+            defaultColDef: {
+                sortable: true,
+                filter: true,
+            },
+            rowData: [
+                { no: "1",
+                    serial: "SUNMP15042019",
+                    nominal: "7,000,000",
+                    coupon: "8,0%",
+                    couponpdate: "date 20 every month",
+                    duedate: "02 Jan 2021",
+                    detail: "",
+                    action: ""},
+                { no: "2",
+                    serial: "SUNMP16042019",
+                    nominal: "5,000,000",
+                    coupon: "7,0%",
+                    couponpdate: "date 21 every month",
+                    duedate: "03 Jan 2021",
+                    detail: "",
+                    action: ""},
+                { no: "3",
+                    serial: "SUNMP17042019",
+                    nominal: "2,000,000",
+                    coupon: "5,0%",
+                    couponpdate: "date 22 every month",
+                    duedate: "04 Jan 2021",
+                    detail: "",
+                    action: ""},
+                { no: "4",
+                    serial: "SUNMP18042019",
+                    nominal: "6,000,000",
+                    coupon: "8,0%",
+                    couponpdate: "date 23 every month",
+                    duedate: "05 Jan 2021",
+                    detail: "",
+                    action: ""},
+                { no: "5",
+                    serial: "SUNMP19042019",
+                    nominal: "4,000,000",
+                    coupon: "9,0%",
+                    couponpdate: "date 24 every month",
+                    duedate: "06 Jan 2021",
+                    detail: "",
+                    action: ""},
+                { no: "6",
+                    serial: "SUNMP20042019",
+                    nominal: "12,000,000",
+                    coupon: "6,0%",
+                    couponpdate: "date 25 every month",
+                    duedate: "07 Jan 2021",
+                    detail: "",
+                    action: ""},
+                { no: "7",
+                    serial: "SUNMP21042019",
+                    nominal: "10,000,000",
+                    coupon: "6,0%",
+                    couponpdate: "date 26 every month",
+                    duedate: "08 Jan 2021",
+                    detail: "",
+                    action: ""},
+            ],
+            sideBar: {
+                toolPanels: [
+                    {
+                        id: "columns",
+                        labelDefault: "Columns",
+                        labelKey: "columns",
+                        iconKey: "columns",
+                        toolPanel: "agColumnsToolPanel",
+                        toolPanelParams: {
+                            suppressRowGroups: true,
+                            suppressValues: true,
+                            suppressPivots: true,
+                            suppressPivotMode: true,
+                            suppressSideButtons: true,
+                            suppressColumnFilter: true,
+                            suppressColumnSelectAll: true,
+                            suppressColumnExpandAll: true
+                        },
+                    }, {
+                        id: "filters",
+                        labelDefault: "Filters",
+                        labelKey: "filters",
+                        iconKey: "filter",
+                        toolPanel: "agFiltersToolPanel"
+                    }
+                ],
+                defaultToolPanel: ""
+            },
+        }
+    }
+
+    render() {
+        return (
+            <>
+                <div
+                    className={this.props.gridView == 'grid' ? "card-213 ag-theme-balham-dark ag-striped-odd" : "card-550 ag-theme-balham-dark ag-striped-odd"}
+                    style={{
+                        width: 'auto' }}>
+                    <AgGridReact
+                        columnDefs={this.state.columnDefs}
+                        rowData={this.state.rowData}
+                        defaultColDef={this.state.defaultColDef}
+                        sideBar={this.state.sideBar}>
+                    </AgGridReact>
+                </div>
+            </>
+        );
+    }
+}
+
+class MutualFundAgGrid extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        const self = this;
+        this.state = {
+            columnDefs: [
+                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 80 : 170,
+                    cellClass : function (params) {
+                        return " grid-table text-left f-12";
+                    },
+                    cellRenderer : function (params) {
+                        var code = params.data.code;
+                        var scode = code.split("-");
+
+                        return '<span className="font-weight-bold">'+scode[0]+'</span>' +
+                            '<br /><span>'+scode[1]+'</span>';
+                    } },
+                { field: "nav", headerName: "NAV", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 100 : 190,
+                    cellClass : function (params) {
+                        return " grid-table text-right f-12";
+                    } },
+                { field: "navdate", headerName: "NAV Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 100 : 190,
+                    cellClass : function (params) {
+                        return " grid-table text-right f-12";
+                    } },
+                { field: "currency", headerName: "Currency", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 100 : 190,
+                    cellClass : function (params) {
+                        return " grid-table text-right f-12";
+                    }  },
+                { field: "indicator", headerName: "", width: this.props.gridView == 'grid' ? 30 : 50,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    },
+                    cellRenderer : function (params) {
+                        var pl = params.data.potentialpl;
+                        return pl.includes('-') === true ? '<i class="icofont icofont-caret-down text-danger"></i>' :
+                            '<i class="icofont icofont-caret-up text-success"></i>';
+                    } },
+                { field: "potentialpl", headerName: "Potential P/L", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 150 : 230,
+                    cellClass : function (params) {
+                        var pl = params.data.potentialpl;
+                        return pl.includes('-') === true ? 'grid-table text-right f-12 text-danger' :
+                            'grid-table text-right f-12 text-success'
+                    } },
+                { field: "action", headerName: "Action", sortable: false, width: this.props.gridView == 'grid' ? 180 : 200, pinned: "right", lockPosition: true, lockVisible: true,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12 locked-col locked-visible";
+                    },
+                    cellRenderer : function (params) {
+                        var eDiv = document.createElement('div');
+                        eDiv.innerHTML = '<span class="px-1">' +
+                            '<button class="btn-cellbuy btn btn-sm btn-danger mx-1 f-9 w-50">Buy Fund</button>' +
+                            '<button class="btn-cellredemption btn btn-sm btn-primary mx-1 f-9 w-50">Redemption</button>' +
+                            '</span>';
+                        var bButton = eDiv.querySelectorAll('.btn-cellbuy')[0];
+                        var sButton = eDiv.querySelectorAll('.btn-cellredemption')[0];
+
+                        /*bButton.addEventListener('click', function(){});
+                        sButton.addEventListener('click', function(){});*/
+
+                        return eDiv;
+                    } },
+            ],
+            defaultColDef: {
+                sortable: true,
+                filter: true,
+            },
+            getRowHeight: function (params) {
+                return 40;
+            },
+            rowData: [
+                { code: "000D7Q-RDPT BUMN Fund...",
+                    nav: "12,650",
+                    navdate: "06/03/2019",
+                    currency: "12,650,000",
+                    indicator : "",
+                    potentialpl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    action:""},
+                { code: "000D7T-Reksa Dana Penyataan...",
+                    nav: "1,529",
+                    navdate: "06/03/2019",
+                    currency: "1,529,000",
+                    indicator : "",
+                    potentialpl: "-15,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-1,50%",
+                    action:""},
+                { code: "000D7Q-RDPT BUMN Fund...",
+                    nav: "1,025",
+                    navdate: "06/03/2019",
+                    currency: "1,025,000",
+                    indicator : "",
+                    potentialpl: "+250,660"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"+2,50%",
+                    action:""},
+                { code: "000D7T-Reksa Dana Penyataan...",
+                    nav: "7,125",
+                    navdate: "06/03/2019",
+                    currency: "7,125,000",
+                    indicator : "",
+                    potentialpl: "+175"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"+1,75%",
+                    action:""},
+                { code: "000D7Q-RDPT BUMN Fund...",
+                    nav: "12,650",
+                    navdate: "06/03/2019",
+                    currency: "12,650,000",
+                    indicator : "",
+                    potentialpl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    action:""},
+                { code: "000D7T-Reksa Dana Penyataan...",
+                    nav: "1,529",
+                    navdate: "06/03/2019",
+                    currency: "1,529,000",
+                    indicator : "",
+                    potentialpl: "-15,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-1,50%",
+                    action:""},
+            ],
+            sideBar: {
+                toolPanels: [
+                    {
+                        id: "columns",
+                        labelDefault: "Columns",
+                        labelKey: "columns",
+                        iconKey: "columns",
+                        toolPanel: "agColumnsToolPanel",
+                        toolPanelParams: {
+                            suppressRowGroups: true,
+                            suppressValues: true,
+                            suppressPivots: true,
+                            suppressPivotMode: true,
+                            suppressSideButtons: true,
+                            suppressColumnFilter: true,
+                            suppressColumnSelectAll: true,
+                            suppressColumnExpandAll: true
+                        },
+                    }, {
+                        id: "filters",
+                        labelDefault: "Filters",
+                        labelKey: "filters",
+                        iconKey: "filter",
+                        toolPanel: "agFiltersToolPanel"
+                    }
+                ],
+                defaultToolPanel: ""
+            },
+        }
+    }
+
+    render() {
+        return (
+            <>
+                <div
+                    className={this.props.gridView == 'grid' ? "card-213 ag-theme-balham-dark" : "card-550 ag-theme-balham-dark"}
+                    style={{
+                        width: 'auto' }}>
+                    <AgGridReact
+                        columnDefs={this.state.columnDefs}
+                        rowData={this.state.rowData}
+                        defaultColDef={this.state.defaultColDef}
+                        getRowHeight={this.state.getRowHeight}
+                        sideBar={this.state.sideBar}>
+                    </AgGridReact>
+                </div>
             </>
         );
     }

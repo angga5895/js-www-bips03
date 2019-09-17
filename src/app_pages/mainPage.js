@@ -7,10 +7,12 @@ import { AppFrameAction, AppFrame, AppModal } from '../appframe.js';
 import { BIPSAppContext } from '../AppData.js';
 
 // application-common-UI libraries goes here
-import UISelectionTab from '../selectiontab.js';
+import UISelectionTab, {UISelectionTab_Scale} from '../selectiontab.js';
 import { ContextConnector } from '../appcontext.js';
 import SideBar from "../SideBar";
 import './../bootstrap-3.3.7/dark_chart_style.min';
+import $ from 'jquery';
+window.$ = window.jQuery = $;
 
 const CustomFrameHeader = (props) => {
   return (
@@ -61,6 +63,7 @@ class MainPage_Base extends React.Component {
   state = {
       fullscreenmode:false,
       thememode:'night',
+      scalemode: 1,
   }
 
   componentDidMount () {
@@ -68,6 +71,178 @@ class MainPage_Base extends React.Component {
 
   doLogin = (userID, password) => {
     this.props.doLogin(userID, password);
+  }
+
+  changeScale80 = () => {
+      var zoomLevelL = 1.26;
+      $('#myLiveTrade').css({ zoom: zoomLevelL, '-moz-transform': 'scale(' + zoomLevelL + ')' });
+
+
+      var zoomLevel = 0.8;
+      $('body').css({ zoom: zoomLevel, '-moz-transform': 'scale(' + zoomLevel + ')' });
+
+      document.body.style.setProperty('--column-col-sm-3-6', "25%");
+      document.body.style.setProperty('--column-col-sm-2-4', "16.666667%");
+
+      document.body.style.setProperty('--card-667', "855px");
+      document.body.style.setProperty('--card-trading', "390px");
+      document.body.style.setProperty('--card-213', "295px");
+      document.body.style.setProperty('--card-249', "330px");
+      document.body.style.setProperty('--card-75', "805px");
+      document.body.style.setProperty('--card-515', "680px");
+      document.body.style.setProperty('--card-295', "300px");
+      document.body.style.setProperty('--card-292', "470px");
+      document.body.style.setProperty('--card-600', "790px");
+      document.body.style.setProperty('--card-199', "260px");
+      document.body.style.setProperty('--card-225', "285px");
+      document.body.style.setProperty('--card-170', "228px");
+      document.body.style.setProperty('--card-550', "725px");
+      document.body.style.setProperty('--card-grafik', "480px");
+      document.body.style.setProperty('--card-530', "720px");
+      document.body.style.setProperty('--card-500', "680px");
+      document.body.style.setProperty('--card-160', "218px");
+      document.body.style.setProperty('--card-592', "780px");
+      document.body.style.setProperty('--py-2-scale', '14px');
+      this.setState({
+          scalemode : zoomLevel,
+      })
+  }
+
+  changeScale90 = () => {
+      var zoomLevelL = 1.1;
+      $('#myLiveTrade').css({ zoom: zoomLevelL, '-moz-transform': 'scale(' + zoomLevelL + ')' });
+
+      var zoomLevel = 0.9;
+      $('body').css({ zoom: zoomLevel, '-moz-transform': 'scale(' + zoomLevel + ')' });
+
+      document.body.style.setProperty('--column-col-sm-3-6', "25%");
+      document.body.style.setProperty('--column-col-sm-2-4', "16.666667%");
+
+      document.body.style.setProperty('--card-667', "750px");
+      document.body.style.setProperty('--card-trading', "335px");
+      document.body.style.setProperty('--card-213', "245px");
+      document.body.style.setProperty('--card-249', "280px");
+      document.body.style.setProperty('--card-75', "700px");
+      document.body.style.setProperty('--card-515', "590px");
+      document.body.style.setProperty('--card-295', "300px");
+      document.body.style.setProperty('--card-292', "370px");
+      document.body.style.setProperty('--card-600', "690px");
+      document.body.style.setProperty('--card-199', "230px");
+      document.body.style.setProperty('--card-225', "240px");
+      document.body.style.setProperty('--card-170', "200px");
+      document.body.style.setProperty('--card-550', "630px");
+      document.body.style.setProperty('--card-grafik', "390px");
+      document.body.style.setProperty('--card-530', "620px");
+      document.body.style.setProperty('--card-500', "580px");
+      document.body.style.setProperty('--card-160', "185px");
+      document.body.style.setProperty('--card-592', "655px");
+      document.body.style.setProperty('--py-2-scale', '9.5px');
+      this.setState({
+          scalemode : zoomLevel,
+      })
+  }
+
+  changeScale100 = () => {
+      var zoomLevelL = 1;
+      $('#myLiveTrade').css({ zoom: zoomLevelL, '-moz-transform': 'scale(' + zoomLevelL + ')' });
+
+      var zoomLevel = 1;
+      $('body').css({ zoom: zoomLevel, '-moz-transform': 'scale(' + zoomLevel + ')' });
+
+      document.body.style.setProperty('--column-col-sm-3-6', "25%");
+      document.body.style.setProperty('--column-col-sm-2-4', "16.666667%");
+
+      document.body.style.setProperty('--card-667', '667px');
+      document.body.style.setProperty('--card-trading', '300px');
+      document.body.style.setProperty('--card-213', '213px');
+      document.body.style.setProperty('--card-249', '249px');
+      document.body.style.setProperty('--card-75', '620px');
+      document.body.style.setProperty('--card-515', '515px');
+      document.body.style.setProperty('--card-295', '295px');
+      document.body.style.setProperty('--card-292', '292px');
+      document.body.style.setProperty('--card-600', '600px');
+      document.body.style.setProperty('--card-199', '199px');
+      document.body.style.setProperty('--card-225', '225px');
+      document.body.style.setProperty('--card-170', '170px');
+      document.body.style.setProperty('--card-550', '550px');
+      document.body.style.setProperty('--card-grafik', "310px");
+      document.body.style.setProperty('--card-530', "540px");
+      document.body.style.setProperty('--card-500', "500px");
+      document.body.style.setProperty('--card-160', "160px");
+      document.body.style.setProperty('--card-592', "592px");
+      document.body.style.setProperty('--py-2-scale', '.5rem');
+      this.setState({
+          scalemode : zoomLevel,
+      })
+  }
+
+  changeScale110 = () => {
+      var zoomLevelL = 1;
+      $('#myLiveTrade').css({ zoom: zoomLevelL, '-moz-transform': 'scale(' + zoomLevelL + ')' });
+
+      var zoomLevel = 1.1;
+      $('body').css({ zoom: zoomLevel, '-moz-transform': 'scale(' + zoomLevel + ')' });
+
+      document.body.style.setProperty('--column-col-sm-3-6', "50%");
+      document.body.style.setProperty('--column-col-sm-2-4', "33.333333%");
+
+      document.body.style.setProperty('--card-667', '667px');
+      document.body.style.setProperty('--card-trading', '300px');
+      document.body.style.setProperty('--card-213', '213px');
+      document.body.style.setProperty('--card-249', '249px');
+      document.body.style.setProperty('--card-75', '620px');
+      document.body.style.setProperty('--card-515', '515px');
+      document.body.style.setProperty('--card-295', '295px');
+      document.body.style.setProperty('--card-292', '292px');
+      document.body.style.setProperty('--card-600', '600px');
+      document.body.style.setProperty('--card-199', '199px');
+      document.body.style.setProperty('--card-225', '225px');
+      document.body.style.setProperty('--card-170', '170px');
+      document.body.style.setProperty('--card-550', '550px');
+      document.body.style.setProperty('--card-grafik', "310px");
+      document.body.style.setProperty('--card-530', "540px");
+      document.body.style.setProperty('--card-500', "500px");
+      document.body.style.setProperty('--card-160', "160px");
+      document.body.style.setProperty('--card-592', "592px");
+      document.body.style.setProperty('--py-2-scale', '.5rem');
+      this.setState({
+          scalemode : zoomLevel,
+      })
+  }
+
+  changeScale120 = () => {
+      var zoomLevelL = 1;
+      $('#myLiveTrade').css({ zoom: zoomLevelL, '-moz-transform': 'scale(' + zoomLevelL + ')' });
+
+      var zoomLevel = 1.2;
+      $('body').css({ zoom: zoomLevel, '-moz-transform': 'scale(' + zoomLevel + ')' });
+
+
+      document.body.style.setProperty('--column-col-sm-3-6', "50%");
+      document.body.style.setProperty('--column-col-sm-2-4', "33.333333%");
+
+      document.body.style.setProperty('--card-667', '667px');
+      document.body.style.setProperty('--card-trading', '300px');
+      document.body.style.setProperty('--card-213', '213px');
+      document.body.style.setProperty('--card-249', '249px');
+      document.body.style.setProperty('--card-75', '620px');
+      document.body.style.setProperty('--card-515', '515px');
+      document.body.style.setProperty('--card-295', '295px');
+      document.body.style.setProperty('--card-292', '292px');
+      document.body.style.setProperty('--card-600', '600px');
+      document.body.style.setProperty('--card-199', '199px');
+      document.body.style.setProperty('--card-225', '225px');
+      document.body.style.setProperty('--card-170', '170px');
+      document.body.style.setProperty('--card-550', '550px');
+      document.body.style.setProperty('--card-grafik', "310px");
+      document.body.style.setProperty('--card-530', "540px");
+      document.body.style.setProperty('--card-500', "500px");
+      document.body.style.setProperty('--card-160', "160px");
+      document.body.style.setProperty('--card-592', "592px");
+      document.body.style.setProperty('--py-2-scale', '.5rem');
+      this.setState({
+          scalemode : zoomLevel,
+      })
   }
 
   changeThemeModeNight = () => {
@@ -213,7 +388,6 @@ class MainPage_Base extends React.Component {
       AppModal: modal viewer
     */
 
-
     var props = this.props;
     return (
       <div>
@@ -224,53 +398,104 @@ class MainPage_Base extends React.Component {
           <LoginPage onLogin={this.doLogin} />
         </div>
         <div style={{display: props.networkState && props.loginState ? "block" : "none"}}>*/}
-          <UISelectionTab modeoftheme={this.selectSelectionTab} linkTitles={
-                {
-                    landingPage:
-                        <div className="text-align-center">
-                            <i className="icon-icon-investment-board fs-icon-bips"></i> <br/>
-                            <span className="fs-text-bips">INVESTMENT<br/>BOARD</span>
-                        </div>,
-                    marketstatistikPage:
-                        <div className="text-align-center">
-                            <i className="icon-icon-market-statistic fs-icon-bips"></i> <br/>
-                            <span className="fs-text-bips" style={{padding:"0px 6.5px"}}>MARKET &</span><br/>
-                            <span className="fs-text-bips">STATISTIC</span>
-                        </div>,
-                    stockPage:
-                        <div className="text-align-center">
-                            <i className="icon-icon-stock-page fs-icon-bips"></i> <br/>
-                            <span className="fs-text-bips" style={{padding:"0px 15.3px"}}>
-                              STOCK
-                            </span>
-                        </div>,
-                    tradePage:
-                        <div className="text-align-center">
-                            <i className="icon-icon-trade-page fs-icon-bips"></i> <br/>
-                            <span className="fs-text-bips" style={{padding:"0px 15.3px"}}>
-                              TRADE
-                            </span>
-                        </div>,
-                    analyticPage:
-                        <div className="text-align-center">
-                            <i className="icon-icon-analytic_page fs-icon-bips"></i> <br/>
-                            <span className="fs-text-bips" style={{padding:"0px 7.8px"}}>ANALYTIC</span>
-                        </div>,
-                    chatsupportPage:
-                        <div className="text-align-center">
-                            <i className="icon-icon-chat-support fs-icon-bips"></i> <br/>
-                            <span className="fs-text-bips" style={{padding:"0px 11.1px"}}>CHATS &</span><br/>
-                            <span className="fs-text-bips">SUPPORT</span>
-                        </div>,
-                    livetradePage:
-                        <div className="text-align-center">
-                            <i className="icon-icon-live-trade fs-icon-bips"></i> <br/>
-                            <span className="fs-text-bips" style={{padding:"0px 21.09px"}}>LIVE</span><br/>
-                            <span className="fs-text-bips">TRADE</span>
-                        </div>
-                }
-              } 
-          />
+          {
+              this.state.scalemode <= 1 ?
+                  <UISelectionTab modeoftheme={this.selectSelectionTab} linkTitles={
+                  {
+                      landingPage:
+                          <div className="text-align-center">
+                              <i className="icon-icon-investment-board fs-icon-bips"></i> <br/>
+                              <span className="fs-text-bips">INVESTMENT<br/>BOARD</span>
+                          </div>,
+                      marketstatistikPage:
+                          <div className="text-align-center">
+                              <i className="icon-icon-market-statistic fs-icon-bips"></i> <br/>
+                              <span className="fs-text-bips" style={{padding: "0px 6.5px"}}>MARKET &</span><br/>
+                              <span className="fs-text-bips">STATISTIC</span>
+                          </div>,
+                      stockPage:
+                          <div className="text-align-center">
+                              <i className="icon-icon-stock-page fs-icon-bips"></i> <br/>
+                              <span className="fs-text-bips" style={{padding: "0px 15.3px"}}>
+                                  STOCK
+                                </span>
+                          </div>,
+                      tradePage:
+                          <div className="text-align-center">
+                              <i className="icon-icon-trade-page fs-icon-bips"></i> <br/>
+                              <span className="fs-text-bips" style={{padding: "0px 15.3px"}}>
+                                  TRADE
+                                </span>
+                          </div>,
+                      analyticPage:
+                          <div className="text-align-center">
+                              <i className="icon-icon-analytic_page fs-icon-bips"></i> <br/>
+                              <span className="fs-text-bips" style={{padding: "0px 7.8px"}}>ANALYTIC</span>
+                          </div>,
+                      chatsupportPage:
+                          <div className="text-align-center">
+                              <i className="icon-icon-chat-support fs-icon-bips"></i> <br/>
+                              <span className="fs-text-bips" style={{padding: "0px 11.1px"}}>CHATS &</span><br/>
+                              <span className="fs-text-bips">SUPPORT</span>
+                          </div>,
+                      livetradePage:
+                          <div className="text-align-center">
+                              <i className="icon-icon-live-trade fs-icon-bips"></i> <br/>
+                              <span className="fs-text-bips" style={{padding: "0px 21.09px"}}>LIVE</span><br/>
+                              <span className="fs-text-bips">TRADE</span>
+                          </div>
+                  }
+              }
+              />
+              :
+                  <UISelectionTab_Scale modeoftheme={this.selectSelectionTab} linkTitles={
+                      {
+                          landingPage:
+                              <div className="text-align-center">
+                                  <i className="icon-icon-investment-board fs-icon-bips"></i> <br/>
+                                  <span className="fs-text-bips">INVESTMENT<br/>BOARD</span>
+                              </div>,
+                          marketstatistikPage:
+                              <div className="text-align-center">
+                                  <i className="icon-icon-market-statistic fs-icon-bips"></i> <br/>
+                                  <span className="fs-text-bips" style={{padding: "0px 6.5px"}}>MARKET &</span><br/>
+                                  <span className="fs-text-bips">STATISTIC</span>
+                              </div>,
+                          stockPage:
+                              <div className="text-align-center">
+                                  <i className="icon-icon-stock-page fs-icon-bips"></i> <br/>
+                                  <span className="fs-text-bips" style={{padding: "0px 15.3px"}}>
+                                  STOCK
+                                </span>
+                              </div>,
+                          tradePage:
+                              <div className="text-align-center">
+                                  <i className="icon-icon-trade-page fs-icon-bips"></i> <br/>
+                                  <span className="fs-text-bips" style={{padding: "0px 15.3px"}}>
+                                  TRADE
+                                </span>
+                              </div>,
+                          analyticPage:
+                              <div className="text-align-center">
+                                  <i className="icon-icon-analytic_page fs-icon-bips"></i> <br/>
+                                  <span className="fs-text-bips" style={{padding: "0px 7.8px"}}>ANALYTIC</span>
+                              </div>,
+                          chatsupportPage:
+                              <div className="text-align-center">
+                                  <i className="icon-icon-chat-support fs-icon-bips"></i> <br/>
+                                  <span className="fs-text-bips" style={{padding: "0px 11.1px"}}>CHATS &</span><br/>
+                                  <span className="fs-text-bips">SUPPORT</span>
+                              </div>,
+                          livetradePage:
+                              <div className="text-align-center">
+                                  <i className="icon-icon-live-trade fs-icon-bips"></i> <br/>
+                                  <span className="fs-text-bips" style={{padding: "0px 21.09px"}}>LIVE</span><br/>
+                                  <span className="fs-text-bips">TRADE</span>
+                              </div>
+                      }
+                  }
+                  />
+          }
           <div className="row col-lg-12 px-0 mx-0 card card-667">
               <SideBar thememode={this.selectStyleGroup}/>
               <div className="col-lg-11 px-0 mx-0 d-border-bottom">
@@ -281,6 +506,16 @@ class MainPage_Base extends React.Component {
              className={this.state.fullscreenmode == false ? "icon-icon-fullscreen-in myBtn" : "icon-exit-fullscreen myBtn"}></i>
           <div onClick={this.state.thememode == 'light' ? this.changeThemeModeNight : this.changeThemeModeLight}
              className="modeTheme">{this.state.thememode == 'light'? "Night Mode" : "Light Mode"}</div>
+          <div onClick={this.changeScale80}
+             className="scale80">Scale 80</div>
+          <div onClick={this.changeScale90}
+             className="scale90">Scale 90</div>
+          <div onClick={this.changeScale100}
+             className="scale100">Scale 100</div>
+          <div onClick={this.changeScale110}
+             className="scale110">Scale 110</div>
+          <div onClick={this.changeScale120}
+             className="scale120">Scale 120</div>
           <AppModal />
         {/*</div>*/}
       </div>

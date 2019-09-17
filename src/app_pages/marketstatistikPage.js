@@ -22,6 +22,7 @@ import {
 import {IntegratedFiltering, IntegratedSorting, SearchState, SortingState} from "@devexpress/dx-react-grid";
 import {Plugin, Template, TemplatePlaceholder} from "@devexpress/dx-react-core";
 import AmendArrow from "./../img/amend-arrow.svg";
+import {AgGridReact} from "ag-grid-react";
 
 const stateOptions = [
     //untuk top active
@@ -55,7 +56,7 @@ const CustomFrameHeaderMarketStatistik= (props) =>{
             {/*<BIPSAppProvider>*/}
             <WSConnectionAction />
             <div className="col-sm-12 px-0 mx-0 align-self-center">
-                <div className="col-sm-12 pb-1 px-0 mx-0 d-border-bottom">
+                <div className="col-sm-12 pb-0 px-0 mx-0 d-border-bottom">
                     <FillHeaderTab linkTitles={
                         {
                             marketStatistikPage: 'SUMMARY',
@@ -323,7 +324,68 @@ class MarketStatistikPage extends React.PureComponent {
                         </TableBS>
                     </div>
                 </div>*/}
-                <MarketStatistikGrid typegrid="summary" clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} />
+                {/*<MarketStatistikGrid typegrid="summary" clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} />*/}
+                <div className="card card-75">
+                    <div className="card-header bg-grey">
+                        <div className="f-14 px-0 mx-0 py-4 col-sm-12">
+                            <div className="row col-sm-12 px-0 mx-0">
+                                <div className="col-mbl-radio px-0 mx-0 row align-self-center">
+                                    <ul className="ul-radio col-sm-12 px-0 mx-0 row">
+                                        <li className="li-radio col-radio px-0 mx-0" onClick={
+                                            (e) => {
+                                                this.setState({
+                                                    top : "topactive"
+                                                })
+                                            }
+                                        }>
+                                            <input type="radio" id="ta-options" name="top" checked={this.state.top == "topactive" ? true : false}/>
+                                            <label htmlFor="ta-options" className="no-wrap">Top Active</label>
+
+                                            <div className="check"></div>
+                                        </li>
+
+                                        <li className="li-radio col-radio px-0 mx-0" onClick={
+                                            (e) => {
+                                                this.setState({
+                                                    top : "topgainers"
+                                                })
+                                            }
+                                        }>
+                                            <input type="radio" id="tg-options" name="top" checked={this.state.top == "topgainers" ? true : false}/>
+                                            <label htmlFor="tg-options" className="no-wrap">Top Gainers</label>
+
+                                            <div className="check"></div>
+                                        </li>
+
+                                        <li className="li-radio col-radio px-0 mx-0" onClick={
+                                            (e) => {
+                                                this.setState({
+                                                    top : "toploosers"
+                                                })
+                                            }
+                                        }>
+                                            <input type="radio" id="tl-options" name="top" checked={this.state.top == "toploosers" ? true : false}/>
+                                            <label htmlFor="tl-options" className="no-wrap">Top Loosers</label>
+
+                                            <div className="check"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className="col-mbl-radio-o px-0 mx-0 align-self-center">
+                                    <div className="col-sm-12 px-0 mx-0 row text-right">
+                                        <div className="col-sm-8"></div>
+                                        <div className="col-sm-4">
+                                            <Dropdown placeholder='Choose' search selection options={stateOptions} className="col-sm-12 f-12"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="card-body">
+                        <MarketStatistikAgGrid typegrid="summary" clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} />
+                    </div>
+                </div>
             </>
         );
     }
@@ -360,12 +422,21 @@ class IndiceMarketStatistikPage extends React.PureComponent{
                 <AppFrameAction ref="frameAction" />
                 <WSConnectionAction />
 
-                <div className="card card-320 bg-black-trading f-12">
-                    <MarketIndicesGrid clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} />
+                <div className="card card-295 bg-black-trading f-12">
+                    <MarketIndicesAgGrid />
+                    {/*<MarketIndicesGrid clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} />*/}
                 </div>
 
                 <div className="card card-295 bg-black-trading f-12">
-                    <MarketStatistikGrid typegrid="indices" clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} />
+                    <div className="card-header px-0 py-0">
+                        <div className="col-sm-2 px-0 mx-0 bg-gray-tradding text-center">
+                            <button className="btn btn-sm btn-primary col-sm-12 px-0 mx-0 text-center">FINANCE</button>
+                        </div>
+                    </div>
+                    <div className="card-body">
+                        <MarketStatistikAgGrid typegrid="indices" clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} />
+                    </div>
+                    {/*<MarketStatistikGrid typegrid="indices" clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} />*/}
                 </div>
             </>
         );
@@ -506,14 +577,24 @@ class TopBrokerMarketStatistikPage extends React.PureComponent {
             <div className="f-12 px-3">
                 <AppFrameAction ref="frameAction" />
                 <WSConnectionAction />
-                <div className="card card-215 bg-black-trading f-12">
-                    <TobBrokerGrid/>
+                <div className="card card-225 bg-black-trading f-12">
+                    <TopBrokerAgGrid/>
                 </div>
-                <div className="card card-200 bg-black-trading f-12">
-                    <TobBrokerBGrid/>
+                <div className="card card-199 bg-black-trading f-12">
+                    <div className="card-header bg-grey">
+                        TOP BUYER
+                    </div>
+                    <div className="card-body">
+                        <TopBrokerBAgGrid/>
+                    </div>
                 </div>
-                <div className="card card-180 bg-black-trading f-12">
-                    <TobBrokerSGrid/>
+                <div className="card card-199 bg-black-trading f-12">
+                    <div className="card-header bg-grey">
+                        TOP SELLER
+                    </div>
+                    <div className="card-body">
+                        <TopBrokerSAgGrid/>
+                    </div>
                 </div>
             </div>
         );
@@ -2463,7 +2544,7 @@ class TobBrokerBGrid extends React.PureComponent {
         const toolbarStyle = ({ ...restProps }) => (
             <Toolbar.Root
                 {...restProps}
-                className={"bg-black-trading f-12"}
+                className={"bg-grey f-12"}
             />
         );
 
@@ -2660,7 +2741,7 @@ class TobBrokerSGrid extends React.PureComponent {
         const toolbarStyle = ({ ...restProps }) => (
             <Toolbar.Root
                 {...restProps}
-                className={"bg-black-trading f-12"}
+                className={"bg-grey f-12"}
             />
         );
 
@@ -2778,6 +2859,1520 @@ class CustomToolbarTopBrokerS extends React.PureComponent {
                     </div>
                 </Template>
             </Plugin>
+        );
+    }
+}
+
+class MarketStatistikAgGrid extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        const self = this;
+        this.state = {
+            columnDefs: [
+                { field: "no", headerName: "#", sortable: true, width: 60,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    }},
+                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12 text-primary";
+                    }},
+                { field: "prev", headerName: "Prev.", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                    cellClass : function (params) {
+                        return " grid-table text-right f-12 text-warning";
+                    }},
+                { field: "last", headerName: "Last", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                    cellClass : function (params) {
+                        var prev = parseFloat(params.data.prev.replace(/,/g,""));
+                        var last = parseFloat(params.data.last.replace(/,/g,""));
+                        return last < prev ? "text-danger text-right  grid-table f-12":
+                            last > prev ? "text-success text-right grid-table f-12" :
+                                "text-warning text-right grid-table f-12";
+                    } },
+                { field: "indicator", headerName: "", width: 30,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    },
+                    cellRenderer : function (params) {
+                        var change = params.data.change;
+                        return change.includes('-') === true ? '<i class="icofont icofont-caret-down text-danger"></i>' :
+                            change.includes('+') === true ? '<i class="icofont icofont-caret-up text-success"></i>' :
+                            '<i class="fa fa-circle f-11 text-warning"></i>';
+                    }  },
+                { field: "change", headerName: "Change", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                    cellClass : function (params) {
+                        var change = params.data.change;
+                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
+                            change.includes('+') === true ? "text-success text-right grid-table f-12" :
+                            "text-warning text-right grid-table f-12";
+                    } },
+                { field: "persen", headerName: "/%", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                    cellClass : function (params) {
+                        var change = params.data.change;
+                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
+                            change.includes('+') === true ? "text-success text-right grid-table f-12" :
+                                "text-warning text-right grid-table f-12";
+                    } },
+                { field: "open", headerName: "Open", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                    cellClass : function (params) {
+                        var prev = parseFloat(params.data.prev.replace(/,/g,""));
+                        var open = parseFloat(params.data.open.replace(/,/g,""));
+                        return open < prev ? "text-danger text-right  grid-table f-12":
+                            open > prev ? "text-success text-right grid-table f-12" :
+                                "text-warning text-right grid-table f-12";
+                    } },
+                { field: "low", headerName: "Low", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                    cellClass : function (params) {
+                        var prev = parseFloat(params.data.prev.replace(/,/g,""));
+                        var low = parseFloat(params.data.low.replace(/,/g,""));
+                        return low < prev ? "text-danger text-right  grid-table f-12":
+                            low > prev ? "text-success text-right grid-table f-12" :
+                                "text-warning text-right grid-table f-12";
+                    } },
+                { field: "high", headerName: "High", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                    cellClass : function (params) {
+                        var prev = parseFloat(params.data.prev.replace(/,/g,""));
+                        var high = parseFloat(params.data.high.replace(/,/g,""));
+                        return high < prev ? "text-danger text-right  grid-table f-12":
+                            high > prev ? "text-success text-right grid-table f-12" :
+                                "text-warning text-right grid-table f-12";
+                    } },
+                { field: "avg", headerName: "Avg.", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                    cellClass : function (params) {
+                        var prev = parseFloat(params.data.prev.replace(/,/g,""));
+                        var avg = parseFloat(params.data.avg.replace(/,/g,""));
+                        return avg < prev ? "text-danger text-right  grid-table f-12":
+                            avg > prev ? "text-success text-right grid-table f-12" :
+                                "text-warning text-right grid-table f-12";
+                    } },
+                { field: "val", headerName: "Val(Bn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                    cellClass : function (params) {
+                        var change = params.data.change;
+                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
+                            change.includes('+') === true ? "text-success text-right grid-table f-12" :
+                                "text-warning text-right grid-table f-12";
+                    } },
+                { field: "vol", headerName: "Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                    cellClass : function (params) {
+                        var change = params.data.change;
+                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
+                            change.includes('+') === true ? "text-success text-right grid-table f-12" :
+                                "text-warning text-right grid-table f-12";
+                    } },
+                { field: "freq", headerName: "Freq", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                    cellClass : function (params) {
+                        var change = params.data.change;
+                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
+                            change.includes('+') === true ? "text-success text-right grid-table f-12" :
+                                "text-warning text-right grid-table f-12";
+                    } },
+                { field: "fbuy", headerName: "F.Buy", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                    cellClass : function (params) {
+                        return " grid-table text-right f-12";
+                    } },
+                { field: "fsell", headerName: "F.Sell", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                    cellClass : function (params) {
+                        return " grid-table text-right f-12";
+                    } },
+                { field: "fnet", headerName: "F.Net", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                    cellClass : function (params) {
+                        return " grid-table text-right f-12";
+                    } },
+                { field: "financial", headerName: "Financial", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 150,
+                    cellClass : function (params) {
+                        return " grid-table text-right f-12";
+                    } },
+                { field: "action", headerName: "Action", width: 100, pinned: "right", lockPosition: true, lockVisible: true,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12 locked-col locked-visible";
+                    },
+                    cellRenderer : function (params) {
+                        var eDiv = document.createElement('div');
+                        eDiv.innerHTML = '<span class="px-1">' +
+                            '<button class="btn-cellbuy btn btn-sm btn-danger mx-1 f-9 w-50">Buy</button>' +
+                            '<button class="btn-cellsell btn btn-sm btn-success mx-1 f-9 w-50">Sell</button>' +
+                            '</span>';
+                        var bButton = eDiv.querySelectorAll('.btn-cellbuy')[0];
+                        var sButton = eDiv.querySelectorAll('.btn-cellsell')[0];
+
+                        bButton.addEventListener('click', self.props.clickbuy);
+                        sButton.addEventListener('click', self.props.clicksell);
+
+                        return eDiv;
+                    } },
+            ],
+            defaultColDef: {
+                sortable: true,
+                filter: true,
+            },
+            rowData: [
+                {
+                    no : 1,
+                    code : "TLKM",
+                    prev : "4,010",
+                    last : "3,980",
+                    indicator : "",
+                    change : "-30",
+                    persen : "-0.7",
+                    open : "4,020",
+                    low : "3,980",
+                    high : "4,050",
+                    avg : "4,018",
+                    val : "225.3",
+                    vol : "560,801",
+                    freq : "4,010",
+                    fbuy : "3,980",
+                    fsell : "30",
+                    fnet : "3,950",
+                    financial : "3,000,000,000,000",
+                    action:""
+                },
+                {
+                    no : 2,
+                    code : "AALI",
+                    prev : "29,550",
+                    last : "29,325",
+                    indicator : "",
+                    change : "-225",
+                    persen : "-0.8",
+                    open : "29,700",
+                    low : "29,300",
+                    high : "29,700",
+                    avg : "29,440",
+                    val : "333.1",
+                    vol : "113,160",
+                    freq : "29,825",
+                    fbuy : "29,325",
+                    fsell : "500",
+                    fnet : "28,825",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+                {
+                    no : 3,
+                    code : "BBCA",
+                    prev : "7,950",
+                    last : "7,950",
+                    indicator : "",
+                    change : "0",
+                    persen : "0",
+                    open : "7,850",
+                    low : "7,850",
+                    high : "8,000",
+                    avg : "7,953",
+                    val : "286.8",
+                    vol : "350,576",
+                    freq : "54,247",
+                    fbuy : "7,950",
+                    fsell : "46,297",
+                    fnet : "38,347",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+                {
+                    no : 4,
+                    code : "WSKT",
+                    prev : "4,330",
+                    last : "4,360",
+                    indicator : "",
+                    change : "+30",
+                    persen : "+0.7",
+                    open : "4,330",
+                    low : "4,320",
+                    high : "4,370",
+                    avg : "4,352",
+                    val : "447.6",
+                    vol : "1.0 M",
+                    freq : "6,274",
+                    fbuy : "4,350",
+                    fsell : "1,924",
+                    fnet : "2,426",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+                {
+                    no : 5,
+                    code : "BBRI",
+                    prev : "1,980",
+                    last : "1,945",
+                    indicator : "",
+                    change : "-35",
+                    persen : "-1.8",
+                    open : "1,980",
+                    low : "1,945",
+                    high : "1,985",
+                    avg : "1,961",
+                    val : "24.9",
+                    vol : "126.783",
+                    freq : "4,092",
+                    fbuy : "1,945",
+                    fsell : "2,147",
+                    fnet : "-202",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+                {
+                    no : 6,
+                    code : "WIKA",
+                    prev : "2,240",
+                    last : "2,180",
+                    indicator : "",
+                    change : "-60",
+                    persen : "-2.7",
+                    open : "2,240",
+                    low : "2,150",
+                    high : "2,240",
+                    avg : "2,186",
+                    val : "49.7",
+                    vol : "227,402",
+                    freq : "2,794",
+                    fbuy : "2,170",
+                    fsell : "624",
+                    fnet : "1,546",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+                {
+                    no : 7,
+                    code : "ASRI",
+                    prev : "2,350",
+                    last : "2,340",
+                    indicator : "",
+                    change : "-10",
+                    persen : "-0.4",
+                    open : "2,350",
+                    low : "2,300",
+                    high : "2,370",
+                    avg : "2,337",
+                    val : "41.2",
+                    vol : "176,162",
+                    freq : "3,255",
+                    fbuy : "2,330",
+                    fsell : "925",
+                    fnet : "1,405",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+                { no : 8,
+                    code : "PPTP",
+                    prev : "1,160",
+                    last : "1,170",
+                    indicator : "",
+                    change : "+10",
+                    persen : "+0.9",
+                    open : "1,155",
+                    low : "1,155",
+                    high : "1,200",
+                    avg : "1,182",
+                    val : "9.6",
+                    vol : "81,047",
+                    freq : "1,201",
+                    fbuy : "1,170",
+                    fsell : "31",
+                    fnet : "1,139",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+                {
+                    no : 9,
+                    code : "BMRI",
+                    prev : "346",
+                    last : "346",
+                    indicator : "",
+                    change : "0",
+                    persen : "0",
+                    open : "346",
+                    low : "338",
+                    high : "350",
+                    avg : "343",
+                    val : "1.9",
+                    vol : "54,681",
+                    freq : "12,378",
+                    fbuy : "344",
+                    fsell : "12,034",
+                    fnet : "11,690",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+                { no : 10,
+                    code : "CTRA",
+                    prev : "1,075",
+                    last : "1,065",
+                    indicator : "",
+                    change : "-10",
+                    persen : "-0.9",
+                    open : "1,080",
+                    low : "1,050",
+                    high : "1,115",
+                    avg : "1,073",
+                    val : "38.2",
+                    vol : "355,717",
+                    freq : "2,692",
+                    fbuy : "1,065",
+                    fsell : "1,627",
+                    fnet : "-562",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+                {
+                    no : 11,
+                    code : "TLKM",
+                    prev : "4,010",
+                    last : "3,980",
+                    indicator : "",
+                    change : "-30",
+                    persen : "-0.7",
+                    open : "4,020",
+                    low : "3,980",
+                    high : "4,050",
+                    avg : "4,018",
+                    val : "225.3",
+                    vol : "560,801",
+                    freq : "4,010",
+                    fbuy : "3,980",
+                    fsell : "30",
+                    fnet : "3,950",
+                    financial : "3,000,000,000,000",
+                    action:""
+                },
+                {
+                    no : 12,
+                    code : "AALI",
+                    prev : "29,550",
+                    last : "29,325",
+                    indicator : "",
+                    change : "-225",
+                    persen : "-0.8",
+                    open : "29,700",
+                    low : "29,300",
+                    high : "29,700",
+                    avg : "29,440",
+                    val : "333.1",
+                    vol : "113,160",
+                    freq : "29,825",
+                    fbuy : "29,325",
+                    fsell : "500",
+                    fnet : "28,825",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+                {
+                    no : 13,
+                    code : "BBCA",
+                    prev : "7,950",
+                    last : "7,950",
+                    indicator : "",
+                    change : "0",
+                    persen : "0",
+                    open : "7,850",
+                    low : "7,850",
+                    high : "8,000",
+                    avg : "7,953",
+                    val : "286.8",
+                    vol : "350,576",
+                    freq : "54,247",
+                    fbuy : "7,950",
+                    fsell : "46,297",
+                    fnet : "38,347",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+                {
+                    no : 14,
+                    code : "WSKT",
+                    prev : "4,330",
+                    last : "4,360",
+                    indicator : "",
+                    change : "+30",
+                    persen : "+0.7",
+                    open : "4,330",
+                    low : "4,320",
+                    high : "4,370",
+                    avg : "4,352",
+                    val : "447.6",
+                    vol : "1.0 M",
+                    freq : "6,274",
+                    fbuy : "4,350",
+                    fsell : "1,924",
+                    fnet : "2,426",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+                {
+                    no : 15,
+                    code : "BBRI",
+                    prev : "1,980",
+                    last : "1,945",
+                    indicator : "",
+                    change : "-35",
+                    persen : "-1.8",
+                    open : "1,980",
+                    low : "1,945",
+                    high : "1,985",
+                    avg : "1,961",
+                    val : "24.9",
+                    vol : "126.783",
+                    freq : "4,092",
+                    fbuy : "1,945",
+                    fsell : "2,147",
+                    fnet : "-202",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+                {
+                    no : 16,
+                    code : "WIKA",
+                    prev : "2,240",
+                    last : "2,180",
+                    indicator : "",
+                    change : "-60",
+                    persen : "-2.7",
+                    open : "2,240",
+                    low : "2,150",
+                    high : "2,240",
+                    avg : "2,186",
+                    val : "49.7",
+                    vol : "227,402",
+                    freq : "2,794",
+                    fbuy : "2,170",
+                    fsell : "624",
+                    fnet : "1,546",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+                {
+                    no : 17,
+                    code : "ASRI",
+                    prev : "2,350",
+                    last : "2,340",
+                    indicator : "",
+                    change : "-10",
+                    persen : "-0.4",
+                    open : "2,350",
+                    low : "2,300",
+                    high : "2,370",
+                    avg : "2,337",
+                    val : "41.2",
+                    vol : "176,162",
+                    freq : "3,255",
+                    fbuy : "2,330",
+                    fsell : "925",
+                    fnet : "1,405",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+                { no : 18,
+                    code : "PPTP",
+                    prev : "1,160",
+                    last : "1,170",
+                    indicator : "",
+                    change : "+10",
+                    persen : "+0.9",
+                    open : "1,155",
+                    low : "1,155",
+                    high : "1,200",
+                    avg : "1,182",
+                    val : "9.6",
+                    vol : "81,047",
+                    freq : "1,201",
+                    fbuy : "1,170",
+                    fsell : "31",
+                    fnet : "1,139",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+                {
+                    no : 19,
+                    code : "BMRI",
+                    prev : "346",
+                    last : "346",
+                    indicator : "",
+                    change : "0",
+                    persen : "0",
+                    open : "346",
+                    low : "338",
+                    high : "350",
+                    avg : "343",
+                    val : "1.9",
+                    vol : "54,681",
+                    freq : "12,378",
+                    fbuy : "344",
+                    fsell : "12,034",
+                    fnet : "11,690",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+                { no : 20,
+                    code : "CTRA",
+                    prev : "1,075",
+                    last : "1,065",
+                    indicator : "",
+                    change : "-10",
+                    persen : "-0.9",
+                    open : "1,080",
+                    low : "1,050",
+                    high : "1,115",
+                    avg : "1,073",
+                    val : "38.2",
+                    vol : "355,717",
+                    freq : "2,692",
+                    fbuy : "1,065",
+                    fsell : "1,627",
+                    fnet : "-562",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+                {
+                    no : 21,
+                    code : "TLKM",
+                    prev : "4,010",
+                    last : "3,980",
+                    indicator : "",
+                    change : "-30",
+                    persen : "-0.7",
+                    open : "4,020",
+                    low : "3,980",
+                    high : "4,050",
+                    avg : "4,018",
+                    val : "225.3",
+                    vol : "560,801",
+                    freq : "4,010",
+                    fbuy : "3,980",
+                    fsell : "30",
+                    fnet : "3,950",
+                    financial : "3,000,000,000,000",
+                    action:""
+                },
+                {
+                    no : 22,
+                    code : "AALI",
+                    prev : "29,550",
+                    last : "29,325",
+                    indicator : "",
+                    change : "-225",
+                    persen : "-0.8",
+                    open : "29,700",
+                    low : "29,300",
+                    high : "29,700",
+                    avg : "29,440",
+                    val : "333.1",
+                    vol : "113,160",
+                    freq : "29,825",
+                    fbuy : "29,325",
+                    fsell : "500",
+                    fnet : "28,825",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+                {
+                    no : 23,
+                    code : "BBCA",
+                    prev : "7,950",
+                    last : "7,950",
+                    indicator : "",
+                    change : "0",
+                    persen : "0",
+                    open : "7,850",
+                    low : "7,850",
+                    high : "8,000",
+                    avg : "7,953",
+                    val : "286.8",
+                    vol : "350,576",
+                    freq : "54,247",
+                    fbuy : "7,950",
+                    fsell : "46,297",
+                    fnet : "38,347",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+                {
+                    no : 24,
+                    code : "WSKT",
+                    prev : "4,330",
+                    last : "4,360",
+                    indicator : "",
+                    change : "+30",
+                    persen : "+0.7",
+                    open : "4,330",
+                    low : "4,320",
+                    high : "4,370",
+                    avg : "4,352",
+                    val : "447.6",
+                    vol : "1.0 M",
+                    freq : "6,274",
+                    fbuy : "4,350",
+                    fsell : "1,924",
+                    fnet : "2,426",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+                {
+                    no : 25,
+                    code : "BBRI",
+                    prev : "1,980",
+                    last : "1,945",
+                    indicator : "",
+                    change : "-35",
+                    persen : "-1.8",
+                    open : "1,980",
+                    low : "1,945",
+                    high : "1,985",
+                    avg : "1,961",
+                    val : "24.9",
+                    vol : "126.783",
+                    freq : "4,092",
+                    fbuy : "1,945",
+                    fsell : "2,147",
+                    fnet : "-202",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+                {
+                    no : 26,
+                    code : "WIKA",
+                    prev : "2,240",
+                    last : "2,180",
+                    indicator : "",
+                    change : "-60",
+                    persen : "-2.7",
+                    open : "2,240",
+                    low : "2,150",
+                    high : "2,240",
+                    avg : "2,186",
+                    val : "49.7",
+                    vol : "227,402",
+                    freq : "2,794",
+                    fbuy : "2,170",
+                    fsell : "624",
+                    fnet : "1,546",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+                {
+                    no : 27,
+                    code : "ASRI",
+                    prev : "2,350",
+                    last : "2,340",
+                    indicator : "",
+                    change : "-10",
+                    persen : "-0.4",
+                    open : "2,350",
+                    low : "2,300",
+                    high : "2,370",
+                    avg : "2,337",
+                    val : "41.2",
+                    vol : "176,162",
+                    freq : "3,255",
+                    fbuy : "2,330",
+                    fsell : "925",
+                    fnet : "1,405",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+                { no : 28,
+                    code : "PPTP",
+                    prev : "1,160",
+                    last : "1,170",
+                    indicator : "",
+                    change : "+10",
+                    persen : "+0.9",
+                    open : "1,155",
+                    low : "1,155",
+                    high : "1,200",
+                    avg : "1,182",
+                    val : "9.6",
+                    vol : "81,047",
+                    freq : "1,201",
+                    fbuy : "1,170",
+                    fsell : "31",
+                    fnet : "1,139",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+                {
+                    no : 29,
+                    code : "BMRI",
+                    prev : "346",
+                    last : "346",
+                    indicator : "",
+                    change : "0",
+                    persen : "0",
+                    open : "346",
+                    low : "338",
+                    high : "350",
+                    avg : "343",
+                    val : "1.9",
+                    vol : "54,681",
+                    freq : "12,378",
+                    fbuy : "344",
+                    fsell : "12,034",
+                    fnet : "11,690",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+                { no : 30,
+                    code : "CTRA",
+                    prev : "1,075",
+                    last : "1,065",
+                    indicator : "",
+                    change : "-10",
+                    persen : "-0.9",
+                    open : "1,080",
+                    low : "1,050",
+                    high : "1,115",
+                    avg : "1,073",
+                    val : "38.2",
+                    vol : "355,717",
+                    freq : "2,692",
+                    fbuy : "1,065",
+                    fsell : "1,627",
+                    fnet : "-562",
+                    financial : "3,000,000,000,000",
+                    action: ""
+                },
+            ],
+            sideBar: {
+                toolPanels: [
+                    {
+                        id: "columns",
+                        labelDefault: "Columns",
+                        labelKey: "columns",
+                        iconKey: "columns",
+                        toolPanel: "agColumnsToolPanel",
+                        toolPanelParams: {
+                            suppressRowGroups: true,
+                            suppressValues: true,
+                            suppressPivots: true,
+                            suppressPivotMode: true,
+                            suppressSideButtons: true,
+                            suppressColumnFilter: true,
+                            suppressColumnSelectAll: true,
+                            suppressColumnExpandAll: true
+                        },
+                    }, {
+                        id: "filters",
+                        labelDefault: "Filters",
+                        labelKey: "filters",
+                        iconKey: "filter",
+                        toolPanel: "agFiltersToolPanel"
+                    }
+                ],
+                defaultToolPanel: ""
+            },
+        }
+    }
+
+    render() {
+        return (
+            <>
+                <div
+                    className={this.props.typegrid =="summary" ? "card-515 ag-theme-balham-dark" : "card-292 ag-theme-balham-dark"}
+                    style={{
+                        width: 'auto' }}>
+                    <AgGridReact
+                        columnDefs={this.state.columnDefs}
+                        rowData={this.state.rowData}
+                        defaultColDef={this.state.defaultColDef}
+                        sideBar={this.state.sideBar}>
+                    </AgGridReact>
+                </div>
+            </>
+        );
+    }
+}
+
+class MarketIndicesAgGrid extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        const self = this;
+        this.state = {
+            columnDefs: [
+                { field: "sector", headerName: "Sector", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 93,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12 text-primary";
+                    }},
+                { field: "last", headerName: "Last", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 93,
+                    cellClass : function (params) {
+                        var change = params.data.change;
+                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
+                            "text-success text-right grid-table f-12";
+                    }},
+                { field: "change", headerName: "Change", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 93,
+                    cellClass : function (params) {
+                        var change = params.data.change;
+                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
+                            "text-success text-right grid-table f-12";
+                    }},
+                { field: "persen", headerName: "%" , sortable: true, filter: "agTextColumnFilter", resizable: true, width: 93,
+                    cellClass : function (params) {
+                        var change = params.data.change;
+                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
+                            "text-success text-right grid-table f-12";
+                    }},
+                { field: "prevclosed", headerName: "Prev. Closed", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 93,
+                    cellClass : function (params) {
+                        var change = params.data.change;
+                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
+                            "text-success text-right grid-table f-12";
+                    }},
+                { field: "open", headerName: "Open", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 93,
+                    cellClass : function (params) {
+                        var prev = parseFloat(params.data.prevclosed.replace(/,/g,""));
+                        var open = parseFloat(params.data.open.replace(/,/g,""));
+                        return open < prev ? "text-danger text-right  grid-table f-12":
+                            open > prev ? "text-success text-right grid-table f-12" :
+                                "text-warning text-right grid-table f-12";
+                    } },
+                { field: "high", headerName: "High", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 93,
+                    cellClass : function (params) {
+                        var prev = parseFloat(params.data.prevclosed.replace(/,/g,""));
+                        var high = parseFloat(params.data.high.replace(/,/g,""));
+                        return high < prev ? "text-danger text-right  grid-table f-12":
+                            high > prev ? "text-success text-right grid-table f-12" :
+                                "text-warning text-right grid-table f-12";
+                    } },
+                { field: "low", headerName: "Low", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 93,
+                    cellClass : function (params) {
+                        var prev = parseFloat(params.data.prevclosed.replace(/,/g,""));
+                        var low = parseFloat(params.data.low.replace(/,/g,""));
+                        return low < prev ? "text-danger text-right  grid-table f-12":
+                            low > prev ? "text-success text-right grid-table f-12" :
+                                "text-warning text-right grid-table f-12";
+                    } },
+                { field: "volume", headerName: "Volume", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 93,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    } },
+                { field: "value", headerName: "Value", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 93,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    } },
+                { field: "fbuy", headerName: "F.Buy", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 93,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    } },
+                { field: "fsell", headerName: "F.Sell", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 93,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    } },
+                { field: "fnet", headerName: "F.Net", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 93,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    } },
+            ],
+            defaultColDef: {
+                sortable: true,
+                filter: true,
+            },
+            rowData: [
+                {
+                    sector : "AGRI",
+                    last : "1,450,595",
+                    change : "12,139",
+                    persen : "12",
+                    prevclosed : "1,462,73",
+                    open : "1,462,73",
+                    high: "1,488,19",
+                    low : "1,450,07",
+                    volume : "10,454,100",
+                    value : "73,000,000,100",
+                    fbuy : "6K",
+                    fsell : "2K",
+                    fnet : "4K",
+                },
+                {
+                    sector : "BASIC-IND",
+                    last : "764,357",
+                    change : "8,727",
+                    persen : "8",
+                    prevclosed : "773,084",
+                    open : "773,084",
+                    high: "773,837",
+                    low : "765,718",
+                    volume : "10,454,100",
+                    value : "73,000,000,100",
+                    fbuy : "6K",
+                    fsell : "2K",
+                    fnet : "4K",
+                },
+                {
+                    sector : "CONSUMER",
+                    last : "2,401,342",
+                    change : "3,777",
+                    persen : "3",
+                    prevclosed : "2,405,119",
+                    open : "2,405,119",
+                    high: "2,420,738",
+                    low : "2,395,573",
+                    volume : "10,454,100",
+                    value : "73,000,000,100",
+                    fbuy : "6K",
+                    fsell : "2K",
+                    fnet : "4K",
+                },
+                {
+                    sector : "FINANCE",
+                    last : "1,289,866",
+                    change : "1,492",
+                    persen : "1",
+                    prevclosed : "1,291,358",
+                    open : "1,291,358",
+                    high: "1,291,937",
+                    low : "1,288,628",
+                    volume : "10,454,100",
+                    value : "73,000,000,100",
+                    fbuy : "6K",
+                    fsell : "2K",
+                    fnet : "4K",
+                },
+                {
+                    sector : "INFRASTUCTUR",
+                    last : "1,184,857",
+                    change : "6,146",
+                    persen : "6",
+                    prevclosed : "1,191,003",
+                    open : "1,191,003",
+                    high: "1,198,257",
+                    low : "1,188,002",
+                    volume : "10,454,100",
+                    value : "73,000,000,100",
+                    fbuy : "6K",
+                    fsell : "2K",
+                    fnet : "4K",
+                },
+                {
+                    sector : "MINING",
+                    last : "16,452",
+                    change : "84,267",
+                    persen : "8",
+                    prevclosed : "1,729,467",
+                    open : "1,729,467",
+                    high: "1,729,911",
+                    low : "1,646,26",
+                    volume : "10,454,100",
+                    value : "73,000,000,100",
+                    fbuy : "6K",
+                    fsell : "2K",
+                    fnet : "4K",
+                },
+                {
+                    sector : "MISC-IND",
+                    last : "1,275,075",
+                    change : "-1,017",
+                    persen : "-1",
+                    prevclosed : "1,274,058",
+                    open : "1,274,058",
+                    high: "1,283,462",
+                    low : "1,261,231",
+                    volume : "10,454,100",
+                    value : "73,000,000,100",
+                    fbuy : "6K",
+                    fsell : "2K",
+                    fnet : "4K",
+                },
+                {
+                    sector : "PROPERTY",
+                    last : "4,883",
+                    change : "-1,769",
+                    persen : "-17",
+                    prevclosed : "486,531",
+                    open : "486,531",
+                    high: "491,971",
+                    low : "485,299",
+                    volume : "10,454,100",
+                    value : "73,000,000,100",
+                    fbuy : "6K",
+                    fsell : "2K",
+                    fnet : "4K",
+                },
+                {
+                    sector : "TRADE",
+                    last : "799,128",
+                    change : "3,053",
+                    persen : "3",
+                    prevclosed : "802,181",
+                    open : "802,181",
+                    high: "803,575",
+                    low : "798,562",
+                    volume : "10,454,100",
+                    value : "73,000,000,100",
+                    fbuy : "6K",
+                    fsell : "2K",
+                    fnet : "4K",
+                },
+            ],
+            sideBar: {
+                toolPanels: [
+                    {
+                        id: "columns",
+                        labelDefault: "Columns",
+                        labelKey: "columns",
+                        iconKey: "columns",
+                        toolPanel: "agColumnsToolPanel",
+                        toolPanelParams: {
+                            suppressRowGroups: true,
+                            suppressValues: true,
+                            suppressPivots: true,
+                            suppressPivotMode: true,
+                            suppressSideButtons: true,
+                            suppressColumnFilter: true,
+                            suppressColumnSelectAll: true,
+                            suppressColumnExpandAll: true
+                        },
+                    }, {
+                        id: "filters",
+                        labelDefault: "Filters",
+                        labelKey: "filters",
+                        iconKey: "filter",
+                        toolPanel: "agFiltersToolPanel"
+                    }
+                ],
+                defaultToolPanel: ""
+            },
+        }
+    }
+
+    render() {
+        return (
+            <>
+                <div
+                    className="card-295 ag-theme-balham-dark ag-striped-even"
+                    style={{
+                        width: 'auto' }}>
+                    <AgGridReact
+                        columnDefs={this.state.columnDefs}
+                        rowData={this.state.rowData}
+                        defaultColDef={this.state.defaultColDef}
+                        sideBar={this.state.sideBar}>
+                    </AgGridReact>
+                </div>
+            </>
+        );
+    }
+}
+
+class TopBrokerAgGrid extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        const self = this;
+        this.state = {
+            columnDefs: [
+                { field: "no", headerName: "#", sortable: true, width: 60,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    }},
+                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 160,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    }},
+                { field: "company", headerName: "Company", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 160,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    }},
+                { field: "tval", headerName: "T. Val(B)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 160,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    }},
+                { field: "bval", headerName: "B. Val(Bn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 160,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12 text-danger";
+                    }},
+                { field: "sval", headerName: "S. Val(Bn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 160,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12 text-success";
+                    } },
+                { field: "tvol", headerName: "T. Vol(Mn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 160,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    } },
+                { field: "tfreq", headerName: "T. Freq", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 160,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    } },
+            ],
+            defaultColDef: {
+                sortable: true,
+                filter: true,
+            },
+            rowData: [
+                { no: 1,
+                code: "DX",
+                company: "Bahana Sekuritas",
+                tval: "99.64",
+                bval: "61.62",
+                sval: "38.62",
+                tvol: "104.73",
+                tfreq: "5,040"},
+                { no: 2,
+                    code: "MS",
+                    company: "Morgan Stanley Sekuritas Indonesia",
+                    tval: "99.64",
+                    bval: "61.62",
+                    sval: "38.62",
+                    tvol: "104.73",
+                    tfreq: "5,040"},
+                { no: 3,
+                    code: "KS",
+                    company: "Kresna Sekuritas",
+                    tval: "99.64",
+                    bval: "61.62",
+                    sval: "38.62",
+                    tvol: "104.73",
+                    tfreq: "5,040"},
+                { no: 4,
+                    code: "RX",
+                    company: "Macquarie Sekuritas Indonesia",
+                    tval: "99.64",
+                    bval: "61.62",
+                    sval: "38.62",
+                    tvol: "104.73",
+                    tfreq: "5,040"},
+                { no: 5,
+                    code: "YU",
+                    company: "CGS-CIMB Sekuritas Indonesia",
+                    tval: "99.64",
+                    bval: "61.62",
+                    sval: "38.62",
+                    tvol: "104.73",
+                    tfreq: "5,040"},
+                { no: 6,
+                    code: "AK",
+                    company: "UBS Sekuritas Indonesia",
+                    tval: "99.64",
+                    bval: "61.62",
+                    sval: "38.62",
+                    tvol: "104.73",
+                    tfreq: "5,040"},
+                { no: 7,
+                    code: "YP",
+                    company: "Mirae Asset Sekuritas Indonesia",
+                    tval: "99.64",
+                    bval: "61.62",
+                    sval: "38.62",
+                    tvol: "104.73",
+                    tfreq: "5,040"},
+                { no: 8,
+                    code: "CC",
+                    company: "Mandiri Sekuritas",
+                    tval: "99.64",
+                    bval: "61.62",
+                    sval: "38.62",
+                    tvol: "104.73",
+                    tfreq: "5,040"},],
+            sideBar: {
+                toolPanels: [
+                    {
+                        id: "columns",
+                        labelDefault: "Columns",
+                        labelKey: "columns",
+                        iconKey: "columns",
+                        toolPanel: "agColumnsToolPanel",
+                        toolPanelParams: {
+                            suppressRowGroups: true,
+                            suppressValues: true,
+                            suppressPivots: true,
+                            suppressPivotMode: true,
+                            suppressSideButtons: true,
+                            suppressColumnFilter: true,
+                            suppressColumnSelectAll: true,
+                            suppressColumnExpandAll: true
+                        },
+                    }, {
+                        id: "filters",
+                        labelDefault: "Filters",
+                        labelKey: "filters",
+                        iconKey: "filter",
+                        toolPanel: "agFiltersToolPanel"
+                    }
+                ],
+                defaultToolPanel: ""
+            },
+            getRowHeight: function (params) {
+                return 23;
+            },
+        }
+    }
+
+    render() {
+        return (
+            <>
+                <div
+                    className="card-225 ag-theme-balham-dark"
+                    style={{
+                        width: 'auto' }}>
+                    <AgGridReact
+                        columnDefs={this.state.columnDefs}
+                        rowData={this.state.rowData}
+                        defaultColDef={this.state.defaultColDef}
+                        getRowHeight={this.state.getRowHeight}
+                        sideBar={this.state.sideBar}>
+                    </AgGridReact>
+                </div>
+            </>
+        );
+    }
+}
+
+class TopBrokerBAgGrid extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        const self = this;
+        this.state = {
+            columnDefs: [
+                { field: "no", headerName: "#", sortable: true, width: 60,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    }},
+                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 180,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    }},
+                { field: "company", headerName: "Company", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 180,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    }},
+                { field: "tval", headerName: "T. Val(B)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 180,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    }},
+                { field: "bval", headerName: "B. Val(Bn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 180,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12 text-danger";
+                    }},
+                { field: "tvol", headerName: "T. Vol(Mn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 180,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    } },
+                { field: "tfreq", headerName: "T. Freq", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 180,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    } },
+            ],
+            defaultColDef: {
+                sortable: true,
+                filter: true,
+            },
+            getRowHeight : function(params){
+                return 23;
+            },
+            rowData: [{ no: 1,
+                code: "DX",
+                company: "Bahana Sekuritas",
+                tval: "99.64",
+                bval: "61.62",
+                sval: "38.62",
+                tvol: "104.73",
+                tfreq: "5,040"},
+                { no: 2,
+                    code: "MS",
+                    company: "Morgan Stanley Sekuritas Indonesia",
+                    tval: "99.64",
+                    bval: "61.62",
+                    sval: "38.62",
+                    tvol: "104.73",
+                    tfreq: "5,040"},
+                { no: 3,
+                    code: "KS",
+                    company: "Kresna Sekuritas",
+                    tval: "99.64",
+                    bval: "61.62",
+                    sval: "38.62",
+                    tvol: "104.73",
+                    tfreq: "5,040"},
+                { no: 4,
+                    code: "RX",
+                    company: "Macquarie Sekuritas Indonesia",
+                    tval: "99.64",
+                    bval: "61.62",
+                    sval: "38.62",
+                    tvol: "104.73",
+                    tfreq: "5,040"},
+                { no: 5,
+                    code: "YU",
+                    company: "CGS-CIMB Sekuritas Indonesia",
+                    tval: "99.64",
+                    bval: "61.62",
+                    sval: "38.62",
+                    tvol: "104.73",
+                    tfreq: "5,040"},
+            ],
+            sideBar: {
+                toolPanels: [
+                    {
+                        id: "columns",
+                        labelDefault: "Columns",
+                        labelKey: "columns",
+                        iconKey: "columns",
+                        toolPanel: "agColumnsToolPanel",
+                        toolPanelParams: {
+                            suppressRowGroups: true,
+                            suppressValues: true,
+                            suppressPivots: true,
+                            suppressPivotMode: true,
+                            suppressSideButtons: true,
+                            suppressColumnFilter: true,
+                            suppressColumnSelectAll: true,
+                            suppressColumnExpandAll: true
+                        },
+                    }, {
+                        id: "filters",
+                        labelDefault: "Filters",
+                        labelKey: "filters",
+                        iconKey: "filter",
+                        toolPanel: "agFiltersToolPanel"
+                    }
+                ],
+                defaultToolPanel: ""
+            },
+        }
+    }
+
+    render() {
+        return (
+            <>
+                <div
+                    className="card-170 ag-theme-balham-dark"
+                    style={{
+                        width: 'auto' }}>
+                    <AgGridReact
+                        columnDefs={this.state.columnDefs}
+                        rowData={this.state.rowData}
+                        defaultColDef={this.state.defaultColDef}
+                        getRowHeight={this.state.getRowHeight}
+                        sideBar={this.state.sideBar}>
+                    </AgGridReact>
+                </div>
+            </>
+        );
+    }
+}
+
+class TopBrokerSAgGrid extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        const self = this;
+        this.state = {
+            columnDefs: [
+                { field: "no", headerName: "#", sortable: true, width: 60,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    }},
+                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 180,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    }},
+                { field: "company", headerName: "Company", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 180,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    }},
+                { field: "tval", headerName: "T. Val(B)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 180,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    }},
+                { field: "sval", headerName: "S. Val(Bn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 180,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12 text-success";
+                    }},
+                { field: "tvol", headerName: "T. Vol(Mn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 180,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    } },
+                { field: "tfreq", headerName: "T. Freq", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 180,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    } },
+            ],
+            defaultColDef: {
+                sortable: true,
+                filter: true,
+            },
+            getRowHeight : function(params){
+                return 23;
+            },
+            rowData: [
+                { no: 1,
+                    code: "DX",
+                    company: "Bahana Sekuritas",
+                    tval: "99.64",
+                    sval: "38.62",
+                    tvol: "104.73",
+                    tfreq: "5,040"},
+                { no: 2,
+                    code: "MS",
+                    company: "Morgan Stanley Sekuritas Indonesia",
+                    tval: "99.64",
+                    sval: "38.62",
+                    tvol: "104.73",
+                    tfreq: "5,040"},
+                { no: 3,
+                    code: "KS",
+                    company: "Kresna Sekuritas",
+                    tval: "99.64",
+                    sval: "38.62",
+                    tvol: "104.73",
+                    tfreq: "5,040"},
+                { no: 4,
+                    code: "RX",
+                    company: "Macquarie Sekuritas Indonesia",
+                    tval: "99.64",
+                    sval: "38.62",
+                    tvol: "104.73",
+                    tfreq: "5,040"},
+                { no: 5,
+                    code: "YU",
+                    company: "CGS-CIMB Sekuritas Indonesia",
+                    tval: "99.64",
+                    sval: "38.62",
+                    tvol: "104.73",
+                    tfreq: "5,040"},
+            ],
+            sideBar: {
+                toolPanels: [
+                    {
+                        id: "columns",
+                        labelDefault: "Columns",
+                        labelKey: "columns",
+                        iconKey: "columns",
+                        toolPanel: "agColumnsToolPanel",
+                        toolPanelParams: {
+                            suppressRowGroups: true,
+                            suppressValues: true,
+                            suppressPivots: true,
+                            suppressPivotMode: true,
+                            suppressSideButtons: true,
+                            suppressColumnFilter: true,
+                            suppressColumnSelectAll: true,
+                            suppressColumnExpandAll: true
+                        },
+                    }, {
+                        id: "filters",
+                        labelDefault: "Filters",
+                        labelKey: "filters",
+                        iconKey: "filter",
+                        toolPanel: "agFiltersToolPanel"
+                    }
+                ],
+                defaultToolPanel: ""
+            },
+        }
+    }
+
+    render() {
+        return (
+            <>
+                <div
+                    className="card-170 ag-theme-balham-dark"
+                    style={{
+                        width: 'auto' }}>
+                    <AgGridReact
+                        columnDefs={this.state.columnDefs}
+                        rowData={this.state.rowData}
+                        defaultColDef={this.state.defaultColDef}
+                        getRowHeight={this.state.getRowHeight}
+                        sideBar={this.state.sideBar}>
+                    </AgGridReact>
+                </div>
+            </>
         );
     }
 }

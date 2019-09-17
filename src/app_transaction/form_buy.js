@@ -61,7 +61,7 @@ class FormBuy extends React.PureComponent{
                     <div className="col-sm-10 mr-0 pr-0 row">
                         <Input defaultValue='10' placeholder='Vol' size='small' className="col-sm-6 pl-0 pr-2 f-12 text-center align-self-center"/>
                         <label className="col-sm-2 bg-dark-grey py-2 align-self-center">Lot</label>
-                        <Button className="col-sm-2 btn btn-sm btn-dark py-2 align-self-center" size="md">Max</Button>
+                        <Button className="col-sm-3 btn btn-sm btn-dark py-2 align-self-center" size="md">Max</Button>
                     </div>
                 </div>
 
@@ -100,22 +100,22 @@ class FormBuy extends React.PureComponent{
                     <thead></thead>
                     <tbody>
                     <tr>
-                        <td className="bg-gray-tradding d-border-tr-black">Cash On <br/> T+2</td>
-                        <td className="d-border-tr-gray">5,911,198</td>
-                        <td className="bg-gray-tradding d-border-tr-black">Remain <br/> Trade Limit</td>
-                        <td className="d-border-tr-gray">15,000,980</td>
+                        <td className="no-wrap bg-gray-tradding d-border-tr-black">Cash On <br/> T+2</td>
+                        <td className="no-wrap d-border-tr-gray">5,911,198</td>
+                        <td className="no-wrap bg-gray-tradding d-border-tr-black">Remain <br/> Trade Limit</td>
+                        <td className="no-wrap d-border-tr-gray">15,000,980</td>
                     </tr>
                     <tr>
-                        <td className="bg-gray-tradding d-border-tr-black">Cash Buy <br/>(Share)</td>
+                        <td className="no-wrap bg-gray-tradding d-border-tr-black">Cash Buy <br/>(Share)</td>
                         <td className="d-border-tr-gray">230</td>
                         <td className="bg-gray-tradding d-border-tr-black">Cash Buy <br/>(Lot)</td>
                         <td className="d-border-tr-gray">2</td>
                     </tr>
                     <tr>
-                        <td className="bg-gray-tradding">Max Buy <br/>(Share)</td>
-                        <td>303</td>
-                        <td className="bg-gray-tradding">Max Buy <br/>(Lot)</td>
-                        <td>3</td>
+                        <td className="no-wrap bg-gray-tradding">Max Buy <br/>(Share)</td>
+                        <td className="no-wrap">303</td>
+                        <td className="no-wrap bg-gray-tradding">Max Buy <br/>(Lot)</td>
+                        <td className="no-wrap">3</td>
                     </tr>
                     </tbody>
                 </Table>
