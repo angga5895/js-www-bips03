@@ -53,7 +53,7 @@ const CustomFrameHeaderLanding_Base = (props) =>{
                 <div className="col-sm-10 px-0 mx-0 d-border-bottom">
                     <FillHeaderTab linkTitles={
                         {
-                            landingPageInvboard: 'PORTOFOLIO',
+                            landingPageInvboard: 'PORTFOLIO',
                             orderListPageInvboard: 'PEGADAIAN',
                             fixIncomePageInvboard: 'FIXED INCOME',
                             mutualFundPageInvboard: 'MUTUAL FUND'
@@ -165,26 +165,24 @@ class LandingPage_Base extends React.PureComponent {
                         <div className="bg-black-trading">
                         <AppFrameAction ref="frameAction"></AppFrameAction>
                         <main>
-                            <div className="container-fluid">
+                            <div className="container-fluid px-1">
                                 <div className="container px-1 mx-0 col-sm-12 row">
                                     {/* portofolio */}
                                     <div className="col-md-6 px-1 py-2">
                                         <div className="d-border-active-tab card card-trading">
                                             <div className="card-header bg-grey">
-                                                <div className="row col-sm-12 px-0 mx-0 py-0">
-                                                    <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">PORTOFOLIO EQUITY</div>
+                                                <div className="row col-sm-12 px-0 mx-0 py-2">
+                                                    <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">PORTFOLIO EQUITY</div>
                                                     <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
-                                                        <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                        {/*<i className="f-18 ion ion-md-sync click-pointer"></i>*/}
                                                     </div>
                                                 </div>
                                                 <div className="row col-sm-12 px-0 mx-0 py-1">
-                                                    <div className="col-sm-4 px-0 mx-0 text-center f-14">
-                                                        <span className="text-primary">15,234,000</span>
-                                                        <br/> Stock Val
+                                                    <div className="col-sm-5 px-4 mx-0 f-14">
+                                                        Stock Val : <span className="text-primary">15,234,000</span>
                                                     </div>
-                                                    <div className="col-sm-4 px-0 mx-0 text-center f-14">
-                                                        <span className="text-success">+1,496,198 (+7.50%)</span>
-                                                        <br/> P/L
+                                                    <div className="col-sm-5 px-4 mx-0 f-14">
+                                                        P/L : <span className="text-success">+1,496,198 (+7.50%)</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -199,17 +197,17 @@ class LandingPage_Base extends React.PureComponent {
                                     <div className="col-md-6 px-1 py-2">
                                         <div className="bg-black-inactive card card-trading">
                                             <div className="card-header bg-grey">
-                                                <div className="row col-sm-12 px-0 mx-0 py-0">
+                                                <div className="row col-sm-12 px-0 mx-0 py-2">
                                                     <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">FIXED INCOME</div>
                                                     <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
-                                                        <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                        {/*<i className="f-18 ion ion-md-sync click-pointer"></i>*/}
                                                     </div>
                                                 </div>
                                                 <div className="row col-sm-12 px-0 mx-0 py-1">
-                                                    <div className="col-sm-4 px-0 mx-0 text-center f-14">
-                                                        <span className="text-primary">46,000,000</span>
-                                                        <br/> Total Nominal
+                                                    <div className="col-sm-5 px-4 mx-0 f-14">
+                                                        Total Nominal : <span className="text-primary">46,000,000</span>
                                                     </div>
+                                                    <div className="col-sm-5 px-4 mx-0 f-14"></div>
                                                 </div>
                                             </div>
                                             <div className="card-body">
@@ -246,20 +244,18 @@ class LandingPage_Base extends React.PureComponent {
                                     <div className="col-md-6 px-1 py-2">
                                         <div className="bg-black-inactive card card-trading">
                                             <div className="card-header bg-grey">
-                                                <div className="row col-sm-12 px-0 mx-0 py-0">
+                                                <div className="row col-sm-12 px-0 mx-0 py-2">
                                                     <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">MUTUAL FUND</div>
                                                     <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
-                                                        <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                        {/*<i className="f-18 ion ion-md-sync click-pointer"></i>*/}
                                                     </div>
                                                 </div>
                                                 <div className="row col-sm-12 px-0 mx-0 py-1">
-                                                    <div className="col-sm-4 px-0 mx-0 text-center f-14">
-                                                        <span className="text-primary">4,088,802</span>
-                                                        <br/> Invested
+                                                    <div className="col-sm-5 px-4 mx-0 f-14">
+                                                        Invested : <span className="text-primary">4,088,802</span>
                                                     </div>
-                                                    <div className="col-sm-4 px-0 mx-0 text-center f-14">
-                                                        <span className="text-success">+496,198 (+9.50%)</span>
-                                                        <br/> P/L
+                                                    <div className="col-sm-5 px-4 mx-0 f-14">
+                                                        P/L : <span className="text-success">+496,198 (+9.50%)</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -290,17 +286,12 @@ class LandingPage_Base extends React.PureComponent {
                         <div className="card card-75">
                             <AppFrameAction ref="frameAction" />
                             <div className="card-header bg-grey">
-                                <div className="row col-sm-12 px-0 mx-0 pt-4 pb-1">
-                                    <div className="col-sm-4 px-0 mx-0 text-center f-14">
-                                        <span className="text-primary">15,234,000</span>
-                                        <br/> Stock Val
+                                <div className="row col-sm-12 px-0 mx-0 py-1">
+                                    <div className="col-sm-4 px-4 mx-0 f-14">
+                                        Stock Val : <span className="text-primary">15,234,000</span>
                                     </div>
-                                    <div className="col-sm-4 px-0 mx-0 text-center f-14">
-                                        <span className="text-success">+1,496,198 (+7.50%)</span>
-                                        <br/> P/L
-                                    </div>
-                                    <div className="col-sm-4 text-right font-weight-bold px-0 mx-0">
-                                        <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                    <div className="col-sm-4 px-4 mx-0 f-14">
+                                        P/L : <span className="text-success">+1,496,198 (+7.50%)</span>
                                     </div>
                                 </div>
                             </div>
@@ -390,26 +381,24 @@ class OrderList_Base extends React.Component{
                         </style>
                         <AppFrameAction ref="frameAction"></AppFrameAction>
                         <main>
-                            <div className="container-fluid">
+                            <div className="container-fluid px-1">
                                 <div className="container px-1 mx-0 col-sm-12 row">
                                     {/* portofolio */}
                                     <div className="col-md-6 px-1 py-2">
                                         <div className="bg-black-inactive card card-trading">
                                             <div className="card-header bg-grey">
-                                                <div className="row col-sm-12 px-0 mx-0 py-0">
-                                                    <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">PORTOFOLIO EQUITY</div>
+                                                <div className="row col-sm-12 px-0 mx-0 py-2">
+                                                    <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">PORTFOLIO EQUITY</div>
                                                     <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
-                                                        <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                        {/*<i className="f-18 ion ion-md-sync click-pointer"></i>*/}
                                                     </div>
                                                 </div>
                                                 <div className="row col-sm-12 px-0 mx-0 py-1">
-                                                    <div className="col-sm-4 px-0 mx-0 text-center f-14">
-                                                        <span className="text-primary">15,234,000</span>
-                                                        <br/> Stock Val
+                                                    <div className="col-sm-5 px-4 mx-0 f-14">
+                                                        Stock Val : <span className="text-primary">15,234,000</span>
                                                     </div>
-                                                    <div className="col-sm-4 px-0 mx-0 text-center f-14">
-                                                        <span className="text-success">+1,496,198 (+7.50%)</span>
-                                                        <br/> P/L
+                                                    <div className="col-sm-5 px-4 mx-0 f-14">
+                                                        P/L : <span className="text-success">+1,496,198 (+7.50%)</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -424,17 +413,17 @@ class OrderList_Base extends React.Component{
                                     <div className="col-md-6 px-1 py-2">
                                         <div className="bg-black-inactive card card-trading">
                                             <div className="card-header bg-grey">
-                                                <div className="row col-sm-12 px-0 mx-0 py-0">
+                                                <div className="row col-sm-12 px-0 mx-0 py-2">
                                                     <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">FIXED INCOME</div>
                                                     <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
-                                                        <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                        {/*<i className="f-18 ion ion-md-sync click-pointer"></i>*/}
                                                     </div>
                                                 </div>
                                                 <div className="row col-sm-12 px-0 mx-0 py-1">
-                                                    <div className="col-sm-4 px-0 mx-0 text-center f-14">
-                                                        <span className="text-primary">46,000,000</span>
-                                                        <br/> Total Nominal
+                                                    <div className="col-sm-5 px-4 mx-0 f-14">
+                                                        Total Nominal : <span className="text-primary">46,000,000</span>
                                                     </div>
+                                                    <div className="col-sm-5 px-4 mx-0 f-14"></div>
                                                 </div>
                                             </div>
                                             <div className="card-body">
@@ -471,20 +460,18 @@ class OrderList_Base extends React.Component{
                                     <div className="col-md-6 px-1 py-2">
                                         <div className="bg-black-inactive card card-trading">
                                             <div className="card-header bg-grey">
-                                                <div className="row col-sm-12 px-0 mx-0 py-0">
+                                                <div className="row col-sm-12 px-0 mx-0 py-2">
                                                     <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">MUTUAL FUND</div>
                                                     <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
-                                                        <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                        {/*<i className="f-18 ion ion-md-sync click-pointer"></i>*/}
                                                     </div>
                                                 </div>
                                                 <div className="row col-sm-12 px-0 mx-0 py-1">
-                                                    <div className="col-sm-4 px-0 mx-0 text-center f-14">
-                                                        <span className="text-primary">4,088,802</span>
-                                                        <br/> Invested
+                                                    <div className="col-sm-5 px-4 mx-0 f-14">
+                                                        Invested : <span className="text-primary">4,088,802</span>
                                                     </div>
-                                                    <div className="col-sm-4 px-0 mx-0 text-center f-14">
-                                                        <span className="text-success">+496,198 (+9.50%)</span>
-                                                        <br/> P/L
+                                                    <div className="col-sm-5 px-4 mx-0 f-14">
+                                                        P/L : <span className="text-success">+496,198 (+9.50%)</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -602,27 +589,25 @@ class FixedIncome_Base extends React.PureComponent {
                     (<div className="bg-black-trading">
                             <AppFrameAction ref="frameAction" />
                             <main>
-                                <div className="container-fluid">
+                                <div className="container-fluid px-1">
                                     <div className="container px-1 mx-0 col-sm-12 row">
 
                                         {/* portofolio */}
                                         <div className="col-md-6 px-1 py-2">
                                             <div className="bg-black-inactive card card-trading">
                                                 <div className="card-header bg-grey">
-                                                    <div className="row col-sm-12 px-0 mx-0 py-0">
-                                                        <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">PORTOFOLIO EQUITY</div>
+                                                    <div className="row col-sm-12 px-0 mx-0 py-2">
+                                                        <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">PORTFOLIO EQUITY</div>
                                                         <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
-                                                            <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                            {/*<i className="f-18 ion ion-md-sync click-pointer"></i>*/}
                                                         </div>
                                                     </div>
                                                     <div className="row col-sm-12 px-0 mx-0 py-1">
-                                                        <div className="col-sm-4 px-0 mx-0 text-center f-14">
-                                                            <span className="text-primary">15,234,000</span>
-                                                            <br/> Stock Val
+                                                        <div className="col-sm-5 px-4 mx-0 f-14">
+                                                            Stock Val : <span className="text-primary">15,234,000</span>
                                                         </div>
-                                                        <div className="col-sm-4 px-0 mx-0 text-center f-14">
-                                                            <span className="text-success">+1,496,198 (+7.50%)</span>
-                                                            <br/> P/L
+                                                        <div className="col-sm-5 px-4 mx-0 f-14">
+                                                            P/L : <span className="text-success">+1,496,198 (+7.50%)</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -637,17 +622,17 @@ class FixedIncome_Base extends React.PureComponent {
                                         <div className="col-md-6 px-1 py-2">
                                             <div className="d-border-active-tab card card-trading">
                                                 <div className="card-header bg-grey">
-                                                    <div className="row col-sm-12 px-0 mx-0 py-0">
+                                                    <div className="row col-sm-12 px-0 mx-0 py-2">
                                                         <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">FIXED INCOME</div>
                                                         <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
-                                                            <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                            {/*<i className="f-18 ion ion-md-sync click-pointer"></i>*/}
                                                         </div>
                                                     </div>
                                                     <div className="row col-sm-12 px-0 mx-0 py-1">
-                                                        <div className="col-sm-4 px-0 mx-0 text-center f-14">
-                                                            <span className="text-primary">46,000,000</span>
-                                                            <br/> Total Nominal
+                                                        <div className="col-sm-5 px-4 mx-0 f-14">
+                                                            Total Nominal : <span className="text-primary">46,000,000</span>
                                                         </div>
+                                                        <div className="col-sm-5 px-4 mx-0 f-14"></div>
                                                     </div>
                                                 </div>
                                                 <div className="card-body">
@@ -684,20 +669,18 @@ class FixedIncome_Base extends React.PureComponent {
                                         <div className="col-md-6 px-1 py-2">
                                             <div className="bg-black-inactive card card-trading">
                                                 <div className="card-header bg-grey">
-                                                    <div className="row col-sm-12 px-0 mx-0 py-0">
+                                                    <div className="row col-sm-12 px-0 mx-0 py-2">
                                                         <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">MUTUAL FUND</div>
                                                         <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
-                                                            <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                            {/*<i className="f-18 ion ion-md-sync click-pointer"></i>*/}
                                                         </div>
                                                     </div>
                                                     <div className="row col-sm-12 px-0 mx-0 py-1">
-                                                        <div className="col-sm-4 px-0 mx-0 text-center f-14">
-                                                            <span className="text-primary">4,088,802</span>
-                                                            <br/> Invested
+                                                        <div className="col-sm-5 px-4 mx-0 f-14">
+                                                            Invested : <span className="text-primary">4,088,802</span>
                                                         </div>
-                                                        <div className="col-sm-4 px-0 mx-0 text-center f-14">
-                                                            <span className="text-success">+496,198 (+9.50%)</span>
-                                                            <br/> P/L
+                                                        <div className="col-sm-5 px-4 mx-0 f-14">
+                                                            P/L : <span className="text-success">+496,198 (+9.50%)</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -718,15 +701,11 @@ class FixedIncome_Base extends React.PureComponent {
                         <div className="card card-75">
                             <AppFrameAction ref="frameAction" />
                             <div className="card-header bg-grey">
-                                <div className="row col-sm-12 px-0 mx-0 pt-4 pb-1">
-                                    <div className="col-sm-4 px-0 mx-0 text-center f-14">
-                                        <span className="text-primary">46,000,000</span>
-                                        <br/> Total Nominal
+                                <div className="row col-sm-12 px-0 mx-0 py-1">
+                                    <div className="col-sm-5 px-4 mx-0 f-14">
+                                        Total Nominal : <span className="text-primary">46,000,000</span>
                                     </div>
-                                    <div className="col-sm-4 px-0 mx-0 text-center f-14"></div>
-                                    <div className="col-sm-4 text-right font-weight-bold px-0 mx-0">
-                                        <i className="f-18 ion ion-md-sync click-pointer"></i>
-                                    </div>
+                                    <div className="col-sm-5 px-4 mx-0 f-14"></div>
                                 </div>
                             </div>
                             <div className="card-body">
@@ -804,26 +783,24 @@ class MutualFund_Base extends React.PureComponent {
                 (<div className="bg-black-trading">
                     <AppFrameAction ref="frameAction"></AppFrameAction>
                     <main>
-                        <div className="container-fluid">
+                        <div className="container-fluid px-1">
                             <div className="container px-1 mx-0 col-sm-12 row">
                                 {/* portofolio */}
                                 <div className="col-md-6 px-1 py-2">
                                     <div className="bg-black-inactive card card-trading">
                                         <div className="card-header bg-grey">
-                                            <div className="row col-sm-12 px-0 mx-0 py-0">
-                                                <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">PORTOFOLIO EQUITY</div>
+                                            <div className="row col-sm-12 px-0 mx-0 py-2">
+                                                <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">PORTFOLIO EQUITY</div>
                                                 <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
-                                                    <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                    {/*<i className="f-18 ion ion-md-sync click-pointer"></i>*/}
                                                 </div>
                                             </div>
                                             <div className="row col-sm-12 px-0 mx-0 py-1">
-                                                <div className="col-sm-4 px-0 mx-0 text-center f-14">
-                                                    <span className="text-primary">15,234,000</span>
-                                                    <br/> Stock Val
+                                                <div className="col-sm-5 px-4 mx-0 f-14">
+                                                    Stock Val : <span className="text-primary">15,234,000</span>
                                                 </div>
-                                                <div className="col-sm-4 px-0 mx-0 text-center f-14">
-                                                    <span className="text-success">+1,496,198 (+7.50%)</span>
-                                                    <br/> P/L
+                                                <div className="col-sm-5 px-4 mx-0 f-14">
+                                                    P/L : <span className="text-success">+1,496,198 (+7.50%)</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -838,17 +815,17 @@ class MutualFund_Base extends React.PureComponent {
                                 <div className="col-md-6 px-1 py-2">
                                     <div className="bg-black-inactive card card-trading">
                                         <div className="card-header bg-grey">
-                                            <div className="row col-sm-12 px-0 mx-0 py-0">
+                                            <div className="row col-sm-12 px-0 mx-0 py-2">
                                                 <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">FIXED INCOME</div>
                                                 <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
-                                                    <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                    {/*<i className="f-18 ion ion-md-sync click-pointer"></i>*/}
                                                 </div>
                                             </div>
                                             <div className="row col-sm-12 px-0 mx-0 py-1">
-                                                <div className="col-sm-4 px-0 mx-0 text-center f-14">
-                                                    <span className="text-primary">46,000,000</span>
-                                                    <br/> Total Nominal
+                                                <div className="col-sm-5 px-4 mx-0 f-14">
+                                                    Total Nominal : <span className="text-primary">46,000,000</span>
                                                 </div>
+                                                <div className="col-sm-5 px-4 mx-0 f-14"></div>
                                             </div>
                                         </div>
                                         <div className="card-body">
@@ -885,20 +862,18 @@ class MutualFund_Base extends React.PureComponent {
                                 <div className="col-md-6 px-1 py-2">
                                     <div className="d-border-active-tab card card-trading">
                                         <div className="card-header bg-grey">
-                                            <div className="row col-sm-12 px-0 mx-0 py-0">
+                                            <div className="row col-sm-12 px-0 mx-0 py-2">
                                                 <div className="col-sm-10 px-0 mx-0 f-14 align-self-center">MUTUAL FUND</div>
                                                 <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
-                                                    <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                                    {/*<i className="f-18 ion ion-md-sync click-pointer"></i>*/}
                                                 </div>
                                             </div>
                                             <div className="row col-sm-12 px-0 mx-0 py-1">
-                                                <div className="col-sm-4 px-0 mx-0 text-center f-14">
-                                                    <span className="text-primary">4,088,802</span>
-                                                    <br/> Invested
+                                                <div className="col-sm-5 px-4 mx-0 f-14">
+                                                    Invested : <span className="text-primary">4,088,802</span>
                                                 </div>
-                                                <div className="col-sm-4 px-0 mx-0 text-center f-14">
-                                                    <span className="text-success">+496,198 (+9.50%)</span>
-                                                    <br/> P/L
+                                                <div className="col-sm-5 px-4 mx-0 f-14">
+                                                    P/L : <span className="text-success">+496,198 (+9.50%)</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -918,17 +893,12 @@ class MutualFund_Base extends React.PureComponent {
                     <div className="card card-75">
                         <AppFrameAction ref="frameAction" />
                         <div className="card-header bg-grey">
-                            <div className="row col-sm-12 px-0 mx-0 pt-4 pb-1">
-                                <div className="col-sm-4 px-0 mx-0 text-center f-14">
-                                    <span className="text-primary">4,088,802</span>
-                                    <br/> Invested
+                            <div className="row col-sm-12 px-0 mx-0 py-1">
+                                <div className="col-sm-4 px-4 mx-0 f-14">
+                                    Invested : <span className="text-primary">4,088,802</span>
                                 </div>
-                                <div className="col-sm-4 px-0 mx-0 text-center f-14">
-                                    <span className="text-success">+496,198 (+9.50%)</span>
-                                    <br/> P/L
-                                </div>
-                                <div className="col-sm-4 text-right font-weight-bold px-0 mx-0">
-                                    <i className="f-18 ion ion-md-sync click-pointer"></i>
+                                <div className="col-sm-4 px-4 mx-0 f-14">
+                                    P/L : <span className="text-success">+496,198 (+9.50%)</span>
                                 </div>
                             </div>
                         </div>
@@ -1331,7 +1301,7 @@ class CustomToolbarPortofolio extends React.PureComponent {
                 <Template name="toolbarContent">
                     <div className="f-14 px-0 mx-0 py-4 col-sm-12">
                         <div className={this.props.gridIs == 'grid' ? "row col-sm-12 px-0 mx-0 py-3" : "row col-sm-12 px-4 mx-0 py-3"}>
-                            <div className="col-sm-10 px-0 mx-0">{this.props.gridIs == 'grid' ? 'PORTOFOLIO EQUITY' : ''}</div>
+                            <div className="col-sm-10 px-0 mx-0">{this.props.gridIs == 'grid' ? 'PORTFOLIO EQUITY' : ''}</div>
                             <div className="col-sm-2 text-right font-weight-bold px-0 mx-0">
                                 <i className="f-18 ion ion-md-sync click-pointer"></i>
                             </div>
@@ -2272,6 +2242,11 @@ class PortofolioAgGrid extends React.PureComponent {
                 },
                 { field: "avgprice", headerName: "Avg. Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 94 : 150,
                     cellClass : function (params) {
+                        return " text-right grid-table f-12";
+                    }
+                },
+                { field: "lastprice", headerName: "Last Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 92 : 150,
+                    cellClass : function (params) {
                         var pl = params.data.pl;
                         return pl.includes('-') === true ? "text-danger text-right  grid-table f-12" :
                             "text-success text-right  grid-table f-12";
@@ -2285,11 +2260,6 @@ class PortofolioAgGrid extends React.PureComponent {
                         var pl = params.data.pl;
                         return pl.includes('-') === true ? '<i class="icofont icofont-caret-down text-danger"></i>' :
                             '<i class="icofont icofont-caret-up text-success"></i>';
-                    }
-                },
-                { field: "lastprice", headerName: "Last Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 92 : 150,
-                    cellClass : function (params) {
-                        return " text-right grid-table f-12";
                     }
                 },
                 { field: "lot", headerName: "Lot", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 58 : 90,
@@ -2553,6 +2523,69 @@ class PortofolioAgGrid extends React.PureComponent {
                     pl: "+250,650"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"+2,50%",
                     remark: ""   ,
                     action:""
+                },
+                { code: "ASII",
+                    avgprice: "7,125",
+                    indicator : "",
+                    lastprice: "7,125",
+                    lot: "9",
+                    shares: "930",
+                    stockval: "7,125,000",
+                    pl: "-50,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-5,78%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "BBCA",
+                    avgprice: "27,400",
+                    indicator : "",
+                    lastprice: "27,400",
+                    lot: "4",
+                    shares: "410",
+                    stockval: "27,400,000",
+                    pl: "+250,650"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"+2,50%",
+                    remark: ""   ,
+                    action:""
+                },
+                { code: "ASII",
+                    avgprice: "7,125",
+                    indicator : "",
+                    lastprice: "7,125",
+                    lot: "9",
+                    shares: "930",
+                    stockval: "7,125,000",
+                    pl: "-50,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-5,78%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "BBCA",
+                    avgprice: "27,400",
+                    indicator : "",
+                    lastprice: "27,400",
+                    lot: "4",
+                    shares: "410",
+                    stockval: "27,400,000",
+                    pl: "+250,650"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"+2,50%",
+                    remark: ""   ,
+                    action:""
+                },
+                { code: "ASII",
+                    avgprice: "7,125",
+                    indicator : "",
+                    lastprice: "7,125",
+                    lot: "9",
+                    shares: "930",
+                    stockval: "7,125,000",
+                    pl: "-50,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-5,78%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "BBCA",
+                    avgprice: "27,400",
+                    indicator : "",
+                    lastprice: "27,400",
+                    lot: "4",
+                    shares: "410",
+                    stockval: "27,400,000",
+                    pl: "+250,650"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"+2,50%",
+                    remark: ""   ,
+                    action:""
                 }
             ],
             sideBar: {
@@ -2590,7 +2623,7 @@ class PortofolioAgGrid extends React.PureComponent {
         return (
             <>
                 <div
-                    className={this.props.gridView == 'grid' ? "card-213 ag-theme-balham-dark ag-bordered" : "card-550 ag-theme-balham-dark ag-bordered"}
+                    className={this.props.gridView == 'grid' ? "card-235 ag-theme-balham-dark ag-bordered" : "card-580 ag-theme-balham-dark ag-bordered"}
                     style={{
                         width: 'auto' }}>
                     <AgGridReact
@@ -2757,7 +2790,7 @@ class FixedIncomeAgGrid extends React.PureComponent {
         return (
             <>
                 <div
-                    className={this.props.gridView == 'grid' ? "card-213 ag-theme-balham-dark ag-striped-odd" : "card-550 ag-theme-balham-dark ag-striped-odd"}
+                    className={this.props.gridView == 'grid' ? "card-235 ag-theme-balham-dark ag-striped-odd" : "card-580 ag-theme-balham-dark ag-striped-odd"}
                     style={{
                         width: 'auto' }}>
                     <AgGridReact
@@ -2920,7 +2953,7 @@ class MutualFundAgGrid extends React.PureComponent {
         return (
             <>
                 <div
-                    className={this.props.gridView == 'grid' ? "card-213 ag-theme-balham-dark" : "card-550 ag-theme-balham-dark"}
+                    className={this.props.gridView == 'grid' ? "card-235 ag-theme-balham-dark" : "card-580 ag-theme-balham-dark"}
                     style={{
                         width: 'auto' }}>
                     <AgGridReact
