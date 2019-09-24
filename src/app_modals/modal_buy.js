@@ -14,7 +14,7 @@ class ModalBuy extends React.Component{
                             <TableInfoTransaction lotshare="modalbuy" />
                         </div>
                         <div className="col-sm-6 mt-4 d-border-active">
-                            <FormBuy cb1="checkbox1modalbuy" cb2="checkbox2modalbuy" cb3="checkbox3modalbuy"/>
+                            <FormBuy idPrice="modalBuyPrice" idVol="modalBuyVol" idValue="modalBuyValue" columnSm="col-sm-11" />
                         </div>
                     </div>
                 </div>

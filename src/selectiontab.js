@@ -1,11 +1,14 @@
 import React from 'react';
 import { ContextConnector } from './appcontext.js';
 import { AppFrameContext } from './appframe.js';
-import { Menu, Input, Dropdown} from 'semantic-ui-react';
+import { Menu, Input, Dropdown } from 'semantic-ui-react';
 import Select from 'react-select';
 import user_avatar from './img/man.png';
 import {cssmode} from "./App";
 import { Table, Navbar, Collapse } from 'react-bootstrap';
+import ModalPortofolio from "./app_modals/modal_portofolio";
+import ModalChangePassPin from "./app_modals/modal_changepasspin";
+import { AppFrame, AppFrameAction, AppFrameProvider, AppModal } from "./appframe";
 
 const options = [
     { value: 'compositeindex', label: 'Composite Index' },
@@ -665,9 +668,34 @@ class InfoCash extends React.Component {
 }
 
 class UserInfo extends React.Component {
+    closeClick = (e) => {
+        this.refs.frameAction.closeModal(100);
+    }
+
+    buttonClickPortofolio = (e) => {
+        this.refs.frameAction.showModal({
+            headerClass: () => <div className="text-right"><i className="icofont icofont-close text-icofont-close text-border click-pointer"
+                                                              onClick={this.closeClick}></i></div>,
+            size: 'fullscreen',
+            contentClass: PortofolioModal,
+            onClose: (result) => { console.log('Modal 1 result = ', result) }
+        })
+    }
+
+    buttonClickChangePassPin = (e) => {
+        this.refs.frameAction.showModal({
+            headerClass: () => <div className="text-right"><i className="icofont icofont-close text-icofont-close text-border click-pointer"
+                                                              onClick={this.closeClick}></i></div>,
+            size: 'mini',
+            contentClass: ChangePassPinModal,
+            onClose: (result) => {console.log('Modal 1 result = ', result)}
+        })
+    }
+
     render(){
         return(
             <div className="nav-link px-0 mx-0 py-3 text-white">
+                <AppFrameAction ref="frameAction" />
                 <Dropdown icon={null} text={
                     <div className="cursor-menu py-2">
                         <img src={user_avatar} alt="User" className="img-avatar d-border mr-2"/><i className="f-11-center text-gray-tradding oi oi-caret-bottom"></i>
@@ -702,7 +730,7 @@ class UserInfo extends React.Component {
                                 </tbody>
                             </table>
                         <Dropdown.Divider className="d-border py-0 my-0" />
-                        <Dropdown.Item className="item-hover text-white text-left" text={
+                        <Dropdown.Item className="item-hover text-white text-left" onClick={this.buttonClickPortofolio} text={
                             <div>
                                 <i className="oi oi-pie-chart"></i>&nbsp;&nbsp; Portofolio & Balance
                             </div>
@@ -732,7 +760,7 @@ class UserInfo extends React.Component {
                            </div>
                         }/>
                         <Dropdown.Divider className="d-border py-0 my-0" />
-                        <Dropdown.Item className="item-hover text-white text-left" text={
+                        <Dropdown.Item className="item-hover text-white text-left" onClick={this.buttonClickChangePassPin} text={
                            <div>
                                <i className="ion ion-ios-lock"></i>&nbsp;&nbsp; Change Password/PIN
                            </div>
@@ -752,6 +780,36 @@ class UserInfo extends React.Component {
                     </Dropdown.Menu>
                 </Dropdown>
             </div>
+        );
+    }
+}
+
+class PortofolioModal extends React.Component {
+    closeClick = (e) => {
+        this.refs.frameAction.closeModal(100);
+    }
+
+    render() {
+        return (
+            <>
+                <AppFrameAction ref="frameAction" />
+                <ModalPortofolio />
+            </>
+        );
+    }
+}
+
+class ChangePassPinModal extends React.Component {
+    closeClick = (e) => {
+        this.refs.frameAction.closeModal(100);
+    }
+
+    render() {
+        return (
+            <>
+                <AppFrameAction ref="frameAction" />
+                <ModalChangePassPin />
+            </>
         );
     }
 }

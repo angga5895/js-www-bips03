@@ -20,16 +20,18 @@ const MenuOfContent_Base = (props) => {
                             <li key={e.instanceName}
                                 name={e.instanceName}
                                 active={props.activeInstance === e}
-                                className={e.instanceName.search('Table') >= 0 ? "li-menu-table" : "li-menu"}
+                                className={e.instanceName.search('news') >= 0 ? "li-menu-news" : e.instanceName.search('autoPage') >= 0 ? "li-menu-trade" : e.instanceName.search('Table') >= 0 ? "li-menu-table" : "li-menu"}
                                 onClick={
                                     () => props.activateFrame(e.instanceName)
                                 }
                             >
                                 <a className={
                                     props.activeInstance === e ?
-                                        e.instanceName.search('Table') >= 0 ?
-                                            'li-table-active click-pointer text-center li-menu-a py-2 f-12' :
-                                            'li-active click-pointer text-center li-menu-a py-2 f-12'
+                                        e.instanceName.search('autoPage') >= 0 ? "li-trade-active click-pointer text-center li-menu-a-trade py-2 f-12" :
+                                            e.instanceName.search('news') >= 0 ? "li-news-active click-pointer text-center li-menu-a-news py-2 f-12" :
+                                                e.instanceName.search('Table') >= 0 ?
+                                                    'li-table-active click-pointer text-center li-menu-a py-2 f-12' :
+                                                    'li-active click-pointer text-center li-menu-a py-2 f-12'
                                         : 'click-pointer text-center li-menu-a py-2 f-12'
 
                                 }>

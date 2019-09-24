@@ -90,6 +90,7 @@ var BIPSAppVars = {
   //     {id:4, code:'LAL', nav:2650, navdate:'06/03/2019', currency:2650000, potP:'-5000', potL:'-3.4%', viewDetail:'sell'},
   // ],
   isGrid:true,
+  isManual:true,
 
 }
 
@@ -112,6 +113,9 @@ var BIPSAppActions = {
 
   // action Landing
   handleView:(vars, {isGrid})=>({...vars, isGrid:!vars.isGrid}),
+
+  // action trade
+  handleManual:(vars, {isManual})=>({...vars, isManual:!vars.isManual}),
 
 // subscribe
   subscribeMsgSukses:(vars,{mess})=>{

@@ -534,7 +534,6 @@ class TableStockWatchlist_Base extends React.Component{
             </div>
         </>);
     }
-
 }
 
 class BuyPage extends React.Component{
@@ -548,7 +547,7 @@ class BuyPage extends React.Component{
                         <TableInfoTransaction lotshare="buyPage" />
                     </div>
                     <div className="col-sm-6 mt-4 d-border-active bg-dark-grey pb-3">
-                        <FormBuy cb1="checkbox1buystock" cb2="checkbox2buystock" cb3="checkbox3buystock"/>
+                        <FormBuy idPrice="stockBuyPrice" idVol="stockBuyVol" idValue="stockBuyValue" columnSm="col-sm-12" />
                     </div>
                 </div>
             </>
@@ -568,7 +567,7 @@ class SellPage extends React.Component{
                         <TableInfoTransaction lotshare="sellPage" />
                     </div>
                     <div className="col-sm-6 mt-4 d-border-active bg-dark-grey pb-3">
-                        <FormSell cb1="checkbox1sellstock" cb2="checkbox2sellstock" cb3="checkbox3sellstock" cb4="checkbox4sellstock"/>
+                        <FormSell idPrice="stockSellPrice" idVol="stockSellVol" idValue="stockSellValue" columnSm="col-sm-12"/>
                     </div>
                 </div>
             </>
@@ -2642,29 +2641,29 @@ class StockWatchlistAgGrid extends React.PureComponent {
         const self = this;
         this.state = {
             columnDefs: [
-                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 70,
+                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 69,
                     cellClass : function (params) {
                         return "text-center grid-table f-12";
                     }},
-                { field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 70,
+                { field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 67,
                     cellClass : function (params) {
                         var change = params.data.change;
                         return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
                             "text-success text-right grid-table f-12";
                     }},
-                { field: "change", headerName: "Change", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 75,
+                { field: "change", headerName: "Change", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 82,
                     cellClass : function (params) {
                         var change = params.data.change;
                         return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
                             "text-success text-right grid-table f-12";
                     } },
-                { field: "persen", headerName: "(%)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 60,
+                { field: "persen", headerName: "(%)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 59,
                     cellClass : function (params) {
                         var change = params.data.change;
                         return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
                             "text-success text-right grid-table f-12";
                     } },
-                { field: "tvol", headerName: "T. Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 70,
+                { field: "tvol", headerName: "T. Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 69,
                     cellClass : function (params) {
                         var change = params.data.change;
                         return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
@@ -3453,8 +3452,7 @@ class HistoryBrokerAgGrid extends React.PureComponent {
                         columnDefs={this.state.columnDefs}
                         rowData={this.state.rowData}
                         defaultColDef={this.state.defaultColDef}
-                        getRowHeight={this.state.getRowHeight}
-                        sideBar={this.state.sideBar}>
+                        getRowHeight={this.state.getRowHeight}>
                     </AgGridReact>
                 </div>
             </>
@@ -3930,5 +3928,5 @@ class CorpActionAgGrid extends React.PureComponent {
     }
 }
 
-export { CustomFrameHeaderStock, Stock, BuyPage, SellPage };
+export { CustomFrameHeaderStock, Stock, BuyPage, SellPage, AmendGroupNameAgGrid, AmendGroupCodeAgGrid, AddGroupCodeAgGrid, BuyModal, SellModal, RegisterAmendModal };
 export default StockPage;

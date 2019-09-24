@@ -17,37 +17,72 @@ class SideBar extends React.Component{
     render(){
         return(
             <>
-                <div className="col-lg-1 px-0 mx-0 bg-black-trading d-border">
+                <div id="mySideBar" className="col-lg-1 px-0 mx-0 bg-black-trading d-border">
                     <div className="flex-grow-1">
-                        <div className="flex-lg-column mb-2 cssmenu">
+                        <div className="flex-lg-column mb-1 cssmenu">
                             <div className="align-self-center text-center d-border-bottom col-sm-12 paddingY-2 px-0 mx-0 click-pointer">
                                 <i className="fa-2x icon-icon-star-list"></i>
                             </div>
                         </div>
                         <div className="nav flex-lg-column">
-                            <div className="nav-link align-self-center text-center px-0 bg-grey-mystic col-sm-12 my-1">
+                            <div className="nav-link align-self-center text-center px-0 bg-grey-mystic col-sm-12 my-0 py-0">
                                 <SelectGroup themestyle={this.props.thememode}/>
                             </div>
-                                <div className="align-self-center text-center px-nav my-4 click-pointer">
-                                    <h5>AALI</h5>
-                                    <p className="f-11-center mb-2 text-danger">12,650</p>
-                                    <hr className="bg-white my-0"/>
-                                </div>
-                                <div className="align-self-center text-center px-nav my-4 click-pointer">
-                                    <h5>ADHI</h5>
-                                    <p className="f-11-center mb-2 text-danger">1,529</p>
-                                    <hr className="bg-white my-0"/>
-                                </div>
-                                <div className="align-self-center text-center px-nav my-4 click-pointer">
-                                    <h5>ANTM</h5>
-                                    <p className="f-11-center mb-2 text-danger">27,400</p>
-                                    <hr className="bg-white my-0"/>
-                                </div>
-                                <div className="align-self-center text-center px-nav my-4 click-pointer">
-                                    <h5>ASII</h5>
-                                    <p className="f-11-center mb-2 text-danger">1,025</p>
-                                    <hr className="bg-white my-0"/>
-                                </div>
+                            <div className="align-self-center text-center px-nav mb-1 mt-3 click-pointer">
+                                <h5>AALI</h5>
+                                <p className="f-11-center mb-1 text-danger">12,650</p>
+                                <hr className="bg-white my-0"/>
+                            </div>
+                            <div className="align-self-center text-center px-nav mb-1 mt-3 click-pointer">
+                                <h5>ADHI</h5>
+                                <p className="f-11-center mb-1 text-danger">1,529</p>
+                                <hr className="bg-white my-0"/>
+                            </div>
+                            <div className="align-self-center text-center px-nav mb-1 mt-3 click-pointer">
+                                <h5>ANTM</h5>
+                                <p className="f-11-center mb-1 text-danger">27,400</p>
+                                <hr className="bg-white my-0"/>
+                            </div>
+                            <div className="align-self-center text-center px-nav mb-1 mt-3 click-pointer">
+                                <h5>ASII</h5>
+                                <p className="f-11-center mb-1 text-danger">1,025</p>
+                                <hr className="bg-white my-0"/>
+                            </div>
+                            <div className="align-self-center text-center px-nav mb-1 mt-3 click-pointer">
+                                <h5>TLKM</h5>
+                                <p className="f-11-center mb-1 text-danger">1,025</p>
+                                <hr className="bg-white my-0"/>
+                            </div>
+                            <div className="align-self-center text-center px-nav mb-1 mt-3 click-pointer">
+                                <h5>WSKT</h5>
+                                <p className="f-11-center mb-1 text-danger">1,025</p>
+                                <hr className="bg-white my-0"/>
+                            </div>
+                            <div className="align-self-center text-center px-nav mb-1 mt-3 click-pointer">
+                                <h5>INDF</h5>
+                                <p className="f-11-center mb-1 text-danger">1,025</p>
+                                <hr className="bg-white my-0"/>
+                            </div>
+                            <div className="align-self-center text-center px-nav mb-1 mt-3 click-pointer">
+                                <h5>BBCA</h5>
+                                <p className="f-11-center mb-1 text-danger">1,025</p>
+                                <hr className="bg-white my-0"/>
+                            </div>
+                            <div className="align-self-center text-center px-nav mb-1 mt-3 click-pointer">
+                                <h5>SMGR</h5>
+                                <p className="f-11-center mb-1 text-danger">1,025</p>
+                                <hr className="bg-white my-0"/>
+                            </div>
+                            <div className="align-self-center text-center px-nav mb-1 mt-3 click-pointer">
+                                <h5>BBRI</h5>
+                                <p className="f-11-center mb-1 text-danger">1,025</p>
+                                <hr className="bg-white my-0"/>
+                            </div>
+                            <div className="align-self-center text-center px-4">
+                                <buttom className="col-sm-12 px-0 mt-2 py-2 btn btn-sm btn-dark op-05">
+                                    Load more
+                                </buttom>
+                            </div>
                         </div>
                     </div>
                 </div>

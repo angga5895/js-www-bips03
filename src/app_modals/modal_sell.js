@@ -2,6 +2,7 @@ import React from "react";
 import {AppFrameAction} from "./../appframe";
 import TableInfoTransaction from "./../app_transaction/tableInfoTransaction";
 import FormSell from "./../app_transaction/form_sell";
+import FormBuy from "../app_transaction/form_buy";
 
 class ModalSell extends React.Component{
     render() {
@@ -14,7 +15,7 @@ class ModalSell extends React.Component{
                             <TableInfoTransaction lotshare="modalSell" />
                         </div>
                         <div className="col-sm-6 mt-4 d-border-active">
-                            <FormSell cb1="checkbox1modalsell" cb2="checkbox2modalsell" cb3="checkbox3modalsell" cb4="checkbox4modalsell"/>
+                            <FormSell idPrice="modalSellPrice" idVol="modalSellVol" idValue="modalSellValue" columnSm="col-sm-11"/>
                         </div>
                     </div>
                 </div>

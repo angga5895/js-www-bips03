@@ -15,7 +15,7 @@
   --warna-inactive-gradient : #0F0F10;
   --warna-btn-dark : #3D3E3F;
   --warna-btn-dark-hover : #333332;
-  --warna-scroll : #4D4343;
+  --warna-scroll : #676767;
   --warna-black-white-semantic: #FFFFFF;
   --warna-background-semantic: #333332;
   --warna-background-semantic-gradient: #010101;
@@ -51,6 +51,9 @@
   --card-500 : 500px;
   --card-160 : 160px;
   --card-592 : 592px;
+  --card-470 : 470px;
+  --card-558 : 558px;
+
   --py-2-scale : .5rem;
 }
 

@@ -11,6 +11,7 @@ import UISelectionTab, {UISelectionTab_Scale} from '../selectiontab.js';
 import { ContextConnector } from '../appcontext.js';
 import SideBar from "../SideBar";
 import './../bootstrap-3.3.7/dark_chart_style.min';
+import LoginUserPage from './loginPage';
 import $ from 'jquery';
 window.$ = window.jQuery = $;
 
@@ -23,7 +24,7 @@ const CustomFrameHeader = (props) => {
 }
 
 class LoginPage extends React.Component {
-  /* 
+  /*
     expected props: onLogin(uid, password)
   */
 
@@ -67,6 +68,7 @@ class MainPage_Base extends React.Component {
   }
 
   componentDidMount () {
+
   }
 
   doLogin = (userID, password) => {
@@ -76,6 +78,7 @@ class MainPage_Base extends React.Component {
   changeScale80 = () => {
       var zoomLevelL = 1.26;
       $('#myLiveTrade').css({ zoom: zoomLevelL, '-moz-transform': 'scale(' + zoomLevelL + ')' });
+      $('#mySideBar').css({ zoom: zoomLevelL, '-moz-transform': 'scale(' + zoomLevelL + ')' });
 
 
       var zoomLevel = 0.8;
@@ -103,6 +106,8 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--card-160', "218px");
       document.body.style.setProperty('--card-592', "780px");
       document.body.style.setProperty('--py-2-scale', '14px');
+      document.body.style.setProperty('--card-470', '650px');
+      document.body.style.setProperty('--card-558', '748px');
       this.setState({
           scalemode : zoomLevel,
       })
@@ -111,6 +116,7 @@ class MainPage_Base extends React.Component {
   changeScale90 = () => {
       var zoomLevelL = 1.1;
       $('#myLiveTrade').css({ zoom: zoomLevelL, '-moz-transform': 'scale(' + zoomLevelL + ')' });
+      $('#mySideBar').css({ zoom: zoomLevelL, '-moz-transform': 'scale(' + zoomLevelL + ')' });
 
       var zoomLevel = 0.9;
       $('body').css({ zoom: zoomLevel, '-moz-transform': 'scale(' + zoomLevel + ')' });
@@ -137,6 +143,8 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--card-160', "185px");
       document.body.style.setProperty('--card-592', "655px");
       document.body.style.setProperty('--py-2-scale', '9.5px');
+      document.body.style.setProperty('--card-470', '550px');
+      document.body.style.setProperty('--card-558', '642px');
       this.setState({
           scalemode : zoomLevel,
       })
@@ -145,6 +153,7 @@ class MainPage_Base extends React.Component {
   changeScale100 = () => {
       var zoomLevelL = 1;
       $('#myLiveTrade').css({ zoom: zoomLevelL, '-moz-transform': 'scale(' + zoomLevelL + ')' });
+      $('#mySideBar').css({ zoom: zoomLevelL, '-moz-transform': 'scale(' + zoomLevelL + ')' });
 
       var zoomLevel = 1;
       $('body').css({ zoom: zoomLevel, '-moz-transform': 'scale(' + zoomLevel + ')' });
@@ -171,6 +180,8 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--card-160', "160px");
       document.body.style.setProperty('--card-592', "592px");
       document.body.style.setProperty('--py-2-scale', '.5rem');
+      document.body.style.setProperty('--card-470', '470px');
+      document.body.style.setProperty('--card-558', '558px');
       this.setState({
           scalemode : zoomLevel,
       })
@@ -179,6 +190,7 @@ class MainPage_Base extends React.Component {
   changeScale110 = () => {
       var zoomLevelL = 1;
       $('#myLiveTrade').css({ zoom: zoomLevelL, '-moz-transform': 'scale(' + zoomLevelL + ')' });
+      $('#mySideBar').css({ zoom: zoomLevelL, '-moz-transform': 'scale(' + zoomLevelL + ')' });
 
       var zoomLevel = 1.1;
       $('body').css({ zoom: zoomLevel, '-moz-transform': 'scale(' + zoomLevel + ')' });
@@ -205,6 +217,8 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--card-160', "160px");
       document.body.style.setProperty('--card-592', "592px");
       document.body.style.setProperty('--py-2-scale', '.5rem');
+      document.body.style.setProperty('--card-470', '470px');
+      document.body.style.setProperty('--card-558', '558px');
       this.setState({
           scalemode : zoomLevel,
       })
@@ -213,6 +227,7 @@ class MainPage_Base extends React.Component {
   changeScale120 = () => {
       var zoomLevelL = 1;
       $('#myLiveTrade').css({ zoom: zoomLevelL, '-moz-transform': 'scale(' + zoomLevelL + ')' });
+      $('#mySideBar').css({ zoom: zoomLevelL, '-moz-transform': 'scale(' + zoomLevelL + ')' });
 
       var zoomLevel = 1.2;
       $('body').css({ zoom: zoomLevel, '-moz-transform': 'scale(' + zoomLevel + ')' });
@@ -240,6 +255,8 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--card-160', "160px");
       document.body.style.setProperty('--card-592', "592px");
       document.body.style.setProperty('--py-2-scale', '.5rem');
+      document.body.style.setProperty('--card-470', '470px');
+      document.body.style.setProperty('--card-558', '558px');
       this.setState({
           scalemode : zoomLevel,
       })
@@ -267,7 +284,7 @@ class MainPage_Base extends React.Component {
 
       /* Interact with it as a normal DOM element: */
       if (elem.requestFullscreen) {
-            elem.requestFullscreen();
+          document.documentElement.requestFullscreen();
       } else if (elem.mozRequestFullScreen) { // Firefox
             elem.mozRequestFullScreen();
       } else if (elem.webkitRequestFullscreen) { //Chrome, Safari & Opera
@@ -369,7 +386,7 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--warna-inactive-gradient', this.state.thememode == 'night' ? "#0F0F10" : "#F9FAFB");
       document.body.style.setProperty('--warna-btn-dark', this.state.thememode == 'night' ? "#3D3E3F" : "#CDCDCE");
       document.body.style.setProperty('--warna-btn-dark-hover', this.state.thememode == 'night' ? "#333332" : "#CDCDDD");
-      document.body.style.setProperty('--warna-scroll', this.state.thememode == 'night' ? "#4D4343" : "#B3B4B4");
+      document.body.style.setProperty('--warna-scroll', this.state.thememode == 'night' ? "#676767" : "#B3B4B4");
       document.body.style.setProperty('--warna-black-white-semantic', this.state.thememode == 'night' ? "#FFFFFF" : "#010101");
       document.body.style.setProperty('--warna-background-semantic', this.state.thememode == 'night' ? "#333332" : "#FEFEFE");
       document.body.style.setProperty('--warna-background-semantic-gradient', this.state.thememode == 'night' ? "#010101" : "#FFFFFF");
@@ -397,7 +414,9 @@ class MainPage_Base extends React.Component {
         <div style={{display: props.networkState && !props.loginState ? "block" : "none"}}>
           <LoginPage onLogin={this.doLogin} />
         </div>
-        <div style={{display: props.networkState && props.loginState ? "block" : "none"}}>*/}
+        <div style={{display: props.networkState && props.loginState ? "block" : "none"}}>
+            <LoginUserPage/>*/
+        }
           {
               this.state.scalemode <= 1 ?
                   <UISelectionTab modeoftheme={this.selectSelectionTab} linkTitles={
@@ -496,6 +515,7 @@ class MainPage_Base extends React.Component {
                   }
                   />
           }
+
           <div className="row col-lg-12 px-0 mx-0 card card-667">
               <SideBar thememode={this.selectStyleGroup}/>
               <div className="col-lg-11 px-0 mx-0 d-border-bottom">
@@ -523,12 +543,12 @@ class MainPage_Base extends React.Component {
   }
 }
 
-const MainPage = ContextConnector(BIPSAppContext, 
+const MainPage = ContextConnector(BIPSAppContext,
   (vars, actions) => ({
     loginState: vars.loginState,
     networkState: vars.networkState,
     doLogin: (userID, password) => {actions.sendAction('doLogin', {userID, password})}
-  }), 
+  }),
   ["doLogin"]
 )(MainPage_Base);
 

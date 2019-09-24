@@ -1093,8 +1093,7 @@ class LiveTradeAgGrid extends React.PureComponent {
                             columnDefs={this.state.columnDefs}
                             rowData={this.state.rowData}
                             defaultColDef={this.state.defaultColDef}
-                            getRowHeight={this.state.getRowHeight}
-                            sideBar={this.state.sideBar}>
+                            getRowHeight={this.state.getRowHeight}>
                         </AgGridReact>
                     </span>
                 </div>

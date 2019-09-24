@@ -19,7 +19,7 @@ import ChatSupportPage from './app_pages/chatsupportPage';
 import LiveTradePage from './app_pages/livetradePage';
 import MarketStatistikPage, { CustomFrameHeaderMarketStatistik, MarketStatistik } from './app_pages/marketstatistikPage';
 import StockPage, { CustomFrameHeaderStock, Stock } from './app_pages/stockPage';
-import TradePage from './app_pages/tradePage';
+import { Trade, CustomFrameHeaderTrade } from './app_pages/tradePage';
 
 class App extends React.Component {
   /*
@@ -31,13 +31,13 @@ class App extends React.Component {
   render() {
     return (
       <AppFrameProvider
-        initialClasses={{ Landing, MarketStatistik, Stock, TradePage, AnalyticPage, ChatSupportPage, LiveTradePage }}
+        initialClasses={{ Landing, MarketStatistik, Stock, Trade, AnalyticPage, ChatSupportPage, LiveTradePage }}
         initialFrames={
           [
             { className: 'Landing', title: <CustomFrameHeaderLanding />, instanceName: 'landingPage' },
             { className: 'MarketStatistik', title: <CustomFrameHeaderMarketStatistik />, instanceName: 'marketstatistikPage' },
             { className: 'Stock', title: <CustomFrameHeaderStock />, instanceName: 'stockPage' },
-            { className: 'TradePage', title: 'TRADE PAGE', instanceName: 'tradePage' },
+            { className: 'Trade', title: <CustomFrameHeaderTrade />, instanceName: 'tradePage' },
             { className: 'AnalyticPage', title: '', instanceName: 'analyticPage' },
             { className: 'ChatSupportPage', title: 'CHAT SUPPORT PAGE', instanceName: 'chatsupportPage' },
             { className: 'LiveTradePage', title: '', instanceName: 'livetradePage' },

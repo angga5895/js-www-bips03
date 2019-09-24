@@ -21,7 +21,9 @@ class AnalyticChart extends React.PureComponent {
         this.state = {
             stockType: this.props.charVal,
             stockData: this.props.chartData,
-            stockAlias: this.props.chartAlias
+            stockAlias: this.props.chartAlias,
+            stockKey: this.props.key,
+            tabView: this.props.tabView
         };
     }
 
@@ -46,6 +48,7 @@ class AnalyticChart extends React.PureComponent {
     componentDidMount() {
 
         const stockName = this.state.stockType;
+        const tabView = this.state.tabView;
 
         function setColClass($el) {
             // column count for row
@@ -119,6 +122,9 @@ class AnalyticChart extends React.PureComponent {
                 });
             }
         }
+
+        var zoomLevel = 0.8;
+        $('#indicatorSettingsModal' + stockName).css({ zoom: zoomLevel, '-moz-transform': 'scale(' + zoomLevel + ')' });
 
         (function () {
             var $chartDataSelect = $('#chartDataSelect' + stockName);
@@ -367,7 +373,10 @@ class AnalyticChart extends React.PureComponent {
                     setDefaultIndicatorSettings();
 
                     // show indicator settings modal
+                    // $indicatorSettingsModal.modal('show');
+
                     $indicatorSettingsModal.show();
+
                     $('#allwrap' + stockName).hide();
                     $('#chart-container' + stockName).hide();
                     // hide dropdown menu, select
@@ -476,9 +485,11 @@ class AnalyticChart extends React.PureComponent {
                     plot[indicatorName].apply(plot, settings);
                     // adding extra Y axis to the right side
                     plot.yAxis(1).orientation('right');
+
                     // hide indicator settings modal
-                    //$indicatorSettingsModal.modal('hide');
+                    // $indicatorSettingsModal.modal('hide');
                     $indicatorSettingsModal.hide();
+
                     $('#allwrap' + stockName).show();
                     $('#chart-container' + stockName).show();
                 });
@@ -487,9 +498,10 @@ class AnalyticChart extends React.PureComponent {
 
             function initHeightChart() {
                 var creditsHeight = 10;
+                var heightView = (tabView) ? 600 : 375;
 
                 // ganti 440 dengan $(window).height() untuk tinggi otomatis
-                $('#chart-container' + stockName).height(400 - $indicatorNavPanel.outerHeight() - creditsHeight);
+                $('#chart-container' + stockName).height(heightView - $indicatorNavPanel.outerHeight() - creditsHeight);
             }
 
             function createChart(container, updateChart) {
@@ -683,10 +695,7 @@ class AnalyticChart extends React.PureComponent {
         })();
     }
 
-
     render() {
-
-        console.log('rend' + this.state.stockType);
 
         let styleses = {
             display: 'flex',
@@ -710,9 +719,17 @@ class AnalyticChart extends React.PureComponent {
             padding: '0px 0px 3px 0px'
         }
 
+        let boxScroll = {
+            overflowX: 'hidden'
+        }
+
+        let elemWidthIndicator = (this.state.tabView) ? 350 : 135;
+        let elemWidthanotation = (this.state.tabView) ? 250 : 140;
+        let classChart = (this.state.tabView) ? 'tab-chart' : 'card-chart';
+
         return (
-            <div className="col-md-6 px-1 py-2" >
-                <div className="d-border-inactive card card-chart">
+            <div className={this.props.chartGridClass} id={"chartContent" + this.state.stockType}>
+                <div className={"d-border-inactive card " + classChart} style={boxScroll} id={"chartBox" + this.state.stockType}>
                     {/* <AppFrameAction ref="frameAction" /> */}
                     < div id={"loader" + this.state.stockType} className="anychart-loader" >
                         <div className="rotating-cover">
@@ -766,11 +783,11 @@ more.
                     </div >
 
                     <div id={"allwrap" + this.state.stockType}>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6 col-md-12">
-                                <ul class="list list-unstyled list-nav" id={"indicatorNavPanel" + this.state.stockType} style={styleses}>
-                                    <div class="form-inline">
-                                        <div class="form-group" style={buttonStyle}>
+                        <div className="row">
+                            <div className="col-xs-12 col-sm-6 col-md-12">
+                                <ul className="list list-unstyled list-nav" id={"indicatorNavPanel" + this.state.stockType} style={styleses}>
+                                    <div className="form-inline">
+                                        <div className="form-group" style={buttonStyle}>
                                             <li style={marginSelection}>
                                                 <input type="hidden" id={"chartDataSelect" + this.state.stockType} value={this.state.stockAlias} data-json={"./" + this.state.stockData} />
 
@@ -781,7 +798,7 @@ more.
                                     <option value="4" data-json="./ibm.json">IBM</option>
                                 </select> */}
 
-                                                <select defaultValue={'default'} id={"typeSelect" + this.state.stockType} onclick="create()" className="select selectpicker show-tick form-control" title="Select Annotation Type">
+                                                <select data-width={elemWidthanotation} defaultValue={'default'} id={"typeSelect" + this.state.stockType} onclick="create()" className="select selectpicker show-tick form-control" title="Select Annotation Type">
                                                     <option value="default" disabled="disabled">Annotation Type</option>
                                                     <option value="andrews-pitchfork">Andrews' Pitchfork</option>
                                                     <option value="ellipse">Ellipse</option>
@@ -802,7 +819,7 @@ more.
                                             </li>
                                         </div>
 
-                                        <div class="form-group">
+                                        <div className="form-group">
                                             <li style={marginSelection}>
                                                 <select name="" id={"seriesTypeSelect" + this.state.stockType} className="select selectpicker show-tick form-control">
                                                     {/* <!--series constructors--> */}
@@ -827,25 +844,25 @@ more.
                                             </li>
                                         </div>
 
-                                        <div class="form-group">
+                                        <div className="form-group">
                                             <li style={marginSelection}>
-                                                <select defaultValue={'linear'} name="" class="select selectpicker show-tick form-control" id={"scaleTypeSelect" + this.state.stockType} title="Scale">
+                                                <select className="select show-tick form-control" multiple name="" data-width={elemWidthIndicator} id={"indicatorTypeSelect" + this.state.stockType}
+                                                    title="Add Indicator">
+                                                </select>
+                                            </li>
+                                        </div>
+
+                                        <div className="form-group">
+                                            <li style={marginSelection}>
+                                                <select defaultValue={'linear'} name="" className="select selectpicker show-tick form-control" id={"scaleTypeSelect" + this.state.stockType} title="Scale">
                                                     <option value="linear">Linear</option>
                                                     <option value="log">Logarithmic</option>
                                                 </select>
                                             </li>
                                         </div>
 
-                                        <div class="form-group">
-                                            <li style={marginSelection}>
-                                                <select class="select show-tick form-control" multiple name="" data-width="350" id={"indicatorTypeSelect" + this.state.stockType}
-                                                    title="Add Indicator">
-                                                </select>
-                                            </li>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <li style={marginSelection}><a class="btn btn-danger" href="" id={"resetButton" + this.state.stockType}>Reset</a></li>
+                                        <div className="form-group">
+                                            <li style={marginSelection}><a className="btn btn-danger" href="" id={"resetButton" + this.state.stockType}>Reset</a></li>
                                         </div>
                                     </div>
                                 </ul>

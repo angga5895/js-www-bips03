@@ -23,6 +23,12 @@ import {IntegratedFiltering, IntegratedSorting, SearchState, SortingState} from 
 import {Plugin, Template, TemplatePlaceholder} from "@devexpress/dx-react-core";
 import AmendArrow from "./../img/amend-arrow.svg";
 import {AgGridReact} from "ag-grid-react";
+import MenuOfContent from "../menuofcontent";
+import newsImg1 from './../img/news1.PNG';
+import newsImg2 from './../img/news2.PNG';
+import newsImg3 from './../img/news3.PNG';
+import newsImg4 from './../img/news4.PNG';
+import newsImg5 from './../img/news5.PNG';
 
 const stateOptions = [
     //untuk top active
@@ -326,8 +332,8 @@ class MarketStatistikPage extends React.PureComponent {
                 </div>*/}
                 {/*<MarketStatistikGrid typegrid="summary" clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} />*/}
                 <div className="card card-75">
-                    <div className="card-header bg-grey">
-                        <div className="f-14 px-0 mx-0 py-4 col-sm-12">
+                    <div className="card-header bg-grey py-0">
+                        <div className="f-14 px-0 mx-0 py-0 col-sm-12">
                             <div className="row col-sm-12 px-0 mx-0">
                                 <div className="col-mbl-radio px-0 mx-0 row align-self-center">
                                     <ul className="ul-radio col-sm-12 px-0 mx-0 row">
@@ -604,163 +610,459 @@ class TopBrokerMarketStatistikPage extends React.PureComponent {
 class NewResearchMarketStatistikPage extends React.PureComponent {
     render(){
         return(
-            <div className="bg-black-trading">
-                <AppFrameAction ref="frameAction"></AppFrameAction>
-                <main>
-                    <div className="container-fluid">
-                        <div className="container px-1 mx-0 col-sm-12 row">
-                            {/* General */}
-                            <div className="col-md-6 px-1 py-2">
-                                <div className="bg-black-inactive card card-trading">
-                                    <div className="f-16 px-4 py-4">General News</div>
-                                    <div className="col-sm-12 row px-4 py-4 mx-0 my-0">
-                                        <div className="col-sm-2">
-                                            <img src={AmendArrow} alt="amend-arrow" width="100%" height="auto"/>
-                                        </div>
-                                        <div className="col-sm-10">
-                                            <div className="f-14 text-underline">TOP LOSER : Saham Matahari Department Store Anjlok 22,01%</div>
-                                            <div className="f-12">Berdasarkan data Bursa Efek Indonesia (BEI),...</div>
-                                            <div className="f-12 text-muted py-1">ANTARA.com - 24 minutes ago</div>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-12 row px-4 py-4 mx-0 my-0">
-                                        <div className="col-sm-2">
-                                            <img src={AmendArrow} alt="amend-arrow" width="100%" height="auto"/>
-                                        </div>
-                                        <div className="col-sm-10">
-                                            <div className="f-14 text-underline">TOP LOSER : Saham Matahari Department Store Anjlok 22,01%</div>
-                                            <div className="f-12">Berdasarkan data Bursa Efek Indonesia (BEI),...</div>
-                                            <div className="f-12 text-muted py-1">ANTARA.com - 24 minutes ago</div>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-12 row px-4 py-4 mx-0 my-0">
-                                        <div className="col-sm-2">
-                                            <img src={AmendArrow} alt="amend-arrow" width="100%" height="auto"/>
-                                        </div>
-                                        <div className="col-sm-10">
-                                            <div className="f-14 text-underline">TOP LOSER : Saham Matahari Department Store Anjlok 22,01%</div>
-                                            <div className="f-12">Berdasarkan data Bursa Efek Indonesia (BEI),...</div>
-                                            <div className="f-12 text-muted py-1">ANTARA.com - 24 minutes ago</div>
-                                        </div>
-                                    </div>
+            <AppFrameProvider
+                initialClasses={{GeneralNewResearchPage, StockNewResearchPage, MutualNewResearchPage, ReseacrhNewResearchPage}}
+                initialFrames={
+                    [
+                        {className: 'GeneralNewResearchPage', title: 'GENERALNEWS', instanceName: 'newsGeneral'},
+                        {className: 'StockNewResearchPage', title: 'STOCKNEWS', instanceName: 'newsStock'},
+                        {className: 'MutualNewResearchPage', title: 'MUTUALFUNDNEWS', instanceName: 'newsMutualFund'},
+                        {className: 'ReseacrhNewResearchPage', title: 'RESEARCH', instanceName: 'newsResearch'},
+                    ]
+                }>
+                {/*<BIPSAppProvider>*/}
+                <WSConnectionAction />
+                <div className="row col-sm-12 px-0 mx-0 pt-1">
+                    <div className="col-sm-12 px-2">
+                        <MenuOfContent linkTitles={
+                            {
+                                newsGeneral : 'General News',
+                                newsStock : 'Stock News',
+                                newsMutualFund : 'Mutual Fund News',
+                                newsResearch : 'Research'
+                            }
+                        } />
+                    </div>
+                    <div className="col-sm-12 px-2">
+                        <AppFrame headerComponent={MarketStatistikFrameHeader}/>
+                    </div>
+                </div>
+                {/*</BIPSAppProvider>*/}
+            </AppFrameProvider>
+        );
+    }
+}
+
+class GeneralNewResearchPage extends React.PureComponent {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <>
+                <AppFrameAction ref="frameAction" />
+                <WSConnectionAction /> {/* websocket connection component */}
+                <div className="col sm-12 px-0 mx-0 row">
+                    <div className="col-sm-8 px-0 mx-0 f-12">
+                        <div className="card card-530 d-border-right">
+                            <div className="card-header px-3 text-white">
+                                <h3>
+                                    Investor Asing Jual Saham Hampir Rp 2 Triliun,<br />
+                                    IHSG Ditutup Turun 56,23 Poin
+                                </h3>
+                            </div>
+                            <div className="card card-body card-470 scrollable px-3">
+                                <div className={"text-center align-self-center"}>
+                                    <img src={newsImg1} alt="News 1" height={"auto"} width={"100%"} />
+                                </div>
+                                <div className="py-4 text-white text-justify f-12">
+                                    <span className="text-warning">Liputan6.com, Jakarta </span> -  Indeks Harga Saham
+                                    Gabungan (IHSG) ditutup melemah pada perdagangan Selasa ini. Dari 10 sektor pembentuk IHSG, seluruhnya sebagian besar melemah. <br/><br/>
+                                    Pada penutupan perdagangan saham Selasa (6/8/2019), IHSG melemah 56,23 poin atau 0,91 persen ke level 6.119,47. Indeks saham LQ45 juga merosot 1,54 persen ke posisi 960,75. <br/><br/>
+                                    Sebanyak 207 saham di melemah sehingga mendorong IHSG ke zona merah. Sementara 121 saham menguat dan 128 saham diam di tempat. <br/><br/>
+                                    Transaksi perdagangan saham cukup ramai. Total frekuensi perdagangan saham 548.686 kali dengan volume perdagangan 16,8 miliar saham. Nilai transaksi harian saham Rp 10,4 triliun. <br/><br/>
+                                    Investor asing jual saham Rp 1,94 triliun di pasar regular. Posisi dolar Amerika Serikat (AS) berada di kisaran Rp 14.265.
+                                    Dari 10 sektor pembentuk IHSG, seluruhnya sebagian besar melemah. Pelemahan tersebut dipimpin oleh sektor aneka industri yang turun 2,26 persen,
+                                    diikuti sektor keuangan turun 1,90 persen, dan sektor perdagangan turun 1,28 persen.<br/><br/>
+                                    Saham-saham yang melemah sehingga mendorong IHSG ke zona merah antara lain MLPT turun 25 persen
+                                    ke Rp 525 per saham, YPAS merosot 23,81 persen ke Rp 352 per saham dan OASA turun 12,23 persen ke Rp 244 per saham.<br/><br/>
+                                    Sementara saham-saham yang menguat antara lain SDRA yang naik 24,62 persen ke Rp 810 per saham, APEX naik 15 persen
+                                    ke Rp 690 per saham dan FIRE naik 14,29 persen ke Rp 2.400 per saham. <br/><br/>
+                                    Kepala Riset Valbury Sekuritas Alfiansyah mengatakan, kecemasan perang dagang AS dan
+                                    China masih membayangi dan menjadi sentimen negatif bagi IHSG. "Apalagi data ekonomi
+                                    Indonesia di bawah ekspektasi. Ini dapat memicu IHSG kembali terkoreksi," ujar Alfiansyah.<br/><br/>
+                                    Kebijakan Presiden AS Donald Trump yang akan menerapkan bea masuk sebesar 10 persen
+                                    terhadap barang-barang impor China mulai 1 September 2019 mendatang, dinilai akan berdampak
+                                    kepada perekonomian global termasuk bagi perekonomian Indonesia.
                                 </div>
                             </div>
-
-                            {/* Research */}
-                            <div className="col-md-6 px-1 py-2">
-                                <div className="bg-black-inactive card card-trading">
-                                    <div className="f-16 px-4 py-4">Research</div>
-                                    <div className="col-sm-12 row px-4 py-4 mx-0 my-0">
-                                        <div className="col-sm-2">
-                                            <img src={AmendArrow} alt="amend-arrow" width="100%" height="auto"/>
-                                        </div>
-                                        <div className="col-sm-10">
-                                            <div className="f-14 text-underline">TOP LOSER : Saham Matahari Department Store Anjlok 22,01%</div>
-                                            <div className="f-12">Berdasarkan data Bursa Efek Indonesia (BEI),...</div>
-                                            <div className="f-12 text-muted py-1">ANTARA.com - 24 minutes ago</div>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-12 row px-4 py-4 mx-0 my-0">
-                                        <div className="col-sm-2">
-                                            <img src={AmendArrow} alt="amend-arrow" width="100%" height="auto"/>
-                                        </div>
-                                        <div className="col-sm-10">
-                                            <div className="f-14 text-underline">TOP LOSER : Saham Matahari Department Store Anjlok 22,01%</div>
-                                            <div className="f-12">Berdasarkan data Bursa Efek Indonesia (BEI),...</div>
-                                            <div className="f-12 text-muted py-1">ANTARA.com - 24 minutes ago</div>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-12 row px-4 py-4 mx-0 my-0">
-                                        <div className="col-sm-2">
-                                            <img src={AmendArrow} alt="amend-arrow" width="100%" height="auto"/>
-                                        </div>
-                                        <div className="col-sm-10">
-                                            <div className="f-14 text-underline">TOP LOSER : Saham Matahari Department Store Anjlok 22,01%</div>
-                                            <div className="f-12">Berdasarkan data Bursa Efek Indonesia (BEI),...</div>
-                                            <div className="f-12 text-muted py-1">ANTARA.com - 24 minutes ago</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Stock News */}
-                            <div className="col-md-6 px-1 py-2">
-                                <div className="bg-black-inactive card card-trading">
-                                    <div className="f-16 px-4 py-4">Stock News</div>
-                                    <div className="col-sm-12 row px-4 py-4 mx-0 my-0">
-                                        <div className="col-sm-2">
-                                            <img src={AmendArrow} alt="amend-arrow" width="100%" height="auto"/>
-                                        </div>
-                                        <div className="col-sm-10">
-                                            <div className="f-14 text-underline">TOP LOSER : Saham Matahari Department Store Anjlok 22,01%</div>
-                                            <div className="f-12">Berdasarkan data Bursa Efek Indonesia (BEI),...</div>
-                                            <div className="f-12 text-muted py-1">ANTARA.com - 24 minutes ago</div>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-12 row px-4 py-4 mx-0 my-0">
-                                        <div className="col-sm-2">
-                                            <img src={AmendArrow} alt="amend-arrow" width="100%" height="auto"/>
-                                        </div>
-                                        <div className="col-sm-10">
-                                            <div className="f-14 text-underline">TOP LOSER : Saham Matahari Department Store Anjlok 22,01%</div>
-                                            <div className="f-12">Berdasarkan data Bursa Efek Indonesia (BEI),...</div>
-                                            <div className="f-12 text-muted py-1">ANTARA.com - 24 minutes ago</div>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-12 row px-4 py-4 mx-0 my-0">
-                                        <div className="col-sm-2">
-                                            <img src={AmendArrow} alt="amend-arrow" width="100%" height="auto"/>
-                                        </div>
-                                        <div className="col-sm-10">
-                                            <div className="f-14 text-underline">TOP LOSER : Saham Matahari Department Store Anjlok 22,01%</div>
-                                            <div className="f-12">Berdasarkan data Bursa Efek Indonesia (BEI),...</div>
-                                            <div className="f-12 text-muted py-1">ANTARA.com - 24 minutes ago</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Mutual Fund News*/}
-                            <div className="col-md-6 px-1 py-2">
-                                <div className="bg-black-inactive card card-trading">
-                                    <div className="f-16 px-4 py-4">Mutual Fund News</div>
-                                    <div className="col-sm-12 row px-4 py-4 mx-0 my-0">
-                                        <div className="col-sm-2">
-                                            <img src={AmendArrow} alt="amend-arrow" width="100%" height="auto"/>
-                                        </div>
-                                        <div className="col-sm-10">
-                                            <div className="f-14 text-underline">TOP LOSER : Saham Matahari Department Store Anjlok 22,01%</div>
-                                            <div className="f-12">Berdasarkan data Bursa Efek Indonesia (BEI),...</div>
-                                            <div className="f-12 text-muted py-1">ANTARA.com - 24 minutes ago</div>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-12 row px-4 py-4 mx-0 my-0">
-                                        <div className="col-sm-2">
-                                            <img src={AmendArrow} alt="amend-arrow" width="100%" height="auto"/>
-                                        </div>
-                                        <div className="col-sm-10">
-                                            <div className="f-14 text-underline">TOP LOSER : Saham Matahari Department Store Anjlok 22,01%</div>
-                                            <div className="f-12">Berdasarkan data Bursa Efek Indonesia (BEI),...</div>
-                                            <div className="f-12 text-muted py-1">ANTARA.com - 24 minutes ago</div>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-12 row px-4 py-4 mx-0 my-0">
-                                        <div className="col-sm-2">
-                                            <img src={AmendArrow} alt="amend-arrow" width="100%" height="auto"/>
-                                        </div>
-                                        <div className="col-sm-10">
-                                            <div className="f-14 text-underline">TOP LOSER : Saham Matahari Department Store Anjlok 22,01%</div>
-                                            <div className="f-12">Berdasarkan data Bursa Efek Indonesia (BEI),...</div>
-                                            <div className="f-12 text-muted py-1">ANTARA.com - 24 minutes ago</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
-                </main>
-            </div>
+                    <div className="col-sm-4 px-0 mx-0 f-12">
+                        <div className="card card-530 d-border-left">
+                            <div className="card card-body card-530 scrollable px-3">
+                                <div className="row col-sm-12 px-0 mx-0 d-border-bottom pb-4 mb-4 click-pointer">
+                                    <div className="col-sm-6 pl-0 pr-1 mx-0 text-center align-self-center">
+                                        <img src={newsImg2} alt="News 1" height={"auto"} width={"100%"} />
+                                    </div>
+                                    <div className="col-sm-6 pr-0 pl-1 mx-0">
+                                        <p className="f-16">
+                                            The Fed Pangkas Suku Bunga,
+                                            IHSG Dibuka Melemah ke 6,381.98
+                                        </p><br/><br/>
+                                        <span className="text-warning">Liputan6.com - </span> 27 minutes ago
+                                    </div>
+                                </div>
+                                <div className="row col-sm-12 px-0 mx-0 d-border-bottom pb-4 mb-4 click-pointer">
+                                    <div className="col-sm-6 pl-0 pr-1 mx-0 text-center align-self-center">
+                                        <img src={newsImg3} alt="News 1" height={"auto"} width={"100%"} />
+                                    </div>
+                                    <div className="col-sm-6 pr-0 pl-1 mx-0">
+                                        <p className="f-16">
+                                            267 Saham Menghijau,
+                                            IHSG Ditutup Menguat ke 6,204.19
+                                        </p><br/><br/>
+                                        <span className="text-warning">Liputan6.com - </span> 27 minutes ago
+                                    </div>
+                                </div>
+                                <div className="row col-sm-12 px-0 mx-0 d-border-bottom pb-4 mb-4 click-pointer">
+                                    <div className="col-sm-6 pl-0 pr-1 mx-0 text-center align-self-center">
+                                        <img src={newsImg4} alt="News 1" height={"auto"} width={"100%"} />
+                                    </div>
+                                    <div className="col-sm-6 pr-0 pl-1 mx-0">
+                                        <p className="f-16">
+                                            Seluruh Sektor Di Zona Merah,
+                                            IHSG Ditutup Terjun Bebas ke 6,175.7
+                                        </p><br/><br/>
+                                        <span className="text-warning">Liputan6.com - </span> 27 minutes ago
+                                    </div>
+                                </div>
+                                <div className="row col-sm-12 px-0 mx-0 d-border-bottom pb-4 mb-4 click-pointer">
+                                    <div className="col-sm-6 pl-0 pr-1 mx-0 text-center align-self-center">
+                                        <img src={newsImg5} alt="News 1" height={"auto"} width={"100%"} />
+                                    </div>
+                                    <div className="col-sm-6 pr-0 pl-1 mx-0">
+                                        <p className="f-16">
+                                            Cara BEI Ajak Pengusaha Kecil
+                                            Melantai Di Bursa Efek
+                                        </p><br/><br/>
+                                        <span className="text-warning">Liputan6.com - </span> 27 minutes ago
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </>
+        );
+    }
+}
+
+class StockNewResearchPage extends React.PureComponent {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <>
+                <AppFrameAction ref="frameAction" />
+                <WSConnectionAction /> {/* websocket connection component */}
+                <div className="col sm-12 px-0 mx-0 row">
+                    <div className="col-sm-8 px-0 mx-0 f-12">
+                        <div className="card card-530 d-border-right">
+                            <div className="card-header px-3 text-white">
+                                <h3>
+                                    Investor Asing Jual Saham Hampir Rp 2 Triliun,<br />
+                                    IHSG Ditutup Turun 56,23 Poin
+                                </h3>
+                            </div>
+                            <div className="card card-body card-470 scrollable px-3">
+                                <div className={"text-center align-self-center"}>
+                                    <img src={newsImg1} alt="News 1" height={"auto"} width={"100%"} />
+                                </div>
+                                <div className="py-4 text-white text-justify f-12">
+                                    <span className="text-warning">Liputan6.com, Jakarta </span> -  Indeks Harga Saham
+                                    Gabungan (IHSG) ditutup melemah pada perdagangan Selasa ini. Dari 10 sektor pembentuk IHSG, seluruhnya sebagian besar melemah. <br/><br/>
+                                    Pada penutupan perdagangan saham Selasa (6/8/2019), IHSG melemah 56,23 poin atau 0,91 persen ke level 6.119,47. Indeks saham LQ45 juga merosot 1,54 persen ke posisi 960,75. <br/><br/>
+                                    Sebanyak 207 saham di melemah sehingga mendorong IHSG ke zona merah. Sementara 121 saham menguat dan 128 saham diam di tempat. <br/><br/>
+                                    Transaksi perdagangan saham cukup ramai. Total frekuensi perdagangan saham 548.686 kali dengan volume perdagangan 16,8 miliar saham. Nilai transaksi harian saham Rp 10,4 triliun. <br/><br/>
+                                    Investor asing jual saham Rp 1,94 triliun di pasar regular. Posisi dolar Amerika Serikat (AS) berada di kisaran Rp 14.265.
+                                    Dari 10 sektor pembentuk IHSG, seluruhnya sebagian besar melemah. Pelemahan tersebut dipimpin oleh sektor aneka industri yang turun 2,26 persen,
+                                    diikuti sektor keuangan turun 1,90 persen, dan sektor perdagangan turun 1,28 persen.<br/><br/>
+                                    Saham-saham yang melemah sehingga mendorong IHSG ke zona merah antara lain MLPT turun 25 persen
+                                    ke Rp 525 per saham, YPAS merosot 23,81 persen ke Rp 352 per saham dan OASA turun 12,23 persen ke Rp 244 per saham.<br/><br/>
+                                    Sementara saham-saham yang menguat antara lain SDRA yang naik 24,62 persen ke Rp 810 per saham, APEX naik 15 persen
+                                    ke Rp 690 per saham dan FIRE naik 14,29 persen ke Rp 2.400 per saham. <br/><br/>
+                                    Kepala Riset Valbury Sekuritas Alfiansyah mengatakan, kecemasan perang dagang AS dan
+                                    China masih membayangi dan menjadi sentimen negatif bagi IHSG. "Apalagi data ekonomi
+                                    Indonesia di bawah ekspektasi. Ini dapat memicu IHSG kembali terkoreksi," ujar Alfiansyah.<br/><br/>
+                                    Kebijakan Presiden AS Donald Trump yang akan menerapkan bea masuk sebesar 10 persen
+                                    terhadap barang-barang impor China mulai 1 September 2019 mendatang, dinilai akan berdampak
+                                    kepada perekonomian global termasuk bagi perekonomian Indonesia.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-sm-4 px-0 mx-0 f-12">
+                        <div className="card card-530 d-border-left">
+                            <div className="card card-body card-530 scrollable px-3">
+                                <div className="row col-sm-12 px-0 mx-0 d-border-bottom pb-4 mb-4 click-pointer">
+                                    <div className="col-sm-6 pl-0 pr-1 mx-0 text-center align-self-center">
+                                        <img src={newsImg3} alt="News 1" height={"auto"} width={"100%"} />
+                                    </div>
+                                    <div className="col-sm-6 pr-0 pl-1 mx-0">
+                                        <p className="f-16">
+                                            267 Saham Menghijau,
+                                            IHSG Ditutup Menguat ke 6,204.19
+                                        </p><br/><br/>
+                                        <span className="text-warning">Liputan6.com - </span> 27 minutes ago
+                                    </div>
+                                </div>
+                                <div className="row col-sm-12 px-0 mx-0 d-border-bottom pb-4 mb-4 click-pointer">
+                                    <div className="col-sm-6 pl-0 pr-1 mx-0 text-center align-self-center">
+                                        <img src={newsImg2} alt="News 1" height={"auto"} width={"100%"} />
+                                    </div>
+                                    <div className="col-sm-6 pr-0 pl-1 mx-0">
+                                        <p className="f-16">
+                                            The Fed Pangkas Suku Bunga,
+                                            IHSG Dibuka Melemah ke 6,381.98
+                                        </p><br/><br/>
+                                        <span className="text-warning">Liputan6.com - </span> 27 minutes ago
+                                    </div>
+                                </div>
+                                <div className="row col-sm-12 px-0 mx-0 d-border-bottom pb-4 mb-4 click-pointer">
+                                    <div className="col-sm-6 pl-0 pr-1 mx-0 text-center align-self-center">
+                                        <img src={newsImg4} alt="News 1" height={"auto"} width={"100%"} />
+                                    </div>
+                                    <div className="col-sm-6 pr-0 pl-1 mx-0">
+                                        <p className="f-16">
+                                            Seluruh Sektor Di Zona Merah,
+                                            IHSG Ditutup Terjun Bebas ke 6,175.7
+                                        </p><br/><br/>
+                                        <span className="text-warning">Liputan6.com - </span> 27 minutes ago
+                                    </div>
+                                </div>
+                                <div className="row col-sm-12 px-0 mx-0 d-border-bottom pb-4 mb-4 click-pointer">
+                                    <div className="col-sm-6 pl-0 pr-1 mx-0 text-center align-self-center">
+                                        <img src={newsImg5} alt="News 1" height={"auto"} width={"100%"} />
+                                    </div>
+                                    <div className="col-sm-6 pr-0 pl-1 mx-0">
+                                        <p className="f-16">
+                                            Cara BEI Ajak Pengusaha Kecil
+                                            Melantai Di Bursa Efek
+                                        </p><br/><br/>
+                                        <span className="text-warning">Liputan6.com - </span> 27 minutes ago
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </>
+        );
+    }
+}
+
+class MutualNewResearchPage extends React.PureComponent {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <>
+                <AppFrameAction ref="frameAction" />
+                <WSConnectionAction /> {/* websocket connection component */}
+                <div className="col sm-12 px-0 mx-0 row">
+                    <div className="col-sm-8 px-0 mx-0 f-12">
+                        <div className="card card-530 d-border-right">
+                            <div className="card-header px-3 text-white">
+                                <h3>
+                                    Investor Asing Jual Saham Hampir Rp 2 Triliun,<br />
+                                    IHSG Ditutup Turun 56,23 Poin
+                                </h3>
+                            </div>
+                            <div className="card card-body card-470 scrollable px-3">
+                                <div className={"text-center align-self-center"}>
+                                    <img src={newsImg1} alt="News 1" height={"auto"} width={"100%"} />
+                                </div>
+                                <div className="py-4 text-white text-justify f-12">
+                                    <span className="text-warning">Liputan6.com, Jakarta </span> -  Indeks Harga Saham
+                                    Gabungan (IHSG) ditutup melemah pada perdagangan Selasa ini. Dari 10 sektor pembentuk IHSG, seluruhnya sebagian besar melemah. <br/><br/>
+                                    Pada penutupan perdagangan saham Selasa (6/8/2019), IHSG melemah 56,23 poin atau 0,91 persen ke level 6.119,47. Indeks saham LQ45 juga merosot 1,54 persen ke posisi 960,75. <br/><br/>
+                                    Sebanyak 207 saham di melemah sehingga mendorong IHSG ke zona merah. Sementara 121 saham menguat dan 128 saham diam di tempat. <br/><br/>
+                                    Transaksi perdagangan saham cukup ramai. Total frekuensi perdagangan saham 548.686 kali dengan volume perdagangan 16,8 miliar saham. Nilai transaksi harian saham Rp 10,4 triliun. <br/><br/>
+                                    Investor asing jual saham Rp 1,94 triliun di pasar regular. Posisi dolar Amerika Serikat (AS) berada di kisaran Rp 14.265.
+                                    Dari 10 sektor pembentuk IHSG, seluruhnya sebagian besar melemah. Pelemahan tersebut dipimpin oleh sektor aneka industri yang turun 2,26 persen,
+                                    diikuti sektor keuangan turun 1,90 persen, dan sektor perdagangan turun 1,28 persen.<br/><br/>
+                                    Saham-saham yang melemah sehingga mendorong IHSG ke zona merah antara lain MLPT turun 25 persen
+                                    ke Rp 525 per saham, YPAS merosot 23,81 persen ke Rp 352 per saham dan OASA turun 12,23 persen ke Rp 244 per saham.<br/><br/>
+                                    Sementara saham-saham yang menguat antara lain SDRA yang naik 24,62 persen ke Rp 810 per saham, APEX naik 15 persen
+                                    ke Rp 690 per saham dan FIRE naik 14,29 persen ke Rp 2.400 per saham. <br/><br/>
+                                    Kepala Riset Valbury Sekuritas Alfiansyah mengatakan, kecemasan perang dagang AS dan
+                                    China masih membayangi dan menjadi sentimen negatif bagi IHSG. "Apalagi data ekonomi
+                                    Indonesia di bawah ekspektasi. Ini dapat memicu IHSG kembali terkoreksi," ujar Alfiansyah.<br/><br/>
+                                    Kebijakan Presiden AS Donald Trump yang akan menerapkan bea masuk sebesar 10 persen
+                                    terhadap barang-barang impor China mulai 1 September 2019 mendatang, dinilai akan berdampak
+                                    kepada perekonomian global termasuk bagi perekonomian Indonesia.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-sm-4 px-0 mx-0 f-12">
+                        <div className="card card-530 d-border-left">
+                            <div className="card card-body card-530 scrollable px-3">
+                                <div className="row col-sm-12 px-0 mx-0 d-border-bottom pb-4 mb-4 click-pointer">
+                                    <div className="col-sm-6 pl-0 pr-1 mx-0 text-center align-self-center">
+                                        <img src={newsImg3} alt="News 1" height={"auto"} width={"100%"} />
+                                    </div>
+                                    <div className="col-sm-6 pr-0 pl-1 mx-0">
+                                        <p className="f-16">
+                                            267 Saham Menghijau,
+                                            IHSG Ditutup Menguat ke 6,204.19
+                                        </p><br/><br/>
+                                        <span className="text-warning">Liputan6.com - </span> 27 minutes ago
+                                    </div>
+                                </div>
+                                <div className="row col-sm-12 px-0 mx-0 d-border-bottom pb-4 mb-4 click-pointer">
+                                    <div className="col-sm-6 pl-0 pr-1 mx-0 text-center align-self-center">
+                                        <img src={newsImg4} alt="News 1" height={"auto"} width={"100%"} />
+                                    </div>
+                                    <div className="col-sm-6 pr-0 pl-1 mx-0">
+                                        <p className="f-16">
+                                            Seluruh Sektor Di Zona Merah,
+                                            IHSG Ditutup Terjun Bebas ke 6,175.7
+                                        </p><br/><br/>
+                                        <span className="text-warning">Liputan6.com - </span> 27 minutes ago
+                                    </div>
+                                </div>
+                                <div className="row col-sm-12 px-0 mx-0 d-border-bottom pb-4 mb-4 click-pointer">
+                                    <div className="col-sm-6 pl-0 pr-1 mx-0 text-center align-self-center">
+                                        <img src={newsImg2} alt="News 1" height={"auto"} width={"100%"} />
+                                    </div>
+                                    <div className="col-sm-6 pr-0 pl-1 mx-0">
+                                        <p className="f-16">
+                                            The Fed Pangkas Suku Bunga,
+                                            IHSG Dibuka Melemah ke 6,381.98
+                                        </p><br/><br/>
+                                        <span className="text-warning">Liputan6.com - </span> 27 minutes ago
+                                    </div>
+                                </div>
+                                <div className="row col-sm-12 px-0 mx-0 d-border-bottom pb-4 mb-4 click-pointer">
+                                    <div className="col-sm-6 pl-0 pr-1 mx-0 text-center align-self-center">
+                                        <img src={newsImg5} alt="News 1" height={"auto"} width={"100%"} />
+                                    </div>
+                                    <div className="col-sm-6 pr-0 pl-1 mx-0">
+                                        <p className="f-16">
+                                            Cara BEI Ajak Pengusaha Kecil
+                                            Melantai Di Bursa Efek
+                                        </p><br/><br/>
+                                        <span className="text-warning">Liputan6.com - </span> 27 minutes ago
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </>
+        );
+    }
+}
+
+class ReseacrhNewResearchPage extends React.PureComponent {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <>
+                <AppFrameAction ref="frameAction" />
+                <WSConnectionAction /> {/* websocket connection component */}
+                <div className="col sm-12 px-0 mx-0 row">
+                    <div className="col-sm-8 px-0 mx-0 f-12">
+                        <div className="card card-530 d-border-right">
+                            <div className="card-header px-3 text-white">
+                                <h3>
+                                    Investor Asing Jual Saham Hampir Rp 2 Triliun,<br />
+                                    IHSG Ditutup Turun 56,23 Poin
+                                </h3>
+                            </div>
+                            <div className="card card-body card-470 scrollable px-3">
+                                <div className={"text-center align-self-center"}>
+                                    <img src={newsImg1} alt="News 1" height={"auto"} width={"100%"} />
+                                </div>
+                                <div className="py-4 text-white text-justify f-12">
+                                    <span className="text-warning">Liputan6.com, Jakarta </span> -  Indeks Harga Saham
+                                    Gabungan (IHSG) ditutup melemah pada perdagangan Selasa ini. Dari 10 sektor pembentuk IHSG, seluruhnya sebagian besar melemah. <br/><br/>
+                                    Pada penutupan perdagangan saham Selasa (6/8/2019), IHSG melemah 56,23 poin atau 0,91 persen ke level 6.119,47. Indeks saham LQ45 juga merosot 1,54 persen ke posisi 960,75. <br/><br/>
+                                    Sebanyak 207 saham di melemah sehingga mendorong IHSG ke zona merah. Sementara 121 saham menguat dan 128 saham diam di tempat. <br/><br/>
+                                    Transaksi perdagangan saham cukup ramai. Total frekuensi perdagangan saham 548.686 kali dengan volume perdagangan 16,8 miliar saham. Nilai transaksi harian saham Rp 10,4 triliun. <br/><br/>
+                                    Investor asing jual saham Rp 1,94 triliun di pasar regular. Posisi dolar Amerika Serikat (AS) berada di kisaran Rp 14.265.
+                                    Dari 10 sektor pembentuk IHSG, seluruhnya sebagian besar melemah. Pelemahan tersebut dipimpin oleh sektor aneka industri yang turun 2,26 persen,
+                                    diikuti sektor keuangan turun 1,90 persen, dan sektor perdagangan turun 1,28 persen.<br/><br/>
+                                    Saham-saham yang melemah sehingga mendorong IHSG ke zona merah antara lain MLPT turun 25 persen
+                                    ke Rp 525 per saham, YPAS merosot 23,81 persen ke Rp 352 per saham dan OASA turun 12,23 persen ke Rp 244 per saham.<br/><br/>
+                                    Sementara saham-saham yang menguat antara lain SDRA yang naik 24,62 persen ke Rp 810 per saham, APEX naik 15 persen
+                                    ke Rp 690 per saham dan FIRE naik 14,29 persen ke Rp 2.400 per saham. <br/><br/>
+                                    Kepala Riset Valbury Sekuritas Alfiansyah mengatakan, kecemasan perang dagang AS dan
+                                    China masih membayangi dan menjadi sentimen negatif bagi IHSG. "Apalagi data ekonomi
+                                    Indonesia di bawah ekspektasi. Ini dapat memicu IHSG kembali terkoreksi," ujar Alfiansyah.<br/><br/>
+                                    Kebijakan Presiden AS Donald Trump yang akan menerapkan bea masuk sebesar 10 persen
+                                    terhadap barang-barang impor China mulai 1 September 2019 mendatang, dinilai akan berdampak
+                                    kepada perekonomian global termasuk bagi perekonomian Indonesia.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-sm-4 px-0 mx-0 f-12">
+                        <div className="card card-530 d-border-left">
+                            <div className="card card-body card-530 scrollable px-3">
+                                <div className="row col-sm-12 px-0 mx-0 d-border-bottom pb-4 mb-4 click-pointer">
+                                    <div className="col-sm-6 pl-0 pr-1 mx-0 text-center align-self-center">
+                                        <img src={newsImg3} alt="News 1" height={"auto"} width={"100%"} />
+                                    </div>
+                                    <div className="col-sm-6 pr-0 pl-1 mx-0">
+                                        <p className="f-16">
+                                            267 Saham Menghijau,
+                                            IHSG Ditutup Menguat ke 6,204.19
+                                        </p><br/><br/>
+                                        <span className="text-warning">Liputan6.com - </span> 27 minutes ago
+                                    </div>
+                                </div>
+                                <div className="row col-sm-12 px-0 mx-0 d-border-bottom pb-4 mb-4 click-pointer">
+                                    <div className="col-sm-6 pl-0 pr-1 mx-0 text-center align-self-center">
+                                        <img src={newsImg4} alt="News 1" height={"auto"} width={"100%"} />
+                                    </div>
+                                    <div className="col-sm-6 pr-0 pl-1 mx-0">
+                                        <p className="f-16">
+                                            Seluruh Sektor Di Zona Merah,
+                                            IHSG Ditutup Terjun Bebas ke 6,175.7
+                                        </p><br/><br/>
+                                        <span className="text-warning">Liputan6.com - </span> 27 minutes ago
+                                    </div>
+                                </div>
+                                <div className="row col-sm-12 px-0 mx-0 d-border-bottom pb-4 mb-4 click-pointer">
+                                    <div className="col-sm-6 pl-0 pr-1 mx-0 text-center align-self-center">
+                                        <img src={newsImg5} alt="News 1" height={"auto"} width={"100%"} />
+                                    </div>
+                                    <div className="col-sm-6 pr-0 pl-1 mx-0">
+                                        <p className="f-16">
+                                            Cara BEI Ajak Pengusaha Kecil
+                                            Melantai Di Bursa Efek
+                                        </p><br/><br/>
+                                        <span className="text-warning">Liputan6.com - </span> 27 minutes ago
+                                    </div>
+                                </div>
+                                <div className="row col-sm-12 px-0 mx-0 d-border-bottom pb-4 mb-4 click-pointer">
+                                    <div className="col-sm-6 pl-0 pr-1 mx-0 text-center align-self-center">
+                                        <img src={newsImg2} alt="News 1" height={"auto"} width={"100%"} />
+                                    </div>
+                                    <div className="col-sm-6 pr-0 pl-1 mx-0">
+                                        <p className="f-16">
+                                            The Fed Pangkas Suku Bunga,
+                                            IHSG Dibuka Melemah ke 6,381.98
+                                        </p><br/><br/>
+                                        <span className="text-warning">Liputan6.com - </span> 27 minutes ago
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </>
         );
     }
 }
@@ -2869,19 +3171,19 @@ class MarketStatistikAgGrid extends React.PureComponent {
         const self = this;
         this.state = {
             columnDefs: [
-                { field: "no", headerName: "#", sortable: true, width: 60,
+                { field: "no", headerName: "#", sortable: true, width: 25,
                     cellClass : function (params) {
                         return " grid-table text-center f-12";
                     }},
-                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 69,
                     cellClass : function (params) {
                         return " grid-table text-center f-12 text-primary";
                     }},
-                { field: "prev", headerName: "Prev.", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                { field: "prev", headerName: "Prev.", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 66,
                     cellClass : function (params) {
                         return " grid-table text-right f-12 text-warning";
                     }},
-                { field: "last", headerName: "Last", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                { field: "last", headerName: "Last", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 62,
                     cellClass : function (params) {
                         var prev = parseFloat(params.data.prev.replace(/,/g,""));
                         var last = parseFloat(params.data.last.replace(/,/g,""));
@@ -2889,7 +3191,7 @@ class MarketStatistikAgGrid extends React.PureComponent {
                             last > prev ? "text-success text-right grid-table f-12" :
                                 "text-warning text-right grid-table f-12";
                     } },
-                { field: "indicator", headerName: "", width: 30,
+                { field: "indicator", headerName: "", width: 15,
                     cellClass : function (params) {
                         return " grid-table text-center f-12";
                     },
@@ -2899,21 +3201,21 @@ class MarketStatistikAgGrid extends React.PureComponent {
                             change.includes('+') === true ? '<i class="icofont icofont-caret-up text-success"></i>' :
                             '<i class="fa fa-circle f-11 text-warning"></i>';
                     }  },
-                { field: "change", headerName: "Change", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                { field: "change", headerName: "Change", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 82,
                     cellClass : function (params) {
                         var change = params.data.change;
                         return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
                             change.includes('+') === true ? "text-success text-right grid-table f-12" :
                             "text-warning text-right grid-table f-12";
                     } },
-                { field: "persen", headerName: "/%", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                { field: "persen", headerName: "/%", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 56,
                     cellClass : function (params) {
                         var change = params.data.change;
                         return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
                             change.includes('+') === true ? "text-success text-right grid-table f-12" :
                                 "text-warning text-right grid-table f-12";
                     } },
-                { field: "open", headerName: "Open", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                { field: "open", headerName: "Open", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 70,
                     cellClass : function (params) {
                         var prev = parseFloat(params.data.prev.replace(/,/g,""));
                         var open = parseFloat(params.data.open.replace(/,/g,""));
@@ -2921,7 +3223,7 @@ class MarketStatistikAgGrid extends React.PureComponent {
                             open > prev ? "text-success text-right grid-table f-12" :
                                 "text-warning text-right grid-table f-12";
                     } },
-                { field: "low", headerName: "Low", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                { field: "low", headerName: "Low", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 63,
                     cellClass : function (params) {
                         var prev = parseFloat(params.data.prev.replace(/,/g,""));
                         var low = parseFloat(params.data.low.replace(/,/g,""));
@@ -2929,7 +3231,7 @@ class MarketStatistikAgGrid extends React.PureComponent {
                             low > prev ? "text-success text-right grid-table f-12" :
                                 "text-warning text-right grid-table f-12";
                     } },
-                { field: "high", headerName: "High", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                { field: "high", headerName: "High", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 67,
                     cellClass : function (params) {
                         var prev = parseFloat(params.data.prev.replace(/,/g,""));
                         var high = parseFloat(params.data.high.replace(/,/g,""));
@@ -2937,7 +3239,7 @@ class MarketStatistikAgGrid extends React.PureComponent {
                             high > prev ? "text-success text-right grid-table f-12" :
                                 "text-warning text-right grid-table f-12";
                     } },
-                { field: "avg", headerName: "Avg.", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                { field: "avg", headerName: "Avg.", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 64,
                     cellClass : function (params) {
                         var prev = parseFloat(params.data.prev.replace(/,/g,""));
                         var avg = parseFloat(params.data.avg.replace(/,/g,""));
@@ -2945,40 +3247,40 @@ class MarketStatistikAgGrid extends React.PureComponent {
                             avg > prev ? "text-success text-right grid-table f-12" :
                                 "text-warning text-right grid-table f-12";
                     } },
-                { field: "val", headerName: "Val(Bn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                { field: "val", headerName: "Val(Bn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 79,
                     cellClass : function (params) {
                         var change = params.data.change;
                         return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
                             change.includes('+') === true ? "text-success text-right grid-table f-12" :
                                 "text-warning text-right grid-table f-12";
                     } },
-                { field: "vol", headerName: "Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                { field: "vol", headerName: "Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 58,
                     cellClass : function (params) {
                         var change = params.data.change;
                         return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
                             change.includes('+') === true ? "text-success text-right grid-table f-12" :
                                 "text-warning text-right grid-table f-12";
                     } },
-                { field: "freq", headerName: "Freq", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                { field: "freq", headerName: "Freq", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 64,
                     cellClass : function (params) {
                         var change = params.data.change;
                         return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
                             change.includes('+') === true ? "text-success text-right grid-table f-12" :
                                 "text-warning text-right grid-table f-12";
                     } },
-                { field: "fbuy", headerName: "F.Buy", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                { field: "fbuy", headerName: "F.Buy", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 69,
                     cellClass : function (params) {
                         return " grid-table text-right f-12";
                     } },
-                { field: "fsell", headerName: "F.Sell", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                { field: "fsell", headerName: "F.Sell", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 68,
                     cellClass : function (params) {
                         return " grid-table text-right f-12";
                     } },
-                { field: "fnet", headerName: "F.Net", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
+                { field: "fnet", headerName: "F.Net", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 68,
                     cellClass : function (params) {
                         return " grid-table text-right f-12";
                     } },
-                { field: "financial", headerName: "Financial", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 150,
+                { field: "financial", headerName: "Financial", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 100,
                     cellClass : function (params) {
                         return " grid-table text-right f-12";
                     } },
@@ -3666,14 +3968,13 @@ class MarketStatistikAgGrid extends React.PureComponent {
         return (
             <>
                 <div
-                    className={this.props.typegrid =="summary" ? "card-515 ag-theme-balham-dark" : "card-292 ag-theme-balham-dark"}
+                    className={this.props.typegrid =="summary" ? "card-558 ag-theme-balham-dark" : "card-292 ag-theme-balham-dark"}
                     style={{
                         width: 'auto' }}>
                     <AgGridReact
                         columnDefs={this.state.columnDefs}
                         rowData={this.state.rowData}
-                        defaultColDef={this.state.defaultColDef}
-                        sideBar={this.state.sideBar}>
+                        defaultColDef={this.state.defaultColDef}>
                     </AgGridReact>
                 </div>
             </>
@@ -3942,8 +4243,7 @@ class MarketIndicesAgGrid extends React.PureComponent {
                     <AgGridReact
                         columnDefs={this.state.columnDefs}
                         rowData={this.state.rowData}
-                        defaultColDef={this.state.defaultColDef}
-                        sideBar={this.state.sideBar}>
+                        defaultColDef={this.state.defaultColDef}>
                     </AgGridReact>
                 </div>
             </>
@@ -4104,8 +4404,7 @@ class TopBrokerAgGrid extends React.PureComponent {
                         columnDefs={this.state.columnDefs}
                         rowData={this.state.rowData}
                         defaultColDef={this.state.defaultColDef}
-                        getRowHeight={this.state.getRowHeight}
-                        sideBar={this.state.sideBar}>
+                        getRowHeight={this.state.getRowHeight}>
                     </AgGridReact>
                 </div>
             </>
@@ -4238,8 +4537,7 @@ class TopBrokerBAgGrid extends React.PureComponent {
                         columnDefs={this.state.columnDefs}
                         rowData={this.state.rowData}
                         defaultColDef={this.state.defaultColDef}
-                        getRowHeight={this.state.getRowHeight}
-                        sideBar={this.state.sideBar}>
+                        getRowHeight={this.state.getRowHeight}>
                     </AgGridReact>
                 </div>
             </>
@@ -4368,8 +4666,7 @@ class TopBrokerSAgGrid extends React.PureComponent {
                         columnDefs={this.state.columnDefs}
                         rowData={this.state.rowData}
                         defaultColDef={this.state.defaultColDef}
-                        getRowHeight={this.state.getRowHeight}
-                        sideBar={this.state.sideBar}>
+                        getRowHeight={this.state.getRowHeight}>
                     </AgGridReact>
                 </div>
             </>
