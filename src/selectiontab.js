@@ -98,10 +98,10 @@ const UISelectionTab_Base = (props) => {
 
         <div className="d-xxl-none d-xxl-block d-border-bottom-bold mb-1">
             <Menu className="row">
-                <div className="col-hd-1 ml-2 mr-3 px-0 text-center align-middle align-self-center text-white click-pointer">
-                    <Navbar.Brand href="/" className="text-white"><h2>BIPS</h2></Navbar.Brand>
+                <div className="col-sm-header-logo px-0 text-center align-middle align-self-center text-white click-pointer">
+                    <Navbar.Brand href="/" className="text-white pr-0 pl-3"><h2>BIPS</h2></Navbar.Brand>
                 </div>
-                <div className="d-border-left d-border-right row col-hd-9 px-0 mr-2">
+                <div className="d-border-left d-border-right row col-sm-header-menu px-0 mr-2">
                     <MenuHeader id={props}/>
 
                     <Menu.Menu className="col-sm-2 px-0 ml-nav align-self-center">
@@ -113,7 +113,7 @@ const UISelectionTab_Base = (props) => {
                     </Menu.Menu>
                 </div>
 
-                <div className="col-hd-2 row">
+                <div className="col-sm-header-user row mx-2">
                     <Menu.Menu className="col-sm-8 px-4 mx-0">
                         <InfoCash/>
                     </Menu.Menu>
