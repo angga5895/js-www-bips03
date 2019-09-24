@@ -32,29 +32,92 @@
   --column-col-sm-3-6 : 25%;
   --column-col-sm-2-4 : 16.666667%;
 
-  /*variabel card*/
-  --card-667 : 667px;
-  --card-trading : 300px;
-  --card-213 : 213px;
-  --card-249 : 249px;
-  --card-75 : 620px;
-  --card-515 : 515px;
-  --card-295 : 295px;
-  --card-292 : 292px;
-  --card-600 : 600px;
-  --card-199 : 199px;
-  --card-225 : 225px;
-  --card-170 : 170px;
-  --card-550 : 550px;
-  --card-grafik : 310px;
-  --card-530 : 540px;
-  --card-500 : 500px;
-  --card-160 : 160px;
-  --card-592 : 592px;
-  --card-470 : 470px;
-  --card-558 : 558px;
-
+  /*variable scale*/
   --py-2-scale : .5rem;
+}
+
+@media (max-width: 1440px) {
+  :root{
+    /*variabel card*/
+    --card-667 : 667px;
+    --card-trading : 300px;
+    --card-213 : 213px;
+    --card-249 : 249px;
+    --card-75 : 620px;
+    --card-515 : 515px;
+    --card-295 : 295px;
+    --card-292 : 292px;
+    --card-600 : 600px;
+    --card-199 : 199px;
+    --card-225 : 225px;
+    --card-170 : 170px;
+    --card-550 : 550px;
+    --card-grafik : 310px;
+    --card-530 : 540px;
+    --card-500 : 500px;
+    --card-160 : 160px;
+    --card-592 : 592px;
+    --card-470 : 470px;
+    --card-558 : 570px;
+    --card-235 : 235px;
+    --card-580 : 580px;
+  }
+}
+
+@media (min-width: 1441px) and (max-width: 1550px) {
+  :root{
+    /*variabel card*/
+    --card-667 : 750px;
+    --card-trading : 335px;
+    --card-213 : 245px;
+    --card-249 : 280px;
+    --card-75 : 700px;
+    --card-515 : 590px;
+    --card-295 : 300px;
+    --card-292 : 370px;
+    --card-600 : 690px;
+    --card-199 : 230px;
+    --card-225 : 240px;
+    --card-170 : 200px;
+    --card-550 : 630px;
+    --card-grafik : 390px;
+    --card-530 : 620px;
+    --card-500 : 580px;
+    --card-160 : 185px;
+    --card-592 : 655px;
+    --card-470 : 550px;
+    --card-558 : 650px;
+    --card-235 : 270px;
+    --card-580 : 665px;
+  }
+}
+
+@media (min-width: 1551px) {
+  :root{
+    /*variabel card*/
+    --card-667 : 855px;
+    --card-trading : 390px;
+    --card-213 : 295px;
+    --card-249 : 330px;
+    --card-75 : 805px;
+    --card-515 : 680px;
+    --card-295 : 300px;
+    --card-292 : 470px;
+    --card-600 : 790px;
+    --card-199 : 260px;
+    --card-225 : 285px;
+    --card-170 : 228px;
+    --card-550 : 725px;
+    --card-grafik : 480px;
+    --card-530 : 720px;
+    --card-500 : 680px;
+    --card-160 : 218px;
+    --card-592 : 780px;
+    --card-470 : 650px;
+    --card-558 : 755px;
+    --card-235 : 325px;
+    --card-580 : 765px;
+  }
 }
 
 .nav-link {
