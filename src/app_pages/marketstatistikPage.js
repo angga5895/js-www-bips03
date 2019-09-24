@@ -3199,7 +3199,7 @@ class MarketStatistikAgGrid extends React.PureComponent {
                         var change = params.data.change;
                         return change.includes('-') === true ? '<i class="icofont icofont-caret-down text-danger"></i>' :
                             change.includes('+') === true ? '<i class="icofont icofont-caret-up text-success"></i>' :
-                            '<i class="fa fa-circle f-11 text-warning"></i>';
+                            '<i class="icofont icofont-minus text-warning"></i>';
                     }  },
                 { field: "change", headerName: "Change", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 82,
                     cellClass : function (params) {
@@ -3208,7 +3208,7 @@ class MarketStatistikAgGrid extends React.PureComponent {
                             change.includes('+') === true ? "text-success text-right grid-table f-12" :
                             "text-warning text-right grid-table f-12";
                     } },
-                { field: "persen", headerName: "/%", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 56,
+                { field: "persen", headerName: "%", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 56,
                     cellClass : function (params) {
                         var change = params.data.change;
                         return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
