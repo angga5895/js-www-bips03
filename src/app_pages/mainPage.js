@@ -77,12 +77,12 @@ class MainPage_Base extends React.Component {
 
   changeScale80 = () => {
       var zoomLevelL = 1.26;
-      $('#myLiveTrade').css({ zoom: zoomLevelL, '-moz-transform': 'scale(' + zoomLevelL + ')' });
-      $('#mySideBar').css({ zoom: zoomLevelL, '-moz-transform': 'scale(' + zoomLevelL + ')' });
+      $('#myLiveTrade').css({ zoom: zoomLevelL });
+      $('#mySideBar').css({ zoom: zoomLevelL });
 
 
       var zoomLevel = 0.8;
-      $('body').css({ zoom: zoomLevel, '-moz-transform': 'scale(' + zoomLevel + ')' });
+      $('html').css({ zoom: zoomLevel });
 
       document.body.style.setProperty('--column-col-sm-3-6', "25%");
       document.body.style.setProperty('--column-col-sm-2-4', "16.666667%");
@@ -107,7 +107,9 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--card-592', "780px");
       document.body.style.setProperty('--py-2-scale', '14px');
       document.body.style.setProperty('--card-470', '650px');
-      document.body.style.setProperty('--card-558', '748px');
+      document.body.style.setProperty('--card-558', '755px');
+      document.body.style.setProperty('--card-235', '325px');
+      document.body.style.setProperty('--card-580', '765px');
       this.setState({
           scalemode : zoomLevel,
       })
@@ -115,11 +117,11 @@ class MainPage_Base extends React.Component {
 
   changeScale90 = () => {
       var zoomLevelL = 1.1;
-      $('#myLiveTrade').css({ zoom: zoomLevelL, '-moz-transform': 'scale(' + zoomLevelL + ')' });
-      $('#mySideBar').css({ zoom: zoomLevelL, '-moz-transform': 'scale(' + zoomLevelL + ')' });
+      $('#myLiveTrade').css({ zoom: zoomLevelL });
+      $('#mySideBar').css({ zoom: zoomLevelL });
 
       var zoomLevel = 0.9;
-      $('body').css({ zoom: zoomLevel, '-moz-transform': 'scale(' + zoomLevel + ')' });
+      $('html').css({ zoom: zoomLevel });
 
       document.body.style.setProperty('--column-col-sm-3-6', "25%");
       document.body.style.setProperty('--column-col-sm-2-4', "16.666667%");
@@ -144,7 +146,9 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--card-592', "655px");
       document.body.style.setProperty('--py-2-scale', '9.5px');
       document.body.style.setProperty('--card-470', '550px');
-      document.body.style.setProperty('--card-558', '642px');
+      document.body.style.setProperty('--card-558', '650px');
+      document.body.style.setProperty('--card-235', '270px');
+      document.body.style.setProperty('--card-580', '665px');
       this.setState({
           scalemode : zoomLevel,
       })
@@ -152,11 +156,11 @@ class MainPage_Base extends React.Component {
 
   changeScale100 = () => {
       var zoomLevelL = 1;
-      $('#myLiveTrade').css({ zoom: zoomLevelL, '-moz-transform': 'scale(' + zoomLevelL + ')' });
-      $('#mySideBar').css({ zoom: zoomLevelL, '-moz-transform': 'scale(' + zoomLevelL + ')' });
+      $('#myLiveTrade').css({ zoom: zoomLevelL });
+      $('#mySideBar').css({ zoom: zoomLevelL });
 
       var zoomLevel = 1;
-      $('body').css({ zoom: zoomLevel, '-moz-transform': 'scale(' + zoomLevel + ')' });
+      $('html').css({ zoom: zoomLevel });
 
       document.body.style.setProperty('--column-col-sm-3-6', "25%");
       document.body.style.setProperty('--column-col-sm-2-4', "16.666667%");
@@ -181,7 +185,9 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--card-592', "592px");
       document.body.style.setProperty('--py-2-scale', '.5rem');
       document.body.style.setProperty('--card-470', '470px');
-      document.body.style.setProperty('--card-558', '558px');
+      document.body.style.setProperty('--card-558', '570px');
+      document.body.style.setProperty('--card-235', '235px');
+      document.body.style.setProperty('--card-580', '580px');
       this.setState({
           scalemode : zoomLevel,
       })
@@ -189,11 +195,11 @@ class MainPage_Base extends React.Component {
 
   changeScale110 = () => {
       var zoomLevelL = 1;
-      $('#myLiveTrade').css({ zoom: zoomLevelL, '-moz-transform': 'scale(' + zoomLevelL + ')' });
-      $('#mySideBar').css({ zoom: zoomLevelL, '-moz-transform': 'scale(' + zoomLevelL + ')' });
+      $('#myLiveTrade').css({ zoom: zoomLevelL });
+      $('#mySideBar').css({ zoom: zoomLevelL });
 
       var zoomLevel = 1.1;
-      $('body').css({ zoom: zoomLevel, '-moz-transform': 'scale(' + zoomLevel + ')' });
+      $('html').css({ zoom: zoomLevel });
 
       document.body.style.setProperty('--column-col-sm-3-6', "50%");
       document.body.style.setProperty('--column-col-sm-2-4', "33.333333%");
@@ -218,7 +224,9 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--card-592', "592px");
       document.body.style.setProperty('--py-2-scale', '.5rem');
       document.body.style.setProperty('--card-470', '470px');
-      document.body.style.setProperty('--card-558', '558px');
+      document.body.style.setProperty('--card-558', '570px');
+      document.body.style.setProperty('--card-235', '235px');
+      document.body.style.setProperty('--card-580', '580px');
       this.setState({
           scalemode : zoomLevel,
       })
@@ -226,11 +234,11 @@ class MainPage_Base extends React.Component {
 
   changeScale120 = () => {
       var zoomLevelL = 1;
-      $('#myLiveTrade').css({ zoom: zoomLevelL, '-moz-transform': 'scale(' + zoomLevelL + ')' });
-      $('#mySideBar').css({ zoom: zoomLevelL, '-moz-transform': 'scale(' + zoomLevelL + ')' });
+      $('#myLiveTrade').css({ zoom: zoomLevelL });
+      $('#mySideBar').css({ zoom: zoomLevelL });
 
       var zoomLevel = 1.2;
-      $('body').css({ zoom: zoomLevel, '-moz-transform': 'scale(' + zoomLevel + ')' });
+      $('html').css({ zoom: zoomLevel });
 
 
       document.body.style.setProperty('--column-col-sm-3-6', "50%");
@@ -256,7 +264,9 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--card-592', "592px");
       document.body.style.setProperty('--py-2-scale', '.5rem');
       document.body.style.setProperty('--card-470', '470px');
-      document.body.style.setProperty('--card-558', '558px');
+      document.body.style.setProperty('--card-558', '570px');
+      document.body.style.setProperty('--card-235', '235px');
+      document.body.style.setProperty('--card-580', '580px');
       this.setState({
           scalemode : zoomLevel,
       })
@@ -516,9 +526,9 @@ class MainPage_Base extends React.Component {
                   />
           }
 
-          <div className="row col-lg-12 px-0 mx-0 card card-667">
+          <div className="row col-sm-12 px-0 mx-0 card card-667">
               <SideBar thememode={this.selectStyleGroup}/>
-              <div className="col-lg-11 px-0 mx-0 d-border-bottom">
+              <div className="col-sm-contentbar px-0 mx-0 d-border-bottom">
                   <AppFrame headerComponent={CustomFrameHeader}/>
               </div>
           </div>
