@@ -9,6 +9,13 @@ import { BIPSAppContext } from '../AppData.js';
 import { CommentActions } from 'semantic-ui-react';
 import $ from "jquery";
 
+//Form signup
+import FormParticular     from "./../app_sign_up/form_particular";
+import FormDocument       from "../app_sign_up/form_document";
+import FormAddress        from "./../app_sign_up/form_address";
+import FormSource         from "./../app_sign_up/form_source";
+import FormAdditonal      from "./../app_sign_up/form_additional";
+
 class DisclaimerModal extends React.Component {
     closeClick = (e) => {
         this.refs.frameAction.closeModal(100);
@@ -95,27 +102,122 @@ class ForgotModal extends React.Component {
     }
 }
 
-class SignUpModal extends React.Component {
-    closeClick = (e) => {
+class SignUpModal extends React.PureComponent {
+    constructor(props) {
+        super(props);
+    }
+
+    /*closeClick = (e) => {
         this.refs.frameAction.closeModal(100);
+    }*/
+
+    state = {
+        active1:true,
+        active2:false,
+        active3:false,
+        active4:false,
+        active5:false,
+    }
+
+    buttonClickSignUp = (e) => {
+        this.props.isSignup(this.props.signupState)
     }
 
     render() {
+        const tab1 = this.state.active1 ? "active" : "";
+        const tab2 = this.state.active2 ? "active" : "";
+        const tab3 = this.state.active3 ? "active" : "";
+        const tab4 = this.state.active4 ? "active" : "";
+        const tab5 = this.state.active5 ? "active" : "";
+
+        const toggle1 = this.state.active1? "tab" : "";
+        const toggle2 = this.state.active2? "tab" : "";
+        const toggle3 = this.state.active3? "tab" : "";
+        const toggle4 = this.state.active4? "tab" : "";
+        const toggle5 = this.state.active5? "tab" : "";
+
+        var props = this.props;
         return (
             <>
+                <AppFrameAction ref="frameAction" />
+                <div className="text-white f-12">
+                    <div class="col align-self-center py-5">
+                        <div className="step-tab">
+                            <div id="crumbs">
+                                <ul className="nav nav-pills">
+                                    <li className="step1"><a href="#1" className={tab1} data-toggle={toggle1}>Client Particular</a></li>
+                                    <li><a href="#2" className={tab2} data-toggle={toggle2}>Client Address</a></li>
+                                    <li><a href="#3" className={tab3} data-toggle={toggle3}><div className="more">Client Source of Fund</div></a></li>
+                                    <li><a href="#4" className={tab4} data-toggle={toggle4}>Addtional data</a></li>
+                                    <li className="step-last"><a href="#5" className={tab5} data-toggle={toggle5}><div className="more-last">Document Upload</div></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div></div>
+                        <div className="tab-content clearfix" >
+                            <div className="tab-pane active" id="1">
+                                <div className="container content-step">
+                                    <FormParticular/>
+                                </div>
+                                <div className="container next-btn">
+                                    <a className="btn btn-primary pull-left" onClick={this.buttonClickSignUp}>Back to login</a>
+                                    <a className="btn btn-primary pull-right" href="#2" data-toggle="tab" onClick={() => this.setState({active2:true})}>Next</a>
+                                </div>
+                            </div>
+                            <div className="tab-pane" id="2">
+                                <div className="container content-step">
+                                    <FormAddress/>
+                                </div>
+                                <div className="container next-btn">
+                                    <a className="btn btn-primary pull-left" onClick={this.buttonClickSignUp}>Back to login</a>
+                                    <a className="btn btn-primary pull-right" href="#3" data-toggle="tab" onClick={() => this.setState({active3:true})}>Next</a>
+                                </div>
+                            </div>
+
+                            <div className="tab-pane" id="3">
+                                <div className="container content-step">
+                                    <FormSource/>
+                                </div>
+                                <div className="container next-btn">
+                                    <a className="btn btn-primary pull-left" onClick={this.buttonClickSignUp}>Back to login</a>
+                                    <a className="btn btn-primary pull-right" href="#4" data-toggle="tab" onClick={() => this.setState({active4:true})}>Next</a>
+                                </div>
+                            </div>
+
+                            <div className="tab-pane" id="4">
+                                <div className="container content-step">
+                                    <FormAdditonal/>
+                                </div>
+                                <div className="container next-btn">
+                                    <a className="btn btn-primary pull-left" onClick={this.buttonClickSignUp}>Back to login</a>
+                                    <a className="btn btn-primary pull-right" href="#5" data-toggle="tab" onClick={() => this.setState({active5:true})}>Next</a>
+                                </div>
+                            </div>
+
+                            <div className="tab-pane" id="5">
+                                <div className="container content-step">
+                                    <FormDocument/>
+                                </div>
+                                <div className="container next-btn">
+                                    <a className="btn btn-primary pull-left" onClick={this.buttonClickSignUp}>Back to login</a>
+                                    <button type="submit" className="btn btn-primary pull-right">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </>
         );
     }
 }
 
-class LoginUserPage extends React.PureComponent {
+class LoginUserPage_Base extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
           passlogin : 'password'
         };
     }
-
 
     buttonClickDisclaimer = (e) => {
         this.refs.frameAction.showModal({
@@ -137,13 +239,14 @@ class LoginUserPage extends React.PureComponent {
     }
 
     buttonClickSignUp = (e) => {
-        this.refs.frameAction.showModal({
+        /*this.refs.frameAction.showModal({
             headerClass: () => <div className="text-danger font-weight-bold text-center">Sign Up Belum Tersedia</div>,
             closeIcon: true,
-            size : "mini",
+            size : "fullscreen",
             contentClass: SignUpModal,
             onClose: (result) => {console.log('Modal 3 result = ', result)}
-        })
+        })*/
+        this.props.isSignup(this.props.signupState)
     }
 
     buttonClickLogin = () => {
@@ -175,12 +278,11 @@ class LoginUserPage extends React.PureComponent {
             $("#req_pass").text("required");
             $("#req_pass").css("display","block");
         } else {
-            if (pass !== "123456") {
+            if (user === "a" && pass === "b") {
+                this.props.getLogin(this.props.loginState);
+            } else {
                 $("#alert-wrong").removeClass("fade-out");
                 $("#alert-wrong").addClass("fade-in");
-            } else {
-                $("#alert-wrong").removeClass("fade-in");
-                $("#alert-wrong").addClass("fade-out");
             }
         }
     }
@@ -208,85 +310,123 @@ class LoginUserPage extends React.PureComponent {
     }
 
     render () {
+        var props = this.props;
         return (
-            <div className="bg-black-trading f-12">
-                <AppFrameAction ref="frameAction" />
-                <WSConnectionAction  ref="wsAction" />
-                <main>
-                    <div className="container-fluid p-login text-center">
-                        <div className="card card-body bg-dark-grey d-border-active">
-                            <h1 className="text-center my-4">BIPS</h1>
-                            <div className="form-group mb-4">
-                                {/*<label className="col-sm-12 px-5 py-2 col-form-label">User ID</label>*/}
-                                <div className="col-sm-12 px-5 py-2">
-                                    {/*<input type="text" ref="userID" className="text-white input-login col-sm-12"/>*/}
-                                    <div id="input-user" className="ui left icon input col-sm-12 text-white px-0 dark">
-                                        <input type="text" ref="userID" placeholder="User ID" id="inputuser" onChange={this.onChangeUser}/>
-                                        <i aria-hidden="true" className="icon p-3">
-                                            <i className="icon-icon-user-login"></i>&nbsp;&nbsp;|
-                                        </i>
-                                    </div>
-                                    <div className="text-right">
-                                        <small className="text-danger" id="req_user" style={{"display":"none"}}></small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="form-group mb-0">
-                                {/*<label className="col-sm-12 px-5 py-2 col-form-label">Password</label>*/}
-                                <div className="col-sm-12 px-5 py-0">
-                                    {/*<input type="password" ref="password" className="text-white input-login col-sm-12"/>*/}
-                                    <div className="buttonInside">
-                                        <div id="input-pass" className="ui left icon input col-sm-12 text-white px-0 dark">
-                                            <input type={this.state.passlogin} ref="password" placeholder="Password" id="inputpass" onChange={this.onChangePass}/>
-                                            <i aria-hidden="true" className="icon p-3">
-                                                <i className="icon-icon-lock-login"></i>&nbsp;&nbsp;|
-                                            </i>
+            <>
+                {
+                    <div style={{display: !props.signupState ? "block" : "none"}}>
+                        <div className="bg-black-trading f-12">
+                            <AppFrameAction ref="frameAction"/>
+                            <WSConnectionAction ref="wsAction"/>
+                            <main>
+                                <div className="container-fluid p-login text-center">
+                                    <div className="card card-body bg-dark-grey d-border-active">
+                                        <h1 className="text-center my-4">BIPS</h1>
+                                        <div className="form-group mb-4">
+                                            {/*<label className="col-sm-12 px-5 py-2 col-form-label">User ID</label>*/}
+                                            <div className="col-sm-12 px-5 py-2">
+                                                {/*<input type="text" ref="userID" className="text-white input-login col-sm-12"/>*/}
+                                                <div id="input-user" className="ui left icon input col-sm-12 text-white px-0 dark">
+                                                    <input type="text" ref="userID" placeholder="User ID" id="inputuser"
+                                                           onChange={this.onChangeUser}/>
+                                                    <i aria-hidden="true" className="icon p-3">
+                                                        <i className="icon-icon-user-login"></i>&nbsp;&nbsp;|
+                                                    </i>
+                                                </div>
+                                                <div className="text-right">
+                                                    <small className="text-danger" id="req_user" style={{"display": "none"}}></small>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <button className="button-inside-input-login btn-dark" onMouseDown={this.onMouseDownPass} onMouseUp={this.onMouseUpPass}><i className="fa fa-eye"></i></button>
+                                        <div className="form-group mb-0">
+                                            {/*<label className="col-sm-12 px-5 py-2 col-form-label">Password</label>*/}
+                                            <div className="col-sm-12 px-5 py-0">
+                                                {/*<input type="password" ref="password" className="text-white input-login col-sm-12"/>*/}
+                                                <div className="buttonInside">
+                                                    <div id="input-pass" className="ui left icon input col-sm-12 text-white px-0 dark">
+                                                        <input type={this.state.passlogin} ref="password" placeholder="Password"
+                                                               id="inputpass" onChange={this.onChangePass}/>
+                                                        <i aria-hidden="true" className="icon p-3">
+                                                            <i className="icon-icon-lock-login"></i>&nbsp;&nbsp;|
+                                                        </i>
+                                                    </div>
+                                                    <button className="button-inside-input-login btn-dark"
+                                                            onMouseDown={this.onMouseDownPass} onMouseUp={this.onMouseUpPass}><i
+                                                        className="fa fa-eye"></i></button>
+                                                </div>
+                                                <div className="text-right">
+                                                    <small className="text-danger" id="req_pass" style={{"display": "none"}}></small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="form-group text-center mb-5">
+                                            <small className="col-sm-12 px-5 py-2 col-form-label">Forgot your password?
+                                                <span className="click-pointer btn btn-link" onClick={this.buttonClickForgot}> <small
+                                                    className="text-primary"> Click here</small></span>
+                                            </small>
+                                        </div>
+
+                                        <div className="form-group py-0 mb-0">
+                                            <div className="justify-content-center align-items-center d-flex py-0 px-5">
+                                                <button type="submit" onClick={this.buttonClickLogin}
+                                                        className="btn btn-primary form-control py-0">
+                                                    Login
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div className="form-group py-0 mt-0 mb-4 text-center">
+                                            <small className="py-0 px-5 col-form-label">
+                                                    <span className="click-pointer px-0 btn btn-link"
+                                                          onClick={this.buttonClickDisclaimer}>
+                                                        <small className="text-primary">Disclaimer</small>
+                                                    </span>
+                                            </small>
+                                        </div>
+
+                                        <div className="form-group py-0 my-0 text-center">
+                                            <small className="col-sm-12 px-5 py-2 col-form-label">New BIPS?
+                                                <span className="click-pointer btn btn-link" onClick={this.buttonClickSignUp}> <small
+                                                    className="text-primary"> Sign Up</small></span>
+                                            </small>
+                                        </div>
                                     </div>
-                                    <div className="text-right">
-                                        <small className="text-danger" id="req_pass" style={{"display":"none"}}></small>
+
+                                    <div id="alert-wrong" className={"col-sm-12 text-center fade-out mt-2 px-5"}>
+                                        <div id="content-alert" className={"px-4 py-2 text-white bg-danger "}>The user ID or password
+                                            did not match our records.
+                                            Please try again
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="form-group text-center mb-5">
-                                <small className="col-sm-12 px-5 py-2 col-form-label">Forgot your password?
-                                    <span className="click-pointer btn btn-link" onClick={this.buttonClickForgot}> <small className="text-primary"> Click here</small></span>
-                                </small>
-                            </div>
-
-                            <div className="form-group py-0 mb-0">
-                                <div className="justify-content-center align-items-center d-flex py-0 px-5">
-                                    <button type="submit" onClick={this.buttonClickLogin} className="btn btn-primary form-control py-0">
-                                        Login
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div className="form-group py-0 mt-0 mb-4 text-center">
-                                <small className="py-0 px-5 col-form-label">
-                                    <span className="click-pointer px-0 btn btn-link" onClick={this.buttonClickDisclaimer}>
-                                        <small className="text-primary">Disclaimer</small>
-                                    </span>
-                                </small>
-                            </div>
-
-                            <div className="form-group py-0 my-0 text-center">
-                                <small className="col-sm-12 px-5 py-2 col-form-label">New BIPS?
-                                    <span className="click-pointer btn btn-link" onClick={this.buttonClickSignUp}> <small className="text-primary"> Sign Up</small></span>
-                                </small>
-                            </div>
-                        </div>
-
-                        <div id="alert-wrong" className={"col-sm-12 text-center fade-out mt-2 px-5"}>
-                            <div id="content-alert" className={"px-4 py-2 text-white bg-danger "}>The user ID or password did not match our records.
-                                Please try again</div>
+                            </main>
                         </div>
                     </div>
-                </main>
-            </div>
+                }{
+                    <div style={{display: props.signupState ? "block" : "none"}}>
+                        <SignupUserPage />
+                    </div>
+                }
+            </>
         );
     }
 }
+
+const LoginUserPage = ContextConnector(BIPSAppContext,
+    (vars, actions) => ({
+        loginState: vars.loginState,
+        getLogin : (loginState)=> {actions.sendAction('getLogin', {loginState})},
+        signupState: vars.signupState,
+        isSignup : (signupState)=> {actions.sendAction('isSignup', {signupState})}
+    }),
+    ["doLogin"]
+)(LoginUserPage_Base);
+
+const SignupUserPage = ContextConnector(BIPSAppContext,
+    (vars, actions) => ({
+        signupState: vars.signupState,
+        isSignup : (signupState)=> {actions.sendAction('isSignup', {signupState})}
+    }),
+)(SignUpModal);
 
 export default LoginUserPage;

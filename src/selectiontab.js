@@ -495,7 +495,7 @@ const UISelectionTab = ContextConnector(AppFrameContext,
   (v, act, props) => ({
     instances: v.pageInstances,
     activeInstance: v.activeInstance,
-    activateFrame: (instanceName) => act.sendAction('switchPage', {instanceName})
+    activateFrame: (instanceName) => act.sendAction('switchPage', {instanceName}),
   })
 )(UISelectionTab_Base);
 
@@ -772,7 +772,7 @@ class UserInfo extends React.Component {
                             </div>
                         }/>
                         <Dropdown.Divider className="d-border py-0 my-0" />
-                        <Dropdown.Item className="item-hover text-white text-left" text={
+                        <Dropdown.Item href="/" className="item-hover text-white text-left" text={
                           <div>
                               <i className="oi oi-power-standby"></i>&nbsp;&nbsp; Logout
                           </div>

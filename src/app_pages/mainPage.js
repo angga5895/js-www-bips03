@@ -424,130 +424,138 @@ class MainPage_Base extends React.Component {
         <div style={{display: props.networkState && !props.loginState ? "block" : "none"}}>
           <LoginPage onLogin={this.doLogin} />
         </div>
-        <div style={{display: props.networkState && props.loginState ? "block" : "none"}}>
-            <LoginUserPage/>*/
-        }
-          {
-              this.state.scalemode <= 1 ?
-                  <UISelectionTab modeoftheme={this.selectSelectionTab} linkTitles={
-                  {
-                      landingPage:
-                          <div className="text-align-center">
-                              <i className="icon-icon-investment-board fs-icon-bips"></i> <br/>
-                              <span className="fs-text-bips">INVESTMENT<br/>BOARD</span>
-                          </div>,
-                      marketstatistikPage:
-                          <div className="text-align-center">
-                              <i className="icon-icon-market-statistic fs-icon-bips"></i> <br/>
-                              <span className="fs-text-bips" style={{padding: "0px 6.5px"}}>MARKET &</span><br/>
-                              <span className="fs-text-bips">STATISTIC</span>
-                          </div>,
-                      stockPage:
-                          <div className="text-align-center">
-                              <i className="icon-icon-stock-page fs-icon-bips"></i> <br/>
-                              <span className="fs-text-bips" style={{padding: "0px 15.3px"}}>
+        <div style={{display: props.networkState && props.loginState ? "block" : "none"}}>*/
+            <div style={{display: !props.loginState ? "block" : "none"}}>
+                <LoginUserPage/>
+            </div>
+        }{
+              <div style={{display: props.loginState ? "block" : "none"}}>
+                  {this.state.scalemode <= 1 ?
+                      <UISelectionTab modeoftheme={this.selectSelectionTab} linkTitles={
+                          {
+                              landingPage:
+                                  <div className="text-align-center">
+                                      <i className="icon-icon-investment-board fs-icon-bips"></i> <br/>
+                                      <span className="fs-text-bips">INVESTMENT<br/>BOARD</span>
+                                  </div>,
+                              marketstatistikPage:
+                                  <div className="text-align-center">
+                                      <i className="icon-icon-market-statistic fs-icon-bips"></i> <br/>
+                                      <span className="fs-text-bips" style={{padding: "0px 6.5px"}}>MARKET &</span><br/>
+                                      <span className="fs-text-bips">STATISTIC</span>
+                                  </div>,
+                              stockPage:
+                                  <div className="text-align-center">
+                                      <i className="icon-icon-stock-page fs-icon-bips"></i> <br/>
+                                      <span className="fs-text-bips" style={{padding: "0px 15.3px"}}>
                                   STOCK
                                 </span>
-                          </div>,
-                      tradePage:
-                          <div className="text-align-center">
-                              <i className="icon-icon-trade-page fs-icon-bips"></i> <br/>
-                              <span className="fs-text-bips" style={{padding: "0px 15.3px"}}>
+                                  </div>,
+                              tradePage:
+                                  <div className="text-align-center">
+                                      <i className="icon-icon-trade-page fs-icon-bips"></i> <br/>
+                                      <span className="fs-text-bips" style={{padding: "0px 15.3px"}}>
                                   TRADE
                                 </span>
-                          </div>,
-                      analyticPage:
-                          <div className="text-align-center">
-                              <i className="icon-icon-analytic_page fs-icon-bips"></i> <br/>
-                              <span className="fs-text-bips" style={{padding: "0px 7.8px"}}>ANALYTIC</span>
-                          </div>,
-                      chatsupportPage:
-                          <div className="text-align-center">
-                              <i className="icon-icon-chat-support fs-icon-bips"></i> <br/>
-                              <span className="fs-text-bips" style={{padding: "0px 11.1px"}}>CHATS &</span><br/>
-                              <span className="fs-text-bips">SUPPORT</span>
-                          </div>,
-                      livetradePage:
-                          <div className="text-align-center">
-                              <i className="icon-icon-live-trade fs-icon-bips"></i> <br/>
-                              <span className="fs-text-bips" style={{padding: "0px 21.09px"}}>LIVE</span><br/>
-                              <span className="fs-text-bips">TRADE</span>
-                          </div>
-                  }
-              }
-              />
-              :
-                  <UISelectionTab_Scale modeoftheme={this.selectSelectionTab} linkTitles={
-                      {
-                          landingPage:
-                              <div className="text-align-center">
-                                  <i className="icon-icon-investment-board fs-icon-bips"></i> <br/>
-                                  <span className="fs-text-bips">INVESTMENT<br/>BOARD</span>
-                              </div>,
-                          marketstatistikPage:
-                              <div className="text-align-center">
-                                  <i className="icon-icon-market-statistic fs-icon-bips"></i> <br/>
-                                  <span className="fs-text-bips" style={{padding: "0px 6.5px"}}>MARKET &</span><br/>
-                                  <span className="fs-text-bips">STATISTIC</span>
-                              </div>,
-                          stockPage:
-                              <div className="text-align-center">
-                                  <i className="icon-icon-stock-page fs-icon-bips"></i> <br/>
-                                  <span className="fs-text-bips" style={{padding: "0px 15.3px"}}>
-                                  STOCK
-                                </span>
-                              </div>,
-                          tradePage:
-                              <div className="text-align-center">
-                                  <i className="icon-icon-trade-page fs-icon-bips"></i> <br/>
-                                  <span className="fs-text-bips" style={{padding: "0px 15.3px"}}>
-                                  TRADE
-                                </span>
-                              </div>,
-                          analyticPage:
-                              <div className="text-align-center">
-                                  <i className="icon-icon-analytic_page fs-icon-bips"></i> <br/>
-                                  <span className="fs-text-bips" style={{padding: "0px 7.8px"}}>ANALYTIC</span>
-                              </div>,
-                          chatsupportPage:
-                              <div className="text-align-center">
-                                  <i className="icon-icon-chat-support fs-icon-bips"></i> <br/>
-                                  <span className="fs-text-bips" style={{padding: "0px 11.1px"}}>CHATS &</span><br/>
-                                  <span className="fs-text-bips">SUPPORT</span>
-                              </div>,
-                          livetradePage:
-                              <div className="text-align-center">
-                                  <i className="icon-icon-live-trade fs-icon-bips"></i> <br/>
-                                  <span className="fs-text-bips" style={{padding: "0px 21.09px"}}>LIVE</span><br/>
-                                  <span className="fs-text-bips">TRADE</span>
-                              </div>
+                                  </div>,
+                              analyticPage:
+                                  <div className="text-align-center">
+                                      <i className="icon-icon-analytic_page fs-icon-bips"></i> <br/>
+                                      <span className="fs-text-bips" style={{padding: "0px 7.8px"}}>ANALYTIC</span>
+                                  </div>,
+                              chatsupportPage:
+                                  <div className="text-align-center">
+                                      <i className="icon-icon-chat-support fs-icon-bips"></i> <br/>
+                                      <span className="fs-text-bips" style={{padding: "0px 11.1px"}}>CHATS &</span><br/>
+                                      <span className="fs-text-bips">SUPPORT</span>
+                                  </div>,
+                              livetradePage:
+                                  <div className="text-align-center">
+                                      <i className="icon-icon-live-trade fs-icon-bips"></i> <br/>
+                                      <span className="fs-text-bips" style={{padding: "0px 21.09px"}}>LIVE</span><br/>
+                                      <span className="fs-text-bips">TRADE</span>
+                                  </div>
+                          }
                       }
+                      />
+                      :
+                      <UISelectionTab_Scale modeoftheme={this.selectSelectionTab} linkTitles={
+                          {
+                              landingPage:
+                                  <div className="text-align-center">
+                                      <i className="icon-icon-investment-board fs-icon-bips"></i> <br/>
+                                      <span className="fs-text-bips">INVESTMENT<br/>BOARD</span>
+                                  </div>,
+                              marketstatistikPage:
+                                  <div className="text-align-center">
+                                      <i className="icon-icon-market-statistic fs-icon-bips"></i> <br/>
+                                      <span className="fs-text-bips" style={{padding: "0px 6.5px"}}>MARKET &</span><br/>
+                                      <span className="fs-text-bips">STATISTIC</span>
+                                  </div>,
+                              stockPage:
+                                  <div className="text-align-center">
+                                      <i className="icon-icon-stock-page fs-icon-bips"></i> <br/>
+                                      <span className="fs-text-bips" style={{padding: "0px 15.3px"}}>
+                                  STOCK
+                                </span>
+                                  </div>,
+                              tradePage:
+                                  <div className="text-align-center">
+                                      <i className="icon-icon-trade-page fs-icon-bips"></i> <br/>
+                                      <span className="fs-text-bips" style={{padding: "0px 15.3px"}}>
+                                  TRADE
+                                </span>
+                                  </div>,
+                              analyticPage:
+                                  <div className="text-align-center">
+                                      <i className="icon-icon-analytic_page fs-icon-bips"></i> <br/>
+                                      <span className="fs-text-bips" style={{padding: "0px 7.8px"}}>ANALYTIC</span>
+                                  </div>,
+                              chatsupportPage:
+                                  <div className="text-align-center">
+                                      <i className="icon-icon-chat-support fs-icon-bips"></i> <br/>
+                                      <span className="fs-text-bips" style={{padding: "0px 11.1px"}}>CHATS &</span><br/>
+                                      <span className="fs-text-bips">SUPPORT</span>
+                                  </div>,
+                              livetradePage:
+                                  <div className="text-align-center">
+                                      <i className="icon-icon-live-trade fs-icon-bips"></i> <br/>
+                                      <span className="fs-text-bips" style={{padding: "0px 21.09px"}}>LIVE</span><br/>
+                                      <span className="fs-text-bips">TRADE</span>
+                                  </div>
+                          }
+                      }
+                      />
                   }
-                  />
-          }
 
-          <div className="row col-sm-12 px-0 mx-0 card card-667">
-              <SideBar thememode={this.selectStyleGroup}/>
-              <div className="col-sm-contentbar px-0 mx-0 d-border-bottom">
-                  <AppFrame headerComponent={CustomFrameHeader}/>
+                  <div className="row col-sm-12 px-0 mx-0 card card-667">
+                      <SideBar thememode={this.selectStyleGroup}/>
+                      <div className="col-sm-contentbar px-0 mx-0 d-border-bottom">
+                          <AppFrame headerComponent={CustomFrameHeader}/>
+                      </div>
+                  </div>
+                  <i onClick={this.state.fullscreenmode == false ? this.openContentFullscreen : this.closeContentFullscreen}
+                     className={this.state.fullscreenmode == false ? "icon-icon-fullscreen-in myBtn" : "icon-exit-fullscreen myBtn"}></i>
+                  <div onClick={this.state.thememode == 'light' ? this.changeThemeModeNight : this.changeThemeModeLight}
+                       className="modeTheme">{this.state.thememode == 'light' ? "Night Mode" : "Light Mode"}</div>
+                  <div onClick={this.changeScale80}
+                       className="scale80">Scale 80
+                  </div>
+                  <div onClick={this.changeScale90}
+                       className="scale90">Scale 90
+                  </div>
+                  <div onClick={this.changeScale100}
+                       className="scale100">Scale 100
+                  </div>
+                  <div onClick={this.changeScale110}
+                       className="scale110">Scale 110
+                  </div>
+                  <div onClick={this.changeScale120}
+                       className="scale120">Scale 120
+                  </div>
+                  <AppModal/>
               </div>
-          </div>
-          <i onClick={this.state.fullscreenmode == false ? this.openContentFullscreen : this.closeContentFullscreen}
-             className={this.state.fullscreenmode == false ? "icon-icon-fullscreen-in myBtn" : "icon-exit-fullscreen myBtn"}></i>
-          <div onClick={this.state.thememode == 'light' ? this.changeThemeModeNight : this.changeThemeModeLight}
-             className="modeTheme">{this.state.thememode == 'light'? "Night Mode" : "Light Mode"}</div>
-          <div onClick={this.changeScale80}
-             className="scale80">Scale 80</div>
-          <div onClick={this.changeScale90}
-             className="scale90">Scale 90</div>
-          <div onClick={this.changeScale100}
-             className="scale100">Scale 100</div>
-          <div onClick={this.changeScale110}
-             className="scale110">Scale 110</div>
-          <div onClick={this.changeScale120}
-             className="scale120">Scale 120</div>
-          <AppModal />
-        {/*</div>*/}
+          }
       </div>
     );
   }
@@ -557,7 +565,7 @@ const MainPage = ContextConnector(BIPSAppContext,
   (vars, actions) => ({
     loginState: vars.loginState,
     networkState: vars.networkState,
-    doLogin: (userID, password) => {actions.sendAction('doLogin', {userID, password})}
+    doLogin: (userID, password) => {actions.sendAction('doLogin', {userID, password})},
   }),
   ["doLogin"]
 )(MainPage_Base);

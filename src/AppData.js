@@ -91,6 +91,7 @@ var BIPSAppVars = {
   // ],
   isGrid:true,
   isManual:true,
+  signupState : false
 
 }
 
@@ -116,6 +117,12 @@ var BIPSAppActions = {
 
   // action trade
   handleManual:(vars, {isManual})=>({...vars, isManual:!vars.isManual}),
+
+  // action login
+  getLogin:(vars, {loginState})=>({...vars, loginState:!vars.loginState}),
+
+  // state signup
+  isSignup:(vars, {signupState})=>({...vars, signupState:!vars.signupState}),
 
 // subscribe
   subscribeMsgSukses:(vars,{mess})=>{
