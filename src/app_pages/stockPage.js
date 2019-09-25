@@ -31,6 +31,7 @@ import {Plugin, Template, TemplatePlaceholder} from "@devexpress/dx-react-core";
 import FormSell from "./app_transaction/form_sell";*/
 import FormBuy from "./../app_transaction/form_buy";
 import FormSell from "../app_transaction/form_sell";
+import StockChart from "./stockChart";
 
 //datepicker
 import '../bootstrap-3.3.7/bootstrap-datepicker.min.css';
@@ -264,42 +265,41 @@ class StockPage extends React.PureComponent {
                     <div className="container-fluid f-12">
                         <div className="py-2">
                             <div className="px-1 mx-0 my-2 col-sm-12 row">
-                                <label className="align-self-center col-sm-1 px-0 mx-0">Code</label>
-                                <Input defaultValue='AALI' placeholder='Code' size='small' className="col-sm-2 text-center align-self-center"/>
-                                <div className="col-sm-1 text-center align-self-center"><i className="fa fa-search fa-2x click-pointer text-dark"></i></div>
-                                <Input defaultValue='Arga Argo Lestari Tbk.' placeholder='Name' size='small' className="col-sm-3 align-self-center"/>
+                                <div className="col-sm-2 px-0 mx-0 row">
+                                    <label className="align-self-center col-sm-2 px-0 mx-0">Code</label>
+                                    <Input defaultValue='AALI' placeholder='Code' size='small' className="col-sm-8 text-center align-self-center"/>
+                                    <div className="col-sm-2 text-left align-self-center px-2"><i className="fa fa-search fa-2x click-pointer text-dark"></i></div>
+                                    {/*<Input defaultValue='Arga Argo Lestari Tbk.' placeholder='Name' size='small' className="col-sm-3 align-self-center"/>*/}
+                                </div>
+                                <div className="col-sm-6 row mx-0 px-0 align-self-center">
+                                    <label className="col-sm-6 f-13 f-xs-14 align-middle align-self-center pr-0">
+                                        Astra Argo Lestari Tbk.
+                                    </label>
+                                    <label className="col-sm-3 f-13 f-xs-14 align-middle align-self-center px-2 text-left">
+                                        Last <span className="text-danger">12,650</span>
+                                    </label>
+                                    <label className="col-sm-3 text-danger f-13 f-xs-14 align-middle align-self-center px-0 text-left">
+                                        <i className="oi oi-caret-bottom"></i>
+                                        -175 (-1.36%)
+                                    </label>
+                                </div>
+                                <div className="col-sm-4 align-self-center mx-0 px-0">
+                                    <button className="d-border mx-1 pull-right col-sm-5 col-md-3 btn btn-success" onClick={this.buttonClickSell}><span>Sell</span></button>
+                                    <button className="d-border mx-1 pull-right col-sm-5 col-md-3 btn btn-danger" onClick={this.buttonClickBuy}><span>Buy</span></button>
+                                </div>
                             </div>
-                            <div className="px-1 mx-0 my-2 col-sm-12 row">
+                            {/*<div className="px-1 mx-0 my-2 col-sm-12 row">
                                 <div className="col-sm-2 pl-0">
                                     <div className="col-sm-2 px-0 mx-0">
                                         <Input label={{ color: 'bg-gold', content: '90%' }} defaultValue='AALI'
                                                labelPosition='right' placeholder='Code' size='small' className="w-input"/>
                                     </div>
                                 </div>
-                                <div className="col-sm-10 pr-0 row">
-                                    <div className="col-sm-8 row mx-0 px-0">
-                                        <label className="col-sm-5 f-14 f-xs-14 align-middle align-self-center">
-                                            Astra Argo Lestari Tbk.
-                                        </label>
-                                        <label className="col-sm-3 f-14 f-xs-14 align-middle align-self-center">
-                                            Last <span className="text-danger">12,650</span>
-                                        </label>
-                                        <label className="col-sm-4 text-danger f-14 f-xs-14 align-middle align-self-center">
-                                            <i className="oi oi-caret-bottom"></i>
-                                            -175 (-1.36%)
-                                        </label>
-                                    </div>
-
-                                    <div className="col-sm-4 align-self-center mx-0 px-0">
-                                        <button className="d-border mx-1 pull-right col-sm-5 col-md-3 btn btn-success" onClick={this.buttonClickSell}><span>Sell</span></button>
-                                        <button className="d-border mx-1 pull-right col-sm-5 col-md-3 btn btn-danger" onClick={this.buttonClickBuy}><span>Buy</span></button>
-                                    </div>
-                                </div>
-                            </div>
+                            </div>*/}
                             <div className="px-1 mx-0 col-sm-12 row">
                                 <div className="col-md-7 px-1 py-2">
                                     <div className="card card-grafik bg-trading-gray">
-                                        Ini Chart
+                                        <StockChart/>
                                     </div>
                                     <StockInfo/>
                                 </div>
