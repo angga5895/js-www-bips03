@@ -2238,14 +2238,14 @@ class PortofolioAgGrid extends React.PureComponent {
                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 69 : 150,
                     cellClass : function (params) {
                         return " grid-table text-center f-12";
-                    }
+                    }, suppressSizeToFit: true
                 },
-                { field: "avgprice", headerName: "Avg. Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 94 : 150,
+                { field: "avgprice", headerName: "Avg. Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 94 : 206,
                     cellClass : function (params) {
                         return " text-right grid-table f-12";
                     }
                 },
-                { field: "lastprice", headerName: "Last Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 92 : 150,
+                { field: "lastprice", headerName: "Last Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 92 : 207,
                     cellClass : function (params) {
                         var pl = params.data.pl;
                         return pl.includes('-') === true ? "text-danger text-right  grid-table f-12" :
@@ -2262,29 +2262,29 @@ class PortofolioAgGrid extends React.PureComponent {
                             '<i class="icofont icofont-caret-up text-success"></i>';
                     }
                 },
-                { field: "lot", headerName: "Lot", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 58 : 90,
+                { field: "lot", headerName: "Lot", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 58 : 124,
                             cellClass : function (params) {
                                 return " text-right grid-table f-12";
                             }
                         },
-                { field: "shares", headerName: "Shares", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 76 : 90,
+                { field: "shares", headerName: "Shares", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 76 :124,
                     cellClass : function (params) {
                         return " text-right grid-table f-12";
                     },
                 },
-                { field: "stockval", headerName: "Stock Val", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 150,
+                { field: "stockval", headerName: "Stock Val", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
                         return " text-right grid-table f-12";
                     }
                 },
-                { field: "pl", headerName: "P/L", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 150,
+                { field: "pl", headerName: "P/L", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 207,
                     cellClass : function (params) {
                         var pl = params.data.pl;
                         return pl.includes('-') === true ? "text-danger text-right  grid-table f-12":
                             "text-success text-right  grid-table f-12";
                     }
                 },
-                { field: "remark", headerName: "Remark", sortable: false, resizable: true, width: this.props.gridView == 'grid' ? 82 : 130,
+                { field: "remark", headerName: "Remark", sortable: false, resizable: true, width: this.props.gridView == 'grid' ? 82 : 179,
                     tooltip: (params) => {
                         var code = params.data.code;
 
@@ -2338,7 +2338,7 @@ class PortofolioAgGrid extends React.PureComponent {
                         sButton.addEventListener('click', self.props.clicksell);
 
                         return eDiv;
-                    }
+                    }, suppressSizeToFit: true
                 },
             ],
             defaultColDef: {
@@ -2619,20 +2619,42 @@ class PortofolioAgGrid extends React.PureComponent {
         }
     }
 
+    onGridReady = params => {
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
+
+        params.api.sizeColumnsToFit();
+        window.addEventListener("resize", function() {
+            setTimeout(function() {
+                params.api.sizeColumnsToFit();
+            });
+        });
+
+        params.api.sizeColumnsToFit();
+    };
+
+    onFirstDataRendered(params) {
+        params.api.sizeColumnsToFit();
+    }
+
     render() {
         return (
-            <>
+            <div style={{ width: "100%", height: "100%" }}>
                 <div
                     className={this.props.gridView == 'grid' ? "card-235 ag-theme-balham-dark ag-bordered" : "card-580 ag-theme-balham-dark ag-bordered"}
+                    id="myGrid"
                     style={{
-                        width: 'auto' }}>
+                        width: "100%"
+                    }}>
                     <AgGridReact
                         columnDefs={this.state.columnDefs}
                         rowData={this.state.rowData}
-                        defaultColDef={this.state.defaultColDef}>
+                        defaultColDef={this.state.defaultColDef}
+                        onGridReady={this.onGridReady}
+                        onFirstDataRendered={this.onFirstDataRendered.bind(this)}>
                     </AgGridReact>
                 </div>
-            </>
+            </div>
         );
     }
 }
@@ -2643,31 +2665,31 @@ class FixedIncomeAgGrid extends React.PureComponent {
         const self = this;
         this.state = {
             columnDefs: [
-                { field: "no", headerName: "#", sortable: true, filter: "agTextColumnFilter", width: this.props.gridView == 'grid' ? 25 : 40,
+                { field: "no", headerName: "#", sortable: true, filter: "agTextColumnFilter", width: this.props.gridView == 'grid' ? 25 : 56,
                     cellClass : function (params) {
                         return " grid-table text-center f-12";
                     }},
                 { field: "serial", headerName: "Serial", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 100 : 170,
                     cellClass : function (params) {
                         return " grid-table text-center f-12";
-                    }},
-                { field: "nominal", headerName: "Nominal (IDR)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 118 : 170,
+                    },suppressSizeToFit: true},
+                { field: "nominal", headerName: "Nominal (IDR)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 118 : 239,
                     cellClass : function (params) {
                         return " grid-table text-right f-12";
                     }},
-                { field: "coupon", headerName: "Coupon", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 84 : 170,
+                { field: "coupon", headerName: "Coupon", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 84 : 239,
                     cellClass : function (params) {
                         return " grid-table text-right f-12";
                     } },
-                { field: "couponpdate", headerName: "Coupon Payment Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 164 : 200,
+                { field: "couponpdate", headerName: "Coupon Payment Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 164 : 282,
                     cellClass : function (params) {
                         return " grid-table text-center f-12";
                     } },
-                { field: "duedate", headerName: "Due Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 91 : 170,
+                { field: "duedate", headerName: "Due Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 91 : 239,
                     cellClass : function (params) {
                         return " grid-table text-center f-12";
                     } },
-                { field: "detail", headerName: "Detail", resizable: true, width: this.props.gridView == 'grid' ? 72 : 120,
+                { field: "detail", headerName: "Detail", resizable: true, width: this.props.gridView == 'grid' ? 72 : 170,
                     cellClass : function (params) {
                         return " grid-table text-center f-12";
                     },
@@ -2691,7 +2713,7 @@ class FixedIncomeAgGrid extends React.PureComponent {
                         sButton.addEventListener('click', function () {});*/
 
                         return eDiv;
-                    } },
+                    },suppressSizeToFit: true },
             ],
             defaultColDef: {
                 sortable: true,
@@ -2786,20 +2808,42 @@ class FixedIncomeAgGrid extends React.PureComponent {
         }
     }
 
+    onGridReady = params => {
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
+
+        params.api.sizeColumnsToFit();
+        window.addEventListener("resize", function() {
+            setTimeout(function() {
+                params.api.sizeColumnsToFit();
+            });
+        });
+
+        params.api.sizeColumnsToFit();
+    };
+
+    onFirstDataRendered(params) {
+        params.api.sizeColumnsToFit();
+    }
+
     render() {
         return (
-            <>
+            <div style={{ width: "100%", height: "100%" }}>
                 <div
                     className={this.props.gridView == 'grid' ? "card-235 ag-theme-balham-dark ag-striped-odd" : "card-580 ag-theme-balham-dark ag-striped-odd"}
+                    id="myGrid"
                     style={{
-                        width: 'auto' }}>
+                        width: "100%"
+                    }}>
                     <AgGridReact
                         columnDefs={this.state.columnDefs}
                         rowData={this.state.rowData}
-                        defaultColDef={this.state.defaultColDef}>
+                        defaultColDef={this.state.defaultColDef}
+                        onGridReady={this.onGridReady}
+                        onFirstDataRendered={this.onFirstDataRendered.bind(this)}>
                     </AgGridReact>
                 </div>
-            </>
+            </div>
         );
     }
 }
@@ -2820,16 +2864,16 @@ class MutualFundAgGrid extends React.PureComponent {
 
                         return '<span className="font-weight-bold">'+scode[0]+'</span>' +
                             '<br /><span>'+scode[1]+'</span>';
-                    } },
-                { field: "nav", headerName: "NAV", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 65 : 190,
+                    }, suppressSizeToFit: true },
+                { field: "nav", headerName: "NAV", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 65 : 274,
                     cellClass : function (params) {
                         return " grid-table text-right f-12";
                     } },
-                { field: "navdate", headerName: "NAV Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 94 : 190,
+                { field: "navdate", headerName: "NAV Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 94 : 274,
                     cellClass : function (params) {
                         return " grid-table text-right f-12";
                     } },
-                { field: "currency", headerName: "Currency", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 89 : 190,
+                { field: "currency", headerName: "Currency", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 89 : 274,
                     cellClass : function (params) {
                         return " grid-table text-right f-12";
                     }  },
@@ -2842,7 +2886,7 @@ class MutualFundAgGrid extends React.PureComponent {
                         return pl.includes('-') === true ? '<i class="icofont icofont-caret-down text-danger"></i>' :
                             '<i class="icofont icofont-caret-up text-success"></i>';
                     } },
-                { field: "potentialpl", headerName: "Potential P/L", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 230,
+                { field: "potentialpl", headerName: "Potential P/L", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 331,
                     cellClass : function (params) {
                         var pl = params.data.potentialpl;
                         return pl.includes('-') === true ? 'grid-table text-right f-12 text-danger' :
@@ -2865,7 +2909,7 @@ class MutualFundAgGrid extends React.PureComponent {
                         sButton.addEventListener('click', function(){});*/
 
                         return eDiv;
-                    } },
+                    }, suppressSizeToFit: true },
             ],
             defaultColDef: {
                 sortable: true,
@@ -2949,21 +2993,43 @@ class MutualFundAgGrid extends React.PureComponent {
         }
     }
 
+    onGridReady = params => {
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
+
+        params.api.sizeColumnsToFit();
+        window.addEventListener("resize", function() {
+            setTimeout(function() {
+                params.api.sizeColumnsToFit();
+            });
+        });
+
+        params.api.sizeColumnsToFit();
+    };
+
+    onFirstDataRendered(params) {
+        params.api.sizeColumnsToFit();
+    }
+
     render() {
         return (
-            <>
+            <div style={{ width: "100%", height: "100%" }}>
                 <div
                     className={this.props.gridView == 'grid' ? "card-235 ag-theme-balham-dark" : "card-580 ag-theme-balham-dark"}
+                    id="myGrid"
                     style={{
-                        width: 'auto' }}>
+                        width: "100%"
+                    }}>
                     <AgGridReact
                         columnDefs={this.state.columnDefs}
                         rowData={this.state.rowData}
                         defaultColDef={this.state.defaultColDef}
-                        getRowHeight={this.state.getRowHeight}>
+                        getRowHeight={this.state.getRowHeight}
+                        onGridReady={this.onGridReady}
+                        onFirstDataRendered={this.onFirstDataRendered.bind(this)}>
                     </AgGridReact>
                 </div>
-            </>
+            </div>
         );
     }
 }
