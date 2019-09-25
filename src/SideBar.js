@@ -32,52 +32,52 @@ class SideBar extends React.Component{
                             <div className="nav-link align-self-center text-center px-0 d-border col-sm-12 my-0 py-0">
                                 <Dropdown placeholder='Group' search selection options={option} className={"f-9 text-center align-self-center col-sm-12 grey"} defaultValue="groupA"/>
                             </div>
-                            <div className="align-self-center text-center px-sidebar mb-1 mt-3 click-pointer">
+                            <div className="align-self-center text-center px-sidebar my-sidebar click-pointer">
                                 <h5>AALI</h5>
                                 <p className="f-11-center mb-1 text-danger">12,650</p>
                                 <hr className="bg-white my-0"/>
                             </div>
-                            <div className="align-self-center text-center px-sidebar mb-1 mt-3 click-pointer">
+                            <div className="align-self-center text-center px-sidebar my-sidebar click-pointer">
                                 <h5>ADHI</h5>
                                 <p className="f-11-center mb-1 text-danger">1,529</p>
                                 <hr className="bg-white my-0"/>
                             </div>
-                            <div className="align-self-center text-center px-sidebar mb-1 mt-3 click-pointer">
+                            <div className="align-self-center text-center px-sidebar my-sidebar click-pointer">
                                 <h5>ANTM</h5>
                                 <p className="f-11-center mb-1 text-danger">27,400</p>
                                 <hr className="bg-white my-0"/>
                             </div>
-                            <div className="align-self-center text-center px-sidebar mb-1 mt-3 click-pointer">
+                            <div className="align-self-center text-center px-sidebar my-sidebar click-pointer">
                                 <h5>ASII</h5>
                                 <p className="f-11-center mb-1 text-danger">1,025</p>
                                 <hr className="bg-white my-0"/>
                             </div>
-                            <div className="align-self-center text-center px-sidebar mb-1 mt-3 click-pointer">
+                            <div className="align-self-center text-center px-sidebar my-sidebar click-pointer">
                                 <h5>TLKM</h5>
                                 <p className="f-11-center mb-1 text-danger">1,025</p>
                                 <hr className="bg-white my-0"/>
                             </div>
-                            <div className="align-self-center text-center px-sidebar mb-1 mt-3 click-pointer">
+                            <div className="align-self-center text-center px-sidebar my-sidebar click-pointer">
                                 <h5>WSKT</h5>
                                 <p className="f-11-center mb-1 text-danger">1,025</p>
                                 <hr className="bg-white my-0"/>
                             </div>
-                            <div className="align-self-center text-center px-sidebar mb-1 mt-3 click-pointer">
+                            <div className="align-self-center text-center px-sidebar my-sidebar click-pointer">
                                 <h5>INDF</h5>
                                 <p className="f-11-center mb-1 text-danger">1,025</p>
                                 <hr className="bg-white my-0"/>
                             </div>
-                            <div className="align-self-center text-center px-sidebar mb-1 mt-3 click-pointer">
+                            <div className="align-self-center text-center px-sidebar my-sidebar click-pointer">
                                 <h5>BBCA</h5>
                                 <p className="f-11-center mb-1 text-danger">1,025</p>
                                 <hr className="bg-white my-0"/>
                             </div>
-                            <div className="align-self-center text-center px-sidebar mb-1 mt-3 click-pointer">
+                            <div className="align-self-center text-center px-sidebar my-sidebar click-pointer">
                                 <h5>SMGR</h5>
                                 <p className="f-11-center mb-1 text-danger">1,025</p>
                                 <hr className="bg-white my-0"/>
                             </div>
-                            <div className="align-self-center text-center px-sidebar mb-1 mt-3 click-pointer">
+                            <div className="align-self-center text-center px-sidebar my-sidebar click-pointer">
                                 <h5>BBRI</h5>
                                 <p className="f-11-center mb-1 text-danger">1,025</p>
                                 <hr className="bg-white my-0"/>
