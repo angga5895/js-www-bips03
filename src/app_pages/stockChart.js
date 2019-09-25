@@ -16,6 +16,10 @@ require('../../node_modules/bootstrap/dist/js/bootstrap.js');
 
 class StockChart extends Component {
 
+    componentDidMount() {
+        $('#chart-container').css('height', '100%');
+    }
+
     render() {
 
         anychart.onDocumentReady(function () {
@@ -117,7 +121,7 @@ class StockChart extends Component {
 
         return (
             // <div id="container" style={chartDisplay}></div>
-            <AnyChart width={716} height={310} instance={chart} title="Stock Info" />
+            <AnyChart instance={chart} id="chart-container" title="Stock Info" />
         );
     }
 }

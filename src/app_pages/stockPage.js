@@ -450,7 +450,8 @@ const StockWatchlist = (props) => {
                     <TableStockWatchlist/>
                 </div>
                 <div className="col-sm-8 px-0 mx-0">
-                    <div className="col-sm-12 px-2 d-border-bottom">
+                    {/*<div className="col-sm-12 px-2 d-border-bottom">*/}
+                    <div className="col-sm-12 px-2">
                         <MenuOfContent linkTitles={
                             {
                                 stockWatchlistBuy : 'BUY',
@@ -496,9 +497,10 @@ class TableStockWatchlist_Base extends React.Component{
             <div className="bg-black-trading f-12">
                 {/*<button onClick={this.handleSubcribeMsg}>subscribe</button>*/}
                 <AppFrameAction ref="frameAction" />
-                <div className="d-border-bottom">
-                    <div className="col-sm-12 px-0 row">
-                        <div className="col-sm-6 px-0 mx-0 text-left pt-3 pb-2">
+                {/*<div className="d-border-bottom">*/}
+                <div>
+                    <div className="col-sm-12 px-0">
+                        {/*<div className="col-sm-6 px-0 mx-0 text-left pt-3 pb-2">*/}
                             {/*<UncontrolledDropdown setActiveFromChild>
                                 <DropdownToggle tag="a">
                                     <label className="ml-3 btn btn-sm btn-grey col-md-9">
@@ -511,7 +513,7 @@ class TableStockWatchlist_Base extends React.Component{
                                     <DropdownItem tag="a" href="#" className="item-hover text-white">T.Vol</DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>*/}
-                            <Dropdown text={
+                            {/*<Dropdown text={
                                 <label className="col-sm-9">
                                     Order by
                                 </label>
@@ -522,13 +524,14 @@ class TableStockWatchlist_Base extends React.Component{
                                     <Dropdown.Item className="f-12 item-hover text-white text-left px-2" text={"T.Vol"} />
                                 </Dropdown.Menu>
                             </Dropdown>
-                        </div>
-                        <div className="col-sm-6 px-0 mx-0 text-right pt-3 pb-1">
-                            <button className="btn btn-sm btn-grey" onClick={this.buttonClickAmendRegister}>Register/Amend</button>
+                        </div>*/}
+                        {/*<div className="col-sm-6 px-0 mx-0 text-right pt-3 pb-1">*/}
+                        <div className="col-sm-12 mx-0 pt-3 pb-2">
+                            <button className="btn btn-sm btn-grey" onClick={this.buttonClickAmendRegister}>Modify Watchlist</button>
                         </div>
                     </div>
                 </div>
-                <div className="px-4 py-4">
+                <div className="pl-4 pr-2 py-4">
                     <StockWatchlistAgGrid />
                 </div>
             </div>
@@ -543,10 +546,10 @@ class BuyPage extends React.Component{
                 <AppFrameAction ref="frameAction" />
                 <WSConnectionAction /> {/* websocket connection component */}
                 <div className="col sm-8 px-0 mx-0 row">
-                    <div className="col-sm-6 pr-3 pl-0 mt-4 f-12">
+                    <div className="col-sm-6 pr-3 pl-0 mt-0 f-12">
                         <TableInfoTransaction lotshare="buyPage" />
                     </div>
-                    <div className="col-sm-6 mt-4 d-border-active bg-dark-grey pb-3">
+                    <div className="col-sm-6 mt-0 d-border-active bg-dark-grey pb-3">
                         <FormBuy idPrice="stockBuyPrice" idVol="stockBuyVol" idValue="stockBuyValue" columnSm="col-sm-12" />
                     </div>
                 </div>
@@ -563,10 +566,10 @@ class SellPage extends React.Component{
                 <AppFrameAction ref="frameAction" />
                 <WSConnectionAction /> {/* websocket connection component */}
                 <div className="col sm-8 px-0 mx-0 row">
-                    <div className="col-sm-6 pr-3 pl-0 mt-4 f-12">
+                    <div className="col-sm-6 pr-3 pl-0 mt-0 f-12">
                         <TableInfoTransaction lotshare="sellPage" />
                     </div>
-                    <div className="col-sm-6 mt-4 d-border-active bg-dark-grey pb-3">
+                    <div className="col-sm-6 mt-0 d-border-active bg-dark-grey pb-3">
                         <FormSell idPrice="stockSellPrice" idVol="stockSellVol" idValue="stockSellValue" columnSm="col-sm-12"/>
                     </div>
                 </div>
