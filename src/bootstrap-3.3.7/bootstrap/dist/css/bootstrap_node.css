@@ -32,8 +32,6 @@
   --column-col-sm-3-6 : 25%;
   --column-col-sm-2-4 : 16.666667%;
 
-  /*variable scale*/
-  --py-2-scale : .5rem;
 }
 
 @media (max-width: 1440px) {
@@ -53,7 +51,7 @@
     --card-170 : 170px;
     --card-550 : 550px;
     --card-grafik : 310px;
-    --card-530 : 540px;
+    --card-530 : 523px;
     --card-500 : 500px;
     --card-160 : 160px;
     --card-592 : 592px;
@@ -61,6 +59,8 @@
     --card-558 : 570px;
     --card-235 : 235px;
     --card-580 : 580px;
+      /*variable scale*/
+      --py-2-scale : .5rem;
   }
 }
 
@@ -81,7 +81,7 @@
     --card-170 : 200px;
     --card-550 : 630px;
     --card-grafik : 390px;
-    --card-530 : 620px;
+    --card-530 : 595px;
     --card-500 : 580px;
     --card-160 : 185px;
     --card-592 : 655px;
@@ -89,6 +89,8 @@
     --card-558 : 650px;
     --card-235 : 270px;
     --card-580 : 665px;
+      /*variable scale*/
+      --py-2-scale : 9.5px;
   }
 }
 
@@ -109,7 +111,7 @@
     --card-170 : 228px;
     --card-550 : 725px;
     --card-grafik : 480px;
-    --card-530 : 720px;
+    --card-530 : 690px;
     --card-500 : 680px;
     --card-160 : 218px;
     --card-592 : 780px;
@@ -117,6 +119,8 @@
     --card-558 : 755px;
     --card-235 : 325px;
     --card-580 : 765px;
+      /*variable scale*/
+      --py-2-scale : 14.25px;
   }
 }
 
