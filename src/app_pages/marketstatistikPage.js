@@ -177,7 +177,7 @@ class MarketStatistikPage extends React.PureComponent {
                                         }
                                     }>
                                         <input type="radio" id="tl-options" name="top" checked={this.state.top == "toploosers" ? true : false}/>
-                                        <label htmlFor="tl-options" className="no-wrap">Top Loosers</label>
+                                        <label htmlFor="tl-options" className="no-wrap">Top Losers</label>
 
                                         <div className="check"></div>
                                     </li>
@@ -371,7 +371,7 @@ class MarketStatistikPage extends React.PureComponent {
                                             }
                                         }>
                                             <input type="radio" id="tl-options" name="top" checked={this.state.top == "toploosers" ? true : false}/>
-                                            <label htmlFor="tl-options" className="no-wrap">Top Loosers</label>
+                                            <label htmlFor="tl-options" className="no-wrap">Top Losers</label>
 
                                             <div className="check"></div>
                                         </li>
@@ -2131,7 +2131,7 @@ class CustomToolbarMarketStatistik extends React.PureComponent {
                                                 }
                                             }>
                                                 <input type="radio" id="tl-options" name="top" checked={this.state.top == "toploosers" ? true : false}/>
-                                                <label htmlFor="tl-options" className="no-wrap">Top Loosers</label>
+                                                <label htmlFor="tl-options" className="no-wrap">Top Losers</label>
 
                                                 <div className="check"></div>
                                             </li>
