@@ -3190,82 +3190,85 @@ class MarketStatistikAgGrid extends React.PureComponent {
                         return last < prev ? "text-danger text-right  grid-table f-12":
                             last > prev ? "text-success text-right grid-table f-12" :
                                 "text-warning text-right grid-table f-12";
-                    } },
-                { field: "indicator", headerName: "", width: 20,
-                    cellClass : function (params) {
-                        return " grid-table text-center f-12";
                     },
                     cellRenderer : function (params) {
-                        var change = params.data.change;
-                        return change.includes('-') === true ? '<i class="icofont icofont-caret-down text-danger"></i>' :
-                            change.includes('+') === true ? '<i class="icofont icofont-caret-up text-success"></i>' :
-                            '<i class="icofont icofont-minus text-warning"></i>';
-                    }  },
+                        var prev = parseFloat(params.data.prev.replace(/,/g,""));
+                        var last = parseFloat(params.data.last.replace(/,/g,""));
+                        var lasts = params.data.last;
+                        return last < prev ? lasts +'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icofont icofont-caret-down text-danger"></i>' :
+                            last > prev ? lasts +'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icofont icofont-caret-up text-success"></i>' :
+                                lasts +'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icofont icofont-minus text-warning"></i>';
+                    } },
                 { field: "change", headerName: "Change", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 105,
                     cellClass : function (params) {
-                        var change = params.data.change;
-                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
-                            change.includes('+') === true ? "text-success text-right grid-table f-12" :
-                            "text-warning text-right grid-table f-12";
+                        var prev = parseFloat(params.data.prev.replace(/,/g,""));
+                        var last = parseFloat(params.data.last.replace(/,/g,""));
+                        return last < prev ? "text-danger text-right  grid-table f-12":
+                            last > prev ? "text-success text-right grid-table f-12" :
+                                "text-warning text-right grid-table f-12";
                     } },
                 { field: "persen", headerName: "%", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 73,
                     cellClass : function (params) {
-                        var change = params.data.change;
-                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
-                            change.includes('+') === true ? "text-success text-right grid-table f-12" :
+                        var prev = parseFloat(params.data.prev.replace(/,/g,""));
+                        var last = parseFloat(params.data.last.replace(/,/g,""));
+                        return last < prev ? "text-danger text-right  grid-table f-12":
+                            last > prev ? "text-success text-right grid-table f-12" :
                                 "text-warning text-right grid-table f-12";
                     } },
                 { field: "open", headerName: "Open", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 91,
                     cellClass : function (params) {
                         var prev = parseFloat(params.data.prev.replace(/,/g,""));
-                        var open = parseFloat(params.data.open.replace(/,/g,""));
-                        return open < prev ? "text-danger text-right  grid-table f-12":
-                            open > prev ? "text-success text-right grid-table f-12" :
+                        var last = parseFloat(params.data.last.replace(/,/g,""));
+                        return last < prev ? "text-danger text-right  grid-table f-12":
+                            last > prev ? "text-success text-right grid-table f-12" :
                                 "text-warning text-right grid-table f-12";
                     } },
                 { field: "low", headerName: "Low", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 82,
                     cellClass : function (params) {
                         var prev = parseFloat(params.data.prev.replace(/,/g,""));
-                        var low = parseFloat(params.data.low.replace(/,/g,""));
-                        return low < prev ? "text-danger text-right  grid-table f-12":
-                            low > prev ? "text-success text-right grid-table f-12" :
+                        var last = parseFloat(params.data.last.replace(/,/g,""));
+                        return last < prev ? "text-danger text-right  grid-table f-12":
+                            last > prev ? "text-success text-right grid-table f-12" :
                                 "text-warning text-right grid-table f-12";
                     } },
                 { field: "high", headerName: "High", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 86,
                     cellClass : function (params) {
                         var prev = parseFloat(params.data.prev.replace(/,/g,""));
-                        var high = parseFloat(params.data.high.replace(/,/g,""));
-                        return high < prev ? "text-danger text-right  grid-table f-12":
-                            high > prev ? "text-success text-right grid-table f-12" :
+                        var last = parseFloat(params.data.last.replace(/,/g,""));
+                        return last < prev ? "text-danger text-right  grid-table f-12":
+                            last > prev ? "text-success text-right grid-table f-12" :
                                 "text-warning text-right grid-table f-12";
                     } },
                 { field: "avg", headerName: "Avg.", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 82,
                     cellClass : function (params) {
                         var prev = parseFloat(params.data.prev.replace(/,/g,""));
-                        var avg = parseFloat(params.data.avg.replace(/,/g,""));
-                        return avg < prev ? "text-danger text-right  grid-table f-12":
-                            avg > prev ? "text-success text-right grid-table f-12" :
+                        var last = parseFloat(params.data.last.replace(/,/g,""));
+                        return last < prev ? "text-danger text-right  grid-table f-12":
+                            last > prev ? "text-success text-right grid-table f-12" :
                                 "text-warning text-right grid-table f-12";
                     } },
                 { field: "val", headerName: "Val(Bn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 102,
                     cellClass : function (params) {
-                        var change = params.data.change;
-                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
-                            change.includes('+') === true ? "text-success text-right grid-table f-12" :
+                        var prev = parseFloat(params.data.prev.replace(/,/g,""));
+                        var last = parseFloat(params.data.last.replace(/,/g,""));
+                        return last < prev ? "text-danger text-right  grid-table f-12":
+                            last > prev ? "text-success text-right grid-table f-12" :
                                 "text-warning text-right grid-table f-12";
                     } },
                 { field: "vol", headerName: "Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 75,
                     cellClass : function (params) {
-                        var change = params.data.change;
-                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
-                            change.includes('+') === true ? "text-success text-right grid-table f-12" :
+                        var prev = parseFloat(params.data.prev.replace(/,/g,""));
+                        var last = parseFloat(params.data.last.replace(/,/g,""));
+                        return last < prev ? "text-danger text-right  grid-table f-12":
+                            last > prev ? "text-success text-right grid-table f-12" :
                                 "text-warning text-right grid-table f-12";
                     } },
                 { field: "freq", headerName: "Freq", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 82,
                     cellClass : function (params) {
-                        var change = params.data.change;
-                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
-                            change.includes('+') === true ? "text-success text-right grid-table f-12" :
+                        var prev = parseFloat(params.data.prev.replace(/,/g,""));
+                        var last = parseFloat(params.data.last.replace(/,/g,""));
+                        return last < prev ? "text-danger text-right  grid-table f-12":
+                            last > prev ? "text-success text-right grid-table f-12" :
                                 "text-warning text-right grid-table f-12";
                     } },
                 { field: "fbuy", headerName: "F.Buy", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 90,
@@ -3313,7 +3316,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "TLKM",
                     prev : "4,010",
                     last : "3,980",
-                    indicator : "",
                     change : "-30",
                     persen : "-0.7",
                     open : "4,020",
@@ -3334,7 +3336,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "AALI",
                     prev : "29,550",
                     last : "29,325",
-                    indicator : "",
                     change : "-225",
                     persen : "-0.8",
                     open : "29,700",
@@ -3355,7 +3356,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "BBCA",
                     prev : "7,950",
                     last : "7,950",
-                    indicator : "",
                     change : "0",
                     persen : "0",
                     open : "7,850",
@@ -3376,7 +3376,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "WSKT",
                     prev : "4,330",
                     last : "4,360",
-                    indicator : "",
                     change : "+30",
                     persen : "+0.7",
                     open : "4,330",
@@ -3397,7 +3396,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "BBRI",
                     prev : "1,980",
                     last : "1,945",
-                    indicator : "",
                     change : "-35",
                     persen : "-1.8",
                     open : "1,980",
@@ -3418,7 +3416,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "WIKA",
                     prev : "2,240",
                     last : "2,180",
-                    indicator : "",
                     change : "-60",
                     persen : "-2.7",
                     open : "2,240",
@@ -3439,7 +3436,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "ASRI",
                     prev : "2,350",
                     last : "2,340",
-                    indicator : "",
                     change : "-10",
                     persen : "-0.4",
                     open : "2,350",
@@ -3459,7 +3455,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "PPTP",
                     prev : "1,160",
                     last : "1,170",
-                    indicator : "",
                     change : "+10",
                     persen : "+0.9",
                     open : "1,155",
@@ -3480,7 +3475,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "BMRI",
                     prev : "346",
                     last : "346",
-                    indicator : "",
                     change : "0",
                     persen : "0",
                     open : "346",
@@ -3500,7 +3494,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "CTRA",
                     prev : "1,075",
                     last : "1,065",
-                    indicator : "",
                     change : "-10",
                     persen : "-0.9",
                     open : "1,080",
@@ -3521,7 +3514,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "TLKM",
                     prev : "4,010",
                     last : "3,980",
-                    indicator : "",
                     change : "-30",
                     persen : "-0.7",
                     open : "4,020",
@@ -3542,7 +3534,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "AALI",
                     prev : "29,550",
                     last : "29,325",
-                    indicator : "",
                     change : "-225",
                     persen : "-0.8",
                     open : "29,700",
@@ -3563,7 +3554,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "BBCA",
                     prev : "7,950",
                     last : "7,950",
-                    indicator : "",
                     change : "0",
                     persen : "0",
                     open : "7,850",
@@ -3584,7 +3574,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "WSKT",
                     prev : "4,330",
                     last : "4,360",
-                    indicator : "",
                     change : "+30",
                     persen : "+0.7",
                     open : "4,330",
@@ -3605,7 +3594,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "BBRI",
                     prev : "1,980",
                     last : "1,945",
-                    indicator : "",
                     change : "-35",
                     persen : "-1.8",
                     open : "1,980",
@@ -3626,7 +3614,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "WIKA",
                     prev : "2,240",
                     last : "2,180",
-                    indicator : "",
                     change : "-60",
                     persen : "-2.7",
                     open : "2,240",
@@ -3647,7 +3634,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "ASRI",
                     prev : "2,350",
                     last : "2,340",
-                    indicator : "",
                     change : "-10",
                     persen : "-0.4",
                     open : "2,350",
@@ -3667,7 +3653,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "PPTP",
                     prev : "1,160",
                     last : "1,170",
-                    indicator : "",
                     change : "+10",
                     persen : "+0.9",
                     open : "1,155",
@@ -3688,7 +3673,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "BMRI",
                     prev : "346",
                     last : "346",
-                    indicator : "",
                     change : "0",
                     persen : "0",
                     open : "346",
@@ -3708,7 +3692,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "CTRA",
                     prev : "1,075",
                     last : "1,065",
-                    indicator : "",
                     change : "-10",
                     persen : "-0.9",
                     open : "1,080",
@@ -3729,7 +3712,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "TLKM",
                     prev : "4,010",
                     last : "3,980",
-                    indicator : "",
                     change : "-30",
                     persen : "-0.7",
                     open : "4,020",
@@ -3750,7 +3732,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "AALI",
                     prev : "29,550",
                     last : "29,325",
-                    indicator : "",
                     change : "-225",
                     persen : "-0.8",
                     open : "29,700",
@@ -3771,7 +3752,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "BBCA",
                     prev : "7,950",
                     last : "7,950",
-                    indicator : "",
                     change : "0",
                     persen : "0",
                     open : "7,850",
@@ -3792,7 +3772,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "WSKT",
                     prev : "4,330",
                     last : "4,360",
-                    indicator : "",
                     change : "+30",
                     persen : "+0.7",
                     open : "4,330",
@@ -3813,7 +3792,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "BBRI",
                     prev : "1,980",
                     last : "1,945",
-                    indicator : "",
                     change : "-35",
                     persen : "-1.8",
                     open : "1,980",
@@ -3834,7 +3812,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "WIKA",
                     prev : "2,240",
                     last : "2,180",
-                    indicator : "",
                     change : "-60",
                     persen : "-2.7",
                     open : "2,240",
@@ -3855,7 +3832,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "ASRI",
                     prev : "2,350",
                     last : "2,340",
-                    indicator : "",
                     change : "-10",
                     persen : "-0.4",
                     open : "2,350",
@@ -3875,7 +3851,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "PPTP",
                     prev : "1,160",
                     last : "1,170",
-                    indicator : "",
                     change : "+10",
                     persen : "+0.9",
                     open : "1,155",
@@ -3896,7 +3871,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "BMRI",
                     prev : "346",
                     last : "346",
-                    indicator : "",
                     change : "0",
                     persen : "0",
                     open : "346",
@@ -3916,7 +3890,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     code : "CTRA",
                     prev : "1,075",
                     last : "1,065",
-                    indicator : "",
                     change : "-10",
                     persen : "-0.9",
                     open : "1,080",
@@ -4016,52 +3989,53 @@ class MarketIndicesAgGrid extends React.PureComponent {
                     },suppressSizeToFit: true, pinned: 'left'},
                 { field: "last", headerName: "Last", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 128,
                     cellClass : function (params) {
-                        var change = params.data.change;
-                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
-                            "text-success text-right grid-table f-12";
+                        var change = parseFloat(params.data.change.replace(/,/g,""));
+                        return change < 0 ? "text-danger text-right  grid-table f-12":
+                            change > 0 ? "text-success text-right grid-table f-12" :
+                                "text-warning text-right grid-table f-12";
                     }},
                 { field: "change", headerName: "Change", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 122,
                     cellClass : function (params) {
-                        var change = params.data.change;
-                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
-                            "text-success text-right grid-table f-12";
+                        var change = parseFloat(params.data.change.replace(/,/g,""));
+                        return change < 0 ? "text-danger text-right  grid-table f-12":
+                            change > 0 ? "text-success text-right grid-table f-12" :
+                                "text-warning text-right grid-table f-12";
                     }},
                 { field: "persen", headerName: "%" , sortable: true, filter: "agTextColumnFilter", resizable: true, width: 122,
                     cellClass : function (params) {
-                        var change = params.data.change;
-                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
-                            "text-success text-right grid-table f-12";
+                        var change = parseFloat(params.data.change.replace(/,/g,""));
+                        return change < 0 ? "text-danger text-right  grid-table f-12":
+                            change > 0 ? "text-success text-right grid-table f-12" :
+                                "text-warning text-right grid-table f-12";
                     }},
                 { field: "prevclosed", headerName: "Prev. Closed", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 122,
                     cellClass : function (params) {
-                        var change = params.data.change;
-                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
-                            "text-success text-right grid-table f-12";
+                        var change = parseFloat(params.data.change.replace(/,/g,""));
+                        return change < 0 ? "text-danger text-right  grid-table f-12":
+                            change > 0 ? "text-success text-right grid-table f-12" :
+                                "text-warning text-right grid-table f-12";
                     }},
                 { field: "open", headerName: "Open", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 122,
                     cellClass : function (params) {
-                        var prev = parseFloat(params.data.prevclosed.replace(/,/g,""));
-                        var open = parseFloat(params.data.open.replace(/,/g,""));
-                        return open < prev ? "text-danger text-right  grid-table f-12":
-                            open > prev ? "text-success text-right grid-table f-12" :
+                        var change = parseFloat(params.data.change.replace(/,/g,""));
+                        return change < 0 ? "text-danger text-right  grid-table f-12":
+                            change > 0 ? "text-success text-right grid-table f-12" :
                                 "text-warning text-right grid-table f-12";
-                    } },
+                    }},
                 { field: "high", headerName: "High", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 122,
                     cellClass : function (params) {
-                        var prev = parseFloat(params.data.prevclosed.replace(/,/g,""));
-                        var high = parseFloat(params.data.high.replace(/,/g,""));
-                        return high < prev ? "text-danger text-right  grid-table f-12":
-                            high > prev ? "text-success text-right grid-table f-12" :
+                        var change = parseFloat(params.data.change.replace(/,/g,""));
+                        return change < 0 ? "text-danger text-right  grid-table f-12":
+                            change > 0 ? "text-success text-right grid-table f-12" :
                                 "text-warning text-right grid-table f-12";
-                    } },
+                    }},
                 { field: "low", headerName: "Low", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 122,
                     cellClass : function (params) {
-                        var prev = parseFloat(params.data.prevclosed.replace(/,/g,""));
-                        var low = parseFloat(params.data.low.replace(/,/g,""));
-                        return low < prev ? "text-danger text-right  grid-table f-12":
-                            low > prev ? "text-success text-right grid-table f-12" :
+                        var change = parseFloat(params.data.change.replace(/,/g,""));
+                        return change < 0 ? "text-danger text-right  grid-table f-12":
+                            change > 0 ? "text-success text-right grid-table f-12" :
                                 "text-warning text-right grid-table f-12";
-                    } },
+                    }},
                 { field: "volume", headerName: "Volume", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 122,
                     cellClass : function (params) {
                         return " grid-table text-center f-12";
