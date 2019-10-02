@@ -140,8 +140,8 @@ class SignUpModal extends React.PureComponent {
         return (
             <>
                 <AppFrameAction ref="frameAction" />
-                <div className="text-white f-12">
-                    <div class="col align-self-center py-5">
+                <div className="text-white f-12 container-fluid">
+                    <div className="col align-self-center py-5">
                         <div className="step-tab">
                             <div id="crumbs">
                                 <ul className="nav nav-pills">
