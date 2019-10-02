@@ -29,7 +29,7 @@ class TableInfoTransaction extends React.PureComponent{
                     <div className="col-sm-3-6 px-0 mx-0">
                         <label className="col-sm-12 f-12 f-xs-14 px-0 mx-0 text-primary text-center">
                             7,000,545,000,000
-                            <br/><span className="text-white f-9">My Investment In AALI</span>
+                            <br/><span className="text-white f-9">Investment In AALI</span>
                         </label>
                     </div>
 
@@ -57,7 +57,7 @@ class TableInfoTransaction extends React.PureComponent{
                     </div>
                 </div>
 
-                <div><i className="fa fa-info-circle text-danger"></i>&nbsp; Not yet submit annual financial report</div>
+                <div className="my-3">{/*<i className="fa fa-info-circle text-danger"></i>&nbsp; Not yet submit annual financial report*/}</div>
 
                 <Table responsive borderless size="sm" className="text-white d-border-table bg-dark-grey">
                     <thead></thead>
@@ -104,6 +104,8 @@ class TableInfoTransaction extends React.PureComponent{
                     </tr>
                     </tbody>
                 </Table>
+
+                <div className="my-3"></div>
 
                 <div className="card bg-dark-grey">
                     <div className="col-sm-12 row mx-0 px-2">

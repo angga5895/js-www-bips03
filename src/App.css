@@ -1154,6 +1154,21 @@ button.bg-gold:hover {
     color:var(--warna-text-menu)!important;
 }
 
+.li-menu-watchlist {
+    width : 50%;
+    float: left;
+    background-color: var(--warna-bg-dark-grey);
+    border:1px solid var(--warna-d-border);
+}
+
+.li-menu-watchlist:last-child {
+    border-left:none;
+}
+
+.li-menu-watchlist:first-child {
+    border-right:none;
+}
+
 .li-menu {
     width : 20%;
     float: left;
@@ -2661,7 +2676,7 @@ body:fullscreen::backdrop {
 }
 .more-last{
     margin-top: -5px;
-    padding-left:30px;
+    padding-left:25px;
 }
 /* .active{
 	background: #0070c1;
@@ -2784,12 +2799,12 @@ body:fullscreen::backdrop {
 
 .content-step{
     display: block;
-    width: 784px;
+    width: 780px;
     height: 528px;
     padding-top: 15px;
     /* align-text:center; */
     background: #3a3937;
-    margin-left: 287px;
+    /* margin-left: 287px; */
     /* overflow:scroll; */
     overflow-y: auto;
     overflow-x: hidden;
@@ -2802,9 +2817,9 @@ body:fullscreen::backdrop {
     padding-top: 5px;
     padding-right: 15px;
     padding-bottom: 10px;
-    width: 784px;
+    width: 780px;
     background: #3a3937;
-    margin-left: 287px;
+    /* margin-left: 287px; */
 
 
     /* height: 575px; */
@@ -2825,10 +2840,10 @@ body:fullscreen::backdrop {
     border: 0;
 }
 
-/*.ui.menu .item {
-    border:0;
-    color:white;
-}*/
+.ui.menu .item {
+    /*border:0;*/
+    /*color:white;*/
+}
 
 .setting-title{
     padding-bottom: 20px;
@@ -2844,9 +2859,9 @@ body:fullscreen::backdrop {
     /*border-radius: 6.5px;*/
 
 }
-/*.ui.search.dropdown {
-    border-radius: 6.5px;
-}*/
+.ui.search.dropdown {
+    /*border-radius: 6.5px;*/
+}
 
 .step1 a{
     width: 131px !important;
@@ -2854,7 +2869,9 @@ body:fullscreen::backdrop {
     padding-top: 30px;
 }
 .step-last a{
-    width: 179px !important;
+    width: 175px !important;
+    margin-right: 0px !important;
+
 }
 
 .setting{

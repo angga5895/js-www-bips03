@@ -228,16 +228,20 @@ class NumberInput extends React.PureComponent{
 
         return (
             <>
-                <div className={inputSize+" ui input "+inputClassName}>
-                    <button type="button" className={"ui icon button bg-grey px-1 d-border-left d-border-top d-border-bottom "+inputIdClassName} style={{"border-top-right-radius": "0px", "border-bottom-right-radius": "0px", "margin": "0px"}} command="Down">
-                        <i className="minus icon"></i>
-                    </button>
+                <div className={inputSize+" input-group "+inputClassName}>
+                    <span className="input-group-btn">
+                        <button type="button" className={"form-control ui icon button bg-grey px-2 d-border-left d-border-top d-border-bottom "+inputIdClassName} style={{"border-top-right-radius": "0px", "border-bottom-right-radius": "0px", "margin": "0px"}} command="Down">
+                            <i className="icofont icofont-minus f-9"></i>
+                        </button>
+                    </span>
                     <input type="text" id={inputIdClassName} name={inputName} data-type="currency"
                            placeholder={inputPlaceholder}
-                           style={{"border-radius": "0px", "text-align": "right"}}/>
-                    <button type="button" className={"ui icon button bg-grey px-1 d-border-right d-border-top d-border-bottom "+inputIdClassName} style={{"border-top-left-radius": "0px", "border-bottom-left-radius": "0px"}} command="Up">
-                        <i className="plus icon"></i>
-                    </button>
+                           style={{"border-radius": "0px", "text-align": "right", "border-right": "0", "border-left":"0"}} className="form-control f-12"/>
+                    <span className="input-group-btn">
+                        <button type="button" className={"form-control ui icon button bg-grey px-2 d-border-right d-border-top d-border-bottom "+inputIdClassName} style={{"border-top-left-radius": "0px", "border-bottom-left-radius": "0px"}} command="Up">
+                            <span className="icofont icofont-plus f-9"></span>
+                        </button>
+                    </span>
                 </div>
             </>
         );

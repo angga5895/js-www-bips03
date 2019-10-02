@@ -451,13 +451,16 @@ const StockWatchlist = (props) => {
                 </div>
                 <div className="col-sm-8 px-0 mx-0">
                     {/*<div className="col-sm-12 px-2 d-border-bottom">*/}
-                    <div className="col-sm-12 px-2">
-                        <MenuOfContent linkTitles={
-                            {
-                                stockWatchlistBuy : 'BUY',
-                                stockWatchlistSell: 'SELL',
-                            }
-                        } />
+                    <div className="col-sm-12 px-2 row mx-0">
+                        <div className="col-sm-6"></div>
+                        <div className="col-sm-6 px-0">
+                            <MenuOfContent linkTitles={
+                                {
+                                    stockWatchlistBuy : 'BUY',
+                                    stockWatchlistSell: 'SELL',
+                                }
+                            } />
+                        </div>
                     </div>
                     <div className="col-sm-12 px-2 pt-4">
                         <AppFrame headerComponent={StockWatchlistFrameHeader}/>
@@ -549,7 +552,7 @@ class BuyPage extends React.Component{
                     <div className="col-sm-6 pr-3 pl-0 mt-0 f-12">
                         <TableInfoTransaction lotshare="buyPage" />
                     </div>
-                    <div className="col-sm-6 mt-0 d-border-active bg-dark-grey pb-3">
+                    <div className="col-sm-6 mt-0 d-border-active bg-dark-grey pb-3 px-3">
                         <FormBuy idPrice="stockBuyPrice" idVol="stockBuyVol" idValue="stockBuyValue" columnSm="col-sm-12" />
                     </div>
                 </div>
@@ -569,7 +572,7 @@ class SellPage extends React.Component{
                     <div className="col-sm-6 pr-3 pl-0 mt-0 f-12">
                         <TableInfoTransaction lotshare="sellPage" />
                     </div>
-                    <div className="col-sm-6 mt-0 d-border-active bg-dark-grey pb-3">
+                    <div className="col-sm-6 mt-0 d-border-active bg-dark-grey pb-3 px-3">
                         <FormSell idPrice="stockSellPrice" idVol="stockSellVol" idValue="stockSellValue" columnSm="col-sm-12"/>
                     </div>
                 </div>
