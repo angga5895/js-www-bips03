@@ -1,3 +1,7 @@
+.d-active {
+    border: #0071bc solid 1px!important;
+}
+
 @media (max-width: 1440px) {
     .my-sidebar{
         margin-top: 1rem!important;
@@ -1189,7 +1193,7 @@ button.bg-gold:hover {
     color: var(--warna-text-basic);
     text-align: center;
     padding: 14px 16px;
-    text-decoration: none;
+    text-decoration: none!important;
 
 }
 
@@ -1202,7 +1206,7 @@ button.bg-gold:hover {
     color: var(--warna-text-basic);
     text-align: center;
     padding: 14px 16px;
-    text-decoration: none;
+    text-decoration: none!important;
 }
 
 .li-menu-a-news:hover:not(.active) {
@@ -1214,7 +1218,7 @@ button.bg-gold:hover {
     color: var(--warna-text-basic);
     text-align: center;
     padding: 14px 16px;
-    text-decoration: none;
+    text-decoration: none!important;
 }
 
 .li-menu-a:hover:not(.active) {

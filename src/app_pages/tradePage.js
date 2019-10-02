@@ -12,8 +12,10 @@ import {TableInfoTransactionWithButton} from './../app_transaction/tableInfoTran
 import TableInfoTransaction from "../app_transaction/tableInfoTransaction";
 import FormBuy from "../app_transaction/form_buy";
 import FormSell from "../app_transaction/form_sell";
-import NumberInput from "../numberinput";
 import SettingOrder from "../app_transaction/settingOrder";
+import ModalAmend from "../app_modals/modal_amend";
+import VerifyPIN from "./verifyPin";
+import ModalOrderDetail from "../app_modals/modal_order_detail";
 
 
 const CustomFrameHeaderTrade_Base = (props) => {
@@ -38,7 +40,7 @@ const CustomFrameHeaderTrade_Base = (props) => {
                     <div className="col-sm-10 px-0 mx-0 d-border-bottom">
                         <FillHeaderTab linkTitles={
                             {
-                                tradePageWatchlist : 'WATCHLIST',
+                                tradePageWatchlist : 'ORDERLIST',
                                 tradePageOrderbook: 'ORDERBOOK',
                             }
                         } />
@@ -192,6 +194,36 @@ class OrderbookPage extends React.PureComponent {
         super(props);
     }
 
+    state = {
+        box1 : 0,
+        box2 : 0,
+        box3 : 0
+    }
+
+    clickBox1 = (e) => {
+        this.setState({
+            box1: 1,
+            box2: 0,
+            box3: 0
+        })
+    }
+
+    clickBox2 = (e) => {
+        this.setState({
+            box2: 1,
+            box1: 0,
+            box3: 0
+        })
+    }
+
+    clickBox3 = (e) => {
+        this.setState({
+            box3: 1,
+            box2: 0,
+            box1: 0
+        })
+    }
+
     closeClick = (e) => {
         this.refs.frameAction.closeModal(100);
     }
@@ -206,6 +238,10 @@ class OrderbookPage extends React.PureComponent {
         })
     }
 
+    closeClick = (e) => {
+        this.refs.frameAction.closeModal(100);
+    }
+
     render() {
         return (
             <div className="col-sm-12 pl-2 mx-0 pt-1">
@@ -214,73 +250,26 @@ class OrderbookPage extends React.PureComponent {
                     <AppFrameAction ref="frameAction" />
                     <div className="d-border-bottom">
                         <div className="col-sm-4 px-0 row">
-                            <div className="col-sm-6 px-0 mx-0 text-left pt-3 pb-2">
-                                <Dropdown text={
-                                    <label className="col-sm-9">
-                                        Order by
-                                    </label>
-                                } className="text-white align-self-center btn btn-sm btn-grey ml-5 pt-2 pb-0">
-                                    <Dropdown.Menu className={'bg-black-trading w-100 d-border'}>
-                                        <Dropdown.Item className="f-12 item-hover text-white text-left px-2" text={"Code"} />
-                                        <Dropdown.Item className="f-12 item-hover text-white text-left px-2" text={"Price"} />
-                                        <Dropdown.Item className="f-12 item-hover text-white text-left px-2" text={"T.Vol"} />
-                                    </Dropdown.Menu>
-                                </Dropdown>
+                            <div className="col-sm-6 px-5 mx-0 text-left pt-3 pb-3">
+                                <button className="btn btn-sm btn-grey" onClick={this.buttonClickAmendRegister}>Modify Watchlist</button>
                             </div>
-                            <div className="col-sm-6 px-0 mx-0 text-right pt-3 pb-1">
-                                <button className="btn btn-sm btn-grey" onClick={this.buttonClickAmendRegister}>Register/Amend</button>
-                            </div>
+                            <div className="col-sm-6 px-0 mx-0 text-right pt-3 pb-1"></div>
                         </div>
                     </div>
-                    <div className="card-530 col-sm-12 pt-3 pr-2 mr-0 row scrollable">
+                    <div className="card-550 col-sm-12 pt-3 pr-2 mr-0 row">
                         <div className="col-sm-4 pl-4 pr-0">
-                            <div className="bg-grey pt-1">
+                            <div className={this.state.box1 === 1 ? "bg-grey pt-1 d-active" : "bg-grey pt-1"} onClick={this.clickBox1}>
                                 <TableInfoTransactionWithButton saham="AALI"/>
                             </div>
                         </div>
                         <div className="col-sm-4 pl-4 pr-0">
-                            <div className="bg-grey pt-1">
+                            <div className={this.state.box2 === 1 ? "bg-grey pt-1 d-active" : "bg-grey pt-1"} onClick={this.clickBox2}>
                                 <TableInfoTransactionWithButton saham="TLKM"/>
                             </div>
                         </div>
                         <div className="col-sm-4 pl-4 pr-0">
-                            <div className="bg-grey pt-1">
+                            <div className={this.state.box3 === 1 ? "bg-grey pt-1 d-active" : "bg-grey pt-1"} onClick={this.clickBox3}>
                                 <TableInfoTransactionWithButton saham="BMRI"/>
-                            </div>
-                        </div>
-                        <div className="col-sm-4 pl-4 pr-0">
-                            <div className="bg-grey pt-1">
-                                <TableInfoTransactionWithButton saham="WSKT"/>
-                            </div>
-                        </div>
-                        <div className="col-sm-4 pl-4 pr-0">
-                            <div className="bg-grey pt-1">
-                                <TableInfoTransactionWithButton saham="ADHI"/>
-                            </div>
-                        </div>
-                        <div className="col-sm-4 pl-4 pr-0">
-                            <div className="bg-grey pt-1">
-                                <TableInfoTransactionWithButton saham="CTRA"/>
-                            </div>
-                        </div>
-                        <div className="col-sm-4 pl-4 pr-0">
-                            <div className="bg-grey pt-1">
-                                <TableInfoTransactionWithButton saham="BBRI"/>
-                            </div>
-                        </div>
-                        <div className="col-sm-4 pl-4 pr-0">
-                            <div className="bg-grey pt-1">
-                                <TableInfoTransactionWithButton saham="BBCA"/>
-                            </div>
-                        </div>
-                        <div className="col-sm-4 pl-4 pr-0">
-                            <div className="bg-grey pt-1">
-                                <TableInfoTransactionWithButton saham="INDF"/>
-                            </div>
-                        </div>
-                        <div className="col-sm-4 pl-4 pr-0">
-                            <div className="bg-grey pt-1">
-                                <TableInfoTransactionWithButton saham="SMGR"/>
                             </div>
                         </div>
                     </div>
@@ -296,39 +285,57 @@ const TradeWatchlistFrameHeader = (props) => {
     );
 }
 
-const TradeWatchlist = (props) => {
-    return(
-        <AppFrameProvider
-            initialClasses={{BuyPage, SellPage}}
-            initialFrames={
-                [
-                    {className: 'BuyPage', title: 'TRADE WATCHLIST BUY', instanceName: 'stockWatchlistBuy'},
-                    {className: 'SellPage', title: 'TRADE WATCHLIST SELL', instanceName: 'stockWatchlistSell'},
-                ]
-            }>
-            {/* <BIPSAppProvider> */}
+class TradeWatchlist extends React.PureComponent{
+    constructor(props) {
+        super(props);
+    }
+
+    closeClick = (e) => {
+        this.refs.frameAction.closeModal(100);
+    }
+
+    buttonClickAmend = (e) => {
+        this.refs.frameAction.showModal({
+            headerClass: () => <div className="text-right"><i className="icofont icofont-close text-icofont-close text-border click-pointer"
+                                                              onClick={this.closeClick}></i></div>,
+            size: 'large',
+            contentClass: AmendModal,
+            onClose: (result) => {console.log('Modal 1 result = ', result)}
+        })
+    }
+
+    buttonClickWithdraw = (e) => {
+        this.refs.frameAction.showModal({
+            headerClass: () => <div className="text-right"><i className="icofont icofont-close text-icofont-close text-border click-pointer"
+                                                              onClick={this.closeClick}></i></div>,
+            size: 'mini',
+            contentClass: WithdrawModal,
+            onClose: (result) => {console.log('Modal 1 result = ', result)}
+        })
+    }
+
+    buttonClickOrderDetail = (e) => {
+        this.refs.frameAction.showModal({
+            headerClass: () =>
+                <div className="col-sm-12 px-0 mx-0 text-right">
+                    <i className="icofont icofont-close text-icofont-close text-border click-pointer" onClick={this.closeClick}></i>
+                </div>,
+            size: 'large',
+            contentClass: OrderDetailModal,
+            onClose: (result) => {console.log('Modal 1 result = ', result)}
+        })
+    }
+
+    render() {
+        return (
             <div className="row col-sm-12 pl-2 mx-0 pt-1">
-                <div className="col-sm-4 px-0 mx-0">
-                    <AppModal/>
-                    <TableTradeWatchlist/>
-                </div>
-                <div className="col-sm-8 px-0 mx-0">
-                    <div className="col-sm-12 px-2 d-border-bottom">
-                        <MenuOfContent linkTitles={
-                            {
-                                stockWatchlistBuy : 'BUY',
-                                stockWatchlistSell: 'SELL',
-                            }
-                        } />
-                    </div>
-                    <div className="col-sm-12 px-2 pt-4">
-                        <AppFrame headerComponent={TradeWatchlistFrameHeader}/>
-                    </div>
-                </div>
+                <WSConnectionAction ref="wsAction"/> {/* websocket connection component */}
+                <AppFrameAction ref="frameAction"/>
+                <OrderListAgGrid clickorderdetail={this.buttonClickOrderDetail} clickamend={this.buttonClickAmend}
+                                 clickwithdraw={this.buttonClickWithdraw}/>
             </div>
-            {/* </BIPSAppProvider> */}
-        </AppFrameProvider>
-    );
+        )
+    };
 }
 
 const ATradeWatchlist = (props) => {
@@ -348,7 +355,7 @@ const ATradeWatchlist = (props) => {
                     <TableTradeWatchlist/>
                 </div>
                 <div className="col-sm-8 px-0 mx-0">
-                    <div className="col-sm-12 px-2 d-border-bottom">
+                    <div className="col-sm-12 px-2">
                         <MenuOfContent linkTitles={
                             {
                                 autoPageSetting : 'ORDER SETTING',
@@ -356,7 +363,7 @@ const ATradeWatchlist = (props) => {
                             }
                         } />
                     </div>
-                    <div className="col-sm-12 px-2 pt-4">
+                    <div className="col-sm-12 px-2 pt-0">
                         <AppFrame headerComponent={TradeWatchlistFrameHeader}/>
                     </div>
                 </div>
@@ -383,7 +390,7 @@ const ATradeTick = (props) => {
                     <TableTradeWatchlist/>
                 </div>
                 <div className="col-sm-8 px-0 mx-0">
-                    <div className="col-sm-12 px-2 d-border-bottom">
+                    <div className="col-sm-12 px-2">
                         <MenuOfContent linkTitles={
                             {
                                 autoPageSetting : 'ORDER SETTING',
@@ -391,7 +398,7 @@ const ATradeTick = (props) => {
                             }
                         } />
                     </div>
-                    <div className="col-sm-12 px-2 pt-4">
+                    <div className="col-sm-12 px-2 pt-0">
                         <AppFrame headerComponent={TradeWatchlistFrameHeader}/>
                     </div>
                 </div>
@@ -418,7 +425,7 @@ const ATradeDaily = (props) => {
                     <TableTradeWatchlist/>
                 </div>
                 <div className="col-sm-8 px-0 mx-0">
-                    <div className="col-sm-12 px-2 d-border-bottom">
+                    <div className="col-sm-12 px-2">
                         <MenuOfContent linkTitles={
                             {
                                 autoPageSetting : 'ORDER SETTING',
@@ -426,7 +433,7 @@ const ATradeDaily = (props) => {
                             }
                         } />
                     </div>
-                    <div className="col-sm-12 px-2 pt-4">
+                    <div className="col-sm-12 px-2 pt-0">
                         <AppFrame headerComponent={TradeWatchlistFrameHeader}/>
                     </div>
                 </div>
@@ -506,24 +513,12 @@ class TableTradeWatchlist extends React.Component{
             <WSConnectionAction ref="wsAction" /> {/* websocket connection component */}
             <div className="bg-black-trading f-12">
                 <AppFrameAction ref="frameAction" />
-                <div className="d-border-bottom">
+                <div>
                     <div className="col-sm-12 px-0 row">
-                        <div className="col-sm-6 px-0 mx-0 text-left pt-3 pb-2">
-                            <Dropdown text={
-                                <label className="col-sm-9">
-                                    Order by
-                                </label>
-                            } className="text-white align-self-center btn btn-sm btn-grey ml-5 pt-2 pb-0">
-                                <Dropdown.Menu className={'bg-black-trading w-100 d-border'}>
-                                    <Dropdown.Item className="f-12 item-hover text-white text-left px-2" text={"Code"} />
-                                    <Dropdown.Item className="f-12 item-hover text-white text-left px-2" text={"Price"} />
-                                    <Dropdown.Item className="f-12 item-hover text-white text-left px-2" text={"T.Vol"} />
-                                </Dropdown.Menu>
-                            </Dropdown>
+                        <div className="col-sm-6 px-5 mx-0 text-left pt-3 pb-2">
+                            <button className="btn btn-sm btn-grey" onClick={this.buttonClickAmendRegister}>Modify Watchlist</button>
                         </div>
-                        <div className="col-sm-6 px-0 mx-0 text-right pt-3 pb-1">
-                            <button className="btn btn-sm btn-grey" onClick={this.buttonClickAmendRegister}>Register/Amend</button>
-                        </div>
+                        <div className="col-sm-6 px-0 mx-0 text-right pt-3 pb-1"></div>
                     </div>
                 </div>
                 <div className="px-4 py-4">
@@ -1002,6 +997,779 @@ class OrderHistoryAgGrid extends React.PureComponent {
 
                     <button className="d-border mr-3 mb-3 col-sm-2 btn btn-sm btn-dark"><span><i className="fa fa-trash-alt"></i>&nbsp; Delete All</span></button>
                 </div>
+            </>
+        );
+    }
+}
+
+class OrderListAgGrid extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        const self = this;
+        this.state = {
+            columnDefs: [
+                { field: "order", headerName: "Order#", sortable: true, filter: "agTextColumnFilter", resizable: true, width:98,
+                    cellClass : function (params) {
+                        return " grid-table text-center text-primary f-12 click-pointer";
+                    },
+                    cellRenderer : function (params) {
+                        var order = params.data.order;
+                        var eDiv = document.createElement('div');
+                        eDiv.innerHTML = '<span class="btn-cellorder px-1">' +order+ '</span>';
+                        var aButton = eDiv.querySelectorAll('.btn-cellorder')[0];
+
+                        aButton.addEventListener('click', self.props.clickorderdetail);
+                        return eDiv;
+                    }, suppressSizeToFit: true
+                },
+                { field: "marketorder", headerName: "Market Order#", sortable: true, filter: "agTextColumnFilter", resizable: true, width:139,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    },
+                },
+                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width:88,
+                    cellClass : function (params) {
+                        return " grid-table text-center text-primary f-12";
+                    },
+                },
+                { field: "cmd", headerName: "Cmd", sortable: true, filter: "agTextColumnFilter", resizable: true, width:85,
+                    cellClass : function (params) {
+                        var cmd = params.data.cmd;
+                        return cmd.includes('BUY') === true ? " text-danger grid-table f-12" :
+                            " text-success grid-table f-12";
+                    },
+                },
+                { field: "status", headerName: "Status", sortable: true, filter: "agTextColumnFilter", resizable: true, width:93,
+                    cellClass : function (params) {
+                        return " grid-table f-12";
+                    },
+                },
+                { field: "remark", headerName: "Remark", sortable: true, filter: "agTextColumnFilter", resizable: true, width:101,
+                    cellClass : function (params) {
+                        return " grid-table f-12";
+                    },
+                    cellRenderer : function (params) {
+                        var status = params.data.status;
+                        return status.includes('Sending') === true ? '<i class="fas fa-hourglass-half text-tosca"></i>&nbsp;&nbsp;'+ params.data.remark:
+                            '<i class="fa fa-check text-success"></i> &nbsp;&nbsp;'+ params.data.remark;
+                    }
+                },
+                { field: "type", headerName: "Type", sortable: true, filter: "agTextColumnFilter", resizable: true, width:85,
+                    cellClass : function (params) {
+                        return " grid-table f-12";
+                    },
+                },
+                { field: "mkt", headerName: "Mkt", sortable: true, filter: "agTextColumnFilter", resizable: true, width:81,
+                    cellClass : function (params) {
+                        return " grid-table f-12";
+                    },
+                },
+                { field: "vlot", headerName: "Vol. Lot", sortable: true, filter: "agTextColumnFilter", resizable: true, width:100,
+                    cellClass : function (params) {
+                        return " grid-table text-right f-12";
+                    },
+                },
+                { field: "vshares", headerName: "Vol. Shares", sortable: true, filter: "agTextColumnFilter", resizable: true, width:118,
+                    cellClass : function (params) {
+                        return " grid-table text-right f-12";
+                    },
+                },
+                { field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width:86,
+                    cellClass : function (params) {
+                        return " grid-table text-right f-12";
+                    },
+                },
+                { field: "mlot", headerName: "Match Vol. Lot", sortable: true, filter: "agTextColumnFilter", resizable: true, width:136,
+                    cellClass : function (params) {
+                        return " grid-table text-right f-12";
+                    },
+                },
+                { field: "mshares", headerName: "Match Vol. Shares", sortable: true, filter: "agTextColumnFilter", resizable: true, width:154,
+                    cellClass : function (params) {
+                        return " grid-table text-right f-12";
+                    },
+                },
+                { field: "avgmatchprice", headerName: "Avg. Match Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width:150,
+                    cellClass : function (params) {
+                        return " grid-table text-right f-12";
+                    },
+                },
+                { field: "amount", headerName: "Amount", sortable: true, filter: "agTextColumnFilter", resizable: true, width:103,
+                    cellClass : function (params) {
+                        return " grid-table text-right f-12";
+                    },
+                },
+                { field: "time", headerName: "Time", sortable: true, filter: "agTextColumnFilter", resizable: true, width:86,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    },
+                },
+                { field: "action", headerName: "Action", sortable: true, filter: "agTextColumnFilter", width:150, pinned: "right", lockPosition: true, lockVisible: true,
+                    cellClass : function (params) {
+                        return " grid-table locked-col locked-visible";
+                    },
+                    cellRenderer : function (params) {
+                        var eDiv = document.createElement('div');
+                        eDiv.innerHTML = '<span class="px-1">' +
+                            '<button class="btn-cellamend btn btn-sm btn-primary mx-1 f-9 w-50">Amend</button>' +
+                            '<button class="btn-cellwithdraw btn btn-sm btn-brown mx-1 f-9 w-50">Withdraw</button>'+
+                            '</span>';
+                        var aButton = eDiv.querySelectorAll('.btn-cellamend')[0];
+                        var wButton = eDiv.querySelectorAll('.btn-cellwithdraw')[0];
+
+                        aButton.addEventListener('click', self.props.clickamend);
+                        wButton.addEventListener('click', self.props.clickwithdraw);
+
+                        return eDiv;
+                    }, suppressSizeToFit: true
+                },
+            ],
+            defaultColDef: {
+                sortable: true,
+                filter: true,
+            },
+            rowData: [
+                {order : "001700",
+                    marketorder :"MKT012",
+                    code : "AALI",
+                    cmd : "SELL",
+                    status :"Done",
+                    remark : "",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"10",
+                    vshares :"1000",
+                    price :"12,650",
+                    mlot :"10",
+                    mshares :"1000",
+                    avgmatchprice :"12,650",
+                    amount :"12,650,000",
+                    time :"11:20:17",
+                    action: "",},
+                {order : "001699",
+                    marketorder :"MKT010",
+                    code : "AALI",
+                    cmd : "BUY",
+                    status :"Partial",
+                    remark : "Amended",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"15",
+                    vshares :"1500",
+                    price :"12,650",
+                    mlot :"5",
+                    mshares :"500",
+                    avgmatchprice :"12,650",
+                    amount :"12,650,000",
+                    time :"11:19:17",
+                    action: "",},
+                {order : "001698",
+                    marketorder :"MKT009",
+                    code : "BBCA",
+                    cmd : "BUY",
+                    status :"Open",
+                    remark : "Amended",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"8",
+                    vshares :"0",
+                    price :"29,500",
+                    mlot :"0",
+                    mshares :"0",
+                    avgmatchprice :"29,500",
+                    amount :"23,600,000",
+                    time :"11:10:12",
+                    action: "",},
+                {order : "001697",
+                    marketorder :"MKT021",
+                    code : "AALI",
+                    cmd : "BUY",
+                    status :"Done",
+                    remark : "",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"10",
+                    vshares :"100",
+                    price :"12,625",
+                    mlot :"10",
+                    mshares :"100",
+                    avgmatchprice :"12,625",
+                    amount :"12,625,000",
+                    time :"11:22:17",
+                    action: "",},
+                {order : "001696",
+                    marketorder :"-",
+                    code : "AALI",
+                    cmd : "SELL",
+                    status :"Sending...",
+                    remark : "to Server",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"10",
+                    vshares :"1000",
+                    price :"12,650",
+                    mlot :"0",
+                    mshares :"0",
+                    avgmatchprice :"12,650",
+                    amount :"12,650,000",
+                    time :"11:22:10",
+                    action: "",},
+                {order : "001695",
+                    marketorder :"MKT012",
+                    code : "AALI",
+                    cmd : "SELL",
+                    status :"Done",
+                    remark : "",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"10",
+                    vshares :"1000",
+                    price :"12,650",
+                    mlot :"10",
+                    mshares :"1000",
+                    avgmatchprice :"12,650",
+                    amount :"12,650,000",
+                    time :"11:20:17",
+                    action: "",},
+                {order : "001694",
+                    marketorder :"MKT010",
+                    code : "AALI",
+                    cmd : "BUY",
+                    status :"Partial",
+                    remark : "Amended",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"15",
+                    vshares :"1500",
+                    price :"12,650",
+                    mlot :"5",
+                    mshares :"500",
+                    avgmatchprice :"12,650",
+                    amount :"12,650,000",
+                    time :"11:19:17",
+                    action: "",},
+                {order : "001693",
+                    marketorder :"MKT009",
+                    code : "BBCA",
+                    cmd : "BUY",
+                    status :"Open",
+                    remark : "Amended",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"8",
+                    vshares :"0",
+                    price :"29,500",
+                    mlot :"0",
+                    mshares :"0",
+                    avgmatchprice :"29,500",
+                    amount :"23,600,000",
+                    time :"11:10:12",
+                    action: "",},
+                {order : "001692",
+                    marketorder :"MKT021",
+                    code : "AALI",
+                    cmd : "BUY",
+                    status :"Done",
+                    remark : "",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"10",
+                    vshares :"100",
+                    price :"12,625",
+                    mlot :"10",
+                    mshares :"100",
+                    avgmatchprice :"12,625",
+                    amount :"12,625,000",
+                    time :"11:22:17",
+                    action: "",},
+                {order : "001691",
+                    marketorder :"-",
+                    code : "AALI",
+                    cmd : "SELL",
+                    status :"Sending...",
+                    remark : "to Server",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"10",
+                    vshares :"1000",
+                    price :"12,650",
+                    mlot :"0",
+                    mshares :"0",
+                    avgmatchprice :"12,650",
+                    amount :"12,650,000",
+                    time :"11:22:10",
+                    action: "",},
+                {order : "001690",
+                    marketorder :"MKT012",
+                    code : "AALI",
+                    cmd : "SELL",
+                    status :"Done",
+                    remark : "",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"10",
+                    vshares :"1000",
+                    price :"12,650",
+                    mlot :"10",
+                    mshares :"1000",
+                    avgmatchprice :"12,650",
+                    amount :"12,650,000",
+                    time :"11:20:17",
+                    action: "",},
+                {order : "001689",
+                    marketorder :"MKT010",
+                    code : "AALI",
+                    cmd : "BUY",
+                    status :"Partial",
+                    remark : "Amended",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"15",
+                    vshares :"1500",
+                    price :"12,650",
+                    mlot :"5",
+                    mshares :"500",
+                    avgmatchprice :"12,650",
+                    amount :"12,650,000",
+                    time :"11:19:17",
+                    action: "",},
+                {order : "001688",
+                    marketorder :"MKT009",
+                    code : "BBCA",
+                    cmd : "BUY",
+                    status :"Open",
+                    remark : "Amended",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"8",
+                    vshares :"0",
+                    price :"29,500",
+                    mlot :"0",
+                    mshares :"0",
+                    avgmatchprice :"29,500",
+                    amount :"23,600,000",
+                    time :"11:10:12",
+                    action: "",},
+                {order : "001687",
+                    marketorder :"MKT021",
+                    code : "AALI",
+                    cmd : "BUY",
+                    status :"Done",
+                    remark : "",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"10",
+                    vshares :"100",
+                    price :"12,625",
+                    mlot :"10",
+                    mshares :"100",
+                    avgmatchprice :"12,625",
+                    amount :"12,625,000",
+                    time :"11:22:17",
+                    action: "",},
+                {order : "001686",
+                    marketorder :"-",
+                    code : "AALI",
+                    cmd : "SELL",
+                    status :"Sending...",
+                    remark : "to Server",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"10",
+                    vshares :"1000",
+                    price :"12,650",
+                    mlot :"0",
+                    mshares :"0",
+                    avgmatchprice :"12,650",
+                    amount :"12,650,000",
+                    time :"11:22:10",
+                    action: "",},
+                {order : "001685",
+                    marketorder :"MKT012",
+                    code : "AALI",
+                    cmd : "SELL",
+                    status :"Done",
+                    remark : "",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"10",
+                    vshares :"1000",
+                    price :"12,650",
+                    mlot :"10",
+                    mshares :"1000",
+                    avgmatchprice :"12,650",
+                    amount :"12,650,000",
+                    time :"11:20:17",
+                    action: "",},
+                {order : "001684",
+                    marketorder :"MKT010",
+                    code : "AALI",
+                    cmd : "BUY",
+                    status :"Partial",
+                    remark : "Amended",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"15",
+                    vshares :"1500",
+                    price :"12,650",
+                    mlot :"5",
+                    mshares :"500",
+                    avgmatchprice :"12,650",
+                    amount :"12,650,000",
+                    time :"11:19:17",
+                    action: "",},
+                {order : "001683",
+                    marketorder :"MKT009",
+                    code : "BBCA",
+                    cmd : "BUY",
+                    status :"Open",
+                    remark : "Amended",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"8",
+                    vshares :"0",
+                    price :"29,500",
+                    mlot :"0",
+                    mshares :"0",
+                    avgmatchprice :"29,500",
+                    amount :"23,600,000",
+                    time :"11:10:12",
+                    action: "",},
+                {order : "001682",
+                    marketorder :"MKT021",
+                    code : "AALI",
+                    cmd : "BUY",
+                    status :"Done",
+                    remark : "",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"10",
+                    vshares :"100",
+                    price :"12,625",
+                    mlot :"10",
+                    mshares :"100",
+                    avgmatchprice :"12,625",
+                    amount :"12,625,000",
+                    time :"11:22:17",
+                    action: "",},
+                {order : "001681",
+                    marketorder :"-",
+                    code : "AALI",
+                    cmd : "SELL",
+                    status :"Sending...",
+                    remark : "to Server",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"10",
+                    vshares :"1000",
+                    price :"12,650",
+                    mlot :"0",
+                    mshares :"0",
+                    avgmatchprice :"12,650",
+                    amount :"12,650,000",
+                    time :"11:22:10",
+                    action: "",},
+                {order : "001680",
+                    marketorder :"MKT012",
+                    code : "AALI",
+                    cmd : "SELL",
+                    status :"Done",
+                    remark : "",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"10",
+                    vshares :"1000",
+                    price :"12,650",
+                    mlot :"10",
+                    mshares :"1000",
+                    avgmatchprice :"12,650",
+                    amount :"12,650,000",
+                    time :"11:20:17",
+                    action: "",},
+                {order : "001679",
+                    marketorder :"MKT010",
+                    code : "AALI",
+                    cmd : "BUY",
+                    status :"Partial",
+                    remark : "Amended",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"15",
+                    vshares :"1500",
+                    price :"12,650",
+                    mlot :"5",
+                    mshares :"500",
+                    avgmatchprice :"12,650",
+                    amount :"12,650,000",
+                    time :"11:19:17",
+                    action: "",},
+                {order : "001678",
+                    marketorder :"MKT009",
+                    code : "BBCA",
+                    cmd : "BUY",
+                    status :"Open",
+                    remark : "Amended",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"8",
+                    vshares :"0",
+                    price :"29,500",
+                    mlot :"0",
+                    mshares :"0",
+                    avgmatchprice :"29,500",
+                    amount :"23,600,000",
+                    time :"11:10:12",
+                    action: "",},
+                {order : "001677",
+                    marketorder :"MKT021",
+                    code : "AALI",
+                    cmd : "BUY",
+                    status :"Done",
+                    remark : "",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"10",
+                    vshares :"100",
+                    price :"12,625",
+                    mlot :"10",
+                    mshares :"100",
+                    avgmatchprice :"12,625",
+                    amount :"12,625,000",
+                    time :"11:22:17",
+                    action: "",},
+                {order : "001676",
+                    marketorder :"-",
+                    code : "AALI",
+                    cmd : "SELL",
+                    status :"Sending...",
+                    remark : "to Server",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"10",
+                    vshares :"1000",
+                    price :"12,650",
+                    mlot :"0",
+                    mshares :"0",
+                    avgmatchprice :"12,650",
+                    amount :"12,650,000",
+                    time :"11:22:10",
+                    action: "",},
+                {order : "001675",
+                    marketorder :"MKT012",
+                    code : "AALI",
+                    cmd : "SELL",
+                    status :"Done",
+                    remark : "",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"10",
+                    vshares :"1000",
+                    price :"12,650",
+                    mlot :"10",
+                    mshares :"1000",
+                    avgmatchprice :"12,650",
+                    amount :"12,650,000",
+                    time :"11:20:17",
+                    action: "",},
+                {order : "001674",
+                    marketorder :"MKT010",
+                    code : "AALI",
+                    cmd : "BUY",
+                    status :"Partial",
+                    remark : "Amended",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"15",
+                    vshares :"1500",
+                    price :"12,650",
+                    mlot :"5",
+                    mshares :"500",
+                    avgmatchprice :"12,650",
+                    amount :"12,650,000",
+                    time :"11:19:17",
+                    action: "",},
+                {order : "001673",
+                    marketorder :"MKT009",
+                    code : "BBCA",
+                    cmd : "BUY",
+                    status :"Open",
+                    remark : "Amended",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"8",
+                    vshares :"0",
+                    price :"29,500",
+                    mlot :"0",
+                    mshares :"0",
+                    avgmatchprice :"29,500",
+                    amount :"23,600,000",
+                    time :"11:10:12",
+                    action: "",},
+                {order : "001672",
+                    marketorder :"MKT009",
+                    code : "BBCA",
+                    cmd : "BUY",
+                    status :"Open",
+                    remark : "Amended",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"8",
+                    vshares :"0",
+                    price :"29,500",
+                    mlot :"0",
+                    mshares :"0",
+                    avgmatchprice :"29,500",
+                    amount :"23,600,000",
+                    time :"11:10:12",
+                    action: "",},
+                {order : "001671",
+                    marketorder :"MKT021",
+                    code : "AALI",
+                    cmd : "BUY",
+                    status :"Done",
+                    remark : "",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"10",
+                    vshares :"100",
+                    price :"12,625",
+                    mlot :"10",
+                    mshares :"100",
+                    avgmatchprice :"12,625",
+                    amount :"12,625,000",
+                    time :"11:22:17",
+                    action: "",},
+                {order : "001670",
+                    marketorder :"-",
+                    code : "AALI",
+                    cmd : "SELL",
+                    status :"Sending...",
+                    remark : "to Server",
+                    type :"Day",
+                    mkt :"RG",
+                    vlot :"10",
+                    vshares :"1000",
+                    price :"12,650",
+                    mlot :"0",
+                    mshares :"0",
+                    avgmatchprice :"12,650",
+                    amount :"12,650,000",
+                    time :"11:22:10",
+                    action: "",},
+            ],
+            getRowHeight : function (params) {
+                return 27.5;
+            },
+            sideBar: {
+                toolPanels: [
+                    {
+                        id: "columns",
+                        labelDefault: "Columns",
+                        labelKey: "columns",
+                        iconKey: "columns",
+                        toolPanel: "agColumnsToolPanel",
+                        toolPanelParams: {
+                            suppressRowGroups: true,
+                            suppressValues: true,
+                            suppressPivots: true,
+                            suppressPivotMode: true,
+                            suppressSideButtons: true,
+                            suppressColumnFilter: true,
+                            suppressColumnSelectAll: true,
+                            suppressColumnExpandAll: true
+                        },
+                    }, {
+                        id: "filters",
+                        labelDefault: "Filters",
+                        labelKey: "filters",
+                        iconKey: "filter",
+                        toolPanel: "agFiltersToolPanel"
+                    }
+                ],
+                defaultToolPanel: ""
+            },
+        }
+    }
+
+    onGridReady = params => {
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
+
+        params.api.sizeColumnsToFit();
+        window.addEventListener("resize", function() {
+            setTimeout(function() {
+                params.api.sizeColumnsToFit();
+            });
+        });
+
+        params.api.sizeColumnsToFit();
+    };
+
+    onFirstDataRendered(params) {
+        params.api.sizeColumnsToFit();
+    }
+
+    render() {
+        return (
+            <div style={{ width: "100%", height: "100%" }}>
+                <div
+                    className={"card-75 ag-theme-balham-dark ag-bordered ag-striped-odd"}
+                    id="myGrid"
+                    style={{
+                        width: "100%"
+                    }}>
+                    <AgGridReact
+                        columnDefs={this.state.columnDefs}
+                        rowData={this.state.rowData}
+                        defaultColDef={this.state.defaultColDef}
+                        onGridReady={this.onGridReady}
+                        getRowHeight={this.state.getRowHeight}
+                        onFirstDataRendered={this.onFirstDataRendered.bind(this)}>
+                    </AgGridReact>
+                </div>
+            </div>
+        );
+    }
+}
+
+class AmendModal extends React.Component {
+    closeClick = (e) => {
+        this.refs.frameAction.closeModal(100);
+    }
+
+    render() {
+        return (
+            <>
+                <AppFrameAction ref="frameAction" />
+                <ModalAmend/>
+            </>
+        );
+    }
+}
+
+class WithdrawModal extends React.Component {
+    closeClick = (e) => {
+        this.refs.frameAction.closeModal(100);
+    }
+
+    render() {
+        return (
+            <>
+                <AppFrameAction ref="frameAction" />
+                <VerifyPIN tipe = 'withdraw'/>
+            </>
+        );
+    }
+}
+
+
+class OrderDetailModal extends React.Component {
+
+    render() {
+        return (
+            <>
+                <AppFrameAction ref="frameAction" />
+                <ModalOrderDetail/>
             </>
         );
     }

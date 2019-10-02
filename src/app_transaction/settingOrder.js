@@ -78,7 +78,7 @@ class SettingOrder extends React.Component{
                                                 <Dropdown placeholder='< =' search selection options={stateOptionsOperator} className={"f-12 text-center align-self-center col-sm-12 px-2"} defaultValue="lebihkecil"/>
                                             </div>
                                             <div className="col-sm-5 mr-0 px-0">
-                                                <NumberInput idclassname={this.props.lpSetting} name="buy_laspricesetting" placeholder="Value" size="small" defaultValue={"12600"} className="col-sm-9 px-0 f-12 text-center align-self-center" />
+                                                <NumberInput idclassname={this.props.lpSetting} name="buy_laspricesetting" placeholder="Value" size="small" defaultValue={"12600"} className="col-sm-12 px-0 f-12 text-center align-self-center" />
                                             </div>
                                         </div>
                                     </div>
@@ -89,7 +89,7 @@ class SettingOrder extends React.Component{
                                         <label aria-label="ordervol" className="text-white">Order Vol</label>
                                         <div id="ordervol" className="col-sm-12 px-0 mx-0 row">
                                             <div className="col-sm-4 mr-0 px-0">
-                                                <NumberInput idclassname={this.props.volSetting} name="buy_volsetting" placeholder="Value" size="small" defaultValue={"10"} className="col-sm-9 px-0 f-12 text-center align-self-center" />
+                                                <NumberInput idclassname={this.props.volSetting} name="buy_volsetting" placeholder="Value" size="small" defaultValue={"10"} className="col-sm-12 px-0 f-12 text-center align-self-center" />
                                             </div>
                                             <div className="col-sm-3 mr-0 ml-3 px-3 align-self-center">
                                                 <label className="mb-0">Lot</label>
@@ -109,7 +109,7 @@ class SettingOrder extends React.Component{
                                                 <label className="mb-0">IDR</label>
                                             </div>
                                             <div className="col-sm-5 mr-0 px-0">
-                                                <NumberInput idclassname={this.props.opSetting} name="buy_orderpricesetting" placeholder="Value" size="small" defaultValue={"12650"} className="col-sm-9 px-0 f-12 text-center align-self-center" />
+                                                <NumberInput idclassname={this.props.opSetting} name="buy_orderpricesetting" placeholder="Value" size="small" defaultValue={"12650"} className="col-sm-12 px-0 f-12 text-center align-self-center" />
                                             </div>
                                         </div>
                                     </div>
@@ -161,7 +161,7 @@ class SettingOrder extends React.Component{
                                                 <Dropdown placeholder='< =' search selection options={stateOptionsOperator} className={"f-12 text-center align-self-center col-sm-12 px-2"} defaultValue="lebihkecil"/>
                                             </div>
                                             <div className="col-sm-5 mr-0 px-0">
-                                                <NumberInput idclassname={this.props.slpSetting} name="buy_laspricesetting" placeholder="Value" size="small" defaultValue={"12600"} className="col-sm-9 px-0 f-12 text-center align-self-center" />
+                                                <NumberInput idclassname={this.props.slpSetting} name="buy_laspricesetting" placeholder="Value" size="small" defaultValue={"12600"} className="col-sm-12 px-0 f-12 text-center align-self-center" />
                                             </div>
                                         </div>
                                     </div>
@@ -172,7 +172,7 @@ class SettingOrder extends React.Component{
                                         <label aria-label="ordervol" className="text-white">Order Vol</label>
                                         <div id="ordervol" className="col-sm-12 px-0 mx-0 row">
                                             <div className="col-sm-4 mr-0 px-0">
-                                                <NumberInput idclassname={this.props.svolSetting} name="buy_volsetting" placeholder="Value" size="small" defaultValue={"10"} className="col-sm-9 px-0 f-12 text-center align-self-center" />
+                                                <NumberInput idclassname={this.props.svolSetting} name="buy_volsetting" placeholder="Value" size="small" defaultValue={"10"} className="col-sm-12 px-0 f-12 text-center align-self-center" />
                                             </div>
                                             <div className="col-sm-3 mr-0 ml-3 px-3 align-self-center">
                                                 <label className="mb-0">Lot</label>
@@ -192,7 +192,7 @@ class SettingOrder extends React.Component{
                                                 <label className="mb-0">IDR</label>
                                             </div>
                                             <div className="col-sm-5 mr-0 px-0">
-                                                <NumberInput idclassname={this.props.sopSetting} name="buy_orderpricesetting" placeholder="Value" size="small" defaultValue={"12650"} className="col-sm-9 px-0 f-12 text-center align-self-center" />
+                                                <NumberInput idclassname={this.props.sopSetting} name="buy_orderpricesetting" placeholder="Value" size="small" defaultValue={"12650"} className="col-sm-12 px-0 f-12 text-center align-self-center" />
                                             </div>
                                         </div>
                                     </div>
