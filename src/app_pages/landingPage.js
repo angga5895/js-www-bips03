@@ -2252,36 +2252,37 @@ class PortofolioAgGrid extends React.PureComponent {
                             "text-success text-right  grid-table f-12";
                     }
                 },
-                { field: "indicator", headerName: "", sortable: true, filter: false, resizable: false, width: this.props.gridView == 'grid' ? 15 : 30,
-                    cellClass : function (params) {
-                        return " text-center grid-table f-12";
-                    },
-                    cellRenderer : function (params) {
-                        var pl = params.data.pl;
-                        return pl.includes('-') === true ? '<i class="icofont icofont-caret-down text-danger"></i>' :
-                            '<i class="icofont icofont-caret-up text-success"></i>';
-                    }
-                },
                 { field: "lot", headerName: "Lot", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 58 : 124,
-                            cellClass : function (params) {
-                                return " text-right grid-table f-12";
-                            }
-                        },
+                    cellClass : function (params) {
+                        var pl = params.data.pl;
+                        return pl.includes('-') === true ? "text-danger text-right grid-table f-12":
+                            "text-success text-right  grid-table f-12";
+                    },
+                },
                 { field: "shares", headerName: "Shares", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 76 :124,
                     cellClass : function (params) {
-                        return " text-right grid-table f-12";
+                        var pl = params.data.pl;
+                        return pl.includes('-') === true ? "text-danger text-right grid-table f-12":
+                            "text-success text-right  grid-table f-12";
                     },
                 },
                 { field: "stockval", headerName: "Stock Val", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
-                        return " text-right grid-table f-12";
-                    }
+                        var pl = params.data.pl;
+                        return pl.includes('-') === true ? "text-danger text-right grid-table f-12":
+                            "text-success text-right  grid-table f-12";
+                    },
                 },
                 { field: "pl", headerName: "P/L", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 207,
                     cellClass : function (params) {
                         var pl = params.data.pl;
-                        return pl.includes('-') === true ? "text-danger text-right  grid-table f-12":
+                        return pl.includes('-') === true ? "text-danger text-right grid-table f-12":
                             "text-success text-right  grid-table f-12";
+                    },
+                    cellRenderer : function (params) {
+                        var pl = params.data.pl;
+                        return pl.includes('-') === true ? pl +'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icofont icofont-caret-down text-danger"></i>' :
+                            pl +'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icofont icofont-caret-up text-success"></i>';
                     }
                 },
                 { field: "remark", headerName: "Remark", sortable: false, resizable: true, width: this.props.gridView == 'grid' ? 82 : 179,
@@ -2357,7 +2358,6 @@ class PortofolioAgGrid extends React.PureComponent {
                 action:""   },
                 { code: "ADHI",
                     avgprice: "1,529",
-                    indicator : "",
                     lastprice: "1,429",
                     lot: "10",
                     shares: "100",
@@ -2367,7 +2367,6 @@ class PortofolioAgGrid extends React.PureComponent {
                     action:""   },
                 { code: "ANTM",
                     avgprice: "1,025",
-                    indicator : "",
                     lastprice: "1,025",
                     lot: "2",
                     shares: "210",
@@ -2377,7 +2376,6 @@ class PortofolioAgGrid extends React.PureComponent {
                     action:""   },
                 { code: "ASII",
                     avgprice: "7,125",
-                    indicator : "",
                     lastprice: "7,125",
                     lot: "9",
                     shares: "930",
@@ -2387,7 +2385,6 @@ class PortofolioAgGrid extends React.PureComponent {
                     action:""   },
                 { code: "BBCA",
                     avgprice: "27,400",
-                    indicator : "",
                     lastprice: "27,400",
                     lot: "4",
                     shares: "410",
@@ -2397,7 +2394,6 @@ class PortofolioAgGrid extends React.PureComponent {
                     action:""   },
                 { code: "AALI",
                     avgprice: "12,650",
-                    indicator : "",
                     lastprice: "12,650",
                     lot: "12",
                     shares: "122",
@@ -2407,7 +2403,6 @@ class PortofolioAgGrid extends React.PureComponent {
                     action:""   },
                 { code: "ASII",
                     avgprice: "7,125",
-                    indicator : "",
                     lastprice: "7,125",
                     lot: "9",
                     shares: "930",
@@ -2417,7 +2412,6 @@ class PortofolioAgGrid extends React.PureComponent {
                     action:""   },
                 { code: "BBCA",
                     avgprice: "27,400",
-                    indicator : "",
                     lastprice: "27,400",
                     lot: "4",
                     shares: "410",
@@ -2427,7 +2421,6 @@ class PortofolioAgGrid extends React.PureComponent {
                     action:""   },
                 { code: "AALI",
                     avgprice: "12,650",
-                    indicator : "",
                     lastprice: "12,650",
                     lot: "12",
                     shares: "122",
@@ -2437,7 +2430,6 @@ class PortofolioAgGrid extends React.PureComponent {
                     action:""   },
                 { code: "ADHI",
                     avgprice: "1,529",
-                    indicator : "",
                     lastprice: "1,429",
                     lot: "10",
                     shares: "100",
@@ -2447,7 +2439,6 @@ class PortofolioAgGrid extends React.PureComponent {
                     action:""   },
                 { code: "ANTM",
                     avgprice: "1,025",
-                    indicator : "",
                     lastprice: "1,025",
                     lot: "2",
                     shares: "210",
@@ -2457,7 +2448,6 @@ class PortofolioAgGrid extends React.PureComponent {
                     action:""   },
                 { code: "ASII",
                     avgprice: "7,125",
-                    indicator : "",
                     lastprice: "7,125",
                     lot: "9",
                     shares: "930",
@@ -2467,7 +2457,6 @@ class PortofolioAgGrid extends React.PureComponent {
                     action:""   },
                 { code: "BBCA",
                     avgprice: "27,400",
-                    indicator : "",
                     lastprice: "27,400",
                     lot: "4",
                     shares: "410",
@@ -2485,7 +2474,6 @@ class PortofolioAgGrid extends React.PureComponent {
                     action:""   },
                 { code: "ADHI",
                     avgprice: "1,529",
-                    indicator : "",
                     lastprice: "1,429",
                     lot: "10",
                     shares: "100",
@@ -2495,7 +2483,6 @@ class PortofolioAgGrid extends React.PureComponent {
                     action:""   },
                 { code: "ANTM",
                     avgprice: "1,025",
-                    indicator : "",
                     lastprice: "1,025",
                     lot: "2",
                     shares: "210",
@@ -2505,7 +2492,6 @@ class PortofolioAgGrid extends React.PureComponent {
                     action: ""},
                 { code: "ASII",
                     avgprice: "7,125",
-                    indicator : "",
                     lastprice: "7,125",
                     lot: "9",
                     shares: "930",
@@ -2515,7 +2501,6 @@ class PortofolioAgGrid extends React.PureComponent {
                     action:""   },
                 { code: "BBCA",
                     avgprice: "27,400",
-                    indicator : "",
                     lastprice: "27,400",
                     lot: "4",
                     shares: "410",
@@ -2526,7 +2511,6 @@ class PortofolioAgGrid extends React.PureComponent {
                 },
                 { code: "ASII",
                     avgprice: "7,125",
-                    indicator : "",
                     lastprice: "7,125",
                     lot: "9",
                     shares: "930",
@@ -2536,7 +2520,6 @@ class PortofolioAgGrid extends React.PureComponent {
                     action:""   },
                 { code: "BBCA",
                     avgprice: "27,400",
-                    indicator : "",
                     lastprice: "27,400",
                     lot: "4",
                     shares: "410",
@@ -2547,7 +2530,6 @@ class PortofolioAgGrid extends React.PureComponent {
                 },
                 { code: "ASII",
                     avgprice: "7,125",
-                    indicator : "",
                     lastprice: "7,125",
                     lot: "9",
                     shares: "930",
@@ -2557,7 +2539,6 @@ class PortofolioAgGrid extends React.PureComponent {
                     action:""   },
                 { code: "BBCA",
                     avgprice: "27,400",
-                    indicator : "",
                     lastprice: "27,400",
                     lot: "4",
                     shares: "410",
@@ -2568,7 +2549,6 @@ class PortofolioAgGrid extends React.PureComponent {
                 },
                 { code: "ASII",
                     avgprice: "7,125",
-                    indicator : "",
                     lastprice: "7,125",
                     lot: "9",
                     shares: "930",
@@ -2578,7 +2558,6 @@ class PortofolioAgGrid extends React.PureComponent {
                     action:""   },
                 { code: "BBCA",
                     avgprice: "27,400",
-                    indicator : "",
                     lastprice: "27,400",
                     lot: "4",
                     shares: "410",
@@ -2877,20 +2856,16 @@ class MutualFundAgGrid extends React.PureComponent {
                     cellClass : function (params) {
                         return " grid-table text-right f-12";
                     }  },
-                { field: "indicator", headerName: "", width: this.props.gridView == 'grid' ? 15 : 50,
-                    cellClass : function (params) {
-                        return " grid-table text-center f-12";
-                    },
-                    cellRenderer : function (params) {
-                        var pl = params.data.potentialpl;
-                        return pl.includes('-') === true ? '<i class="icofont icofont-caret-down text-danger"></i>' :
-                            '<i class="icofont icofont-caret-up text-success"></i>';
-                    } },
                 { field: "potentialpl", headerName: "Potential P/L", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 331,
                     cellClass : function (params) {
                         var pl = params.data.potentialpl;
                         return pl.includes('-') === true ? 'grid-table text-right f-12 text-danger' :
                             'grid-table text-right f-12 text-success'
+                    },
+                    cellRenderer : function (params) {
+                        var pl = params.data.potentialpl;
+                        return pl.includes('-') === true ? pl +'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icofont icofont-caret-down text-danger"></i>' :
+                            pl +'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icofont icofont-caret-up text-success"></i>';
                     } },
                 { field: "action", headerName: "Action", sortable: false, width: this.props.gridView == 'grid' ? 175 : 200, pinned: "right", lockPosition: true, lockVisible: true,
                     cellClass : function (params) {
@@ -2923,42 +2898,36 @@ class MutualFundAgGrid extends React.PureComponent {
                     nav: "12,650",
                     navdate: "06/03/2019",
                     currency: "12,650,000",
-                    indicator : "",
                     potentialpl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
                     action:""},
                 { code: "000D7T-Reksa Dana Penyataan...",
                     nav: "1,529",
                     navdate: "06/03/2019",
                     currency: "1,529,000",
-                    indicator : "",
                     potentialpl: "-15,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-1,50%",
                     action:""},
                 { code: "000D7Q-RDPT BUMN Fund...",
                     nav: "1,025",
                     navdate: "06/03/2019",
                     currency: "1,025,000",
-                    indicator : "",
                     potentialpl: "+250,660"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"+2,50%",
                     action:""},
                 { code: "000D7T-Reksa Dana Penyataan...",
                     nav: "7,125",
                     navdate: "06/03/2019",
                     currency: "7,125,000",
-                    indicator : "",
                     potentialpl: "+175"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"+1,75%",
                     action:""},
                 { code: "000D7Q-RDPT BUMN Fund...",
                     nav: "12,650",
                     navdate: "06/03/2019",
                     currency: "12,650,000",
-                    indicator : "",
                     potentialpl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
                     action:""},
                 { code: "000D7T-Reksa Dana Penyataan...",
                     nav: "1,529",
                     navdate: "06/03/2019",
                     currency: "1,529,000",
-                    indicator : "",
                     potentialpl: "-15,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-1,50%",
                     action:""},
             ],
