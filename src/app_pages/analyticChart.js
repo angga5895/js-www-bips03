@@ -7,12 +7,27 @@ import '../../node_modules/anychart/dist/fonts/css/anychart-font.min.css';
 import '../../node_modules/anychart/dist/js/anychart-data-adapter.min.js'
 /*import '../../node_modules/anychart/dist/js/dark_earth.min.js';*/
 import '../../node_modules/anychart/dist/js/anychart-annotations.min.js';
+import Select from 'react-select';
 
 import '../../node_modules/bootstrap-select/dist/css/bootstrap-select.min.css';
 import '../../node_modules/bootstrap-select/dist/js/bootstrap-select.min.js';
 import $ from 'jquery';
 window.$ = window.jQuery = $;
 require('../../node_modules/bootstrap/dist/js/bootstrap.js');
+
+const stockOptions = [
+    { value: 'aali', label: 'AALI' },
+    { value: 'adhi', label: 'ADHI' },
+    { value: 'antm', label: 'ANTM' },
+    { value: 'asii', label: 'ASII' },
+    { value: 'tlkm', label: 'TLKM' },
+    { value: 'wskt', label: 'WSKT' },
+    { value: 'indf', label: 'INDF' },
+    { value: 'bbca', label: 'BBCA' },
+    { value: 'smgr', label: 'SMGR' },
+    { value: 'bbri', label: 'BBRI' }
+]
+
 
 class AnalyticChart extends React.PureComponent {
 
@@ -46,6 +61,11 @@ class AnalyticChart extends React.PureComponent {
     }
 
     componentDidMount() {
+
+        $('.stockOps').css({
+            'color': '#000000',
+            'width': '100px'
+        });
 
         const stockName = this.state.stockType;
         const tabView = this.state.tabView;
@@ -125,6 +145,7 @@ class AnalyticChart extends React.PureComponent {
 
         var zoomLevel = 0.8;
         $('#indicatorSettingsModal' + stockName).css({ zoom: zoomLevel, '-moz-transform': 'scale(' + zoomLevel + ')' });
+        $('#formInputIndicators' + stockName).css({ zoom: zoomLevel, '-moz-transform': 'scale(' + zoomLevel + ')' });
 
         (function () {
             var $chartDataSelect = $('#chartDataSelect' + stockName);
@@ -567,6 +588,16 @@ class AnalyticChart extends React.PureComponent {
                     // create line series
                     series = plot[seriesType](mapping);
                     series.name(dataName.toUpperCase());
+
+                    // create volume series on the plot
+                    var volumeSeries1 = plot.volumeMa(mapping, 5, "sma", "column", "line");
+                    volumeSeries1.volumeSeries().stroke(null);
+                    volumeSeries1.volumeSeries().fill("#455a64 0.4");
+                    volumeSeries1.volumeSeries().maxHeight('30%');
+                    volumeSeries1.volumeSeries().bottom(0);
+                    volumeSeries1.maSeries().stroke("1.5 #ff6d00");
+                    volumeSeries1.maSeries().maxHeight('30%');
+                    volumeSeries1.maSeries().bottom(0);
                 }
 
                 series.stroke('2px #64b5f6');
@@ -723,7 +754,12 @@ class AnalyticChart extends React.PureComponent {
             overflowX: 'hidden'
         }
 
-        let elemWidthIndicator = (this.state.tabView) ? 350 : 135;
+        let customStylesBtn = {
+            minHeight: '38px',
+            marginLeft: '1px'
+        }
+
+        let elemWidthIndicator = (this.state.tabView) ? 350 : 200;
         let elemWidthanotation = (this.state.tabView) ? 250 : 140;
         let classChart = (this.state.tabView) ? 'tab-chart' : 'card-chart';
 
@@ -782,12 +818,12 @@ more.
                         </div>
                     </div >
 
-                    <div id={"allwrap" + this.state.stockType}>
-                        <div className="row">
+                    <div id={"allwrap" + this.state.stockType} className="f-12">
+                        <div className="row" id={"formInputIndicators" + this.state.stockType}>
                             <div className="col-xs-12 col-sm-6 col-md-12">
                                 <ul className="list list-unstyled list-nav" id={"indicatorNavPanel" + this.state.stockType} style={styleses}>
                                     <div className="form-inline">
-                                        <div className="form-group" style={buttonStyle}>
+                                        <div className="form-group">
                                             <li style={marginSelection}>
                                                 <input type="hidden" id={"chartDataSelect" + this.state.stockType} value={this.state.stockAlias} data-json={"./" + this.state.stockData} />
 
@@ -862,7 +898,13 @@ more.
                                         </div>
 
                                         <div className="form-group">
-                                            <li style={marginSelection}><a className="btn btn-danger" href="" id={"resetButton" + this.state.stockType}>Reset</a></li>
+                                            <li style={marginSelection}>
+                                                <Select options={stockOptions} className="stockOps" />
+                                            </li>
+                                        </div>
+
+                                        <div className="form-group">
+                                            <li style={marginSelection}><a className="btn btn-danger" style={customStylesBtn} href="" id={"resetButton" + this.state.stockType}>Reset</a></li>
                                         </div>
                                     </div>
                                 </ul>
