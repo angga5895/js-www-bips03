@@ -309,13 +309,23 @@ class LoginUserPage_Base extends React.PureComponent {
         $("#req_pass").css("display", "none");
     }
 
+    componentDidMount() {
+        var input = document.getElementById("press_login");
+        input.addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById("click_login").click();
+            }
+        });
+    }
+
     render () {
         var props = this.props;
         return (
             <>
                 {
                     <div style={{display: !props.signupState ? "block" : "none"}}>
-                        <div className="bg-black-trading f-12">
+                        <div className="bg-black-trading f-12" id="press_login">
                             <AppFrameAction ref="frameAction"/>
                             <WSConnectionAction ref="wsAction"/>
                             <main>
@@ -368,7 +378,7 @@ class LoginUserPage_Base extends React.PureComponent {
 
                                         <div className="form-group py-0 mb-0">
                                             <div className="justify-content-center align-items-center d-flex py-0 px-5">
-                                                <button type="submit" onClick={this.buttonClickLogin}
+                                                <button id="click_login" type="submit" onClick={this.buttonClickLogin}
                                                         className="btn btn-primary form-control py-0">
                                                     Login
                                                 </button>
