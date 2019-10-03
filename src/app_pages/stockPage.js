@@ -2880,7 +2880,7 @@ class StockWatchlistAgGrid extends React.PureComponent {
         return (
             <>
                 <div
-                    className="card-530 ag-theme-balham-dark ag-header-border d-border"
+                    className="card-537 ag-theme-balham-dark ag-header-border d-border"
                     style={{
                         width: 'auto' }}>
                     <AgGridReact

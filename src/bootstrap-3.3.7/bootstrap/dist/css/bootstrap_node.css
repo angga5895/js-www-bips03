@@ -50,7 +50,7 @@
     --card-225 : 225px;
     --card-170 : 170px;
     --card-550 : 550px;
-    --card-grafik : 310px;
+    --card-grafik : 330px;
     --card-530 : 523px;
     --card-500 : 500px;
     --card-160 : 160px;
@@ -59,8 +59,11 @@
     --card-558 : 570px;
     --card-235 : 235px;
     --card-580 : 580px;
+    --card-355 : 355px;
+    --card-537 : 537px;
       /*variable scale*/
       --py-2-scale : .5rem;
+      --py-form : 0px;
   }
 }
 
@@ -80,7 +83,7 @@
     --card-225 : 240px;
     --card-170 : 200px;
     --card-550 : 630px;
-    --card-grafik : 390px;
+    --card-grafik : 395px;
     --card-530 : 595px;
     --card-500 : 580px;
     --card-160 : 185px;
@@ -89,8 +92,11 @@
     --card-558 : 650px;
     --card-235 : 270px;
     --card-580 : 665px;
+    --card-355 : 420px;
+    --card-537 : 602px;
       /*variable scale*/
       --py-2-scale : 9.5px;
+      --py-form : .5rem;
   }
 }
 
@@ -110,7 +116,7 @@
     --card-225 : 285px;
     --card-170 : 228px;
     --card-550 : 725px;
-    --card-grafik : 480px;
+    --card-grafik : 488px;
     --card-530 : 690px;
     --card-500 : 680px;
     --card-160 : 218px;
@@ -119,8 +125,11 @@
     --card-558 : 755px;
     --card-235 : 325px;
     --card-580 : 765px;
+    --card-355 : 515px;
+    --card-537 : 699px;
       /*variable scale*/
       --py-2-scale : 14.25px;
+      --py-form : 1rem;
   }
 }
 

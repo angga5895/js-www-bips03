@@ -1,3 +1,12 @@
+.card-537 {
+    height: var(--card-537);
+}
+
+.py-form {
+    padding-top: var(--py-form)!important;
+    padding-bottom: var(--py-form)!important;
+}
+
 .d-active {
     border: #0071bc solid 1px!important;
 }
@@ -2276,7 +2285,7 @@ button.bg-gold:hover {
 }
 
 .card-355{
-  height: 355px;
+  height: var(--card-355);
 }
 
 .card-500{

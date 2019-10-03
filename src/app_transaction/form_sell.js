@@ -39,7 +39,7 @@ class FormSell extends React.PureComponent{
                     <div className="col-sm-6 f-18 text-success">Sell</div>
                     <div className="col-sm-6 text-right"><i className="fa fa-calendar-alt"></i> {tanggal()}</div>
                 </div>
-                <div className="form-group row mb-0">
+                <div className="form-group row mb-0 py-form">
                     <div className="col-sm-2">Code</div>
                     <div className="col-sm-10 row pr-0">
                         <div className="col-sm-4 pr-0 text-center align-self-center">
@@ -59,7 +59,7 @@ class FormSell extends React.PureComponent{
                     </div>
                 </div>
 
-                <div className="form-group row mb-3">
+                <div className="form-group row mb-3 py-form">
                     <div className="col-sm-8 ml-0 px-0 row">
                         <div className="col-sm-3">Price</div>
                         <div className="col-sm-9">
@@ -71,7 +71,7 @@ class FormSell extends React.PureComponent{
                     </div>
                 </div>
 
-                <div className="form-group row mb-3">
+                <div className="form-group row mb-3 py-form">
                     <div className="col-sm-8 ml-0 px-0 row">
                         <div className="col-sm-3">Vol</div>
                         <div className="col-sm-9">
@@ -86,7 +86,7 @@ class FormSell extends React.PureComponent{
                     </div>
                 </div>
 
-                <div className="form-group row mb-3">
+                <div className="form-group row mb-3 py-form">
                     <div className="col-sm-8 ml-0 px-0 row">
                         <div className="col-sm-3">Mkt.</div>
                         <div className="col-sm-9">
@@ -102,13 +102,13 @@ class FormSell extends React.PureComponent{
 
                 <div className="form-group row mb-2">
                     <div className="col-sm-8 ml-0 px-0 row">
-                        <div className="col-sm-3 mb-3">Expire</div>
-                        <div className="col-sm-9 mb-3">
+                        <div className="col-sm-3 mb-3 py-form">Expire</div>
+                        <div className="col-sm-9 mb-3 py-form">
                             <Dropdown placeholder='Expire' search selection options={stateOptions} className={"f-12 text-center align-self-center col-sm-12"} defaultValue="day"/>
                         </div>
 
-                        <div className="col-sm-3 mb-3">Value</div>
-                        <div className="col-sm-9 mb-3">
+                        <div className="col-sm-3 mb-3 py-form">Value</div>
+                        <div className="col-sm-9 mb-3 py-form">
                             <NumberInput idclassname={this.props.idValue} name="sell_value" placeholder="Value" size="small" defaultValue={"12600"} className="col-sm-12 px-0 f-12 text-center align-self-center" />
                         </div>
                     </div>
@@ -120,7 +120,7 @@ class FormSell extends React.PureComponent{
                     </div>
                 </div>
 
-                <div className="form-group row mb-0 px-4">
+                <div className="form-group row mb-0 px-4 py-form">
                     <Table responsive borderless size="sm" className="text-white pb-0 mb-0 d-border-table">
                         <thead></thead>
                         <tbody>

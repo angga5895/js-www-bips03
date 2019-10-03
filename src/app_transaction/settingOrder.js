@@ -53,7 +53,7 @@ class SettingOrder extends React.Component{
                         <div className={this.state.activeTab === '1' ? 'd-block f-12' : 'd-none'}>
                             <div className="d-border-transparent-grey">
                                 <div className="d-border-bottom mb-3">
-                                    <div className="form-group mb-3 px-4">
+                                    <div className="form-group mb-3 px-4 py-form">
                                         <label aria-label="code" className="text-white">Code</label>
                                         <div id="code" className="col-sm-12 px-0 mx-0 row">
                                             <Input readonly defaultValue='AALI' placeholder='Code' icon={
@@ -68,7 +68,7 @@ class SettingOrder extends React.Component{
                                         <div className="col-sm-3 pr-0 text-danger f-11">-60,240</div>
                                         <div className="col-sm-2 pr-0 text-danger f-11">-0,40%</div>
                                     </div>
-                                    <div className="form-group px-4">
+                                    <div className="form-group px-4 py-form">
                                         <label aria-label="condition" className="text-white">Set Condition</label>
                                         <div id="condition" className="col-sm-12 px-0 mx-0 row">
                                             <div className="col-sm-4 mr-0 px-0">
@@ -85,7 +85,7 @@ class SettingOrder extends React.Component{
                                 </div>
 
                                 <div className="d-border-bottom mb-3">
-                                    <div className="form-group px-4">
+                                    <div className="form-group px-4 py-form">
                                         <label aria-label="ordervol" className="text-white">Order Vol</label>
                                         <div id="ordervol" className="col-sm-12 px-0 mx-0 row">
                                             <div className="col-sm-4 mr-0 px-0">
@@ -99,7 +99,7 @@ class SettingOrder extends React.Component{
                                 </div>
 
                                 <div className="d-border-bottom mb-3">
-                                    <div className="form-group px-4">
+                                    <div className="form-group px-4 py-form">
                                         <label aria-label="orderprice" className="text-white">Order Price</label>
                                         <div id="orderprice" className="col-sm-12 px-0 mx-0 row">
                                             <div className="col-sm-5 mr-0 px-0">
@@ -116,7 +116,7 @@ class SettingOrder extends React.Component{
                                 </div>
 
                                 <div className="mb-3">
-                                    <div className="form-group px-4">
+                                    <div className="form-group px-4 py-form">
                                         <label aria-label="expiredate" className="text-white">Expire date</label>
                                         <div id="expiredate" className="col-sm-12 px-0 mx-0 row">
                                             <div className="col-sm-5 mr-0 px-0">
@@ -124,7 +124,7 @@ class SettingOrder extends React.Component{
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="form-group mx-4 row">
+                                    <div className="form-group mx-4 row py-form">
                                         <div className="col-sm-8 px-0 mx-0"></div>
                                         <div className="col-sm-4 px-0 mx-0">
                                             <button className="d-border mx-1 pull-right col-sm-12 btn btn-sm btn-primary"><span><i className="icofont icofont-save"></i> Save Setting</span></button>
@@ -136,7 +136,7 @@ class SettingOrder extends React.Component{
                         <div className={this.state.activeTab === '2' ? 'd-block f-12' : 'd-none'}>
                             <div className="d-border-transparent-grey">
                                 <div className="d-border-bottom mb-3">
-                                    <div className="form-group mb-3 px-4">
+                                    <div className="form-group mb-3 px-4 py-form">
                                         <label aria-label="code" className="text-white">Code</label>
                                         <div id="code" className="col-sm-12 px-0 mx-0 row">
                                             <Input readonly defaultValue='AALI' placeholder='Code' icon={
@@ -151,7 +151,7 @@ class SettingOrder extends React.Component{
                                         <div className="col-sm-3 pr-0 text-success f-11">+15,650</div>
                                         <div className="col-sm-2 pr-0 text-success f-11">+1,75%</div>
                                     </div>
-                                    <div className="form-group px-4">
+                                    <div className="form-group px-4 py-form">
                                         <label aria-label="condition" className="text-white">Set Condition</label>
                                         <div id="condition" className="col-sm-12 px-0 mx-0 row">
                                             <div className="col-sm-4 mr-0 px-0">
@@ -168,7 +168,7 @@ class SettingOrder extends React.Component{
                                 </div>
 
                                 <div className="d-border-bottom mb-3">
-                                    <div className="form-group px-4">
+                                    <div className="form-group px-4 py-form">
                                         <label aria-label="ordervol" className="text-white">Order Vol</label>
                                         <div id="ordervol" className="col-sm-12 px-0 mx-0 row">
                                             <div className="col-sm-4 mr-0 px-0">
@@ -182,7 +182,7 @@ class SettingOrder extends React.Component{
                                 </div>
 
                                 <div className="d-border-bottom mb-3">
-                                    <div className="form-group px-4">
+                                    <div className="form-group px-4 py-form">
                                         <label aria-label="orderprice" className="text-white">Order Price</label>
                                         <div id="orderprice" className="col-sm-12 px-0 mx-0 row">
                                             <div className="col-sm-5 mr-0 px-0">
@@ -199,7 +199,7 @@ class SettingOrder extends React.Component{
                                 </div>
 
                                 <div className="mb-3">
-                                    <div className="form-group px-4">
+                                    <div className="form-group px-4 py-form">
                                         <label aria-label="expiredate" className="text-white">Expire date</label>
                                         <div id="expiredate" className="col-sm-12 px-0 mx-0 row">
                                             <div className="col-sm-5 mr-0 px-0">
@@ -207,7 +207,7 @@ class SettingOrder extends React.Component{
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="form-group mx-4 row">
+                                    <div className="form-group mx-4 row py-form">
                                         <div className="col-sm-8 px-0 mx-0"></div>
                                         <div className="col-sm-4 px-0 mx-0">
                                             <button className="d-border mx-1 pull-right col-sm-12 btn btn-sm btn-primary"><span><i className="icofont icofont-save"></i> Save Setting</span></button>

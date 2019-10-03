@@ -100,7 +100,7 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--card-225', "285px");
       document.body.style.setProperty('--card-170', "228px");
       document.body.style.setProperty('--card-550', "725px");
-      document.body.style.setProperty('--card-grafik', "480px");
+      document.body.style.setProperty('--card-grafik', "488px");
       document.body.style.setProperty('--card-530', "720px");
       document.body.style.setProperty('--card-500', "680px");
       document.body.style.setProperty('--card-160', "218px");
@@ -110,6 +110,9 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--card-558', '755px');
       document.body.style.setProperty('--card-235', '325px');
       document.body.style.setProperty('--card-580', '765px');
+      document.body.style.setProperty('--card-355', '515px');
+      document.body.style.setProperty('--card-537', '699px');
+      document.body.style.setProperty('--py-form', '1rem');
       this.setState({
           scalemode : zoomLevel,
       })
@@ -139,7 +142,7 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--card-225', "240px");
       document.body.style.setProperty('--card-170', "200px");
       document.body.style.setProperty('--card-550', "630px");
-      document.body.style.setProperty('--card-grafik', "390px");
+      document.body.style.setProperty('--card-grafik', "395px");
       document.body.style.setProperty('--card-530', "620px");
       document.body.style.setProperty('--card-500', "580px");
       document.body.style.setProperty('--card-160', "185px");
@@ -149,6 +152,9 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--card-558', '650px');
       document.body.style.setProperty('--card-235', '270px');
       document.body.style.setProperty('--card-580', '665px');
+      document.body.style.setProperty('--card-355', '420px');
+      document.body.style.setProperty('--card-537', '602px');
+      document.body.style.setProperty('--py-form', '.5rem');
       this.setState({
           scalemode : zoomLevel,
       })
@@ -178,7 +184,7 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--card-225', '225px');
       document.body.style.setProperty('--card-170', '170px');
       document.body.style.setProperty('--card-550', '550px');
-      document.body.style.setProperty('--card-grafik', "310px");
+      document.body.style.setProperty('--card-grafik', "330px");
       document.body.style.setProperty('--card-530', "540px");
       document.body.style.setProperty('--card-500', "500px");
       document.body.style.setProperty('--card-160', "160px");
@@ -188,6 +194,9 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--card-558', '570px');
       document.body.style.setProperty('--card-235', '235px');
       document.body.style.setProperty('--card-580', '580px');
+      document.body.style.setProperty('--card-355', '355px');
+      document.body.style.setProperty('--card-537', '537px');
+      document.body.style.setProperty('--py-form', '0px');
       this.setState({
           scalemode : zoomLevel,
       })
@@ -217,7 +226,7 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--card-225', '225px');
       document.body.style.setProperty('--card-170', '170px');
       document.body.style.setProperty('--card-550', '550px');
-      document.body.style.setProperty('--card-grafik', "310px");
+      document.body.style.setProperty('--card-grafik', "330px");
       document.body.style.setProperty('--card-530', "540px");
       document.body.style.setProperty('--card-500', "500px");
       document.body.style.setProperty('--card-160', "160px");
@@ -227,6 +236,9 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--card-558', '570px');
       document.body.style.setProperty('--card-235', '235px');
       document.body.style.setProperty('--card-580', '580px');
+      document.body.style.setProperty('--card-355', '355px');
+      document.body.style.setProperty('--card-537', '537px');
+      document.body.style.setProperty('--py-form', '0px');
       this.setState({
           scalemode : zoomLevel,
       })
@@ -257,7 +269,7 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--card-225', '225px');
       document.body.style.setProperty('--card-170', '170px');
       document.body.style.setProperty('--card-550', '550px');
-      document.body.style.setProperty('--card-grafik', "310px");
+      document.body.style.setProperty('--card-grafik', "330px");
       document.body.style.setProperty('--card-530', "540px");
       document.body.style.setProperty('--card-500', "500px");
       document.body.style.setProperty('--card-160', "160px");
@@ -267,6 +279,9 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--card-558', '570px');
       document.body.style.setProperty('--card-235', '235px');
       document.body.style.setProperty('--card-580', '580px');
+      document.body.style.setProperty('--card-355', '355px');
+      document.body.style.setProperty('--card-537', '537px');
+      document.body.style.setProperty('--py-form', '0px');
       this.setState({
           scalemode : zoomLevel,
       })
