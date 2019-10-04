@@ -141,6 +141,9 @@
 
 
 html{
+    scrollbar-color: #777777 #918D8D42!important;
+}
+#root{
     scrollbar-color: var(--warna-scroll) var(--warna-dasar)!important;
 }
 
