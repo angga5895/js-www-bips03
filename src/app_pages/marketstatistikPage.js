@@ -3984,8 +3984,9 @@ class MarketIndicesAgGrid extends React.PureComponent {
         this.state = {
             columnDefs: [
                 { field: "sector", headerName: "Sector", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 125,
+                    lockVisible:true, lockPosition:true,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12 text-primary";
+                        return " grid-table text-center f-12 text-primary locked-col locked-visible";
                     },suppressSizeToFit: true, pinned: 'left'},
                 { field: "last", headerName: "Last", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 128,
                     cellClass : function (params) {
@@ -4280,8 +4281,9 @@ class TopBrokerAgGrid extends React.PureComponent {
                         return " grid-table text-center f-12";
                     }},
                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 213,
+                    suppressSizeToFit:true, lockVisible:true,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12";
+                        return " grid-table text-center f-12 locked-visible";
                     }},
                 { field: "company", headerName: "Company", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 213,
                     cellClass : function (params) {
@@ -4463,8 +4465,9 @@ class TopBrokerBAgGrid extends React.PureComponent {
                         return " grid-table text-center f-12";
                     }},
                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
+                    suppressSizeToFit:true, lockVisible:true,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12";
+                        return " grid-table text-center f-12 locked-visible";
                     }},
                 { field: "company", headerName: "Company", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
                     cellClass : function (params) {
@@ -4618,8 +4621,9 @@ class TopBrokerSAgGrid extends React.PureComponent {
                         return " grid-table text-center f-12";
                     }},
                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
+                    suppressSizeToFit:true, lockVisible:true,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12";
+                        return " grid-table text-center f-12 locked-visible";
                     }},
                 { field: "company", headerName: "Company", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
                     cellClass : function (params) {
