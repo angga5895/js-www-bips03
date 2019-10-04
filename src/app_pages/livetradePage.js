@@ -114,7 +114,7 @@ class LiveTradePage extends React.PureComponent {
                         </ul>
                     </div>
                     <div className="col-mbl-radio-o px-0 mx-0">
-                        <div className="title-radio-right col-sm-12 pull-right text-right">
+                        <div className="title-radio-right col-sm-12 pull-right text-right pt-2">
                             <button className="d-border mx-1 col-sm-3 btn btn-success" onClick={this.buttonClickSell}><span>Sell</span></button>
                             <button className="d-border mx-1 col-sm-3 btn btn-danger" onClick={this.buttonClickBuy}><span>Buy</span></button>
                         </div>
@@ -122,7 +122,7 @@ class LiveTradePage extends React.PureComponent {
                 </div>
                 <div className="col-sm-12 row px-0 mx-0 row">
                     <div className="col-sm-7 px-2 mx-0">
-                        <div className="bg-trading-gray card-592">
+                        <div className="bg-trading-gray">
                             {/*<TableBS responsive borderless size="sm" className="text-center align-middle align-self-center f-12">
                                 <thead className="text-white t-border-bottom-bold t-border-top-bold h-live-trade">
                                 <tr>
@@ -808,8 +808,9 @@ class LiveTradeAgGrid extends React.PureComponent {
                         return "text-center grid-table f-12";
                     }},
                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 70,
+                    suppressSizeToFit:true, lockVisible:true,
                     cellClass : function (params) {
-                        return "text-center grid-table f-12";
+                        return "text-center grid-table f-12 locked-visible";
                     }},
                 { field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 70,
                     cellClass : function (params) {
@@ -1081,11 +1082,29 @@ class LiveTradeAgGrid extends React.PureComponent {
         }
     }
 
+    onGridReady = params => {
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
+
+        params.api.sizeColumnsToFit();
+        window.addEventListener("resize", function() {
+            setTimeout(function() {
+                params.api.sizeColumnsToFit();
+            });
+        });
+
+        params.api.sizeColumnsToFit();
+    };
+
+    onFirstDataRendered(params) {
+        params.api.sizeColumnsToFit();
+    }
+
     render() {
         return (
             <>
                 <div
-                    className="card-592 ag-theme-balham-dark ag-header-border-gray-live-trade"
+                    className="card card-589 ag-theme-balham-dark ag-header-border-gray-live-trade"
                     style={{
                         width: 'auto' }}>
                     <span id="myLiveTrade">
@@ -1093,7 +1112,9 @@ class LiveTradeAgGrid extends React.PureComponent {
                             columnDefs={this.state.columnDefs}
                             rowData={this.state.rowData}
                             defaultColDef={this.state.defaultColDef}
-                            getRowHeight={this.state.getRowHeight}>
+                            getRowHeight={this.state.getRowHeight}
+                            onGridReady={this.onGridReady}
+                            onFirstDataRendered={this.onFirstDataRendered}>
                         </AgGridReact>
                     </span>
                 </div>

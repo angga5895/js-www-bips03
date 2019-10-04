@@ -61,9 +61,14 @@
     --card-580 : 580px;
     --card-355 : 355px;
     --card-537 : 537px;
+    --card-589 : 589px;
       /*variable scale*/
       --py-2-scale : .5rem;
       --py-form : 0px;
+  }
+
+  #myLiveTrade{
+      zoom: 1;
   }
 }
 
@@ -94,9 +99,14 @@
     --card-580 : 665px;
     --card-355 : 420px;
     --card-537 : 602px;
+    --card-589 : 650px;
       /*variable scale*/
       --py-2-scale : 9.5px;
       --py-form : .5rem;
+  }
+
+  #myLiveTrade{
+      zoom: 1.1;
   }
 }
 
@@ -127,9 +137,14 @@
     --card-580 : 765px;
     --card-355 : 515px;
     --card-537 : 699px;
+    --card-589 : 769px;
       /*variable scale*/
       --py-2-scale : 14.25px;
       --py-form : 1rem;
+  }
+
+  #myLiveTrade{
+      zoom: 1.26;
   }
 }
 

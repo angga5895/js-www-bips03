@@ -112,6 +112,7 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--card-580', '765px');
       document.body.style.setProperty('--card-355', '515px');
       document.body.style.setProperty('--card-537', '699px');
+      document.body.style.setProperty('--card-589', '769px');
       document.body.style.setProperty('--py-form', '1rem');
       this.setState({
           scalemode : zoomLevel,
@@ -154,6 +155,7 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--card-580', '665px');
       document.body.style.setProperty('--card-355', '420px');
       document.body.style.setProperty('--card-537', '602px');
+      document.body.style.setProperty('--card-589', '650px');
       document.body.style.setProperty('--py-form', '.5rem');
       this.setState({
           scalemode : zoomLevel,
@@ -196,6 +198,7 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--card-580', '580px');
       document.body.style.setProperty('--card-355', '355px');
       document.body.style.setProperty('--card-537', '537px');
+      document.body.style.setProperty('--card-589', '589px');
       document.body.style.setProperty('--py-form', '0px');
       this.setState({
           scalemode : zoomLevel,
@@ -238,6 +241,7 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--card-580', '580px');
       document.body.style.setProperty('--card-355', '355px');
       document.body.style.setProperty('--card-537', '537px');
+      document.body.style.setProperty('--card-589', '589px');
       document.body.style.setProperty('--py-form', '0px');
       this.setState({
           scalemode : zoomLevel,
@@ -281,6 +285,7 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--card-580', '580px');
       document.body.style.setProperty('--card-355', '355px');
       document.body.style.setProperty('--card-537', '537px');
+      document.body.style.setProperty('--card-589', '589px');
       document.body.style.setProperty('--py-form', '0px');
       this.setState({
           scalemode : zoomLevel,
