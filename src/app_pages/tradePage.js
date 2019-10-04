@@ -542,10 +542,10 @@ class TradeWatchlistAgGrid extends React.PureComponent {
         const self = this;
         this.state = {
             columnDefs: [
-                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 69,
+                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 69, lockPosition:true, lockVisible:true,
                     cellClass : function (params) {
-                        return "text-center grid-table f-12";
-                    }},
+                        return "text-center grid-table f-12 locked-col locked-visible";
+                    }, suppressSizeToFit: true},
                 { field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 67,
                     cellClass : function (params) {
                         var change = params.data.change;
@@ -811,6 +811,24 @@ class TradeWatchlistAgGrid extends React.PureComponent {
         }
     }
 
+    onGridReady = params => {
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
+
+        params.api.sizeColumnsToFit();
+        window.addEventListener("resize", function() {
+            setTimeout(function() {
+                params.api.sizeColumnsToFit();
+            });
+        });
+
+        params.api.sizeColumnsToFit();
+    };
+
+    onFirstDataRendered(params) {
+        params.api.sizeColumnsToFit();
+    }
+
     render() {
         return (
             <>
@@ -822,7 +840,9 @@ class TradeWatchlistAgGrid extends React.PureComponent {
                         columnDefs={this.state.columnDefs}
                         rowData={this.state.rowData}
                         defaultColDef={this.state.defaultColDef}
-                        getRowHeight={this.state.getRowHeight}>
+                        getRowHeight={this.state.getRowHeight}
+                        onGridReady={this.onGridReady}
+                        onFirstDataRendered={this.onFirstDataRendered}>
                     </AgGridReact>
                 </div>
             </>
@@ -876,11 +896,11 @@ class OrderHistoryAgGrid extends React.PureComponent {
         const self = this;
         this.state = {
             columnDefs: [
-                { field: "cmd", headerName: "Cmd", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 70,
+                { field: "cmd", headerName: "Cmd", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 70, lockPosition:true, lockVisible:true,
                     cellClass : function (params) {
                         var cmd = params.data.cmd;
-                        return cmd.includes('BUY') === true ? "text-center grid-table f-12 text-danger" : "text-center grid-table f-12 text-success";
-                    }},
+                        return cmd.includes('BUY') === true ? "text-center grid-table f-12 text-danger locked-col locked-visible" : "text-center grid-table f-12 text-success locked-col locked-visible";
+                    }, suppressSizeToFit : true},
                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 70,
                     cellClass : function (params) {
                         return "text-center grid-table f-12";
@@ -978,6 +998,24 @@ class OrderHistoryAgGrid extends React.PureComponent {
         }
     }
 
+    onGridReady = params => {
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
+
+        params.api.sizeColumnsToFit();
+        window.addEventListener("resize", function() {
+            setTimeout(function() {
+                params.api.sizeColumnsToFit();
+            });
+        });
+
+        params.api.sizeColumnsToFit();
+    };
+
+    onFirstDataRendered(params) {
+        params.api.sizeColumnsToFit();
+    }
+
     render() {
         return (
             <>
@@ -992,7 +1030,9 @@ class OrderHistoryAgGrid extends React.PureComponent {
                         rowData={this.state.rowData}
                         defaultColDef={this.state.defaultColDef}
                         getRowHeight={this.state.getRowHeight}
-                        rowSelection={this.state.rowSelection}>
+                        rowSelection={this.state.rowSelection}
+                        onGridReady={this.onGridReady}
+                        onFirstDataRendered={this.onFirstDataRendered}>
                     </AgGridReact>
 
                     <button className="d-border mr-3 mb-3 col-sm-2 btn btn-sm btn-dark"><span><i className="fa fa-trash-alt"></i>&nbsp; Delete All</span></button>
