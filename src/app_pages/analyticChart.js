@@ -761,7 +761,7 @@ class AnalyticChart extends React.PureComponent {
 
         let elemWidthIndicator = (this.state.tabView) ? 350 : 200;
         let elemWidthanotation = (this.state.tabView) ? 250 : 140;
-        let classChart = (this.state.tabView) ? 'tab-chart' : 'card-chart';
+        let classChart = (this.state.tabView) ? 'tab-chart bg-dark-grey' : 'card-chart bg-dark-grey';
 
         return (
             <div className={this.props.chartGridClass} id={"chartContent" + this.state.stockType}>

@@ -100,7 +100,7 @@ class StockChart extends Component {
             // set chart selected date/time range
             chart.selectRange('2016-07-01', '2016-12-30');
 
-            chart.background().fill("#1A1A1A");
+            chart.background().fill("none");
 
             // set container id for the chart
             // chart.container(container);
