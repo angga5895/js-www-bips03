@@ -114,7 +114,11 @@ class TableInfoTransaction extends React.PureComponent{
                                 <Table responsive borderless size="sm" className="text-white bg-dark-grey px-0 mx-0 card-355">
                                 <thead className="d-border-top d-border-bottom">
                                 <tr>
-                                    <th className="no-wrap py-3 text-center bg-dark-grey">NoB</th>
+                                    <th className="no-wrap py-3 text-center bg-dark-grey">
+                                        <Popup content='Number Of Buy' position='top center' trigger={
+                                            <span>NoB</span>
+                                        } />
+                                    </th>
                                     <th className="no-wrap py-3 text-center bg-dark-grey">Bid Vol</th>
                                     <th className="no-wrap py-3 text-center bg-dark-grey">Bid</th>
                                 </tr>
@@ -188,7 +192,11 @@ class TableInfoTransaction extends React.PureComponent{
                                 <tr>
                                     <th className="no-wrap py-3 text-center bg-dark-grey">Offer</th>
                                     <th className="no-wrap py-3 text-center bg-dark-grey">Offer Vol</th>
-                                    <th className="no-wrap py-3 text-center bg-dark-grey">NoS</th>
+                                    <th className="no-wrap py-3 text-center bg-dark-grey">
+                                        <Popup content='Number Of Sell' position='top center' trigger={
+                                            <span>NoS</span>
+                                        } />
+                                    </th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -360,7 +368,11 @@ class TableInfoTransactionWithButton extends React.PureComponent{
                                 <Table responsive borderless size="sm" className="text-white bg-dark-grey px-0 mx-0 card-355">
                                     <thead className="d-border-top d-border-bottom">
                                     <tr>
-                                        <th className="no-wrap py-3 text-center bg-dark-grey">NoB</th>
+                                        <th className="no-wrap py-3 text-center bg-dark-grey">
+                                            <Popup content='Number Of Buy' position='top center' trigger={
+                                                <span>NoB</span>
+                                            } />
+                                        </th>
                                         <th className="no-wrap py-3 text-center bg-dark-grey">Bid Vol</th>
                                         <th className="no-wrap py-3 text-center bg-dark-grey">Bid</th>
                                     </tr>
@@ -434,7 +446,11 @@ class TableInfoTransactionWithButton extends React.PureComponent{
                                     <tr>
                                         <th className="no-wrap py-3 text-center bg-dark-grey">Offer</th>
                                         <th className="no-wrap py-3 text-center bg-dark-grey">Offer Vol</th>
-                                        <th className="no-wrap py-3 text-center bg-dark-grey">NoS</th>
+                                        <th className="no-wrap py-3 text-center bg-dark-grey">
+                                            <Popup content='Number Of Sell' position='top center' trigger={
+                                                <span>NoS</span>
+                                            } />
+                                        </th>
                                     </tr>
                                     </thead>
                                     <tbody>
