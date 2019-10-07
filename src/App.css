@@ -1,3 +1,11 @@
+text{
+    fill:var(--warna-text-basic)!important;
+}
+
+svg > g > g > g > path:first-child{
+    fill: var(--warna-bg-trading-gray);
+}
+
 .ag-theme-balham-dark .ag-header-cell::after, .ag-theme-balham-dark .ag-header-group-cell::after {
     border-right: 1px solid #88888880!important;
 }
