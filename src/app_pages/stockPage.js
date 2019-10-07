@@ -347,10 +347,17 @@ class StockHistoryPage extends React.PureComponent {
                     <div className="container-fluid f-12">
                         <div className="py-2">
                             <div className="px-1 mx-0 my-2 col-sm-12 row">
-                                <label className="align-self-center col-sm-1 px-0 mx-0">Code</label>
-                                <Input defaultValue='AALI' placeholder='Code' size='small' className="col-sm-2 text-center align-self-center"/>
-                                <div className="col-sm-1 text-center align-self-center"><i className="fa fa-search fa-2x click-pointer text-dark"></i></div>
-                                <Input defaultValue='Arga Argo Lestari Tbk.' placeholder='Name' size='small' className="col-sm-3 align-self-center"/>
+                                <div className="col-sm-2 px-0 mx-0 row">
+                                    <label className="align-self-center col-sm-2 px-0 mx-0">Code</label>
+                                    <Input defaultValue='AALI' placeholder='Code' size='small' className="col-sm-8 text-center align-self-center"/>
+                                    <div className="col-sm-2 text-left align-self-center px-2"><i className="fa fa-search fa-2x click-pointer text-dark"></i></div>
+                                    {/*<Input defaultValue='Arga Argo Lestari Tbk.' placeholder='Name' size='small' className="col-sm-3 align-self-center"/>*/}
+                                </div>
+                                <div className="col-sm-6 row mx-0 px-0 align-self-center">
+                                    <label className="col-sm-12 f-13 f-xs-14 align-middle align-self-center pr-0">
+                                        Astra Argo Lestari Tbk.
+                                    </label>
+                                </div>
                             </div>
 
                             <div className="px-2 mx-0 mt-3 col-sm-12 mb-3 row">
