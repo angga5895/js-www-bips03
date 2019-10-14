@@ -54,6 +54,14 @@ const FillHeaderTab_Base = (props) => {
 
                                             :
 
+                                            e.instanceName.search('Chat') >= 0 ?
+                                                e.instanceName.search('ChatActionPage') >= 0?
+                                                    'active col-sm-6 click-pointer text-center'
+                                                    :
+                                                    'active col-sm-6 click-pointer text-center d-border-right'
+
+                                            :
+
                                             e.instanceName.search('automaticO') >= 0 ?
                                                 e.instanceName.search('automaticODailyTrade') >= 0?
                                                     'active col-sm-4 click-pointer text-center'
@@ -91,6 +99,14 @@ const FillHeaderTab_Base = (props) => {
 
                                             e.instanceName.search('tradePage') >= 0 ?
                                                 e.instanceName.search('tradePageOrderbook') >= 0?
+                                                    'col-sm-6 click-pointer text-center'
+                                                    :
+                                                    'col-sm-6 click-pointer text-center d-border-right'
+
+                                            :
+
+                                            e.instanceName.search('Chat') >= 0 ?
+                                                e.instanceName.search('ChatActionPage') >= 0?
                                                     'col-sm-6 click-pointer text-center'
                                                     :
                                                     'col-sm-6 click-pointer text-center d-border-right'
