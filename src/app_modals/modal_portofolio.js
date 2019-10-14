@@ -1,8 +1,9 @@
 import React from "react";
 import { AppFrameAction } from "./../appframe";
 import user_avatar from './../img/man.png';
-// import TableInfoTransaction from "./../app_transaction/tableInfoTransaction";
-// import FormBuy from "./../app_transaction/form_buy";
+// import '../App-costum.css';
+
+import { AgGridReact } from 'ag-grid-react';
 
 class ModalPortofolio extends React.Component {
     render() {
@@ -22,9 +23,10 @@ class ModalPortofolio extends React.Component {
 
         const imgUser = {
             margin: 'auto',
-            backgroundColor: '#3c3c3c',
-            borderBottom: '2px solid #1A1A1A'
+            backgroundColor: 'var(--warna-bg-trading-gray)',
+            // borderBottom: '2px solid var(--warna-inactive-gradient)'
         }
+
 
         return (
             <>
@@ -41,11 +43,11 @@ class ModalPortofolio extends React.Component {
                 </div> */}
 
                 <div className="container-fluid">
-                    <div className="row">
+                    {/* <div className="row">
                         <div className="col-md-12" style={divMargin}>
                             <h4>Portofolio & Balance</h4>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="row f-12">
                         <div className="col-md-4">
                             <div className="row" style={imgUser}>
@@ -70,38 +72,15 @@ class ModalPortofolio extends React.Component {
                         </div>
                         <div className="col-md-8">
                             <div className="row">
-                                <div className="col-md-12">
-                                    <table className="table text-white d-border-table bg-dark-grey table-sm table-borderless">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Product</th>
-                                                <th>Payment Taken</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TB - Monthly</td>
-                                                <td>01/04/2012</td>
-                                                <td>Default</td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>TB - Monthly</td>
-                                                <td>01/04/2012</td>
-                                                <td>Approved</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <div className="col-md-12" sty>
+                                   <PortofolioAgGrid/>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col-md-12">
                                     <div className="row">
                                         <div className="col-md-12">
-                                            <p className="text-left">Settlement</p>
+                                            <p className="text-left mt-3 mb-0">Settlement</p>
                                             <div className="row">
                                                 <div className="col-md-12">
                                                     <table className="table text-white d-border-table bg-dark-grey table-sm table-borderless">
@@ -167,5 +146,418 @@ class ModalPortofolio extends React.Component {
         );
     }
 }
+
+class PortofolioAgGrid extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        const self = this;
+        this.state = {
+            columnDefs: [
+                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 69 : 150,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    }, suppressSizeToFit: true
+                },
+                { field: "avgprice", headerName: "Avg. Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 94 : 206,
+                    cellClass : function (params) {
+                        return " text-right grid-table f-12";
+                    }
+                },
+                { field: "lastprice", headerName: "Last Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 92 : 207,
+                    cellClass : function (params) {
+                        var pl = params.data.pl;
+                        return pl.includes('-') === true ? "text-danger text-right  grid-table f-12" :
+                            "text-success text-right  grid-table f-12";
+                    }
+                }, 
+                { field: "port", headerName: "Portofolio", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 58 : 124,
+                    cellClass : function (params) {
+                        return " text-center grid-table f-12";
+                    }
+                    ,
+                    children: [
+                        { field: "lot", headerName: "Lot", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 58 : 124,
+                            cellClass : function (params) {
+                                return " text-right grid-table f-12";
+                            }
+                        },
+                        { field: "share", headerName: "Share", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 76 :124,
+                            cellClass : function (params) {
+                                return " text-right grid-table f-12";
+                            },
+                        }
+                    ]
+                },
+               
+                { field: "mktvalue", headerName: "Mkt. Val", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
+                    cellClass : function (params) {
+                        return " text-right grid-table f-12";
+                    }
+                },
+                { field: "pl", headerName: "P/L", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 207,
+                    cellClass : function (params) {
+                        var pl = params.data.pl;
+                        return pl.includes('-') === true ? "text-danger text-right  grid-table f-12":
+                            "text-success text-right  grid-table f-12";
+                    }
+                },
+                { field: "perc", headerName: "%", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 207,
+                    cellClass : function (params) {
+                        var pl = params.data.pl;
+                        return pl.includes('-') === true ? "text-danger text-right  grid-table f-12":
+                            "text-success text-right  grid-table f-12";
+                    }
+                },
+
+                { field: "sellable", headerName: "Sellable Balance", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 58 : 124,
+                cellClass : function (params) {
+                    return " text-center grid-table f-12";
+                }
+                ,
+                children: [
+                    { field: "lot", headerName: "Lot", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 58 : 124,
+                        cellClass : function (params) {
+                            return " text-right grid-table f-12";
+                        }
+                    },
+                    { field: "share", headerName: "Share", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 76 :124,
+                        cellClass : function (params) {
+                            return " text-right grid-table f-12";
+                        },
+                    }
+                ]
+            },
+                { field: "lqVal", headerName: "Lq. Val", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 207,
+                    cellClass : function (params) {
+                        return "text-success text-right  grid-table f-12";
+                    }
+                },
+            
+                { field: "stockVal", headerName: "Stock Val (Avg.)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 207,
+                cellClass : function (params) {
+                    var pl = params.data.pl;
+                    return "text-success text-right  grid-table f-12";
+                }
+            }
+            ],
+            defaultColDef: {
+                sortable: true,
+                filter: true,
+            },
+            rowData: [
+                { code: "AALI",
+                    avgprice: "12,650",
+                    lastprice: "12,650",
+                    lot: "12",
+                    shares: "122",
+                    stockval: "12,650,000",
+                    pl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "ADHI",
+                    avgprice: "1,529",
+                    indicator : "",
+                    lastprice: "1,429",
+                    lot: "10",
+                    shares: "100",
+                    stockval: "1,529,000",
+                    pl: "-15,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-1,50%",
+                    remark: "",
+                    action:""   },
+                { code: "ANTM",
+                    avgprice: "1,025",
+                    indicator : "",
+                    lastprice: "1,025",
+                    lot: "2",
+                    shares: "210",
+                    stockval: "1,025,000",
+                    pl: "-25,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-2,50%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "ASII",
+                    avgprice: "7,125",
+                    indicator : "",
+                    lastprice: "7,125",
+                    lot: "9",
+                    shares: "930",
+                    stockval: "7,125,000",
+                    pl: "-50,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-5,78%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "BBCA",
+                    avgprice: "27,400",
+                    indicator : "",
+                    lastprice: "27,400",
+                    lot: "4",
+                    shares: "410",
+                    stockval: "27,400,000",
+                    pl: "+250,650"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"+2,50%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "AALI",
+                    avgprice: "12,650",
+                    indicator : "",
+                    lastprice: "12,650",
+                    lot: "12",
+                    shares: "122",
+                    stockval: "12,650,000",
+                    pl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "ASII",
+                    avgprice: "7,125",
+                    indicator : "",
+                    lastprice: "7,125",
+                    lot: "9",
+                    shares: "930",
+                    stockval: "7,125,000",
+                    pl: "-50,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-5,78%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "BBCA",
+                    avgprice: "27,400",
+                    indicator : "",
+                    lastprice: "27,400",
+                    lot: "4",
+                    shares: "410",
+                    stockval: "27,400,000",
+                    pl: "+250,650"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"+2,50%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "AALI",
+                    avgprice: "12,650",
+                    indicator : "",
+                    lastprice: "12,650",
+                    lot: "12",
+                    shares: "122",
+                    stockval: "12,650,000",
+                    pl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "ADHI",
+                    avgprice: "1,529",
+                    indicator : "",
+                    lastprice: "1,429",
+                    lot: "10",
+                    shares: "100",
+                    stockval: "1,529,000",
+                    pl: "-15,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-1,50%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "ANTM",
+                    avgprice: "1,025",
+                    indicator : "",
+                    lastprice: "1,025",
+                    lot: "2",
+                    shares: "210",
+                    stockval: "1,025,000",
+                    pl: "-25,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-2,50%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "ASII",
+                    avgprice: "7,125",
+                    indicator : "",
+                    lastprice: "7,125",
+                    lot: "9",
+                    shares: "930",
+                    stockval: "7,125,000",
+                    pl: "-50,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-5,78%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "BBCA",
+                    avgprice: "27,400",
+                    indicator : "",
+                    lastprice: "27,400",
+                    lot: "4",
+                    shares: "410",
+                    stockval: "27,400,000",
+                    pl: "+250,650"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"+2,50%",
+                    remark: ""   ,
+                    action:""   },{ code: "AALI",
+                    avgprice: "12,650",
+                    lastprice: "12,650",
+                    lot: "12",
+                    shares: "122",
+                    stockval: "12,650,000",
+                    pl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    remark: "",
+                    action:""   },
+                { code: "ADHI",
+                    avgprice: "1,529",
+                    indicator : "",
+                    lastprice: "1,429",
+                    lot: "10",
+                    shares: "100",
+                    stockval: "1,529,000",
+                    pl: "-15,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-1,50%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "ANTM",
+                    avgprice: "1,025",
+                    indicator : "",
+                    lastprice: "1,025",
+                    lot: "2",
+                    shares: "210",
+                    stockval: "1,025,000",
+                    pl: "-25,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-2,50%",
+                    remark: "",
+                    action: ""},
+                { code: "ASII",
+                    avgprice: "7,125",
+                    indicator : "",
+                    lastprice: "7,125",
+                    lot: "9",
+                    shares: "930",
+                    stockval: "7,125,000",
+                    pl: "-50,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-5,78%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "BBCA",
+                    avgprice: "27,400",
+                    indicator : "",
+                    lastprice: "27,400",
+                    lot: "4",
+                    shares: "410",
+                    stockval: "27,400,000",
+                    pl: "+250,650"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"+2,50%",
+                    remark: ""   ,
+                    action:""
+                },
+                { code: "ASII",
+                    avgprice: "7,125",
+                    indicator : "",
+                    lastprice: "7,125",
+                    lot: "9",
+                    shares: "930",
+                    stockval: "7,125,000",
+                    pl: "-50,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-5,78%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "BBCA",
+                    avgprice: "27,400",
+                    indicator : "",
+                    lastprice: "27,400",
+                    lot: "4",
+                    shares: "410",
+                    stockval: "27,400,000",
+                    pl: "+250,650"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"+2,50%",
+                    remark: ""   ,
+                    action:""
+                },
+                { code: "ASII",
+                    avgprice: "7,125",
+                    indicator : "",
+                    lastprice: "7,125",
+                    lot: "9",
+                    shares: "930",
+                    stockval: "7,125,000",
+                    pl: "-50,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-5,78%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "BBCA",
+                    avgprice: "27,400",
+                    indicator : "",
+                    lastprice: "27,400",
+                    lot: "4",
+                    shares: "410",
+                    stockval: "27,400,000",
+                    pl: "+250,650"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"+2,50%",
+                    remark: ""   ,
+                    action:""
+                },
+                { code: "ASII",
+                    avgprice: "7,125",
+                    indicator : "",
+                    lastprice: "7,125",
+                    lot: "9",
+                    shares: "930",
+                    stockval: "7,125,000",
+                    pl: "-50,000"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-5,78%",
+                    remark: ""   ,
+                    action:""   },
+                { code: "BBCA",
+                    avgprice: "27,400",
+                    indicator : "",
+                    lastprice: "27,400",
+                    lot: "4",
+                    shares: "410",
+                    stockval: "27,400,000",
+                    pl: "+250,650"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"+2,50%",
+                    remark: ""   ,
+                    action:""
+                }
+            ],
+            sideBar: {
+                toolPanels: [
+                    {
+                        id: "columns",
+                        labelDefault: "Columns",
+                        labelKey: "columns",
+                        iconKey: "columns",
+                        toolPanel: "agColumnsToolPanel",
+                        toolPanelParams: {
+                            suppressRowGroups: true,
+                            suppressValues: true,
+                            suppressPivots: true,
+                            suppressPivotMode: true,
+                            suppressSideButtons: true,
+                            suppressColumnFilter: true,
+                            suppressColumnSelectAll: true,
+                            suppressColumnExpandAll: true
+                        },
+                    }, {
+                        id: "filters",
+                        labelDefault: "Filters",
+                        labelKey: "filters",
+                        iconKey: "filter",
+                        toolPanel: "agFiltersToolPanel"
+                    }
+                ],
+                defaultToolPanel: ""
+            },
+        }
+    }
+
+    onGridReady = params => {
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
+
+        params.api.sizeColumnsToFit();
+        window.addEventListener("resize", function() {
+            setTimeout(function() {
+                params.api.sizeColumnsToFit();
+            });
+        });
+
+        params.api.sizeColumnsToFit();
+    };
+
+    onFirstDataRendered(params) {
+        params.api.sizeColumnsToFit();
+    }
+
+    render() {
+        return (
+            <div style={{ width: "100%", height: "100%" }}>
+                <div
+                    className={this.props.gridView == 'grid' ? "card-235 ag-theme-balham-dark ag-bordered ag-header-gray table-bordered" : "card-580 ag-theme-balham-dark ag-bordered ag-header-gray table-bordered"}
+                    id="myGrid"
+                    style={{
+                        width: "100%",
+                        height: "185px"
+                    }}>
+                    <AgGridReact
+                        columnDefs={this.state.columnDefs}
+                        rowData={this.state.rowData}
+                        defaultColDef={this.state.defaultColDef}
+                        onGridReady={this.onGridReady}
+                        onFirstDataRendered={this.onFirstDataRendered.bind(this)}>
+                    </AgGridReact>
+                </div>
+            </div>
+        );
+    }
+}
+
 
 export default ModalPortofolio;
