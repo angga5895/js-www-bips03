@@ -115,7 +115,7 @@ class StreamChart extends React.PureComponent {
         return (
             <div>
                 <button id="streamButton" className="btn btn-sm btn-grey py-3 px-3 d-border">Start Stream</button>
-                <div id="container" className="mt-2 py-3 px-3 card-430"></div>
+                <div id="container" className="mt-2 py-3 px-3 card-470"></div>
             </div>
         );
 

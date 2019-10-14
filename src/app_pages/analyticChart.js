@@ -5,6 +5,8 @@ import '../../node_modules/anychart/dist/css/anychart-ui.min.css';
 import '../../node_modules/anychart/dist/js/anychart-ui.min.js';
 import '../../node_modules/anychart/dist/fonts/css/anychart-font.min.css';
 import '../../node_modules/anychart/dist/js/anychart-data-adapter.min.js'
+import { ContextConnector } from '../appcontext.js';
+import { BIPSAppContext } from '../AppData.js';
 /*import '../../node_modules/anychart/dist/js/dark_earth.min.js';*/
 import '../../node_modules/anychart/dist/js/anychart-annotations.min.js';
 import Select from 'react-select';
@@ -28,8 +30,7 @@ const stockOptions = [
     { value: 'bbri', label: 'BBRI' }
 ]
 
-
-class AnalyticChart extends React.PureComponent {
+class AnalyticChart_Base extends React.PureComponent {
 
     constructor(props) {
         super(props);
@@ -519,7 +520,7 @@ class AnalyticChart extends React.PureComponent {
 
             function initHeightChart() {
                 var creditsHeight = 10;
-                var heightView = (tabView) ? 600 : 375;
+                var heightView = (tabView) ? 600 : 295;
 
                 // ganti 440 dengan $(window).height() untuk tinggi otomatis
                 $('#chart-container' + stockName).height(heightView - $indicatorNavPanel.outerHeight() - creditsHeight);
@@ -724,13 +725,34 @@ class AnalyticChart extends React.PureComponent {
                 }
             }
         })();
+
+        $(document).ready(function () {
+            $('button[data-id = typeSelect' + stockName + ']').addClass('btn-dark');
+        });
     }
+
+    selectSelectionTab = theme => ({
+        ...theme,
+        borderRadius: 5,
+        colors: {
+            ...theme.colors,
+            neutral0: this.props.thememode === true ? '#3D3E3F' : '#CDCDCE',
+            neutral20: this.props.thememode === true ? '#333332' : '#CDCDCE',
+            neutral30: this.props.thememode === true ? '#333332' : '#333332',
+            neutral40: this.props.thememode === true ? '#1A1A1A' : '#1A1A1A',
+            neutral80: this.props.thememode === true ? '#FFFFFF' : '#878787',
+            primary75: this.props.thememode === true ? '#FFFFFF' : '#FFFFFF',
+            primary50: this.props.thememode === true ? '#4D4D4E' : '#4D4D4E',
+            primary25: this.props.thememode === true ? '#FFFFFF' : '#F5F5F5',
+            primary: '#0071BC',
+        },
+    });
 
     render() {
 
         let styleses = {
             display: 'flex',
-            padding: '5px 10px',
+            padding: '5px 10px 0px 10px',
             marginTop: '5px'
         };
 
@@ -755,167 +777,177 @@ class AnalyticChart extends React.PureComponent {
         }
 
         let customStylesBtn = {
-            minHeight: '38px',
             marginLeft: '1px'
         }
 
-        let elemWidthIndicator = (this.state.tabView) ? 350 : 200;
-        let elemWidthanotation = (this.state.tabView) ? 250 : 140;
+        const customStyles = {
+            control: (base, state) => ({
+                ...base,
+                height: '34px',
+                'min-height': '34px',
+            }),
+        };
+
+        let elemWidthIndicator = (this.state.tabView) ? 350 : 180;
+        let elemWidthanotation = (this.state.tabView) ? 250 : 147;
         let classChart = (this.state.tabView) ? 'tab-chart bg-dark-grey' : 'card-chart bg-dark-grey';
 
         return (
-            <div className={this.props.chartGridClass} id={"chartContent" + this.state.stockType}>
-                <div className={"d-border-inactive card " + classChart} style={boxScroll} id={"chartBox" + this.state.stockType}>
-                    {/* <AppFrameAction ref="frameAction" /> */}
-                    < div id={"loader" + this.state.stockType} className="anychart-loader" >
-                        <div className="rotating-cover">
-                            <div className="rotating-plane">
-                                <div className="chart-row">
-                                    <span className="chart-col green"></span>
-                                    <span className="chart-col orange"></span>
-                                    <span className="chart-col red"></span>
-                                </div>
+            <div>
+                < div id={"loader" + this.state.stockType} className="anychart-loader" >
+                    <div className="rotating-cover">
+                        <div className="rotating-plane">
+                            <div className="chart-row">
+                                <span className="chart-col green"></span>
+                                <span className="chart-col orange"></span>
+                                <span className="chart-col red"></span>
                             </div>
                         </div>
-                    </div >
+                    </div>
+                </div >
 
-                    {/* <!-- modal alert --> */}
-                    < div className="modal-b fade" id={"warning" + this.state.stockType} tabindex="-1" role="dialog" >
-                        <div className="modal-dialog-b" role="document">
-                            <div className="modal-content-b">
-                                <div className="modal-header-b">
-                                    <h4 className="modal-title-b">Attention</h4>
-                                </div>
-                                <div className="modal-body-b">
-                                    <div className="alert alert-danger"><strong>XHR Fail: </strong>
-                                        This Sample will properly work only if upload it to a server and access via http or https.
+                {/* <!-- modal alert --> */}
+                < div className="modal-b fade" id={"warning" + this.state.stockType} tabindex="-1" role="dialog" >
+                    <div className="modal-dialog-b" role="document">
+                        <div className="modal-content-b">
+                            <div className="modal-header-b">
+                                <h4 className="modal-title-b">Attention</h4>
+                            </div>
+                            <div className="modal-body-b">
+                                <div className="alert alert-danger"><strong>XHR Fail: </strong>
+                                    This Sample will properly work only if upload it to a server and access via http or https.
 						Please see <a href="https://github.com/anychart-solutions/technical-indicators"
-                                            target="_blank">https://github.com/anychart-solutions/technical-indicators</a> to learn
+                                        target="_blank">https://github.com/anychart-solutions/technical-indicators</a> to learn
 more.
 					</div>
-                                </div>
                             </div>
                         </div>
-                    </div >
+                    </div>
+                </div >
 
-                    {/* <!-- modal indicator settings --> */}
-                    < div className="modal-indicator-b" id={"indicatorSettingsModal" + this.state.stockType} tabindex="-1" role="dialog" hidden >
-                        <div className="modal-dialog-b" role="document">
-                            <div className="modal-content-b" style={modalColor} >
-                                <div className="modal-header-b">
-                                    <button type="button" className="close" onClick={this.dismissModal} data-dismiss="modal-b" aria-label="Close"><span
-                                        aria-hidden="true">&times;</span></button>
-                                    <h4 className="modal-title-b" id={"indicatorSettingsModalTitle" + this.state.stockType}>Indicator Settings</h4>
-                                </div>
-                                <div className="modal-body-b">
-                                    <form id={"indicatorForm" + this.state.stockType} className="form"></form>
-                                </div>
-                                <div className="modal-footer-b">
-                                    <button type="button" className="btn btn-default" onClick={this.dismissModal} data-dismiss="modal-b">Close</button>
-                                    <button type="button" className="btn btn-primary" id={"addIndicatorButton" + this.state.stockType}>Add Indicator</button>
-                                </div>
+                {/* <!-- modal indicator settings --> */}
+                < div className="modal-indicator-b" id={"indicatorSettingsModal" + this.state.stockType} tabindex="-1" role="dialog" hidden >
+                    <div className="modal-dialog-b" role="document">
+                        <div className="modal-content-b" style={modalColor} >
+                            <div className="modal-header-b">
+                                <button type="button" className="close" onClick={this.dismissModal} data-dismiss="modal-b" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                                <h4 className="modal-title-b" id={"indicatorSettingsModalTitle" + this.state.stockType}>Indicator Settings</h4>
+                            </div>
+                            <div className="modal-body-b">
+                                <form id={"indicatorForm" + this.state.stockType} className="form"></form>
+                            </div>
+                            <div className="modal-footer-b">
+                                <button type="button" className="btn btn-default" onClick={this.dismissModal} data-dismiss="modal-b">Close</button>
+                                <button type="button" className="btn btn-primary" id={"addIndicatorButton" + this.state.stockType}>Add Indicator</button>
                             </div>
                         </div>
-                    </div >
+                    </div>
+                </div >
 
-                    <div id={"allwrap" + this.state.stockType} className="f-12">
-                        <div className="row" id={"formInputIndicators" + this.state.stockType}>
-                            <div className="col-xs-12 col-sm-6 col-md-12">
-                                <ul className="list list-unstyled list-nav" id={"indicatorNavPanel" + this.state.stockType} style={styleses}>
-                                    <div className="form-inline">
-                                        <div className="form-group">
-                                            <li style={marginSelection}>
-                                                <input type="hidden" id={"chartDataSelect" + this.state.stockType} value={this.state.stockAlias} data-json={"./" + this.state.stockData} />
+                <div id={"allwrap" + this.state.stockType} className="f-12">
+                    <div className="row" id={"formInputIndicators" + this.state.stockType}>
+                        <div className="col-xs-12 col-sm-6 col-md-12">
+                            <ul className="list list-unstyled list-nav" id={"indicatorNavPanel" + this.state.stockType} style={styleses}>
+                                <div className="form-inline">
+                                    <div className="form-group">
+                                        <li style={marginSelection}>
+                                            <input type="hidden" id={"chartDataSelect" + this.state.stockType} value={this.state.stockAlias} data-json={"./" + this.state.stockData} />
 
-                                                {/* <select defaultValue={'1'} name="" id="chartDataSelect" class="select selectpicker show-tick" title="Select Data Chart">
+                                            {/* <select defaultValue={'1'} name="" id="chartDataSelect" class="select selectpicker show-tick" title="Select Data Chart">
                                     <option value="1" data-json="./msft.json">MSFT</option>
                                     <option value="2" data-json="./orcl.json">ORCL</option>
                                     <option value="3" data-json="./csco.json">CSCO</option>
                                     <option value="4" data-json="./ibm.json">IBM</option>
                                 </select> */}
 
-                                                <select data-width={elemWidthanotation} defaultValue={'default'} id={"typeSelect" + this.state.stockType} onclick="create()" className="select selectpicker show-tick form-control" title="Select Annotation Type">
-                                                    <option value="default" disabled="disabled">Annotation Type</option>
-                                                    <option value="andrews-pitchfork">Andrews' Pitchfork</option>
-                                                    <option value="ellipse">Ellipse</option>
-                                                    <option value="fibonacci-arc">Fibonacci Arc</option>
-                                                    <option value="fibonacci-fan">Fibonacci Fan</option>
-                                                    <option value="fibonacci-retracement">Fibonacci Retracement</option>
-                                                    <option value="fibonacci-timezones">Fibonacci Time Zones</option>
-                                                    <option value="horizontal-line">Horizontal Line</option>
-                                                    <option value="infinite-line">Infinite Line</option>
-                                                    <option value="line">Line Segment</option>
-                                                    <option value="marker">Marker</option>
-                                                    <option value="ray">Ray</option>
-                                                    <option value="rectangle">Rectangle</option>
-                                                    <option value="trend-channel">Trend Channel</option>
-                                                    <option value="triangle">Triangle</option>
-                                                    <option value="vertical-line">Vertical Line</option>
-                                                </select>
-                                            </li>
-                                        </div>
-
-                                        <div className="form-group">
-                                            <li style={marginSelection}>
-                                                <select name="" id={"seriesTypeSelect" + this.state.stockType} className="select selectpicker show-tick form-control">
-                                                    {/* <!--series constructors--> */}
-                                                    <option value="area">Area Chart</option>
-                                                    <option value="candlestick" selected>Candlestick Chart</option>
-                                                    <option value="column">Column Chart</option>
-                                                    <option value="jumpLine">Jump Line Chart</option>
-                                                    <option value="line">Line Chart</option>
-                                                    <option value="marker">Marker Chart</option>
-                                                    <option value="ohlc">OHLC Chart</option>
-                                                    <option value="rangeArea">Range Area Chart</option>
-                                                    <option value="rangeColumn">Range Column Chart</option>
-                                                    <option value="rangeSplineArea">Range Spline Area Chart</option>
-                                                    <option value="rangeStepArea">Range Step Area Chart</option>
-                                                    <option value="spline">Spline Chart</option>
-                                                    <option value="splineArea">Spline Area Chart</option>
-                                                    <option value="stepArea">Step Area Chart</option>
-                                                    <option value="stepLine">Step Line Chart</option>
-                                                    <option value="stick">Stick Chart</option>
-                                                    {/* <!----> */}
-                                                </select>
-                                            </li>
-                                        </div>
-
-                                        <div className="form-group">
-                                            <li style={marginSelection}>
-                                                <select className="select show-tick form-control" multiple name="" data-width={elemWidthIndicator} id={"indicatorTypeSelect" + this.state.stockType}
-                                                    title="Add Indicator">
-                                                </select>
-                                            </li>
-                                        </div>
-
-                                        <div className="form-group">
-                                            <li style={marginSelection}>
-                                                <select defaultValue={'linear'} name="" className="select selectpicker show-tick form-control" id={"scaleTypeSelect" + this.state.stockType} title="Scale">
-                                                    <option value="linear">Linear</option>
-                                                    <option value="log">Logarithmic</option>
-                                                </select>
-                                            </li>
-                                        </div>
-
-                                        <div className="form-group">
-                                            <li style={marginSelection}>
-                                                <Select options={stockOptions} className="stockOps" />
-                                            </li>
-                                        </div>
-
-                                        <div className="form-group">
-                                            <li style={marginSelection}><a className="btn btn-danger" style={customStylesBtn} href="" id={"resetButton" + this.state.stockType}>Reset</a></li>
-                                        </div>
+                                            <select data-width={elemWidthanotation} data-size="10" data-dropup-auto="false" data-style="btn-dark" defaultValue={'default'} id={"typeSelect" + this.state.stockType} onclick="create()" className="select selectpicker show-tick form-control" title="Select Annotation Type">
+                                                <option value="default" disabled="disabled">Annotation Type</option>
+                                                <option value="andrews-pitchfork">Andrews' Pitchfork</option>
+                                                <option value="ellipse">Ellipse</option>
+                                                <option value="fibonacci-arc">Fibonacci Arc</option>
+                                                <option value="fibonacci-fan">Fibonacci Fan</option>
+                                                <option value="fibonacci-retracement">Fibonacci Retracement</option>
+                                                <option value="fibonacci-timezones">Fibonacci Time Zones</option>
+                                                <option value="horizontal-line">Horizontal Line</option>
+                                                <option value="infinite-line">Infinite Line</option>
+                                                <option value="line">Line Segment</option>
+                                                <option value="marker">Marker</option>
+                                                <option value="ray">Ray</option>
+                                                <option value="rectangle">Rectangle</option>
+                                                <option value="trend-channel">Trend Channel</option>
+                                                <option value="triangle">Triangle</option>
+                                                <option value="vertical-line">Vertical Line</option>
+                                            </select>
+                                        </li>
                                     </div>
-                                </ul>
-                            </div>
+
+                                    <div className="form-group">
+                                        <li style={marginSelection}>
+                                            <select name="" id={"seriesTypeSelect" + this.state.stockType} data-width={elemWidthanotation} data-size="10" data-dropup-auto="false" data-style="btn-dark" className="select selectpicker show-tick form-control">
+                                                {/* <!--series constructors--> */}
+                                                <option value="area">Area Chart</option>
+                                                <option value="candlestick" selected>Candlestick Chart</option>
+                                                <option value="column">Column Chart</option>
+                                                <option value="jumpLine">Jump Line Chart</option>
+                                                <option value="line">Line Chart</option>
+                                                <option value="marker">Marker Chart</option>
+                                                <option value="ohlc">OHLC Chart</option>
+                                                <option value="rangeArea">Range Area Chart</option>
+                                                <option value="rangeColumn">Range Column Chart</option>
+                                                <option value="rangeSplineArea">Range Spline Area Chart</option>
+                                                <option value="rangeStepArea">Range Step Area Chart</option>
+                                                <option value="spline">Spline Chart</option>
+                                                <option value="splineArea">Spline Area Chart</option>
+                                                <option value="stepArea">Step Area Chart</option>
+                                                <option value="stepLine">Step Line Chart</option>
+                                                <option value="stick">Stick Chart</option>
+                                                {/* <!----> */}
+                                            </select>
+                                        </li>
+                                    </div>
+
+                                    <div className="form-group">
+                                        <li style={marginSelection}>
+                                            <select className="select show-tick form-control" data-size="10" data-dropup-auto="false" data-style="btn-dark" multiple name="" data-width={elemWidthIndicator} id={"indicatorTypeSelect" + this.state.stockType}
+                                                title="Add Indicator">
+                                            </select>
+                                        </li>
+                                    </div>
+
+                                    <div className="form-group">
+                                        <li style={marginSelection}>
+                                            <select defaultValue={'linear'} name="" data-style="btn-dark" className="select selectpicker show-tick form-control" id={"scaleTypeSelect" + this.state.stockType} title="Scale">
+                                                <option value="linear">Linear</option>
+                                                <option value="log">Logarithmic</option>
+                                            </select>
+                                        </li>
+                                    </div>
+
+                                    <div className="form-group">
+                                        <li style={marginSelection}>
+                                            <Select options={stockOptions} className="stockOps" styles={customStyles} theme={this.selectSelectionTab} />
+                                        </li>
+                                    </div>
+
+                                    <div className="form-group">
+                                        <li style={marginSelection}><a className="btn btn-danger" style={customStylesBtn} href="" id={"resetButton" + this.state.stockType}>Reset</a></li>
+                                    </div>
+                                </div>
+                            </ul>
                         </div>
                     </div>
-                    <div id={"chart-container" + this.state.stockType} style={containerStyle}></div>
                 </div>
-            </div >
+                <div id={"chart-container" + this.state.stockType} style={containerStyle}></div>
+            </div>
         );
     }
 }
+
+const AnalyticChart = ContextConnector(BIPSAppContext,
+    (vars, actions) => ({
+        thememode: vars.thememode
+    }),
+)(AnalyticChart_Base);
 
 export default AnalyticChart;

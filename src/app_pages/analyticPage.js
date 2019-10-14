@@ -8,6 +8,12 @@ import AnalyticChart from './analyticChart.js';
 import $ from 'jquery';
 window.$ = window.jQuery = $;
 
+
+const stockSource = [{ stockName: 'chart1', srcData: 'msft.json', dataAlias: 'CHART 1' },
+{ stockName: 'chart2', srcData: 'csco.json', dataAlias: 'CHART 2' },
+{ stockName: 'chart3', srcData: 'ibm.json', dataAlias: 'CHART 3' },
+{ stockName: 'chart4', srcData: 'orcl.json', dataAlias: 'CHART 4' }];
+
 // default view analytic stock chart  
 class AnalyticPage extends React.PureComponent {
 
@@ -15,14 +21,15 @@ class AnalyticPage extends React.PureComponent {
         super(props);
         this.state = {
             tabLabel: true,
-            indexChart: 0
+            indexChart: 0,
+            colMd: 6
         }
     }
 
     //inisiasi active tab
     componentDidMount() {
-        $('#tabStockaali').addClass('active');
-        $('#chartBoxaali').css('border-color', '#a09c9c');
+        $('#tabStockchart1').addClass('active');
+        $('#chartBoxchart1').css('border-color', '#a09c9c');
     }
 
     // set tab aktif ketika action klik tab
@@ -76,14 +83,43 @@ class AnalyticPage extends React.PureComponent {
         }
     }
 
+    expandView = (chartIndex) => {
+        let chartContainerId = '';
+        let chartView = [];
+        stockSource.map((charx, index) => {
+            if (chartIndex != charx.stockName) {
+                chartView.push('#chartContent' + charx.stockName);
+            }
+        })
+        chartContainerId = chartView.join(",");
+
+        if (this.state.colMd == 6) {
+            this.setState({ colMd: 12 });
+            $(chartContainerId).hide();
+        } else {
+            this.setState({ colMd: 6 });
+            $(chartContainerId).show();
+        }
+    }
+
     render() {
         let labelName = this.state.tabLabel ? "Tab View" : "Grid View";
 
-        // const stockSource = ['aali', 'adhi', 'antm', 'asii'];
-        const stockSource = [{ stockName: 'aali', srcData: 'msft.json', dataAlias: 'AALI' },
-        { stockName: 'adhi', srcData: 'csco.json', dataAlias: 'ADHI' },
-        { stockName: 'antm', srcData: 'ibm.json', dataAlias: 'ANTM' },
-        { stockName: 'asii', srcData: 'orcl.json', dataAlias: 'ASII' }];
+        let classChart = (this.state.tabView) ? 'tab-chart bg-dark-grey' : 'card-chart bg-dark-grey';
+
+        let boxScroll = {
+            overflowX: 'hidden'
+        }
+
+        let btnExpPost = {
+            position: 'absolute',
+            zIndex: '999',
+            cursor: 'pointer',
+            background: '#696969',
+            opacity: '0.5',
+            right: 0,
+            marginRight: '5px'
+        }
 
         let tabChart = (
             <div className="row col-sm-12 px-0 mx-0 align-self-center">
@@ -114,7 +150,14 @@ class AnalyticPage extends React.PureComponent {
                     <div className="container-fluid">
                         <div className="container px-1 mx-0 col-sm-12 row">
                             {stockSource.map((charx, index) => {
-                                return <AnalyticChart tabView={false} key={index.stockName} charVal={charx.stockName} chartData={charx.srcData} chartAlias={charx.dataAlias} chartGridClass='col-md-6 px-1 py-2' />
+                                return (
+                                    <div className={"col-md-" + this.state.colMd + " px-1 py-2"} id={"chartContent" + charx.stockName}>
+                                        <div className={"d-border-inactive card " + classChart} style={boxScroll} id={"chartBox" + charx.stockName}>
+                                            <i onClick={(e) => this.expandView(charx.stockName, e)} className="icon-icon-fullscreen-in pull-right" style={btnExpPost} data-toggle="tooltip" data-placement="left" title="Expand this chart"></i>
+                                            <AnalyticChart tabView={false} key={index.stockName} charVal={charx.stockName} chartData={charx.srcData} chartAlias={charx.dataAlias} />
+                                        </div>
+                                    </div>
+                                );
                             })}
                         </div>
                     </div>
