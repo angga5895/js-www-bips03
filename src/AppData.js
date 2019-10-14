@@ -91,7 +91,10 @@ var BIPSAppVars = {
   // ],
   isGrid:true,
   isManual:true,
-  signupState : false
+  signupState : false,
+  thememode : false,
+  scaleState : "100",
+  chatId : "",
 
 }
 
@@ -123,6 +126,15 @@ var BIPSAppActions = {
 
   // state signup
   isSignup:(vars, {signupState})=>({...vars, signupState:!vars.signupState}),
+
+  // state theme
+  isNight:(vars, {thememode})=>({...vars, thememode:thememode}),
+
+  // state Scale
+  changeScale:(vars, {scaleState})=>({...vars, scaleState:scaleState}),
+
+  // chat bot state
+  changeIdChatBot:(vars, {chatId})=>({...vars, chatId:chatId}),
 
 // subscribe
   subscribeMsgSukses:(vars,{mess})=>{
