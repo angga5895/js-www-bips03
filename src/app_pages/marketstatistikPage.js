@@ -24,11 +24,11 @@ import {Plugin, Template, TemplatePlaceholder} from "@devexpress/dx-react-core";
 import AmendArrow from "./../img/amend-arrow.svg";
 import {AgGridReact} from "ag-grid-react";
 import MenuOfContent from "../menuofcontent";
-import newsImg1 from './../img/news1.PNG';
-import newsImg2 from './../img/news2.PNG';
-import newsImg3 from './../img/news3.PNG';
-import newsImg4 from './../img/news4.PNG';
-import newsImg5 from './../img/news5.PNG';
+import newsImg1 from './../img/noimage.png';
+import newsImg2 from './../img/noimage.png';
+import newsImg3 from './../img/noimage.png';
+import newsImg4 from './../img/noimage.png';
+import newsImg5 from './../img/noimage.png';
 
 const stateOptions = [
     //untuk top active
@@ -480,7 +480,7 @@ class StatisticMarketStatistikPage extends React.PureComponent {
                             </div>
                             <div className="card-body">
                                 <div className="col-sm-12">
-                                    <div className="card card-475 text-white bg-trading-gray">
+                                    <div className="card card-523 text-white bg-trading-gray">
                                         <StreamChart />
                                     </div>
                                 </div>
@@ -664,7 +664,7 @@ class GeneralNewResearchPage extends React.PureComponent {
                             </div>
                             <div className="card card-body card-470 scrollable px-3">
                                 <div className={"text-center align-self-center"}>
-                                    <img src={newsImg1} alt="News 1" height={"auto"} width={"100%"} />
+                                    <img src={newsImg1} alt="News 1" height={"auto"} width={"50%"} />
                                 </div>
                                 <div className="py-4 text-white text-justify f-12">
                                     <span className="text-warning">Liputan6.com, Jakarta </span> -  Indeks Harga Saham
@@ -770,7 +770,7 @@ class StockNewResearchPage extends React.PureComponent {
                             </div>
                             <div className="card card-body card-470 scrollable px-3">
                                 <div className={"text-center align-self-center"}>
-                                    <img src={newsImg1} alt="News 1" height={"auto"} width={"100%"} />
+                                    <img src={newsImg1} alt="News 1" height={"auto"} width={"50%"} />
                                 </div>
                                 <div className="py-4 text-white text-justify f-12">
                                     <span className="text-warning">Liputan6.com, Jakarta </span> -  Indeks Harga Saham
@@ -876,7 +876,7 @@ class MutualNewResearchPage extends React.PureComponent {
                             </div>
                             <div className="card card-body card-470 scrollable px-3">
                                 <div className={"text-center align-self-center"}>
-                                    <img src={newsImg1} alt="News 1" height={"auto"} width={"100%"} />
+                                    <img src={newsImg1} alt="News 1" height={"auto"} width={"50%"} />
                                 </div>
                                 <div className="py-4 text-white text-justify f-12">
                                     <span className="text-warning">Liputan6.com, Jakarta </span> -  Indeks Harga Saham
@@ -982,7 +982,7 @@ class ReseacrhNewResearchPage extends React.PureComponent {
                             </div>
                             <div className="card card-body card-470 scrollable px-3">
                                 <div className={"text-center align-self-center"}>
-                                    <img src={newsImg1} alt="News 1" height={"auto"} width={"100%"} />
+                                    <img src={newsImg1} alt="News 1" height={"auto"} width={"50%"} />
                                 </div>
                                 <div className="py-4 text-white text-justify f-12">
                                     <span className="text-warning">Liputan6.com, Jakarta </span> -  Indeks Harga Saham
