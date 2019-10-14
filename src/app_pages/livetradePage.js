@@ -4,16 +4,9 @@ import {WSConnectionAction} from "../appnetwork";
 import ModalBuy from "./../app_modals/modal_buy";
 import ModalSell from "./../app_modals/modal_sell";
 import TableInfoTransaction from "./../app_transaction/tableInfoTransaction";
-import {
-    ColumnChooser,
-    DragDropProvider,
-    Grid, SearchPanel,
-    Table, TableBandHeader,
-    TableColumnReordering,
-    TableColumnResizing, TableColumnVisibility, TableHeaderRow, Toolbar
-} from "@devexpress/dx-react-grid-bootstrap4";
-import {IntegratedFiltering, IntegratedSorting, SearchState, SortingState} from "@devexpress/dx-react-grid";
 import {AgGridReact} from "ag-grid-react";
+import {ContextConnector} from "../appcontext";
+import {BIPSAppContext} from "../AppData";
 import $ from 'jquery';
 window.$ = window.jQuery = $;
 
@@ -443,361 +436,7 @@ class SellModal extends React.Component  {
     }
 }
 
-class LiveTradeGrid extends React.PureComponent {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            columns: [
-                { name: "time", title: "Time"},
-                { name: "code", title: "Code"},
-                { name: "price", title: "Price"},
-                { name: "change", title: "Change" },
-                { name: "percent", title: "%" },
-                { name: "vol", title: "Vol"},
-                { name: "buyer", title: "Buyer" },
-                { name: "seller", title: "Seller" },
-                { name: "board", title: "Board" },
-            ],
-            rows: [
-                { time: "09:13:37",
-                    code: "TLKM",
-                    price: "3,879",
-                    change: "-20",
-                    percent: "-0.5",
-                    vol: "156,450",
-                    buyer: "F-DE",
-                    seller: "F-DE",
-                    board: "RG" },
-                { time: "09:13:37",
-                    code: "AALI",
-                    price: "3,879",
-                    change: "+20",
-                    percent: "+0.5",
-                    vol: "156,450",
-                    buyer: "D-DE",
-                    seller: "D-DE",
-                    board: "RG" },
-                { time: "09:13:37",
-                    code: "ASRI",
-                    price: "3,879",
-                    change: "-20",
-                    percent: "-0.5",
-                    vol: "156,450",
-                    buyer: "D-DE",
-                    seller: "D-DE",
-                    board: "RG" },
-                { time: "09:13:37",
-                    code: "PPTP",
-                    price: "3,879",
-                    change: "-20",
-                    percent: "-0.5",
-                    vol: "156,450",
-                    buyer: "F-DE",
-                    seller: "F-DE",
-                    board: "RG" },
-                { time: "09:13:37",
-                    code: "BBCA",
-                    price: "3,879",
-                    change: "+20",
-                    percent: "+0.5",
-                    vol: "156,450",
-                    buyer: "F-DE",
-                    seller: "F-DE",
-                    board: "RG" },
-                { time: "09:13:37",
-                    code: "WSKT",
-                    price: "3,879",
-                    change: "-20",
-                    percent: "-0.5",
-                    vol: "156,450",
-                    buyer: "D-DE",
-                    seller: "D-DE",
-                    board: "RG" },
-                { time: "09:13:37",
-                    code: "BBRI",
-                    price: "3,879",
-                    change: "-20",
-                    percent: "-0.5",
-                    vol: "156,450",
-                    buyer: "F-DE",
-                    seller: "F-DE",
-                    board: "RG" },
-                { time: "09:13:37",
-                    code: "CTRA",
-                    price: "3,879",
-                    change: "+20",
-                    percent: "+0.5",
-                    vol: "156,450",
-                    buyer: "D-DE",
-                    seller: "D-DE",
-                    board: "RG" },
-                { time: "09:13:37",
-                    code: "ANTM",
-                    price: "3,879",
-                    change: "-20",
-                    percent: "-0.5",
-                    vol: "156,450",
-                    buyer: "F-DE",
-                    seller: "F-DE",
-                    board: "RG" },
-                { time: "09:13:37",
-                    code: "ASII",
-                    price: "3,879",
-                    change: "-20",
-                    percent: "-0.5",
-                    vol: "156,450",
-                    buyer: "F-DE",
-                    seller: "F-DE",
-                    board: "RG" },
-                { time: "09:13:37",
-                    code: "PTSP",
-                    price: "3,879",
-                    change: "+20",
-                    percent: "+0.5",
-                    vol: "156,450",
-                    buyer: "D-DE",
-                    seller: "D-DE",
-                    board: "RG" },
-                { time: "09:13:37",
-                    code: "GGRM",
-                    price: "3,879",
-                    change: "+20",
-                    percent: "+0.5",
-                    vol: "156,450",
-                    buyer: "F-DE",
-                    seller: "F-DE",
-                    board: "RG" },
-                { time: "09:13:37",
-                    code: "BYAN",
-                    price: "3,879",
-                    change: "-20",
-                    percent: "-0.5",
-                    vol: "156,450",
-                    buyer: "F-DE",
-                    seller: "F-DE",
-                    board: "RG" },
-                { time: "09:13:37",
-                    code: "INDF",
-                    price: "3,879",
-                    change: "-20",
-                    percent: "-0.5",
-                    vol: "156,450",
-                    buyer: "F-DE",
-                    seller: "F-DE",
-                    board: "RG" },
-                { time: "09:13:37",
-                    code: "RDTX",
-                    price: "3,879",
-                    change: "-20",
-                    percent: "-0.5",
-                    vol: "156,450",
-                    buyer: "F-DE",
-                    seller: "F-DE",
-                    board: "RG" },
-                { time: "09:13:37",
-                    code: "TCPI",
-                    price: "3,879",
-                    change: "+20",
-                    percent: "+0.5",
-                    vol: "156,450",
-                    buyer: "F-DE",
-                    seller: "F-DE",
-                    board: "RG" },
-                { time: "09:13:37",
-                    code: "SMMA",
-                    price: "3,879",
-                    change: "-20",
-                    percent: "-0.5",
-                    vol: "156,450",
-                    buyer: "F-DE",
-                    seller: "F-DE",
-                    board: "RG" },
-                { time: "09:13:37",
-                    code: "FASW",
-                    price: "3,879",
-                    change: "+20",
-                    percent: "+0.5",
-                    vol: "156,450",
-                    buyer: "F-DE",
-                    seller: "F-DE",
-                    board: "RG" },
-                { time: "09:13:37",
-                    code: "UNTR",
-                    price: "3,879",
-                    change: "+20",
-                    percent: "+0.5",
-                    vol: "156,450",
-                    buyer: "F-DE",
-                    seller: "F-DE",
-                    board: "RG" },
-                { time: "09:13:37",
-                    code: "UNVR",
-                    price: "3,879",
-                    change: "-20",
-                    percent: "-0.5",
-                    vol: "156,450",
-                    buyer: "F-DE",
-                    seller: "F-DE",
-                    board: "RG" },
-            ],
-            defaultColumnWidths: [
-                { columnName: "time", align:'center', width: 77},
-                { columnName: "code", align:'center', width: 77},
-                { columnName: "price", align:'right', width: 77},
-                { columnName: "change", align:'right', width: 79},
-                { columnName: "percent", align:'right', width: 77},
-                { columnName: "vol", align:'right', width: 77},
-                { columnName: "buyer", align:'center', width: 77},
-                { columnName: "seller", align:'center', width: 77},
-                { columnName: "board", align:'center', width: 77},
-            ],
-            defaultHiddenColumnNames: [''],
-        };
-    }
-
-    render() {
-        const searchStyle = ({ ...restProps }) => (
-            <SearchPanel.Input
-                {...restProps}
-                className="bg-grey-mystic text-white f-12 w-search"
-            />
-        );
-
-        const toolbarStyle = ({ ...restProps }) => (
-            <Toolbar.Root
-                {...restProps}
-                className={"bg-grey f-12"}
-            />
-        );
-
-        const ColvisContainer = ({ ...restProps }) => (
-            <ColumnChooser.Container
-                {...restProps}
-                className="bg-grey-mystic f-12"
-            />
-        );
-
-        const ColvisItem = ({ ...restProps }) => (
-            <ColumnChooser.Item
-                {...restProps}
-                className="bg-grey-mystic text-white f-12"
-            />
-        );
-
-        const ColvisButton = ({ ...restProps }) => (
-            <ColumnChooser.ToggleButton
-                {...restProps}
-                className="bg-grey-mystic text-white f-12"
-                style={{height:'35px'}}
-            />
-        );
-
-        const TableComponent = ({ ...restProps }) => (
-            <Table.Table
-                {...restProps}
-                className={"bg-trading-gray table-borderless table-responsive"}
-            />
-        );
-
-        const HeadComponent = ({ ...restProps }) => (
-            <Table.TableHead
-                {...restProps}
-                className={"bg-trading-gray f-12 h-live-trade"}
-            />
-        );
-
-        const HighlightedCell = ({ value, style, ...restProps }) => (
-            <Table.Cell
-                {...restProps}
-                className={"t-live-trade f-12"}>
-                {value}
-            </Table.Cell>
-        );
-
-        const Cell = ({ row, column, value, style, ...restProps }) => {
-            //compare
-
-            if(row.change.includes('-')){
-                //global color3
-                if (column.name == 'percent' || column.name == 'change'|| column.name == 'vol'|| column.name == 'price') {
-                    return <Table.Cell
-                        {...restProps}
-                        className={"t-live-trade f-12 text-danger"}>{value}</Table.Cell>;
-                } else if (column.name == 'buyer' || column.name == 'seller') {
-                    var data = value.split("-");
-                    return <Table.Cell
-                        {...restProps}
-                        className={"t-live-trade f-12"}>
-                            <span className={data[0].includes('F') ? "text-success" : "text-warning"}>{data[0]}</span>
-                            &nbsp;&nbsp;&nbsp;<span>{data[1]}</span>
-                        </Table.Cell>;
-                } else {
-                    return <Table.Cell
-                        {...restProps}
-                        className={"t-live-trade f-12"}>{value}</Table.Cell>;
-                }
-            } else{
-                //global color
-                if (column.name == 'percent' || column.name == 'change'|| column.name == 'vol'|| column.name == 'price') {
-                    return <Table.Cell
-                        {...restProps}
-                        className={"t-live-trade f-12 text-success"}>{value}</Table.Cell>;
-                } else if (column.name == 'buyer' || column.name == 'seller') {
-                    var data = value.split("-");
-                    return <Table.Cell
-                        {...restProps}
-                        className={"t-live-trade f-12"}>
-                        <span className={data[0].includes('F') ? "text-success" : "text-warning"}>{data[0]}</span>
-                        &nbsp;&nbsp;&nbsp;<span>{data[1]}</span>
-                    </Table.Cell>;
-                } else {
-                    return <Table.Cell
-                        {...restProps}
-                        className={"t-live-trade f-12"}>{value}</Table.Cell>;
-                }
-            }
-
-        };
-
-        const { rows, columns, defaultColumnWidths, defaultHiddenColumnNames, colspan } = this.state;
-        return (
-            <>
-                <style>{'' +
-                '.t-live-trade{' +
-                '    padding-top: 5px!important;' +
-                '    padding-bottom: 5.5px!important;' +
-                '}' +
-                'thead.h-live-trade th {' +
-                '    border-top: var(--warna-d-border-bold) solid 2px!important;' +
-                '    background-color: var(--warna-bg-trading-gray) !important;' +
-                '}' +
-                ''}
-                </style>
-                <Grid rows={rows} columns={columns} className={"bg-primary f-12"}>
-                    <SearchState defaultValue="" />
-                    <IntegratedFiltering />
-                    <SortingState
-                        defaultSorting={[{ columnName: 'time', direction: 'asc' }]}
-                    />
-                    <IntegratedSorting />
-                    <DragDropProvider />
-                    <Table height={300} headComponent={HeadComponent} tableComponent={TableComponent} cellComponent={Cell} columnExtensions={defaultColumnWidths} />
-                    <TableColumnResizing defaultColumnWidths={defaultColumnWidths} />
-                    <TableColumnReordering
-                        defaultOrder={['time', 'code', 'price', 'change', 'percent', 'vol', 'buyer', 'seller', 'board']}
-                    />
-                    <TableHeaderRow showSortingControls />
-                    <TableColumnVisibility
-                        defaultHiddenColumnNames={defaultHiddenColumnNames}
-                    />
-                </Grid>
-            </>
-        );
-    }
-}
-
-class LiveTradeAgGrid extends React.PureComponent {
+class LiveTradeAgGrid_Base extends React.PureComponent {
     constructor(props) {
         super(props);
         const self = this;
@@ -868,7 +507,14 @@ class LiveTradeAgGrid extends React.PureComponent {
                 filter: true,
             },
             getRowHeight : function (params) {
-                return 27.5;
+                if (props.scaleState === "100" || props.scaleState === "110" || props.scaleState === "120"){
+                    var heightLiveTrade = 27.5;
+                } else if (props.scaleState === "90"){
+                    var heightLiveTrade = 30;
+                } else if (props.scaleState === "80"){
+                    var heightLiveTrade = 32;
+                }
+                return heightLiveTrade;
             },
             rowData: [
                 { time: "09:13:37",
@@ -1107,7 +753,7 @@ class LiveTradeAgGrid extends React.PureComponent {
                     className="card card-589 ag-theme-balham-dark ag-header-border-gray-live-trade"
                     style={{
                         width: 'auto' }}>
-                    <span id="myLiveTrade">
+                    <span className="myLiveTrade">
                         <AgGridReact
                             columnDefs={this.state.columnDefs}
                             rowData={this.state.rowData}
@@ -1122,5 +768,11 @@ class LiveTradeAgGrid extends React.PureComponent {
         );
     }
 }
+
+const LiveTradeAgGrid = ContextConnector(BIPSAppContext,
+    (vars, actions) => ({
+        scaleState: vars.scaleState,
+    }),
+)(LiveTradeAgGrid_Base);
 
 export default LiveTradePage;
