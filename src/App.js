@@ -15,7 +15,7 @@ import LandingPage, { CustomFrameHeaderLanding, Landing } from './app_pages/land
 import PortfolioPage from './app_pages/portfolioPage.js';
 import StockSummaryPage from './app_pages/stockSummary.js';
 import AnalyticPage from './app_pages/analyticPage';
-import ChatSupportPage from './app_pages/chatsupportPage';
+import ChatSupportPage, {CustomFrameHeaderChatSupportPage} from './app_pages/chatsupportPage';
 import LiveTradePage from './app_pages/livetradePage';
 import MarketStatistikPage, { CustomFrameHeaderMarketStatistik, MarketStatistik } from './app_pages/marketstatistikPage';
 import StockPage, { CustomFrameHeaderStock, Stock } from './app_pages/stockPage';
@@ -39,7 +39,7 @@ class App extends React.Component {
             { className: 'Stock', title: <CustomFrameHeaderStock />, instanceName: 'stockPage' },
             { className: 'Trade', title: <CustomFrameHeaderTrade />, instanceName: 'tradePage' },
             { className: 'AnalyticPage', title: '', instanceName: 'analyticPage' },
-            { className: 'ChatSupportPage', title: 'CHAT SUPPORT PAGE', instanceName: 'chatsupportPage' },
+              { className: 'ChatSupportPage', title: <CustomFrameHeaderChatSupportPage/>, instanceName: 'chatsupportPage' },
             { className: 'LiveTradePage', title: '', instanceName: 'livetradePage' },
           ]
         }
