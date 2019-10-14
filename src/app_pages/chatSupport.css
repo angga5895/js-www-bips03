@@ -9,7 +9,7 @@
         height: var(--height-container-custom) !important;
     }
     .rsc-content{
-        height: calc(var(--height-container-custom) - 123px)!important;
+        height: calc(var(--height-container-custom) - 133px)!important;
         background: var(--warna-background-semantic)!important;
 
     }
@@ -30,7 +30,7 @@
         height: var(--height-container-custom-90) !important;
     }
     .rsc-content{
-        height: calc(var(--height-container-custom-90) - 123px)!important;
+        height: calc(var(--height-container-custom-90) - 134px)!important;
         background: var(--warna-background-semantic)!important;
 
     }
@@ -51,7 +51,7 @@
         height: var(--height-container-custom-80) !important;
     }
     .rsc-content{
-        height: calc(var(--height-container-custom-80) - 123px)!important;
+        height: calc(var(--height-container-custom-80) - 134px)!important;
         background: var(--warna-background-semantic)!important;
 
     }
@@ -81,7 +81,12 @@
         max-height: calc(var(--height-container-custom-70) - 40px) !important;
     }
 }
+.content-read-email{
+    padding: 40px;
+    font-family: "Open Sans","SansSerif" !important;
+    font-size: 20px;
 
+}
 .rsc-ts-bubble{
     background-color: var(--warna-cssmenu);
     color: var(--warna-black-white);
@@ -100,11 +105,31 @@
 }
 
 .rsc-footer>.rsc-input{
-    color: black;
+    color: var(--warna-black-white-semantic);
+    border-top: var(--warna-black-white-semantic);
     padding-left: 40px;
 }
+.rsc-input{
+    margin-left: 5px;
+    width: 92%;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background: var(--warna-bg-dark-grey);
+}
+.rsc-submit-button{
+    border-radius: 25px;
+    background: #0ea432;
+    fill: white;
+    margin-right: 5px;
+    margin-top: 3px;
+}
+.rsc-footer{
+    background: var(--warna-background-semantic);
+}
 .rsc-footer>.rsc-submit-button{
-    padding-top: 5px;
+    padding-top: 6px;
+    padding-left: 16px;
 }
 .divChatList.row{
     width: 100%;
