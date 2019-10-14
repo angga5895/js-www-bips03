@@ -37,6 +37,7 @@
 @media (max-width: 1440px) {
   :root{
     /*variabel card*/
+    --height-container-custom: 662px;
     --card-667 : 667px;
     --card-trading : 300px;
     --card-213 : 213px;
@@ -65,86 +66,128 @@
       /*variable scale*/
       --py-2-scale : .5rem;
       --py-form : 0px;
-  }
+    --zoom-livetrade: 1;
 
-  #myLiveTrade{
-      zoom: 1;
+    --margin-top-sidebar: 1rem;
+    --margin-bottom-sidebar: .25rem;
   }
 }
 
 @media (min-width: 1441px) and (max-width: 1550px) {
   :root{
+    --height-container-custom-90: 740px;
     /*variabel card*/
-    --card-667 : 750px;
-    --card-trading : 335px;
-    --card-213 : 245px;
-    --card-249 : 280px;
-    --card-75 : 700px;
-    --card-515 : 590px;
-    --card-295 : 300px;
-    --card-292 : 370px;
-    --card-600 : 690px;
-    --card-199 : 230px;
-    --card-225 : 240px;
-    --card-170 : 200px;
-    --card-550 : 630px;
-    --card-grafik : 395px;
-    --card-530 : 595px;
-    --card-500 : 580px;
-    --card-160 : 185px;
-    --card-592 : 655px;
-    --card-470 : 550px;
-    --card-558 : 650px;
-    --card-235 : 270px;
-    --card-580 : 665px;
-    --card-355 : 420px;
-    --card-537 : 602px;
-    --card-589 : 650px;
+    --card-667-90 : 750px;
+    --card-trading-90 : 335px;
+    --card-213-90 : 245px;
+    --card-249-90 : 280px;
+    --card-75-90 : 700px;
+    --card-515-90 : 590px;
+    --card-295-90 : 300px;
+    --card-292-90 : 370px;
+    --card-600-90 : 690px;
+    --card-199-90 : 230px;
+    --card-225-90 : 240px;
+    --card-170-90 : 200px;
+    --card-550-90 : 630px;
+    --card-grafik-90 : 395px;
+    --card-530-90 : 595px;
+    --card-500-90 : 580px;
+    --card-160-90 : 185px;
+    --card-592-90 : 655px;
+    --card-470-90 : 550px;
+    --card-558-90 : 650px;
+    --card-235-90 : 270px;
+    --card-580-90 : 665px;
+    --card-355-90 : 420px;
+    --card-537-90 : 602px;
+    --card-589-90 : 650px;
       /*variable scale*/
-      --py-2-scale : 9.5px;
-      --py-form : .5rem;
+      --py-2-scale-90 : 9.5px;
+      --py-form-90 : .5rem;
+    --zoom-livetrade-90: 1.1;
+
+    --margin-top-sidebar-90: 1.75rem;
+    --margin-bottom-sidebar-90: 1rem;
   }
 
-  #myLiveTrade{
-      zoom: 1.1;
+}
+
+@media (min-width: 1551px) and (max-width: 1710px){
+  :root{
+    --height-container-custom-80: 850px;
+    /*variabel card*/
+    --card-667-80 : 855px;
+    --card-trading-80 : 390px;
+    --card-213-80 : 295px;
+    --card-249-80 : 330px;
+    --card-75-80 : 805px;
+    --card-515-80 : 680px;
+    --card-295-80 : 300px;
+    --card-292-80 : 470px;
+    --card-600-80 : 790px;
+    --card-199-80 : 260px;
+    --card-225-80 : 285px;
+    --card-170-80 : 228px;
+    --card-550-80 : 725px;
+    --card-grafik-80 : 488px;
+    --card-530-80 : 690px;
+    --card-500-80 : 680px;
+    --card-160-80 : 218px;
+    --card-592-80 : 780px;
+    --card-470-80 : 650px;
+    --card-558-80 : 755px;
+    --card-235-80 : 325px;
+    --card-580-80 : 765px;
+    --card-355-80 : 515px;
+    --card-537-80 : 699px;
+    --card-589-80 : 769px;
+    /*variable scale*/
+    --py-2-scale-80 : 14.25px;
+    --py-form-80 : 1rem;
+    --zoom-livetrade-80: 1.26;
+
+    --margin-top-sidebar-80: 2.75rem;
+    --margin-bottom-sidebar-80: 1.5rem;
   }
 }
 
-@media (min-width: 1551px) {
+@media (min-width: 1711px) /*and (max-width: 2000px)*/ {
   :root{
+    --height-container-custom-70: 915px;
     /*variabel card*/
-    --card-667 : 855px;
-    --card-trading : 390px;
-    --card-213 : 295px;
-    --card-249 : 330px;
-    --card-75 : 805px;
-    --card-515 : 680px;
-    --card-295 : 300px;
-    --card-292 : 470px;
-    --card-600 : 790px;
-    --card-199 : 260px;
-    --card-225 : 285px;
-    --card-170 : 228px;
-    --card-550 : 725px;
-    --card-grafik : 488px;
-    --card-530 : 690px;
-    --card-500 : 680px;
-    --card-160 : 218px;
-    --card-592 : 780px;
-    --card-470 : 650px;
-    --card-558 : 755px;
-    --card-235 : 325px;
-    --card-580 : 765px;
-    --card-355 : 515px;
-    --card-537 : 699px;
-    --card-589 : 769px;
+    --card-667-70 : 920px;/**/
+    --card-trading-70 : 420px;/**/
+    --card-213-70 : 360px;
+    --card-249-70 : 370px;/**/
+    --card-75-70 : 871px;/**/
+    --card-515-70 : 790px;
+    --card-295-70 : 310px;/**/
+    --card-292-70 : 530px;/**/
+    --card-600-70 : 865px;
+    --card-199-70 : 285px;/**/
+    --card-225-70 : 300px;/**/
+    --card-170-70 : 255px;/**/
+    --card-550-70 : 800px;/**/
+    --card-grafik-70 : 584px;/**/
+    --card-530-70 : 790px;/**/
+    --card-500-70 : 750px;/**/
+    --card-160-70 : 243px;/**/
+    --card-592-70 : 825px;/**/
+    --card-470-70 : 720px;
+    --card-558-70 : 822px;/**/
+    --card-235-70 : 355px;/**/
+    --card-580-70 : 835px;/**/
+    --card-355-70 : 515px;
+    --card-537-70 : 777px;/**/
+    --card-589-70 : 853px;/**/
       /*variable scale*/
-      --py-2-scale : 14.25px;
-      --py-form : 1rem;
-  }
+      --py-2-scale-70 : 19.95px;/**/
+      --py-form-70 : 1.6rem;/**/
+    --zoom-livetrade-70: 1.4;/**/
 
-  #myLiveTrade{
-      zoom: 1.26;
+    --margin-top-sidebar-70: 3.3rem;/**/
+    --margin-bottom-sidebar-70: 2.5rem;/**/
   }
 }
 
