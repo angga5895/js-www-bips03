@@ -35,13 +35,23 @@ class AnalyticChart_Base extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            stockType: this.props.charVal,
-            stockData: this.props.chartData,
-            stockAlias: this.props.chartAlias,
-            stockKey: this.props.key,
-            tabView: this.props.tabView
+            stockType: props.charVal,
+            stockData: props.chartData,
+            stockAlias: props.chartAlias,
+            stockKey: props.key,
+            modeView: props.viewMode
         };
     }
+
+    static getDerivedStateFromProps(props, state) {
+        console.log("next props=" + props.viewMode);
+        console.log("prev state=" + state.modeView);
+        if (props.viewMode !== state.modeView) {
+            return { modeView: props.viewMode };
+        }
+        return null;
+    }
+
 
     dismissModal = () => {
         const modalDialog = document.getElementById("indicatorSettingsModal" + this.state.stockType);
@@ -69,7 +79,7 @@ class AnalyticChart_Base extends React.PureComponent {
         });
 
         const stockName = this.state.stockType;
-        const tabView = this.state.tabView;
+        const viewMode = this.state.modeView;
 
         function setColClass($el) {
             // column count for row
@@ -520,7 +530,8 @@ class AnalyticChart_Base extends React.PureComponent {
 
             function initHeightChart() {
                 var creditsHeight = 10;
-                var heightView = (tabView) ? 600 : 295;
+                var heightView = (viewMode) ? 600 : 295;
+                console.log('init height=' + viewMode);
 
                 // ganti 440 dengan $(window).height() untuk tinggi otomatis
                 $('#chart-container' + stockName).height(heightView - $indicatorNavPanel.outerHeight() - creditsHeight);
@@ -757,7 +768,8 @@ class AnalyticChart_Base extends React.PureComponent {
         };
 
         let containerStyle = {
-            padding: '0px 10px'
+            padding: '0px 10px',
+            minHeight: this.props.chartMode === true ? '590px' : '246px'
         }
 
         let marginSelection = {
@@ -768,12 +780,9 @@ class AnalyticChart_Base extends React.PureComponent {
             backgroundColor: '#383e44'
         }
 
-        let buttonStyle = {
-            padding: '0px 0px 3px 0px'
-        }
-
-        let boxScroll = {
-            overflowX: 'hidden'
+        let formButton = {
+            position: 'relative',
+            zIndex: '999'
         }
 
         let customStylesBtn = {
@@ -788,9 +797,10 @@ class AnalyticChart_Base extends React.PureComponent {
             }),
         };
 
-        let elemWidthIndicator = (this.state.tabView) ? 350 : 180;
-        let elemWidthanotation = (this.state.tabView) ? 250 : 147;
-        let classChart = (this.state.tabView) ? 'tab-chart bg-dark-grey' : 'card-chart bg-dark-grey';
+        let elemWidthIndicator = (this.state.modeView) ? 350 : 180;
+        let elemWidthanotation = (this.state.modeView) ? 250 : 147;
+
+        console.log('did mount= ' + this.state.modeView);
 
         return (
             <div>
@@ -845,7 +855,7 @@ more.
                     </div>
                 </div >
 
-                <div id={"allwrap" + this.state.stockType} className="f-12">
+                <div id={"allwrap" + this.state.stockType} className="f-12" style={formButton}>
                     <div className="row" id={"formInputIndicators" + this.state.stockType}>
                         <div className="col-xs-12 col-sm-6 col-md-12">
                             <ul className="list list-unstyled list-nav" id={"indicatorNavPanel" + this.state.stockType} style={styleses}>
@@ -946,7 +956,8 @@ more.
 
 const AnalyticChart = ContextConnector(BIPSAppContext,
     (vars, actions) => ({
-        thememode: vars.thememode
+        thememode: vars.thememode,
+        chartMode: vars.chartMode
     }),
 )(AnalyticChart_Base);
 
