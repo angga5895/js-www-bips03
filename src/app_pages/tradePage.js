@@ -26,8 +26,8 @@ const CustomFrameHeaderTrade_Base = (props) => {
                 initialClasses={{ TradeWatchlist, OrderbookPage}}
                 initialFrames={
                     [
-                        {className: 'TradeWatchlist', title: 'WATCHLIST PAGES', instanceName: 'tradePageWatchlist'},
-                        {className: 'OrderbookPage', title: 'ORDERBOOK PAGE', instanceName: 'tradePageOrderbook'},
+                        {className: 'OrderbookPage', title: 'ORDERBOOK PAGE', instanceName: 'tradePageWatchlist'},
+                        {className: 'TradeWatchlist', title: 'WATCHLIST PAGES', instanceName: 'tradePageOrderbook'},
                     ]
                 }
                 initActions={[
@@ -40,8 +40,8 @@ const CustomFrameHeaderTrade_Base = (props) => {
                     <div className="col-sm-10 px-0 mx-0 d-border-bottom">
                         <FillHeaderTab linkTitles={
                             {
-                                tradePageWatchlist : 'ORDERLIST',
-                                tradePageOrderbook: 'ORDERBOOK',
+                                tradePageWatchlist: 'ORDERBOOK',
+                                tradePageOrderbook : 'ORDERLIST',
                             }
                         } />
                     </div>
@@ -256,7 +256,7 @@ class OrderbookPage extends React.PureComponent {
                             <div className="col-sm-6 px-0 mx-0 text-right pt-3 pb-1"></div>
                         </div>
                     </div>
-                    <div className="card-550 col-sm-12 pt-3 pr-2 mr-0 row">
+                    <div className="card-515 col-sm-12 pt-3 pr-2 mr-0 row">
                         <div className="col-sm-4 pl-4 pr-0">
                             <div className={this.state.box1 === 1 ? "bg-grey pt-1 d-active" : "bg-grey pt-1"} onClick={this.clickBox1}>
                                 <TableInfoTransactionWithButton saham="AALI"/>
@@ -521,7 +521,7 @@ class TableTradeWatchlist extends React.Component{
                         <div className="col-sm-6 px-0 mx-0 text-right pt-3 pb-1"></div>
                     </div>
                 </div>
-                <div className="px-4 py-4">
+                <div className="px-4 pt-4">
                     <TradeWatchlistAgGrid />
                 </div>
             </div>
@@ -833,7 +833,7 @@ class TradeWatchlistAgGrid extends React.PureComponent {
         return (
             <>
                 <div
-                    className="card-537 ag-theme-balham-dark ag-header-border d-border"
+                    className="card-511 ag-theme-balham-dark ag-header-border d-border"
                     style={{
                         width: 'auto' }}>
                     <AgGridReact
@@ -1753,7 +1753,7 @@ class OrderListAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className={"card-75 ag-theme-balham-dark ag-bordered ag-striped-odd"}
+                    className={"card-586 ag-theme-balham-dark ag-bordered ag-striped-odd"}
                     id="myGrid"
                     style={{
                         width: "100%"
