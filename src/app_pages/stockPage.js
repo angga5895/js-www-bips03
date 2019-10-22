@@ -288,17 +288,9 @@ class StockPage extends React.PureComponent {
                                     <button className="d-border mx-1 pull-right col-sm-5 col-md-3 btn btn-danger" onClick={this.buttonClickBuy}><span>Buy</span></button>
                                 </div>
                             </div>
-                            {/*<div className="px-1 mx-0 my-2 col-sm-12 row">
-                                <div className="col-sm-2 pl-0">
-                                    <div className="col-sm-2 px-0 mx-0">
-                                        <Input label={{ color: 'bg-gold', content: '90%' }} defaultValue='AALI'
-                                               labelPosition='right' placeholder='Code' size='small' className="w-input"/>
-                                    </div>
-                                </div>
-                            </div>*/}
                             <div className="px-1 mx-0 col-sm-12 row">
                                 <div className="col-md-7 px-1 py-2">
-                                    <div className="card card-grafik bg-trading-gray">
+                                    <div id="stock-chart" className="card card-305 bg-trading-gray">
                                         <StockChart/>
                                     </div>
                                     <StockInfo/>
@@ -316,6 +308,12 @@ class StockPage extends React.PureComponent {
 }
 
 class StockHistoryPage extends React.PureComponent {
+    constructor(props){
+        super(props);
+        this.state = {
+            tabNumber: 1,
+        }
+    }
 
     componentDidMount() {
         $(document).ready(function() {
@@ -340,6 +338,26 @@ class StockHistoryPage extends React.PureComponent {
     }
 
     render () {
+        const changeTabNumber = (props) => {
+            this.setState({
+                tabNumber: props,
+            })
+        }
+        const tabActive = (props) => {
+            if (this.state.tabNumber == props) {
+                return "col-sm-6 click-pointer d-border-right text-center active";
+            } else {
+                return "col-sm-6 click-pointer d-border-right text-center"
+            }
+        }
+        const changeActiveGridHistory = () => {
+            if(this.state.tabNumber === 1){
+                return <HistoryBrokerAgGrid/>
+            } else{
+                return <HistoryBrokerAgGridSecond/>
+            }
+        }
+
         return (
             <div className="bg-black-trading">
                 <AppFrameAction ref="frameAction" />
@@ -412,8 +430,27 @@ class StockHistoryPage extends React.PureComponent {
 
                             <div className="px-1 mx-0 col-sm-12 row">
                                 <div className="col-sm-8 px-1 py-2">
+                                    {/*Zaky*/}
+                                    {/*Add menu tab*/}
+                                    <div className="cssmenu d-border-bottom d-border-top d-border-left mb-2 small">
+                                        <ul class="ul-menu">
+                                            <li name="stockPage"
+                                                className={tabActive(1)} onClick={()=>changeTabNumber(1)}>
+                                                <a className="linkCustomStockTab">
+                                                    <span
+                                                        className="f-12" >Tab 1</span></a></li>
+                                            <li name="stockWatchlistPage"
+                                                className={tabActive(2)} onClick={()=>changeTabNumber(2)}>
+                                                <a className="linkCustomStockTab">
+                                                    <span
+                                                        className="f-12">Tab 2</span></a></li>
+
+                                        </ul>
+                                    </div>
                                     <div className="bg-trading-gray">
-                                        <HistoryBrokerAgGrid/>
+                                        {/*Zaky*/}
+                                        {/*switch grid by state*/}
+                                        {changeActiveGridHistory()}
                                     </div>
                                 </div>
 
@@ -502,50 +539,24 @@ class TableStockWatchlist_Base extends React.Component{
     }
 
     render(){
-        return(<>
-            <WSConnectionAction ref="wsAction" /> {/* websocket connection component */}
-            <div className="bg-black-trading f-12">
-                {/*<button onClick={this.handleSubcribeMsg}>subscribe</button>*/}
-                <AppFrameAction ref="frameAction" />
-                {/*<div className="d-border-bottom">*/}
-                <div>
-                    <div className="col-sm-12 px-0">
-                        {/*<div className="col-sm-6 px-0 mx-0 text-left pt-3 pb-2">*/}
-                            {/*<UncontrolledDropdown setActiveFromChild>
-                                <DropdownToggle tag="a">
-                                    <label className="ml-3 btn btn-sm btn-grey col-md-9">
-                                        Order by <i className="icofont icofont-caret-down"></i>
-                                    </label>
-                                </DropdownToggle>
-                                <DropdownMenu className="menu-dropdown" left>
-                                    <DropdownItem tag="a" href="#" className="item-hover text-white">Code</DropdownItem>
-                                    <DropdownItem tag="a" href="#" className="item-hover text-white">Price</DropdownItem>
-                                    <DropdownItem tag="a" href="#" className="item-hover text-white">T.Vol</DropdownItem>
-                                </DropdownMenu>
-                            </UncontrolledDropdown>*/}
-                            {/*<Dropdown text={
-                                <label className="col-sm-9">
-                                    Order by
-                                </label>
-                            } className="text-white align-self-center btn btn-sm btn-grey ml-5 pt-2 pb-0">
-                                <Dropdown.Menu className={'bg-black-trading w-100 d-border'}>
-                                    <Dropdown.Item className="f-12 item-hover text-white text-left px-2" text={"Code"} />
-                                    <Dropdown.Item className="f-12 item-hover text-white text-left px-2" text={"Price"} />
-                                    <Dropdown.Item className="f-12 item-hover text-white text-left px-2" text={"T.Vol"} />
-                                </Dropdown.Menu>
-                            </Dropdown>
-                        </div>*/}
-                        {/*<div className="col-sm-6 px-0 mx-0 text-right pt-3 pb-1">*/}
-                        <div className="col-sm-12 mx-0 pt-3 pb-2">
-                            <button className="btn btn-sm btn-grey" onClick={this.buttonClickAmendRegister}>Modify Watchlist</button>
+        return(
+            <>
+                <WSConnectionAction ref="wsAction" /> {/* websocket connection component */}
+                <div className="bg-black-trading f-12">
+                    <AppFrameAction ref="frameAction" />
+                    <div>
+                        <div className="col-sm-12 px-0">
+                            <div className="col-sm-12 mx-0 pt-3 pb-2">
+                                <button className="btn btn-sm btn-grey" onClick={this.buttonClickAmendRegister}>Modify Watchlist</button>
+                            </div>
                         </div>
                     </div>
+                    <div className="pl-4 pr-2 pt-4">
+                        <StockWatchlistAgGrid />
+                    </div>
                 </div>
-                <div className="pl-4 pr-2 py-4">
-                    <StockWatchlistAgGrid />
-                </div>
-            </div>
-        </>);
+            </>
+        );
     }
 }
 
@@ -559,7 +570,7 @@ class BuyPage extends React.Component{
                     <div className="col-sm-6 pr-3 pl-0 mt-0 f-12">
                         <TableInfoTransaction lotshare="buyPage" />
                     </div>
-                    <div className="col-sm-6 mt-0 d-border-active bg-dark-grey pb-3 px-3">
+                    <div className="col-sm-6 mt-0 d-border-active bg-dark-grey pt-4 pb-3 px-3">
                         <FormBuy idPrice="stockBuyPrice" idVol="stockBuyVol" idValue="stockBuyValue" columnSm="col-sm-12" />
                     </div>
                 </div>
@@ -579,7 +590,7 @@ class SellPage extends React.Component{
                     <div className="col-sm-6 pr-3 pl-0 mt-0 f-12">
                         <TableInfoTransaction lotshare="sellPage" />
                     </div>
-                    <div className="col-sm-6 mt-0 d-border-active bg-dark-grey pb-3 px-3">
+                    <div className="col-sm-6 mt-0 d-border-active bg-dark-grey pt-4 pb-3 px-3">
                         <FormSell idPrice="stockSellPrice" idVol="stockSellVol" idValue="stockSellValue" columnSm="col-sm-12"/>
                     </div>
                 </div>
@@ -2648,6 +2659,247 @@ class AddGroupCodeGrid extends React.PureComponent {
     }
 }
 
+//Zaky
+//Penambahan Grid baru
+
+class HistoryBrokerAgGridSecond extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        const self = this;
+        this.state = {
+            columnDefs: [
+                { field: 'date', headerName: "Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    lockVisible:true, lockPosition:true, suppressSizeToFit:true,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12 text-warning locked-position locked-visible";
+                    },},
+                { field: 'fBuyVal', headerName: "Foreign Buy Val", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12 text-success";
+                    },},
+                { field: 'fBuyVol', headerName: "Foreign Buy Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12 text-success";
+                    }, },
+                { field: 'fSellVal', headerName: "Foreign Sell Val", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12 text-success";
+                    }, },
+                { field: 'fSellVol', headerName: "Foreign Sell Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12 text-success";
+                    },},
+                { field: 'fNetVal', headerName: "Foreign Net Val", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table f-12 text-success";
+                    },},
+            ],
+            defaultColDef: {
+                sortable: true,
+                filter: true,
+            },
+            getRowHeight : function(params){
+                return 27.5;
+            },
+            rowData: [
+                {
+                    date: "2019-02-01",
+                    fBuyVal: 100,
+                    fBuyVol: 100,
+                    fSellVal: 100,
+                    fSellVol: 150,
+                    fNetVal: 100,
+                },{
+                    date: "2019-02-02",
+                    fBuyVal: 200,
+                    fBuyVol: 300,
+                    fSellVal: 100,
+                    fSellVol: 150,
+                    fNetVal: 100,
+                },{
+                    date: "2019-02-03",
+                    fBuyVal: 200,
+                    fBuyVol: 100,
+                    fSellVal: 500,
+                    fSellVol: 150,
+                    fNetVal: 100,
+                },{
+                    date: "2019-02-04",
+                    fBuyVal: 200,
+                    fBuyVol: 100,
+                    fSellVal: 100,
+                    fSellVol: 150,
+                    fNetVal: 100,
+                },{
+                    date: "2019-02-02",
+                    fBuyVal: 200,
+                    fBuyVol: 300,
+                    fSellVal: 100,
+                    fSellVol: 150,
+                    fNetVal: 100,
+                },{
+                    date: "2019-02-03",
+                    fBuyVal: 200,
+                    fBuyVol: 100,
+                    fSellVal: 500,
+                    fSellVol: 150,
+                    fNetVal: 100,
+                },{
+                    date: "2019-02-04",
+                    fBuyVal: 200,
+                    fBuyVol: 100,
+                    fSellVal: 100,
+                    fSellVol: 150,
+                    fNetVal: 100,
+                },{
+                    date: "2019-02-03",
+                    fBuyVal: 200,
+                    fBuyVol: 100,
+                    fSellVal: 500,
+                    fSellVol: 150,
+                    fNetVal: 100,
+                },{
+                    date: "2019-02-04",
+                    fBuyVal: 200,
+                    fBuyVol: 100,
+                    fSellVal: 100,
+                    fSellVol: 150,
+                    fNetVal: 100,
+                },{
+                    date: "2019-02-02",
+                    fBuyVal: 200,
+                    fBuyVol: 300,
+                    fSellVal: 100,
+                    fSellVol: 150,
+                    fNetVal: 100,
+                },{
+                    date: "2019-02-03",
+                    fBuyVal: 200,
+                    fBuyVol: 100,
+                    fSellVal: 500,
+                    fSellVol: 150,
+                    fNetVal: 100,
+                },{
+                    date: "2019-02-04",
+                    fBuyVal: 200,
+                    fBuyVol: 100,
+                    fSellVal: 100,
+                    fSellVol: 150,
+                    fNetVal: 100,
+                },{
+                    date: "2019-02-04",
+                    fBuyVal: 200,
+                    fBuyVol: 100,
+                    fSellVal: 100,
+                    fSellVol: 150,
+                    fNetVal: 100,
+                },{
+                    date: "2019-02-03",
+                    fBuyVal: 200,
+                    fBuyVol: 100,
+                    fSellVal: 500,
+                    fSellVol: 150,
+                    fNetVal: 100,
+                },{
+                    date: "2019-02-04",
+                    fBuyVal: 200,
+                    fBuyVol: 100,
+                    fSellVal: 100,
+                    fSellVol: 150,
+                    fNetVal: 100,
+                },{
+                    date: "2019-02-02",
+                    fBuyVal: 200,
+                    fBuyVol: 300,
+                    fSellVal: 100,
+                    fSellVol: 150,
+                    fNetVal: 100,
+                },{
+                    date: "2019-02-03",
+                    fBuyVal: 200,
+                    fBuyVol: 100,
+                    fSellVal: 500,
+                    fSellVol: 150,
+                    fNetVal: 100,
+                },{
+                    date: "2019-02-04",
+                    fBuyVal: 200,
+                    fBuyVol: 100,
+                    fSellVal: 100,
+                    fSellVol: 150,
+                    fNetVal: 100,
+                },
+            ],
+            sideBar: {
+                toolPanels: [
+                    {
+                        id: "columns",
+                        labelDefault: "Columns",
+                        labelKey: "columns",
+                        iconKey: "columns",
+                        toolPanel: "agColumnsToolPanel",
+                        toolPanelParams: {
+                            suppressRowGroups: true,
+                            suppressValues: true,
+                            suppressPivots: true,
+                            suppressPivotMode: true,
+                            suppressSideButtons: true,
+                            suppressColumnFilter: true,
+                            suppressColumnSelectAll: true,
+                            suppressColumnExpandAll: true
+                        },
+                    }, {
+                        id: "filters",
+                        labelDefault: "Filters",
+                        labelKey: "filters",
+                        iconKey: "filter",
+                        toolPanel: "agFiltersToolPanel"
+                    }
+                ],
+                defaultToolPanel: ""
+            },
+        }
+    }
+
+    onGridReady = params => {
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
+
+        params.api.sizeColumnsToFit();
+        window.addEventListener("resize", function() {
+            setTimeout(function() {
+                params.api.sizeColumnsToFit();
+            });
+        });
+
+        params.api.sizeColumnsToFit();
+    };
+
+    onFirstDataRendered(params) {
+        params.api.sizeColumnsToFit();
+    }
+
+    render() {
+        return (
+            <>
+                <div
+                    className="card card-433 ag-theme-balham-dark ag-header-border-gray"
+                    style={{
+                        width: 'auto' }}>
+                    <AgGridReact
+                        columnDefs={this.state.columnDefs}
+                        rowData={this.state.rowData}
+                        defaultColDef={this.state.defaultColDef}
+                        getRowHeight={this.state.getRowHeight}
+                        onGridReady={this.onGridReady}
+                        onFirstDataRendered={this.onFirstDataRendered}>
+                    </AgGridReact>
+                </div>
+            </>
+        );
+    }
+}
+
 class StockWatchlistAgGrid extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -2905,7 +3157,7 @@ class StockWatchlistAgGrid extends React.PureComponent {
         return (
             <>
                 <div
-                    className="card-537 ag-theme-balham-dark ag-header-border d-border"
+                    className="card-511 ag-theme-balham-dark ag-header-border d-border"
                     style={{
                         width: 'auto' }}>
                     <AgGridReact
@@ -3556,8 +3808,10 @@ class HistoryBrokerAgGrid extends React.PureComponent {
     render() {
         return (
             <>
+                {/*Zaky*/}
+                {/*update ukuran card*/}
                 <div
-                    className="card card-500 ag-theme-balham-dark ag-header-border-gray"
+                    className="card card-433 ag-theme-balham-dark ag-header-border-gray"
                     style={{
                         width: 'auto' }}>
                     <AgGridReact
@@ -3693,7 +3947,7 @@ class HistoryPriceAgGrid extends React.PureComponent {
         return (
             <>
                 <div
-                    className="card card-160 ag-theme-balham-dark ag-header-border-gray"
+                    className="card card-149 ag-theme-balham-dark ag-header-border-gray"
                     style={{
                         width: 'auto' }}>
                     <AgGridReact
@@ -3835,7 +4089,7 @@ class HistoryBuyerAgGrid extends React.PureComponent {
         return (
             <>
                 <div
-                    className="card card-160 ag-theme-balham-dark ag-header-border-gray"
+                    className="card card-149 ag-theme-balham-dark ag-header-border-gray"
                     style={{
                         width: 'auto' }}>
                     <AgGridReact
@@ -3977,7 +4231,7 @@ class HistorySellerAgGrid extends React.PureComponent {
         return (
             <>
                 <div
-                    className="card card-160 ag-theme-balham-dark ag-header-border-gray"
+                    className="card card-149 ag-theme-balham-dark ag-header-border-gray"
                     style={{
                         width: 'auto' }}>
                     <AgGridReact
