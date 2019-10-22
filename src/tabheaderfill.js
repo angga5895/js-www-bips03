@@ -10,7 +10,7 @@ const FillHeaderTab_Base = (props) => {
     // linkTitles: object, mapping instanceName to link title
     return (
         /*<Menu pointing secondary>*/
-        <div className="cssmenu">
+        <div className="cssmenu tabheaderfill">
             <ul>
                 {
                     Object.keys(props.instances).map((k) => {
@@ -25,9 +25,9 @@ const FillHeaderTab_Base = (props) => {
 
                                             e.instanceName.search('Invboard') >= 0 ?
                                                 e.instanceName.search('mutualFund') >= 0?
-                                                    'active col-sm-3 click-pointer text-center'
+                                                    'active col-mn-5 click-pointer text-center'
                                                 :
-                                                    'active col-sm-3 click-pointer d-border-right text-center'
+                                                    'active col-mn-5 click-pointer d-border-right text-center'
                                             :
 
                                             e.instanceName.search('stock') >= 0 ?
@@ -55,10 +55,10 @@ const FillHeaderTab_Base = (props) => {
                                             :
 
                                             e.instanceName.search('Chat') >= 0 ?
-                                                e.instanceName.search('ChatActionPage') >= 0?
-                                                    'active col-sm-6 click-pointer text-center'
+                                                e.instanceName.search('ChatCommentPage') >= 0?
+                                                    'active col-sm-4 click-pointer text-center'
                                                     :
-                                                    'active col-sm-6 click-pointer text-center d-border-right'
+                                                    'active col-sm-4 click-pointer text-center d-border-right'
 
                                             :
 
@@ -70,14 +70,22 @@ const FillHeaderTab_Base = (props) => {
 
                                             :
 
+                                            e.instanceName.search('AnalyticPage') >= 0 ?
+                                                e.instanceName.search('RelativePerformanceAnalyticPage') >= 0 ?
+                                                    'active col-sm-3 click-pointer text-center'
+                                                    :
+                                                    'active col-sm-3 click-pointer text-center d-border-right'
+
+                                            :
+
                                             'active click-pointer d-border-right text-center'
                                         :
 
                                             e.instanceName.search('Invboard') >= 0 ?
                                                 e.instanceName.search('mutualFund') >= 0?
-                                                    'col-sm-3 click-pointer text-center'
+                                                    'col-mn-5 click-pointer text-center'
                                                 :
-                                                    'col-sm-3 click-pointer d-border-right text-center'
+                                                    'col-mn-5 click-pointer d-border-right text-center'
 
                                             :
 
@@ -106,10 +114,10 @@ const FillHeaderTab_Base = (props) => {
                                             :
 
                                             e.instanceName.search('Chat') >= 0 ?
-                                                e.instanceName.search('ChatActionPage') >= 0?
-                                                    'col-sm-6 click-pointer text-center'
+                                                e.instanceName.search('ChatCommentPage') >= 0?
+                                                    'col-sm-4 click-pointer text-center'
                                                     :
-                                                    'col-sm-6 click-pointer text-center d-border-right'
+                                                    'col-sm-4 click-pointer text-center d-border-right'
 
                                             :
 
@@ -118,6 +126,14 @@ const FillHeaderTab_Base = (props) => {
                                                     'col-sm-4 click-pointer text-center'
                                                     :
                                                     'col-sm-4 click-pointer text-center d-border-right'
+
+                                            :
+
+                                            e.instanceName.search('AnalyticPage') >= 0 ?
+                                                e.instanceName.search('RelativePerformanceAnalyticPage') >= 0 ?
+                                                    'col-sm-3 click-pointer text-center'
+                                                    :
+                                                    'col-sm-3 click-pointer text-center d-border-right'
 
                                             :
 
