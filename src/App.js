@@ -14,8 +14,8 @@ import MainPage from './app_pages/mainPage.js';
 import LandingPage, { CustomFrameHeaderLanding, Landing } from './app_pages/landingPage.js';
 import PortfolioPage from './app_pages/portfolioPage.js';
 import StockSummaryPage from './app_pages/stockSummary.js';
-import AnalyticPage from './app_pages/analyticPage';
-import ChatSupportPage, {CustomFrameHeaderChatSupportPage} from './app_pages/chatsupportPage';
+import AnalyticPage, { CustomFrameHeaderAnalytic, Analytic } from './app_pages/analyticPage';
+import ChatSupportPage, { CustomFrameHeaderChatSupportPage } from './app_pages/chatsupportPage';
 import LiveTradePage from './app_pages/livetradePage';
 import MarketStatistikPage, { CustomFrameHeaderMarketStatistik, MarketStatistik } from './app_pages/marketstatistikPage';
 import StockPage, { CustomFrameHeaderStock, Stock } from './app_pages/stockPage';
@@ -31,16 +31,16 @@ class App extends React.Component {
   render() {
     return (
       <AppFrameProvider
-        initialClasses={{ Landing, MarketStatistik, Stock, Trade, AnalyticPage, ChatSupportPage, LiveTradePage }}
+        initialClasses={{ Landing, MarketStatistik, Stock, Trade, ChatSupportPage, LiveTradePage, Analytic }}
         initialFrames={
           [
             { className: 'Landing', title: <CustomFrameHeaderLanding />, instanceName: 'landingPage' },
             { className: 'MarketStatistik', title: <CustomFrameHeaderMarketStatistik />, instanceName: 'marketstatistikPage' },
             { className: 'Stock', title: <CustomFrameHeaderStock />, instanceName: 'stockPage' },
             { className: 'Trade', title: <CustomFrameHeaderTrade />, instanceName: 'tradePage' },
-            { className: 'AnalyticPage', title: '', instanceName: 'analyticPage' },
-              { className: 'ChatSupportPage', title: <CustomFrameHeaderChatSupportPage/>, instanceName: 'chatsupportPage' },
+            { className: 'Analytic', title: <CustomFrameHeaderAnalytic />, instanceName: 'analyticPage' },
             { className: 'LiveTradePage', title: '', instanceName: 'livetradePage' },
+            { className: 'ChatSupportPage', title: <CustomFrameHeaderChatSupportPage />, instanceName: 'chatsupportPage' },
           ]
         }
         initActions={[

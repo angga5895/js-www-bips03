@@ -82,8 +82,8 @@ class SideBar extends React.Component{
                                 <p className="f-11-center mb-1 text-danger">1,025</p>
                                 <hr className="bg-white my-0"/>
                             </div>
-                            <div className="align-self-center text-center px-1">
-                                <buttom className="f-9 col-sm-12 px-0 mt-4 py-2 btn btn-sm btn-dark op-05">
+                            <div className="align-self-center text-center px-1 py-2">
+                                <buttom className="f-9 col-sm-12 px-0 my-0 py-2 btn btn-sm btn-dark op-05">
                                     Load more
                                 </buttom>
                             </div>
