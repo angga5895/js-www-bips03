@@ -17,6 +17,8 @@ import ModalTransactionHistory from "./app_modals/modal_transaction_history";
 import ModalInquiry from "./app_modals/modal_inquiry";
 import { AppFrame, AppFrameAction, AppFrameProvider, AppModal } from "./appframe";
 
+import './selectiontab.css';
+
 const options = [
     { value: 'compositeindex', label: 'Composite Index' },
     { value: 'compositethome', label: 'Composite Home' }
@@ -77,12 +79,9 @@ const UISelectionTab_Base = (props) => {
                         <div className="d-border-left d-border-right row col-sm-header-menu px-0 mr-2">
                             <MenuHeader id={props}/>
 
-                            <Menu.Menu className="col-sm-2 px-0 ml-nav align-self-center">
+                            {/*Zaky*/}
+                            <Menu.Menu className="col-sm-5 ml-5 px-0 align-self-center">
                                 <SelectItem1 />
-                            </Menu.Menu>
-
-                            <Menu.Menu className="col-sm-2 px-0 mr-nav align-self-center">
-                                <SelectItem2 />
                             </Menu.Menu>
                         </div>
 
@@ -91,7 +90,7 @@ const UISelectionTab_Base = (props) => {
                                 <InfoCash/>
                             </Menu.Menu>
 
-                            <Menu.Menu className="px-1">
+                            <Menu.Menu className="px-0">
                                 <UserInfo/>
                             </Menu.Menu>
                         </div>
@@ -108,12 +107,9 @@ const UISelectionTab_Base = (props) => {
                             <div className="col-sm-10 px-0 mx-0 align-self-center text-center">
                                 <div className="col-sm-12 align-self-center text-center row">
                                     <div className="col-sm-8 px-0 mx-0 row">
-                                        <Menu.Menu className="col-sm-6 px-4 align-self-center">
+                                        {/*Zaky*/}
+                                        <Menu.Menu className="col-sm-12 px-4 align-self-center">
                                             <SelectItem1 />
-                                        </Menu.Menu>
-
-                                        <Menu.Menu className="col-sm-6 px-5 align-self-center">
-                                            <SelectItem2 />
                                         </Menu.Menu>
                                     </div>
                                     <div className="col-sm-4 px-0 mx-0 row">
@@ -148,12 +144,9 @@ const UISelectionTab_Base = (props) => {
                         <div className="col-sm-10 px-0 mx-0 align-self-center text-center">
                             <div className="col-sm-12 align-self-center text-center row">
                                 <div className="col-sm-8 px-0 mx-0 row">
-                                    <Menu.Menu className="col-sm-6 px-4 align-self-center">
+                                    {/*Zaky*/}
+                                    <Menu.Menu className="col-sm-12 px-4 align-self-center">
                                         <SelectItem1/>
-                                    </Menu.Menu>
-
-                                    <Menu.Menu className="col-sm-6 px-5 align-self-center">
-                                        <SelectItem2 />
                                     </Menu.Menu>
                                 </div>
                                 <div className="col-sm-4 px-0 mx-0 row">
@@ -187,12 +180,9 @@ const UISelectionTab_Base = (props) => {
                         <div className="col-smb-10 px-0 mx-0 align-self-center text-center">
                             <div className="col-smb-12 align-self-center text-center row">
                                 <div className="col-smb-7 pr-0 pl-5 mx-0 row">
-                                    <Menu.Menu className="col-smb-6 pl-2 pr-2 align-self-center">
+                                    {/*Zaky*/}
+                                    <Menu.Menu className="col-smb-12 pl-2 pr-2 align-self-center">
                                         <SelectItem1 />
-                                    </Menu.Menu>
-
-                                    <Menu.Menu className="col-smb-6 pr-2 pl-2 align-self-center">
-                                        <SelectItem2 />
                                     </Menu.Menu>
                                 </div>
                                 <div className="col-smb-5 px-0 mx-0 row">
@@ -226,12 +216,8 @@ const UISelectionTab_Base = (props) => {
                         <div className="col-smb-10 px-4 mx-0 align-self-center text-center">
                             <div className="col-smb-12 align-self-center text-center row">
                                 <div className="col-smb-7 pr-0 pl-5 mx-0 row">
-                                    <Menu.Menu className="col-smb-6 pl-0 pr-2 align-self-center">
+                                    <Menu.Menu className="col-smb-12 pl-0 pr-2 align-self-center">
                                         <SelectItem1 />
-                                    </Menu.Menu>
-
-                                    <Menu.Menu className="col-smb-6 pr-0 pl-2 align-self-center">
-                                        <SelectItem2 />
                                     </Menu.Menu>
                                 </div>
                                 <div className="col-smb-5 px-0 mx-0 row">
@@ -281,12 +267,9 @@ const UISelectionTab_Base = (props) => {
                     </div>
 
                     <div className="col-smb-12 px-0 mx-0 row text-center align-self-center">
-                        <Menu.Menu className="col-smb-6 px-2 align-self-center text-center">
+                        {/*Zaky*/}
+                        <Menu.Menu className="col-smb-12 px-2 align-self-center text-center">
                             <SelectItem1 />
-                        </Menu.Menu>
-
-                        <Menu.Menu className="col-smb-6 px-2 align-self-center text-center align-self-center">
-                            <SelectItem2 />
                         </Menu.Menu>
                     </div>
                 </Navbar>
@@ -304,9 +287,39 @@ const UISelectionTab = ContextConnector(AppFrameContext,
     })
 )(UISelectionTab_Base);
 
-class SelectItem1_Base extends React.PureComponent {
+class SelectItem1 extends React.PureComponent {
     constructor(props) {
         super(props);
+        //Zaky -
+        //menambahkan state untuk flipped bar
+        this.state = {
+            seconds: 0,
+            index: 0,
+            flipped: true,
+            barInfo: [
+                {
+                    symbol: 'GBP/USD',
+                    last: '12849',
+                    change: -0.99293,
+                    percentage: -0.30,
+                },{
+                    symbol: 'USD/JPY',
+                    last: '108.59',
+                    change: 0.06,
+                    percentage: 0.06,
+                },{
+                    symbol: 'USD/CHF',
+                    last: '0.9874',
+                    change: -0.00005,
+                    percentage: -0.04,
+                },{
+                    symbol: 'AUD/JPY',
+                    last: '78.14',
+                    change: 0.05,
+                    percentage: 0.05,
+                },
+            ],
+        };
     }
 
     selectSelectionTab = theme => ({
@@ -325,20 +338,119 @@ class SelectItem1_Base extends React.PureComponent {
             primary   : '#0071BC',
         },
     });
+    // zaky
+    // fungsi untuk flipped
+    tick() {
+        this.setState(prevState => ({
+            seconds: prevState.seconds + 1
+            // seconds: prevState.seconds + 0
+        }));
+        if(this.state.seconds % 5 === 0){
+            //set change every 30 sec
+            this.setState({flipped: !this.state.flipped})
+            this.setState({index: (this.state.index + 1) % this.state.barInfo.length });
+        }
+    }
+    //zaky
+    //fungsi untuk flipped
+    componentDidMount() {
+        this.interval = setInterval(() => this.tick(), 1000);
+    }
+    //zaky
+    //fungsi untuk flipped
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
 
     render() {
+        //zaky
+        //fungsi untuk flipped
+        const switchPanel = () => {
+            if(this.state.flipped === true){
+                return "card is-flipped";
+            }else{
+                return "card";
+            }
+        }
+        //zaky
+        //fungsi untuk warna
+        const colorLabel = (props) => {
+            if(props < 0){
+                return "red"
+            }else{
+                return "green"
+            }
+        }
+        //zaky
+        //fungsi untuk flipped
+        const cardFace = (props) => {
+            let info = this.state.barInfo[this.state.index];
+            if(props === "front"){
+                if(this.state.flipped){
+                    return <div className="card__face card__face--front">&nbsp;</div>
+                }else{
+                    return <div className="card__face card__face--front">
+                        <table width="100%">
+                            <tr>
+                                <td rowSpan="2" className="spanSymbol">{info.symbol}</td>
+                                <td colSpan="2">Last: {info.last}</td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span className={colorLabel(info.change)}>{info.change}</span>&nbsp;
+                                </td>
+                                <td>
+                                    <span className={colorLabel(info.percentage)}>({info.percentage}%)</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                }
+            }else{
+                if(this.state.flipped){
+                    return <div className="card__face card__face--back">
+                        <table width="100%">
+                            <tr>
+                                <td rowSpan="2" className="spanSymbol">{info.symbol}</td>
+                                <td colspan="2">Last: {info.last}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span className={colorLabel(info.change)}>{info.change}</span>&nbsp;
+                                </td>
+                                <td>
+                                    <span className={colorLabel(info.percentage)}>({info.percentage}%)</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                }else{
+                    return <div className="card__face card__face--back">&nbsp;</div>
+                }
+            }
+        }
         return (
             <div className="nav-link col-sm-12 px-0 mx-0 py-3 text-white">
                 <div className="col-md-12 bg-black-trading px-0 text-center">
-                    <Select
+                    {/*zaky
+                    Element Flipped*/}
+                    <div className="scene scene--card">
+
+                        <div className={switchPanel()}>
+                            {cardFace("front")}
+                            {cardFace("back")}
+                        </div>
+                    </div>
+                    {/*<Select
                         className="f-12-fix"
                         defaultValue={option[0]}
                         label="Single select"
                         options={option}
                         theme={this.selectSelectionTab}
-                    />
+                    />*/}
                 </div>
-                <label className="col-md-12 f-11-center">11/03/2019 | 09.45 <span className="text-success"> Open</span></label>
+                {/*<label className="col-md-12 f-11-center">11/03/2019 | 09.45 <span className="text-success"> Open</span></label>*/}
             </div>
         );
     }
@@ -426,7 +538,16 @@ class InfoCash extends React.Component {
     }
 }
 
-class UserInfo extends React.Component {
+class UserInfo_Base extends React.Component {
+    constructor(props){
+        super(props);
+        //zaky
+        //menambahkan state general untuk tipe akun
+        this.state={
+            general: true,
+        }
+    }
+
     closeClick = (e) => {
         this.refs.frameAction.closeModal(100);
     }
@@ -450,7 +571,7 @@ class UserInfo extends React.Component {
         })
     }
 
-    buttonClickPortofolio = (e) => {
+    /*buttonClickPortofolio = (e) => {
         this.refs.frameAction.showModal({
             headerClass: () =>
                 <div className="container-fluid">
@@ -553,7 +674,7 @@ class UserInfo extends React.Component {
             contentClass: InquiryModal,
             onClose: (result) => { console.log('Modal 1 result = ', result) }
         })
-    }
+    }*/
 
     buttonClickChangePassPin = (e) => {
         this.refs.frameAction.showModal({
@@ -566,10 +687,34 @@ class UserInfo extends React.Component {
     }
 
     render(){
+        //zaky
+        //fungsi untuk mengubah state switch akun
+        const changeGeneralState = (props) => {
+            this.setState({
+                general: props
+            });
+            this.props.changeAccountType(props);
+        }
+        //zaky
+        //fungsi untuk mengubah state switch akun dengan perubahan style
+        const changeStyle = (props,type) => {
+            if(props === true && type === "general"){
+                return "radioAccount checkedRadio"
+            }else if(props === false && type === "margin"){
+                return "radioAccount checkedRadio"
+            }else{
+                return "radioAccount"
+            }
+        }
         return(
-            <div className="nav-link px-0 mx-0 py-3 text-white">
+            <div className="nav-link px-0 mx-0 py-1 text-white">
                 <AppFrameAction ref="frameAction" />
-                <Dropdown icon={null} text={
+                {/*Zaky*/}
+                {/*perubahan nama*/}
+                <table>
+                    <tr>
+                        <td className="py-0">
+                            <Dropdown icon={null} text={
                     <div className="cursor-menu py-2">
                         <img src={user_avatar} alt="User" className="img-avatar d-border mr-2"/><i className="f-11-center text-gray-tradding oi oi-caret-bottom"></i>
                     </div>
@@ -585,24 +730,38 @@ class UserInfo extends React.Component {
                                 </tbody>
                             </Table>
                         }/>
+
+                        {/* zaky */}
+                        {/*perubahan akun general menjadi margin dan sebalikanya*/}
                         <table className="w-100">
                             <thead></thead>
                             <tbody className="text-center">
                             <tr>
                                 <td>
-                                    <Dropdown.Item className="item-hover text-white active-menu text-center" text={
-                                        <div>Regular <br/> Account</div>
-                                    }/>
+                                    <div className="divAccountOpt input col-sm-12 text-center align-self-center px-0 ">
+                                        <input type="radio" className={changeStyle(this.state.general,"general")} name="itemTheme2" id="radioAccount"
+                                               onClick={()=>{changeGeneralState(true);}
+                                               } checked={(this.state.general === true) ? true : false}/>
+                                        <label className="radioLabelAccount" htmlFor="radioAccount">
+                                            <text>Regular<br/>Account</text>
+                                        </label>
+                                    </div>
                                 </td>
                                 <td>
-                                    <Dropdown.Item className="item-hover text-white text-center" text={
-                                        <div>Margin <br/> Account</div>
-                                    }/>
+                                    <div className="input col-sm-12 text-center align-self-center divAccountOpt px-0">
+                                        <input type="radio" className={changeStyle(this.state.general,"margin")} name="itemTheme2" id="radioAccount2"
+                                               onClick={()=>{changeGeneralState(false);}
+                                               }  checked={(this.state.general === false) ? true : false} />
+                                        <label className="radioLabelAccount" htmlFor="radioAccount2">
+                                            <text>Margin<br/>Account</text>
+                                        </label>
+                                    </div>
                                 </td>
                             </tr>
                             </tbody>
                         </table>
-                        <Dropdown.Divider className="d-border py-0 my-0" />
+                        {/*End*/}
+                        {/*<Dropdown.Divider className="d-border py-0 my-0" />
                         <Dropdown.Item className="item-hover text-white text-left" onClick={this.buttonClickPortofolio} text={
                             <div>
                                 <i className="icon-icon-portofolio"></i>&nbsp;&nbsp; Portofolio & Balance
@@ -631,7 +790,7 @@ class UserInfo extends React.Component {
                             <div>
                                 <i className="icon-icon-inquiry"></i>&nbsp;&nbsp; Inquiry Of Account
                             </div>
-                        }/>
+                        }/>*/}
                         <Dropdown.Divider className="d-border py-0 my-0" />
                         <Dropdown.Item className="item-hover text-white text-left" onClick={this.buttonClickChangePassPin} text={
                             <div>
@@ -652,6 +811,14 @@ class UserInfo extends React.Component {
                         }/>
                     </Dropdown.Menu>
                 </Dropdown>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className="py-0 px-0 text-center text-primary f-16">
+                            <kbd>{(this.props.GeneralType === true) ? "REGULAR" : "MARGIN"}</kbd>
+                        </td>
+                    </tr>
+                </table>
             </div>
         );
     }
@@ -823,11 +990,14 @@ class MenuScaleZ_Base extends React.Component {
     }
 }
 
-const SelectItem1 = ContextConnector(BIPSAppContext,
+//Zaky
+const UserInfo = ContextConnector(BIPSAppContext,
     (vars, actions) => ({
-        thememode : vars.thememode,
-    }),
-)(SelectItem1_Base);
+        GeneralType: vars.GeneralType,
+        changeAccountType : (GeneralType) => {actions.sendAction('changeAccountType', {GeneralType})}
+
+    })
+)(UserInfo_Base);
 
 const SelectItem2 = ContextConnector(BIPSAppContext,
     (vars, actions) => ({
