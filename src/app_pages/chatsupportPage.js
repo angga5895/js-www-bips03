@@ -13,10 +13,11 @@ import ChatBot from 'react-simple-chatbot';
 
 import './chatSupport.css';
 
+import { Input } from 'semantic-ui-react'
 import $ from 'jquery';
+
 window.$ = window.jQuery = $;
 require('../../node_modules/bootstrap/dist/js/bootstrap.js');
-
 
 
 class CustomFrameHeaderChatSupportPage_Base extends React.PureComponent{
@@ -27,36 +28,556 @@ class CustomFrameHeaderChatSupportPage_Base extends React.PureComponent{
     render() {
         return (
             <AppFrameProvider
-                initialClasses={{ ChatListPage, ChatActionPage, }}
+                initialClasses={{ ChatUserPage, ChatSuppPage, ChatCommentPage,}}
                 initialFrames={
                     [
-                        {className: 'ChatListPage', title: 'List Message', instanceName: 'ChatListPage'},
-                        {className: 'ChatActionPage', title: 'Message', instanceName: 'ChatActionPage'},
+                        {className: 'ChatUserPage', title: 'Chat User', instanceName: 'ChatUserPage'},
+                        {className: 'ChatSuppPage', title: 'Chat Support', instanceName: 'ChatSuppPage'},
+                        {className: 'ChatCommentPage', title: 'Chat Comment', instanceName: 'ChatCommentPage'},
                     ]
                 }
             >
                 {/*<BIPSAppProvider>*/}
                 <WSConnectionAction />
                 <div className="col-sm-12 px-0 mx-0 align-self-center row">
-                    <div className="col-sm-4 pb-0 px-0 mx-0 d-border-bottom">
+                    <div className="col-sm-12 pb-0 px-0 mx-0 d-border-bottom">
                         <FillHeaderTab linkTitles={
                             {
-                                ChatListPage: 'List Of Chats',
-                                ChatActionPage: 'Message',
+                                ChatUserPage: 'Chat User',
+                                ChatSuppPage: 'Chat Support',
+                                ChatCommentPage: 'Chat DXBot',
                             }
                         }/>
-                        <AppFrame headerComponent={ChatSuppportPageFrameHeader}/>
-
-                    </div>
-                    <div className="col-sm-8 px-0">
-                        <ActionPageFrame/>
-                        {/*<AppFrame headerComponent={ChatSuppportPageFrameHeader}/>*/}
                     </div>
                 </div>
+                <AppFrame headerComponent={ChatSuppportPageFrameHeader}/>
                 <AppModal/>
                 {/*</BIPSAppProvider>*/}
             </AppFrameProvider>
         );
+    }
+}
+//PARENT TOP CHAT USER
+class ChatUserPage_Base extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            'activeId':-1,
+            'isSearch': false,
+            'chatId':0,
+        }
+        this.changeActiveList = this.changeActiveList.bind(this);
+        this.changeActiveId = this.changeActiveId.bind(this);
+    }
+    changeActiveList(_counter){
+        this.setState({
+            'isSearch': _counter,
+        });
+    }
+    changeActiveId(_counter){
+        this.setState({
+            'activeId':_counter,
+        })
+    }
+    render(){
+        const switchList = () => {
+
+            if(this.state.isSearch == true){
+                return <ChatListUser
+                    parentToggle={this.changeActiveId}
+                />
+            }else{
+                return <ChatListPage parentToggle={this.changeActiveId}/>
+            }
+
+        };
+        const switchChat = () => {
+            if(this.state.activeId !== -1){
+                return <ActionPageFrame_Base chatId={this.state.activeId}/>
+            }else{
+                return <ChatListEmpty chatId={this.state.activeId}/>
+            }
+        }
+        return(
+            <div className="row px-1 mx-0">
+                <div className="col-sm-4 px-1 mx-0">
+                    <SearchBtn
+                        parentToggle={this.changeActiveList}/>
+                    {switchList()}
+
+                </div>
+                <div className="col-sm-8 px-1 mx-0">
+                    {switchChat()}
+                </div>
+            </div>
+        )
+    }
+}
+class SearchBtn extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            'activeId':-1,
+            'icon': 'search',
+        }
+        this.changeActive = this.changeActive.bind(this);
+        this.changeNon = this.changeNon.bind(this);
+    }
+    changeActive(){
+        this.setState({'icon': 'remove',});
+        this.props.parentToggle(true);
+    }
+    changeNon(){
+        this.setState({'icon':'search'});
+        this.props.parentToggle(false);
+        this.inputTitle.value='';
+    }
+    render(){
+        return(
+            <div className="col-sm-12 ui icon input f-12 px-0">
+                <input type="text" id="inputSearch" ref={el => this.inputTitle = el} size="small" placeholder="Search..." onChange={this.changeActive}/>
+                <i aria-hidden="true" className={`${this.state.icon} icon i-pointer`} onClick={this.changeNon} ></i>
+            </div>
+        )
+    }
+
+}
+class ChatListUser_Base extends React.PureComponent{
+    constructor(props){
+        super(props);
+        this.state = {
+            activeIndex: -1,
+            friendList: [
+                {
+                    'id':'budihasilsearch@gmail',
+                    'from':'budiantara@gmail',
+                    'message':'Hello dude search - test',
+                    'status':'active',
+                    'new':'0',
+                    'time':'-',
+                    'img': '/static/media/man.3e62c017.png',
+                    'isFriend':true,
+                },{
+                    'id':'AhmadGokil@gmail',
+                    'from':'Ahmad@gmail',
+                    'message':'Hidupku tanpa hidupmu gapapa',
+                    'status':'active',
+                    'new':'0',
+                    'time':'-',
+                    'img': '/static/media/man.3e62c017.png',
+                    'isFriend':false,
+                }
+            ],
+        }
+        this.doParentToggle = this.doParentToggle.bind(this);
+        this.addFriend = this.addFriend.bind(this);
+    }
+
+    doParentToggle(_counterFromChild){
+        this.setState({
+            activeIndex: _counterFromChild,
+        });
+        this.props.parentToggle(_counterFromChild);
+    }
+    addFriend(_counter){
+        //sini
+        this.setState(state=>{
+            const friendList = this.state.friendList.map(item=>{
+                if(item.id === _counter){
+                    var varId = {
+                        'id':item.id,
+                        'from':item.from,
+                        'message':item.message,
+                        'status':item.status,
+                        'new':item.new,
+                        'time':item.time,
+                        'img': item.img,
+                        'isFriend':true,
+                    };
+                    return varId
+                }else{
+                    return item
+                }
+            });
+            return {
+                friendList
+            };
+        });
+        this.props.changeIdChatBot(_counter);
+    }
+    render(){
+        return(
+
+            <div className="container-fluid px-1 mx-0 col-sm-12 scroll rsc-scroll d-border-top">
+                <nav className="nav flex-column">
+                    {
+                        this.state.friendList.map((charx, index) => {
+                            return <Square
+                                from={charx.from}
+                                message={charx.message}
+                                new={charx.new}
+                                id={charx.id}
+                                img={charx.img}
+                                time={charx.time}
+                                isFriend={charx.isFriend}
+                                active={(charx.id == this.state.activeIndex) ? "active" : ""}
+                                parentToggle={this.doParentToggle}
+                                parentAdd={this.addFriend}
+                            />
+                        })}
+                </nav>
+            </div>
+
+        )
+    }
+}
+class ChatListPage_Base extends React.PureComponent {
+    constructor(props){
+        super(props);
+        this.state = {
+            activeIndex: -1,
+            friendList: [
+                {
+                    'id':'budi@gmail',
+                    'from':'budiantara@gmail',
+                    'message':'Hello dude - test',
+                    'status':'active',
+                    'new':'6',
+                    'time':'09.00',
+                    'img': '/static/media/man.3e62c017.png',
+                },{
+                    'id':'ahmadi@gmail',
+                    'from':'ahmadi@gmail',
+                    'message':'testing wan wan 2',
+                    'status':'active',
+                    'new':'2',
+                    'time':'07.00',
+                    'img': '/static/media/man.3e62c017.png',
+                },{
+                    'id':'kirsanaa@gmail',
+                    'from':'kirsanaa@gmail',
+                    'message':'yamasa gitu sih masnya',
+                    'status':'active',
+                    'new':'1',
+                    'time':'06.50',
+                    'img': '/static/media/man.3e62c017.png',
+                },{
+                    'id':'mukti@gmail',
+                    'from':'mukti@gmail',
+                    'message':'sama mukti nanti diurus',
+                    'status':'active',
+                    'new':'',
+                    'time':'06.00',
+                    'img': '/static/media/man.3e62c017.png',
+                },{
+                    'id':'bramantiio@gmail',
+                    'from':'bramantiio@gmail',
+                    'message':'soalnya kaya gamungkin gitu da ..',
+                    'status':'active',
+                    'new':'3',
+                    'time':'19.00',
+                    'img': '/static/media/man.3e62c017.png',
+                },{
+                    'id':'Sarah007@gmail',
+                    'from':'Sarah007@gmail',
+                    'message':'Memang pak budi mintanya begitu',
+                    'status':'active',
+                    'new':'1',
+                    'time':'18.31',
+                    'img': '/static/media/man.3e62c017.png',
+                },
+            ],
+        }
+        this.doParentToggle = this.doParentToggle.bind(this);
+    }
+    doParentToggle(_counterFromChild){
+        this.setState({
+            activeIndex: _counterFromChild,
+        });
+        this.props.parentToggle(_counterFromChild);
+
+        // console.log(_counterFromChild);
+        // this.props.changeIdChatBot(_counterFromChild)
+    }
+    render(){
+        const addFriend = () => {
+            var newfr = {
+                'id':this.props.chatId,
+                'from':this.props.chatId,
+                'message':'Say hi to your friend dude',
+                'status':'active',
+                'new':'1',
+                'time':'09.00',
+                'img': '/static/media/man.3e62c017.png',
+            };
+            this.setState(state => {
+                const friendList = [newfr, ...this.state.friendList];
+                return {
+                    friendList
+                };
+            });
+            this.props.changeIdChatBot("");
+        };
+
+        return(
+
+            <div className="container-fluid px-1 mx-0 col-sm-12 scroll rsc-scroll d-border-top">
+
+                <nav className="nav flex-column">
+                    {(this.props.chatId !== "") ? addFriend() : ""}
+                    {this.state.friendList.map((charx, index) => {
+                        return <Square
+                            from={charx.from}
+                            message={charx.message}
+                            new={charx.new}
+                            id={charx.id}
+                            img={charx.img}
+                            time={charx.time}
+                            isFriend="null"
+                            active={(charx.id == this.state.activeIndex) ? "active" : ""}
+                            parentToggle={this.doParentToggle}
+                        />
+                    })}
+                </nav>
+            </div>
+
+        )
+    }
+}
+
+//PARENT CHAT SUPP PAGE
+class ChatSuppPage extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            'activeId':-1,
+            'isSearch': false,
+            'chatId':0,
+        }
+        this.changeActiveId = this.changeActiveId.bind(this);
+    }
+    changeActiveId(_counter){
+        this.setState({
+            'activeId':_counter,
+        })
+    }
+    render(){
+        const switchChat = () => {
+            if(this.state.activeId !== -1){
+                return <ActionPageFrame_Base chatId={this.state.activeId}/>
+            }else{
+                return <ChatListEmpty chatId={this.state.activeId}/>
+            }
+        }
+        return(
+            <div className="row px-1 mx-0">
+                <div className="col-sm-4 px-1 mx-0">
+                    <ChatListSupport parentToggle={this.changeActiveId}/>
+                </div>
+                <div className="col-sm-8 px-1 mx-0">
+                    {switchChat()}
+                </div>
+            </div>
+        )
+    }
+}
+class ChatListSupport extends React.PureComponent{
+    constructor(props){
+        super(props);
+        this.state = {
+            activeIndex: -1,
+            friendList: [
+                {
+                    'id':'IT SUPPORT',
+                    'from':'IT SUPPORT',
+                    'message':'',
+                    'status':'active',
+                    'new':'0',
+                    'time':'',
+                    'img': '/static/media/man.3e62c017.png',
+                },{
+                    'id':'FINANCE SUPPORT',
+                    'from':'FINANCE SUPPORT',
+                    'message':'',
+                    'status':'active',
+                    'new':'0',
+                    'time':'',
+                    'img': '/static/media/man.3e62c017.png',
+                },{
+                    'id':'QUALITY SUPPORT',
+                    'from':'QUALITY SUPPORT',
+                    'message':'',
+                    'status':'active',
+                    'new':'0',
+                    'time':'',
+                    'img': '/static/media/man.3e62c017.png',
+                },{
+                    'id':'NETWORK SUPPORT',
+                    'from':'NETWORK SUPPORT',
+                    'message':'',
+                    'status':'active',
+                    'new':'0',
+                    'time':'',
+                    'img': '/static/media/man.3e62c017.png',
+                },
+            ],
+        }
+        this.doParentToggle = this.doParentToggle.bind(this);
+    }
+    doParentToggle(_counterFromChild){
+        this.setState({
+            activeIndex: _counterFromChild,
+        });
+        this.props.parentToggle(_counterFromChild);
+
+        // console.log(_counterFromChild);
+        // this.props.changeIdChatBot(_counterFromChild)
+    }
+
+    render(){
+
+
+        return(
+
+            <div className="container-fluid px-1 mx-0 col-sm-12 scroll d-border-top">
+
+                <nav className="nav flex-column">
+
+                    {this.state.friendList.map((charx, index) => {
+                        return <Square
+                            from={charx.from}
+                            message={charx.message}
+                            new={charx.new}
+                            id={charx.id}
+                            img={charx.img}
+                            time={charx.time}
+                            isFriend="null"
+                            active={(charx.id == this.state.activeIndex) ? "active" : ""}
+                            parentToggle={this.doParentToggle}
+                        />
+                    })}
+                </nav>
+            </div>
+
+        )
+    }
+}
+
+//PARENT CHAT COMMENT PAGE
+class ChatCommentPage extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            'activeId':-1,
+            'isSearch': false,
+            'chatId':0,
+        }
+        this.changeActiveId = this.changeActiveId.bind(this);
+    }
+    changeActiveId(_counter){
+        this.setState({
+            'activeId':_counter,
+        })
+    }
+    render(){
+        const switchChat = () => {
+            if(this.state.activeId !== -1){
+                return <ActionPageFrame_Base chatId={this.state.activeId}/>
+            }else{
+                return <ChatListEmpty chatId={this.state.activeId}/>
+            }
+        }
+        return(
+            <div className="row px-1 mx-0">
+                <div className="col-sm-4 px-1 mx-0">
+                    <ChatListComment parentToggle={this.changeActiveId}/>
+                </div>
+                <div className="col-sm-8 px-1 mx-0">
+                    {switchChat()}
+                </div>
+            </div>
+        )
+    }
+}
+class ChatListComment extends React.PureComponent{
+    constructor(props){
+        super(props);
+        this.state = {
+            activeIndex: -1,
+            friendList: [
+                {
+                    'id':'BUY',
+                    'from':'BUY',
+                    'message':'',
+                    'status':'active',
+                    'new':'',
+                    'time':'',
+                    'img': '/static/media/man.3e62c017.png',
+                },{
+                    'id':'SELL',
+                    'from':'SELL',
+                    'message':'',
+                    'status':'active',
+                    'new':'',
+                    'time':'',
+                    'img': '/static/media/man.3e62c017.png',
+                },{
+                    'id':'AMEND',
+                    'from':'AMEND',
+                    'message':'',
+                    'status':'active',
+                    'new':'',
+                    'time':'',
+                    'img': '/static/media/man.3e62c017.png',
+                },{
+                    'id':'WITHDRAW',
+                    'from':'WITHDRAW',
+                    'message':'',
+                    'status':'active',
+                    'new':'',
+                    'time':'',
+                    'img': '/static/media/man.3e62c017.png',
+                },
+            ],
+        }
+        this.doParentToggle = this.doParentToggle.bind(this);
+    }
+    doParentToggle(_counterFromChild){
+        this.setState({
+            activeIndex: _counterFromChild,
+        });
+        this.props.parentToggle(_counterFromChild);
+
+        // console.log(_counterFromChild);
+        // this.props.changeIdChatBot(_counterFromChild)
+    }
+
+    render(){
+
+
+        return(
+
+            <div className="container-fluid px-1 mx-0 col-sm-12 scroll rsc-scroll d-border-top">
+
+                <nav className="nav flex-column">
+
+                    {this.state.friendList.map((charx, index) => {
+                        return <Square
+                            from={charx.from}
+                            message={charx.message}
+                            new={charx.new}
+                            id={charx.id}
+                            img={charx.img}
+                            time={charx.time}
+                            isFriend="null"
+                            active={(charx.id == this.state.activeIndex) ? "active" : ""}
+                            parentToggle={this.doParentToggle}
+                        />
+                    })}
+                </nav>
+            </div>
+
+        )
     }
 }
 
@@ -130,34 +651,6 @@ class ActionPageFrame_Base extends React.Component{
         };
         var logo = "/static/media/man.3e62c017.png";
 
-        const HeaderTitleProviderEmail = () => {
-            return (
-                <div className="sc-iwsKbI hTPkh rsc-container">
-                    <div className="rsc-header">
-                        <div className="row">
-                            <div className="col-md-1">
-                                <img src={logo} alt="User" className="img-avatar d-border mr-2"/>
-                            </div>
-                            <div className="col-md-11 divStatusChat ">
-                                <span className="textTitleChat">From: {this.props.chatId}</span>
-                                <span className="textStatusChat">To: {this.props.chatId}</span>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div className="sc-gZMcBi fBGGBn rsc-content content-read-email">
-                        <div>Hello</div>
-                        <span>Saya {this.props.chatId} dari perusahaan bella corp</span>
-                        <br/> <br/> <br/> <br/> <br/>
-                        <br/> <br/> <br/> <br/> <br/>
-                        <br/> <br/> <br/> <br/> <br/>
-                        <hr/>
-                        <div>Telp: 14045</div>
-                        <div>website: www.directtrading.com</div>
-                    </div>
-                </div>
-            )
-        };
         const HeaderTitleProvider = () => {
             return (
                 <div className="rsc-header">
@@ -174,18 +667,6 @@ class ActionPageFrame_Base extends React.Component{
                 </div>
             )
         };
-        const validateChat = () => {
-            // validasi untuk pengecekan apakah pesan atau percakapan
-            if (this.props.chatId !== "") {
-                if(this.props.chatId.length >= 18){
-                    return <ThemedExampleEmail/>
-                }else{
-                    return <ThemedExample/>
-                }
-            }else{
-                return <></>
-            }
-        };
 
         const ThemedExample = () => (
             <ThemeProvider theme={theme}>
@@ -199,191 +680,70 @@ class ActionPageFrame_Base extends React.Component{
                 />
             </ThemeProvider>
         );
-
-        const ThemedExampleEmail = () => (
-            <ThemeProvider theme={theme}>
-                <HeaderTitleProviderEmail/>
-            </ThemeProvider>
-        );
-
         return(
-            <div className="bg-grey">
+            <div className="bg-grey col-sm-12 mx-0 px-0">
                 <div style={{ display : this.props.chatId !== '' ? "none" : "block"}}><ChatListEmpty/></div>
-                {validateChat()}
+                <ThemedExample/>
             </div>
         )
     }
 
 }
-
 const ChatSuppportPageFrameHeader = (props) => {
     return (
         <></>
     );
 }
 
-//parent
-class ChatListPage_Base extends React.PureComponent {
-    constructor(props){
-        super(props);
-        this.state = {
-            activeIndex: -1,
-            chatMessage: [
-                {
-                    'id':'budi@gmail',
-                    'from':'budiantara@gmail',
-                    'message':'Hello dude - test',
-                    'status':'active',
-                    'new':'6',
-                    'time':'09.00',
-                    'img': '/static/media/man.3e62c017.png',
-                },
-                {
-                    'id':'asep@gmail.com',
-                    'from':'asep@support',
-                    'message':'Hello dude2',
-                    'status':'active',
-                    'new':'6',
-                    'time':'08.00',
-                    'img': '/static/media/man.3e62c017.png',
-                },
-                {
-                    'id':'ian@gmail.com',
-                    'from':'iantara@ceo',
-                    'message':'Hello dude3',
-                    'status':'active',
-                    'new':'1',
-                    'time':'07.55',
-                    'img': '/static/media/man.3e62c017.png',
-                },{
-                    'id':'tat@gmail.com',
-                    'from':'tatangsutarma@gmail',
-                    'message':'Hello dude - test',
-                    'status':'active',
-                    'new':'6',
-                    'time':'09.00',
-                    'img': '/static/media/man.3e62c017.png',
-                },
-                {
-                    'id':'odid@gmail.com',
-                    'from':'oding@support',
-                    'message':'Hello dude2',
-                    'status':'active',
-                    'new':'6',
-                    'time':'08.00',
-                    'img': '/static/media/man.3e62c017.png',
-                },
-                {
-                    'id':'sigara@gmail.com',
-                    'from':'sigarantang@ceo',
-                    'message':'Hello dude3',
-                    'status':'active',
-                    'new':'1',
-                    'time':'07.55',
-                    'img': '/static/media/man.3e62c017.png',
-                },{
-                    'id':'amir@gmail.com',
-                    'from':'amirbudiardjo@gmail',
-                    'message':'Hello dude - test',
-                    'status':'active',
-                    'new':'6',
-                    'time':'09.00',
-                    'img': '/static/media/man.3e62c017.png',
-                },
-                {
-                    'id':'wiranto@gmail.com',
-                    'from':'wiranto@support',
-                    'message':'Hello dude2',
-                    'status':'active',
-                    'new':'6',
-                    'time':'08.00',
-                    'img': '/static/media/man.3e62c017.png',
-                },
-                {
-                    'id':'emil@gmail.com',
-                    'from':'emilembamba@ceo',
-                    'message':'Hello dude3',
-                    'status':'active',
-                    'new':'1',
-                    'time':'07.55',
-                    'img': '/static/media/man.3e62c017.png',
-                },{
-                    'id':'jangs@gmail.com',
-                    'from':'udjangudha@gmail',
-                    'message':'Hello dude - test',
-                    'status':'active',
-                    'new':'6',
-                    'time':'09.00',
-                    'img': '/static/media/man.3e62c017.png',
-                },
-                {
-                    'id':'rohmat@support',
-                    'from':'rohmatulloh@support',
-                    'message':'Hello dude2',
-                    'status':'active',
-                    'new':'6',
-                    'time':'08.00',
-                    'img': '/static/media/man.3e62c017.png',
-                },
-                {
-                    'id':'ulil@support',
-                    'from':'ulisulistia@ceo',
-                    'message':'Hello dude3',
-                    'status':'active',
-                    'new':'1',
-                    'time':'07.55',
-                    'img': '/static/media/man.3e62c017.png',
-                }
-            ]
-        }
-        this.doParentToggle = this.doParentToggle.bind(this);
-    }
-    doParentToggle(_counterFromChild){
-        this.setState({
-            activeIndex: _counterFromChild,
-        });
-        console.log(_counterFromChild);
-        this.props.changeIdChatBot(_counterFromChild)
-    }
-    render(){
-        return(
-
-            <div className="container-fluid px-1 mx-0 col-sm-12 scroll d-border-top">
-                <nav className="nav flex-column">
-                    {this.state.chatMessage.map((charx, index) => {
-
-                        return <Square
-                            from={charx.from}
-                            message={charx.message}
-                            new={charx.new}
-                            id={charx.id}
-                            img={charx.img}
-                            time={charx.time}
-                            active={(charx.id == this.state.activeIndex) ? "active" : ""}
-                            parentToggle={this.doParentToggle}
-                        />
-                    })}
-                </nav>
-            </div>
-
-        )
-    }
-}
-//child
 class Square extends React.PureComponent {
     constructor(props){
         super(props);
         this.doParentToggleFromChild = this.doParentToggleFromChild.bind(this);
+        this.addFriendChild = this.addFriendChild.bind(this);
         this.id= this.props.id;
+        this.time=this.props.time;
+        this.new=this.props.new;
+        this.active = this.props.active;
+
     }
     doParentToggleFromChild(){
         this.props.parentToggle(this.id)
     }
+    addFriendChild(){
+        this.props.parentAdd(this.id);
+    }
     render() {
+        const actionButton = (props) => {
+            if(props === true || props === false){
+                return <span className="textPesanTimeMessage">&nbsp;</span>
+            }else{
+                return <span className="textPesanTimeMessage">{this.time}</span>
+            }
+        }
+        const spanList = (props) => {
+            if(props === true){
+                return <i className="fa fa-comment"></i>
+            }else if(props === false){
+                return <i className="fa fa-user-plus" onClick={() => this.addFriendChild()}></i>
+            }else{
+                return <span className={(parseInt(this.new) > 0) ? "badge textPesanBadge" : ""}>
+                    {(parseInt(this.new) > 0) ? this.new : ""}
+                    </span>
+            }
+        }
+        const checkFriend = (props) => {
+            if(props === true){
+                this.doParentToggleFromChild();
+            }else if(props === false){
+                return false;
+            }else{
+                this.doParentToggleFromChild();
+            }
+        }
         return (
             <div
-                className={`container-fluid divChatList nav-link row ${this.props.active}`}
-                onClick={ this.doParentToggleFromChild }>
+                className={`container-fluid divChatList nav-link row ${this.active}`}
+                onClick={() => checkFriend(this.props.isFriend)}>
                 <div className="col-sm-3 divImgListChat">
                     <img src={this.props.img} alt="User" className="img-avatar d-border mr-2"/>
                 </div>
@@ -392,19 +752,19 @@ class Square extends React.PureComponent {
                     <span className="textPesan">{this.props.message}</span>
                 </div>
                 <div className="col-sm-2 divAttrListChat" >
-                    <span className="textPesanTimeMessage">{this.props.time}</span>
-                    <span className={(parseInt(this.props.new) > 0) ? "badge textPesanBadge" : ""}>{this.props.new}</span>
-
+                    {actionButton(this.props.isFriend)}
+                    {spanList(this.props.isFriend)}
                 </div>
             </div>
         )
     }
 }
+
 class ChatListEmpty extends  React.PureComponent{
     render(){
         return(
             <>
-                <div className="card-body card-667 align-self-center text-center bg-grey f-14 py-3">
+                <div className="card-body card-586 align-self-center text-center bg-grey f-14 py-3">
                     <div className="py-5 my-5">
                         <div className="py-5 my-5">
                             <i className="icofont icofont-warning-alt f-25"></i>
@@ -417,6 +777,7 @@ class ChatListEmpty extends  React.PureComponent{
         )
     }
 }
+
 class ChatActionPage_Base extends React.PureComponent {
     constructor(props){
         super(props);
@@ -554,7 +915,7 @@ class ChatActionPage_Base extends React.PureComponent {
     render(){
         return(
 
-            <div className="container-fluid px-1 mx-0 col-sm-12 scroll d-border-top">
+            <div className="container-fluid px-1 mx-0 col-sm-4 scroll d-border-top">
                 <nav className="nav flex-column">
                     {this.state.chatMessage.map((charx, index) => {
 
@@ -586,6 +947,7 @@ class ChatSupportPage extends React.PureComponent {
         )
     }
 }
+
 class ChatSupport extends React.PureComponent {
     render () {
 
@@ -597,77 +959,48 @@ class ChatSupport extends React.PureComponent {
     }
 }
 
-class Child extends React.Component {
-    constructor(props){
-        super(props);
-        this.doParentToggleFromChild = this.doParentToggleFromChild.bind(this);
-        this.counter= this.props.counter;
-        this.number = this.props.number;
-    }
-    doParentToggleFromChild(){
-        this.props.parentToggle(this.number)
-    }
-    render() {
-        return(
-
-            <div>
-                {this.props.counter}
-
-                I am a child
-                <button onClick={ this.doParentToggleFromChild }>Toggle</button>
-            </div>
-
-        )
-    }
-}
-class Parent extends React.Component {
-    constructor(){
-        super();
-        this.state = {
-            counter:0
-        }
-        this.doParentToggle = this.doParentToggle.bind(this);
-    }
-    doParentToggle(_counterFromChild){
-        this.setState({
-            counter: _counterFromChild
-        })
-    }
-    render() {
-        return(
-
-            <div>
-                <Child counter={this.state.counter} parentToggle={this.doParentToggle} number="9"/>
-            </div>
-
-        )
-    }
-}
-
 const CustomFrameHeaderChatSupportPage = ContextConnector(BIPSAppContext,
     (vars, actions) => ({
         chatId : vars.chatId,
         changeIdChatBot : (chatId) => {actions.sendAction('changeIdChatBot', {chatId})}
     }),
 )(CustomFrameHeaderChatSupportPage_Base);
+
 const ChatListPage = ContextConnector(BIPSAppContext,
     (vars, actions) => ({
         chatId : vars.chatId,
         changeIdChatBot : (chatId) => {actions.sendAction('changeIdChatBot', {chatId})}
     }),
 )(ChatListPage_Base);
+
 const ChatActionPage = ContextConnector(BIPSAppContext,
     (vars, actions) => ({
         chatId : vars.chatId,
         changeIdChatBot : (chatId) => {actions.sendAction('changeIdChatBot', {chatId})}
     }),
 )(ChatActionPage_Base);
+
 const ActionPageFrame = ContextConnector(BIPSAppContext,
     (vars, actions) => ({
         chatId : vars.chatId,
         changeIdChatBot : (chatId) => {actions.sendAction('changeIdChatBot', {chatId})}
     }),
 )(ActionPageFrame_Base);
+
+const ChatUserPage = ContextConnector(BIPSAppContext,
+    (vars, actions) => ({
+        chatId : vars.chatId,
+        changeIdChatBot : (chatId) => {actions.sendAction('changeIdChatBot', {chatId})}
+    }),
+)(ChatUserPage_Base);
+
+const ChatListUser = ContextConnector(BIPSAppContext,
+    (vars, actions) => ({
+        chatId : vars.chatId,
+        changeIdChatBot : (chatId) => {actions.sendAction('changeIdChatBot', {chatId})}
+    }),
+)(ChatListUser_Base);
+
 
 export default ChatSupportPage;
 export {CustomFrameHeaderChatSupportPage, ChatSupport};
