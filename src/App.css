@@ -60,16 +60,32 @@
     color: var(--warna-text-basic);
 }
 
-text{
+/*text{
     fill:var(--warna-text-basic)!important;
+}*/
+
+/*svg > g > g > g > path:first-child{
+    fill: var(--warna-bg-trading-gray);
+}*/
+
+#pieChart > div > svg > g > g > g:nth-child(3) > path:first-child {
+    stroke : none!important;
+    fill : var(--warna-dasar)!important;
+}#pieChart > div > svg > g > g > g:nth-child(2) > path:first-child {
+    stroke : none!important;
+    fill : var(--warna-dasar)!important;
 }
 
-svg > g > g > g > path:first-child{
-    fill: var(--warna-bg-trading-gray);
+#stock-chart > #chart-container > div > svg > g > g > g:first-child > path {
+    fill : var(--warna-bg-dark-grey)!important;
 }
 
 .ag-theme-balham-dark .ag-header-cell::after, .ag-theme-balham-dark .ag-header-group-cell::after {
     border-right: 1px solid #88888880!important;
+}
+
+.ag-header-group-cell-label{
+    justify-content: center;
 }
 
 .ag-header-cell-label {
@@ -2301,7 +2317,7 @@ button.bg-gold:hover {
   color: var(--warna-cssmenu) !important;
 }
 
-@media (max-width: 1440px) {
+/*@media (max-width: 1440px) {*/
     .card-trading{
         height: var(--card-trading);
         border: 1px solid var(--warna-header-card);
@@ -2334,10 +2350,6 @@ button.bg-gold:hover {
         height: var(--card-592);
     }
 
-    .card-515{
-        height: var(--card-515);
-    }
-
     .card-580{
         height: var(--card-580);
     }
@@ -2358,10 +2370,6 @@ button.bg-gold:hover {
         height: var(--card-470);
     }
 
-    .card-550{
-        height: var(--card-550);
-    }
-
     .card-558{
         height: var(--card-558);
     }
@@ -2378,475 +2386,179 @@ button.bg-gold:hover {
         height: var(--card-667);
     }
 
-    .card-295{
+    .card-635{
+        height: var(--card-635);
+    }
+
+    .card-590{
+        height: var(--card-590);
+    }
+
+    .card-32{
+        height: var(--card-32);
+        background-image: linear-gradient(var(--warna-black-white-gradient),var(--warna-black-white))!important;
+    }
+
+    .card-550{
+        height: var(--card-550);
+    }
+
+    .card-520{
+        height: var(--card-520);
+    }
+
+    .card-330{
+        height: var(--card-330);
+    }
+
+    .card-445{
+        height: var(--card-445);
+    }
+
+    .card-490{
+        height: var(--card-490);
+    }
+
+    .card-400{
+        height: var(--card-400);
+    }
+
+    .card-540{
+        height: var(--card-540);
+    }
+
+    .card-265{
+        height: var(--card-265);
+    }
+
+    .card-295 {
         height: var(--card-295);
     }
 
-    .card-292{
-        height: var(--card-292);
+    .card-560 {
+        height: var(--card-560);
     }
 
-    .card-213 {
-        height: var(--card-213);
+    .card-398 {
+        height: var(--card-398);
     }
 
-    .card-235 {
-        height: var(--card-235);
+    .card-196 {
+        height: var(--card-196);
     }
 
-    .card-199 {
-        height: var(--card-199);
-    }
-
-    .card-249 {
-        height: var(--card-249);
-    }
-
-    .card-225 {
-        height: var(--card-225);
-    }
-
-    .card-grafik{
-        height: var(--card-grafik);
-    }
-
-    .card-589 {
-        height: var(--card-589);
-    }
-
-    .card-537 {
-        height: var(--card-537);
-    }
-
-    .py-2-scale {
-        padding-top: var(--py-2-scale)!important;
-        padding-bottom: var(--py-2-scale)!important;
-    }
-
-    .py-form {
-        padding-top: var(--py-form)!important;
-        padding-bottom: var(--py-form)!important;
-    }
-
-    .myLiveTrade{
-        zoom: var(--zoom-livetrade)!important;
-    }
-
-    .my-sidebar{
-        margin-top: var(--margin-top-sidebar)!important;
-        margin-bottom: var(--margin-bottom-sidebar)!important;
-    }
-}
-
-@media (min-width: 1441px) and (max-width: 1550px) {
-    .card-trading{
-        height: var(--card-trading-90);
-        border: 1px solid var(--warna-header-card);
-        border-radius: .25rem;
-    }
-
-    .tab-chart{
-        height: var(--card-75-90);
-        border: 1px solid var(--warna-header-card);
-        border-radius: .25rem;
-    }
-
-    .card-chart{
-        /*height: 390px;*/
-        height: var(--card-trading-90);
-        border: 1px solid var(--warna-header-card);
-        border-radius: .25rem;
-    }
-
-    .card-355{
-        height: var(--card-355-90);
-    }
-
-    .card-500{
-        height: var(--card-500-90);
-    }
-
-
-    .card-592{
-        height: var(--card-592-90);
+    .card-167 {
+        height: var(--card-167);
     }
 
     .card-515{
-        height: var(--card-515-90);
+        height: var(--card-515);
     }
 
-    .card-580{
-        height: var(--card-580-90);
+    .card-440{
+        height: var(--card-440);
     }
 
-    .card-530{
-        height: var(--card-530-90);
+    .card-305{
+        height: var(--card-305);
     }
 
-    .card-160{
-        height: var(--card-160-90);
+    .card-121{
+        height: var(--card-121);
     }
 
-    .card-170{
-        height: var(--card-170-90)
+    .card-297{
+        height: var(--card-297);
     }
 
-    .card-470{
-        height: var(--card-470-90);
+    .card-511{
+        height: var(--card-511);
     }
 
-    .card-550{
-        height: var(--card-550-90);
+    .card-433{
+        height: var(--card-433);
     }
 
-    .card-558{
-        height: var(--card-558-90);
+    .card-149{
+        height: var(--card-149);
     }
 
-    .card-75{
-        height: var(--card-75-90);
+    .card-586{
+        height: var(--card-586);
     }
 
-    .card-600{
-        height: var(--card-600-90);
+    .card-559{
+        height: var(--card-559);
     }
 
-    .card-667{
-        height: var(--card-667-90);
+    .card-279{
+        height: var(--card-279);
     }
 
-    .card-295{
-        height: var(--card-295-90);
+    .card-501{
+        height: var(--card-501)!important;
     }
 
-    .card-292{
-        height: var(--card-292-90);
+    .card-221{
+        height: var(--card-221)!important;
     }
 
-    .card-213 {
-        height: var(--card-213-90);
-    }
+/*}*/
 
-    .card-235 {
-        height: var(--card-235-90);
-    }
-
-    .card-199 {
-        height: var(--card-199-90);
-    }
-
-    .card-249 {
-        height: var(--card-249-90);
-    }
-
-    .card-225 {
-        height: var(--card-225-90);
-    }
-
-    .card-grafik{
-        height: var(--card-grafik-90);
-    }
-
-    .card-589 {
-        height: var(--card-589-90);
-    }
-
-    .card-537 {
-        height: var(--card-537-90);
-    }
-
-    .py-2-scale {
-        padding-top: var(--py-2-scale-90)!important;
-        padding-bottom: var(--py-2-scale-90)!important;
-    }
-
-    .py-form {
-        padding-top: var(--py-form-90)!important;
-        padding-bottom: var(--py-form-90)!important;
-    }
-
-    .myLiveTrade{
-        zoom: var(--zoom-livetrade-90)!important;
-    }
-
-    .my-sidebar{
-        margin-top: var(--margin-top-sidebar-90)!important;
-        margin-bottom: var(--margin-bottom-sidebar-90)!important;
-    }
+.card-292{
+    height: var(--card-292);
 }
 
-@media (min-width: 1551px) and (max-width: 1710px) {
-    .card-trading{
-        height: var(--card-trading-80);
-        border: 1px solid var(--warna-header-card);
-        border-radius: .25rem;
-    }
-
-    .tab-chart{
-        height: var(--card-75-80);
-        border: 1px solid var(--warna-header-card);
-        border-radius: .25rem;
-    }
-
-    .card-chart{
-        /*height: 390px;*/
-        height: var(--card-trading-80);
-        border: 1px solid var(--warna-header-card);
-        border-radius: .25rem;
-    }
-
-    .card-355{
-        height: var(--card-355-80);
-    }
-
-    .card-500{
-        height: var(--card-500-80);
-    }
-
-
-    .card-592{
-        height: var(--card-592-80);
-    }
-
-    .card-515{
-        height: var(--card-515-80);
-    }
-
-    .card-580{
-        height: var(--card-580-80);
-    }
-
-    .card-530{
-        height: var(--card-530-80);
-    }
-
-    .card-160{
-        height: var(--card-160-80);
-    }
-
-    .card-170{
-        height: var(--card-170-80)
-    }
-
-    .card-470{
-        height: var(--card-470-80);
-    }
-
-    .card-550{
-        height: var(--card-550-80);
-    }
-
-    .card-558{
-        height: var(--card-558-80);
-    }
-
-    .card-75{
-        height: var(--card-75-80);
-    }
-
-    .card-600{
-        height: var(--card-600-80);
-    }
-
-    .card-667{
-        height: var(--card-667-80);
-    }
-
-    .card-295{
-        height: var(--card-295-80);
-    }
-
-    .card-292{
-        height: var(--card-292-80);
-    }
-
-    .card-213 {
-        height: var(--card-213-80);
-    }
-
-    .card-235 {
-        height: var(--card-235-80);
-    }
-
-    .card-199 {
-        height: var(--card-199-80);
-    }
-
-    .card-249 {
-        height: var(--card-249-80);
-    }
-
-    .card-225 {
-        height: var(--card-225-80);
-    }
-
-    .card-grafik{
-        height: var(--card-grafik-80);
-    }
-
-    .card-589 {
-        height: var(--card-589-80);
-    }
-
-    .card-537 {
-        height: var(--card-537-80);
-    }
-
-    .py-2-scale {
-        padding-top: var(--py-2-scale-80)!important;
-        padding-bottom: var(--py-2-scale-80)!important;
-    }
-
-    .py-form {
-        padding-top: var(--py-form-80)!important;
-        padding-bottom: var(--py-form-80)!important;
-    }
-
-    .myLiveTrade{
-        zoom: var(--zoom-livetrade-80)!important;
-    }
-
-    .my-sidebar{
-        margin-top: var(--margin-top-sidebar-80)!important;
-        margin-bottom: var(--margin-bottom-sidebar-80)!important;
-    }
+.card-213 {
+    height: var(--card-213);
 }
 
-@media (min-width: 1711px) /*and (max-width: 2000px)*/ {
-    .card-trading{
-        height: var(--card-trading-70);
-        border: 1px solid var(--warna-header-card);
-        border-radius: .25rem;
-    }
+.card-235 {
+    height: var(--card-235);
+}
 
-    .tab-chart{
-        height: var(--card-75-70);
-        border: 1px solid var(--warna-header-card);
-        border-radius: .25rem;
-    }
+.card-199 {
+    height: var(--card-199);
+}
 
-    .card-chart{
-        /*height: 390px;*/
-        height: var(--card-trading-70);
-        border: 1px solid var(--warna-header-card);
-        border-radius: .25rem;
-    }
+.card-249 {
+    height: var(--card-249);
+}
 
-    .card-355{
-        height: var(--card-355-70);
-    }
+.card-225 {
+    height: var(--card-225);
+}
 
-    .card-500{
-        height: var(--card-500-70);
-    }
+.card-grafik{
+    height: var(--card-grafik);
+}
 
+.card-589 {
+    height: var(--card-589);
+}
 
-    .card-592{
-        height: var(--card-592-70);
-    }
+.card-537 {
+    height: var(--card-537);
+}
 
-    .card-515{
-        height: var(--card-515-70);
-    }
+.py-2-scale {
+    padding-top: var(--py-2-scale)!important;
+    padding-bottom: var(--py-2-scale)!important;
+}
 
-    .card-580{
-        height: var(--card-580-70);
-    }
+.py-form {
+    padding-top: var(--py-form)!important;
+    padding-bottom: var(--py-form)!important;
+}
 
-    .card-530{
-        height: var(--card-530-70);
-    }
+.myLiveTrade{
+    zoom: var(--zoom-livetrade);
+    -moz-transform: scale(var(--zoom-livetrade));
+}
 
-    .card-160{
-        height: var(--card-160-70);
-    }
-
-    .card-170{
-        height: var(--card-170-70)
-    }
-
-    .card-470{
-        height: var(--card-470-70);
-    }
-
-    .card-550{
-        height: var(--card-550-70);
-    }
-
-    .card-558{
-        height: var(--card-558-70);
-    }
-
-    .card-75{
-        height: var(--card-75-70);
-    }
-
-    .card-600{
-        height: var(--card-600-70);
-    }
-
-    .card-667{
-        height: var(--card-667-70);
-    }
-
-    .card-295{
-        height: var(--card-295-70);
-    }
-
-    .card-292{
-        height: var(--card-292-70);
-    }
-
-    .card-213 {
-        height: var(--card-213-70);
-    }
-
-    .card-235 {
-        height: var(--card-235-70);
-    }
-
-    .card-199 {
-        height: var(--card-199-70);
-    }
-
-    .card-249 {
-        height: var(--card-249-70);
-    }
-
-    .card-225 {
-        height: var(--card-225-70);
-    }
-
-    .card-grafik{
-        height: var(--card-grafik-70);
-    }
-
-    .card-589 {
-        height: var(--card-589-70);
-    }
-
-    .card-537 {
-        height: var(--card-537-70);
-    }
-
-    .py-2-scale {
-        padding-top: var(--py-2-scale-70)!important;
-        padding-bottom: var(--py-2-scale-70)!important;
-    }
-
-    .py-form {
-        padding-top: var(--py-form-70)!important;
-        padding-bottom: var(--py-form-70)!important;
-    }
-
-    .myLiveTrade{
-        zoom: var(--zoom-livetrade-70)!important;
-    }
-
-    .my-sidebar{
-        margin-top: var(--margin-top-sidebar-70)!important;
-        margin-bottom: var(--margin-bottom-sidebar-70)!important;
-    }
+.my-sidebar{
+    margin-top: var(--margin-top-sidebar);
+    margin-bottom: var(--margin-bottom-sidebar);
 }
 
 .list-group-item-portofolio{
@@ -2856,6 +2568,7 @@ button.bg-gold:hover {
     margin-bottom: -1px;
     background-color: var(--warna-bg-trading-gray);
     border-top:  2px solid var( --warna-inactive-gradient);
+    height : 67px;
 }
 
 .d-border-tr-gray-all {
@@ -3704,4 +3417,10 @@ padding-left: 8px !important;
 }
 .ui.modal.fullscreen>.content {
     background: var(--warna-dasar);
+}
+
+/*zaky nambah untuk tab custom di stockpage*/
+.linkCustomStockTab {
+    font-size: 13px !important;
+    padding: 7px 4px !important;
 }

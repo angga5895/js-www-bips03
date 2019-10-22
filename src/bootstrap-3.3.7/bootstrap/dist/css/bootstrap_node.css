@@ -4,6 +4,14 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+.css-tj5bde-Svg > path{
+  d : path("M18.125,15.804l-4.038-4.037c0.675-1.079,1.012-2.308,1.01-3.534C15.089,4.62,12.199,1.75,8.584,1.75C4.815,1.75,1.982,4.726,2,8.286c0.021,3.577,2.908,6.549,6.578,6.549c1.241,0,2.417-0.347,3.44-0.985l4.032,4.026c0.167,0.166,0.43,0.166,0.596,0l1.479-1.478C18.292,16.234,18.292,15.968,18.125,15.804 M8.578,13.99c-3.198,0-5.716-2.593-5.733-5.71c-0.017-3.084,2.438-5.686,5.74-5.686c3.197,0,5.625,2.493,5.64,5.624C14.242,11.548,11.621,13.99,8.578,13.99 M16.349,16.981l-3.637-3.635c0.131-0.11,0.721-0.695,0.876-0.884l3.642,3.639L16.349,16.981z")!important;
+}
+
+.stockOps > div > div:nth-child(2) > div:nth-child(2) > svg > path {
+  d : path("M18.125,15.804l-4.038-4.037c0.675-1.079,1.012-2.308,1.01-3.534C15.089,4.62,12.199,1.75,8.584,1.75C4.815,1.75,1.982,4.726,2,8.286c0.021,3.577,2.908,6.549,6.578,6.549c1.241,0,2.417-0.347,3.44-0.985l4.032,4.026c0.167,0.166,0.43,0.166,0.596,0l1.479-1.478C18.292,16.234,18.292,15.968,18.125,15.804 M8.578,13.99c-3.198,0-5.716-2.593-5.733-5.71c-0.017-3.084,2.438-5.686,5.74-5.686c3.197,0,5.625,2.493,5.64,5.624C14.242,11.548,11.621,13.99,8.578,13.99 M16.349,16.981l-3.637-3.635c0.131-0.11,0.721-0.695,0.876-0.884l3.642,3.639L16.349,16.981z")!important;
+}
+
 :root{
   --warna-dasar : #010101;
   --warna-header-card : #181818;
@@ -34,162 +42,75 @@
 
 }
 
-@media (max-width: 1440px) {
+/*@media (max-width: 1440px) {*/
   :root{
     /*variabel card*/
-    --height-container-custom: 662px;
+    --height-container-custom: 520px;
     --card-667 : 667px;
-    --card-trading : 300px;
-    --card-213 : 213px;
-    --card-249 : 249px;
-    --card-75 : 620px;
-    --card-515 : 515px;
-    --card-295 : 295px;
-    --card-292 : 292px;
-    --card-600 : 600px;
-    --card-199 : 199px;
-    --card-225 : 225px;
-    --card-170 : 170px;
+    --card-635 : 635px;
+    --card-590 : 590px;
+    --card-32 : 32px;
     --card-550 : 550px;
-    --card-grafik : 330px;
-    --card-530 : 523px;
-    --card-500 : 500px;
-    --card-160 : 160px;
-    --card-592 : 592px;
-    --card-470 : 470px;
-    --card-558 : 570px;
-    --card-235 : 235px;
-    --card-580 : 580px;
-    --card-355 : 355px;
-    --card-537 : 537px;
-    --card-589 : 589px;
+    --card-520 : 520px;
+    --card-330 : 330px;
+    --card-445 : 445px;
+    --card-490 : 490px;
+    --card-400 : 400px;
+    --card-540 : 540px;
+    --card-265 : 265px;
+    --card-295 : 295px;
+    --card-560 : 560px;
+    --card-398 : 398px;
+    --card-196 : 196.67px;
+    --card-167 : 167px;
+    --card-515 : 515px;
+    --card-440 : 440px;
+    --card-305 : 305px;
+
+    --card-121 : 121px;
+    --card-297 : 297px;
+    --card-511 : 511px;
+    --card-433 : 433px;
+    --card-149 : 149px;
+    --card-586 : 586px;
+    --card-559 : 559px;
+    --card-279 : 279.5px;
+    --card-501 : 501px;
+    --card-221 : 221px;
+
+
+    --card-trading : 30px;
+    --card-213 : 13px;
+    --card-249 : 49px;
+    --card-75 : 20px;
+    --card-292 : 92px;
+    --card-600 : 60px;
+    --card-199 : 99px;
+    --card-225 : 25px;
+    --card-170 : 70px;
+    --card-grafik : 30px;
+    --card-530 : 23px;
+    --card-500 : 00px;
+    --card-160 : 60px;
+    --card-592 : 92px;
+    --card-470 : 70px;
+    --card-558 : 70px;
+    --card-235 : 35px;
+    --card-580 : 80px;
+    --card-355 : 55px;
+    --card-537 : 37px;
+    --card-589 : 89px;
       /*variable scale*/
-      --py-2-scale : .5rem;
+      /*--py-2-scale : .5rem;*/
+      --py-2-scale : 0;
       --py-form : 0px;
+
+    --margin-top-sidebar: 15%;
+    --margin-bottom-sidebar: 15%;
+
     --zoom-livetrade: 1;
-
-    --margin-top-sidebar: 1rem;
-    --margin-bottom-sidebar: .25rem;
   }
-}
-
-@media (min-width: 1441px) and (max-width: 1550px) {
-  :root{
-    --height-container-custom-90: 740px;
-    /*variabel card*/
-    --card-667-90 : 750px;
-    --card-trading-90 : 335px;
-    --card-213-90 : 245px;
-    --card-249-90 : 280px;
-    --card-75-90 : 700px;
-    --card-515-90 : 590px;
-    --card-295-90 : 300px;
-    --card-292-90 : 370px;
-    --card-600-90 : 690px;
-    --card-199-90 : 230px;
-    --card-225-90 : 240px;
-    --card-170-90 : 200px;
-    --card-550-90 : 630px;
-    --card-grafik-90 : 395px;
-    --card-530-90 : 595px;
-    --card-500-90 : 580px;
-    --card-160-90 : 185px;
-    --card-592-90 : 655px;
-    --card-470-90 : 550px;
-    --card-558-90 : 650px;
-    --card-235-90 : 270px;
-    --card-580-90 : 665px;
-    --card-355-90 : 420px;
-    --card-537-90 : 602px;
-    --card-589-90 : 650px;
-      /*variable scale*/
-      --py-2-scale-90 : 9.5px;
-      --py-form-90 : .5rem;
-    --zoom-livetrade-90: 1.1;
-
-    --margin-top-sidebar-90: 1.75rem;
-    --margin-bottom-sidebar-90: 1rem;
-  }
-
-}
-
-@media (min-width: 1551px) and (max-width: 1710px){
-  :root{
-    --height-container-custom-80: 850px;
-    /*variabel card*/
-    --card-667-80 : 855px;
-    --card-trading-80 : 390px;
-    --card-213-80 : 295px;
-    --card-249-80 : 330px;
-    --card-75-80 : 805px;
-    --card-515-80 : 680px;
-    --card-295-80 : 300px;
-    --card-292-80 : 470px;
-    --card-600-80 : 790px;
-    --card-199-80 : 260px;
-    --card-225-80 : 285px;
-    --card-170-80 : 228px;
-    --card-550-80 : 725px;
-    --card-grafik-80 : 488px;
-    --card-530-80 : 690px;
-    --card-500-80 : 680px;
-    --card-160-80 : 218px;
-    --card-592-80 : 780px;
-    --card-470-80 : 650px;
-    --card-558-80 : 755px;
-    --card-235-80 : 325px;
-    --card-580-80 : 765px;
-    --card-355-80 : 515px;
-    --card-537-80 : 699px;
-    --card-589-80 : 769px;
-    /*variable scale*/
-    --py-2-scale-80 : 14.25px;
-    --py-form-80 : 1rem;
-    --zoom-livetrade-80: 1.26;
-
-    --margin-top-sidebar-80: 2.75rem;
-    --margin-bottom-sidebar-80: 1.5rem;
-  }
-}
-
-@media (min-width: 1711px) /*and (max-width: 2000px)*/ {
-  :root{
-    --height-container-custom-70: 915px;
-    /*variabel card*/
-    --card-667-70 : 920px;/**/
-    --card-trading-70 : 420px;/**/
-    --card-213-70 : 360px;
-    --card-249-70 : 370px;/**/
-    --card-75-70 : 871px;/**/
-    --card-515-70 : 790px;
-    --card-295-70 : 310px;/**/
-    --card-292-70 : 530px;/**/
-    --card-600-70 : 865px;
-    --card-199-70 : 285px;/**/
-    --card-225-70 : 300px;/**/
-    --card-170-70 : 255px;/**/
-    --card-550-70 : 800px;/**/
-    --card-grafik-70 : 584px;/**/
-    --card-530-70 : 790px;/**/
-    --card-500-70 : 750px;/**/
-    --card-160-70 : 243px;/**/
-    --card-592-70 : 825px;/**/
-    --card-470-70 : 720px;
-    --card-558-70 : 822px;/**/
-    --card-235-70 : 355px;/**/
-    --card-580-70 : 835px;/**/
-    --card-355-70 : 515px;
-    --card-537-70 : 777px;/**/
-    --card-589-70 : 853px;/**/
-      /*variable scale*/
-      --py-2-scale-70 : 19.95px;/**/
-      --py-form-70 : 1.6rem;/**/
-    --zoom-livetrade-70: 1.4;/**/
-
-    --margin-top-sidebar-70: 3.3rem;/**/
-    --margin-bottom-sidebar-70: 2.5rem;/**/
-  }
-}
+/*}*/
 
 .nav-link {
   display: block;
