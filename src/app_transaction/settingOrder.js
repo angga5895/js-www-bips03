@@ -43,7 +43,7 @@ class SettingOrder extends React.Component{
                     <div className="col-sm-6 pr-3 pl-0 mt-4 f-12">
                         <TableInfoTransaction lotshare="buyPage" />
                     </div>
-                    <div className="col-sm-6 mt-4 d-border-active bg-dark-grey pb-3 px-0">
+                    <div className="col-sm-6 my-0 d-border-active bg-dark-grey pb-3 px-0">
                         <div className="cssmenumodal bg-dark-grey pb-4 col-sm-12 mx-0 px-0">
                             <ul>
                                 <li className={ this.state.activeTab === '1' ? 'd-border-bottom active click-pointer col-sm-6 px-0 mx-0 f-12 text-center' : 'd-border-bottom text-white click-pointer col-sm-6 px-0 mx-0 f-12 text-center' } onClick={() => { this.toggle('1'); }}><a><span className="f-11">&nbsp; Buy</span></a></li>

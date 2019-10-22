@@ -57,9 +57,9 @@ class TableInfoTransaction extends React.PureComponent{
                     </div>
                 </div>
 
-                <div className="my-3">{/*<i className="fa fa-info-circle text-danger"></i>&nbsp; Not yet submit annual financial report*/}</div>
+                <div className="my-3"><i className="fa fa-info-circle text-danger"></i>&nbsp; Not yet submit annual financial report</div>
 
-                <Table responsive borderless size="sm" className="text-white d-border-table bg-dark-grey">
+                <Table responsive borderless size="sm" className="text-white d-border-table bg-dark-grey card-121">
                     <thead></thead>
                     <tbody>
                     <tr>
@@ -107,11 +107,11 @@ class TableInfoTransaction extends React.PureComponent{
 
                 <div className="my-3"></div>
 
-                <div className="card bg-dark-grey">
+                <div className="bg-dark-grey">
                     <div className="col-sm-12 row mx-0 px-0">
                         <div className="col-sm-6 mx-0 px-0">
                             <div className="container-fluid px-0 mx-0">
-                                <Table responsive borderless size="sm" className="text-white bg-dark-grey px-0 mx-0 card-355">
+                                <Table responsive borderless size="sm" className="text-white bg-dark-grey px-0 mx-0 card-297">
                                 <thead className="d-border-top d-border-bottom">
                                 <tr>
                                     <th className="no-wrap py-3 text-center bg-dark-grey">
@@ -125,54 +125,54 @@ class TableInfoTransaction extends React.PureComponent{
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td className="no-wrap py-2-scale text-right">4</td>
-                                    <td className="no-wrap py-2-scale text-right">17</td>
-                                    <td className="no-wrap py-2-scale text-right text-warning">12,600</td>
+                                    <td className="no-wrap py-1 text-right">4</td>
+                                    <td className="no-wrap py-1 text-right">17</td>
+                                    <td className="no-wrap py-1 text-right text-warning">12,600</td>
                                 </tr>
                                 <tr>
-                                    <td className="no-wrap py-2-scale text-right">7</td>
-                                    <td className="no-wrap py-2-scale text-right">19</td>
-                                    <td className="no-wrap py-2-scale text-right text-danger">12,575</td>
+                                    <td className="no-wrap py-1 text-right">7</td>
+                                    <td className="no-wrap py-1 text-right">19</td>
+                                    <td className="no-wrap py-1 text-right text-danger">12,575</td>
                                 </tr>
                                 <tr>
-                                    <td className="no-wrap py-2-scale text-right">3</td>
-                                    <td className="no-wrap py-2-scale text-right">85</td>
-                                    <td className="no-wrap py-2-scale text-right text-danger">12,550</td>
+                                    <td className="no-wrap py-1 text-right">3</td>
+                                    <td className="no-wrap py-1 text-right">85</td>
+                                    <td className="no-wrap py-1 text-right text-danger">12,550</td>
                                 </tr>
                                 <tr>
-                                    <td className="no-wrap py-2-scale text-right">8</td>
-                                    <td className="no-wrap py-2-scale text-right">14</td>
-                                    <td className="no-wrap py-2-scale text-right text-danger">12,525</td>
+                                    <td className="no-wrap py-1 text-right">8</td>
+                                    <td className="no-wrap py-1 text-right">14</td>
+                                    <td className="no-wrap py-1 text-right text-danger">12,525</td>
                                 </tr>
                                 <tr>
-                                    <td className="no-wrap py-2-scale text-right">4</td>
-                                    <td className="no-wrap py-2-scale text-right">274</td>
-                                    <td className="no-wrap py-2-scale text-right text-danger">12,500</td>
+                                    <td className="no-wrap py-1 text-right">4</td>
+                                    <td className="no-wrap py-1 text-right">274</td>
+                                    <td className="no-wrap py-1 text-right text-danger">12,500</td>
                                 </tr>
                                 <tr>
-                                    <td className="no-wrap py-2-scale text-right">3</td>
-                                    <td className="no-wrap py-2-scale text-right">14</td>
-                                    <td className="no-wrap py-2-scale text-right text-danger">12,475</td>
+                                    <td className="no-wrap py-1 text-right">3</td>
+                                    <td className="no-wrap py-1 text-right">14</td>
+                                    <td className="no-wrap py-1 text-right text-danger">12,475</td>
                                 </tr>
                                 <tr>
-                                    <td className="no-wrap py-2-scale text-right">2</td>
-                                    <td className="no-wrap py-2-scale text-right">178</td>
-                                    <td className="no-wrap py-2-scale text-right text-danger">12,450</td>
+                                    <td className="no-wrap py-1 text-right">2</td>
+                                    <td className="no-wrap py-1 text-right">178</td>
+                                    <td className="no-wrap py-1 text-right text-danger">12,450</td>
                                 </tr>
                                 <tr>
-                                    <td className="no-wrap py-2-scale text-right">5</td>
-                                    <td className="no-wrap py-2-scale text-right">20</td>
-                                    <td className="no-wrap py-2-scale text-right text-danger">12,425</td>
+                                    <td className="no-wrap py-1 text-right">5</td>
+                                    <td className="no-wrap py-1 text-right">20</td>
+                                    <td className="no-wrap py-1 text-right text-danger">12,425</td>
                                 </tr>
                                 <tr>
-                                    <td className="no-wrap py-2-scale text-right">1</td>
-                                    <td className="no-wrap py-2-scale text-right">739</td>
-                                    <td className="no-wrap py-2-scale text-right text-danger">12,400</td>
+                                    <td className="no-wrap py-1 text-right">1</td>
+                                    <td className="no-wrap py-1 text-right">739</td>
+                                    <td className="no-wrap py-1 text-right text-danger">12,400</td>
                                 </tr>
                                 <tr>
-                                    <td className="no-wrap py-2-scale text-right">2</td>
-                                    <td className="no-wrap py-2-scale text-right">22</td>
-                                    <td className="no-wrap py-2-scale text-right text-danger">12,350</td>
+                                    <td className="no-wrap py-1 text-right">2</td>
+                                    <td className="no-wrap py-1 text-right">22</td>
+                                    <td className="no-wrap py-1 text-right text-danger">12,350</td>
                                 </tr>
                                 </tbody>
                                 <tfoot className="d-border-top">
@@ -187,7 +187,7 @@ class TableInfoTransaction extends React.PureComponent{
                         </div>
                         <div className="col-sm-6 mx-0 px-0">
                             <div className="container-fluid px-0 mx-0">
-                                <Table responsive borderless size="sm" className="text-white bg-dark-grey px-0 mx-0 card-355">
+                                <Table responsive borderless size="sm" className="text-white bg-dark-grey px-0 mx-0 card-297">
                                 <thead className="d-border-top d-border-bottom">
                                 <tr>
                                     <th className="no-wrap py-3 text-center bg-dark-grey">Offer</th>
@@ -201,54 +201,54 @@ class TableInfoTransaction extends React.PureComponent{
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td className="no-wrap py-2-scale text-right text-success">12,625</td>
-                                    <td className="no-wrap py-2-scale text-right">35</td>
-                                    <td className="no-wrap py-2-scale text-right">4</td>
+                                    <td className="no-wrap py-1 text-right text-success">12,625</td>
+                                    <td className="no-wrap py-1 text-right">35</td>
+                                    <td className="no-wrap py-1 text-right">4</td>
                                 </tr>
                                 <tr>
-                                    <td className="no-wrap py-2-scale text-right text-success">12,650</td>
-                                    <td className="no-wrap py-2-scale text-right">15</td>
-                                    <td className="no-wrap py-2-scale text-right">4</td>
+                                    <td className="no-wrap py-1 text-right text-success">12,650</td>
+                                    <td className="no-wrap py-1 text-right">15</td>
+                                    <td className="no-wrap py-1 text-right">4</td>
                                 </tr>
                                 <tr>
-                                    <td className="no-wrap py-2-scale text-right text-success">12,675</td>
-                                    <td className="no-wrap py-2-scale text-right">681</td>
-                                    <td className="no-wrap py-2-scale text-right">2</td>
+                                    <td className="no-wrap py-1 text-right text-success">12,675</td>
+                                    <td className="no-wrap py-1 text-right">681</td>
+                                    <td className="no-wrap py-1 text-right">2</td>
                                 </tr>
                                 <tr>
-                                    <td className="no-wrap py-2-scale text-right text-success">12,700</td>
-                                    <td className="no-wrap py-2-scale text-right">25</td>
-                                    <td className="no-wrap py-2-scale text-right">7</td>
+                                    <td className="no-wrap py-1 text-right text-success">12,700</td>
+                                    <td className="no-wrap py-1 text-right">25</td>
+                                    <td className="no-wrap py-1 text-right">7</td>
                                 </tr>
                                 <tr>
-                                    <td className="no-wrap py-2-scale text-right text-success">12,725</td>
-                                    <td className="no-wrap py-2-scale text-right">121</td>
-                                    <td className="no-wrap py-2-scale text-right">4</td>
+                                    <td className="no-wrap py-1 text-right text-success">12,725</td>
+                                    <td className="no-wrap py-1 text-right">121</td>
+                                    <td className="no-wrap py-1 text-right">4</td>
                                 </tr>
                                 <tr>
-                                    <td className="no-wrap py-2-scale text-right text-success">12,750</td>
-                                    <td className="no-wrap py-2-scale text-right">316</td>
-                                    <td className="no-wrap py-2-scale text-right">3</td>
+                                    <td className="no-wrap py-1 text-right text-success">12,750</td>
+                                    <td className="no-wrap py-1 text-right">316</td>
+                                    <td className="no-wrap py-1 text-right">3</td>
                                 </tr>
                                 <tr>
-                                    <td className="no-wrap py-2-scale text-right text-success">12,775</td>
-                                    <td className="no-wrap py-2-scale text-right">228</td>
-                                    <td className="no-wrap py-2-scale text-right">2</td>
+                                    <td className="no-wrap py-1 text-right text-success">12,775</td>
+                                    <td className="no-wrap py-1 text-right">228</td>
+                                    <td className="no-wrap py-1 text-right">2</td>
                                 </tr>
                                 <tr>
-                                    <td className="no-wrap py-2-scale text-right text-success">12,800</td>
-                                    <td className="no-wrap py-2-scale text-right">224</td>
-                                    <td className="no-wrap py-2-scale text-right">5</td>
+                                    <td className="no-wrap py-1 text-right text-success">12,800</td>
+                                    <td className="no-wrap py-1 text-right">224</td>
+                                    <td className="no-wrap py-1 text-right">5</td>
                                 </tr>
                                 <tr>
-                                    <td className="no-wrap py-2-scale text-right text-success">12,825</td>
-                                    <td className="no-wrap py-2-scale text-right">10</td>
-                                    <td className="no-wrap py-2-scale text-right">1</td>
+                                    <td className="no-wrap py-1 text-right text-success">12,825</td>
+                                    <td className="no-wrap py-1 text-right">10</td>
+                                    <td className="no-wrap py-1 text-right">1</td>
                                 </tr>
                                 <tr>
-                                    <td className="no-wrap py-2-scale text-right text-success">12,850</td>
-                                    <td className="no-wrap py-2-scale text-right">158</td>
-                                    <td className="no-wrap py-2-scale text-right">2</td>
+                                    <td className="no-wrap py-1 text-right text-success">12,850</td>
+                                    <td className="no-wrap py-1 text-right">158</td>
+                                    <td className="no-wrap py-1 text-right">2</td>
                                 </tr>
                                 </tbody>
                                 <tfoot className="d-border-top">
@@ -315,7 +315,7 @@ class TableInfoTransactionWithButton extends React.PureComponent{
                     </div>
                 </div>
 
-                <Table responsive borderless size="sm" className="text-white d-border-table bg-dark-grey">
+                <Table responsive borderless size="sm" className="text-white d-border-table bg-dark-grey card-121">
                     <thead></thead>
                     <tbody>
                     <tr>
@@ -365,7 +365,7 @@ class TableInfoTransactionWithButton extends React.PureComponent{
                     <div className="col-sm-12 row mx-0 px-0">
                         <div className="col-sm-6 mx-0 px-0">
                             <div className="container-fluid px-0 mx-0">
-                                <Table responsive borderless size="sm" className="text-white bg-dark-grey px-0 mx-0 card-355">
+                                <Table responsive borderless size="sm" className="text-white bg-dark-grey px-0 mx-0 card-297">
                                     <thead className="d-border-top d-border-bottom">
                                     <tr>
                                         <th className="no-wrap py-3 text-center bg-dark-grey">
@@ -379,54 +379,54 @@ class TableInfoTransactionWithButton extends React.PureComponent{
                                     </thead>
                                     <tbody>
                                     <tr>
-                                        <td className="no-wrap py-2-scale text-right">4</td>
-                                        <td className="no-wrap py-2-scale text-right">17</td>
-                                        <td className="no-wrap py-2-scale text-right text-warning">12,600</td>
+                                        <td className="no-wrap py-1 text-right">4</td>
+                                        <td className="no-wrap py-1 text-right">17</td>
+                                        <td className="no-wrap py-1 text-right text-warning">12,600</td>
                                     </tr>
                                     <tr>
-                                        <td className="no-wrap py-2-scale text-right">7</td>
-                                        <td className="no-wrap py-2-scale text-right">19</td>
-                                        <td className="no-wrap py-2-scale text-right text-danger">12,575</td>
+                                        <td className="no-wrap py-1 text-right">7</td>
+                                        <td className="no-wrap py-1 text-right">19</td>
+                                        <td className="no-wrap py-1 text-right text-danger">12,575</td>
                                     </tr>
                                     <tr>
-                                        <td className="no-wrap py-2-scale text-right">3</td>
-                                        <td className="no-wrap py-2-scale text-right">85</td>
-                                        <td className="no-wrap py-2-scale text-right text-danger">12,550</td>
+                                        <td className="no-wrap py-1 text-right">3</td>
+                                        <td className="no-wrap py-1 text-right">85</td>
+                                        <td className="no-wrap py-1 text-right text-danger">12,550</td>
                                     </tr>
                                     <tr>
-                                        <td className="no-wrap py-2-scale text-right">8</td>
-                                        <td className="no-wrap py-2-scale text-right">14</td>
-                                        <td className="no-wrap py-2-scale text-right text-danger">12,525</td>
+                                        <td className="no-wrap py-1 text-right">8</td>
+                                        <td className="no-wrap py-1 text-right">14</td>
+                                        <td className="no-wrap py-1 text-right text-danger">12,525</td>
                                     </tr>
                                     <tr>
-                                        <td className="no-wrap py-2-scale text-right">4</td>
-                                        <td className="no-wrap py-2-scale text-right">274</td>
-                                        <td className="no-wrap py-2-scale text-right text-danger">12,500</td>
+                                        <td className="no-wrap py-1 text-right">4</td>
+                                        <td className="no-wrap py-1 text-right">274</td>
+                                        <td className="no-wrap py-1 text-right text-danger">12,500</td>
                                     </tr>
                                     <tr>
-                                        <td className="no-wrap py-2-scale text-right">3</td>
-                                        <td className="no-wrap py-2-scale text-right">14</td>
-                                        <td className="no-wrap py-2-scale text-right text-danger">12,475</td>
+                                        <td className="no-wrap py-1 text-right">3</td>
+                                        <td className="no-wrap py-1 text-right">14</td>
+                                        <td className="no-wrap py-1 text-right text-danger">12,475</td>
                                     </tr>
                                     <tr>
-                                        <td className="no-wrap py-2-scale text-right">2</td>
-                                        <td className="no-wrap py-2-scale text-right">178</td>
-                                        <td className="no-wrap py-2-scale text-right text-danger">12,450</td>
+                                        <td className="no-wrap py-1 text-right">2</td>
+                                        <td className="no-wrap py-1 text-right">178</td>
+                                        <td className="no-wrap py-1 text-right text-danger">12,450</td>
                                     </tr>
                                     <tr>
-                                        <td className="no-wrap py-2-scale text-right">5</td>
-                                        <td className="no-wrap py-2-scale text-right">20</td>
-                                        <td className="no-wrap py-2-scale text-right text-danger">12,425</td>
+                                        <td className="no-wrap py-1 text-right">5</td>
+                                        <td className="no-wrap py-1 text-right">20</td>
+                                        <td className="no-wrap py-1 text-right text-danger">12,425</td>
                                     </tr>
                                     <tr>
-                                        <td className="no-wrap py-2-scale text-right">1</td>
-                                        <td className="no-wrap py-2-scale text-right">739</td>
-                                        <td className="no-wrap py-2-scale text-right text-danger">12,400</td>
+                                        <td className="no-wrap py-1 text-right">1</td>
+                                        <td className="no-wrap py-1 text-right">739</td>
+                                        <td className="no-wrap py-1 text-right text-danger">12,400</td>
                                     </tr>
                                     <tr>
-                                        <td className="no-wrap py-2-scale text-right">2</td>
-                                        <td className="no-wrap py-2-scale text-right">22</td>
-                                        <td className="no-wrap py-2-scale text-right text-danger">12,350</td>
+                                        <td className="no-wrap py-1 text-right">2</td>
+                                        <td className="no-wrap py-1 text-right">22</td>
+                                        <td className="no-wrap py-1 text-right text-danger">12,350</td>
                                     </tr>
                                     </tbody>
                                     <tfoot className="d-border-top">
@@ -441,7 +441,7 @@ class TableInfoTransactionWithButton extends React.PureComponent{
                         </div>
                         <div className="col-sm-6 mx-0 px-0">
                             <div className="container-fluid px-0 mx-0">
-                                <Table responsive borderless size="sm" className="text-white bg-dark-grey px-0 mx-0 card-355">
+                                <Table responsive borderless size="sm" className="text-white bg-dark-grey px-0 mx-0 card-297">
                                     <thead className="d-border-top d-border-bottom">
                                     <tr>
                                         <th className="no-wrap py-3 text-center bg-dark-grey">Offer</th>
@@ -455,54 +455,54 @@ class TableInfoTransactionWithButton extends React.PureComponent{
                                     </thead>
                                     <tbody>
                                     <tr>
-                                        <td className="no-wrap py-2-scale text-right text-success">12,625</td>
-                                        <td className="no-wrap py-2-scale text-right">35</td>
-                                        <td className="no-wrap py-2-scale text-right">4</td>
+                                        <td className="no-wrap py-1 text-right text-success">12,625</td>
+                                        <td className="no-wrap py-1 text-right">35</td>
+                                        <td className="no-wrap py-1 text-right">4</td>
                                     </tr>
                                     <tr>
-                                        <td className="no-wrap py-2-scale text-right text-success">12,650</td>
-                                        <td className="no-wrap py-2-scale text-right">15</td>
-                                        <td className="no-wrap py-2-scale text-right">4</td>
+                                        <td className="no-wrap py-1 text-right text-success">12,650</td>
+                                        <td className="no-wrap py-1 text-right">15</td>
+                                        <td className="no-wrap py-1 text-right">4</td>
                                     </tr>
                                     <tr>
-                                        <td className="no-wrap py-2-scale text-right text-success">12,675</td>
-                                        <td className="no-wrap py-2-scale text-right">681</td>
-                                        <td className="no-wrap py-2-scale text-right">2</td>
+                                        <td className="no-wrap py-1 text-right text-success">12,675</td>
+                                        <td className="no-wrap py-1 text-right">681</td>
+                                        <td className="no-wrap py-1 text-right">2</td>
                                     </tr>
                                     <tr>
-                                        <td className="no-wrap py-2-scale text-right text-success">12,700</td>
-                                        <td className="no-wrap py-2-scale text-right">25</td>
-                                        <td className="no-wrap py-2-scale text-right">7</td>
+                                        <td className="no-wrap py-1 text-right text-success">12,700</td>
+                                        <td className="no-wrap py-1 text-right">25</td>
+                                        <td className="no-wrap py-1 text-right">7</td>
                                     </tr>
                                     <tr>
-                                        <td className="no-wrap py-2-scale text-right text-success">12,725</td>
-                                        <td className="no-wrap py-2-scale text-right">121</td>
-                                        <td className="no-wrap py-2-scale text-right">4</td>
+                                        <td className="no-wrap py-1 text-right text-success">12,725</td>
+                                        <td className="no-wrap py-1 text-right">121</td>
+                                        <td className="no-wrap py-1 text-right">4</td>
                                     </tr>
                                     <tr>
-                                        <td className="no-wrap py-2-scale text-right text-success">12,750</td>
-                                        <td className="no-wrap py-2-scale text-right">316</td>
-                                        <td className="no-wrap py-2-scale text-right">3</td>
+                                        <td className="no-wrap py-1 text-right text-success">12,750</td>
+                                        <td className="no-wrap py-1 text-right">316</td>
+                                        <td className="no-wrap py-1 text-right">3</td>
                                     </tr>
                                     <tr>
-                                        <td className="no-wrap py-2-scale text-right text-success">12,775</td>
-                                        <td className="no-wrap py-2-scale text-right">228</td>
-                                        <td className="no-wrap py-2-scale text-right">2</td>
+                                        <td className="no-wrap py-1 text-right text-success">12,775</td>
+                                        <td className="no-wrap py-1 text-right">228</td>
+                                        <td className="no-wrap py-1 text-right">2</td>
                                     </tr>
                                     <tr>
-                                        <td className="no-wrap py-2-scale text-right text-success">12,800</td>
-                                        <td className="no-wrap py-2-scale text-right">224</td>
-                                        <td className="no-wrap py-2-scale text-right">5</td>
+                                        <td className="no-wrap py-1 text-right text-success">12,800</td>
+                                        <td className="no-wrap py-1 text-right">224</td>
+                                        <td className="no-wrap py-1 text-right">5</td>
                                     </tr>
                                     <tr>
-                                        <td className="no-wrap py-2-scale text-right text-success">12,825</td>
-                                        <td className="no-wrap py-2-scale text-right">10</td>
-                                        <td className="no-wrap py-2-scale text-right">1</td>
+                                        <td className="no-wrap py-1 text-right text-success">12,825</td>
+                                        <td className="no-wrap py-1 text-right">10</td>
+                                        <td className="no-wrap py-1 text-right">1</td>
                                     </tr>
                                     <tr>
-                                        <td className="no-wrap py-2-scale text-right text-success">12,850</td>
-                                        <td className="no-wrap py-2-scale text-right">158</td>
-                                        <td className="no-wrap py-2-scale text-right">2</td>
+                                        <td className="no-wrap py-1 text-right text-success">12,850</td>
+                                        <td className="no-wrap py-1 text-right">158</td>
+                                        <td className="no-wrap py-1 text-right">2</td>
                                     </tr>
                                     </tbody>
                                     <tfoot className="d-border-top">
