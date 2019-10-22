@@ -1,5 +1,5 @@
 import React from 'react';
-import {Dropdown} from 'semantic-ui-react';
+import {Dropdown, Input} from 'semantic-ui-react';
 import { AppFrameAction } from '../appframe.js';
 import StreamChart from './streamChart.js';
 import {AppFrame, AppFrameProvider, AppModal} from "../appframe";
@@ -137,201 +137,7 @@ class MarketStatistikPage extends React.PureComponent {
             <>
                 <AppFrameAction ref="frameAction" />
                 <WSConnectionAction />
-                {/*<div className="card card-tab-trading bg-black-trading f-12">
-                    <div className="card-header bg-grey">
-
-                        <div className="col-sm-12 px-0 mx-0 row">
-                            <div className="col-mbl-radio px-0 mx-0 row">
-                                <ul className="ul-radio col-sm-12 px-0 mx-0 row">
-                                    <li className="li-radio col-radio px-0 mx-0" onClick={
-                                        (e) => {
-                                            this.setState({
-                                                top : "topactive"
-                                            })
-                                        }
-                                    }>
-                                        <input type="radio" id="ta-options" name="top" checked={this.state.top == "topactive" ? true : false}/>
-                                        <label htmlFor="ta-options" className="no-wrap">Top Active</label>
-
-                                        <div className="check"></div>
-                                    </li>
-
-                                    <li className="li-radio col-radio px-0 mx-0" onClick={
-                                        (e) => {
-                                            this.setState({
-                                                top : "topgainers"
-                                            })
-                                        }
-                                    }>
-                                        <input type="radio" id="tg-options" name="top" checked={this.state.top == "topgainers" ? true : false}/>
-                                        <label htmlFor="tg-options" className="no-wrap">Top Gainers</label>
-
-                                        <div className="check"></div>
-                                    </li>
-
-                                    <li className="li-radio col-radio px-0 mx-0" onClick={
-                                        (e) => {
-                                            this.setState({
-                                                top : "toploosers"
-                                            })
-                                        }
-                                    }>
-                                        <input type="radio" id="tl-options" name="top" checked={this.state.top == "toploosers" ? true : false}/>
-                                        <label htmlFor="tl-options" className="no-wrap">Top Losers</label>
-
-                                        <div className="check"></div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div className="col-mbl-radio-o px-0 mx-0">
-                                <div className="col-sm-12 row mx-0 px-0">
-                                    <div className="col-sm-3 mx-0 px-0 title-radio">
-                                        <SelectChoose/>
-                                    </div>
-                                    <div className="col-sm-9 mx-0 px-0 title-radio text-right">
-                                        <Button size="sm" className="bg-grey text-white col-sm-6 p-2 button-border-grey">
-                                            <i className="fa fa-plus"></i> Add Finnancial Column
-                                        </Button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card-body scrollable">
-                        <TableBS responsive borderless size="sm" className="text-center align-middle align-self-center">
-                            <thead className="text-white t-border-bottom">
-                            <tr>
-                                <th>#</th>
-                                <th>Code</th>
-                                <th>Prev.</th>
-                                <th>Lost</th>
-                                <th></th>
-                                <th colSpan="2">Change (%)</th>
-                                <th>Open</th>
-                                <th>Low</th>
-                                <th>High</th>
-                                <th>Avg.</th>
-                                <th>T.Vol(B)</th>
-                                <th>T.Vol</th>
-                                <th>Freq</th>
-                                <th>F.Buy</th>
-                                <th>F.Sell</th>
-                                <th>F.Net</th>
-                                <th colSpan="2" className="text-center">Action</th>
-                            </tr>
-                            </thead>
-                            <tbody className="text-white text-center no-wrap">
-                            <tr>
-                                <td>1</td>
-                                <td className="text-primary">TLKM</td>
-                                <td className="text-right text-warning">4,000</td>
-                                <td className="text-right text-danger">7,400</td>
-                                <td className="text-danger text-right"><i className="icofont icofont-caret-down"></i></td>
-                                <td className="text-right text-danger">-20</td>
-                                <td className="text-right text-danger">-0.35</td>
-                                <td className="text-right text-success">4,200</td>
-                                <td className="text-right text-danger">3,100</td>
-                                <td className="text-right text-success">3,100</td>
-                                <td className="text-right text-danger">3,100</td>
-                                <td className="text-right text-danger">3,100</td>
-                                <td className="text-right text-danger">3,100</td>
-                                <td className="text-right">3,100</td>
-                                <td className="text-right">3,100</td>
-                                <td className="text-right">3,100</td>
-                                <td className="text-right">3,100</td>
-                                <td className="text-center"><Button size="sm" color="danger" className="col-sm-12" onClick={this.buttonClickBuy}>Buy</Button></td>
-                                <td className="text-center"><Button size="sm" color="success" className="col-sm-12" onClick={this.buttonClickSell}>Sell</Button></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td className="text-primary">BBCA</td>
-                                <td className="text-right text-warning">4,000</td>
-                                <td className="text-right text-danger">7,400</td>
-                                <td className="text-danger text-right"><i className="icofont icofont-caret-down"></i></td>
-                                <td className="text-right text-danger">-20</td>
-                                <td className="text-right text-danger">-0.35</td>
-                                <td className="text-right text-success">4,200</td>
-                                <td className="text-right text-danger">3,100</td>
-                                <td className="text-right text-success">3,100</td>
-                                <td className="text-right text-danger">3,100</td>
-                                <td className="text-right text-danger">3,100</td>
-                                <td className="text-right text-danger">3,100</td>
-                                <td className="text-right">3,100</td>
-                                <td className="text-right">3,100</td>
-                                <td className="text-right">3,100</td>
-                                <td className="text-right">3,100</td>
-                                <td className="text-center"><Button size="sm" color="danger" className="col-sm-12" onClick={this.buttonClickBuy}>Buy</Button></td>
-                                <td className="text-center"><Button size="sm" color="success" className="col-sm-12" onClick={this.buttonClickSell}>Sell</Button></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td className="text-primary">BMRI</td>
-                                <td className="text-right text-warning">4,000</td>
-                                <td className="text-right text-danger">7,400</td>
-                                <td className="text-warning text-right"><i className="fa fa-circle"></i></td>
-                                <td className="text-right text-warning">0</td>
-                                <td className="text-right text-warning">0</td>
-                                <td className="text-right text-success">4,200</td>
-                                <td className="text-right text-danger">3,100</td>
-                                <td className="text-right text-success">3,100</td>
-                                <td className="text-right text-danger">3,100</td>
-                                <td className="text-right text-warning">3,100</td>
-                                <td className="text-right text-warning">3,100</td>
-                                <td className="text-right">3,100</td>
-                                <td className="text-right">3,100</td>
-                                <td className="text-right">3,100</td>
-                                <td className="text-right">3,100</td>
-                                <td className="text-center"><Button size="sm" color="danger" className="col-sm-12" onClick={this.buttonClickBuy}>Buy</Button></td>
-                                <td className="text-center"><Button size="sm" color="success" className="col-sm-12" onClick={this.buttonClickSell}>Sell</Button></td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td className="text-primary">AALI</td>
-                                <td className="text-right text-warning">4,000</td>
-                                <td className="text-right text-danger">7,400</td>
-                                <td className="text-success text-right"><i className="icofont icofont-caret-up"></i></td>
-                                <td className="text-right text-success">20</td>
-                                <td className="text-right text-success">0.35</td>
-                                <td className="text-right text-success">4,200</td>
-                                <td className="text-right text-danger">3,100</td>
-                                <td className="text-right text-success">3,100</td>
-                                <td className="text-right text-danger">3,100</td>
-                                <td className="text-right text-success">3,100</td>
-                                <td className="text-right text-success">3,100</td>
-                                <td className="text-right">3,100</td>
-                                <td className="text-right">3,100</td>
-                                <td className="text-right">3,100</td>
-                                <td className="text-right">3,100</td>
-                                <td className="text-center"><Button size="sm" color="danger" className="col-sm-12" onClick={this.buttonClickBuy}>Buy</Button></td>
-                                <td className="text-center"><Button size="sm" color="success" className="col-sm-12" onClick={this.buttonClickSell}>Sell</Button></td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td className="text-primary">WSKT</td>
-                                <td className="text-right text-warning">5,200</td>
-                                <td className="text-right text-danger">3,200</td>
-                                <td className="text-success text-right"><i className="icofont icofont-caret-up"></i></td>
-                                <td className="text-right text-success">12</td>
-                                <td className="text-right text-success">0.35</td>
-                                <td className="text-right text-success">4,200</td>
-                                <td className="text-right text-danger">3,100</td>
-                                <td className="text-right text-success">3,100</td>
-                                <td className="text-right text-success">3,100</td>
-                                <td className="text-right text-danger">3,100</td>
-                                <td className="text-right text-success">3,100</td>
-                                <td className="text-right">3,100</td>
-                                <td className="text-right">3,100</td>
-                                <td className="text-right">3,100</td>
-                                <td className="text-right">3,100</td>
-                                <td className="text-center"><Button size="sm" color="danger" className="col-sm-12" onClick={this.buttonClickBuy}>Buy</Button></td>
-                                <td className="text-center"><Button size="sm" color="success" className="col-sm-12" onClick={this.buttonClickSell}>Sell</Button></td>
-                            </tr>
-                            </tbody>
-                        </TableBS>
-                    </div>
-                </div>*/}
-                {/*<MarketStatistikGrid typegrid="summary" clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} />*/}
-                <div className="card card-75">
+                <div className="card card-590">
                     <div className="card-header bg-grey py-0">
                         <div className="f-14 px-0 mx-0 py-0 col-sm-12">
                             <div className="row col-sm-12 px-0 mx-0">
@@ -468,10 +274,15 @@ class StatisticMarketStatistikPage extends React.PureComponent {
                 <WSConnectionAction />
                 <div className="px-1 mx-0 col-sm-12 row f-12">
                     <div className="col-sm-7 px-1 py-2 d-border-table-right">
-                        <div className="card card-600 bg-black-trading">
+                        <div className="card card-515 bg-black-trading">
                             <div className="card-header py-3">
                                 <div className="col-sm-12 mb-4 row">
-                                    <div className="col-sm-3 text-white f-25">6,384.90</div>
+                                    <label className="align-self-center col-sm-3 px-0 mx-0">Code Index</label>
+                                    <Input defaultValue='AGRI' placeholder='Code' size='small' className="col-sm-7 text-center align-self-center"/>
+                                    <div className="col-sm-2 text-left align-self-center px-2"><i className="fa fa-search fa-2x click-pointer text-dark"></i></div>
+                                </div>
+                                <div className="col-sm-12 mb-4 row">
+                                    <div className="col-sm-3 text-white f-16">6,384.90</div>
                                     <div className="col-sm-4 text-success f-16">+5.21 (0.082%) <i className="icofont icofont-caret-up"></i></div>
                                 </div>
                                 <div className="col-sm-12 f-14">
@@ -489,7 +300,7 @@ class StatisticMarketStatistikPage extends React.PureComponent {
                     </div>
 
                     <div className="col-sm-5 px-1 py-2 d-border-table-left">
-                        <div className="card card-600 bg-black-trading text-white">
+                        <div className="card card-515 bg-black-trading text-white">
                             <div className="card-body px-3">
                                 <TableBS responsive borderless size="sm" className="text-center align-self-center align-middle">
                                     <thead className="text-white t-statistic">
@@ -583,10 +394,10 @@ class TopBrokerMarketStatistikPage extends React.PureComponent {
             <div className="f-12 px-3">
                 <AppFrameAction ref="frameAction" />
                 <WSConnectionAction />
-                <div className="card card-225 bg-black-trading f-12">
+                <div className="card card-196 bg-black-trading f-12">
                     <TopBrokerAgGrid/>
                 </div>
-                <div className="card card-199 bg-black-trading f-12">
+                <div className="card card-196 bg-black-trading f-12">
                     <div className="card-header bg-grey">
                         TOP BUYER
                     </div>
@@ -594,7 +405,7 @@ class TopBrokerMarketStatistikPage extends React.PureComponent {
                         <TopBrokerBAgGrid/>
                     </div>
                 </div>
-                <div className="card card-199 bg-black-trading f-12">
+                <div className="card card-196 bg-black-trading f-12">
                     <div className="card-header bg-grey">
                         TOP SELLER
                     </div>
@@ -655,14 +466,14 @@ class GeneralNewResearchPage extends React.PureComponent {
                 <WSConnectionAction /> {/* websocket connection component */}
                 <div className="col sm-12 px-0 mx-0 row">
                     <div className="col-sm-8 px-0 mx-0 f-12">
-                        <div className="card card-530 d-border-right">
+                        <div className="card card-515 d-border-right">
                             <div className="card-header px-3 text-white">
                                 <h3>
                                     Investor Asing Jual Saham Hampir Rp 2 Triliun,<br />
                                     IHSG Ditutup Turun 56,23 Poin
                                 </h3>
                             </div>
-                            <div className="card card-body card-470 scrollable px-3">
+                            <div className="card card-body card-440 scrollable px-3">
                                 <div className={"text-center align-self-center"}>
                                     <img src={newsImg1} alt="News 1" height={"auto"} width={"50%"} />
                                 </div>
@@ -690,8 +501,8 @@ class GeneralNewResearchPage extends React.PureComponent {
                         </div>
                     </div>
                     <div className="col-sm-4 px-0 mx-0 f-12">
-                        <div className="card card-530 d-border-left">
-                            <div className="card card-body card-530 scrollable px-3">
+                        <div className="card card-515 d-border-left">
+                            <div className="card card-body card-515 scrollable px-3">
                                 <div className="row col-sm-12 px-0 mx-0 d-border-bottom pb-4 mb-4 click-pointer">
                                     <div className="col-sm-6 pl-0 pr-1 mx-0 text-center align-self-center">
                                         <img src={newsImg2} alt="News 1" height={"auto"} width={"100%"} />
@@ -761,14 +572,14 @@ class StockNewResearchPage extends React.PureComponent {
                 <WSConnectionAction /> {/* websocket connection component */}
                 <div className="col sm-12 px-0 mx-0 row">
                     <div className="col-sm-8 px-0 mx-0 f-12">
-                        <div className="card card-530 d-border-right">
+                        <div className="card card-515 d-border-right">
                             <div className="card-header px-3 text-white">
                                 <h3>
                                     Investor Asing Jual Saham Hampir Rp 2 Triliun,<br />
                                     IHSG Ditutup Turun 56,23 Poin
                                 </h3>
                             </div>
-                            <div className="card card-body card-470 scrollable px-3">
+                            <div className="card card-body card-440 scrollable px-3">
                                 <div className={"text-center align-self-center"}>
                                     <img src={newsImg1} alt="News 1" height={"auto"} width={"50%"} />
                                 </div>
@@ -796,8 +607,8 @@ class StockNewResearchPage extends React.PureComponent {
                         </div>
                     </div>
                     <div className="col-sm-4 px-0 mx-0 f-12">
-                        <div className="card card-530 d-border-left">
-                            <div className="card card-body card-530 scrollable px-3">
+                        <div className="card card-515 d-border-left">
+                            <div className="card card-body card-515 scrollable px-3">
                                 <div className="row col-sm-12 px-0 mx-0 d-border-bottom pb-4 mb-4 click-pointer">
                                     <div className="col-sm-6 pl-0 pr-1 mx-0 text-center align-self-center">
                                         <img src={newsImg3} alt="News 1" height={"auto"} width={"100%"} />
@@ -867,14 +678,14 @@ class MutualNewResearchPage extends React.PureComponent {
                 <WSConnectionAction /> {/* websocket connection component */}
                 <div className="col sm-12 px-0 mx-0 row">
                     <div className="col-sm-8 px-0 mx-0 f-12">
-                        <div className="card card-530 d-border-right">
+                        <div className="card card-515 d-border-right">
                             <div className="card-header px-3 text-white">
                                 <h3>
                                     Investor Asing Jual Saham Hampir Rp 2 Triliun,<br />
                                     IHSG Ditutup Turun 56,23 Poin
                                 </h3>
                             </div>
-                            <div className="card card-body card-470 scrollable px-3">
+                            <div className="card card-body card-440 scrollable px-3">
                                 <div className={"text-center align-self-center"}>
                                     <img src={newsImg1} alt="News 1" height={"auto"} width={"50%"} />
                                 </div>
@@ -902,8 +713,8 @@ class MutualNewResearchPage extends React.PureComponent {
                         </div>
                     </div>
                     <div className="col-sm-4 px-0 mx-0 f-12">
-                        <div className="card card-530 d-border-left">
-                            <div className="card card-body card-530 scrollable px-3">
+                        <div className="card card-515 d-border-left">
+                            <div className="card card-body card-515 scrollable px-3">
                                 <div className="row col-sm-12 px-0 mx-0 d-border-bottom pb-4 mb-4 click-pointer">
                                     <div className="col-sm-6 pl-0 pr-1 mx-0 text-center align-self-center">
                                         <img src={newsImg3} alt="News 1" height={"auto"} width={"100%"} />
@@ -973,14 +784,14 @@ class ReseacrhNewResearchPage extends React.PureComponent {
                 <WSConnectionAction /> {/* websocket connection component */}
                 <div className="col sm-12 px-0 mx-0 row">
                     <div className="col-sm-8 px-0 mx-0 f-12">
-                        <div className="card card-530 d-border-right">
+                        <div className="card card-515 d-border-right">
                             <div className="card-header px-3 text-white">
                                 <h3>
                                     Investor Asing Jual Saham Hampir Rp 2 Triliun,<br />
                                     IHSG Ditutup Turun 56,23 Poin
                                 </h3>
                             </div>
-                            <div className="card card-body card-470 scrollable px-3">
+                            <div className="card card-body card-440 scrollable px-3">
                                 <div className={"text-center align-self-center"}>
                                     <img src={newsImg1} alt="News 1" height={"auto"} width={"50%"} />
                                 </div>
@@ -1008,8 +819,8 @@ class ReseacrhNewResearchPage extends React.PureComponent {
                         </div>
                     </div>
                     <div className="col-sm-4 px-0 mx-0 f-12">
-                        <div className="card card-530 d-border-left">
-                            <div className="card card-body card-530 scrollable px-3">
+                        <div className="card card-515 d-border-left">
+                            <div className="card card-body card-515 scrollable px-3">
                                 <div className="row col-sm-12 px-0 mx-0 d-border-bottom pb-4 mb-4 click-pointer">
                                     <div className="col-sm-6 pl-0 pr-1 mx-0 text-center align-self-center">
                                         <img src={newsImg3} alt="News 1" height={"auto"} width={"100%"} />
@@ -3959,7 +3770,7 @@ class MarketStatistikAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className={this.props.typegrid =="summary" ? "card-558 ag-theme-balham-dark" : "card-292 ag-theme-balham-dark"}
+                    className={this.props.typegrid =="summary" ? "card-540 ag-theme-balham-dark" : "card-265 ag-theme-balham-dark"}
                     id="myGrid"
                     style={{
                         width: "100%"
@@ -4435,7 +4246,7 @@ class TopBrokerAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className="card-225 ag-theme-balham-dark"
+                    className="card-196 ag-theme-balham-dark"
                     id="myGrid"
                     style={{
                         width: "100%"
@@ -4591,7 +4402,7 @@ class TopBrokerBAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className="card-170 ag-theme-balham-dark"
+                    className="card-167 ag-theme-balham-dark"
                     id="myGrid"
                     style={{
                         width: "100%"
@@ -4743,7 +4554,7 @@ class TopBrokerSAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className="card-170 ag-theme-balham-dark"
+                    className="card-167 ag-theme-balham-dark"
                     id="myGrid"
                     style={{
                         width: "100%"
