@@ -47,14 +47,12 @@ const stockOptions = [
     { value: 'bbri', label: 'BBRI' }
 ]
 
-class AnalyticChart_Base extends React.PureComponent {
+class RelativePerfomanceChart_Base extends React.PureComponent {
 
     constructor(props) {
         super(props);
         this.state = {
             stockType: props.charVal,
-            stockData: props.chartData,
-            stockAlias: props.chartAlias,
             stockKey: props.key,
             modeView: props.viewMode
         };
@@ -175,6 +173,7 @@ class AnalyticChart_Base extends React.PureComponent {
 
         (function () {
             var $chartDataSelect = $('#chartDataSelect' + stockName);
+            var $chartDataSelect2 = $('#chartDataSelect2' + stockName);
             var $seriesTypeSelect = $('#seriesTypeSelect' + stockName);
             var $themeSelect = $('#themeSelect' + stockName);
             var $indicatorTypeSelect = $('#indicatorTypeSelect' + stockName);
@@ -188,6 +187,7 @@ class AnalyticChart_Base extends React.PureComponent {
 
             var appSettingsCache = {};
             appSettingsCache['data'] = {};
+            appSettingsCache['data2'] = {};
             appSettingsCache['chartType'] = $seriesTypeSelect.val();
             appSettingsCache['scale'] = 'linear';
             appSettingsCache['theme'] = $themeSelect.val();
@@ -216,6 +216,7 @@ class AnalyticChart_Base extends React.PureComponent {
 
             var chart;
             var dataTable;
+            var dataTable2;
 
             var inputHtml =
                 '<div class="col-sm-4">' +
@@ -313,9 +314,15 @@ class AnalyticChart_Base extends React.PureComponent {
                 // (https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js)
                 // Load JSON data and create a chart by JSON data.
 
-                //perubahan menjadi single data ===========================
+
+                //multiple data load ===========================
                 anychart.data.loadJsonFile($chartDataSelect.data().json, function (data) {
                     appSettingsCache['data'][$chartDataSelect.val().toLowerCase().trim()] = data;
+                });
+
+                anychart.data.loadJsonFile($chartDataSelect2.data().json, function (data2) {
+                    appSettingsCache['data2'][$chartDataSelect2.val().toLowerCase().trim()] = data2;
+
                     // init, create chart
                     app.createChart(chartContainer);
                 });
@@ -460,7 +467,7 @@ class AnalyticChart_Base extends React.PureComponent {
                     $annotationType.val('default').selectpicker('refresh');
 
                     // select series type
-                    $seriesTypeSelect.val('candlestick').selectpicker('refresh');
+                    $seriesTypeSelect.val('line').selectpicker('refresh');
                     // reset indicators select
                     $indicatorTypeSelect.val('').selectpicker('refresh');
                     // select chart theme
@@ -521,11 +528,13 @@ class AnalyticChart_Base extends React.PureComponent {
 
             function createChart(container, updateChart) {
                 var dataName = $chartDataSelect.val().trim();
+                var dataName2 = $chartDataSelect2.val().trim();
 
                 var seriesType = $seriesTypeSelect.val();
 
                 // create data table on loaded data
                 dataTable = anychart.data.table();
+                dataTable2 = anychart.data.table();
 
                 if (appSettingsCache['theme'] == 'defaultTheme') {
                     anychart.theme(anychart.themes.darkEarth);
@@ -534,17 +543,24 @@ class AnalyticChart_Base extends React.PureComponent {
                 }
 
                 var series;
+                var series2;
 
                 // map loaded data
                 var mapping = dataTable.mapAs({ 'value': 1, 'volume': 1, 'open': 1, 'high': 2, 'low': 3, 'close': 4 });
+                var mapping2 = dataTable2.mapAs({ 'value': 1, 'volume': 1, 'open': 1, 'high': 2, 'low': 3, 'close': 4 });
 
                 // create stock chart
                 chart = anychart.stock();
 
                 // create plot on the chart
                 var plot = chart.plot(0);
+                plot.yScale().comparisonMode('percent');
+                plot.yAxis().labels().format('{%Value}%');
+                plot.yGrid(true)
+                    .yMinorGrid(true);
 
                 dataTable.addData(appSettingsCache['data'][dataName.toLowerCase()]);
+                dataTable2.addData(appSettingsCache['data2'][dataName2.toLowerCase()])
 
                 if (updateChart) {
                     var indicatorName;
@@ -587,30 +603,17 @@ class AnalyticChart_Base extends React.PureComponent {
                     series = plot[seriesType](mapping);
                     series.name(dataName.toUpperCase());
 
-                    // create volume series on the plot
-                    var volumeSeries1 = plot.volumeMa(mapping, 5, "sma", "column", "line");
-                    volumeSeries1.volumeSeries().stroke(null);
-                    volumeSeries1.volumeSeries().fill("#455a64 0.4");
-                    volumeSeries1.volumeSeries().maxHeight('30%');
-                    volumeSeries1.volumeSeries().bottom(0);
-                    volumeSeries1.maSeries().stroke("1.5 #ff6d00");
-                    volumeSeries1.maSeries().maxHeight('30%');
-                    volumeSeries1.maSeries().bottom(0);
+                    series2 = plot[seriesType](mapping2);
+                    series2.name(dataName2.toUpperCase());
                 }
 
                 series.stroke('2px #64b5f6');
 
-                // adding extra Y axis to the right side
-                var yAxis = plot.yAxis(1);
-                yAxis.orientation('right');
                 // setting chart padding to fit both Y axes
                 chart.padding(10, 50, 20, 50);
 
                 // create scroller series with mapped data
                 chart.scroller().line(mapping);
-
-                // set chart selected date/time range
-                chart.selectRange('2004-11-14', '2007-11-15');
 
                 // set container id for the chart
                 chart.container(container);
@@ -732,8 +735,8 @@ class AnalyticChart_Base extends React.PureComponent {
             neutral30: this.props.thememode === true ? '#333332' : '#E9E9E9',
             neutral40: this.props.thememode === true ? '#1A1A1A' : '#1A1A1A',
             neutral80: this.props.thememode === true ? '#FFFFFF' : '#878787',
-            primary75: this.props.thememode === true ? '#FFFFFF' : '#FFFFFF',
-            primary50: this.props.thememode === true ? '#4D4D4E' : '#4D4D4E',
+            primary75: this.props.thememode === true ? '#FFFFFF' : '#4D4D4E',
+            primary50: this.props.thememode === true ? '#4D4D4E' : '#FFFFFF',
             primary25: this.props.thememode === true ? '#FFFFFF' : '#F5F5F5',
             primary: '#0071BC',
         },
@@ -771,27 +774,13 @@ class AnalyticChart_Base extends React.PureComponent {
         const customStyles = {
             control: (base, state) => ({
                 ...base,
-                height: '34px',
-                'min-height': '34px',
+                height: '33px',
+                'min-height': '33px',
             }),
         };
 
         let elemWidthIndicator = (this.props.chartMode) ? 350 : 180;
         let elemWidthanotation = (this.props.chartMode) ? 250 : 147;
-
-        if (this.props.chartMode === true){
-            if(this.state.stockType === 'chrtStock' || this.state.stockType === 'chrtIndice'){
-                var classChart = 'card-501';
-            } else {
-                var classChart = 'card-501';
-            }
-        } else {
-            if(this.state.stockType === 'chrtStock' || this.state.stockType === 'chrtIndice'){
-                var classChart = 'card-501';
-            } else {
-                var classChart = 'card-221';
-            }
-        }
 
         return (
             <div>
@@ -853,7 +842,8 @@ more.
                                 <div className="form-inline">
                                     <div className="form-group">
                                         <li style={marginSelection}>
-                                            <input type="hidden" id={"chartDataSelect" + this.state.stockType} value={this.state.stockAlias} data-json={"./" + this.state.stockData} />
+                                            <input type="hidden" id={"chartDataSelect" + this.state.stockType} value="TLKM" data-json="./msft.json" />
+                                            <input type="hidden" id={"chartDataSelect2" + this.state.stockType} value="ANTM" data-json="./ibm.json" />
 
                                             <select data-width={elemWidthanotation} data-size="10" data-dropup-auto="false" data-style="btn-dark" defaultValue={'default'} id={"typeSelect" + this.state.stockType} onclick="create()" className="select selectpicker show-tick form-control" title="Select Annotation Type">
                                                 <option value="default" selected>Annotation Type</option>
@@ -881,10 +871,10 @@ more.
                                             <select name="" id={"seriesTypeSelect" + this.state.stockType} data-width={elemWidthanotation} data-size="10" data-dropup-auto="false" data-style="btn-dark" className="select selectpicker show-tick form-control">
                                                 {/* <!--series constructors--> */}
                                                 <option value="area">Area Chart</option>
-                                                <option value="candlestick" selected>Candlestick Chart</option>
+                                                <option value="candlestick">Candlestick Chart</option>
                                                 <option value="column">Column Chart</option>
                                                 <option value="jumpLine">Jump Line Chart</option>
-                                                <option value="line">Line Chart</option>
+                                                <option value="line" selected>Line Chart</option>
                                                 <option value="marker">Marker Chart</option>
                                                 <option value="ohlc">OHLC Chart</option>
                                                 <option value="rangeArea">Range Area Chart</option>
@@ -938,6 +928,12 @@ more.
                                     </div>
 
                                     <div className="form-group">
+                                        <li style={marginSelection}>
+                                            <Select options={stockOptions} className="stockOps" styles={customStyles} theme={this.selectSelectionTab} />
+                                        </li>
+                                    </div>
+
+                                    <div className="form-group">
                                         <li style={marginSelection}><a className="btn btn-danger" style={customStylesBtn} href="" id={"resetButton" + this.state.stockType}>Reset</a></li>
                                     </div>
                                 </div>
@@ -945,17 +941,17 @@ more.
                         </div>
                     </div>
                 </div>
-                <div id={"chart-container" + this.state.stockType} className={classChart} style={containerStyle}></div>
+                <div id={"chart-container" + this.state.stockType} className="card-501" style={containerStyle}></div>
             </div>
         );
     }
 }
 
-const AnalyticChart = ContextConnector(BIPSAppContext,
+const RelativePerfomanceChart = ContextConnector(BIPSAppContext,
     (vars, actions) => ({
         thememode: vars.thememode,
         chartMode: vars.chartMode
     }),
-)(AnalyticChart_Base);
+)(RelativePerfomanceChart_Base);
 
-export default AnalyticChart;
+export default RelativePerfomanceChart;

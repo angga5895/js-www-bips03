@@ -5,8 +5,56 @@ import { BIPSAppContext } from '../AppData.js';
 import { ContextConnector } from '../appcontext.js';
 import FillHeaderTab from "../tabheaderfill";
 import AnalyticChart from './analyticChart.js';
+import RelativePerfomanceChart from './RelativePerformanceChart.js';
+import { WSConnectionAction } from "./../appnetwork";
 import $ from 'jquery';
 window.$ = window.jQuery = $;
+
+
+const AnalyticFrameHeader = (props) => {
+    return (
+        <>
+        </>
+    );
+}
+
+const CustomFrameHeaderAnalytic = (props) => {
+    return (
+        <AppFrameProvider
+            initialClasses={{
+                StockAnalyticPage,
+                AnalyticPage,
+                IndiceAnalyticPage,
+                RelativePerformanceAnalyticPage
+            }}
+            initialFrames={
+                [
+                    { className: 'StockAnalyticPage', title: 'STOCK CHART PAGE', instanceName: 'StockAnalyticPage' },
+                    { className: 'AnalyticPage', title: 'MULTI CHART PAGE', instanceName: 'AnalyticPage' },
+                    { className: 'IndiceAnalyticPage', title: 'INDICE CHART PAGE', instanceName: 'IndiceAnalyticPage' },
+                    { className: 'RelativePerformanceAnalyticPage', title: 'RELATIVE PERFORMANCE PAGE', instanceName: 'RelativePerformanceAnalyticPage' }
+                ]
+            }>
+            {/*<BIPSAppProvider>*/}
+            <WSConnectionAction />
+            <div className="row col-sm-12 px-0 mx-0 align-self-center">
+                <div className="col-sm-12 px-0 mx-0 d-border-bottom">
+                    <FillHeaderTab linkTitles={
+                        {
+                            StockAnalyticPage: 'Stock Chart',
+                            AnalyticPage: 'Multi Chart',
+                            IndiceAnalyticPage: 'Indice Chart',
+                            RelativePerformanceAnalyticPage: 'Relative Performance'
+                        }
+                    } />
+                </div>
+            </div>
+            <AppFrame headerComponent={AnalyticFrameHeader} />
+            <AppModal />
+            {/*</BIPSAppProvider>*/}
+        </AppFrameProvider>
+    );
+}
 
 // default view analytic stock chart  
 class AnalyticPage_Base extends React.PureComponent {
@@ -59,7 +107,7 @@ class AnalyticPage_Base extends React.PureComponent {
     }
 
     render() {
-        let classChart = (this.state.expnView) ? 'tab-chart bg-dark-grey' : 'card-chart bg-dark-grey';
+        let classChart = (this.state.expnView) ? 'card-559 bg-dark-grey' : 'card-279 bg-dark-grey';
 
         let boxScroll = {
             overflowX: 'hidden'
@@ -67,7 +115,7 @@ class AnalyticPage_Base extends React.PureComponent {
 
         let btnExpPost = {
             position: 'absolute',
-            zIndex: '999',
+            zIndex: '1010',
             cursor: 'pointer',
             background: '#696969',
             opacity: '0.5',
@@ -76,7 +124,7 @@ class AnalyticPage_Base extends React.PureComponent {
         }
 
         let gridChartView = (
-            <div className="bg-black-trading" id="gridChartView">
+            <div className="bg-black-trading f-12" id="gridChartView">
                 <main>
                     <div className="container-fluid">
                         <div className="container px-1 mx-0 col-sm-12 row">
@@ -103,6 +151,116 @@ class AnalyticPage_Base extends React.PureComponent {
     }
 }
 
+class Analytic extends React.PureComponent {
+
+    render() {
+        return (
+            //hanya memanggil headernya saja
+            <div className="bg-black-trading px-0 mx-0">
+            </div>
+        );
+    }
+}
+
+class StockAnalyticPage extends React.PureComponent {
+
+    render() {
+
+        let classChart = 'card-559 bg-dark-grey';
+
+        let boxScroll = {
+            overflowX: 'hidden'
+        }
+
+        let tabChartView = (
+            <div className="bg-black-trading f-12" id="tabChrtStock">
+                <main>
+                    <div className="container-fluid">
+                        <div className="container px-1 mx-0 col-sm-12 row">
+                            <div className={"col-md-12 px-1 py-2"} id="chartContentStock1">
+                                <div className={"d-border-inactive card " + classChart} style={boxScroll} id="chartBoxStock1">
+                                    <AnalyticChart viewMode={true} key="chrtStock" charVal="chrtStock" chartData="orcl.json" chartAlias="Analytic Stock" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div >
+        );
+
+        return (
+            <div>
+                {tabChartView}
+            </div>);
+    }
+}
+
+class IndiceAnalyticPage extends React.PureComponent {
+
+    render() {
+
+        let classChart = 'card-559 bg-dark-grey';
+
+        let boxScroll = {
+            overflowX: 'hidden'
+        }
+
+        let tabChartView = (
+            <div className="bg-black-trading f-12" id="indiceChrt">
+                <main>
+                    <div className="container-fluid">
+                        <div className="container px-1 mx-0 col-sm-12 row">
+                            <div className={"col-md-12 px-1 py-2"} id="chartContentIndice">
+                                <div className={"d-border-inactive card " + classChart} style={boxScroll} id="chartBoxIndice">
+                                    <AnalyticChart viewMode={true} key="chrtIndice" charVal="chrtIndice" chartData="ibm.json" chartAlias="Indice Stock" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div >
+        );
+
+        return (
+            <div>
+                {tabChartView}
+            </div>);
+    }
+}
+
+class RelativePerformanceAnalyticPage extends React.PureComponent {
+
+    render() {
+
+        let classChart = 'card-559 bg-dark-grey';
+
+        let boxScroll = {
+            overflowX: 'hidden'
+        }
+
+        let tabChartView = (
+            <div className="bg-black-trading f-12" id="relativeChrt">
+                <main>
+                    <div className="container-fluid">
+                        <div className="container px-1 mx-0 col-sm-12 row">
+                            <div className={"col-md-12 px-1 py-2"} id="chartContentRelative">
+                                <div className={"d-border-inactive card " + classChart} style={boxScroll} id="chartBoxRelative">
+                                    <RelativePerfomanceChart viewMode={true} key="chrtRelative" charVal="chrtRelative" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div >
+        );
+
+        return (
+            <div>
+                {tabChartView}
+            </div>);
+    }
+}
+
 const AnalyticPage = ContextConnector(BIPSAppContext,
     (vars, actions) => ({
         changeChartMode: (chartMode) => { actions.sendAction('changeChartMode', { chartMode }) }
@@ -110,3 +268,4 @@ const AnalyticPage = ContextConnector(BIPSAppContext,
 )(AnalyticPage_Base);
 
 export default AnalyticPage;
+export { CustomFrameHeaderAnalytic, Analytic };

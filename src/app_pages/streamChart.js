@@ -17,105 +17,123 @@ require('../../node_modules/bootstrap/dist/js/bootstrap.js');
 class StreamChart extends React.PureComponent {
 
     componentDidMount() {
-        let indexSetter = null;
-        let dataSet = null;
+        //create new point every 1 minute
+        var period = 60000;
+        //new price ticks come every 15 seconds
+        var tickPeriod = 15000;
+
+        var newTimestamp;
+
+        var newDataRow = [];
+
+        //current price variable
+        var point = null;
 
 
         anychart.onDocumentReady(function () {
 
-            // data
-            dataSet = anychart.data.set([
-                { x: "P1", value: 100 },
-                { x: "P2", value: 200 },
-                { x: "P3", value: 15 },
-                { x: "P4", value: 130 },
-                { x: "P5", value: 153 },
-                { x: "P6", value: 120 },
-                { x: "P7", value: 151 },
-                { x: "P8", value: 58 },
-                { x: "P9", value: 19 },
-                { x: "P10", value: 135 },
-                { x: "P11", value: 170 },
-                { x: "P12", value: 195 },
-                { x: "P13", value: 22 },
-                { x: "P14", value: 175 },
-                { x: "P15", value: 120 }
+            var dataset = anychart.data.table();
+            dataset.addData([
+                [1508889600000, 100],
+                [1508889660000, 200],
+                [1508889720000, 15],
+                [1508889780000, 130],
+                [1508889840000, 153],
+                [1508889900000, 120],
+                [1508889960000, 151],
+                [1508890020000, 58],
+                [1508890080000, 19],
+                [1508890140000, 135],
+                [1508890200000, 170],
+                [1508890260000, 195],
+                [1508890320000, 22],
+                [1508890380000, 175],
+                [1508890440000, 120]
             ]);
 
+
+            // map the data
+            let mapping = dataset.mapAs({ x: 0, value: 1 });
+
             // set chart type
-            let chart = anychart.line();
+            let chart = anychart.stock();
 
-            chart.title().text("Click on Chart to Add a Point ");
+            // set the series
+            let series = chart.plot(0).line(mapping);
+            series.name("Stock Streaming");
 
-            // set data
-            chart.spline(dataSet).markers(null);
-
-            // disable stagger mode. Only one line for x axis labels
-            chart.xAxis().staggerMode(false);
+            chart.title('Stock Streaming Demo: Currency Rates');
 
             // set container and draw chart
             chart.container("container").draw();
 
-            // first index for new point
-            indexSetter = (dataSet.mapAs().getRowsCount()) + 1;
-        });
+            //create empty array for point data update
+            newDataRow[0] = new Array(2);
 
-        let streamButton = document.getElementById("streamButton");
-        let streamState = 0;
-        let dataInteval;
+            //select the last point from existing datatable
+            var selectable = mapping.createSelectable();
+            selectable.selectAll();
+            var iterator = selectable.getIterator();
 
-        function streamStart() {
-            dataInteval = setInterval(
-                // data streaming itself
-                function () {
-                    // append data
-                    dataSet.append({
+            while (iterator.advance()) {
+                //put data from the last exsiting point
+                newDataRow[0][0] = iterator.get('x');
+                newDataRow[0][1] = iterator.get('value');
+            }
+            //timestamp variable for incoming ticks
+            newTimestamp = newDataRow[0][0];
 
-                        // x value
-                        x: "P" + indexSetter,
+            function streamStart() {
+                dataInteval = setInterval(
+                    // data streaming itself
+                    function () {
 
-                        // random value from 1 to 500
-                        value: Math.floor((Math.random() * 500) + 1)
-                    });
+                        newTimestamp += tickPeriod;
+                        point = Math.floor((Math.random() * 500) + 1);
 
-                    // removes first point
-                    dataSet.remove(0);
-                    indexSetter++;
-                }, 200            // interval
-            );
-        }
+                        //current point update or create new point
+                        if (newTimestamp - newDataRow[0][0] <= period) {
+                            //set price as close for existing point
+                            newDataRow[0][2] = point;
+                        } else {
+                            //erase update data array
+                            newDataRow[0] = new Array(2);
+                            //set data for the new point
+                            newDataRow[0][0] = newTimestamp;
+                            newDataRow[0][1] = point;
+                        }
 
-        streamButton.onclick = function () {
-            streamButton.innerHTML = "Stop" + "\nstream";
-            streamState++;
-
-            if (streamState > 1) {
-                streamButton.innerHTML = "Start" + "\nstream";
-                streamState = 0;
-                clearInterval(dataInteval);
-            } else {
-                streamStart();
+                        dataset.addData(newDataRow);
+                    }, 500            // interval
+                );
             }
 
-        };
+            let streamButton = document.getElementById("streamButton");
+            let streamState = 0;
+            let dataInteval;
+
+            streamButton.onclick = function () {
+                streamButton.innerHTML = "Stop" + "\nstream";
+                streamState++;
+
+                if (streamState > 1) {
+                    streamButton.innerHTML = "Start" + "\nstream";
+                    streamState = 0;
+                    clearInterval(dataInteval);
+                } else {
+                    streamStart();
+                }
+
+            };
+
+        });
     }
 
     render() {
-        let pddngBtn = {
-            margin: '5px',
-            background: '#333',
-            color: 'white'
-        }
-
-        let marginCntr = {
-            marginTop: '3px',
-            padding: '5px'
-        }
-
         return (
             <div>
                 <button id="streamButton" className="btn btn-sm btn-grey py-3 px-3 d-border">Start Stream</button>
-                <div id="container" className="mt-2 py-3 px-3 card-470"></div>
+                <div id="container" className="mt-2 py-3 px-3 card-398"></div>
             </div>
         );
 
