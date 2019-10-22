@@ -65,13 +65,736 @@ class MainPage_Base extends React.Component {
       fullscreenmode:false,
   }
 
-  componentDidMount () {
+  componentDidMount(){
+      var setElementHeight = function () {
+          /*alert($('html').height());*/
+          var height667 = $('html').height()-$('.header-normal-menu').height()-8;
+          $('.card-667').css('min-height', (height667));
+          var height32 = $('.card-32').height();
+          $('.card-32').css('min-height', (height32));
+          var height635 = height667-height32-1;
+          $('.card-635').css('min-height', (height635));
+          var height590 = height635-45;
+          $('.card-590').css('min-height', (height590));
+          var height550 = height635-85;
+          $('.card-550').css('min-height', (height550));
+          var height520 = height635-115;
+          $('.card-520').css('min-height', (height520));
+          var cardstockcash = height635-106;
+          $('.card-stockcash').css('min-height', (cardstockcash));
+          var height295 = height590/2;
+          $('.card-295').css('min-height', (height295));
+          var height560 = height635-75;
+          $('.card-560').css('min-height', (height560));
+          var height196 = (height635-45)/3;
+          $('.card-196').css('min-height', (height196));
+          var height121 = (height635/2)-196;
+          $('.card-121').css('min-height', (height121));
+          var height586 = height635-49;
+          $('.card-586').css('min-height', (height586));
+          var height501 = height635-115-19;
+          $('.card-501').css('min-height', (height501));
+          var height221 = ((height635-115-19)/2)-30;
+          $('.card-221').css('min-height', (height221));
+          var rsccontainer = height635-49;
+          $('.rsc-container').css('min-height', (rsccontainer));
+          var rsccontent = height635-49-133;
+          $('.rsc-content').css('min-height', (rsccontent));
+          var rscscroll = height635-49-40;
+          $('.rsc-scroll').css('min-height', (rscscroll));
 
+      };
+
+      var setElementMargin = function () {
+          var height667 = $('html').height()-$('.header-normal-menu').height()-8;
+
+          if($('html').height() > 2499) {
+              var sideMargin = ((height667/440)*100)/13+'%';
+              $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
+          } else if($('html').height() > 1536 && $('html').height() < 2500) {
+              var sideMargin = ((height667/440)*100)/10+'%';
+              $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
+          } else if($('html').height() > 1319 && $('html').height() < 1537) {
+              var sideMargin = ((height667/440)*100)/7.35+'%';
+              $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
+          } else if($('html').height() > 1100 && $('html').height() < 1320) {
+              var sideMargin = ((height667/440)*100)/6.5+'%';
+              $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
+          } else if($('html').height() > 1042 && $('html').height() < 1099) {
+              var sideMargin = ((height667/440)*100)/7.5+'%';
+              $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
+          } else if($('html').height() > 1023 && $('html').height() < 1043) {
+              var sideMargin = ((height667/440)*100)/6.75+'%';
+              $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
+          } else if($('html').height() > 951 && $('html').height() < 1024) {
+              var sideMargin = ((height667/440)*100)/7.5+'%';
+              $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
+          } else if($('html').height() > 875 && $('html').height() < 950) {
+              var sideMargin = ((height667/440)*100)/8+'%';
+              $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
+          } else if($('html').height() > 772 && $('html').height() < 876) {
+              var sideMargin = ((height667/440)*100)/9+'%';
+              $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
+          } else if($('html').height() > 695 && $('html').height() < 773) {
+              var sideMargin = ((height667/440)*100)/12.5+'%';
+              $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
+          } else if($('html').height() < 515){
+              var sideMargin = '1%';
+              $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
+          } else{
+              var sideMargin = '16%';
+              $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
+          }
+      };
+
+      var setElementLiveZoom = function () {
+          if($('html').height() > 2601)  {
+              var liveTrade = 4.4;
+              $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+          } else if ($('html').height() > 2201 && $('html').height() < 2600) {
+              var liveTrade = 3.5;
+              $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+          } else if($('html').height() > 2049 && $('html').height() < 2200) {
+              var liveTrade = 3.1;
+              $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+          } else if($('html').height() > 1533 && $('html').height() < 2050) {
+              var liveTrade = 2.3;
+              $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+          } else if($('html').height() > 1319 && $('html').height() < 1534) {
+              var liveTrade = 2.1;
+              $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+          } else if($('html').height() > 1100 && $('html').height() < 1320) {
+              var liveTrade = 1.63;
+              $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+          } else if($('html').height() > 1042 && $('html').height() < 1099) {
+              var liveTrade = 1.5;
+              $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+          } else if($('html').height() > 1023 && $('html').height() < 1043) {
+              var liveTrade = 1.4;
+              $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+          } else if($('html').height() > 951 && $('html').height() < 1024) {
+              var liveTrade = 1.31;
+              $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+          } else if($('html').height() > 875 && $('html').height() < 950) {
+              var liveTrade = 1.29;
+              $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+          } else if($('html').height() > 772 && $('html').height() < 876) {
+              var liveTrade = 1.14;
+              $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+          } else{
+              var liveTrade = 1;
+              $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+          }
+      };
+
+      $(document).ready(function () {
+          setElementLiveZoom();
+          setElementMargin();
+          var card635 = $('html').height()-$('.header-normal-menu').height()-8-$('.card-32').height();
+          if($('html').height() > 2699) {
+              setElementHeight();
+              var margin67 = (card635-106-80)/8;
+              $('li.list-group-item-portofolio').css('min-height', (margin67));
+              var height330 = card635-630;
+              $('.card-330').css('min-height', (height330));
+              var cardheight445 = card635-300;
+              $('.card-445').css('min-height', (cardheight445))
+              var cardheight490 = card635-255;
+              $('.card-490').css('min-height', (cardheight490));
+              var cardheight400 = card635-345;
+              $('.card-400').css('min-height', (cardheight400));
+              var height540 = card635-95-30;
+              $('.card-540').css('min-height', (height540));
+              var height265 = (card635-150)/2;
+              $('.card-265').css('min-height', (height265));
+              var height398 = card635-475;
+              $('.card-398').css('min-height', (height398));
+              var height167 = ((card635-45)/3)-75;
+              $('.card-167').css('min-height', (height167));
+              var height515 = card635-175;
+              $('.card-515').css('min-height', (height515));
+              var height440 = (card635-120)-150;
+              $('.card-440').css('min-height', (height440));
+              var height305 = (card635-600);
+              $('.card-305').css('min-height', (height305));
+              var height297 = (card635/2)-200;
+              $('.card-297').css('min-height', (height297));
+              var height511 = (card635-200);
+              $('.card-511').css('min-height', (height511));
+              var cardheight433 = card635-345;
+              $('.card-433').css('min-height', (cardheight433));
+              var cardheight149 = (cardheight433+15)/3;
+              $('.card-149').css('min-height', (cardheight149));
+              var height586 = card635-80;
+              $('.card-586').css('min-height', (height586));
+              var height559 = ((card635/2)-196)+height297+240;
+              $('.card-559').css('min-height', (height559));
+              var height279 = (((card635/2)-196)+height297+240)/2;
+              $('.card-279').css('min-height', (height279));
+          } else if($('html').height() > 1899 && $('html').height() < 2700) {
+              setElementHeight();
+              var margin67 = (card635-106-20)/8;
+              $('li.list-group-item-portofolio').css('min-height', (margin67));
+              var height330 = card635-470;
+              $('.card-330').css('min-height', (height330));
+              var cardheight490 = card635-205;
+              $('.card-490').css('min-height', (cardheight490));
+              var cardheight400 = card635-295;
+              $('.card-400').css('min-height', (cardheight400));
+              var height540 = card635-95;
+              $('.card-540').css('min-height', (height540));
+              var height265 = (card635-130)/2;
+              $('.card-265').css('min-height', (height265));
+              var height398 = card635-350;
+              $('.card-398').css('min-height', (height398));
+              var height167 = ((card635-45)/3)-50;
+              $('.card-167').css('min-height', (height167));
+              var height515 = card635-150;
+              $('.card-515').css('min-height', (height515));
+              var height440 = (card635-120)-120;
+              $('.card-440').css('min-height', (height440));
+              var height305 = (card635-475);
+              $('.card-305').css('min-height', (height305));
+              var height297 = (card635/2)-120;
+              $('.card-297').css('min-height', (height297));
+              var height511 = (card635-170);
+              $('.card-511').css('min-height', (height511));
+              var cardheight433 = card635-275;
+              $('.card-433').css('min-height', (cardheight433));
+              var cardheight149 = (cardheight433+9)/3;
+              $('.card-149').css('min-height', (cardheight149));
+              var height586 = card635-60;
+              $('.card-586').css('min-height', (height586));
+              var height559 = ((card635/2)-196)+height297+170;
+              $('.card-559').css('min-height', (height559));
+              var height279 = (((card635/2)-196)+height297+170)/2;
+              $('.card-279').css('min-height', (height279));
+          } else if($('html').height() > 1499 && $('html').height() < 1900) {
+              setElementHeight();
+              var margin67 = (card635-106-20)/8;
+              $('li.list-group-item-portofolio').css('min-height', (margin67));
+              var height330 = card635-350;
+              $('.card-330').css('min-height', (height330));
+              var cardheight445 = card635-190;
+              $('.card-445').css('min-height', (cardheight445));
+              var cardheight490 = card635-145;
+              $('.card-490').css('min-height', (cardheight490));
+              var cardheight400 = card635-235;
+              $('.card-400').css('min-height', (cardheight400));
+              var height540 = card635-95;
+              $('.card-540').css('min-height', (height540));
+              var height265 = (card635-105)/2;
+              $('.card-265').css('min-height', (height265));
+              var height398 = card635-237;
+              $('.card-398').css('min-height', (height398));
+              var height167 = ((card635-45)/3)-29;
+              $('.card-167').css('min-height', (height167));
+              var height515 = card635-120;
+              $('.card-515').css('min-height', (height515));
+              var height440 = (card635-120)-75;
+              $('.card-440').css('min-height', (height440));
+              var height305 = (card635-330);
+              $('.card-305').css('min-height', (height305));
+              var height297 = (card635/2)-21;
+              $('.card-297').css('min-height', (height297));
+              var height511 = (card635-124);
+              $('.card-511').css('min-height', (height511));
+              var cardheight433 = card635-202;
+              $('.card-433').css('min-height', (cardheight433));
+              var cardheight149 = (cardheight433+14)/3;
+              $('.card-149').css('min-height', (cardheight149));
+              var height586 = card635-49;
+              $('.card-586').css('min-height', (height586));
+              var height559 = ((card635/2)-196)+height297+141;
+              $('.card-559').css('min-height', (height559));
+              var height279 = (((card635/2)-196)+height297+141)/2;
+              $('.card-279').css('min-height', (height279));
+          } else {
+              setElementHeight();
+              var margin67 = (card635-106)/8;
+              $('li.list-group-item-portofolio').css('min-height', (margin67));
+              var height330 = card635-305;
+              $('.card-330').css('min-height', (height330));
+              var cardheight445 = card635-190;
+              $('.card-445').css('min-height', (cardheight445));
+              var cardheight490 = card635-145;
+              $('.card-490').css('min-height', (cardheight490));
+              var cardheight400 = card635-235;
+              $('.card-400').css('min-height', (cardheight400));
+              var height540 = card635-95;
+              $('.card-540').css('min-height', (height540));
+              var height265 = (card635-105)/2;
+              $('.card-265').css('min-height', (height265));
+              var height398 = card635-237;
+              $('.card-398').css('min-height', (height398));
+              var height167 = ((card635-45)/3)-29;
+              $('.card-167').css('min-height', (height167));
+              var height515 = card635-120;
+              $('.card-515').css('min-height', (height515));
+              var height440 = (card635-120)-75;
+              $('.card-440').css('min-height', (height440));
+              var height305 = (card635-330);
+              $('.card-305').css('min-height', (height305));
+              var height297 = (card635/2)-21;
+              $('.card-297').css('min-height', (height297));
+              var height511 = (card635-124);
+              $('.card-511').css('min-height', (height511));
+              var cardheight433 = card635-202;
+              $('.card-433').css('min-height', (cardheight433));
+              var cardheight149 = (cardheight433+14)/3;
+              $('.card-149').css('min-height', (cardheight149));
+              var height586 = card635-49;
+              $('.card-586').css('min-height', (height586));
+              var height559 = ((card635/2)-196)+height297+141;
+              $('.card-559').css('min-height', (height559));
+              var height279 = (((card635/2)-196)+height297+141)/2;
+              $('.card-279').css('min-height', (height279));
+          }
+      }).resize();
+
+      $(window).on("resize", function () {
+          setElementLiveZoom();
+          setElementMargin();
+          var card635 = $('html').height()-$('.header-normal-menu').height()-8-$('.card-32').height();
+          if($('html').height() > 2699) {
+              setElementHeight();
+              var margin67 = (card635-106-80)/8;
+              $('li.list-group-item-portofolio').css('min-height', (margin67));
+              var height330 = card635-630;
+              $('.card-330').css('min-height', (height330));
+              var cardheight445 = card635-300;
+              $('.card-445').css('min-height', (cardheight445));
+              var cardheight490 = card635-255;
+              $('.card-490').css('min-height', (cardheight490));
+              var cardheight400 = card635-345;
+              $('.card-400').css('min-height', (cardheight490));
+              var height540 = card635-95-30;
+              $('.card-540').css('min-height', (height540));
+              var height265 = (card635-150)/2;
+              $('.card-265').css('min-height', (height265));
+              var height398 = card635-475;
+              $('.card-398').css('min-height', (height398));
+              var height167 = ((card635-45)/3)-75;
+              $('.card-167').css('min-height', (height167));
+              var height515 = card635-175;
+              $('.card-515').css('min-height', (height515));
+              var height440 = (card635-120)-150;
+              $('.card-440').css('min-height', (height440));
+              var height305 = (card635-600);
+              $('.card-305').css('min-height', (height305));
+              var height297 = (card635/2)-200;
+              $('.card-297').css('min-height', (height297));
+              var height511 = (card635-200);
+              $('.card-511').css('min-height', (height511));
+              var cardheight433 = card635-345;
+              $('.card-433').css('min-height', (cardheight433));
+              var cardheight149 = (cardheight433+15)/3;
+              $('.card-149').css('min-height', (cardheight149));
+              var height586 = card635-80;
+              $('.card-586').css('min-height', (height586));
+              var height559 = ((card635/2)-196)+height297+240;
+              $('.card-559').css('min-height', (height559));
+              var height279 = (((card635/2)-196)+height297+240)/2;
+              $('.card-279').css('min-height', (height279));
+          } else if($('html').height() > 1899 && $('html').height() < 2700) {
+              setElementHeight();
+              var margin67 = (card635-106-20)/8;
+              $('li.list-group-item-portofolio').css('min-height', (margin67));
+              var height330 = card635-470;
+              $('.card-330').css('min-height', (height330));
+              var cardheight445 = card635-250;
+              $('.card-445').css('min-height', (cardheight445));
+              var cardheight490 = card635-205;
+              $('.card-490').css('min-height', (cardheight490));
+              var cardheight400 = card635-295;
+              $('.card-400').css('min-height', (cardheight400));
+              var height540 = card635-95;
+              $('.card-540').css('min-height', (height540));
+              var height265 = (card635-130)/2;
+              $('.card-265').css('min-height', (height265));
+              var height398 = card635-350;
+              $('.card-398').css('min-height', (height398));
+              var height167 = ((card635-45)/3)-50;
+              $('.card-167').css('min-height', (height167));
+              var height515 = card635-150;
+              $('.card-515').css('min-height', (height515));
+              var height440 = (card635-120)-120;
+              $('.card-440').css('min-height', (height440));
+              var height305 = (card635-475);
+              $('.card-305').css('min-height', (height305));
+              var height297 = (card635/2)-120;
+              $('.card-297').css('min-height', (height297));
+              var height511 = (card635-170);
+              $('.card-511').css('min-height', (height511));
+              var cardheight433 = card635-275;
+              $('.card-433').css('min-height', (cardheight433));
+              var cardheight149 = (cardheight433+9)/3;
+              $('.card-149').css('min-height', (cardheight149));
+              var height586 = card635-60;
+              $('.card-586').css('min-height', (height586));
+              var height559 = ((card635/2)-196)+height297+170;
+              $('.card-559').css('min-height', (height559));
+              var height279 = (((card635/2)-196)+height297+170)/2;
+              $('.card-279').css('min-height', (height279));
+          } else if($('html').height() > 1499 && $('html').height() < 1900) {
+              setElementHeight();
+              var margin67 = (card635-106-20)/8;
+              $('li.list-group-item-portofolio').css('min-height', (margin67));
+              var height330 = card635-350;
+              $('.card-330').css('min-height', (height330));
+              var cardheight445 = card635-190;
+              $('.card-445').css('min-height', (cardheight445));
+              var cardheight490 = card635-145;
+              $('.card-490').css('min-height', (cardheight490));
+              var cardheight400 = card635-235;
+              $('.card-400').css('min-height', (cardheight400));
+              var height540 = card635-95;
+              $('.card-540').css('min-height', (height540));
+              var height265 = (card635-105)/2;
+              $('.card-265').css('min-height', (height265));
+              var height398 = card635-237;
+              $('.card-398').css('min-height', (height398));
+              var height167 = ((card635-45)/3)-29;
+              $('.card-167').css('min-height', (height167));
+              var height515 = card635-120;
+              $('.card-515').css('min-height', (height515));
+              var height440 = (card635-120)-75;
+              $('.card-440').css('min-height', (height440));
+              var height305 = (card635-330);
+              $('.card-305').css('min-height', (height305));
+              var height297 = (card635/2)-21;
+              $('.card-297').css('min-height', (height297));
+              var height511 = (card635-124);
+              $('.card-511').css('min-height', (height511));
+              var cardheight433 = card635-202;
+              $('.card-433').css('min-height', (cardheight433));
+              var cardheight149 = (cardheight433+14)/3;
+              $('.card-149').css('min-height', (cardheight149));
+              var height586 = card635-49;
+              $('.card-586').css('min-height', (height586));
+              var height559 = ((card635/2)-196)+height297+141;
+              $('.card-559').css('min-height', (height559));
+              var height279 = (((card635/2)-196)+height297+141)/2;
+              $('.card-279').css('min-height', (height279));
+          } else {
+              setElementHeight();
+              var margin67 = (card635-106)/8;
+              $('li.list-group-item-portofolio').css('min-height', (margin67));
+              var height330 = card635-305;
+              $('.card-330').css('min-height', (height330));
+              var cardheight445 = card635-190;
+              $('.card-445').css('min-height', (cardheight445));
+              var cardheight490 = card635-145;
+              $('.card-490').css('min-height', (cardheight490));
+              var cardheight400 = card635-235;
+              $('.card-400').css('min-height', (cardheight400));
+              var height540 = card635-95;
+              $('.card-540').css('min-height', (height540));
+              var height265 = (card635-105)/2;
+              $('.card-265').css('min-height', (height265));
+              var height398 = card635-237;
+              $('.card-398').css('min-height', (height398));
+              var height167 = ((card635-45)/3)-29;
+              $('.card-167').css('min-height', (height167));
+              var height515 = card635-120;
+              $('.card-515').css('min-height', (height515));
+              var height440 = (card635-120)-75;
+              $('.card-440').css('min-height', (height440));
+              var height305 = (card635-330);
+              $('.card-305').css('min-height', (height305));
+              var height297 = (card635/2)-21;
+              $('.card-297').css('min-height', (height297));
+              var height511 = (card635-124);
+              $('.card-511').css('min-height', (height511));
+              var cardheight433 = card635-202;
+              $('.card-433').css('min-height', (cardheight433));
+              var cardheight149 = (cardheight433+14)/3;
+              $('.card-149').css('min-height', (cardheight149));
+              var height586 = card635-49;
+              $('.card-586').css('min-height', (height586));
+              var height559 = ((card635/2)-196)+height297+141;
+              $('.card-559').css('min-height', (height559));
+              var height279 = (((card635/2)-196)+height297+141)/2;
+              $('.card-279').css('min-height', (height279));
+          }
+      }).resize();
   }
 
   doLogin = (userID, password) => {
     this.props.doLogin(userID, password);
   }
+
+  resizeResponsive = () => {
+        var height667 = $('html').height()-$('.header-normal-menu').height()-8;
+        $('.card-667').css('min-height', (height667));
+        var height32 = $('.card-32').height();
+        $('.card-32').css('min-height', (height32));
+        var height635 = height667-height32-1;
+        $('.card-635').css('min-height', (height635));
+        var height590 = height635-45;
+        $('.card-590').css('min-height', (height590));
+        var height550 = height635-85;
+        $('.card-550').css('min-height', (height550));
+        var height520 = height635-115;
+        $('.card-520').css('min-height', (height520));
+        var cardstockcash = height635-106;
+        $('.card-stockcash').css('min-height', (cardstockcash));
+        var height295 = height590/2;
+        $('.card-295').css('min-height', (height295));
+        var height560 = height635-75;
+        $('.card-560').css('min-height', (height560));
+        var height196 = (height635-45)/3;
+        $('.card-196').css('min-height', (height196));
+        var height121 = (height635/2)-196;
+        $('.card-121').css('min-height', (height121));
+        var height586 = height635-49;
+        $('.card-586').css('min-height', (height586));
+        var height501 = height635-115-19;
+        $('.card-501').css('min-height', (height501));
+        var height221 = ((height635-115-19)/2)-30;
+        $('.card-221').css('min-height', (height221));
+        var rsccontainer = height635-49;
+        $('.rsc-container').css('min-height', (rsccontainer));
+        var rsccontent = height635-49-133;
+        $('.rsc-content').css('min-height', (rsccontent));
+        var rscscroll = height635-49-40;
+        $('.rsc-scroll').css('min-height', (rscscroll));
+
+        var card635 = $('html').height()-$('.header-normal-menu').height()-8-$('.card-32').height();
+        if($('html').height() > 2699) {
+            var margin67 = (card635-106-80)/8;
+            $('li.list-group-item-portofolio').css('min-height', (margin67));
+            var height330 = card635-630;
+            $('.card-330').css('min-height', (height330));
+            var cardheight445 = card635-300;
+            $('.card-445').css('min-height', (cardheight445))
+            var cardheight490 = card635-255;
+            $('.card-490').css('min-height', (cardheight490));
+            var cardheight400 = card635-345;
+            $('.card-400').css('min-height', (cardheight400));
+            var height540 = card635-95-30;
+            $('.card-540').css('min-height', (height540));
+            var height265 = (card635-150)/2;
+            $('.card-265').css('min-height', (height265));
+            var height398 = card635-475;
+            $('.card-398').css('min-height', (height398));
+            var height167 = ((card635-45)/3)-75;
+            $('.card-167').css('min-height', (height167));
+            var height515 = card635-175;
+            $('.card-515').css('min-height', (height515));
+            var height440 = (card635-120)-150;
+            $('.card-440').css('min-height', (height440));
+            var height305 = (card635-600);
+            $('.card-305').css('min-height', (height305));
+            var height297 = (card635/2)-200;
+            $('.card-297').css('min-height', (height297));
+            var height511 = (card635-200);
+            $('.card-511').css('min-height', (height511));
+            var cardheight433 = card635-345;
+            $('.card-433').css('min-height', (cardheight433));
+            var cardheight149 = (cardheight433+15)/3;
+            $('.card-149').css('min-height', (cardheight149));
+            var height586 = card635-80;
+            $('.card-586').css('min-height', (height586));
+            var height559 = ((card635/2)-196)+height297+240;
+            $('.card-559').css('min-height', (height559));
+            var height279 = (((card635/2)-196)+height297+240)/2;
+            $('.card-279').css('min-height', (height279));
+        } else if($('html').height() > 1899 && $('html').height() < 2700) {
+            var margin67 = (card635-106-20)/8;
+            $('li.list-group-item-portofolio').css('min-height', (margin67));
+            var height330 = card635-470;
+            $('.card-330').css('min-height', (height330));
+            var cardheight490 = card635-205;
+            $('.card-490').css('min-height', (cardheight490));
+            var cardheight400 = card635-295;
+            $('.card-400').css('min-height', (cardheight400));
+            var height540 = card635-95;
+            $('.card-540').css('min-height', (height540));
+            var height265 = (card635-130)/2;
+            $('.card-265').css('min-height', (height265));
+            var height398 = card635-350;
+            $('.card-398').css('min-height', (height398));
+            var height167 = ((card635-45)/3)-50;
+            $('.card-167').css('min-height', (height167));
+            var height515 = card635-150;
+            $('.card-515').css('min-height', (height515));
+            var height440 = (card635-120)-120;
+            $('.card-440').css('min-height', (height440));
+            var height305 = (card635-475);
+            $('.card-305').css('min-height', (height305));
+            var height297 = (card635/2)-120;
+            $('.card-297').css('min-height', (height297));
+            var height511 = (card635-170);
+            $('.card-511').css('min-height', (height511));
+            var cardheight433 = card635-275;
+            $('.card-433').css('min-height', (cardheight433));
+            var cardheight149 = (cardheight433+9)/3;
+            $('.card-149').css('min-height', (cardheight149));
+            var height586 = card635-60;
+            $('.card-586').css('min-height', (height586));
+            var height559 = ((card635/2)-196)+height297+170;
+            $('.card-559').css('min-height', (height559));
+            var height279 = (((card635/2)-196)+height297+170)/2;
+            $('.card-279').css('min-height', (height279));
+        } else if($('html').height() > 1499 && $('html').height() < 1900) {
+            var margin67 = (card635-106-20)/8;
+            $('li.list-group-item-portofolio').css('min-height', (margin67));
+            var height330 = card635-350;
+            $('.card-330').css('min-height', (height330));
+            var cardheight445 = card635-190;
+            $('.card-445').css('min-height', (cardheight445));
+            var cardheight490 = card635-145;
+            $('.card-490').css('min-height', (cardheight490));
+            var cardheight400 = card635-235;
+            $('.card-400').css('min-height', (cardheight400));
+            var height540 = card635-95;
+            $('.card-540').css('min-height', (height540));
+            var height265 = (card635-105)/2;
+            $('.card-265').css('min-height', (height265));
+            var height398 = card635-237;
+            $('.card-398').css('min-height', (height398));
+            var height167 = ((card635-45)/3)-29;
+            $('.card-167').css('min-height', (height167));
+            var height515 = card635-120;
+            $('.card-515').css('min-height', (height515));
+            var height440 = (card635-120)-75;
+            $('.card-440').css('min-height', (height440));
+            var height305 = (card635-330);
+            $('.card-305').css('min-height', (height305));
+            var height297 = (card635/2)-21;
+            $('.card-297').css('min-height', (height297));
+            var height511 = (card635-124);
+            $('.card-511').css('min-height', (height511));
+            var cardheight433 = card635-202;
+            $('.card-433').css('min-height', (cardheight433));
+            var cardheight149 = (cardheight433+14)/3;
+            $('.card-149').css('min-height', (cardheight149));
+            var height586 = card635-49;
+            $('.card-586').css('min-height', (height586));
+            var height559 = ((card635/2)-196)+height297+141;
+            $('.card-559').css('min-height', (height559));
+            var height279 = (((card635/2)-196)+height297+141)/2;
+            $('.card-279').css('min-height', (height279));
+        } else {
+            var margin67 = (card635-106)/8;
+            $('li.list-group-item-portofolio').css('min-height', (margin67));
+            var height330 = card635-305;
+            $('.card-330').css('min-height', (height330));
+            var cardheight445 = card635-190;
+            $('.card-445').css('min-height', (cardheight445));
+            var cardheight490 = card635-145;
+            $('.card-490').css('min-height', (cardheight490));
+            var cardheight400 = card635-235;
+            $('.card-400').css('min-height', (cardheight400));
+            var height540 = card635-95;
+            $('.card-540').css('min-height', (height540));
+            var height265 = (card635-105)/2;
+            $('.card-265').css('min-height', (height265));
+            var height398 = card635-237;
+            $('.card-398').css('min-height', (height398));
+            var height167 = ((card635-45)/3)-29;
+            $('.card-167').css('min-height', (height167));
+            var height515 = card635-120;
+            $('.card-515').css('min-height', (height515));
+            var height440 = (card635-120)-75;
+            $('.card-440').css('min-height', (height440));
+            var height305 = (card635-330);
+            $('.card-305').css('min-height', (height305));
+            var height297 = (card635/2)-21;
+            $('.card-297').css('min-height', (height297));
+            var height511 = (card635-124);
+            $('.card-511').css('min-height', (height511));
+            var cardheight433 = card635-202;
+            $('.card-433').css('min-height', (cardheight433));
+            var cardheight149 = (cardheight433+14)/3;
+            $('.card-149').css('min-height', (cardheight149));
+            var height586 = card635-49;
+            $('.card-586').css('min-height', (height586));
+            var height559 = ((card635/2)-196)+height297+141;
+            $('.card-559').css('min-height', (height559));
+            var height279 = (((card635/2)-196)+height297+141)/2;
+            $('.card-279').css('min-height', (height279));
+
+            //Margin
+            if($('html').height() > 2499) {
+                var sideMargin = ((height667/440)*100)/13+'%';
+                $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
+            } else if($('html').height() > 1536 && $('html').height() < 2500) {
+                var sideMargin = ((height667/440)*100)/10+'%';
+                $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
+            } else if($('html').height() > 1319 && $('html').height() < 1537) {
+                var sideMargin = ((height667/440)*100)/7.35+'%';
+                $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
+            } else if($('html').height() > 1100 && $('html').height() < 1320) {
+                var sideMargin = ((height667/440)*100)/6.5+'%';
+                $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
+            } else if($('html').height() > 1042 && $('html').height() < 1099) {
+                var sideMargin = ((height667/440)*100)/7.5+'%';
+                $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
+            } else if($('html').height() > 1023 && $('html').height() < 1043) {
+                var sideMargin = ((height667/440)*100)/6.75+'%';
+                $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
+            } else if($('html').height() > 951 && $('html').height() < 1024) {
+                var sideMargin = ((height667/440)*100)/7.5+'%';
+                $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
+            } else if($('html').height() > 875 && $('html').height() < 950) {
+                var sideMargin = ((height667/440)*100)/8+'%';
+                $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
+            } else if($('html').height() > 772 && $('html').height() < 876) {
+                var sideMargin = ((height667/440)*100)/9+'%';
+                $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
+            } else if($('html').height() > 695 && $('html').height() < 773) {
+                var sideMargin = ((height667/440)*100)/12.5+'%';
+                $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
+            } else if($('html').height() < 515){
+                var sideMargin = '1%';
+                $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
+            } else{
+                var sideMargin = '16%';
+                $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
+            }
+
+            //Zoom Padding
+            if($('html').height() > 2601)  {
+                var liveTrade = 4.4;
+                $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+            } else if ($('html').height() > 2201 && $('html').height() < 2600) {
+                var liveTrade = 3.5;
+                $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+            } else if($('html').height() > 2049 && $('html').height() < 2200) {
+                var liveTrade = 3.1;
+                $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+            } else if($('html').height() > 1533 && $('html').height() < 2050) {
+                var liveTrade = 2.3;
+                $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+            } else if($('html').height() > 1319 && $('html').height() < 1534) {
+                var liveTrade = 2.1;
+                $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+            } else if($('html').height() > 1100 && $('html').height() < 1320) {
+                var liveTrade = 1.63;
+                $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+            } else if($('html').height() > 1042 && $('html').height() < 1099) {
+                var liveTrade = 1.5;
+                $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+            } else if($('html').height() > 1023 && $('html').height() < 1043) {
+                var liveTrade = 1.4;
+                $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+            } else if($('html').height() > 951 && $('html').height() < 1024) {
+                var liveTrade = 1.31;
+                $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+            } else if($('html').height() > 875 && $('html').height() < 950) {
+                var liveTrade = 1.29;
+                $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+            } else if($('html').height() > 772 && $('html').height() < 876) {
+                var liveTrade = 1.14;
+                $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+            } else{
+                var liveTrade = 1;
+                $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+            }
+        }
+    }
 
   openContentFullscreen = () => {
       /* let elem = document.querySelector('.content'); */
@@ -83,12 +806,14 @@ class MainPage_Base extends React.Component {
       if (elem.requestFullscreen) {
           document.documentElement.requestFullscreen();
       } else if (elem.mozRequestFullScreen) { // Firefox
-            elem.mozRequestFullScreen();
+          document.documentElement.mozRequestFullScreen();
       } else if (elem.webkitRequestFullscreen) { //Chrome, Safari & Opera
-            elem.webkitRequestFullscreen();
+          document.documentElement.webkitRequestFullscreen();
       } else if (elem.msRequestFullscreen) { //IE/Edge
-            elem.msRequestFullscreen();
+          document.documentElement.msRequestFullscreen();
       }
+
+      this.resizeResponsive();
 
       this.setState({
           fullscreenmode : true
@@ -114,6 +839,8 @@ class MainPage_Base extends React.Component {
           } else if (document.msExitFullscreen) {
               document.msExitFullscreen();
           }
+
+          this.resizeResponsive();
           this.setState({
               fullscreenmode : false
           })
@@ -122,15 +849,16 @@ class MainPage_Base extends React.Component {
 
           /* Interact with it as a normal DOM element: */
           if (elem.requestFullscreen) {
-              elem.requestFullscreen();
+              document.documentElement.requestFullscreen();
           } else if (elem.mozRequestFullScreen) { // Firefox
-              elem.mozRequestFullScreen();
+              document.documentElement.mozRequestFullScreen();
           } else if (elem.webkitRequestFullscreen) { //Chrome, Safari & Opera
-              elem.webkitRequestFullscreen();
+              document.documentElement.webkitRequestFullscreen();
           } else if (elem.msRequestFullscreen) { //IE/Edge
-              elem.msRequestFullscreen();
+              document.documentElement.msRequestFullscreen();
           }
 
+          this.resizeResponsive();
           this.setState({
               fullscreenmode : true
           })
@@ -178,7 +906,7 @@ class MainPage_Base extends React.Component {
           <LoginPage onLogin={this.doLogin} />
         </div>
         <div style={{display: props.networkState && props.loginState ? "block" : "none"}}>*/
-            <div style={{display: !props.loginState ? "block" : "none"}}>
+            <div id="login-state" style={{display: !props.loginState ? "block" : "none"}}>
                 <LoginUserPage/>
             </div>
         }{
@@ -188,7 +916,7 @@ class MainPage_Base extends React.Component {
                               landingPage:
                                   <div className="text-align-center">
                                       <i className="icon-icon-investment-board fs-icon-bips"></i> <br/>
-                                      <span className="fs-text-bips">INVESTMENT<br/>BOARD</span>
+                                      <span className="fs-text-bips">MY ACCOUNT</span>
                                   </div>,
                               marketstatistikPage:
                                   <div className="text-align-center">
@@ -215,17 +943,17 @@ class MainPage_Base extends React.Component {
                                       <i className="icon-icon-analytic_page fs-icon-bips"></i> <br/>
                                       <span className="fs-text-bips" style={{padding: "0px 7.8px"}}>ANALYTIC</span>
                                   </div>,
-                              chatsupportPage:
-                                  <div className="text-align-center">
-                                      <i className="icon-icon-chat-support fs-icon-bips"></i> <br/>
-                                      <span className="fs-text-bips" style={{padding: "0px 11.1px"}}>CHATS &</span><br/>
-                                      <span className="fs-text-bips">SUPPORT</span>
-                                  </div>,
                               livetradePage:
                                   <div className="text-align-center">
                                       <i className="icon-icon-live-trade fs-icon-bips"></i> <br/>
                                       <span className="fs-text-bips" style={{padding: "0px 21.09px"}}>LIVE</span><br/>
                                       <span className="fs-text-bips">TRADE</span>
+                                  </div>,
+                              chatsupportPage:
+                                  <div className="text-align-center">
+                                      <i className="icon-icon-chat-support fs-icon-bips"></i> <br/>
+                                      <span className="fs-text-bips" style={{padding: "0px 11.1px"}}>CHATS &</span><br/>
+                                      <span className="fs-text-bips">SUPPORT</span>
                                   </div>
                           }
                       }
@@ -234,7 +962,10 @@ class MainPage_Base extends React.Component {
                   <div className="row col-sm-12 px-0 mx-0 card card-667">
                       <SideBar/>
                       <div className="col-sm-contentbar px-0 mx-0 d-border-bottom">
-                          <AppFrame headerComponent={CustomFrameHeader}/>
+                          <div className="card-635">
+                              <AppFrame headerComponent={CustomFrameHeader}/>
+                          </div>
+                          <div className="d-border-top card-32">Ini Running Text Trade</div>
                       </div>
                   </div>
                   <i onClick={this.state.fullscreenmode == false ? this.openContentFullscreen : this.closeContentFullscreen}
