@@ -48,7 +48,7 @@ class LoginPage extends React.Component {
 }
 
 class MainPage_Base extends React.Component {
-  constructor (props) {
+    constructor (props) {
     super(props);
 
     /*
@@ -59,13 +59,245 @@ class MainPage_Base extends React.Component {
       doLogin,
     */
 
-  }
-
-  state = {
-      fullscreenmode:false,
+      //zaky
+    this.state={
+        seconds: 0,
+        indexMarquee:0,
+        indexData:10,
+        timeChange:100,
+        rowData: [
+            { code: "AALI",
+              price: "3,870",
+              change: "50",
+              persen: "0.2",
+              tvol: "156,450"},
+            { code: "ANTM",
+              price: "3,870",
+              change: "-50",
+              persen: "-0.2",
+              tvol: "156,450"},
+            { code: "BBCA",
+              price: "3,870",
+              change: "-50",
+              persen: "-0.2",
+              tvol: "156,450"},
+            { code: "TLKM",
+              price: "3,870",
+              change: "50",
+              persen: "0.2",
+              tvol: "156,450"},
+            { code: "BBRI",
+              price: "3,870",
+              change: "-50",
+              persen: "-0.2",
+              tvol: "156,450"},
+            { code: "ASII",
+              price: "3,870",
+              change: "-50",
+              persen: "-0.2",
+              tvol: "156,450"},
+            { code: "BBMR",
+              price: "3,870",
+              change: "-50",
+              persen: "-0.2",
+              tvol: "156,450"},
+            { code: "WSKT",
+              price: "3,870",
+              change: "50",
+              persen: "0.2",
+              tvol: "156,450"},
+            { code: "AGII",
+              price: "3,870",
+              change: "50",
+              persen: "0.2",
+              tvol: "156,450"},
+            { code: "ADHI",
+              price: "3,870",
+              change: "-50",
+              persen: "-0.2",
+              tvol: "156,450"},
+            { code: "SMGR",
+              price: "3,870",
+              change: "50",
+              persen: "0.2",
+              tvol: "156,450"},
+            { code: "EMTK",
+              price: "3,870",
+              change: "-50",
+              persen: "-0.2",
+              tvol: "156,450"},
+            { code: "MREI",
+              price: "3,870",
+              change: "-50",
+              persen: "-0.2",
+              tvol: "156,450"},
+            { code: "PTSP",
+              price: "3,870",
+              change: "-50",
+              persen: "-0.2",
+              tvol: "156,450"},
+            { code: "TCPI",
+              price: "3,870",
+              change: "-50",
+              persen: "-0.2",
+              tvol: "156,450"},
+            { code: "BRAM",
+              price: "3,870",
+              change: "50",
+              persen: "0.2",
+              tvol: "156,450"},
+            { code: "INDF",
+              price: "3,870",
+              change: "50",
+              persen: "0.2",
+              tvol: "156,450"},
+            { code: "JECC",
+              price: "3,870",
+              change: "50",
+              persen: "0.2",
+              tvol: "156,450"},
+            { code: "RDTX",
+              price: "3,870",
+              change: "-50",
+              persen: "-0.2",
+              tvol: "156,450"},
+            { code: "DUTI",
+              price: "3,870",
+              change: "-50",
+              persen: "-0.2",
+              tvol: "156,450"},
+            { code: "FASW",
+              price: "3,870",
+              change: "-50",
+              persen: "-0.2",
+              tvol: "156,450"},
+            { code: "IBST",
+              price: "3,870",
+              change: "-50",
+              persen: "-0.2",
+              tvol: "156,450"},
+            { code: "SMMA",
+              price: "3,870",
+              change: "-50",
+              persen: "-0.2",
+              tvol: "156,450"},
+            { code: "TKIM",
+              price: "3,870",
+              change: "50",
+              persen: "0.2",
+              tvol: "156,450"},
+            { code: "JSMR",
+              price: "3,870",
+              change: "-50",
+              persen: "-0.2",
+              tvol: "156,450"},
+            { code: "SONA",
+              price: "3,870",
+              change: "50",
+              persen: "0.2",
+              tvol: "156,450"},
+            { code: "AMFG",
+              price: "3,870",
+              change: "-50",
+              persen: "-0.2",
+              tvol: "156,450"},
+            { code: "SCCO",
+              price: "3,870",
+              change: "-50",
+              persen: "-0.2",
+              tvol: "156,450"},
+            { code: "BYAN",
+              price: "3,870",
+              change: "50",
+              persen: "0.2",
+              tvol: "156,450"},
+            { code: "UNTR",
+              price: "3,870",
+              change: "50",
+              persen: "0.2",
+              tvol: "156,450"},
+            { code: "GGRM",
+              price: "3,870",
+              change: "-50",
+              persen: "-0.2",
+              tvol: "156,450"},
+            { code: "UNVR",
+              price: "3,870",
+              change: "-50",
+              persen: "-0.2",
+              tvol: "156,450"},
+        ],
+        fullscreenmode:false,
+        spanData: [
+            {
+              code: "",
+              price: "",
+              change: "",
+              persen: "",
+              tvol: ""
+            },{
+              code: "",
+              price: "",
+              change: "",
+              persen: "",
+              tvol: ""
+            },{
+              code: "",
+              price: "",
+              change: "",
+              persen: "",
+              tvol: ""
+            },{
+              code: "",
+              price: "",
+              change: "",
+              persen: "",
+              tvol: ""
+            },{
+              code: "",
+              price: "",
+              change: "",
+              persen: "",
+              tvol: ""
+            },{
+              code: "",
+              price: "",
+              change: "",
+              persen: "",
+              tvol: ""
+            },{
+              code: "",
+              price: "",
+              change: "",
+              persen: "",
+              tvol: ""
+            },{
+              code: "",
+              price: "",
+              change: "",
+              persen: "",
+              tvol: ""
+            },{
+              code: "",
+              price: "",
+              change: "",
+              persen: "",
+              tvol: ""
+            },{
+              code: "",
+              price: "",
+              change: "",
+              persen: "",
+              tvol: ""
+            },
+        ],
+    };
+    //zaky
   }
 
   componentDidMount(){
+      this.interval = setInterval(() => this.tick(), 1000);
+
       var setElementHeight = function () {
           /*alert($('html').height());*/
           var height667 = $('html').height()-$('.header-normal-menu').height()-8;
@@ -142,7 +374,7 @@ class MainPage_Base extends React.Component {
               var sideMargin = '1%';
               $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
           } else{
-              var sideMargin = '16%';
+              var sideMargin = '13%';
               $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
           }
       };
@@ -151,39 +383,63 @@ class MainPage_Base extends React.Component {
           if($('html').height() > 2601)  {
               var liveTrade = 4.4;
               $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+              var pyForm = '4rem';
+              $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
           } else if ($('html').height() > 2201 && $('html').height() < 2600) {
               var liveTrade = 3.5;
               $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+              var pyForm = '4.5rem';
+              $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
           } else if($('html').height() > 2049 && $('html').height() < 2200) {
               var liveTrade = 3.1;
               $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+              var pyForm = '4rem';
+              $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
           } else if($('html').height() > 1533 && $('html').height() < 2050) {
               var liveTrade = 2.3;
               $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+              var pyForm = '3.5rem';
+              $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
           } else if($('html').height() > 1319 && $('html').height() < 1534) {
               var liveTrade = 2.1;
               $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+              var pyForm = '3rem';
+              $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
           } else if($('html').height() > 1100 && $('html').height() < 1320) {
               var liveTrade = 1.63;
               $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+              var pyForm = '2.4rem';
+              $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
           } else if($('html').height() > 1042 && $('html').height() < 1099) {
               var liveTrade = 1.5;
               $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+              var pyForm = '1.9rem';
+              $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
           } else if($('html').height() > 1023 && $('html').height() < 1043) {
               var liveTrade = 1.4;
               $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+              var pyForm = '1.75rem';
+              $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
           } else if($('html').height() > 951 && $('html').height() < 1024) {
               var liveTrade = 1.31;
               $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+              var pyForm = '1.4rem';
+              $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
           } else if($('html').height() > 875 && $('html').height() < 950) {
               var liveTrade = 1.29;
               $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+              var pyForm = '1.15rem';
+              $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
           } else if($('html').height() > 772 && $('html').height() < 876) {
               var liveTrade = 1.14;
               $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+              var pyForm = '.5rem';
+              $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
           } else{
               var liveTrade = 1;
               $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+              var pyForm = '0px';
+              $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
           }
       };
 
@@ -751,7 +1007,7 @@ class MainPage_Base extends React.Component {
                 var sideMargin = '1%';
                 $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
             } else{
-                var sideMargin = '16%';
+                var sideMargin = '13%';
                 $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
             }
 
@@ -759,39 +1015,63 @@ class MainPage_Base extends React.Component {
             if($('html').height() > 2601)  {
                 var liveTrade = 4.4;
                 $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+                var pyForm = '4rem';
+                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
             } else if ($('html').height() > 2201 && $('html').height() < 2600) {
                 var liveTrade = 3.5;
                 $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+                var pyForm = '4.5rem';
+                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
             } else if($('html').height() > 2049 && $('html').height() < 2200) {
                 var liveTrade = 3.1;
                 $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+                var pyForm = '4rem';
+                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
             } else if($('html').height() > 1533 && $('html').height() < 2050) {
                 var liveTrade = 2.3;
                 $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+                var pyForm = '3.5rem';
+                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
             } else if($('html').height() > 1319 && $('html').height() < 1534) {
                 var liveTrade = 2.1;
                 $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+                var pyForm = '3rem';
+                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
             } else if($('html').height() > 1100 && $('html').height() < 1320) {
                 var liveTrade = 1.63;
                 $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+                var pyForm = '2.4rem';
+                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
             } else if($('html').height() > 1042 && $('html').height() < 1099) {
                 var liveTrade = 1.5;
                 $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+                var pyForm = '1.9rem';
+                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
             } else if($('html').height() > 1023 && $('html').height() < 1043) {
                 var liveTrade = 1.4;
                 $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+                var pyForm = '1.75rem';
+                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
             } else if($('html').height() > 951 && $('html').height() < 1024) {
                 var liveTrade = 1.31;
                 $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+                var pyForm = '1.4rem';
+                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
             } else if($('html').height() > 875 && $('html').height() < 950) {
                 var liveTrade = 1.29;
                 $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+                var pyForm = '1.15rem';
+                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
             } else if($('html').height() > 772 && $('html').height() < 876) {
                 var liveTrade = 1.14;
                 $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+                var pyForm = '.5rem';
+                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
             } else{
                 var liveTrade = 1;
                 $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+                var pyForm = '0px';
+                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
             }
         }
     }
@@ -865,8 +1145,52 @@ class MainPage_Base extends React.Component {
       }
 
   }
+    //zaky
+    tick() {
+        this.setState(prevState => ({
+            seconds: prevState.seconds + 1
+        }));
 
-  render () {
+        if(this.state.seconds === 199){
+            this.setState({seconds: 100});
+            this.setState({timeChange: 110});
+        }
+
+        //inisalisasi
+        if(this.state.seconds === 1){
+            let s = this.state.spanData.slice();
+            s[0] = this.state.rowData[0];
+            s[1] = this.state.rowData[1];
+            s[2] = this.state.rowData[2];
+            s[3] = this.state.rowData[3];
+            s[4] = this.state.rowData[4];
+            s[5] = this.state.rowData[5];
+            s[6] = this.state.rowData[6];
+            s[7] = this.state.rowData[7];
+            s[8] = this.state.rowData[8];
+            s[9] = this.state.rowData[9];
+            this.setState({
+                spanData: s,
+            })
+        }
+        //merubah data
+        if(this.state.seconds === this.state.timeChange){
+            this.setState({indexData: (this.state.indexData + 1) % this.state.rowData.length });
+            let s = this.state.spanData.slice();
+            s[this.state.indexMarquee] = this.state.rowData[this.state.indexData];
+            this.setState({spanData: s,})
+            this.setState({indexMarquee: (this.state.indexMarquee + 1) % 10});
+            this.setState({timeChange: (this.state.timeChange + 10)});
+        }
+
+
+    }
+    //zaky
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+
+    render () {
       document.body.style.setProperty('--warna-dasar', this.props.thememode === true  ? "#010101" : "#FCFCFC");
       document.body.style.setProperty('--warna-header-card', this.props.thememode === true  ? "#181818" : "#E7E8E8");
       document.body.style.setProperty('--warna-text-basic', this.props.thememode === true  ? "#FFFFFF" : "#878787");
@@ -964,8 +1288,149 @@ class MainPage_Base extends React.Component {
                       <div className="col-sm-contentbar px-0 mx-0 d-border-bottom">
                           <div className="card-635">
                               <AppFrame headerComponent={CustomFrameHeader}/>
+                          </div>{/*zaky*/}
+                          <div className="d-border-top card-32 runningText">
+                              <p className="marquee">
+                                  <span>
+                                      <kbd>{this.state.spanData[0].code}</kbd>&nbsp;
+                                      <i
+                                          className={(this.state.spanData[0].change.includes("-"))
+                                              ?"icofont icofont-caret-down text-danger":
+                                              "icofont icofont-caret-up text-success"}>
+                                      </i>
+                                      <text
+                                          className={(this.state.spanData[0].change.includes("-"))?"text-danger":"text-success"}>
+                                          {this.state.spanData[0].change}&nbsp;{this.state.spanData[0].persen}%
+                                      </text>
+                                  </span>
+                              </p>
+                              <p className="marquee marquee2">
+                                  <span>
+                                      <kbd>{this.state.spanData[1].code}</kbd>&nbsp;
+                                      <i
+                                          className={(this.state.spanData[1].change.includes("-"))
+                                              ?"icofont icofont-caret-down text-danger":
+                                              "icofont icofont-caret-up text-success"}>
+                                      </i>
+                                      <text
+                                          className={(this.state.spanData[1].change.includes("-"))?"text-danger":"text-success"}>
+                                          {this.state.spanData[1].change}&nbsp;{this.state.spanData[1].persen}%
+                                      </text>
+                                  </span>
+                              </p>
+                              <p className="marquee marquee3">
+                                  <span>
+                                      <kbd>{this.state.spanData[2].code}</kbd>&nbsp;
+                                      <i
+                                          className={(this.state.spanData[2].change.includes("-"))
+                                              ?"icofont icofont-caret-down text-danger":
+                                              "icofont icofont-caret-up text-success"}>
+                                      </i>
+                                      <text
+                                          className={(this.state.spanData[2].change.includes("-"))?"text-danger":"text-success"}>
+                                          {this.state.spanData[2].change}&nbsp;{this.state.spanData[2].persen}%
+                                      </text>
+                                  </span>
+                              </p>
+                              <p className="marquee marquee4">
+                                  <span>
+                                      <kbd>{this.state.spanData[3].code}</kbd>&nbsp;
+                                      <i
+                                          className={(this.state.spanData[3].change.includes("-"))
+                                              ?"icofont icofont-caret-down text-danger":
+                                              "icofont icofont-caret-up text-success"}>
+                                      </i>
+                                      <text
+                                          className={(this.state.spanData[3].change.includes("-"))?"text-danger":"text-success"}>
+                                          {this.state.spanData[3].change}&nbsp;{this.state.spanData[3].persen}%
+                                      </text>
+                                  </span>
+                              </p>
+                              <p className="marquee marquee5">
+                                  <span>
+                                      <kbd>{this.state.spanData[4].code}</kbd>&nbsp;
+                                      <i
+                                          className={(this.state.spanData[4].change.includes("-"))
+                                              ?"icofont icofont-caret-down text-danger":
+                                              "icofont icofont-caret-up text-success"}>
+                                      </i>
+                                      <text
+                                          className={(this.state.spanData[4].change.includes("-"))?"text-danger":"text-success"}>
+                                          {this.state.spanData[4].change}&nbsp;{this.state.spanData[4].persen}%
+                                      </text>
+                                  </span>
+                              </p>
+                              <p className="marquee marquee6">
+                                  <span>
+                                      <kbd>{this.state.spanData[5].code}</kbd>&nbsp;
+                                      <i
+                                          className={(this.state.spanData[5].change.includes("-"))
+                                              ?"icofont icofont-caret-down text-danger":
+                                              "icofont icofont-caret-up text-success"}>
+                                      </i>
+                                      <text
+                                          className={(this.state.spanData[5].change.includes("-"))?"text-danger":"text-success"}>
+                                          {this.state.spanData[5].change}&nbsp;{this.state.spanData[5].persen}%
+                                      </text>
+                                  </span>
+                              </p>
+                              <p className="marquee marquee7">
+                                  <span>
+                                      <kbd>{this.state.spanData[6].code}</kbd>&nbsp;
+                                      <i
+                                          className={(this.state.spanData[6].change.includes("-"))
+                                              ?"icofont icofont-caret-down text-danger":
+                                              "icofont icofont-caret-up text-success"}>
+                                      </i>
+                                      <text
+                                          className={(this.state.spanData[6].change.includes("-"))?"text-danger":"text-success"}>
+                                          {this.state.spanData[6].change}&nbsp;{this.state.spanData[6].persen}%
+                                      </text>
+                                  </span>
+                              </p>
+                              <p className="marquee marquee8">
+                                  <span>
+                                      <kbd>{this.state.spanData[7].code}</kbd>&nbsp;
+                                      <i
+                                          className={(this.state.spanData[7].change.includes("-"))
+                                              ?"icofont icofont-caret-down text-danger":
+                                              "icofont icofont-caret-up text-success"}>
+                                      </i>
+                                      <text
+                                          className={(this.state.spanData[7].change.includes("-"))?"text-danger":"text-success"}>
+                                          {this.state.spanData[7].change}&nbsp;{this.state.spanData[7].persen}%
+                                      </text>
+                                  </span>
+                              </p>
+                              <p className="marquee marquee9">
+                                  <span>
+                                      <kbd>{this.state.spanData[8].code}</kbd>&nbsp;
+                                      <i
+                                          className={(this.state.spanData[8].change.includes("-"))
+                                              ?"icofont icofont-caret-down text-danger":
+                                              "icofont icofont-caret-up text-success"}>
+                                      </i>
+                                      <text
+                                          className={(this.state.spanData[8].change.includes("-"))?"text-danger":"text-success"}>
+                                          {this.state.spanData[8].change}&nbsp;{this.state.spanData[8].persen}%
+                                      </text>
+                                  </span>
+                              </p>
+                              <p className="marquee marquee10">
+                                  <span>
+                                      <kbd>{this.state.spanData[9].code}</kbd>&nbsp;
+                                      <i
+                                          className={(this.state.spanData[9].change.includes("-"))
+                                              ?"icofont icofont-caret-down text-danger":
+                                              "icofont icofont-caret-up text-success"}>
+                                      </i>
+                                      <text
+                                          className={(this.state.spanData[9].change.includes("-"))?"text-danger":"text-success"}>
+                                          {this.state.spanData[9].change}&nbsp;{this.state.spanData[9].persen}%
+                                      </text>
+                                  </span>
+                              </p>
                           </div>
-                          <div className="d-border-top card-32">Ini Running Text Trade</div>
                       </div>
                   </div>
                   <i onClick={this.state.fullscreenmode == false ? this.openContentFullscreen : this.closeContentFullscreen}
