@@ -25,7 +25,7 @@ class SideBar extends React.Component{
                     <div className="flex-grow-1">
                         <div className="flex-lg-column mb-1 cssmenu">
                             <div className="align-self-center text-center d-border-bottom col-sm-12 paddingY-2 px-0 mx-0 click-pointer">
-                                <i className="fa-2x icon-icon-star-list"></i>
+                                <i className="fa-2x icon-icon-stock-list"></i>
                             </div>
                         </div>
                         <div className="nav flex-lg-column">
