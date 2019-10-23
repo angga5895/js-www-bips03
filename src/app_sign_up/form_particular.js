@@ -49,7 +49,7 @@ class FormParticular extends React.PureComponent{
         });
     }
     render(){
-        
+
         return(
             <div className="f-12">
                 <AppFrameAction ref="frameAction" />
@@ -104,46 +104,31 @@ class FormParticular extends React.PureComponent{
                 </div>
 
                 <div className="form-group row mb-0">
-                    <div class="col-sm-3 mx-0 mb-2 ">
-                        <div class="ui small input col-sm-12 f-12 text-center align-self-center text-white">
-                            {/* Does any of your family or relative works for Bahana group ? */}
-                            {/* <input type="radio" name="IDType" checked/> KTP / ID Card */}
-                            	
-                        <div class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-primary round-radio">
-                                <input type="radio" autocomplete="off" name="IDType"/>
-                                <span class="glyphicon glyphicon-ok"></span>
+                    <div class="col-sm-4 mx-0 mb-2 ">
+                        <div class="ui small input col-sm-12 f-12 text-center align-self-center">
+                            <input class="magic-radio" type="radio" name="IDType" id="IDType1" value="option"/>
+                            <label for="IDType1" className="text-white f-12-center">
+                                KTP / ID Card
                             </label>
-                        </div>
-
                         </div>
                     </div>
                     <div class="col-sm-4 mx-0 mb-2 ">
-                        <div class="ui small input col-sm-12 f-12 text-center align-self-center text-white pl-1">
-                            {/* Does any of your family or relative works for Bahana group ? */}
-                            {/* <input type="radio" name="IDType"/> Passport/ KITAS / KITAP */}
-                            <div class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-primary round-radio">
-                                <input type="radio" autocomplete="off" name="IDType"/>
-                                <span class="glyphicon glyphicon-ok"></span>
+                        <div class="ui small input col-sm-12 f-12 text-center align-self-center">
+                            <input class="magic-radio" type="radio" name="IDType" id="IDType2" value="option" checked/>
+                            <label for="IDType2" className="text-white f-12-center">
+                                Passport/ KITAS / KITAP
                             </label>
-                        </div>
                         </div>
                     </div>
-                    <div class="col-sm-3 mx-0 mb-2 ">
-                        <div class="ui small input col-sm-12 f-12 text-center align-self-center text-white pl-1">
-                            {/* Does any of your family or relative works for Bahana group ? */}
-                            {/* <input type="radio" name="IDType"/> Student ID */}
-                            <div class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-primary round-radio">
-                                <input type="radio" autocomplete="off" name="IDType"/>
-                                <span class="glyphicon glyphicon-ok"></span>
+                    <div class="col-sm-4 mx-0 mb-2 ">
+                        <div class="ui small input col-sm-12 f-12 text-center align-self-center">
+                            <input class="magic-radio" type="radio" name="IDType" id="IDType3" value="option"/>
+                            <label for="IDType3" className="text-white f-12-center">
+                                Student ID
                             </label>
-                            Student ID
+                        </div>
+                    </div>
 
-                        </div>
-                        </div>
-                    </div>
                 </div>
 
 
@@ -187,7 +172,7 @@ class FormParticular extends React.PureComponent{
                     <div class="col-sm-3 mx-0 mb-2 ">
                         <div class="ui small input col-sm-12 f-12 text-center align-self-center">
                             {/* <input type="text" /> */}
-                            <Dropdown placeholder='Choose' search selection options={stateOptions} className="col-sm-12 f-12 black-dropdown"/>                            
+                            <Dropdown placeholder='Choose' search selection options={stateOptions} className="col-sm-12 f-12 black-dropdown"/>
                         </div>
                     </div>
                 </div>
@@ -203,8 +188,8 @@ class FormParticular extends React.PureComponent{
                 <div className="form-group row mb-0">
                     <div class="col-sm-3 mx-0 mb-2 ">
                         <div class="ui small input col-sm-12 f-12 text-center align-self-center">
-                            <Dropdown placeholder='Choose' search selection options={stateOptionsEdc} className="col-sm-12 f-12 black-dropdown"/>                            
-                            
+                            <Dropdown placeholder='Choose' search selection options={stateOptionsEdc} className="col-sm-12 f-12 black-dropdown"/>
+
                         </div>
                     </div>
                     <div class="col-sm-4 mx-0 mb-2 ">
@@ -213,7 +198,7 @@ class FormParticular extends React.PureComponent{
                         </div>
                     </div>
                 </div>
-                
+
                 <div className="form-group row mb-0">
                     <div class="col-sm-6 mx-0 mb-2 ">
                         <div class="ui small input col-sm-12 f-12 text-center align-self-center text-white">
@@ -235,8 +220,8 @@ class FormParticular extends React.PureComponent{
                     </div>
                     <div class="col-sm-3 mx-0 mb-2 ">
                         <div class="ui small input col-sm-12 f-12 text-center align-self-center">
-                            <Dropdown placeholder='Choose' search selection options={stateOptionsNPWP} className="col-sm-12 f-12 black-dropdown"/>                            
-                            
+                            <Dropdown placeholder='Choose' search selection options={stateOptionsNPWP} className="col-sm-12 f-12 black-dropdown"/>
+
                         </div>
                     </div>
                 </div>
@@ -257,8 +242,8 @@ class FormParticular extends React.PureComponent{
                 <div className="form-group row mb-0">
                     <div class="col-sm-3 mx-0 mb-2 ">
                         <div class="ui small input col-sm-12 f-12 text-center align-self-center">
-                            <Dropdown placeholder='Choose' search selection options={stateOptionsMrt} className="col-sm-12 f-12 black-dropdown"/>                            
-                            
+                            <Dropdown placeholder='Choose' search selection options={stateOptionsMrt} className="col-sm-12 f-12 black-dropdown"/>
+
                         </div>
                     </div>
                     <div class="col-sm-4 mx-0 mb-2 ">

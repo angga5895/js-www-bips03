@@ -49,10 +49,10 @@ class FormAdditional extends React.PureComponent{
         });
     }
     render(){
-        
+
         return(
             <div className="f-12">
-                <AppFrameAction ref="frameAction" />      
+                <AppFrameAction ref="frameAction" />
                 <div class="col-sm-3">Family contact name/related</div>
                 <div class="col-sm-8 mx-0 mb-3 ">
                     <div class="ui small input col-sm-12 px-0 f-12 text-center align-self-center black">
@@ -104,7 +104,7 @@ class FormAdditional extends React.PureComponent{
                 <div className="form-group row mb-0">
                     <div class="col-sm-8 mx-0 mb-2 ">
                         <div class="ui small input col-sm-12 f-12 text-center align-self-center text-white">
-                            <input type="text" className="black"/>   
+                            <input type="text" className="black"/>
                         </div>
                     </div>
                 </div>
@@ -152,7 +152,7 @@ class FormAdditional extends React.PureComponent{
                         </div>
                     </div>
                 </div>
-                
+
                 <div className="form-group row mb-0">
                     <div class="col-sm-6 mx-0 mb-2 ">
                         <div class="ui small input col-sm-12 f-12 text-center align-self-center text-white">
@@ -177,14 +177,14 @@ class FormAdditional extends React.PureComponent{
                 <div className="form-group row mb-0">
                     <div class="col-sm-3 mx-0 mb-2 ">
                         <div class="ui small input col-sm-12 f-12 text-center align-self-center black">
-                            <Dropdown placeholder='Choose' search selection options={stateOptionsNPWP} className="col-sm-12 f-12 black-dropdown"/>                            
+                            <Dropdown placeholder='Choose' search selection options={stateOptionsNPWP} className="col-sm-12 f-12 black-dropdown"/>
 
                         </div>
                     </div>
                     <div class="col-sm-4 mx-0 mb-2 ">
                         <div class="ui small input col-sm-12 f-12 text-center align-self-center">
                             <input type="text" className="black"/>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -202,7 +202,7 @@ class FormAdditional extends React.PureComponent{
                 <div className="form-group row mb-0">
                     <div class="col-sm-8 mx-0 mb-2 ">
                         <div class="ui small input col-sm-12 f-12 text-center align-self-center text-white">
-                            <input type="text" className="black"/>   
+                            <input type="text" className="black"/>
                         </div>
                     </div>
                 </div>
@@ -218,7 +218,7 @@ class FormAdditional extends React.PureComponent{
                 <div className="form-group row mb-0">
                     <div class="col-sm-4 mx-0 mb-2 ">
                         <div class="ui small input col-sm-12 f-12 text-center align-self-center">
-                            <Dropdown placeholder='Choose' search selection options={stateOptionsMrt} className="col-sm-12 f-12 black-dropdown"/>                            
+                            <Dropdown placeholder='Choose' search selection options={stateOptionsMrt} className="col-sm-12 f-12 black-dropdown"/>
                         </div>
                     </div>
                 </div>
@@ -234,7 +234,7 @@ class FormAdditional extends React.PureComponent{
                 <div className="form-group row mb-0">
                     <div class="col-sm-3 mx-0 mb-2 ">
                         <div class="ui small input col-sm-12 f-12 text-center align-self-center">
-                            <Dropdown placeholder='Choose' search selection options={stateOptionsMrt} className="col-sm-12 f-12 black-dropdown"/>                            
+                            <Dropdown placeholder='Choose' search selection options={stateOptionsMrt} className="col-sm-12 f-12 black-dropdown"/>
                         </div>
                     </div>
                 </div>
@@ -252,15 +252,19 @@ class FormAdditional extends React.PureComponent{
                         </div>
                     </div>
                     <div class="col-sm-2 mx-0 mb-2 ">
-                        <div class="ui small input col-sm-12 f-12 text-center align-self-center text-white">
-                            {/* Does any of your family or relative works for Bahana group ? */}
-                            <input type="checkbox"/> Yes
+                        <div class="ui small input col-sm-12 f-12 text-center align-self-center">
+                            <input class="magic-radio" type="radio" name="family" id="family1" value="option"/>
+                            <label for="family1" className="text-white f-12-center">
+                                Yes
+                            </label>
                         </div>
                     </div>
                     <div class="col-sm-2 mx-0 mb-2 ">
-                        <div class="ui small input col-sm-12 f-12 text-center align-self-center text-white">
-                            {/* Does any of your family or relative works for Bahana group ? */}
-                            <input type="checkbox"/> Yes
+                        <div class="ui small input col-sm-12 f-12 text-center align-self-center">
+                            <input class="magic-radio" type="radio" name="family" id="family2" value="option" checked/>
+                            <label for="family2" className="text-white f-12-center">
+                                No
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -302,7 +306,7 @@ class FormAdditional extends React.PureComponent{
 
 
 
-                
+
                 <div className="form-group row mb-0">
                     <div class="col-sm-8 mx-0 mb-2 ">
                         <div class="ui small input col-sm-12 f-12 align-self-center text-white">
@@ -310,15 +314,19 @@ class FormAdditional extends React.PureComponent{
                         </div>
                     </div>
                     <div class="col-sm-2 mx-0 mb-2 ">
-                        <div class="ui small input col-sm-12 f-12 text-center align-self-center text-white">
-                            {/* Does any of your family or relative works for Bahana group ? */}
-                            <input type="checkbox"/> Yes
+                        <div class="ui small input col-sm-12 f-12 text-center align-self-center">
+                            <input class="magic-radio" type="radio" name="familyb" id="familyb1" value="option"/>
+                            <label for="familyb1" className="text-white f-12-center">
+                                Yes
+                            </label>
                         </div>
                     </div>
                     <div class="col-sm-2 mx-0 mb-2 ">
-                        <div class="ui small input col-sm-12 f-12 text-center align-self-center text-white">
-                            {/* Does any of your family or relative works for Bahana group ? */}
-                            <input type="checkbox"/> Yes
+                        <div class="ui small input col-sm-12 f-12 text-center align-self-center">
+                            <input class="magic-radio" type="radio" name="familyb" id="familyb2" value="option" checked/>
+                            <label for="familyb2" className="text-white f-12-center">
+                                No
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -360,24 +368,28 @@ class FormAdditional extends React.PureComponent{
 
 
 
- 
+
                 <div className="form-group row mb-0">
                     <div class="col-sm-8 mx-0 mb-2 ">
                         <div class="ui small input col-sm-12 f-12 align-self-center text-white">
-                        Does any of your family or relative works as Directors, or having controls of listed limited liabilities company
-                        <br/>(minimum 5% of ownership)
+                            Does any of your family or relative works as Directors, or having controls of listed limited liabilities company
+                            <br/>(minimum 5% of ownership)
                         </div>
                     </div>
                     <div class="col-sm-2 mx-0 mb-2 ">
-                        <div class="ui small input col-sm-12 f-12 text-center align-self-center text-white">
-                            {/* Does any of your family or relative works for Bahana group ? */}
-                            <input type="checkbox"/> Yes
+                        <div class="ui small input col-sm-12 f-12 text-center align-self-center">
+                            <input class="magic-radio" type="radio" name="familyc" id="familyc1" value="option"/>
+                            <label for="familyc1" className="text-white f-12-center">
+                                Yes
+                            </label>
                         </div>
                     </div>
                     <div class="col-sm-2 mx-0 mb-2 ">
-                        <div class="ui small input col-sm-12 f-12 text-center align-self-center text-white">
-                            {/* Does any of your family or relative works for Bahana group ? */}
-                            <input type="checkbox"/> Yes
+                        <div class="ui small input col-sm-12 f-12 text-center align-self-center">
+                            <input class="magic-radio" type="radio" name="familyc" id="familyc2" value="option" checked/>
+                            <label for="familyc2" className="text-white f-12-center">
+                                No
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -419,23 +431,27 @@ class FormAdditional extends React.PureComponent{
 
 
 
-                
+
                 <div className="form-group row mb-0">
                     <div class="col-sm-8 mx-0 mb-2 ">
                         <div class="ui small input col-sm-12 f-12 align-self-center text-white">
-                        Does any of your family or close relative works as senior executive of  State Own Enterprise, ministry, Senate, Judicative, or other government bodies in Indonesia?
+                            Does any of your family or close relative works as senior executive of  State Own Enterprise, ministry, Senate, Judicative, or other government bodies in Indonesia?
                         </div>
                     </div>
                     <div class="col-sm-2 mx-0 mb-2 ">
-                        <div class="ui small input col-sm-12 f-12 text-center align-self-center text-white">
-                            {/* Does any of your family or relative works for Bahana group ? */}
-                            <input type="checkbox" className="black"/> Yes
+                        <div class="ui small input col-sm-12 f-12 text-center align-self-center">
+                            <input class="magic-radio" type="radio" name="familyd" id="familyd1" value="option"/>
+                            <label for="familyd1" className="text-white f-12-center">
+                                Yes
+                            </label>
                         </div>
                     </div>
                     <div class="col-sm-2 mx-0 mb-2 ">
-                        <div class="ui small input col-sm-12 f-12 text-center align-self-center text-white">
-                            {/* Does any of your family or relative works for Bahana group ? */}
-                            <input type="checkbox" className="black"/> Yes
+                        <div class="ui small input col-sm-12 f-12 text-center align-self-center">
+                            <input class="magic-radio" type="radio" name="familyd" id="familyd2" value="option" checked/>
+                            <label for="familyd2" className="text-white f-12-center">
+                                No
+                            </label>
                         </div>
                     </div>
                 </div>
