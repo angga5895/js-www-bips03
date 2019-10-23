@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // internal framework libraries
-import {Input, Popup} from 'semantic-ui-react';
+import {Input, Popup, Dropdown} from 'semantic-ui-react';
 import { AppFrameAction } from '../appframe.js';
 import {AppFrame, AppFrameProvider, AppModal} from "../appframe";
 import {NetAppProvider, WSConnection, WSConnectionAction} from '../appnetwork';
@@ -809,8 +809,9 @@ class FundTransfer_Base extends React.PureComponent {
                         <div className="col-sm-12 mt-4 bg-black-trading px-0">
                             <div className="cssmenu pb-4 col-sm-12 mx-0 px-0">
                                 <ul>
-                                    <li className={ this.state.activeTab === '1' ? 'd-border-bottom active click-pointer col-sm-6 px-0 mx-0 f-12 text-center' : 'd-border-bottom text-white click-pointer col-sm-6 px-0 mx-0 f-12 text-center' } onClick={() => { this.toggle('1'); }}><a><span className="f-11">&nbsp; FUND TRANSFER</span></a></li>
-                                    <li className={ this.state.activeTab === '2' ? 'd-border-bottom active click-pointer col-sm-6 px-0 mx-0 f-12 text-center' : 'd-border-bottom text-white click-pointer col-sm-6 px-0 mx-0 f-12 text-center' } onClick={() => { this.toggle('2'); }}><a><span className="f-11">&nbsp; F/T LIST</span></a></li>
+                                    <li className={ this.state.activeTab === '1' ? 'd-border-bottom active click-pointer col-sm-4 px-0 mx-0 f-12 text-center' : 'd-border-bottom text-white click-pointer col-sm-4 px-0 mx-0 f-12 text-center' } onClick={() => { this.toggle('1'); }}><a><span className="f-11">&nbsp; FUND TRANSFER</span></a></li>
+                                    <li className={ this.state.activeTab === '2' ? 'd-border-bottom active click-pointer col-sm-4 px-0 mx-0 f-12 text-center' : 'd-border-bottom text-white click-pointer col-sm-4 px-0 mx-0 f-12 text-center' } onClick={() => { this.toggle('2'); }}><a><span className="f-11">&nbsp; F/T LIST</span></a></li>
+                                    <li className={ this.state.activeTab === '3' ? 'd-border-bottom active click-pointer col-sm-4 px-0 mx-0 f-12 text-center' : 'd-border-bottom text-white click-pointer col-sm-4 px-0 mx-0 f-12 text-center' } onClick={() => { this.toggle('3'); }}><a><span className="f-11">&nbsp; CANCEL </span></a></li>
                                 </ul>
                             </div>
                             <div className={this.state.activeTab === '1' ? 'd-block f-12' : 'd-none'}>
@@ -865,7 +866,7 @@ class FundTransfer_Base extends React.PureComponent {
                                                         IDR
                                                     </div>
                                                     <div className="col-md-3">
-                                                        <Input readonly defaultValue='Astra Argo Lestari Tbk.' placeholder='Name' size='small' className="col-sm-12 pl-4 pr-0 text-center align-self-center"/>
+                                                        <Input readonly defaultValue='' placeholder='' size='small' className="col-sm-12 pl-0 pr-0 text-center align-self-center"/>
                                                     </div>
                                                     <div className="col-md-2">
                                                         Withdrawable Amount
@@ -874,7 +875,7 @@ class FundTransfer_Base extends React.PureComponent {
                                                         IDR
                                                     </div>
                                                     <div className="col-md-3">
-                                                        <Input readonly defaultValue='Astra Argo Lestari Tbk.' placeholder='Name' size='small' className="col-sm-12 pl-4 pr-0 text-center align-self-center"/>
+                                                        <Input readonly defaultValue='' placeholder='' size='small' className="col-sm-12 pl-4 pr-0 text-center align-self-center"/>
                                                     </div>
                                                 </div>
                                                 <div className="row p-3">
@@ -885,7 +886,8 @@ class FundTransfer_Base extends React.PureComponent {
 
                                                     </div>
                                                     <div className="col-md-3">
-                                                        <Input defaultValue='Astra Argo Lestari Tbk.' placeholder='Name' size='small' className="col-sm-12 pl-4 pr-0 text-center align-self-center"/>
+                                                        {/* <Input defaultValue='Astra Argo Lestari Tbk.' placeholder='Name' size='small' className="col-sm-12 pl-4 pr-0 text-center align-self-center"/>                                             */}
+                                                        <Dropdown placeholder='Choose' search selection options={stateOptionsLp} className="col-sm-12 f-12 "/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -908,6 +910,16 @@ class FundTransfer_Base extends React.PureComponent {
                                     <div className="d-border-bottom mb-3">
                                         <div className="form-group mb-3 px-0">
                                             <FundAgGrid/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className={this.state.activeTab === '3' ? 'd-block f-12' : 'd-none'}>
+                                <div className="d-border-transparent-grey">
+                                    <div className="d-border-bottom mb-3">
+                                        <div className="form-group mb-3 px-4">
+                                            Belum ada list tampilannya
                                         </div>
                                     </div>
                                 </div>
