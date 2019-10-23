@@ -281,7 +281,7 @@ class TabAppearance_Base extends React.PureComponent {
                 var sideMargin = '1%';
                 $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
             } else{
-                var sideMargin = '16%';
+                var sideMargin = '13%';
                 $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
             }
 
@@ -289,39 +289,63 @@ class TabAppearance_Base extends React.PureComponent {
             if($('html').height() > 2601)  {
                 var liveTrade = 4.4;
                 $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+                var pyForm = '4rem';
+                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
             } else if ($('html').height() > 2201 && $('html').height() < 2600) {
                 var liveTrade = 3.5;
                 $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+                var pyForm = '4.5rem';
+                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
             } else if($('html').height() > 2049 && $('html').height() < 2200) {
                 var liveTrade = 3.1;
                 $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+                var pyForm = '4rem';
+                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
             } else if($('html').height() > 1533 && $('html').height() < 2050) {
                 var liveTrade = 2.3;
                 $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+                var pyForm = '3.5rem';
+                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
             } else if($('html').height() > 1319 && $('html').height() < 1534) {
                 var liveTrade = 2.1;
                 $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+                var pyForm = '3rem';
+                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
             } else if($('html').height() > 1100 && $('html').height() < 1320) {
                 var liveTrade = 1.63;
                 $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+                var pyForm = '2.4rem';
+                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
             } else if($('html').height() > 1042 && $('html').height() < 1099) {
                 var liveTrade = 1.5;
                 $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+                var pyForm = '1.9rem';
+                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
             } else if($('html').height() > 1023 && $('html').height() < 1043) {
                 var liveTrade = 1.4;
                 $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+                var pyForm = '1.75rem';
+                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
             } else if($('html').height() > 951 && $('html').height() < 1024) {
                 var liveTrade = 1.31;
                 $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+                var pyForm = '1.4rem';
+                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
             } else if($('html').height() > 875 && $('html').height() < 950) {
                 var liveTrade = 1.29;
                 $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+                var pyForm = '1.15rem';
+                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
             } else if($('html').height() > 772 && $('html').height() < 876) {
                 var liveTrade = 1.14;
                 $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+                var pyForm = '.5rem';
+                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
             } else{
                 var liveTrade = 1;
                 $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+                var pyForm = '0px';
+                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
             }
         }
     }
@@ -628,8 +652,24 @@ class TabPrivacy extends React.Component {
 
     state = {
         valuePinUsage : "0",
+        ImgProfil:""
     }
+    onChangeAvatar = (e) => {
+        // var uploadFile = document.getElementById("uploadBtnID").value;
+        // document.getElementById("uploadFileID").value = uploadFile;
 
+        let reader = new FileReader();
+        let file = e.target.files[0];
+
+        reader.onloadend = () => {
+            this.setState({
+                file: file,
+                ImgProfil: reader.result
+            });
+        }
+
+        reader.readAsDataURL(file)
+    }
     render() {
         const imgdisplay = {
             display: 'inline-flex',
@@ -649,6 +689,8 @@ class TabPrivacy extends React.Component {
             backgroundColor: '#3c3c3c',
             borderBottom: '2px solid #1A1A1A'
             }
+
+        const avatar = (this.state.ImgProfil)?this.state.ImgProfil:user_avatar;
         return (
             <div>
             <div className="col align-item-center"> 
@@ -703,14 +745,18 @@ class TabPrivacy extends React.Component {
                 <div className="form-group row mb-0">
                     <div class="col-sm-1 mx-0 mb-2 ">
                         <div class="ui small input col-sm-12 f-12 text-center align-self-center">
-                            <div className="col-md-12" style={imgdisplay}>  
-                                <img src={user_avatar} alt="User" className="img-avatar d-border mr-2" />
+                            <div className="col-md-12" style={imgdisplay}>
+                                <img src={avatar} alt="User" className="img-avatar d-border mr-2" />
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-3 mx-0 mb-2 ">
                         <div class="ui small input col-sm-12 f-12 text-center align-self-center ver-center">
-                            <button className="btn btn-md btn-primary">Upload</button>
+                            {/* <button className="btn btn-md btn-primary">Upload</button> */}
+                            <div className="fileUpload btn btn-primary">
+                                <span>Browse</span>
+                                <input id="uploadBtnID" type="file" className="upload" accept="image/*" onChange={this.onChangeAvatar}/>
+                            </div>
                         </div>
                     </div>
                 </div>
