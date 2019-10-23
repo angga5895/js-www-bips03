@@ -2547,8 +2547,8 @@ button.bg-gold:hover {
 }
 
 .py-form {
-    padding-top: var(--py-form)!important;
-    padding-bottom: var(--py-form)!important;
+    padding-top: var(--py-form);
+    padding-bottom: var(--py-form);
 }
 
 .myLiveTrade{
@@ -3362,7 +3362,7 @@ padding-left: 8px !important;
 .table-bordered{
     border: 1px solid var(--warna-gray);
 }
-.btn-file {
+/*.btn-file {
     position: relative;
     overflow: hidden;
 }
@@ -3405,6 +3405,7 @@ padding-left: 8px !important;
 .custom-file-input:active::before {
     background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }
+*/
 
 .label_item {
     opacity: 0.3;
@@ -3417,6 +3418,48 @@ padding-left: 8px !important;
 }
 .ui.modal.fullscreen>.content {
     background: var(--warna-dasar);
+}
+
+.black-textarea{
+    background: var(--warna-dasar);
+    border: 1px solid var(--warna-d-border);
+    color: var( --warna-text-basic);
+}
+
+/* input[type="file"] {
+    display: !important;
+} */
+
+/* input[type="file"] {
+    display: none !important;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background:#0071BC;
+} */
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+textarea {
+    resize: none;
 }
 
 /*zaky nambah untuk tab custom di stockpage*/

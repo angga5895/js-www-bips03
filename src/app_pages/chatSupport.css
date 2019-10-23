@@ -146,3 +146,8 @@
 .divStatusChat{
     padding-left: 20px;
 }
+/*update warna link chatbot*/
+.rsc-cs{
+    color: var(--warna-black-white-semantic) !important;
+    background-color: var(--warna-header-card) !important;
+}
