@@ -10,11 +10,11 @@ import { CommentActions } from 'semantic-ui-react';
 import $ from "jquery";
 
 //Form signup
-import FormParticular     from "./../app_sign_up/form_particular";
+import FormParticular     from "../app_sign_up/form_particular";
 import FormDocument       from "../app_sign_up/form_document";
-import FormAddress        from "./../app_sign_up/form_address";
-import FormSource         from "./../app_sign_up/form_source";
-import FormAdditonal      from "./../app_sign_up/form_additional";
+import FormAddress        from "../app_sign_up/form_address";
+import FormSource         from "../app_sign_up/form_source";
+import FormAdditonal      from "../app_sign_up/form_additional";
 
 class DisclaimerModal extends React.Component {
     closeClick = (e) => {
@@ -117,6 +117,7 @@ class SignUpModal extends React.PureComponent {
         active3:false,
         active4:false,
         active5:false,
+        activeTab:1
     }
 
     buttonClickSignUp = (e) => {
@@ -124,6 +125,12 @@ class SignUpModal extends React.PureComponent {
     }
 
     render() {
+        const activeTab1 =(this.state.activeTab == 1)? "active":"";
+        const activeTab2 =(this.state.activeTab == 2)? "active":"";
+        const activeTab3 =(this.state.activeTab == 3)? "active":"";
+        const activeTab4 =(this.state.activeTab == 4)? "active":"";
+        const activeTab5 =(this.state.activeTab == 5)? "active":"";
+
         const tab1 = this.state.active1 ? "active" : "";
         const tab2 = this.state.active2 ? "active" : "";
         const tab3 = this.state.active3 ? "active" : "";
@@ -137,6 +144,9 @@ class SignUpModal extends React.PureComponent {
         const toggle5 = this.state.active5? "tab" : "";
 
         var props = this.props;
+        const step1 = "step1";
+        const stepLast = "step-last";
+
         return (
             <>
                 <AppFrameAction ref="frameAction" />
@@ -145,11 +155,11 @@ class SignUpModal extends React.PureComponent {
                         <div className="step-tab">
                             <div id="crumbs">
                                 <ul className="nav nav-pills">
-                                    <li className="step1"><a href="#1" className={tab1} data-toggle={toggle1}>Client Particular</a></li>
-                                    <li><a href="#2" className={tab2} data-toggle={toggle2}>Client Address</a></li>
-                                    <li><a href="#3" className={tab3} data-toggle={toggle3}><div className="more">Client Source of Fund</div></a></li>
-                                    <li><a href="#4" className={tab4} data-toggle={toggle4}>Addtional data</a></li>
-                                    <li className="step-last"><a href="#5" className={tab5} data-toggle={toggle5}><div className="more-last">Document Upload</div></a></li>
+                                    <li className={step1+' '+activeTab1} onClick={() => (toggle1=="tab")?this.setState({activeTab:1}):""}><a href="#1" className={tab1} data-toggle={toggle1}>Client Particular</a></li>
+                                    <li className={activeTab2} onClick={() => (toggle2=="tab")?this.setState({activeTab:2}):""}><a href="#2" className={tab2} data-toggle={toggle2}>Client Address</a></li>
+                                    <li className={activeTab3} onClick={() => (toggle3=="tab")?this.setState({activeTab:3}):""}><a href="#3" className={tab3} data-toggle={toggle3}><div className="more">Client Source of Fund</div></a></li>
+                                    <li className={activeTab4} onClick={() => (toggle4=="tab")?this.setState({activeTab:4}):""}><a href="#4" className={tab4} data-toggle={toggle4}>Addtional data</a></li>
+                                    <li className={stepLast+' '+activeTab5} onClick={() => (toggle5=="tab")?this.setState({activeTab:5}):""}><a href="#5" className={tab5} data-toggle={toggle5}><div className="more-last">Document Upload</div></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -161,7 +171,7 @@ class SignUpModal extends React.PureComponent {
                                 </div>
                                 <div className="container next-btn">
                                     <a className="btn btn-primary pull-left" onClick={this.buttonClickSignUp}>Back to login</a>
-                                    <a className="btn btn-primary pull-right" href="#2" data-toggle="tab" onClick={() => this.setState({active2:true})}>Next</a>
+                                    <a className="btn btn-primary pull-right" href="#2" data-toggle="tab" onClick={() => this.setState({active2:true,activeTab:2})}>Next</a>
                                 </div>
                             </div>
                             <div className="tab-pane" id="2">
@@ -170,7 +180,7 @@ class SignUpModal extends React.PureComponent {
                                 </div>
                                 <div className="container next-btn">
                                     <a className="btn btn-primary pull-left" onClick={this.buttonClickSignUp}>Back to login</a>
-                                    <a className="btn btn-primary pull-right" href="#3" data-toggle="tab" onClick={() => this.setState({active3:true})}>Next</a>
+                                    <a className="btn btn-primary pull-right" href="#3" data-toggle="tab" onClick={() => this.setState({active3:true,activeTab:3})}>Next</a>
                                 </div>
                             </div>
 
@@ -180,7 +190,7 @@ class SignUpModal extends React.PureComponent {
                                 </div>
                                 <div className="container next-btn">
                                     <a className="btn btn-primary pull-left" onClick={this.buttonClickSignUp}>Back to login</a>
-                                    <a className="btn btn-primary pull-right" href="#4" data-toggle="tab" onClick={() => this.setState({active4:true})}>Next</a>
+                                    <a className="btn btn-primary pull-right" href="#4" data-toggle="tab" onClick={() => this.setState({active4:true,activeTab:4})}>Next</a>
                                 </div>
                             </div>
 
@@ -190,7 +200,7 @@ class SignUpModal extends React.PureComponent {
                                 </div>
                                 <div className="container next-btn">
                                     <a className="btn btn-primary pull-left" onClick={this.buttonClickSignUp}>Back to login</a>
-                                    <a className="btn btn-primary pull-right" href="#5" data-toggle="tab" onClick={() => this.setState({active5:true})}>Next</a>
+                                    <a className="btn btn-primary pull-right" href="#5" data-toggle="tab" onClick={() => this.setState({active5:true,activeTab:5})}>Next</a>
                                 </div>
                             </div>
 
