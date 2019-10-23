@@ -570,7 +570,7 @@ class BuyPage extends React.Component{
                     <div className="col-sm-6 pr-3 pl-0 mt-0 f-12">
                         <TableInfoTransaction lotshare="buyPage" />
                     </div>
-                    <div className="col-sm-6 mt-0 d-border-active bg-dark-grey pt-4 pb-3 px-3">
+                    <div className="col-sm-6 mt-0 d-border-active bg-dark-grey pt-3 pb-3 px-3">
                         <FormBuy idPrice="stockBuyPrice" idVol="stockBuyVol" idValue="stockBuyValue" columnSm="col-sm-12" />
                     </div>
                 </div>
@@ -590,7 +590,7 @@ class SellPage extends React.Component{
                     <div className="col-sm-6 pr-3 pl-0 mt-0 f-12">
                         <TableInfoTransaction lotshare="sellPage" />
                     </div>
-                    <div className="col-sm-6 mt-0 d-border-active bg-dark-grey pt-4 pb-3 px-3">
+                    <div className="col-sm-6 mt-0 d-border-active bg-dark-grey pt-3 pb-3 px-3">
                         <FormSell idPrice="stockSellPrice" idVol="stockSellVol" idValue="stockSellValue" columnSm="col-sm-12"/>
                     </div>
                 </div>
