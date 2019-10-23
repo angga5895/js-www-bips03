@@ -35,7 +35,7 @@ class FormBuy extends React.PureComponent{
         return(
             <div className="f-12">
                 <AppFrameAction ref="frameAction" />
-                <div className="form-group row">
+                <div className="form-group row mb-2">
                     <div className="col-sm-6 f-18 text-danger">Buy</div>
                     <div className="col-sm-6 text-right"><i className="fa fa-calendar-alt"></i> {tanggal()}</div>
                 </div>
@@ -52,6 +52,9 @@ class FormBuy extends React.PureComponent{
                                 </label>
                             </span>
                             <input type="text" placeholder="Name" defaultValue={"Astra Argo Lestari Tbk."} className="form-control f-12" style={{"border-radius": "0px", }}/>
+                        </div>
+                        <div className="col-sm-12">
+                            <div className="pt-2"><i className="icofont icofont-warning text-warning"></i>&nbsp; Info Acceleration Board/Status Stock Info</div>
                         </div>
                         <div className="col-sm-12">
                             <Checkbox label='Prevent same order' className="f-12 text-white my-3 align-self-center" />
@@ -100,7 +103,7 @@ class FormBuy extends React.PureComponent{
                     </div>
                 </div>
 
-                <div className="form-group row mb-2">
+                <div className="form-group row mb-0">
                     <div className="col-sm-8 ml-0 px-0 row">
                         <div className="col-sm-3 mb-3 py-form">Expire</div>
                         <div className="col-sm-9 mb-3 py-form">
