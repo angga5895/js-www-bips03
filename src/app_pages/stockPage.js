@@ -1,8 +1,5 @@
 import React from 'react';
 import Select from 'react-select';
-/*import {Button, Table, InputGroupText, Input,
-    DropdownToggle, DropdownMenu, DropdownItem, UncontrolledDropdown,
-    CustomInput, InputGroup, InputGroupAddon, FormGroup, Form, TabContent, TabPane } from "reactstrap";*/
 import {AppFrame, AppFrameAction, AppFrameProvider, AppModal} from "../appframe";
 import {Dropdown, Input} from 'semantic-ui-react';
 import {Table as TableBS} from 'react-bootstrap';
@@ -17,18 +14,7 @@ import ModalBuy from "./../app_modals/modal_buy";
 import ModalSell from "./../app_modals/modal_sell";
 import MenuOfContent from "./../menuofcontent";
 import TableInfoTransaction from "./../app_transaction/tableInfoTransaction";
-import {
-    ColumnChooser,
-    DragDropProvider,
-    Grid, SearchPanel,
-    Table, TableBandHeader,
-    TableColumnReordering,
-    TableColumnResizing, TableColumnVisibility, TableHeaderRow, Toolbar
-} from "@devexpress/dx-react-grid-bootstrap4";
-import {IntegratedFiltering, IntegratedSorting, SearchState, SortingState} from "@devexpress/dx-react-grid";
-import {Plugin, Template, TemplatePlaceholder} from "@devexpress/dx-react-core";
-/*import FormAmend from "./app_transaction/form_amend";
-import FormSell from "./app_transaction/form_sell";*/
+
 import FormBuy from "./../app_transaction/form_buy";
 import FormSell from "../app_transaction/form_sell";
 import StockChart from "./stockChart";
@@ -185,21 +171,21 @@ class TableProfil extends React.PureComponent{
                 <TableBS responsive size="sm" className="text-white my-2" borderless>
                     <thead></thead>
                     <tbody>
-                        <tr className="py-3"><td>Corporate Governance</td></tr>
-                        <tr className="py-3">
-                            <td>
-                                PT Astra Agro Lestari Tbk’s ISS Governance Quality
-                                Score as of N/A is N/A. The pillar scores are Audit: N/A; Board: N/A;
-                                Shareholder Rights: N/A; Compensation: N/A.
-                            </td>
-                        </tr>
-                        <tr className="py-3">
-                            <td>
-                                Corporate governance scores courtesy of Institutional Shareholder Services (ISS). 
-                                Scores indicate decile rank relative to index or region. A decile score of 1 indicates
-                                lower governance risk, while a 10 indicates higher governance risk.
-                            </td>
-                        </tr>
+                    <tr className="py-3"><td>Corporate Governance</td></tr>
+                    <tr className="py-3">
+                        <td>
+                            PT Astra Agro Lestari Tbk’s ISS Governance Quality
+                            Score as of N/A is N/A. The pillar scores are Audit: N/A; Board: N/A;
+                            Shareholder Rights: N/A; Compensation: N/A.
+                        </td>
+                    </tr>
+                    <tr className="py-3">
+                        <td>
+                            Corporate governance scores courtesy of Institutional Shareholder Services (ISS).
+                            Scores indicate decile rank relative to index or region. A decile score of 1 indicates
+                            lower governance risk, while a 10 indicates higher governance risk.
+                        </td>
+                    </tr>
                     </tbody>
                 </TableBS>
             </>
@@ -641,7 +627,9 @@ const TableStockWatchlist = ContextConnector(BIPSAppContext,
     })
 )(TableStockWatchlist_Base)
 
-class RegisterAmendModal extends React.Component {
+
+//update zaky 25/10/2019
+class RegisterAmendModal_Base extends React.Component {
     closeClick = (e) => {
         this.refs.frameAction.closeModal(100);
     }
@@ -662,8 +650,36 @@ class RegisterAmendModal extends React.Component {
             });
         }
     }
-
+    selectSelectionTab = theme => ({
+        ...theme,
+        borderRadius: 5,
+        colors: {
+            ...theme.colors,
+            neutral0: this.props.thememode === true ? '#3D3E3F' : '#CDCDCE',
+            neutral20: this.props.thememode === true ? '#333332' : '#E9E9E9',
+            neutral30: this.props.thememode === true ? '#333332' : '#E9E9E9',
+            neutral40: this.props.thememode === true ? '#1A1A1A' : '#1A1A1A',
+            neutral80: this.props.thememode === true ? '#FFFFFF' : '#878787',
+            primary75: this.props.thememode === true ? '#FFFFFF' : '#FFFFFF',
+            primary50: this.props.thememode === true ? '#4D4D4E' : '#4D4D4E',
+            primary25: this.props.thememode === true ? '#202020' : '#ece9ea',
+            primary: '#0071BC',
+        },
+    });
     render() {
+
+        const stockOptions = [
+            { value: 'aali', label: 'AALI' },
+            { value: 'adhi', label: 'ADHI' },
+            { value: 'antm', label: 'ANTM' },
+            { value: 'asii', label: 'ASII' },
+            { value: 'tlkm', label: 'TLKM' },
+            { value: 'wskt', label: 'WSKT' },
+            { value: 'indf', label: 'INDF' },
+            { value: 'bbca', label: 'BBCA' },
+            { value: 'smgr', label: 'SMGR' },
+            { value: 'bbri', label: 'BBRI' }
+        ];
         return (
             <>
                 <AppFrameAction ref="frameAction" />
@@ -692,18 +708,16 @@ class RegisterAmendModal extends React.Component {
                                     <AmendGroupCodeAgGrid />
                                 </div>
                                 <div className="form-group row col-sm-12 px-0 mx-0 my-4 py-3 text-white">
-                                    <div className="col-sm-7">
-                                        <Input defaultValue='BBCA' placeholder='Code' size='small' className="gray pl-0 col-sm-12 align-self-center"/>
-                                    </div>
-                                    <div className="col-sm-1 px-0 mx-0 align-self-center align-middle">
-                                        <i className="fa fa-search click-pointer f-18"></i>
+                                    <div className="form-group col-sm-8 my-1">
+                                        <Select maxMenuHeight={100} options={stockOptions} className="stockPageSelect" theme={this.selectSelectionTab}/>
                                     </div>
                                     <div className="col-sm-1 px-0 mx-0 align-self-center align-middle">
                                         <button className="btn btn-sm bg-gray-tradding border-gray-tradding"><i className="fa fa-plus"></i></button>
                                     </div>
                                 </div>
                             </div>
-                            <div className="form-group row col-sm-12 px-0 mx-0 mt-5 pt-5 text-white">
+                            {/*998*/}
+                            <div className="form-group row col-sm-12 px-0 mx-0 mt-5 pt-5 z-99 text-white">
                                 <div className="col-sm-9 align-self-center align-middle">
                                     <label className="text-muted">Max Group is 10 group with 45 stock list</label>
                                 </div>
@@ -725,12 +739,10 @@ class RegisterAmendModal extends React.Component {
                                 <div className="card card-xs bg-grey">
                                     <AddGroupCodeAgGrid />
                                 </div>
-                                <div className="form-group row col-sm-12 px-0 mx-0 my-4 py-3 text-white">
-                                    <div className="col-sm-7">
-                                        <Input defaultValue='BBCA' placeholder='Code' size='small' className="gray pl-0 col-sm-12 align-self-center"/>
-                                    </div>
-                                    <div className="col-sm-1 px-0 mx-0 align-self-center align-middle">
-                                        <i className="fa fa-search click-pointer f-18"></i>
+                                <div className="form-group row col-sm-12 px-0 mx-0 my-4 py-3 z-99 text-white">
+                                    <div className="form-group col-sm-8 my-1">
+                                        {/*997*/}
+                                        <Select maxMenuHeight={150} options={stockOptions} className="stockPageSelect" theme={this.selectSelectionTab}/>
                                     </div>
                                     <div className="col-sm-1 px-0 mx-0 align-self-center align-middle">
                                         <button className="btn btn-sm bg-gray-tradding border-gray-tradding"><i className="fa fa-plus"></i></button>
@@ -738,7 +750,7 @@ class RegisterAmendModal extends React.Component {
                                 </div>
                             </div>
                             <div className="form-group row col-sm-12 px-0 mx-0 mt-5 pt-5 text-white">
-                                <div className="col-sm-9 align-self-center align-middle">
+                                <div className="col-sm-9 align-self-center align-middle z-99">
                                     <label className="text-muted">Max Group is 10 group with 45 stock list</label>
                                 </div>
                                 <div className="col-sm-3 align-self-center align-middle">
@@ -746,1914 +758,8 @@ class RegisterAmendModal extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        {/*<div className={this.state.activeTab === "1" ? "d-border d-block" : "d-none"}>
-                            <div className="card card-xmini bg-grey">
-                                <div className="card-body scrollable">
-                                    <TableBS responsive size="sm" borderless className="text-white text-center">
-                                        <thead className="t-border-bottom-bold">
-                                        <tr>
-                                            <th>Group Name</th>
-                                            <th>Total Member</th>
-                                            <th>Action</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td className="text-primary">Group A</td>
-                                            <td>5</td>
-                                            <td><a className="text-primary click-pointer">Edit</a> | <a className="text-danger click-pointer">Delete</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td className="text-primary">Group B</td>
-                                            <td>12</td>
-                                            <td><a className="text-primary click-pointer">Edit</a> | <a className="text-danger click-pointer">Delete</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td className="text-primary">Group C</td>
-                                            <td>15</td>
-                                            <td><a className="text-primary click-pointer">Edit</a> | <a className="text-danger click-pointer">Delete</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td className="text-primary">Group D</td>
-                                            <td>26</td>
-                                            <td><a className="text-primary click-pointer">Edit</a> | <a className="text-danger click-pointer">Delete</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td className="text-primary">Group E</td>
-                                            <td>27</td>
-                                            <td><a className="text-primary click-pointer">Edit</a> | <a className="text-danger click-pointer">Delete</a></td>
-                                        </tr>
-                                        </tbody>
-                                    </TableBS>
-                                </div>
-                            </div>
-
-                            <div className="form-group row col-sm-12 px-0 mx-0 my-4 text-white">
-                                <div className="col-sm-5">
-                                    <label className="col-sm-12">Name</label>
-                                </div>
-                                <div className="col-sm-7">
-                                    <Input className="col-sm-12 bg-gray-tradding border-gray-tradding" type="text" value="Group A"/>
-                                </div>
-                            </div>
-
-                            <div className="card card-xs bg-grey">
-                                <div className="card-body scrollable">
-                                    <TableBS responsive size="sm" borderless className="text-white">
-                                        <thead>
-                                        <tr>
-                                            <th>Code</th>
-                                            <th>Price</th>
-                                            <th>Change/%</th>
-                                            <th></th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td className="text-primary no-wrap align-middle align-self-center">
-                                                <div className="form-group row col-sm-12 my-0 align-middle align-self-center">
-                                                    <Input className="bg-gray-tradding border-gray-tradding col-sm-4" size="sm" readonly value="AALI"/>
-                                                    &nbsp;<label className="text-white my-0 align-middle align-self-center f-9"> Astra Argo Lestari Tbk.</label>
-                                                </div>
-                                            </td>
-                                            <td className="no-wrap align-middle align-self-center">12,650</td>
-                                            <td className="no-wrap align-middle align-self-center text-danger"><i className="icofont icofont-caret-down"></i> -175(-1.36%)</td>
-                                            <td className="no-wrap align-middle align-self-center"><button className="btn btn-sm btn-danger">
-                                                <i className="fa fa-minus"></i>
-                                            </button></td>
-                                        </tr>
-                                        <tr>
-                                            <td className="text-primary no-wrap align-middle align-self-center">
-                                                <div className="form-group row col-sm-12 my-0 align-middle align-self-center">
-                                                    <Input className="bg-gray-tradding border-gray-tradding col-sm-4" size="sm" readonly value="TLKM"/>
-                                                    &nbsp;<label className="text-white my-0 align-middle align-self-center f-9"> Telekomunikasi Indonesia Tbk.</label>
-                                                </div>
-                                            </td>
-                                            <td className="no-wrap align-middle align-self-center">15,650</td>
-                                            <td className="no-wrap align-middle align-self-center text-success"><i className="icofont icofont-caret-up"></i> +175(+1.36%)</td>
-                                            <td className="no-wrap align-middle align-self-center"><button className="btn btn-sm btn-danger">
-                                                <i className="fa fa-minus"></i>
-                                            </button></td>
-                                        </tr>
-                                        </tbody>
-                                    </TableBS>
-                                </div>
-                            </div>
-
-                            <div className="form-group row col-sm-12 px-0 mx-0 my-3 text-white">
-                                <div className="col-sm-7">
-                                    <Input className="col-sm-12 bg-gray-tradding border-gray-tradding" value="BBCA"/>
-                                </div>
-                                <div className="col-sm-1 px-0 mx-0 align-self-center align-middle">
-                                    <i className="fa fa-search click-pointer f-18"></i>
-                                </div>
-                                <div className="col-sm-1 px-0 mx-0 align-self-center align-middle">
-                                    <button className="btn btn-sm bg-gray-tradding border-gray-tradding"><i className="fa fa-plus"></i></button>
-                                </div>
-                            </div>
-
-                            <div className="form-group row col-sm-12 px-0 mx-0 mt-5 pt-5 text-white">
-                                <div className="col-sm-9 align-self-center align-middle">
-                                    <label className="text-muted">Max Group is 10 group with 45 stock list</label>
-                                </div>
-                                <div className="col-sm-3 align-self-center align-middle">
-                                    <button className="btn btn-sm bg-gray-tradding border-gray-tradding col-sm-12">Save</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={this.state.activeTab === "2" ? "d-border d-block" : "d-none"}>
-                            <div className="form-group row col-sm-12 px-0 mx-0 my-4 text-white">
-                                <div className="col-sm-5">
-                                    <label className="col-sm-12">Group Name</label>
-                                </div>
-                                <div className="col-sm-7">
-                                    <Input className="col-sm-12 bg-gray-tradding border-gray-tradding" type="text" value="Group A"/>
-                                </div>
-                            </div>
-
-                            <div className="card card-xs bg-grey">
-                                <div className="card-body scrollable">
-                                    <Table responsive size="sm" borderless className="text-white">
-                                        <thead>
-                                        <tr>
-                                            <th>Code</th>
-                                            <th>Price</th>
-                                            <th>Change/%</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td className="text-primary no-wrap align-middle align-self-center">
-                                                <div className="form-group row col-sm-12 my-0 align-middle align-self-center">
-                                                    <Input className="bg-gray-tradding border-gray-tradding col-sm-4" size="sm" readonly value="AALI"/>
-                                                    &nbsp;<label className="text-white my-0 align-middle align-self-center f-9"> Astra Argo Lestari Tbk.</label>
-                                                </div>
-                                            </td>
-                                            <td className="no-wrap align-middle align-self-center">12,650</td>
-                                            <td className="no-wrap align-middle align-self-center text-danger"><i className="icofont icofont-caret-down"></i> -175(-1.36%)</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="text-primary no-wrap align-middle align-self-center">
-                                                <div className="form-group row col-sm-12 my-0 align-middle align-self-center">
-                                                    <Input className="bg-gray-tradding border-gray-tradding col-sm-4" size="sm" readonly value="TLKM"/>
-                                                    &nbsp;<label className="text-white my-0 align-middle align-self-center f-9"> Telekomunikasi Indonesia Tbk.</label>
-                                                </div>
-                                            </td>
-                                            <td className="no-wrap align-middle align-self-center">15,650</td>
-                                            <td className="no-wrap align-middle align-self-center text-success"><i className="icofont icofont-caret-up"></i> +175(+1.36%)</td>
-                                        </tr>
-                                        </tbody>
-                                    </Table>
-                                </div>
-                            </div>
-
-                            <div className="form-group row col-sm-12 px-0 mx-0 my-3 text-white">
-                                <div className="col-sm-7">
-                                    <Input className="col-sm-12 bg-gray-tradding border-gray-tradding" value="BBCA"/>
-                                </div>
-                                <div className="col-sm-1 px-0 mx-0 align-self-center align-middle">
-                                    <i className="fa fa-search click-pointer f-18"></i>
-                                </div>
-                                <div className="col-sm-1 px-0 mx-0 align-self-center align-middle">
-                                    <button className="btn btn-sm bg-gray-tradding border-gray-tradding"><i className="fa fa-plus"></i></button>
-                                </div>
-                            </div>
-
-                            <br/><br/><br/><br/><br/><br/>
-                            <div className="form-group row col-sm-12 px-0 mx-0 mt-5 pt-5 text-white">
-                                <div className="col-sm-9 align-self-center align-middle">
-                                    <label className="text-muted">Max Group is 10 group with 45 stock list</label>
-                                </div>
-                                <div className="col-sm-3 align-self-center align-middle">
-                                    <button className="btn btn-sm bg-gray-tradding border-gray-tradding col-sm-12">Save</button>
-                                </div>
-                            </div>
-                        </div>*/}
                     </div>
                 </div>
-            </>
-        );
-    }
-}
-
-class StockWatchlistGrid extends React.PureComponent {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            columns: [
-                { name: "code", title: "Code"},
-                { name: "price", title: "Price"},
-                { name: "change", title: "Change" },
-                { name: "persen", title: "(%)" },
-                { name: "tvol", title: "T. Vol" },
-            ],
-            rows: [
-                { code: "AALI",
-                    price: "3,870",
-                    change: "50",
-                    persen: "0.2",
-                    tvol: "156,450"},
-                { code: "ANTM",
-                    price: "3,870",
-                    change: "-50",
-                    persen: "-0.2",
-                    tvol: "156,450"},
-                { code: "BBCA",
-                    price: "3,870",
-                    change: "-50",
-                    persen: "-0.2",
-                    tvol: "156,450"},
-                { code: "TLKM",
-                    price: "3,870",
-                    change: "50",
-                    persen: "0.2",
-                    tvol: "156,450"},
-                { code: "BBRI",
-                    price: "3,870",
-                    change: "-50",
-                    persen: "-0.2",
-                    tvol: "156,450"},
-                { code: "ASII",
-                    price: "3,870",
-                    change: "-50",
-                    persen: "-0.2",
-                    tvol: "156,450"},
-                { code: "BBMR",
-                    price: "3,870",
-                    change: "-50",
-                    persen: "-0.2",
-                    tvol: "156,450"},
-                { code: "WSKT",
-                    price: "3,870",
-                    change: "50",
-                    persen: "0.2",
-                    tvol: "156,450"},
-                { code: "AGII",
-                    price: "3,870",
-                    change: "50",
-                    persen: "0.2",
-                    tvol: "156,450"},
-                { code: "ADHI",
-                    price: "3,870",
-                    change: "-50",
-                    persen: "-0.2",
-                    tvol: "156,450"},
-                { code: "SMGR",
-                    price: "3,870",
-                    change: "50",
-                    persen: "0.2",
-                    tvol: "156,450"},
-                { code: "EMTK",
-                    price: "3,870",
-                    change: "-50",
-                    persen: "-0.2",
-                    tvol: "156,450"},
-                { code: "MREI",
-                    price: "3,870",
-                    change: "-50",
-                    persen: "-0.2",
-                    tvol: "156,450"},
-                { code: "PTSP",
-                    price: "3,870",
-                    change: "-50",
-                    persen: "-0.2",
-                    tvol: "156,450"},
-                { code: "TCPI",
-                    price: "3,870",
-                    change: "-50",
-                    persen: "-0.2",
-                    tvol: "156,450"},
-                { code: "BRAM",
-                    price: "3,870",
-                    change: "50",
-                    persen: "0.2",
-                    tvol: "156,450"},
-                { code: "INDF",
-                    price: "3,870",
-                    change: "50",
-                    persen: "0.2",
-                    tvol: "156,450"},
-                { code: "JECC",
-                    price: "3,870",
-                    change: "50",
-                    persen: "0.2",
-                    tvol: "156,450"},
-                { code: "RDTX",
-                    price: "3,870",
-                    change: "-50",
-                    persen: "-0.2",
-                    tvol: "156,450"},
-                { code: "DUTI",
-                    price: "3,870",
-                    change: "-50",
-                    persen: "-0.2",
-                    tvol: "156,450"},
-                { code: "FASW",
-                    price: "3,870",
-                    change: "-50",
-                    persen: "-0.2",
-                    tvol: "156,450"},
-                { code: "IBST",
-                    price: "3,870",
-                    change: "-50",
-                    persen: "-0.2",
-                    tvol: "156,450"},
-                { code: "SMMA",
-                    price: "3,870",
-                    change: "-50",
-                    persen: "-0.2",
-                    tvol: "156,450"},
-                { code: "TKIM",
-                    price: "3,870",
-                    change: "50",
-                    persen: "0.2",
-                    tvol: "156,450"},
-                { code: "JSMR",
-                    price: "3,870",
-                    change: "-50",
-                    persen: "-0.2",
-                    tvol: "156,450"},
-                { code: "SONA",
-                    price: "3,870",
-                    change: "50",
-                    persen: "0.2",
-                    tvol: "156,450"},
-                { code: "AMFG",
-                    price: "3,870",
-                    change: "-50",
-                    persen: "-0.2",
-                    tvol: "156,450"},
-                { code: "SCCO",
-                    price: "3,870",
-                    change: "-50",
-                    persen: "-0.2",
-                    tvol: "156,450"},
-                { code: "BYAN",
-                    price: "3,870",
-                    change: "50",
-                    persen: "0.2",
-                    tvol: "156,450"},
-                { code: "UNTR",
-                    price: "3,870",
-                    change: "50",
-                    persen: "0.2",
-                    tvol: "156,450"},
-                { code: "GGRM",
-                    price: "3,870",
-                    change: "-50",
-                    persen: "-0.2",
-                    tvol: "156,450"},
-                { code: "UNVR",
-                    price: "3,870",
-                    change: "-50",
-                    persen: "-0.2",
-                    tvol: "156,450"},
-            ],
-            defaultColumnWidths: [
-                { columnName: "code", align:'center', width: 70},
-                { columnName: "price", align:'right', width: 70},
-                { columnName: "change", align:'right', width: 70},
-                { columnName: "persen", align:'right', width: 70},
-                { columnName: "tvol", align:'right', width: 70}
-            ],
-            defaultHiddenColumnNames: [''],
-        };
-    }
-
-    render() {
-        const searchStyle = ({ ...restProps }) => (
-            <SearchPanel.Input
-                {...restProps}
-                className="bg-grey-mystic text-white f-12 w-search mr-0"
-            />
-        );
-
-        const toolbarStyle = ({ ...restProps }) => (
-            <Toolbar.Root
-                {...restProps}
-                className={"bg-black-trading f-12"}
-            />
-        );
-
-        const ColvisContainer = ({ ...restProps }) => (
-            <ColumnChooser.Container
-                {...restProps}
-                className="bg-grey-mystic f-12"
-            />
-        );
-
-        const ColvisItem = ({ ...restProps }) => (
-            <ColumnChooser.Item
-                {...restProps}
-                className="bg-grey-mystic text-white f-12"
-            />
-        );
-
-        const ColvisButton = ({ ...restProps }) => (
-            <ColumnChooser.ToggleButton
-                {...restProps}
-                className="bg-grey-mystic text-white f-12"
-                style={{height:'35px'}}
-            />
-        );
-
-        const TableComponent = ({ ...restProps }) => (
-            <Table.Table
-                {...restProps}
-                className="scroll-tbody bg-black-trading table-borderless table-responsive scrollable f-12 d-border card card-500"
-            />
-        );
-
-        const HeadComponent = ({ ...restProps }) => (
-            <Table.TableHead
-                {...restProps}
-                className="bg-black-trading f-12"
-            />
-        );
-
-        const HighlightedCell = ({ value, style, ...restProps }) => (
-            <Table.Cell
-                {...restProps}
-                className="grid-table f-12">
-                {value}
-            </Table.Cell>
-        );
-
-        const Cell = ({ row, column, value, style, ...restProps }) => {
-            //global color
-
-            if(row.change.includes('-')){
-                if (column.name == 'code') {
-                    return <Table.Cell
-                        {...restProps}
-                        className={"grid-table f-12"}>{value}</Table.Cell>;
-                } else if (column.name == 'price') {
-                    return <Table.Cell
-                        {...restProps}
-                        className={"grid-table f-12 text-danger"}>
-                            {value} &nbsp;&nbsp;&nbsp; <i className="icofont icofont-caret-down"></i>
-                        </Table.Cell>;
-                } else {
-                    return <Table.Cell
-                        {...restProps}
-                        className={"grid-table f-12 text-danger"}>{value}</Table.Cell>;
-                }
-            } else{
-                if (column.name == 'code') {
-                    return <Table.Cell
-                        {...restProps}
-                        className={"grid-table f-12"}>{value}</Table.Cell>;
-                } else if (column.name == 'price') {
-                    return <Table.Cell
-                        {...restProps}
-                        className={"grid-table f-12 text-success"}>
-                        {value} &nbsp;&nbsp;&nbsp; <i className="icofont icofont-caret-up"></i>
-                    </Table.Cell>;
-                } else {
-                    return <Table.Cell
-                        {...restProps}
-                        className={"grid-table f-12 text-success"}>{value}</Table.Cell>;
-                }
-            }
-
-            const { rows, columns, defaultColumnWidths, defaultHiddenColumnNames, colspan } = this.state;
-            return (
-                <>
-                    <Grid rows={rows} columns={columns} className={"bg-primary f-12"}>
-                        <SearchState defaultValue="" />
-                        <IntegratedFiltering />
-                        <SortingState
-                            defaultSorting={[{ columnName: 'code', direction: 'asc' }]}
-                        />
-                        <IntegratedSorting />
-                        <DragDropProvider />
-                        <Table height={300} headComponent={HeadComponent} tableComponent={TableComponent} cellComponent={Cell} columnExtensions={defaultColumnWidths} />
-                        <TableColumnResizing defaultColumnWidths={defaultColumnWidths} />
-                        <TableColumnReordering
-                            defaultOrder={['code', 'price', 'change', 'persen', 'tvol']}
-                        />
-                        <TableHeaderRow showSortingControls />
-                        <TableColumnVisibility
-                            defaultHiddenColumnNames={defaultHiddenColumnNames}
-                        />
-                        <Toolbar rootComponent={toolbarStyle} />
-                        <ColumnChooser containerComponent={ColvisContainer} itemComponent={ColvisItem} toggleButtonComponent={ColvisButton} />
-                        <SearchPanel inputComponent={searchStyle} />
-
-                        <CustomToolbarStockWatchlist/>
-                    </Grid>
-                </>
-            );
-        }
-
-        const { rows, columns, defaultColumnWidths, defaultHiddenColumnNames, colspan } = this.state;
-        return (
-            <>
-                <Grid rows={rows} columns={columns} className={"bg-primary f-12"}>
-                    <SearchState defaultValue="" />
-                    <IntegratedFiltering />
-                    <SortingState
-                        defaultSorting={[{ columnName: 'code', direction: 'asc' }]}
-                    />
-                    <IntegratedSorting />
-                    <DragDropProvider />
-                    <Table height={300} headComponent={HeadComponent} tableComponent={TableComponent} cellComponent={Cell} columnExtensions={defaultColumnWidths} />
-                    <TableColumnResizing defaultColumnWidths={defaultColumnWidths} />
-                    <TableColumnReordering
-                        defaultOrder={['code', 'price', 'change', 'persen', 'tvol']}
-                    />
-                    <TableHeaderRow showSortingControls />
-                    <TableColumnVisibility
-                        defaultHiddenColumnNames={defaultHiddenColumnNames}
-                    />
-                    <Toolbar rootComponent={toolbarStyle} />
-                    <ColumnChooser containerComponent={ColvisContainer} itemComponent={ColvisItem} toggleButtonComponent={ColvisButton} />
-                    <SearchPanel inputComponent={searchStyle} />
-
-                    <CustomToolbarStockWatchlist/>
-                </Grid>
-            </>
-        );
-    }
-}
-
-class CustomToolbarStockWatchlist extends React.PureComponent {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <Plugin name="customToolbarMarkup">
-                <Template name="toolbarContent">
-                    <div className="f-14 px-0 mx-0 py-0 col-sm-12">
-                        <div className="row col-sm-12 px-0 mx-0 py-2">
-                            <div className="col-sm-2 px-0 mx-0 text-center">
-                                <span className="text-primary"></span>
-                            </div>
-                            <div className="col-sm-10 px-0 mx-0 row">
-                                <TemplatePlaceholder/>
-                            </div>
-                        </div>
-                    </div>
-                </Template>
-            </Plugin>
-        );
-    }
-}
-
-class HistoryPriceGrid extends React.PureComponent {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            columns: [
-                { name: "price", title: "Price"},
-                { name: "freq", title: "Freq"},
-                { name: "vol", title: "Vol" },
-                { name: "value", title: "Value(Tn)" },
-            ],
-            rows: [
-                { price: "10,870",
-                    freq: "9",
-                    vol: "20",
-                    value: "156"},
-                { price: "10,860",
-                    freq: "8",
-                    vol: "21",
-                    value: "156"},
-                { price: "10,850",
-                    freq: "7",
-                    vol: "22",
-                    value: "156"},
-                { price: "10,840",
-                    freq: "6",
-                    vol: "23",
-                    value: "156"},
-                { price: "10,830",
-                    freq: "5",
-                    vol: "24",
-                    value: "156"},
-                { price: "10,820",
-                    freq: "4",
-                    vol: "25",
-                    value: "156"},
-                { price: "10,810",
-                    freq: "3",
-                    vol: "26",
-                    value: "156"},
-                { price: "10,800",
-                    freq: "2",
-                    vol: "27",
-                    value: "156"},
-            ],
-            defaultColumnWidths: [
-                { columnName: "price", align:'right', width: 95},
-                { columnName: "freq", align:'right', width: 95},
-                { columnName: "vol", align:'right', width: 95},
-                { columnName: "value", align:'right', width: 95},
-            ],
-            defaultHiddenColumnNames: [''],
-        };
-    }
-
-    render() {
-        const searchStyle = ({ ...restProps }) => (
-            <SearchPanel.Input
-                {...restProps}
-                className="bg-grey-mystic text-white f-12 w-search mr-0"
-            />
-        );
-
-        const toolbarStyle = ({ ...restProps }) => (
-            <Toolbar.Root
-                {...restProps}
-                className={"bg-trading-gray f-12"}
-            />
-        );
-
-        const ColvisContainer = ({ ...restProps }) => (
-            <ColumnChooser.Container
-                {...restProps}
-                className="bg-grey-mystic f-12"
-            />
-        );
-
-        const ColvisItem = ({ ...restProps }) => (
-            <ColumnChooser.Item
-                {...restProps}
-                className="bg-grey-mystic text-white f-12"
-            />
-        );
-
-        const ColvisButton = ({ ...restProps }) => (
-            <ColumnChooser.ToggleButton
-                {...restProps}
-                className="bg-grey-mystic text-white f-12"
-                style={{height:'35px'}}
-            />
-        );
-
-        const TableComponent = ({ ...restProps }) => (
-            <Table.Table
-                {...restProps}
-                className="scroll-tbody bg-trading-gray table-borderless table-responsive scrollable f-12 card card-xs"
-            />
-        );
-
-        const HeadComponent = ({ ...restProps }) => (
-            <Table.TableHead
-                {...restProps}
-                className="price-history"
-            />
-        );
-
-        const HighlightedCell = ({ value, style, ...restProps }) => (
-            <Table.Cell
-                {...restProps}
-                className="grid-table f-12 text-success">
-                {value}
-            </Table.Cell>
-        );
-
-        const Cell = (props) => {
-            const { column } = props;
-            return <HighlightedCell {...props} />;
-            return <Table.Cell {...props} />;
-        };
-
-        const { rows, columns, defaultColumnWidths, defaultHiddenColumnNames, colspan } = this.state;
-        return (
-            <>
-                <style>{'' +
-                'thead.price-history th {' +
-                '    border-top: var(--warna-d-border-bold) solid 2px!important;' +
-                '    background-color: var(--warna-bg-trading-gray) !important;' +
-                '}' +
-                ''}
-                </style>
-                <Grid rows={rows} columns={columns} className={"bg-primary f-12"}>
-                    <SearchState defaultValue="" />
-                    <IntegratedFiltering />
-                    <SortingState
-                        defaultSorting={[{ columnName: 'price', direction: 'asc' }]}
-                    />
-                    <IntegratedSorting />
-                    <DragDropProvider />
-                    <Table height={300} headComponent={HeadComponent} tableComponent={TableComponent} cellComponent={Cell} columnExtensions={defaultColumnWidths} />
-                    <TableColumnResizing defaultColumnWidths={defaultColumnWidths} />
-                    <TableColumnReordering
-                        defaultOrder={['price', 'freq', 'vol', 'value']}
-                    />
-                    <TableHeaderRow showSortingControls />
-                    <TableColumnVisibility
-                        defaultHiddenColumnNames={defaultHiddenColumnNames}
-                    />
-                    <Toolbar rootComponent={toolbarStyle} />
-                    <ColumnChooser containerComponent={ColvisContainer} itemComponent={ColvisItem} toggleButtonComponent={ColvisButton} />
-                    <SearchPanel inputComponent={searchStyle} />
-
-                    <CustomToolbarHistoryPrice/>
-                </Grid>
-            </>
-        );
-    }
-}
-
-class CustomToolbarHistoryPrice extends React.PureComponent {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <Plugin name="customToolbarMarkup">
-                <Template name="toolbarContent">
-                    <div className="f-14 px-0 mx-0 py-0 col-sm-12">
-                        <div className="row col-sm-12 px-0 mx-0 py-2">
-                            <div className="col-sm-2 px-0 mx-0 text-center">
-                                <span className="text-primary"></span>
-                            </div>
-                            <div className="col-sm-10 px-0 mx-0 row">
-                                <TemplatePlaceholder/>
-                            </div>
-                        </div>
-                    </div>
-                </Template>
-            </Plugin>
-        );
-    }
-}
-
-class HistoryBuyerGrid extends React.PureComponent {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            columns: [
-                { name: "buyer", title: "Buyer"},
-                { name: "volume", title: "Volume"},
-                { name: "freq", title: "Freq" },
-                { name: "avg", title: "Avg" },
-            ],
-            rows: [
-                { buyer: "DX",
-                    volume: "20",
-                    freq: "5",
-                    avg: "10,820"},
-                { buyer: "DX",
-                    volume: "21",
-                    freq: "6",
-                    avg: "10,830"},
-                { buyer: "DX",
-                    volume: "22",
-                    freq: "7",
-                    avg: "10,840"},
-                { buyer: "DX",
-                    volume: "23",
-                    freq: "8",
-                    avg: "10,850"},
-                { buyer: "DX",
-                    volume: "24",
-                    freq: "9",
-                    avg: "10,860"},
-                { buyer: "DX",
-                    volume: "25",
-                    freq: "4",
-                    avg: "10,870"},
-                { buyer: "DX",
-                    volume: "26",
-                    freq: "3",
-                    avg: "10,880"},
-                { buyer: "DX",
-                    volume: "27",
-                    freq: "2",
-                    avg: "10,890"},
-            ],
-            defaultColumnWidths: [
-                { columnName: "buyer", align:'center', width: 95},
-                { columnName: "volume", align:'right', width: 95},
-                { columnName: "freq", align:'right', width: 95},
-                { columnName: "avg", align:'right', width: 95},
-            ],
-            defaultHiddenColumnNames: [''],
-        };
-    }
-
-    render() {
-        const searchStyle = ({ ...restProps }) => (
-            <SearchPanel.Input
-                {...restProps}
-                className="bg-grey-mystic text-white f-12 w-search mr-0"
-            />
-        );
-
-        const toolbarStyle = ({ ...restProps }) => (
-            <Toolbar.Root
-                {...restProps}
-                className={"bg-trading-gray f-12"}
-            />
-        );
-
-        const ColvisContainer = ({ ...restProps }) => (
-            <ColumnChooser.Container
-                {...restProps}
-                className="bg-grey-mystic f-12"
-            />
-        );
-
-        const ColvisItem = ({ ...restProps }) => (
-            <ColumnChooser.Item
-                {...restProps}
-                className="bg-grey-mystic text-white f-12"
-            />
-        );
-
-        const ColvisButton = ({ ...restProps }) => (
-            <ColumnChooser.ToggleButton
-                {...restProps}
-                className="bg-grey-mystic text-white f-12"
-                style={{height:'35px'}}
-            />
-        );
-
-        const TableComponent = ({ ...restProps }) => (
-            <Table.Table
-                {...restProps}
-                className="scroll-tbody bg-trading-gray table-borderless table-responsive scrollable f-12 card card-xs"
-            />
-        );
-
-        const HeadComponent = ({ ...restProps }) => (
-            <Table.TableHead
-                {...restProps}
-                className="buyer-history"
-            />
-        );
-
-        const HighlightedCell = ({ value, style, ...restProps }) => (
-            <Table.Cell
-                {...restProps}
-                className="grid-table f-12">
-                {value}
-            </Table.Cell>
-        );
-
-        const Cell = ({ row, column, value, style, ...restProps }) => {
-            //compare
-
-            var volume = parseInt(row.volume);
-            if (volume < 22 || volume > 26){
-                if (column.name == 'buyer') {
-                    return <Table.Cell
-                        {...restProps}
-                        className={"grid-table f-12 text-warning"}>{value}</Table.Cell>;
-                } else {
-                    return <Table.Cell
-                        {...restProps}
-                        className={"grid-table f-12 text-success"}>{value}</Table.Cell>;
-                }
-            } else {
-                return <Table.Cell
-                    {...restProps}
-                    className={"grid-table f-12 text-success"}>{value}</Table.Cell>;
-            }
-
-        };
-
-        const { rows, columns, defaultColumnWidths, defaultHiddenColumnNames, colspan } = this.state;
-        return (
-            <>
-                <style>{'' +
-                'thead.buyer-history th {' +
-                '    border-top: var(--warna-d-border-bold) solid 2px!important;' +
-                '    background-color: var(--warna-bg-trading-gray) !important;' +
-                '}' +
-                ''}
-                </style>
-                <Grid rows={rows} columns={columns} className={"bg-primary f-12"}>
-                    <SearchState defaultValue="" />
-                    <IntegratedFiltering />
-                    <SortingState
-                        defaultSorting={[{ columnName: 'buyer', direction: 'asc' }]}
-                    />
-                    <IntegratedSorting />
-                    <DragDropProvider />
-                    <Table height={300} headComponent={HeadComponent} tableComponent={TableComponent} cellComponent={Cell} columnExtensions={defaultColumnWidths} />
-                    <TableColumnResizing defaultColumnWidths={defaultColumnWidths} />
-                    <TableColumnReordering
-                        defaultOrder={['buyer', 'volume', 'freq', 'avg']}
-                    />
-                    <TableHeaderRow showSortingControls />
-                    <TableColumnVisibility
-                        defaultHiddenColumnNames={defaultHiddenColumnNames}
-                    />
-                    <Toolbar rootComponent={toolbarStyle} />
-                    <ColumnChooser containerComponent={ColvisContainer} itemComponent={ColvisItem} toggleButtonComponent={ColvisButton} />
-                    <SearchPanel inputComponent={searchStyle} />
-
-                    <CustomToolbarHistoryBuyer/>
-                </Grid>
-            </>
-        );
-    }
-}
-
-class CustomToolbarHistoryBuyer extends React.PureComponent {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <Plugin name="customToolbarMarkup">
-                <Template name="toolbarContent">
-                    <div className="f-14 px-0 mx-0 py-0 col-sm-12">
-                        <div className="row col-sm-12 px-0 mx-0 py-2">
-                            <div className="col-sm-2 px-0 mx-0 text-center">
-                                <span className="text-primary"></span>
-                            </div>
-                            <div className="col-sm-10 px-0 mx-0 row">
-                                <TemplatePlaceholder/>
-                            </div>
-                        </div>
-                    </div>
-                </Template>
-            </Plugin>
-        );
-    }
-}
-
-class HistorySellerGrid extends React.PureComponent {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            columns: [
-                { name: "seller", title: "Seller"},
-                { name: "volume", title: "Volume"},
-                { name: "freq", title: "Freq" },
-                { name: "avg", title: "Avg" },
-            ],
-            rows: [
-                { seller: "DX",
-                    volume: "20",
-                    freq: "5",
-                    avg: "10,820"},
-                { seller: "DX",
-                    volume: "21",
-                    freq: "6",
-                    avg: "10,830"},
-                { seller: "DX",
-                    volume: "22",
-                    freq: "7",
-                    avg: "10,840"},
-                { seller: "DX",
-                    volume: "23",
-                    freq: "8",
-                    avg: "10,850"},
-                { seller: "DX",
-                    volume: "24",
-                    freq: "9",
-                    avg: "10,860"},
-                { seller: "DX",
-                    volume: "25",
-                    freq: "4",
-                    avg: "10,870"},
-                { seller: "DX",
-                    volume: "26",
-                    freq: "3",
-                    avg: "10,880"},
-                { seller: "DX",
-                    volume: "27",
-                    freq: "2",
-                    avg: "10,890"},
-            ],
-            defaultColumnWidths: [
-                { columnName: "seller", align:'center', width: 95},
-                { columnName: "volume", align:'right', width: 95},
-                { columnName: "freq", align:'right', width: 95},
-                { columnName: "avg", align:'right', width: 95},
-            ],
-            defaultHiddenColumnNames: [''],
-        };
-    }
-
-    render() {
-        const searchStyle = ({ ...restProps }) => (
-            <SearchPanel.Input
-                {...restProps}
-                className="bg-grey-mystic text-white f-12 w-search mr-0"
-            />
-        );
-
-        const toolbarStyle = ({ ...restProps }) => (
-            <Toolbar.Root
-                {...restProps}
-                className={"bg-trading-gray f-12"}
-            />
-        );
-
-        const ColvisContainer = ({ ...restProps }) => (
-            <ColumnChooser.Container
-                {...restProps}
-                className="bg-grey-mystic f-12"
-            />
-        );
-
-        const ColvisItem = ({ ...restProps }) => (
-            <ColumnChooser.Item
-                {...restProps}
-                className="bg-grey-mystic text-white f-12"
-            />
-        );
-
-        const ColvisButton = ({ ...restProps }) => (
-            <ColumnChooser.ToggleButton
-                {...restProps}
-                className="bg-grey-mystic text-white f-12"
-                style={{height:'35px'}}
-            />
-        );
-
-        const TableComponent = ({ ...restProps }) => (
-            <Table.Table
-                {...restProps}
-                className="scroll-tbody bg-trading-gray table-borderless table-responsive scrollable f-12 card card-xs"
-            />
-        );
-
-        const HeadComponent = ({ ...restProps }) => (
-            <Table.TableHead
-                {...restProps}
-                className="seller-history"
-            />
-        );
-
-        const HighlightedCell = ({ value, style, ...restProps }) => (
-            <Table.Cell
-                {...restProps}
-                className="grid-table f-12">
-                {value}
-            </Table.Cell>
-        );
-
-        const Cell = ({ row, column, value, style, ...restProps }) => {
-            //compare
-
-            var volume = parseInt(row.volume);
-            if (volume < 22 || volume > 26){
-                if (column.name == 'seller') {
-                    return <Table.Cell
-                        {...restProps}
-                        className={"grid-table f-12 text-warning"}>{value}</Table.Cell>;
-                } else {
-                    return <Table.Cell
-                        {...restProps}
-                        className={"grid-table f-12 text-success"}>{value}</Table.Cell>;
-                }
-            } else {
-                return <Table.Cell
-                    {...restProps}
-                    className={"grid-table f-12 text-success"}>{value}</Table.Cell>;
-            }
-
-        };
-
-        const { rows, columns, defaultColumnWidths, defaultHiddenColumnNames, colspan } = this.state;
-        return (
-            <>
-                <style>{'' +
-                'thead.seller-history th {' +
-                '    border-top: var(--warna-d-border-bold) solid 2px!important;' +
-                '    background-color: var(--warna-bg-trading-gray) !important;' +
-                '}' +
-                ''}
-                </style>
-                <Grid rows={rows} columns={columns} className={"bg-primary f-12"}>
-                    <SearchState defaultValue="" />
-                    <IntegratedFiltering />
-                    <SortingState
-                        defaultSorting={[{ columnName: 'seller', direction: 'asc' }]}
-                    />
-                    <IntegratedSorting />
-                    <DragDropProvider />
-                    <Table height={300} headComponent={HeadComponent} tableComponent={TableComponent} cellComponent={Cell} columnExtensions={defaultColumnWidths} />
-                    <TableColumnResizing defaultColumnWidths={defaultColumnWidths} />
-                    <TableColumnReordering
-                        defaultOrder={['seller', 'volume', 'freq', 'avg']}
-                    />
-                    <TableHeaderRow showSortingControls />
-                    <TableColumnVisibility
-                        defaultHiddenColumnNames={defaultHiddenColumnNames}
-                    />
-                    <Toolbar rootComponent={toolbarStyle} />
-                    <ColumnChooser containerComponent={ColvisContainer} itemComponent={ColvisItem} toggleButtonComponent={ColvisButton} />
-                    <SearchPanel inputComponent={searchStyle} />
-
-                    <CustomToolbarHistorySeller/>
-                </Grid>
-            </>
-        );
-    }
-}
-
-class CustomToolbarHistorySeller extends React.PureComponent {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <Plugin name="customToolbarMarkup">
-                <Template name="toolbarContent">
-                    <div className="f-14 px-0 mx-0 py-0 col-sm-12">
-                        <div className="row col-sm-12 px-0 mx-0 py-2">
-                            <div className="col-sm-2 px-0 mx-0 text-center">
-                                <span className="text-primary"></span>
-                            </div>
-                            <div className="col-sm-10 px-0 mx-0 row">
-                                <TemplatePlaceholder/>
-                            </div>
-                        </div>
-                    </div>
-                </Template>
-            </Plugin>
-        );
-    }
-}
-
-class HistoryBrokerGrid extends React.PureComponent {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            columns: [
-                { name: 'broker', title: "Broker"},
-                { name: 'bidvol', title: "Bid Vol"},
-                { name: 'bidval', title: "Bid Val (Bn)" },
-                { name: 'avgbid', title: "Avg. Bid" },
-                { name: 'sellvol', title: "Sell Vol"},
-                { name: 'sellval', title: "Sell Val (Bn)"},
-                { name: 'avgsell', title: "Avg. Sell" },
-                { name: 'netval', title: "Net Val (Bn)" }
-            ],
-            rows: [
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-    ],
-            defaultColumnWidths: [
-                { columnName: "broker", align:'center', width: 95},
-                { columnName: "bidvol", align:'right', width: 95},
-                { columnName: "bidval", align:'right', width: 95},
-                { columnName: "avgbid", align:'right', width: 95},
-                { columnName: "sellvol", align:'right', width: 95},
-                { columnName: "sellval", align:'right', width: 95},
-                { columnName: "avgsell", align:'right', width: 95},
-                { columnName: "netval", align:'right', width: 95},
-            ],
-            defaultHiddenColumnNames: [''],
-        };
-    }
-
-    render() {
-        const searchStyle = ({ ...restProps }) => (
-            <SearchPanel.Input
-                {...restProps}
-                className="bg-grey-mystic text-white f-12 w-search mr-0"
-            />
-        );
-
-        const toolbarStyle = ({ ...restProps }) => (
-            <Toolbar.Root
-                {...restProps}
-                className={"bg-trading-gray f-12"}
-            />
-        );
-
-        const ColvisContainer = ({ ...restProps }) => (
-            <ColumnChooser.Container
-                {...restProps}
-                className="bg-grey-mystic f-12"
-            />
-        );
-
-        const ColvisItem = ({ ...restProps }) => (
-            <ColumnChooser.Item
-                {...restProps}
-                className="bg-grey-mystic text-white f-12"
-            />
-        );
-
-        const ColvisButton = ({ ...restProps }) => (
-            <ColumnChooser.ToggleButton
-                {...restProps}
-                className="bg-grey-mystic text-white f-12"
-                style={{height:'35px'}}
-            />
-        );
-
-        const TableComponent = ({ ...restProps }) => (
-            <Table.Table
-                {...restProps}
-                className="scroll-tbody bg-trading-gray table-borderless table-responsive scrollable f-12 card card-430"
-            />
-        );
-
-        const HeadComponent = ({ ...restProps }) => (
-            <Table.TableHead
-                {...restProps}
-                className="broker-history"
-            />
-        );
-
-        const HighlightedCell = ({ value, style, ...restProps }) => (
-            <Table.Cell
-                {...restProps}
-                className="grid-table f-12">
-                {value}
-            </Table.Cell>
-        );
-
-        const Cell = ({ row, column, value, style, ...restProps }) => {
-            //global color
-
-            if (column.name == 'broker') {
-                return <Table.Cell
-                    {...restProps}
-                    className={"grid-table f-12 text-warning"}>{value}</Table.Cell>;
-            } else {
-                return <Table.Cell
-                    {...restProps}
-                    className={"grid-table f-12 text-success"}>{value}</Table.Cell>;
-            }
-        }
-
-
-        const { rows, columns, defaultColumnWidths, defaultHiddenColumnNames, colspan } = this.state;
-        return (
-            <>
-                <style>{'' +
-                'thead.broker-history th {' +
-                '    border-top: var(--warna-d-border-bold) solid 2px!important;' +
-                '    background-color: var(--warna-bg-trading-gray) !important;' +
-                '}' +
-                ''}
-                </style>
-                <Grid rows={rows} columns={columns} className={"bg-primary f-12"}>
-                    <SearchState defaultValue="" />
-                    <IntegratedFiltering />
-                    <SortingState
-                        defaultSorting={[{ columnName: 'broker', direction: 'asc' }]}
-                    />
-                    <IntegratedSorting />
-                    <DragDropProvider />
-                    <Table height={300} headComponent={HeadComponent} tableComponent={TableComponent} cellComponent={Cell} columnExtensions={defaultColumnWidths} />
-                    <TableColumnResizing defaultColumnWidths={defaultColumnWidths} />
-                    <TableColumnReordering
-                        defaultOrder={['broker', 'bidvol', 'bidval', 'avgbid', 'sellvol', 'sellval', 'avgsell', 'netval']}
-                    />
-                    <TableHeaderRow showSortingControls />
-                    <TableColumnVisibility
-                        defaultHiddenColumnNames={defaultHiddenColumnNames}
-                    />
-                    <Toolbar rootComponent={toolbarStyle} />
-                    <ColumnChooser containerComponent={ColvisContainer} itemComponent={ColvisItem} toggleButtonComponent={ColvisButton} />
-                    <SearchPanel inputComponent={searchStyle} />
-
-                    <CustomToolbarHistoryBroker/>
-                </Grid>
-            </>
-        );
-    }
-}
-
-class CustomToolbarHistoryBroker extends React.PureComponent {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <Plugin name="customToolbarMarkup">
-                <Template name="toolbarContent">
-                    <div className="f-14 px-0 mx-0 py-0 col-sm-12">
-                        <div className="row col-sm-12 px-0 mx-0 py-2">
-                            <div className="col-sm-2 px-0 mx-0 text-center">
-                                <span className="text-primary"></span>
-                            </div>
-                            <div className="col-sm-10 px-0 mx-0 row">
-                                <TemplatePlaceholder/>
-                            </div>
-                        </div>
-                    </div>
-                </Template>
-            </Plugin>
-        );
-    }
-}
-
-class CorpActionGrid extends React.PureComponent {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            columns: [
-                { name: "type", title: "Type"},
-                { name: "cumdate", title: "Cum Date"},
-                { name: "distdate", title: "Dist. Date"},
-                { name: "ratio", title: "Ratio" },
-                { name: "exprice", title: "Ex. Price" },
-            ],
-            rows: [
-                { type: "CASH DIVIDEND",
-                    cumdate: "2018-04-17",
-                    distdate: "2018-05-09",
-                    ratio: "1.00 : 322.00",
-                    exprice: "0.00" },
-                { type: "CASH DIVIDEND",
-                    cumdate: "2018-04-20",
-                    distdate: "2018-05-12",
-                    ratio: "1.00 : 322.00",
-                    exprice: "0.00" },
-                { type: "CASH DIVIDEND",
-                    cumdate: "2018-04-19",
-                    distdate: "2018-05-15",
-                    ratio: "1.00 : 370.00",
-                    exprice: "0.00" },
-                { type: "CASH DIVIDEND",
-                    cumdate: "2018-04-21",
-                    distdate: "2018-05-15",
-                    ratio: "1.00 : 370.00",
-                    exprice: "0.00" },
-                { type: "CASH DIVIDEND",
-                    cumdate: "2018-04-22",
-                    distdate: "2018-05-15",
-                    ratio: "1.00 : 472.00",
-                    exprice: "0.00" },
-            ],
-            defaultColumnWidths: [
-                { columnName: "type", align:'center', width: 135},
-                { columnName: "cumdate", align:'center', width: 135},
-                { columnName: "distdate", align:'center', width: 135},
-                { columnName: "ratio", align:'center', width: 135},
-                { columnName: "exprice", align:'center', width: 135},
-            ],
-            defaultHiddenColumnNames: [''],
-        };
-    }
-
-    render() {
-        const searchStyle = ({ ...restProps }) => (
-            <SearchPanel.Input
-                {...restProps}
-                className="bg-grey-mystic text-white f-12 w-search"
-            />
-        );
-
-        const toolbarStyle = ({ ...restProps }) => (
-            <Toolbar.Root
-                {...restProps}
-                className={"bg-grey f-12"}
-            />
-        );
-
-        const ColvisContainer = ({ ...restProps }) => (
-            <ColumnChooser.Container
-                {...restProps}
-                className="bg-grey-mystic f-12"
-            />
-        );
-
-        const ColvisItem = ({ ...restProps }) => (
-            <ColumnChooser.Item
-                {...restProps}
-                className="bg-grey-mystic text-white f-12"
-            />
-        );
-
-        const ColvisButton = ({ ...restProps }) => (
-            <ColumnChooser.ToggleButton
-                {...restProps}
-                className="bg-grey-mystic text-white f-12"
-                style={{height:'35px'}}
-            />
-        );
-
-        const TableComponent = ({ ...restProps }) => (
-            <Table.Table
-                {...restProps}
-                className={"scroll-tbody bg-black-trading table-borderless table-responsive table-striped scrollable"}
-            />
-        );
-
-        const HeadComponent = ({ ...restProps }) => (
-            <Table.TableHead
-                {...restProps}
-                className={"bg-black-trading f-12"}
-            />
-        );
-
-        const HighlightedCell = ({ value, style, ...restProps }) => (
-            <Table.Cell
-                {...restProps}
-                className={"grid-table f-12"}>
-                {value}
-            </Table.Cell>
-        );
-
-        const Cell = (props) => {
-            const { column } = props;
-            return <HighlightedCell {...props} />;
-            return <Table.Cell {...props} />;
-        };
-
-        const { rows, columns, defaultColumnWidths, defaultHiddenColumnNames, colspan } = this.state;
-        return (
-            <>
-                <Grid rows={rows} columns={columns} className={"bg-primary f-12"}>
-                    <SearchState defaultValue="" />
-                    <IntegratedFiltering />
-                    <SortingState
-                        defaultSorting={[{ columnName: 'type', direction: 'asc' }]}
-                    />
-                    <IntegratedSorting />
-                    <DragDropProvider />
-                    <Table height={300} headComponent={HeadComponent} tableComponent={TableComponent} cellComponent={Cell} columnExtensions={defaultColumnWidths} />
-                    <TableColumnResizing defaultColumnWidths={defaultColumnWidths} />
-                    <TableColumnReordering
-                        defaultOrder={['type', 'cumdate', 'distdate', 'ratio', 'exprice']}
-                    />
-                    <TableHeaderRow showSortingControls />
-                    <TableColumnVisibility
-                        defaultHiddenColumnNames={defaultHiddenColumnNames}
-                    />
-                </Grid>
-            </>
-        );
-    }
-}
-
-class AmendGroupNameGrid extends React.PureComponent {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            columns: [
-                { name: "groupname", title: "Group Name"},
-                { name: "totalmember", title: "Total Member"},
-                { name: "action", title: "Action"}
-            ],
-            rows: [
-                { groupname: <div className="text-primary">Group A</div>,
-                    totalmember: "5",
-                    action: <div><a className="text-primary click-pointer">Edit</a> | <a className="text-danger click-pointer">Delete</a></div> },
-
-                { groupname: <div className="text-primary">Group B</div>,
-                    totalmember: "15",
-                    action: <div><a className="text-primary click-pointer">Edit</a> | <a className="text-danger click-pointer">Delete</a></div> },
-
-                { groupname: <div className="text-primary">Group C</div>,
-                    totalmember: "27",
-                    action: <div><a className="text-primary click-pointer">Edit</a> | <a className="text-danger click-pointer">Delete</a></div> },
-
-                { groupname: <div className="text-primary">Group D</div>,
-                    totalmember: "18",
-                    action: <div><a className="text-primary click-pointer">Edit</a> | <a className="text-danger click-pointer">Delete</a></div> },
-
-                { groupname: <div className="text-primary">Group E</div>,
-                    totalmember: "45",
-                    action: <div><a className="text-primary click-pointer">Edit</a> | <a className="text-danger click-pointer">Delete</a></div> },
-            ],
-            defaultColumnWidths: [
-                { columnName: "groupname", align:'center', width: 155},
-                { columnName: "totalmember", align:'center', width: 155},
-                { columnName: "action", align:'center', width: 155},
-            ],
-            defaultHiddenColumnNames: [''],
-        };
-    }
-
-    render() {
-        const TableComponent = ({ ...restProps }) => (
-            <Table.Table
-                {...restProps}
-                className={"scroll-tbody bg-grey table-borderless table-responsive scrollable px-4 f-12"}
-            />
-        );
-
-        const HeadComponent = ({ ...restProps }) => (
-            <Table.TableHead
-                {...restProps}
-                className={"bg-grey f-12 amend-groupname"}
-            />
-        );
-
-        const HighlightedCell = ({ value, style, ...restProps }) => (
-            <Table.Cell
-                {...restProps}
-                className={"grid-table-p5 f-12"}>
-                {value}
-            </Table.Cell>
-        );
-
-        const Cell = (props) => {
-            const { column } = props;
-            return <HighlightedCell {...props} />;
-            return <Table.Cell {...props} />;
-        };
-
-        const { rows, columns, defaultColumnWidths, defaultHiddenColumnNames, colspan } = this.state;
-        return (
-            <>
-                <style>{'' +
-                'thead.amend-groupname th {' +
-                '    background-color: var(--warna-header-card)!important;' +
-                '}' +
-                '.grid-table-p5 {' +
-                '    padding: 5px!important;' +
-                '    line-height: 1.42857143!important;' +
-                '    vertical-align: middle!important;' +
-                '}' +
-                ''}
-                </style>
-                <Grid rows={rows} columns={columns} className={"bg-primary f-12"}>
-                    <SearchState defaultValue="" />
-                    <IntegratedFiltering />
-                    <SortingState
-                        defaultSorting={[{ columnName: 'groupname', direction: 'desc' }]}
-                    />
-                    <IntegratedSorting />
-                    <DragDropProvider />
-                    <Table height={300} headComponent={HeadComponent} tableComponent={TableComponent} cellComponent={Cell} columnExtensions={defaultColumnWidths} />
-                    <TableColumnResizing defaultColumnWidths={defaultColumnWidths} />
-                    <TableColumnReordering
-                        defaultOrder={['groupname', 'totalmember', 'action']}
-                    />
-                    <TableHeaderRow showSortingControls />
-                    <TableColumnVisibility
-                        defaultHiddenColumnNames={defaultHiddenColumnNames}
-                    />
-                </Grid>
-            </>
-        );
-    }
-}
-
-class AmendGroupCodeGrid extends React.PureComponent {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            columns: [
-                { name: "code", title: "Code"},
-                { name: "price", title: "Price"},
-                { name: "change", title: "Change/%"}
-            ],
-            rows: [
-                { code: <div className="f-9">
-                        <Input defaultValue='AALI' placeholder='Code' size='small' className="gray col-sm-4 align-self-center px-0" disabled/>
-                        &nbsp; Astra Argo Lestari Tbk.</div>,
-                    price: "12,650",
-                    change: <div className="text-danger"><i className="icofont icofont-caret-down"></i> -175(-1.36%) <button className="btn btn-sm btn-danger">
-                        <i className="fa fa-minus"></i>
-                    </button></div> },
-                { code: <div className="f-9">
-                        <Input defaultValue='TLKM' placeholder='Code' size='small' className="gray col-sm-4 align-self-center px-0" disabled/>
-                        &nbsp; Telekomunikasi Indonesia Tbk.</div>,
-                    price: "15,600",
-                    change: <div className="text-success"><i className="icofont icofont-caret-up"></i> +175(+1.36%) <button className="btn btn-sm btn-danger">
-                        <i className="fa fa-minus"></i>
-                    </button></div> },
-            ],
-            defaultColumnWidths: [
-                { columnName: "code", align:'left', width: 10},
-                { columnName: "price", align:'right', width: 10},
-                { columnName: "change", align:'right', width: 10},
-            ],
-            defaultHiddenColumnNames: [''],
-        };
-    }
-
-    render() {
-        const TableComponent = ({ ...restProps }) => (
-            <Table.Table
-                {...restProps}
-                className={"scroll-tbody-xs bg-grey table-borderless table-responsive scrollable px-4 f-12"}
-            />
-        );
-
-        const HeadComponent = ({ ...restProps }) => (
-            <Table.TableHead
-                {...restProps}
-                className={"bg-grey f-12 amend-codename"}
-            />
-        );
-
-        const HighlightedCell = ({ value, style, ...restProps }) => (
-            <Table.Cell
-                {...restProps}
-                className={"grid-table f-12"}>
-                {value}
-            </Table.Cell>
-        );
-
-        const Cell = (props) => {
-            const { column } = props;
-            return <HighlightedCell {...props} />;
-            return <Table.Cell {...props} />;
-        };
-
-        const { rows, columns, defaultColumnWidths, defaultHiddenColumnNames } = this.state;
-        return (
-            <>
-                <style>{'' +
-                'thead.amend-codename th {' +
-                '    background-color: var(--warna-header-card)!important;' +
-                '    border-bottom: 0!important' +
-                '}' +
-                '.scroll-tbody-xs {' +
-                '    display: inline-block;' +
-                '    height: 90px;' +
-                '    overflow: auto;' +
-                '}' +
-                ''}
-                </style>
-                <Grid rows={rows} columns={columns} className={"bg-primary f-12"}>
-                    <SearchState defaultValue="" />
-                    <IntegratedFiltering />
-                    <SortingState
-                        defaultSorting={[{ columnName: 'code', direction: 'desc' }]}
-                    />
-                    <IntegratedSorting />
-                    <DragDropProvider />
-                    <Table height={300} headComponent={HeadComponent} tableComponent={TableComponent} cellComponent={Cell} columnExtensions={defaultColumnWidths} />
-                    <TableColumnResizing defaultColumnWidths={defaultColumnWidths} />
-                    <TableColumnReordering
-                        defaultOrder={['code', 'price', 'change']}
-                    />
-                    <TableHeaderRow showSortingControls />
-                    <TableColumnVisibility
-                        defaultHiddenColumnNames={defaultHiddenColumnNames}
-                    />
-                </Grid>
-            </>
-        );
-    }
-}
-
-class AddGroupCodeGrid extends React.PureComponent {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            columns: [
-                { name: "code", title: "Code"},
-                { name: "price", title: "Price"},
-                { name: "change", title: "Change/%"}
-            ],
-            rows: [
-                { code: <div className="f-9">
-                        <Input defaultValue='AALI' placeholder='Code' size='small' className="gray col-sm-4 align-self-center px-0" disabled/>
-                        &nbsp; Astra Argo Lestari Tbk.</div>,
-                    price: "12,650",
-                    change: <div className="text-danger"><i className="icofont icofont-caret-down"></i> -175(-1.36%)</div> },
-                { code: <div className="f-9">
-                        <Input defaultValue='TLKM' placeholder='Code' size='small' className="gray col-sm-4 align-self-center px-0" disabled/>
-                        &nbsp; Telekomunikasi Indonesia Tbk.</div>,
-                    price: "15,600",
-                    change: <div className="text-success"><i className="icofont icofont-caret-up"></i> +175(+1.36%)</div> },
-            ],
-            defaultColumnWidths: [
-                { columnName: "code", align:'left', width: 10},
-                { columnName: "price", align:'right', width: 10},
-                { columnName: "change", align:'right', width: 10},
-            ],
-            defaultHiddenColumnNames: [''],
-        };
-    }
-
-    render() {
-        const TableComponent = ({ ...restProps }) => (
-            <Table.Table
-                {...restProps}
-                className={"scroll-tbody-xs bg-grey table-borderless table-responsive scrollable px-4 f-12"}
-            />
-        );
-
-        const HeadComponent = ({ ...restProps }) => (
-            <Table.TableHead
-                {...restProps}
-                className={"bg-grey f-12 amend-codename"}
-            />
-        );
-
-        const HighlightedCell = ({ value, style, ...restProps }) => (
-            <Table.Cell
-                {...restProps}
-                className={"grid-table f-12"}>
-                {value}
-            </Table.Cell>
-        );
-
-        const Cell = (props) => {
-            const { column } = props;
-            return <HighlightedCell {...props} />;
-            return <Table.Cell {...props} />;
-        };
-
-        const { rows, columns, defaultColumnWidths, defaultHiddenColumnNames } = this.state;
-        return (
-            <>
-                <style>{'' +
-                'thead.amend-codename th {' +
-                '    background-color: var(--warna-header-card)!important;' +
-                '    border-bottom: 0!important' +
-                '}' +
-                '.scroll-tbody-xs {' +
-                '    display: inline-block;' +
-                '    height: 90px;' +
-                '    overflow: auto;' +
-                '}' +
-                ''}
-                </style>
-                <Grid rows={rows} columns={columns} className={"bg-primary f-12"}>
-                    <SearchState defaultValue="" />
-                    <IntegratedFiltering />
-                    <SortingState
-                        defaultSorting={[{ columnName: 'code', direction: 'desc' }]}
-                    />
-                    <IntegratedSorting />
-                    <DragDropProvider />
-                    <Table height={300} headComponent={HeadComponent} tableComponent={TableComponent} cellComponent={Cell} columnExtensions={defaultColumnWidths} />
-                    <TableColumnResizing defaultColumnWidths={defaultColumnWidths} />
-                    <TableColumnReordering
-                        defaultOrder={['code', 'price', 'change']}
-                    />
-                    <TableHeaderRow showSortingControls />
-                    <TableColumnVisibility
-                        defaultHiddenColumnNames={defaultHiddenColumnNames}
-                    />
-                </Grid>
             </>
         );
     }
@@ -3173,375 +1279,231 @@ class StockWatchlistAgGrid extends React.PureComponent {
         );
     }
 }
-
+//zaky ubah table
 class AmendGroupNameAgGrid extends React.PureComponent {
     constructor(props) {
         super(props);
         const self = this;
         this.state = {
-            columnDefs: [
-                { field: "groupname", headerName: "Group Name", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 160, lockVisible:true, lockPosition:true, suppressSizeToFit:true,
-                    cellClass : function (params) {
-                        return "text-center grid-table f-12 text-primary locked-col locked-visible";
-                    }},
-                { field: "totalmember", headerName: "Total Member",  sortable: true, filter: "agTextColumnFilter", resizable: true, width: 160,
-                    cellClass : function (params) {
-                        return "text-right grid-table f-12";
-                    }},
-                { field: "action", headerName: "Action", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 160,
-                    cellClass : function (params) {
-                        return "text-center grid-table f-12";
-                    },
-                    cellRenderer : function (params) {
-                        return '<div><a class="text-primary click-pointer">Edit</a> | <a class="text-danger click-pointer">Delete</a></div>'
-                    }},
-            ],
-            defaultColDef: {
-                sortable: true,
-                filter: true,
-            },
-            getRowHeight : function(params){
-                return 27.5;
-            },
             rowData: [
-                { groupname: "Group A",
+                {
+                    groupname: "Group A",
                     totalmember: "5",
-                    action: "" },
-                { groupname: "Group B",
+                    action: ""
+                },
+                {
+                    groupname: "Group B",
                     totalmember: "15",
-                    action: "" },
-                { groupname: "Group C",
+                    action: ""
+                },
+                {
+                    groupname: "Group C",
                     totalmember: "27",
-                    action: "" },
-                { groupname: "Group D",
+                    action: ""
+                },
+                {
+                    groupname: "Group D",
                     totalmember: "18",
-                    action: "" },
-                { groupname: "Group E",
+                    action: ""
+                },
+                {
+                    groupname: "Group E",
                     totalmember: "45",
-                    action: "" },],
-            sideBar: {
-                toolPanels: [
-                    {
-                        id: "columns",
-                        labelDefault: "Columns",
-                        labelKey: "columns",
-                        iconKey: "columns",
-                        toolPanel: "agColumnsToolPanel",
-                        toolPanelParams: {
-                            suppressRowGroups: true,
-                            suppressValues: true,
-                            suppressPivots: true,
-                            suppressPivotMode: true,
-                            suppressSideButtons: true,
-                            suppressColumnFilter: true,
-                            suppressColumnSelectAll: true,
-                            suppressColumnExpandAll: true
-                        },
-                    }, {
-                        id: "filters",
-                        labelDefault: "Filters",
-                        labelKey: "filters",
-                        iconKey: "filter",
-                        toolPanel: "agFiltersToolPanel"
-                    }
-                ],
-                defaultToolPanel: ""
-            },
+                    action: ""
+                },],
         }
     }
-
-    onGridReady = params => {
-        this.gridApi = params.api;
-        this.gridColumnApi = params.columnApi;
-
-        params.api.sizeColumnsToFit();
-        window.addEventListener("resize", function() {
-            setTimeout(function() {
-                params.api.sizeColumnsToFit();
-            });
-        });
-
-        params.api.sizeColumnsToFit();
-    };
-
-    onFirstDataRendered(params) {
-        params.api.sizeColumnsToFit();
-    }
-
     render() {
         return (
             <>
                 <div
                     className="card-xmini ag-theme-balham-dark ag-header-border-grey d-border"
                     style={{
-                        width: 'auto' }}>
-                    <AgGridReact
-                        columnDefs={this.state.columnDefs}
-                        rowData={this.state.rowData}
-                        defaultColDef={this.state.defaultColDef}
-                        getRowHeight={this.state.getRowHeight}
-                        onGridReady={this.onGridReady}
-                        onFirstDataRendered={this.onFirstDataRendered}>
-                    </AgGridReact>
+                        width: 'auto'}}>
+                    <table className="table table-fixed table-hovered">
+                        <thead>
+                        <tr>
+                            <th className="col-xs-7">Group</th>
+                            <th className="col-xs-2">Member</th>
+                            <th className="col-xs-3">#</th>
+                        </tr>
+                        </thead>
+                        <tbody className="tbodyGroup">
+                        {this.state.rowData.map((charx, index) => {
+                            return (
+                                <tr className="trTableFix">
+                                    <td className="col-xs-7 groupName text-center text-primary">{charx.groupname}</td>
+                                    <td className="col-xs-2 totalMember text-right">{charx.totalmember}</td>
+                                    <td className="col-xs-3 buttonTd">
+                                        <button type="button" className="btn btn-info btn-sm">
+                                            <i className="icofont-pencil"></i>
+                                        </button> <button type="button" className="btn btn-danger btn-sm">
+                                        <i className="icofont-minus"></i>
+                                    </button>
+                                    </td>
+                                </tr>
+                            )
+                        })}
+                        </tbody>
+                    </table>
                 </div>
             </>
         );
     }
 }
-
+//zaky ubah table
 class AmendGroupCodeAgGrid extends React.PureComponent {
     constructor(props) {
         super(props);
         const self = this;
         this.state = {
-            columnDefs: [
-                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 220, lockPosition:true, lockVisible:true, suppressSizeToFit:true,
-                    cellClass : function (params) {
-                        return "text-left grid-table f-12 locked-col locked-visible";
-                    }, cellRenderer : function (params) {
-                        var code = params.data.code;
-                        var sCode = code.split('-');
-
-                        return '<div class="ui small disabled input gray col-sm-4 align-self-center px-0">' +
-                            '<input placeholder="Code" disabled="" type="text" tabindex="-1" value="'+sCode[0]+'">' +
-                            '</div>&nbsp; '+sCode[1];
-                    }},
-                { field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 70,
-                    cellClass : function (params) {
-                        return "text-right grid-table f-12";
-                    }},
-                { field: "indicator", headerName: "#", sortable: true, filter: "agTextColumnFilter", width: 30,
-                    cellClass : function (params) {
-                        return " grid-table text-center f-12";
-                    },
-                    cellRenderer : function (params) {
-                        var change = params.data.change;
-                        return change.includes('-') === true ? '<i class="icofont icofont-caret-down text-danger"></i>' :
-                            '<i class="icofont icofont-caret-up text-success"></i>'
-                    }},
-                { field: "change", headerName: "Change/%", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 100,
-                    cellClass : function (params) {
-                        var change = params.data.change;
-                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
-                            change.includes('+') === true ? "text-success text-right grid-table f-12" :
-                                "text-warning text-right grid-table f-12";
-                    } },
-                { field: "action", headerName: "", sortable: true, filter: "agTextColumnFilter", width: 50, pinned : "right",
-                    cellClass : function (params) {
-                        return "text-center grid-table f-12";
-                    }, cellRenderer : function (params) {
-                        return '<button class="btn btn-sm btn-danger">' +
-                            '<i class="fa fa-minus"></i>';
-                    }},
-            ],
-            defaultColDef: {
-                sortable: true,
-                filter: true,
-            },
-            getRowHeight : function(params){
-                return 27.5;
-            },
             rowData: [
-                { code: "AALI-Astra Argo Lestari Tbk.",
+                {
+                    code: "AALI-Astra Argo Lestari Tbk.",
                     price: "12,650",
                     indicator: "",
                     change: "+175(+1.36%)",
-                    action: "" },
-                { code: "TLKM-Telekomunikasi Indonesia Tbk.",
+                    action: ""
+                },
+                {
+                    code: "TLKM-Telekomunikasi Indonesia Tbk.",
                     price: "15,600",
                     indicator: "",
                     change: "-175(-1.36%)",
-                    action: "" },
+                    action: ""
+                },
+                {
+                    code: "INDF-Indofood Tbk.",
+                    price: "13,700",
+                    indicator: "",
+                    change: "-175(-1.36%)",
+                    action: ""
+                },
+                {
+                    code: "WSKT-Waskita Tbk.",
+                    price: "11,400",
+                    indicator: "",
+                    change: "-175(-1.36%)",
+                    action: ""
+                },
             ],
-            sideBar: {
-                toolPanels: [
-                    {
-                        id: "columns",
-                        labelDefault: "Columns",
-                        labelKey: "columns",
-                        iconKey: "columns",
-                        toolPanel: "agColumnsToolPanel",
-                        toolPanelParams: {
-                            suppressRowGroups: true,
-                            suppressValues: true,
-                            suppressPivots: true,
-                            suppressPivotMode: true,
-                            suppressSideButtons: true,
-                            suppressColumnFilter: true,
-                            suppressColumnSelectAll: true,
-                            suppressColumnExpandAll: true
-                        },
-                    }, {
-                        id: "filters",
-                        labelDefault: "Filters",
-                        labelKey: "filters",
-                        iconKey: "filter",
-                        toolPanel: "agFiltersToolPanel"
-                    }
-                ],
-                defaultToolPanel: ""
-            },
         }
     }
 
-    onGridReady = params => {
-        this.gridApi = params.api;
-        this.gridColumnApi = params.columnApi;
-
-        params.api.sizeColumnsToFit();
-        window.addEventListener("resize", function() {
-            setTimeout(function() {
-                params.api.sizeColumnsToFit();
-            });
-        });
-
-        params.api.sizeColumnsToFit();
-    };
-
-    onFirstDataRendered(params) {
-        params.api.sizeColumnsToFit();
-    }
-
     render() {
+        const splitcode = (props) => {
+            var splited = props.split('-');
+            return <span>{splited[0]}</span>
+        }
+        const splitname = (props) => {
+            let splited = props.split("-");
+            return <span>{splited[1]}</span>
+        }
         return (
             <>
                 <div
                     className="card-xs ag-theme-balham-dark ag-header-border-grey d-border"
                     style={{
-                        width: 'auto' }}>
-                    <AgGridReact
-                        columnDefs={this.state.columnDefs}
-                        rowData={this.state.rowData}
-                        defaultColDef={this.state.defaultColDef}
-                        getRowHeight={this.state.getRowHeight}
-                        onGridReady={this.onGridReady}
-                        onFirstDataRendered={this.onFirstDataRendered}>
-                    </AgGridReact>
+                        width: 'auto'}}>
+                    <table className="table table-fixed table-hovered">
+                        <thead>
+                        <tr>
+                            <th className="col-xs-10">Code</th>
+                            <th className="col-xs-2">#</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {this.state.rowData.map((charx, index) => {
+                            return (
+                                <tr className="trTableFix">
+                                    <td className="col-xs-10 codeTd"><kbd>{splitcode(charx.code)}</kbd> {splitname(charx.code)}</td>
+                                    <td className="col-xs-2 buttonTd">
+                                        <button type="button"
+                                                className="btn btn-danger btn-sm"><i className="icofont-minus"></i></button></td>
+                                </tr>
+                            )
+                        })}
+                        </tbody>
+                    </table>
                 </div>
             </>
         );
     }
 }
-
+//zaky
+//ubah table
 class AddGroupCodeAgGrid extends React.PureComponent {
     constructor(props) {
         super(props);
         const self = this;
         this.state = {
-            columnDefs: [
-                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 220, lockPosition:true, lockVisible:true, suppressSizeToFit:true,
-                    cellClass : function (params) {
-                        return "text-left grid-table f-12 locked-col locked-visible";
-                    }, cellRenderer : function (params) {
-                        var code = params.data.code;
-                        var sCode = code.split('-');
-
-                        return '<div class="ui small disabled input gray col-sm-4 align-self-center px-0">' +
-                            '<input placeholder="Code" disabled="" type="text" tabindex="-1" value="'+sCode[0]+'">' +
-                            '</div>&nbsp; '+sCode[1];
-                    }},
-                { field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 70,
-                    cellClass : function (params) {
-                        return "text-right grid-table f-12";
-                    }},
-                { field: "indicator", headerName: "#", sortable: true, filter: "agTextColumnFilter", width: 30,
-                    cellClass : function (params) {
-                        return " grid-table text-center f-12";
-                    },
-                    cellRenderer : function (params) {
-                        var change = params.data.change;
-                        return change.includes('-') === true ? '<i class="icofont icofont-caret-down text-danger"></i>' :
-                            '<i class="icofont icofont-caret-up text-success"></i>'
-                    }},
-                { field: "change", headerName: "Change/%", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 100,
-                    cellClass : function (params) {
-                        var change = params.data.change;
-                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
-                            change.includes('+') === true ? "text-success text-right grid-table f-12" :
-                                "text-warning text-right grid-table f-12";
-                    } },
-            ],
-            defaultColDef: {
-                sortable: true,
-                filter: true,
-            },
-            getRowHeight : function(params){
-                return 27.5;
-            },
             rowData: [
-                { code: "AALI-Astra Argo Lestari Tbk.",
+                {
+                    code: "AALI-Astra Argo Lestari Tbk.",
                     price: "12,650",
                     indicator: "",
-                    change: "+175(+1.36%)" },
-                { code: "TLKM-Telekomunikasi Indonesia Tbk.",
+                    change: "+175(+1.36%)"
+                },
+                {
+                    code: "TLKM-Telekomunikasi Indonesia Tbk.",
                     price: "15,600",
                     indicator: "",
-                    change: "-175(-1.36%)"},
+                    change: "-175(-1.36%)"
+                },
+                {
+                    code: "TLKM-Telekomunikasi Indonesia Tbk.",
+                    price: "15,600",
+                    indicator: "",
+                    change: "-175(-1.36%)"
+                },
+                {
+                    code: "TLKM-Telekomunikasi Indonesia Tbk.",
+                    price: "15,600",
+                    indicator: "",
+                    change: "-175(-1.36%)"
+                },
             ],
-            sideBar: {
-                toolPanels: [
-                    {
-                        id: "columns",
-                        labelDefault: "Columns",
-                        labelKey: "columns",
-                        iconKey: "columns",
-                        toolPanel: "agColumnsToolPanel",
-                        toolPanelParams: {
-                            suppressRowGroups: true,
-                            suppressValues: true,
-                            suppressPivots: true,
-                            suppressPivotMode: true,
-                            suppressSideButtons: true,
-                            suppressColumnFilter: true,
-                            suppressColumnSelectAll: true,
-                            suppressColumnExpandAll: true
-                        },
-                    }, {
-                        id: "filters",
-                        labelDefault: "Filters",
-                        labelKey: "filters",
-                        iconKey: "filter",
-                        toolPanel: "agFiltersToolPanel"
-                    }
-                ],
-                defaultToolPanel: ""
-            },
-        }
-    }
-
-    onGridReady = params => {
-        this.gridApi = params.api;
-        this.gridColumnApi = params.columnApi;
-
-        params.api.sizeColumnsToFit();
-        window.addEventListener("resize", function() {
-            setTimeout(function() {
-                params.api.sizeColumnsToFit();
-            });
-        });
-
-        params.api.sizeColumnsToFit();
-    };
-
-    onFirstDataRendered(params) {
-        params.api.sizeColumnsToFit();
+        };
     }
 
     render() {
+        const splitcode = (props) => {
+            var splited = props.split('-');
+            return <span>{splited[0]}</span>
+        }
+        const splitname = (props) => {
+            let splited = props.split("-");
+            return <span>{splited[1]}</span>
+        }
         return (
             <>
                 <div
                     className="card-xs ag-theme-balham-dark ag-header-border-grey d-border"
                     style={{
-                        width: 'auto' }}>
-                    <AgGridReact
-                        columnDefs={this.state.columnDefs}
-                        rowData={this.state.rowData}
-                        defaultColDef={this.state.defaultColDef}
-                        getRowHeight={this.state.getRowHeight}
-                        onGridReady={this.onGridReady}
-                        onFirstDataRendered={this.onFirstDataRendered}>
-                    </AgGridReact>
+                        width: 'auto','overflow-y':'hidden'}}>
+                    <table className="table table-fixed table-hovered">
+                        <thead>
+                        <tr>
+                            <th className="col-xs-10">Code</th>
+                            <th className="col-xs-2">#</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {this.state.rowData.map((charx, index) => {
+                            return (
+                                <tr className="trTableFix">
+                                    <td className="col-xs-10 codeTd"><kbd>{splitcode(charx.code)}</kbd> {splitname(charx.code)}</td>
+                                    <td className="col-xs-2 buttonTd">
+                                        <button type="button"
+                                                className="btn btn-danger btn-sm"><i className="icofont-minus"></i></button></td>
+                                </tr>
+                            )
+                        })}
+                        </tbody>
+                    </table>
+
+
+
                 </div>
             </>
         );
@@ -4379,6 +2341,11 @@ class CorpActionAgGrid extends React.PureComponent {
         );
     }
 }
-
+const RegisterAmendModal = ContextConnector(BIPSAppContext,
+    (vars, actions) => ({
+        thememode: vars.thememode,
+        chartMode: vars.chartMode
+    }),
+)(RegisterAmendModal_Base);
 export { CustomFrameHeaderStock, Stock, BuyPage, SellPage, AmendGroupNameAgGrid, AmendGroupCodeAgGrid, AddGroupCodeAgGrid, BuyModal, SellModal, RegisterAmendModal };
 export default StockPage;
