@@ -520,7 +520,7 @@ class RelativePerfomanceChart_Base extends React.PureComponent {
 
             function initHeightChart() {
                 var creditsHeight = 10;
-                var heightView = (viewMode) ? 600 : 295;
+                var heightView = (viewMode) ? 452 : 295;
 
                 // ganti 440 dengan $(window).height() untuk tinggi otomatis
                 $('#chart-container' + stockName).height(heightView - $indicatorNavPanel.outerHeight() - creditsHeight);
@@ -730,14 +730,14 @@ class RelativePerfomanceChart_Base extends React.PureComponent {
         borderRadius: 5,
         colors: {
             ...theme.colors,
-            neutral0: this.props.thememode === true ? '#3D3E3F' : '#CDCDCE',
-            neutral20: this.props.thememode === true ? '#333332' : '#E9E9E9',
-            neutral30: this.props.thememode === true ? '#333332' : '#E9E9E9',
-            neutral40: this.props.thememode === true ? '#1A1A1A' : '#1A1A1A',
-            neutral80: this.props.thememode === true ? '#FFFFFF' : '#878787',
-            primary75: this.props.thememode === true ? '#FFFFFF' : '#4D4D4E',
-            primary50: this.props.thememode === true ? '#4D4D4E' : '#FFFFFF',
-            primary25: this.props.thememode === true ? '#FFFFFF' : '#F5F5F5',
+            neutral0: this.props.thememode === true ? '#516198' : '#CDCDCE',
+            neutral20: this.props.thememode === true ? '#2D3866' : '#E9E9E9',
+            neutral30: this.props.thememode === true ? '#2D3866' : '#E9E9E9',
+            neutral40: this.props.thememode === true ? '#202542' : '#1A1A1A',
+            neutral80: this.props.thememode === true ? '#A1A7C4' : '#878787',
+            primary75: this.props.thememode === true ? '#FFFFFF' : '#FFFFFF',
+            primary50: this.props.thememode === true ? '#2D3866' : '#4D4D4E',
+            primary25: this.props.thememode === true ? '#758bcf' : '#F5F5F5',
             primary: '#0071BC',
         },
     });
@@ -923,13 +923,13 @@ more.
 
                                     <div className="form-group">
                                         <li style={marginSelection}>
-                                            <Select options={stockOptions} className="stockOps" styles={customStyles} theme={this.selectSelectionTab} />
+                                            <Select options={stockOptions} placeholder={<div style={{color:"white"}}>Search..</div>} className="stockOps" styles={customStyles} theme={this.selectSelectionTab} />
                                         </li>
                                     </div>
 
                                     <div className="form-group">
                                         <li style={marginSelection}>
-                                            <Select options={stockOptions} className="stockOps" styles={customStyles} theme={this.selectSelectionTab} />
+                                            <Select options={stockOptions} placeholder={<div style={{color:"white"}}>Search..</div>} className="stockOps" styles={customStyles} theme={this.selectSelectionTab} />
                                         </li>
                                     </div>
 
@@ -941,7 +941,7 @@ more.
                         </div>
                     </div>
                 </div>
-                <div id={"chart-container" + this.state.stockType} className="card-501" style={containerStyle}></div>
+                <div id={"chart-container" + this.state.stockType} className="card-452" style={containerStyle}></div>
             </div>
         );
     }

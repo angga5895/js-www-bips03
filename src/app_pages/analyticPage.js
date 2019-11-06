@@ -107,7 +107,7 @@ class AnalyticPage_Base extends React.PureComponent {
     }
 
     render() {
-        let classChart = (this.state.expnView) ? 'card-559 bg-dark-grey' : 'card-279 bg-dark-grey';
+        let classChart = (this.state.expnView) ? 'card-515 bg-dark-grey' : 'card-257 bg-dark-grey';
 
         let boxScroll = {
             overflowX: 'hidden'
@@ -166,7 +166,7 @@ class StockAnalyticPage extends React.PureComponent {
 
     render() {
 
-        let classChart = 'card-559 bg-dark-grey';
+        let classChart = 'card-515 bg-dark-grey';
 
         let boxScroll = {
             overflowX: 'hidden'
@@ -199,7 +199,7 @@ class IndiceAnalyticPage extends React.PureComponent {
 
     render() {
 
-        let classChart = 'card-559 bg-dark-grey';
+        let classChart = 'card-515 bg-dark-grey';
 
         let boxScroll = {
             overflowX: 'hidden'
@@ -232,7 +232,7 @@ class RelativePerformanceAnalyticPage extends React.PureComponent {
 
     render() {
 
-        let classChart = 'card-559 bg-dark-grey';
+        let classChart = 'card-515 bg-dark-grey';
 
         let boxScroll = {
             overflowX: 'hidden'
