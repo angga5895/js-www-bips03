@@ -1593,7 +1593,7 @@
   .ag-theme-balham-dark .ag-header-cell::after,
   .ag-theme-balham-dark .ag-header-group-cell::after {
     border-right: 1px solid rgba(66, 66, 66, 0.5);
-    content: " ";
+    /*content: " ";*/
     height: 16px;
     margin-top: 8px;
     position: absolute;

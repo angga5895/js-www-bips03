@@ -20,10 +20,15 @@
   d : path("M18.125,15.804l-4.038-4.037c0.675-1.079,1.012-2.308,1.01-3.534C15.089,4.62,12.199,1.75,8.584,1.75C4.815,1.75,1.982,4.726,2,8.286c0.021,3.577,2.908,6.549,6.578,6.549c1.241,0,2.417-0.347,3.44-0.985l4.032,4.026c0.167,0.166,0.43,0.166,0.596,0l1.479-1.478C18.292,16.234,18.292,15.968,18.125,15.804 M8.578,13.99c-3.198,0-5.716-2.593-5.733-5.71c-0.017-3.084,2.438-5.686,5.74-5.686c3.197,0,5.625,2.493,5.64,5.624C14.242,11.548,11.621,13.99,8.578,13.99 M16.349,16.981l-3.637-3.635c0.131-0.11,0.721-0.695,0.876-0.884l3.642,3.639L16.349,16.981z")!important;
 }
 
+.stockPageSelect > div:first-child{
+    border-radius: 0px!important;
+}
+
 :root{
   --warna-dasar : #010101;
   --warna-header-card : #181818;
   --warna-text-basic : #FFFFFF;
+  --warna-text-header : #EEEEEE;
   --warna-black-white : #000000;
   --warna-black-white-gradient : #212121;
   --warna-cssmenu : #F7F7F7;
@@ -54,38 +59,65 @@
 :root{
   /*variabel card*/
   --height-container-custom: 520px;
-  --card-667 : 667px;
-  --card-635 : 635px;
-  --card-590 : 590px;
-  --card-32 : 32px;
-  --card-550 : 550px;
-  --card-520 : 520px;
-  --card-330 : 330px;
-  --card-445 : 445px;
-  --card-490 : 490px;
-  --card-400 : 400px;
-  --card-540 : 540px;
-  --card-265 : 265px;
-  --card-295 : 295px;
-  --card-560 : 560px;
-  --card-398 : 398px;
-  --card-196 : 196.67px;
-  --card-167 : 167px;
-  --card-515 : 515px;
-  --card-440 : 440px;
+
+  --card-575 : 575px;
+  --card-527 : 527px;
+  --card-452 : 452px;
+  --card-487 : 487px;
   --card-305 : 305px;
-
-  --card-121 : 121px;
-  --card-297 : 297px;
-  --card-511 : 511px;
-  --card-433 : 433px;
-  --card-149 : 149px;
-  --card-586 : 586px;
-  --card-559 : 559px;
-  --card-279 : 279.5px;
-  --card-501 : 501px;
+  --card-392 : 392px;
   --card-221 : 221px;
+  --card-194 : 194px;
+  --card-448 : 448px;
+  --card-478 : 478px;
+  --card-472 : 472px;
+  --card-381 : 381px;
+  --card-155 : 155px;
+  --card-233 : 233px;
+  --card-202 : 202px;
+  --card-515 : 515px;
+  --card-334 : 334px;
+  --card-230 : 232.5px;
+  --card-175 : 175.6px;
+  --card-138 : 138.6px;
+  --card-479 : 479px;
+  --card-406 : 406px;
+  --card-282 : 282px;
+  --card-160 : 160px;
+  --card-190 : 190px;
+  --card-156 : 156px;
+  --card-111 : 111px;
+  --card-158 : 158px;
+  --card-324 : 324px;
+  --card-372 : 372px;
+  --card-129 : 129px;
+  --card-257 : 257px;
+  --card-475 : 475px;
 
+
+  /*Data lama*/
+  --card-520 : 420px;
+  --card-490 : 90px;
+  --card-400 : 30px;
+  --card-540 : 40px;
+  --card-265 : 65px;
+  --card-560 : 60px;
+  --card-398 : 98px;
+  --card-196 : 96.67px;
+  --card-167 : 67px;
+  --card-440 : 40px;
+
+  --card-121 : 21px;
+  --card-297 : 97px;
+  --card-511 : 11px;
+  --card-433 : 33px;
+  --card-149 : 49px;
+  --card-586 : 86px;
+  --card-559 : 59px;
+  --card-279 : 79.5px;
+  --card-501 : 41px;
+
+  --card-345 : 45px;
 
   --card-trading : 30px;
   --card-213 : 13px;
@@ -99,11 +131,9 @@
   --card-grafik : 30px;
   --card-530 : 23px;
   --card-500 : 00px;
-  --card-160 : 60px;
   --card-592 : 92px;
   --card-470 : 70px;
   --card-558 : 70px;
-  --card-235 : 35px;
   --card-580 : 80px;
   --card-355 : 55px;
   --card-537 : 37px;
@@ -113,8 +143,8 @@
   --py-2-scale : 0;
   --py-form : 0px;
 
-  --margin-top-sidebar: 15%;
-  --margin-bottom-sidebar: 15%;
+  --margin-top-sidebar: 1%;
+  --margin-bottom-sidebar: 1%;
 
   --zoom-livetrade: 1;
 }
@@ -217,6 +247,7 @@
   height: 55px;
   overflow-y: auto;
   width: 100%;
+  background-color: var(--warna-hover-menu)!important;
 }
 .table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
   display: block;
@@ -238,6 +269,7 @@
 }
 .tbodyGroup{
   height: 100px !important;
+  background-color: var(--warna-hover-menu)!important;
 }
 .trTableFix:hover>td{
   background-color: var(--warna-hover-menu)!important;
@@ -255,6 +287,89 @@
   font-weight: bold;
   border-right: 1px solid var(--warna-d-border);
   border-bottom: 1px solid var(--warna-d-border);
+}
+
+/*Date picker*/
+.datePickStyle{
+  width: 236px;
+}
+.btnDatePick{
+  width: 100px;
+  min-height: 33px;
+}
+
+/*Switch Panel*/
+.react-switch-checkbox {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.react-switch-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 55px;
+  height: 24px;
+  background: grey;
+  border-radius: 100px;
+  position: relative;
+  transition: background-color .2s;
+  margin-top: -9px;
+  padding: 0px;
+  margin-right:0px;
+
+}
+
+.react-switch-label .react-switch-button {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 45px;
+  transition: 0.3s;
+  background: #fff;
+  box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
+
+}
+
+.react-switch-checkbox:checked + .react-switch-label .react-switch-button {
+  left: calc(100% - 2px);
+  transform: translateX(-100%);
+}
+
+.react-switch-label:active .react-switch-button {
+  width: 60px;
+
+}
+.switchActive{
+  background-color:#06D6A0;
+}
+
+.d-border-right-grey{
+  border-right: 1px solid var(--warna-bg-dark-grey) !important;
+}
+
+[col-id~="codeR"], [col-id~="avgpriceR"], [col-id~="lastpriceR"],
+[col-id~="stockValR"], [col-id~="lqValR"], [col-id~="plR"], [col-id~="mktvalueR"]
+{
+  padding-bottom: 25px;
+  /*z-index: 9999;*/
+  overflow: visible !important;
+  border-top:none !important;
+}
+[col-id~="0_0"]{
+  border-right: none !important;
+}
+.ag-header-cell-label, [aria-rowindex~="2"]{
+  overflow-y: visible !important;
+  /*z-index: 999;*/
+}
+[aria-rowindex~="2"]{
+  overflow: visible !important;
 }
 
 .nav-link {
@@ -3495,7 +3610,7 @@ th {
   /*color: white;*/
 }
 .table-hover > tbody > tr:hover {
-  background-color: var(--warna-scroll);
+  background-color: var(--warna-btn-dark-hover);
 }
 table col[class*="col-"] {
   position: static;
