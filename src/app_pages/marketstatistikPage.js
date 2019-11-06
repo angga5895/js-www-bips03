@@ -3,7 +3,7 @@ import {Dropdown, Input} from 'semantic-ui-react';
 import { AppFrameAction } from '../appframe.js';
 import StreamChart from './streamChart.js';
 import {AppFrame, AppFrameProvider, AppModal} from "../appframe";
-import {BIPSAppProvider} from "../AppData";
+import {BIPSAppContext, BIPSAppProvider} from "../AppData";
 import FillHeaderTab from "../tabheaderfill";
 import { NetAppProvider, WSConnection} from './../appnetwork.js';
 import {WSConnectionAction} from "./../appnetwork";
@@ -29,6 +29,7 @@ import newsImg2 from './../img/noimage.png';
 import newsImg3 from './../img/noimage.png';
 import newsImg4 from './../img/noimage.png';
 import newsImg5 from './../img/noimage.png';
+import {ContextConnector} from "../appcontext";
 
 const stateOptions = [
     //untuk top active
@@ -53,8 +54,8 @@ const CustomFrameHeaderMarketStatistik= (props) =>{
             initialFrames={
                 [
                     {className: 'MarketStatistikPage', title: 'SUMMARY PAGE', instanceName: 'marketStatistikPage'},
-                    {className: 'IndiceMarketStatistikPage', title: 'INDICES PAGE', instanceName: 'indiceMarketStatistikPage'},
                     {className: 'StatisticMarketStatistikPage', title: 'STATISTIC PAGE', instanceName: 'statisticMarketStatistikPage'},
+                    {className: 'IndiceMarketStatistikPage', title: 'INDICES PAGE', instanceName: 'indiceMarketStatistikPage'},
                     {className: 'TopBrokerMarketStatistikPage', title: 'TOP BROKER PAGE', instanceName: 'topBrokerMarketStatistikPage'},
                     {className: 'NewResearchMarketStatistikPage', title: 'NEW & RESEARCH PAGE', instanceName: 'newResearchMarketStatistikPage'},
                 ]
@@ -66,8 +67,8 @@ const CustomFrameHeaderMarketStatistik= (props) =>{
                     <FillHeaderTab linkTitles={
                         {
                             marketStatistikPage: 'SUMMARY',
-                            indiceMarketStatistikPage: 'INDICES',
-                            statisticMarketStatistikPage: 'STATISTIC',
+                            statisticMarketStatistikPage: 'MARKET INDEX',
+                            indiceMarketStatistikPage: 'SECTORAL INDEX',
                             topBrokerMarketStatistikPage: 'TOP BROKER',
                             newResearchMarketStatistikPage: 'NEWS & RESEARCH',
                         }
@@ -137,12 +138,12 @@ class MarketStatistikPage extends React.PureComponent {
             <>
                 <AppFrameAction ref="frameAction" />
                 <WSConnectionAction />
-                <div className="card card-590">
-                    <div className="card-header bg-grey py-0">
-                        <div className="f-14 px-0 mx-0 py-0 col-sm-12">
+                <div className="card card-527">
+                    <div className="card-header h-49 bg-grey py-0">
+                        <div className="f-14 px-0 mx-0 py-0 col-sm-12 h-49">
                             <div className="row col-sm-12 px-0 mx-0">
                                 <div className="col-mbl-radio px-0 mx-0 row align-self-center">
-                                    <ul className="ul-radio col-sm-12 px-0 mx-0 row">
+                                    <ul className="ul-radio col-sm-12 px-0 mx-0 row h-49">
                                         <li className="li-radio col-radio px-0 mx-0" onClick={
                                             (e) => {
                                                 this.setState({
@@ -184,7 +185,7 @@ class MarketStatistikPage extends React.PureComponent {
                                     </ul>
                                 </div>
                                 <div className="col-mbl-radio-o px-0 mx-0 align-self-center">
-                                    <div className="col-sm-12 px-0 mx-0 row text-right">
+                                    <div className="col-sm-12 px-0 mx-0 row text-right h-49 py-2">
                                         <div className="col-sm-8"></div>
                                         <div className="col-sm-4">
                                             <Dropdown placeholder='Choose' search selection options={stateOptions} className="col-sm-12 f-12"/>
@@ -234,15 +235,15 @@ class IndiceMarketStatistikPage extends React.PureComponent{
                 <AppFrameAction ref="frameAction" />
                 <WSConnectionAction />
 
-                <div className="card card-295 bg-black-trading f-12">
+                <div className="card grid-294 bg-black-trading f-12">
                     <MarketIndicesAgGrid />
                     {/*<MarketIndicesGrid clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} />*/}
                 </div>
 
-                <div className="card card-295 bg-black-trading f-12">
+                <div className="card card-233 bg-black-trading f-12">
                     <div className="card-header px-0 py-0">
-                        <div className="col-sm-2 px-0 mx-0 bg-gray-tradding text-center">
-                            <button className="btn btn-sm btn-primary col-sm-12 px-0 mx-0 text-center">FINANCE</button>
+                        <div className="col-sm-12 px-0 mx-0 bg-gray-tradding text-center">
+                            <div className="bg-grey col-sm-12 px-0 mx-0 text-center py-3 h-30">FINANCE</div>
                         </div>
                     </div>
                     <div className="card-body">
@@ -255,8 +256,54 @@ class IndiceMarketStatistikPage extends React.PureComponent{
     }
 }
 
-class StatisticMarketStatistikPage extends React.PureComponent {
+class StatisticMarketStatistikPage_Base extends React.PureComponent {
+    constructor(props) {
+        super(props);
+    }
+
+    selectSelectionTab = theme => ({
+        ...theme,
+        borderRadius: 5,
+        colors: {
+            ...theme.colors,
+            neutral0: this.props.thememode === true ? '#202542' : '#E9E9E9',
+            neutral20: this.props.thememode === true ? '#2D3866' : '#CDCDCE',
+            neutral30: this.props.thememode === true ? '#2D3866' : '#CDCDCE',
+            neutral40: this.props.thememode === true ? '#202542' : '#1A1A1A',
+            neutral80: this.props.thememode === true ? '#A1A7C4' : '#878787',
+            primary75: this.props.thememode === true ? '#FFFFFF' : '#FFFFFF',
+            primary50: this.props.thememode === true ? '#2D3866' : '#4D4D4E',
+            primary25: this.props.thememode === true ? '#3f5798' : '#dedbdc',
+            primary: '#0071BC',
+        },
+    });
+
     render(){
+        const stockOptions = [
+            { value: 'agri', label: 'AGRI' },
+            { value: 'composite', label: 'COMPOSITE' },
+            { value: 'mining', label: 'MINING' },
+        ];
+
+        const customStyles = {
+            control: (base, state) => ({
+                ...base,
+                // match with the menu
+                borderRadius: 0,
+                border: "var(--warna-d-border) 1px solid"
+            }),
+            menu: base => ({
+                ...base,
+                // override border radius to match the box
+                borderRadius: 0,
+            }),
+            menuList: base => ({
+                ...base,
+                // override border radius to match the box
+                borderRadius: 0
+            })
+        };
+
         return(
             <>
                 <style>{'' +
@@ -272,14 +319,17 @@ class StatisticMarketStatistikPage extends React.PureComponent {
                 </style>
                 <AppFrameAction ref="frameAction" />
                 <WSConnectionAction />
-                <div className="px-1 mx-0 col-sm-12 row f-12">
+                <div className="px-1 mx-0 col-sm-12 row f-12 card-527">
                     <div className="col-sm-7 px-1 py-2 d-border-table-right">
                         <div className="card card-515 bg-black-trading">
-                            <div className="card-header py-3">
+                            <div className="card-header py-3 h-121">
                                 <div className="col-sm-12 mb-4 row">
-                                    <label className="align-self-center col-sm-3 px-0 mx-0">Code Index</label>
-                                    <Input defaultValue='AGRI' placeholder='Code' size='small' className="col-sm-7 text-center align-self-center"/>
-                                    <div className="col-sm-2 text-left align-self-center px-2"><i className="fa fa-search fa-2x click-pointer text-dark"></i></div>
+                                    <label className="align-self-center col-sm-3 px-0 mx-0">Index</label>
+                                    {/*<Input defaultValue='AGRI' placeholder='Code' size='small' className="col-sm-7 text-center align-self-center"/>*/}
+                                    <div className="col-sm-9 text-left align-self-center">
+                                        <Select maxMenuHeight={150} styles={customStyles} size="small" placeholder={<div>Search..</div>} options={stockOptions} className="stockPageSelect" theme={this.selectSelectionTab}/>
+                                    </div>
+                                    {/*<div className="col-sm-2 text-left align-self-center px-2"><i className="fa fa-search fa-2x click-pointer text-dark"></i></div>*/}
                                 </div>
                                 <div className="col-sm-12 mb-4 row">
                                     <div className="col-sm-3 text-white f-16">6,384.90</div>
@@ -302,82 +352,78 @@ class StatisticMarketStatistikPage extends React.PureComponent {
                     <div className="col-sm-5 px-1 py-2 d-border-table-left">
                         <div className="card card-515 bg-black-trading text-white">
                             <div className="card-body px-3">
-                                <TableBS responsive borderless size="sm" className="text-center align-self-center align-middle">
+                                <TableBS responsive bordered size="sm" className="table-hover table-striped text-center align-self-center align-middle card-230 mb-1 mt-0">
                                     <thead className="text-white t-statistic">
                                     <tr>
-                                        <th>BOARD</th>
-                                        <th>VALUE(T)</th>
-                                        <th>LOT(M)</th>
-                                        <th>FREQ</th>
+                                        <th className="py-1 bg-gray-tradding">BOARD</th>
+                                        <th className="py-1 bg-gray-tradding">VALUE(T)</th>
+                                        <th className="py-1 bg-gray-tradding">LOT(M)</th>
+                                        <th className="py-1 bg-gray-tradding">FREQ</th>
                                     </tr>
                                     </thead>
                                     <tbody className="text-white no-wrap tb-statistic">
                                     <tr>
-                                        <td className="text-center">Reguler</td>
-                                        <td className="text-right">6.35</td>
-                                        <td className="text-right">100.3</td>
-                                        <td className="text-right">403,040 </td>
+                                        <td className="text-center py-1">Reguler</td>
+                                        <td className="text-right py-1">6.35</td>
+                                        <td className="text-right py-1">100.3</td>
+                                        <td className="text-right py-1">403,040 </td>
                                     </tr>
                                     <tr>
-                                        <td className="text-center">Negotiated</td>
-                                        <td className="text-right">2.64</td>
-                                        <td className="text-right">55.41</td>
-                                        <td className="text-right">870 </td>
+                                        <td className="text-center py-1">Negotiated</td>
+                                        <td className="text-right py-1">2.64</td>
+                                        <td className="text-right py-1">55.41</td>
+                                        <td className="text-right py-1">870 </td>
                                     </tr>
                                     <tr>
-                                        <td className="text-center">Cash</td>
-                                        <td className="text-right">0</td>
-                                        <td className="text-right">0</td>
-                                        <td className="text-right">0 </td>
+                                        <td className="text-center py-1">Cash</td>
+                                        <td className="text-right py-1">0</td>
+                                        <td className="text-right py-1">0</td>
+                                        <td className="text-right py-1">0 </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="text-primary text-center py-1">TOTAL</td>
+                                        <td className="text-primary text-right py-1">8.99</td>
+                                        <td className="text-primary text-right py-1">156.15</td>
+                                        <td className="text-primary text-right py-1">403,914 </td>
                                     </tr>
                                     </tbody>
-                                    <tfoot className="tb-statistic">
-                                    <tr>
-                                        <th className="text-primary text-center">TOTAL</th>
-                                        <th className="text-primary text-right">8.99</th>
-                                        <th className="text-primary text-right">156.15</th>
-                                        <th className="text-primary text-right">403,914 </th>
-                                    </tr>
-                                    </tfoot>
                                 </TableBS>
-                                <div className="bg-grey-0 text-center py-4"><a className="text-white text-underline">FOREIGN ACTIVITY</a></div>
-                                <TableBS responsive borderless size="sm" className="text-center align-self-center align-middle">
+                                <div className="bg-grey-0 text-center py-4 h-40"><a className="text-white text-underline">FOREIGN ACTIVITY</a></div>
+                                <TableBS responsive bordered size="sm" className="table-hover table-striped text-center align-self-center align-middle card-230 mb-0 mt-1">
                                     <thead className="text-white t-statistic">
                                     <tr>
-                                        <th>FOREIGN</th>
-                                        <th>VALUE</th>
-                                        <th>LOT</th>
-                                        <th>FREQ</th>
+                                        <th className="py-1 bg-gray-tradding">FOREIGN</th>
+                                        <th className="py-1 bg-gray-tradding">VALUE</th>
+                                        <th className="py-1 bg-gray-tradding">LOT</th>
+                                        <th className="py-1 bg-gray-tradding">FREQ</th>
                                     </tr>
                                     </thead>
                                     <tbody className="text-white no-wrap tb-statistic">
                                     <tr>
-                                        <td className="text-center">F.Buy</td>
-                                        <td className="text-danger text-right">2.29 T</td>
-                                        <td className="text-danger text-right">11.68 M</td>
-                                        <td className="text-danger text-right">63,578 </td>
+                                        <td className="text-center py-1">F.Buy</td>
+                                        <td className="text-danger text-right py-1">2.29 T</td>
+                                        <td className="text-danger text-right py-1">11.68 M</td>
+                                        <td className="text-danger text-right py-1">63,578 </td>
                                     </tr>
                                     <tr>
                                         <td className="text-center">F.Sell</td>
-                                        <td className="text-success text-right">3.02 T</td>
-                                        <td className="text-success text-right">11.44 M</td>
-                                        <td className="text-success text-right">84,982 </td>
+                                        <td className="text-success text-right py-1">3.02 T</td>
+                                        <td className="text-success text-right py-1">11.44 M</td>
+                                        <td className="text-success text-right py-1">84,982 </td>
                                     </tr>
-                                    </tbody>
-                                    <tfoot className="tb-statistic">
                                     <tr>
-                                        <th className="text-center text-white">F.TOTAL</th>
-                                        <th className="text-right text-primary">5.31 T</th>
-                                        <th className="text-right text-primary">23.13 M</th>
-                                        <th className="text-right text-primary">148,560 </th>
+                                        <td className="text-center text-white py-1">F.TOTAL</td>
+                                        <td className="text-right text-primary py-1">5.31 T</td>
+                                        <td className="text-right text-primary py-1">23.13 M</td>
+                                        <td className="text-right text-primary py-1">148,560 </td>
                                     </tr>
                                     <tr className="tb-statistic">
-                                        <th className="text-center text-white">F.NET</th>
-                                        <th className="text-right text-primary">-731.36 B</th>
-                                        <th className="text-right text-primary">241,671</th>
-                                        <th className="text-right text-primary">-21,404 </th>
+                                        <td className="text-center text-white py-1">F.NET</td>
+                                        <td className="text-right text-primary py-1">-731.36 B</td>
+                                        <td className="text-right text-primary py-1">241,671</td>
+                                        <td className="text-right text-primary py-1">-21,404 </td>
                                     </tr>
-                                    </tfoot>
+                                    </tbody>
                                 </TableBS>
                             </div>
                         </div>
@@ -391,22 +437,22 @@ class StatisticMarketStatistikPage extends React.PureComponent {
 class TopBrokerMarketStatistikPage extends React.PureComponent {
     render(){
         return(
-            <div className="f-12 px-3">
+            <div className="f-12 px-2">
                 <AppFrameAction ref="frameAction" />
                 <WSConnectionAction />
-                <div className="card card-196 bg-black-trading f-12">
+                <div className="card card-175 bg-black-trading f-12">
                     <TopBrokerAgGrid/>
                 </div>
-                <div className="card card-196 bg-black-trading f-12">
-                    <div className="card-header bg-grey">
+                <div className="card card-175 bg-black-trading f-12">
+                    <div className="card-header bg-grey h-37">
                         TOP BUYER
                     </div>
                     <div className="card-body">
                         <TopBrokerBAgGrid/>
                     </div>
                 </div>
-                <div className="card card-196 bg-black-trading f-12">
-                    <div className="card-header bg-grey">
+                <div className="card card-175 bg-black-trading f-12">
+                    <div className="card-header bg-grey h-37">
                         TOP SELLER
                     </div>
                     <div className="card-body">
@@ -434,7 +480,7 @@ class NewResearchMarketStatistikPage extends React.PureComponent {
                 {/*<BIPSAppProvider>*/}
                 <WSConnectionAction />
                 <div className="row col-sm-12 px-0 mx-0 pt-1">
-                    <div className="col-sm-12 px-2">
+                    <div className="col-sm-12 px-2 h-45">
                         <MenuOfContent linkTitles={
                             {
                                 newsGeneral : 'General News',
@@ -466,14 +512,14 @@ class GeneralNewResearchPage extends React.PureComponent {
                 <WSConnectionAction /> {/* websocket connection component */}
                 <div className="col sm-12 px-0 mx-0 row">
                     <div className="col-sm-8 px-0 mx-0 f-12">
-                        <div className="card card-515 d-border-right">
-                            <div className="card-header px-3 text-white">
+                        <div className="card card-479 d-border-right">
+                            <div className="card-header px-3 text-white h-73">
                                 <h3>
                                     Investor Asing Jual Saham Hampir Rp 2 Triliun,<br />
                                     IHSG Ditutup Turun 56,23 Poin
                                 </h3>
                             </div>
-                            <div className="card card-body card-440 scrollable px-3">
+                            <div className="card card-body card-406 scrollable px-3">
                                 <div className={"text-center align-self-center"}>
                                     <img src={newsImg1} alt="News 1" height={"auto"} width={"50%"} />
                                 </div>
@@ -501,8 +547,8 @@ class GeneralNewResearchPage extends React.PureComponent {
                         </div>
                     </div>
                     <div className="col-sm-4 px-0 mx-0 f-12">
-                        <div className="card card-515 d-border-left">
-                            <div className="card card-body card-515 scrollable px-3">
+                        <div className="card card-479 d-border-left">
+                            <div className="card card-body card-479 scrollable px-3">
                                 <div className="row col-sm-12 px-0 mx-0 d-border-bottom pb-4 mb-4 click-pointer">
                                     <div className="col-sm-6 pl-0 pr-1 mx-0 text-center align-self-center">
                                         <img src={newsImg2} alt="News 1" height={"auto"} width={"100%"} />
@@ -572,14 +618,14 @@ class StockNewResearchPage extends React.PureComponent {
                 <WSConnectionAction /> {/* websocket connection component */}
                 <div className="col sm-12 px-0 mx-0 row">
                     <div className="col-sm-8 px-0 mx-0 f-12">
-                        <div className="card card-515 d-border-right">
-                            <div className="card-header px-3 text-white">
+                        <div className="card card-479 d-border-right">
+                            <div className="card-header px-3 text-white h-73">
                                 <h3>
                                     Investor Asing Jual Saham Hampir Rp 2 Triliun,<br />
                                     IHSG Ditutup Turun 56,23 Poin
                                 </h3>
                             </div>
-                            <div className="card card-body card-440 scrollable px-3">
+                            <div className="card card-body card-406 scrollable px-3">
                                 <div className={"text-center align-self-center"}>
                                     <img src={newsImg1} alt="News 1" height={"auto"} width={"50%"} />
                                 </div>
@@ -607,8 +653,8 @@ class StockNewResearchPage extends React.PureComponent {
                         </div>
                     </div>
                     <div className="col-sm-4 px-0 mx-0 f-12">
-                        <div className="card card-515 d-border-left">
-                            <div className="card card-body card-515 scrollable px-3">
+                        <div className="card card-479 d-border-left">
+                            <div className="card card-body card-479 scrollable px-3">
                                 <div className="row col-sm-12 px-0 mx-0 d-border-bottom pb-4 mb-4 click-pointer">
                                     <div className="col-sm-6 pl-0 pr-1 mx-0 text-center align-self-center">
                                         <img src={newsImg3} alt="News 1" height={"auto"} width={"100%"} />
@@ -678,14 +724,14 @@ class MutualNewResearchPage extends React.PureComponent {
                 <WSConnectionAction /> {/* websocket connection component */}
                 <div className="col sm-12 px-0 mx-0 row">
                     <div className="col-sm-8 px-0 mx-0 f-12">
-                        <div className="card card-515 d-border-right">
-                            <div className="card-header px-3 text-white">
+                        <div className="card card-479 d-border-right">
+                            <div className="card-header px-3 text-white h-73">
                                 <h3>
                                     Investor Asing Jual Saham Hampir Rp 2 Triliun,<br />
                                     IHSG Ditutup Turun 56,23 Poin
                                 </h3>
                             </div>
-                            <div className="card card-body card-440 scrollable px-3">
+                            <div className="card card-body card-406 scrollable px-3">
                                 <div className={"text-center align-self-center"}>
                                     <img src={newsImg1} alt="News 1" height={"auto"} width={"50%"} />
                                 </div>
@@ -713,8 +759,8 @@ class MutualNewResearchPage extends React.PureComponent {
                         </div>
                     </div>
                     <div className="col-sm-4 px-0 mx-0 f-12">
-                        <div className="card card-515 d-border-left">
-                            <div className="card card-body card-515 scrollable px-3">
+                        <div className="card card-479 d-border-left">
+                            <div className="card card-body card-479 scrollable px-3">
                                 <div className="row col-sm-12 px-0 mx-0 d-border-bottom pb-4 mb-4 click-pointer">
                                     <div className="col-sm-6 pl-0 pr-1 mx-0 text-center align-self-center">
                                         <img src={newsImg3} alt="News 1" height={"auto"} width={"100%"} />
@@ -784,14 +830,14 @@ class ReseacrhNewResearchPage extends React.PureComponent {
                 <WSConnectionAction /> {/* websocket connection component */}
                 <div className="col sm-12 px-0 mx-0 row">
                     <div className="col-sm-8 px-0 mx-0 f-12">
-                        <div className="card card-515 d-border-right">
-                            <div className="card-header px-3 text-white">
+                        <div className="card card-479 d-border-right">
+                            <div className="card-header px-3 text-white h-73">
                                 <h3>
                                     Investor Asing Jual Saham Hampir Rp 2 Triliun,<br />
                                     IHSG Ditutup Turun 56,23 Poin
                                 </h3>
                             </div>
-                            <div className="card card-body card-440 scrollable px-3">
+                            <div className="card card-body card-406 scrollable px-3">
                                 <div className={"text-center align-self-center"}>
                                     <img src={newsImg1} alt="News 1" height={"auto"} width={"50%"} />
                                 </div>
@@ -819,8 +865,8 @@ class ReseacrhNewResearchPage extends React.PureComponent {
                         </div>
                     </div>
                     <div className="col-sm-4 px-0 mx-0 f-12">
-                        <div className="card card-515 d-border-left">
-                            <div className="card card-body card-515 scrollable px-3">
+                        <div className="card card-479 d-border-left">
+                            <div className="card card-body card-479 scrollable px-3">
                                 <div className="row col-sm-12 px-0 mx-0 d-border-bottom pb-4 mb-4 click-pointer">
                                     <div className="col-sm-6 pl-0 pr-1 mx-0 text-center align-self-center">
                                         <img src={newsImg3} alt="News 1" height={"auto"} width={"100%"} />
@@ -2982,7 +3028,7 @@ class MarketStatistikAgGrid extends React.PureComponent {
         const self = this;
         this.state = {
             columnDefs: [
-                { field: "no", headerName: "#", sortable: true, width: 31,
+                { field: "no", headerName: "#", sortable: true, width: 60,
                     cellClass : function (params) {
                         return " grid-table text-center f-12";
                     }},
@@ -3058,7 +3104,7 @@ class MarketStatistikAgGrid extends React.PureComponent {
                             last > prev ? "text-success text-right grid-table f-12" :
                                 "text-warning text-right grid-table f-12";
                     } },
-                { field: "val", headerName: "Val(Bn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 102,
+                { field: "val", headerName: "Val(T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 102,
                     cellClass : function (params) {
                         var prev = parseFloat(params.data.prev.replace(/,/g,""));
                         var last = parseFloat(params.data.last.replace(/,/g,""));
@@ -3066,7 +3112,7 @@ class MarketStatistikAgGrid extends React.PureComponent {
                             last > prev ? "text-success text-right grid-table f-12" :
                                 "text-warning text-right grid-table f-12";
                     } },
-                { field: "vol", headerName: "Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 75,
+                { field: "vol", headerName: "Vol (Lot)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 75,
                     cellClass : function (params) {
                         var prev = parseFloat(params.data.prev.replace(/,/g,""));
                         var last = parseFloat(params.data.last.replace(/,/g,""));
@@ -3082,19 +3128,19 @@ class MarketStatistikAgGrid extends React.PureComponent {
                             last > prev ? "text-success text-right grid-table f-12" :
                                 "text-warning text-right grid-table f-12";
                     } },
-                { field: "fbuy", headerName: "F.Buy", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 90,
+                { field: "fbuy", headerName: "F.Buy (T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 90,
                     cellClass : function (params) {
                         return " grid-table text-right f-12";
                     } },
-                { field: "fsell", headerName: "F.Sell", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 89,
+                { field: "fsell", headerName: "F.Sell (T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 89,
                     cellClass : function (params) {
                         return " grid-table text-right f-12";
                     } },
-                { field: "fnet", headerName: "F.Net", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 89,
+                { field: "fnet", headerName: "F.Net (T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 89,
                     cellClass : function (params) {
                         return " grid-table text-right f-12";
                     } },
-                { field: "financial", headerName: "Financial", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 130,
+                { field: "financial", headerName: "Financial (M)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 130, hide:true,
                     cellClass : function (params) {
                         return " grid-table text-right f-12";
                     } },
@@ -3770,7 +3816,7 @@ class MarketStatistikAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className={this.props.typegrid =="summary" ? "card-540 ag-theme-balham-dark" : "card-265 ag-theme-balham-dark"}
+                    className={this.props.typegrid =="summary" ? "card-478 ag-theme-balham-dark" : "card-202 ag-theme-balham-dark"}
                     id="myGrid"
                     style={{
                         width: "100%"
@@ -3852,19 +3898,19 @@ class MarketIndicesAgGrid extends React.PureComponent {
                     cellClass : function (params) {
                         return " grid-table text-center f-12";
                     } },
-                { field: "value", headerName: "Value", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 122,
+                { field: "value", headerName: "Value (T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 122,
                     cellClass : function (params) {
                         return " grid-table text-right f-12";
                     } },
-                { field: "fbuy", headerName: "F.Buy", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 122,
+                { field: "fbuy", headerName: "F.Buy (T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 122,
                     cellClass : function (params) {
                         return " grid-table text-right f-12";
                     } },
-                { field: "fsell", headerName: "F.Sell", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 122,
+                { field: "fsell", headerName: "F.Sell (T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 122,
                     cellClass : function (params) {
                         return " grid-table text-right f-12";
                     } },
-                { field: "fnet", headerName: "F.Net", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 122,
+                { field: "fnet", headerName: "F.Net (T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 122,
                     cellClass : function (params) {
                         return " grid-table text-right f-12";
                     } },
@@ -4063,7 +4109,7 @@ class MarketIndicesAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className="card-295 ag-theme-balham-dark ag-striped-even"
+                    className="grid-294 ag-theme-balham-dark ag-striped-even"
                     id="myGrid"
                     style={{
                         width: "100%"
@@ -4100,19 +4146,19 @@ class TopBrokerAgGrid extends React.PureComponent {
                     cellClass : function (params) {
                         return " grid-table text-left f-12";
                     }},
-                { field: "tval", headerName: "T. Val(B)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 213,
+                { field: "tval", headerName: "T. Val(T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 213,
                     cellClass : function (params) {
                         return " grid-table text-right f-12";
                     }},
-                { field: "bval", headerName: "B. Val(Bn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 213,
+                { field: "bval", headerName: "B. Val(T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 213,
                     cellClass : function (params) {
                         return " grid-table text-right f-12 text-danger";
                     }},
-                { field: "sval", headerName: "S. Val(Bn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 213,
+                { field: "sval", headerName: "S. Val(T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 213,
                     cellClass : function (params) {
                         return " grid-table text-right f-12 text-success";
                     } },
-                { field: "tvol", headerName: "T. Vol(Mn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 213,
+                { field: "tvol", headerName: "T. Vol(Lot)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 213,
                     cellClass : function (params) {
                         return " grid-table text-right f-12";
                     } },
@@ -4246,7 +4292,7 @@ class TopBrokerAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className="card-196 ag-theme-balham-dark"
+                    className="card-175 ag-theme-balham-dark"
                     id="myGrid"
                     style={{
                         width: "100%"
@@ -4284,15 +4330,15 @@ class TopBrokerBAgGrid extends React.PureComponent {
                     cellClass : function (params) {
                         return " grid-table text-left f-12";
                     }},
-                { field: "tval", headerName: "T. Val(B)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
+                { field: "tval", headerName: "T. Val(T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
                     cellClass : function (params) {
                         return " grid-table text-right f-12";
                     }},
-                { field: "bval", headerName: "B. Val(Bn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
+                { field: "bval", headerName: "B. Val(T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
                     cellClass : function (params) {
                         return " grid-table text-right f-12 text-danger";
                     }},
-                { field: "tvol", headerName: "T. Vol(Mn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
+                { field: "tvol", headerName: "T. Vol(Lot)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
                     cellClass : function (params) {
                         return " grid-table text-right f-12";
                     } },
@@ -4402,7 +4448,7 @@ class TopBrokerBAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className="card-167 ag-theme-balham-dark"
+                    className="card-138 ag-theme-balham-dark"
                     id="myGrid"
                     style={{
                         width: "100%"
@@ -4440,15 +4486,15 @@ class TopBrokerSAgGrid extends React.PureComponent {
                     cellClass : function (params) {
                         return " grid-table text-left f-12";
                     }},
-                { field: "tval", headerName: "T. Val(B)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
+                { field: "tval", headerName: "T. Val(T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
                     cellClass : function (params) {
                         return " grid-table text-right f-12";
                     }},
-                { field: "sval", headerName: "S. Val(Bn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
+                { field: "sval", headerName: "S. Val(T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
                     cellClass : function (params) {
                         return " grid-table text-right f-12 text-success";
                     }},
-                { field: "tvol", headerName: "T. Vol(Mn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
+                { field: "tvol", headerName: "T. Vol(Lot)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
                     cellClass : function (params) {
                         return " grid-table text-right f-12";
                     } },
@@ -4554,7 +4600,7 @@ class TopBrokerSAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className="card-167 ag-theme-balham-dark"
+                    className="card-138 ag-theme-balham-dark"
                     id="myGrid"
                     style={{
                         width: "100%"
@@ -4572,6 +4618,12 @@ class TopBrokerSAgGrid extends React.PureComponent {
         );
     }
 }
+
+const StatisticMarketStatistikPage = ContextConnector(BIPSAppContext,
+    (vars, actions) => ({
+        thememode: vars.thememode
+    }),
+)(StatisticMarketStatistikPage_Base);
 
 export default MarketStatistikPage;
 export {CustomFrameHeaderMarketStatistik, MarketStatistik};
