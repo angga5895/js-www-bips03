@@ -244,18 +244,18 @@ class OrderbookPage extends React.PureComponent {
 
     render() {
         return (
-            <div className="col-sm-12 pl-2 mx-0 pt-1">
+            <div className="col-sm-12 px-2 mx-0 pt-1">
                 <WSConnectionAction ref="wsAction" /> {/* websocket connection component */}
                 <div className="bg-black-trading f-12">
-                    <AppFrameAction ref="frameAction" />
-                    <div className="d-border-bottom">
+                        <AppFrameAction ref="frameAction" />
+                    {/*<div className="d-border-bottom">
                         <div className="col-sm-4 px-0 row">
                             <div className="col-sm-6 px-5 mx-0 text-left pt-3 pb-3">
                                 <button className="btn btn-sm btn-grey" onClick={this.buttonClickAmendRegister}>Modify Watchlist</button>
                             </div>
                             <div className="col-sm-6 px-0 mx-0 text-right pt-3 pb-1"></div>
                         </div>
-                    </div>
+                    </div>*/}
                     <div className="card-515 col-sm-12 pt-3 pr-2 mr-0 row">
                         <div className="col-sm-4 pl-4 pr-0">
                             <div className={this.state.box1 === 1 ? "bg-grey pt-1 d-active" : "bg-grey pt-1"} onClick={this.clickBox1}>
@@ -328,7 +328,7 @@ class TradeWatchlist extends React.PureComponent{
 
     render() {
         return (
-            <div className="row col-sm-12 pl-2 mx-0 pt-1">
+            <div className="row col-sm-12 px-2 mx-0 py-0">
                 <WSConnectionAction ref="wsAction"/> {/* websocket connection component */}
                 <AppFrameAction ref="frameAction"/>
                 <OrderListAgGrid clickorderdetail={this.buttonClickOrderDetail} clickamend={this.buttonClickAmend}
@@ -513,15 +513,15 @@ class TableTradeWatchlist extends React.Component{
             <WSConnectionAction ref="wsAction" /> {/* websocket connection component */}
             <div className="bg-black-trading f-12">
                 <AppFrameAction ref="frameAction" />
-                <div>
+                {/*<div>
                     <div className="col-sm-12 px-0 row">
                         <div className="col-sm-6 px-5 mx-0 text-left pt-3 pb-2">
                             <button className="btn btn-sm btn-grey" onClick={this.buttonClickAmendRegister}>Modify Watchlist</button>
                         </div>
                         <div className="col-sm-6 px-0 mx-0 text-right pt-3 pb-1"></div>
                     </div>
-                </div>
-                <div className="px-4 pt-4">
+                </div>*/}
+                <div className="px-4 pt-2">
                     <TradeWatchlistAgGrid />
                 </div>
             </div>
@@ -833,7 +833,7 @@ class TradeWatchlistAgGrid extends React.PureComponent {
         return (
             <>
                 <div
-                    className="card-511 ag-theme-balham-dark ag-header-border d-border"
+                    className="card-515 ag-theme-balham-dark ag-header-border d-border"
                     style={{
                         width: 'auto' }}>
                     <AgGridReact
@@ -1753,7 +1753,7 @@ class OrderListAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className={"card-586 ag-theme-balham-dark ag-bordered ag-striped-odd"}
+                    className={"card-527 ag-theme-balham-dark ag-bordered ag-striped-odd"}
                     id="myGrid"
                     style={{
                         width: "100%"
