@@ -23,6 +23,125 @@ const CustomFrameHeader = (props) => {
   );
 }
 
+const ResizeResponsive = () => {
+    var height575 = $('html').height()-84-32-5;
+    $('.card-575').css('min-height', (height575));
+    var height527 = height575-$('.tabheaderfill').height()-3;
+    $('.card-527').css('min-height', (height527));
+    var height452 = height527-31-37-6;
+    $('.card-452').css('min-height', (height452));
+    var height487 = height527-40;
+    $('.card-487').css('min-height', (height487));
+    var height305 = height527/1.728;
+    $('.card-305').css('min-height', (height305));
+    var height221 = height527/2.385;
+    $('.card-221').css('min-height', (height221));
+    var height194 = height221-17-10;
+    $('.card-194').css('min-height', (height194));
+    var height448 = height527-77-2;
+    $('.card-448').css('min-height', (height448));
+    var height57 = (height448/8)+1;
+    $('.list-group-item-portofolio').css('min-height', (height57));
+    var height392 = height527-62-11-25-20-17;
+    $('.card-392').css('min-height', (height392));
+    var height478 = height527-49-1.5;
+    $('.card-478').css('min-height', (height478));
+    var height472 = height527-45-10;
+    $('.card-472').css('min-height', (height472));
+    var height381 = height472-62-29;
+    $('.card-381').css('min-height', (height381));
+    var height155 = (height472-62-30-10-40-20)/2;
+    $('.card-155').css('min-height', (height155));
+    var height233 = height527-$('.grid-294').height()-0.5;
+    $('.card-233').css('min-height', (height233));
+    var height202 = height527-$('.grid-294').height()-30-0.5;
+    $('.card-202').css('min-height', (height202));
+    var height515 = height527-12.5;
+    $('.card-515').css('min-height', (height515));
+    var height334 = height515-121-40-20-20-1;
+    $('.card-334').css('min-height', (height334));
+    var height230 = (height515-40-15)/2;
+    $('.card-230').css('min-height', (height230));
+    var height175 = (height527/3)-0.833;
+    $('.card-175').css('min-height', (height175));
+    var height138 = height175-37;
+    $('.card-138').css('min-height', (height138));
+
+    var height479 = height527-25-20-3-1;
+    $('.card-479').css('min-height', (height479));
+    var height406 = height479-73;
+    $('.card-406').css('min-height', (height406));
+    var height282 = ((height527-40)/1.727)+0.298;
+    $('.card-282').css('min-height', (height282));
+    var height190 = ((height527-40)/2.563)+0.183;
+    $('.card-190').css('min-height', (height190));
+    var height160 = height190-30;
+    $('.card-160').css('min-height', (height160));
+    var height156 = height160-4;
+    $('.card-156').css('min-height', (height156));
+    var height111 = ((height527-40-30)/4.117)+0.118;
+    $('.card-111').css('min-height', (height111));
+    var height158 = height156+2;
+    $('.card-158').css('min-height', (height158));
+    var height324 = ((height527-40-30)/1.410)+2.241;
+    $('.card-324').css('min-height', (height324));
+    var height372 = (height527-40-40-30-45)+0.5;
+    $('.card-372').css('min-height', (height372));
+    var height129 = (height372+15)/3;
+    $('.card-129').css('min-height', (height129));
+    var height257 = height515/2;
+    $('.card-257').css('min-height', (height257));
+    var height475 = height515-40;
+    $('.card-475').css('min-height', (height475));
+
+
+    var rsccontainer = height527;
+    $('.rsc-container').css('min-height', (rsccontainer));
+    var rsccontent = height527-133;
+    $('.rsc-content').css('min-height', (rsccontent));
+    var rscscroll = height527-40;
+    $('.rsc-scroll').css('min-height', (rscscroll));
+
+    //Zoom Live Trade
+    if($('html').height() > 2601)  {
+        var liveTrade = 4.4;
+        $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+    } else if ($('html').height() > 2201 && $('html').height() < 2600) {
+        var liveTrade = 3.5;
+        $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+    } else if($('html').height() > 2049 && $('html').height() < 2200) {
+        var liveTrade = 3.1;
+        $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+    } else if($('html').height() > 1533 && $('html').height() < 2050) {
+        var liveTrade = 2.3;
+        $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+    } else if($('html').height() > 1319 && $('html').height() < 1534) {
+        var liveTrade = 2.1;
+        $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+    } else if($('html').height() > 1100 && $('html').height() < 1320) {
+        var liveTrade = 1.63;
+        $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+    } else if($('html').height() > 1042 && $('html').height() < 1099) {
+        var liveTrade = 1.5;
+        $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+    } else if($('html').height() > 1023 && $('html').height() < 1043) {
+        var liveTrade = 1.4;
+        $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+    } else if($('html').height() > 951 && $('html').height() < 1024) {
+        var liveTrade = 1.31;
+        $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+    } else if($('html').height() > 875 && $('html').height() < 950) {
+        var liveTrade = 1.29;
+        $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+    } else if($('html').height() > 772 && $('html').height() < 876) {
+        var liveTrade = 1.14;
+        $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+    } else{
+        var liveTrade = 1;
+        $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
+    }
+}
+
 class LoginPage extends React.Component {
   /*
     expected props: onLogin(uid, password)
@@ -298,783 +417,145 @@ class MainPage_Base extends React.Component {
   componentDidMount(){
       this.interval = setInterval(() => this.tick(), 1000);
 
-      var setElementHeight = function () {
-          /*alert($('html').height());*/
-          var height667 = $('html').height()-$('.header-normal-menu').height()-8;
-          $('.card-667').css('min-height', (height667));
-          var height32 = $('.card-32').height();
-          $('.card-32').css('min-height', (height32));
-          var height635 = height667-height32-1;
-          $('.card-635').css('min-height', (height635));
-          var height590 = height635-45;
-          $('.card-590').css('min-height', (height590));
-          var height550 = height635-85;
-          $('.card-550').css('min-height', (height550));
-          var height520 = height635-115;
-          $('.card-520').css('min-height', (height520));
-          var cardstockcash = height635-106;
-          $('.card-stockcash').css('min-height', (cardstockcash));
-          var height295 = height590/2;
-          $('.card-295').css('min-height', (height295));
-          var height560 = height635-75;
-          $('.card-560').css('min-height', (height560));
-          var height196 = (height635-45)/3;
-          $('.card-196').css('min-height', (height196));
-          var height121 = (height635/2)-196;
-          $('.card-121').css('min-height', (height121));
-          var height586 = height635-49;
-          $('.card-586').css('min-height', (height586));
-          var height501 = height635-115-19;
-          $('.card-501').css('min-height', (height501));
-          var height221 = ((height635-115-19)/2)-30;
+      var setElementHeightWeb = function () {
+          var height575 = $('html').height()-84-32-5;
+          $('.card-575').css('min-height', (height575));
+          var height527 = height575-$('.tabheaderfill').height()-3;
+          $('.card-527').css('min-height', (height527));
+          var height452 = height527-31-37-6;
+          $('.card-452').css('min-height', (height452));
+          var height487 = height527-40;
+          $('.card-487').css('min-height', (height487));
+          var height305 = height527/1.728;
+          $('.card-305').css('min-height', (height305));
+          var height221 = height527/2.385;
           $('.card-221').css('min-height', (height221));
-          var rsccontainer = height635-49;
+          var height194 = height221-17-10;
+          $('.card-194').css('min-height', (height194));
+          var height448 = height527-77-2;
+          $('.card-448').css('min-height', (height448));
+          var height57 = (height448/8)+1;
+          $('.list-group-item-portofolio').css('min-height', (height57));
+          var height392 = height527-62-11-25-20-17;
+          $('.card-392').css('min-height', (height392));
+          var height478 = height527-49-1.5;
+          $('.card-478').css('min-height', (height478));
+          var height472 = height527-45-10;
+          $('.card-472').css('min-height', (height472));
+          var height381 = height472-62-29;
+          $('.card-381').css('min-height', (height381));
+          var height155 = (height472-62-30-10-40-20)/2;
+          $('.card-155').css('min-height', (height155));
+          var height233 = height527-$('.grid-294').height()-0.5;
+          $('.card-233').css('min-height', (height233));
+          var height202 = height527-$('.grid-294').height()-30-0.5;
+          $('.card-202').css('min-height', (height202));
+          var height515 = height527-12.5;
+          $('.card-515').css('min-height', (height515));
+          var height334 = height515-121-40-20-20-1;
+          $('.card-334').css('min-height', (height334));
+          var height230 = (height515-40-15)/2;
+          $('.card-230').css('min-height', (height230));
+          var height175 = (height527/3)-0.833;
+          $('.card-175').css('min-height', (height175));
+          var height138 = height175-37;
+          $('.card-138').css('min-height', (height138));
+
+          var height479 = height527-25-20-3-1;
+          $('.card-479').css('min-height', (height479));
+          var height406 = height479-73;
+          $('.card-406').css('min-height', (height406));
+          var height282 = ((height527-40)/1.727)+0.298;
+          $('.card-282').css('min-height', (height282));
+          var height190 = ((height527-40)/2.563)+0.183;
+          $('.card-190').css('min-height', (height190));
+          var height160 = height190-30;
+          $('.card-160').css('min-height', (height160));
+          var height156 = height160-4;
+          $('.card-156').css('min-height', (height156));
+          var height111 = ((height527-40-30)/4.117)+0.118;
+          $('.card-111').css('min-height', (height111));
+          var height158 = height156+2;
+          $('.card-158').css('min-height', (height158));
+          var height324 = ((height527-40-30)/1.410)+2.241;
+          $('.card-324').css('min-height', (height324));
+          var height372 = (height527-40-40-30-45)+0.5;
+          $('.card-372').css('min-height', (height372));
+          var height129 = (height372+15)/3;
+          $('.card-129').css('min-height', (height129));
+          var height257 = height515/2;
+          $('.card-257').css('min-height', (height257));
+          var height475 = height515-40;
+          $('.card-475').css('min-height', (height475));
+
+
+          var rsccontainer = height527;
           $('.rsc-container').css('min-height', (rsccontainer));
-          var rsccontent = height635-49-133;
+          var rsccontent = height527-133;
           $('.rsc-content').css('min-height', (rsccontent));
-          var rscscroll = height635-49-40;
+          var rscscroll = height527-40;
           $('.rsc-scroll').css('min-height', (rscscroll));
-
-      };
-
-      var setElementMargin = function () {
-          var height667 = $('html').height()-$('.header-normal-menu').height()-8;
-
-          if($('html').height() > 2499) {
-              var sideMargin = ((height667/440)*100)/13+'%';
-              $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
-          } else if($('html').height() > 1536 && $('html').height() < 2500) {
-              var sideMargin = ((height667/440)*100)/10+'%';
-              $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
-          } else if($('html').height() > 1319 && $('html').height() < 1537) {
-              var sideMargin = ((height667/440)*100)/7.35+'%';
-              $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
-          } else if($('html').height() > 1100 && $('html').height() < 1320) {
-              var sideMargin = ((height667/440)*100)/6.5+'%';
-              $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
-          } else if($('html').height() > 1042 && $('html').height() < 1099) {
-              var sideMargin = ((height667/440)*100)/7.5+'%';
-              $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
-          } else if($('html').height() > 1023 && $('html').height() < 1043) {
-              var sideMargin = ((height667/440)*100)/6.75+'%';
-              $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
-          } else if($('html').height() > 951 && $('html').height() < 1024) {
-              var sideMargin = ((height667/440)*100)/7.5+'%';
-              $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
-          } else if($('html').height() > 875 && $('html').height() < 950) {
-              var sideMargin = ((height667/440)*100)/8+'%';
-              $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
-          } else if($('html').height() > 772 && $('html').height() < 876) {
-              var sideMargin = ((height667/440)*100)/9+'%';
-              $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
-          } else if($('html').height() > 695 && $('html').height() < 773) {
-              var sideMargin = ((height667/440)*100)/12.5+'%';
-              $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
-          } else if($('html').height() < 515){
-              var sideMargin = '1%';
-              $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
-          } else{
-              var sideMargin = '13%';
-              $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
-          }
       };
 
       var setElementLiveZoom = function () {
           if($('html').height() > 2601)  {
               var liveTrade = 4.4;
               $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
-              var pyForm = '4rem';
-              $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
           } else if ($('html').height() > 2201 && $('html').height() < 2600) {
               var liveTrade = 3.5;
               $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
-              var pyForm = '4.5rem';
-              $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
           } else if($('html').height() > 2049 && $('html').height() < 2200) {
               var liveTrade = 3.1;
               $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
-              var pyForm = '4rem';
-              $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
           } else if($('html').height() > 1533 && $('html').height() < 2050) {
               var liveTrade = 2.3;
               $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
-              var pyForm = '3.5rem';
-              $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
           } else if($('html').height() > 1319 && $('html').height() < 1534) {
               var liveTrade = 2.1;
               $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
-              var pyForm = '3rem';
-              $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
           } else if($('html').height() > 1100 && $('html').height() < 1320) {
               var liveTrade = 1.63;
               $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
-              var pyForm = '2.4rem';
-              $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
           } else if($('html').height() > 1042 && $('html').height() < 1099) {
               var liveTrade = 1.5;
               $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
-              var pyForm = '1.9rem';
-              $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
           } else if($('html').height() > 1023 && $('html').height() < 1043) {
               var liveTrade = 1.4;
               $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
-              var pyForm = '1.75rem';
-              $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
           } else if($('html').height() > 951 && $('html').height() < 1024) {
               var liveTrade = 1.31;
               $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
-              var pyForm = '1.4rem';
-              $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
           } else if($('html').height() > 875 && $('html').height() < 950) {
               var liveTrade = 1.29;
               $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
-              var pyForm = '1.15rem';
-              $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
           } else if($('html').height() > 772 && $('html').height() < 876) {
               var liveTrade = 1.14;
               $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
-              var pyForm = '.5rem';
-              $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
           } else{
               var liveTrade = 1;
               $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
-              var pyForm = '0px';
-              $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
           }
       };
 
       $(document).ready(function () {
+          setElementHeightWeb();
           setElementLiveZoom();
-          setElementMargin();
-          var card635 = $('html').height()-$('.header-normal-menu').height()-8-$('.card-32').height();
-          if($('html').height() > 2699) {
-              setElementHeight();
-              var margin67 = (card635-106-80)/8;
-              $('li.list-group-item-portofolio').css('min-height', (margin67));
-              var height330 = card635-630;
-              $('.card-330').css('min-height', (height330));
-              var cardheight445 = card635-300;
-              $('.card-445').css('min-height', (cardheight445))
-              var cardheight490 = card635-255;
-              $('.card-490').css('min-height', (cardheight490));
-              var cardheight400 = card635-345;
-              $('.card-400').css('min-height', (cardheight400));
-              var height540 = card635-95-30;
-              $('.card-540').css('min-height', (height540));
-              var height265 = (card635-150)/2;
-              $('.card-265').css('min-height', (height265));
-              var height398 = card635-475;
-              $('.card-398').css('min-height', (height398));
-              var height167 = ((card635-45)/3)-75;
-              $('.card-167').css('min-height', (height167));
-              var height515 = card635-175;
-              $('.card-515').css('min-height', (height515));
-              var height440 = (card635-120)-150;
-              $('.card-440').css('min-height', (height440));
-              var height305 = (card635-600);
-              $('.card-305').css('min-height', (height305));
-              var height297 = (card635/2)-200;
-              $('.card-297').css('min-height', (height297));
-              var height511 = (card635-200);
-              $('.card-511').css('min-height', (height511));
-              var cardheight433 = card635-345;
-              $('.card-433').css('min-height', (cardheight433));
-              var cardheight149 = (cardheight433+15)/3;
-              $('.card-149').css('min-height', (cardheight149));
-              var height586 = card635-80;
-              $('.card-586').css('min-height', (height586));
-              var height559 = ((card635/2)-196)+height297+240;
-              $('.card-559').css('min-height', (height559));
-              var height279 = (((card635/2)-196)+height297+240)/2;
-              $('.card-279').css('min-height', (height279));
-          } else if($('html').height() > 1899 && $('html').height() < 2700) {
-              setElementHeight();
-              var margin67 = (card635-106-20)/8;
-              $('li.list-group-item-portofolio').css('min-height', (margin67));
-              var height330 = card635-470;
-              $('.card-330').css('min-height', (height330));
-              var cardheight490 = card635-205;
-              $('.card-490').css('min-height', (cardheight490));
-              var cardheight400 = card635-295;
-              $('.card-400').css('min-height', (cardheight400));
-              var height540 = card635-95;
-              $('.card-540').css('min-height', (height540));
-              var height265 = (card635-130)/2;
-              $('.card-265').css('min-height', (height265));
-              var height398 = card635-350;
-              $('.card-398').css('min-height', (height398));
-              var height167 = ((card635-45)/3)-50;
-              $('.card-167').css('min-height', (height167));
-              var height515 = card635-150;
-              $('.card-515').css('min-height', (height515));
-              var height440 = (card635-120)-120;
-              $('.card-440').css('min-height', (height440));
-              var height305 = (card635-475);
-              $('.card-305').css('min-height', (height305));
-              var height297 = (card635/2)-120;
-              $('.card-297').css('min-height', (height297));
-              var height511 = (card635-170);
-              $('.card-511').css('min-height', (height511));
-              var cardheight433 = card635-275;
-              $('.card-433').css('min-height', (cardheight433));
-              var cardheight149 = (cardheight433+9)/3;
-              $('.card-149').css('min-height', (cardheight149));
-              var height586 = card635-60;
-              $('.card-586').css('min-height', (height586));
-              var height559 = ((card635/2)-196)+height297+170;
-              $('.card-559').css('min-height', (height559));
-              var height279 = (((card635/2)-196)+height297+170)/2;
-              $('.card-279').css('min-height', (height279));
-          } else if($('html').height() > 1499 && $('html').height() < 1900) {
-              setElementHeight();
-              var margin67 = (card635-106-20)/8;
-              $('li.list-group-item-portofolio').css('min-height', (margin67));
-              var height330 = card635-350;
-              $('.card-330').css('min-height', (height330));
-              var cardheight445 = card635-190;
-              $('.card-445').css('min-height', (cardheight445));
-              var cardheight490 = card635-145;
-              $('.card-490').css('min-height', (cardheight490));
-              var cardheight400 = card635-235;
-              $('.card-400').css('min-height', (cardheight400));
-              var height540 = card635-95;
-              $('.card-540').css('min-height', (height540));
-              var height265 = (card635-105)/2;
-              $('.card-265').css('min-height', (height265));
-              var height398 = card635-237;
-              $('.card-398').css('min-height', (height398));
-              var height167 = ((card635-45)/3)-29;
-              $('.card-167').css('min-height', (height167));
-              var height515 = card635-120;
-              $('.card-515').css('min-height', (height515));
-              var height440 = (card635-120)-75;
-              $('.card-440').css('min-height', (height440));
-              var height305 = (card635-330);
-              $('.card-305').css('min-height', (height305));
-              var height297 = (card635/2)-21;
-              $('.card-297').css('min-height', (height297));
-              var height511 = (card635-124);
-              $('.card-511').css('min-height', (height511));
-              var cardheight433 = card635-202;
-              $('.card-433').css('min-height', (cardheight433));
-              var cardheight149 = (cardheight433+14)/3;
-              $('.card-149').css('min-height', (cardheight149));
-              var height586 = card635-49;
-              $('.card-586').css('min-height', (height586));
-              var height559 = ((card635/2)-196)+height297+141;
-              $('.card-559').css('min-height', (height559));
-              var height279 = (((card635/2)-196)+height297+141)/2;
-              $('.card-279').css('min-height', (height279));
-          } else {
-              setElementHeight();
-              var margin67 = (card635-106)/8;
-              $('li.list-group-item-portofolio').css('min-height', (margin67));
-              var height330 = card635-305;
-              $('.card-330').css('min-height', (height330));
-              var cardheight445 = card635-190;
-              $('.card-445').css('min-height', (cardheight445));
-              var cardheight490 = card635-145;
-              $('.card-490').css('min-height', (cardheight490));
-              var cardheight400 = card635-235;
-              $('.card-400').css('min-height', (cardheight400));
-              var height540 = card635-95;
-              $('.card-540').css('min-height', (height540));
-              var height265 = (card635-105)/2;
-              $('.card-265').css('min-height', (height265));
-              var height398 = card635-237;
-              $('.card-398').css('min-height', (height398));
-              var height167 = ((card635-45)/3)-29;
-              $('.card-167').css('min-height', (height167));
-              var height515 = card635-120;
-              $('.card-515').css('min-height', (height515));
-              var height440 = (card635-120)-75;
-              $('.card-440').css('min-height', (height440));
-              var height305 = (card635-330);
-              $('.card-305').css('min-height', (height305));
-              var height297 = (card635/2)-21;
-              $('.card-297').css('min-height', (height297));
-              var height511 = (card635-124);
-              $('.card-511').css('min-height', (height511));
-              var cardheight433 = card635-202;
-              $('.card-433').css('min-height', (cardheight433));
-              var cardheight149 = (cardheight433+14)/3;
-              $('.card-149').css('min-height', (cardheight149));
-              var height586 = card635-49;
-              $('.card-586').css('min-height', (height586));
-              var height559 = ((card635/2)-196)+height297+141;
-              $('.card-559').css('min-height', (height559));
-              var height279 = (((card635/2)-196)+height297+141)/2;
-              $('.card-279').css('min-height', (height279));
-          }
       }).resize();
 
       $(window).on("resize", function () {
+          setElementHeightWeb();
           setElementLiveZoom();
-          setElementMargin();
-          var card635 = $('html').height()-$('.header-normal-menu').height()-8-$('.card-32').height();
-          if($('html').height() > 2699) {
-              setElementHeight();
-              var margin67 = (card635-106-80)/8;
-              $('li.list-group-item-portofolio').css('min-height', (margin67));
-              var height330 = card635-630;
-              $('.card-330').css('min-height', (height330));
-              var cardheight445 = card635-300;
-              $('.card-445').css('min-height', (cardheight445));
-              var cardheight490 = card635-255;
-              $('.card-490').css('min-height', (cardheight490));
-              var cardheight400 = card635-345;
-              $('.card-400').css('min-height', (cardheight490));
-              var height540 = card635-95-30;
-              $('.card-540').css('min-height', (height540));
-              var height265 = (card635-150)/2;
-              $('.card-265').css('min-height', (height265));
-              var height398 = card635-475;
-              $('.card-398').css('min-height', (height398));
-              var height167 = ((card635-45)/3)-75;
-              $('.card-167').css('min-height', (height167));
-              var height515 = card635-175;
-              $('.card-515').css('min-height', (height515));
-              var height440 = (card635-120)-150;
-              $('.card-440').css('min-height', (height440));
-              var height305 = (card635-600);
-              $('.card-305').css('min-height', (height305));
-              var height297 = (card635/2)-200;
-              $('.card-297').css('min-height', (height297));
-              var height511 = (card635-200);
-              $('.card-511').css('min-height', (height511));
-              var cardheight433 = card635-345;
-              $('.card-433').css('min-height', (cardheight433));
-              var cardheight149 = (cardheight433+15)/3;
-              $('.card-149').css('min-height', (cardheight149));
-              var height586 = card635-80;
-              $('.card-586').css('min-height', (height586));
-              var height559 = ((card635/2)-196)+height297+240;
-              $('.card-559').css('min-height', (height559));
-              var height279 = (((card635/2)-196)+height297+240)/2;
-              $('.card-279').css('min-height', (height279));
-          } else if($('html').height() > 1899 && $('html').height() < 2700) {
-              setElementHeight();
-              var margin67 = (card635-106-20)/8;
-              $('li.list-group-item-portofolio').css('min-height', (margin67));
-              var height330 = card635-470;
-              $('.card-330').css('min-height', (height330));
-              var cardheight445 = card635-250;
-              $('.card-445').css('min-height', (cardheight445));
-              var cardheight490 = card635-205;
-              $('.card-490').css('min-height', (cardheight490));
-              var cardheight400 = card635-295;
-              $('.card-400').css('min-height', (cardheight400));
-              var height540 = card635-95;
-              $('.card-540').css('min-height', (height540));
-              var height265 = (card635-130)/2;
-              $('.card-265').css('min-height', (height265));
-              var height398 = card635-350;
-              $('.card-398').css('min-height', (height398));
-              var height167 = ((card635-45)/3)-50;
-              $('.card-167').css('min-height', (height167));
-              var height515 = card635-150;
-              $('.card-515').css('min-height', (height515));
-              var height440 = (card635-120)-120;
-              $('.card-440').css('min-height', (height440));
-              var height305 = (card635-475);
-              $('.card-305').css('min-height', (height305));
-              var height297 = (card635/2)-120;
-              $('.card-297').css('min-height', (height297));
-              var height511 = (card635-170);
-              $('.card-511').css('min-height', (height511));
-              var cardheight433 = card635-275;
-              $('.card-433').css('min-height', (cardheight433));
-              var cardheight149 = (cardheight433+9)/3;
-              $('.card-149').css('min-height', (cardheight149));
-              var height586 = card635-60;
-              $('.card-586').css('min-height', (height586));
-              var height559 = ((card635/2)-196)+height297+170;
-              $('.card-559').css('min-height', (height559));
-              var height279 = (((card635/2)-196)+height297+170)/2;
-              $('.card-279').css('min-height', (height279));
-          } else if($('html').height() > 1499 && $('html').height() < 1900) {
-              setElementHeight();
-              var margin67 = (card635-106-20)/8;
-              $('li.list-group-item-portofolio').css('min-height', (margin67));
-              var height330 = card635-350;
-              $('.card-330').css('min-height', (height330));
-              var cardheight445 = card635-190;
-              $('.card-445').css('min-height', (cardheight445));
-              var cardheight490 = card635-145;
-              $('.card-490').css('min-height', (cardheight490));
-              var cardheight400 = card635-235;
-              $('.card-400').css('min-height', (cardheight400));
-              var height540 = card635-95;
-              $('.card-540').css('min-height', (height540));
-              var height265 = (card635-105)/2;
-              $('.card-265').css('min-height', (height265));
-              var height398 = card635-237;
-              $('.card-398').css('min-height', (height398));
-              var height167 = ((card635-45)/3)-29;
-              $('.card-167').css('min-height', (height167));
-              var height515 = card635-120;
-              $('.card-515').css('min-height', (height515));
-              var height440 = (card635-120)-75;
-              $('.card-440').css('min-height', (height440));
-              var height305 = (card635-330);
-              $('.card-305').css('min-height', (height305));
-              var height297 = (card635/2)-21;
-              $('.card-297').css('min-height', (height297));
-              var height511 = (card635-124);
-              $('.card-511').css('min-height', (height511));
-              var cardheight433 = card635-202;
-              $('.card-433').css('min-height', (cardheight433));
-              var cardheight149 = (cardheight433+14)/3;
-              $('.card-149').css('min-height', (cardheight149));
-              var height586 = card635-49;
-              $('.card-586').css('min-height', (height586));
-              var height559 = ((card635/2)-196)+height297+141;
-              $('.card-559').css('min-height', (height559));
-              var height279 = (((card635/2)-196)+height297+141)/2;
-              $('.card-279').css('min-height', (height279));
-          } else {
-              setElementHeight();
-              var margin67 = (card635-106)/8;
-              $('li.list-group-item-portofolio').css('min-height', (margin67));
-              var height330 = card635-305;
-              $('.card-330').css('min-height', (height330));
-              var cardheight445 = card635-190;
-              $('.card-445').css('min-height', (cardheight445));
-              var cardheight490 = card635-145;
-              $('.card-490').css('min-height', (cardheight490));
-              var cardheight400 = card635-235;
-              $('.card-400').css('min-height', (cardheight400));
-              var height540 = card635-95;
-              $('.card-540').css('min-height', (height540));
-              var height265 = (card635-105)/2;
-              $('.card-265').css('min-height', (height265));
-              var height398 = card635-237;
-              $('.card-398').css('min-height', (height398));
-              var height167 = ((card635-45)/3)-29;
-              $('.card-167').css('min-height', (height167));
-              var height515 = card635-120;
-              $('.card-515').css('min-height', (height515));
-              var height440 = (card635-120)-75;
-              $('.card-440').css('min-height', (height440));
-              var height305 = (card635-330);
-              $('.card-305').css('min-height', (height305));
-              var height297 = (card635/2)-21;
-              $('.card-297').css('min-height', (height297));
-              var height511 = (card635-124);
-              $('.card-511').css('min-height', (height511));
-              var cardheight433 = card635-202;
-              $('.card-433').css('min-height', (cardheight433));
-              var cardheight149 = (cardheight433+14)/3;
-              $('.card-149').css('min-height', (cardheight149));
-              var height586 = card635-49;
-              $('.card-586').css('min-height', (height586));
-              var height559 = ((card635/2)-196)+height297+141;
-              $('.card-559').css('min-height', (height559));
-              var height279 = (((card635/2)-196)+height297+141)/2;
-              $('.card-279').css('min-height', (height279));
-          }
+      }).resize();
+
+      $(window).on("click", function () {
+          setElementHeightWeb();
+          setElementLiveZoom();
       }).resize();
   }
 
   doLogin = (userID, password) => {
     this.props.doLogin(userID, password);
   }
-
-  resizeResponsive = () => {
-        var height667 = $('html').height()-$('.header-normal-menu').height()-8;
-        $('.card-667').css('min-height', (height667));
-        var height32 = $('.card-32').height();
-        $('.card-32').css('min-height', (height32));
-        var height635 = height667-height32-1;
-        $('.card-635').css('min-height', (height635));
-        var height590 = height635-45;
-        $('.card-590').css('min-height', (height590));
-        var height550 = height635-85;
-        $('.card-550').css('min-height', (height550));
-        var height520 = height635-115;
-        $('.card-520').css('min-height', (height520));
-        var cardstockcash = height635-106;
-        $('.card-stockcash').css('min-height', (cardstockcash));
-        var height295 = height590/2;
-        $('.card-295').css('min-height', (height295));
-        var height560 = height635-75;
-        $('.card-560').css('min-height', (height560));
-        var height196 = (height635-45)/3;
-        $('.card-196').css('min-height', (height196));
-        var height121 = (height635/2)-196;
-        $('.card-121').css('min-height', (height121));
-        var height586 = height635-49;
-        $('.card-586').css('min-height', (height586));
-        var height501 = height635-115-19;
-        $('.card-501').css('min-height', (height501));
-        var height221 = ((height635-115-19)/2)-30;
-        $('.card-221').css('min-height', (height221));
-        var rsccontainer = height635-49;
-        $('.rsc-container').css('min-height', (rsccontainer));
-        var rsccontent = height635-49-133;
-        $('.rsc-content').css('min-height', (rsccontent));
-        var rscscroll = height635-49-40;
-        $('.rsc-scroll').css('min-height', (rscscroll));
-
-        var card635 = $('html').height()-$('.header-normal-menu').height()-8-$('.card-32').height();
-        if($('html').height() > 2699) {
-            var margin67 = (card635-106-80)/8;
-            $('li.list-group-item-portofolio').css('min-height', (margin67));
-            var height330 = card635-630;
-            $('.card-330').css('min-height', (height330));
-            var cardheight445 = card635-300;
-            $('.card-445').css('min-height', (cardheight445))
-            var cardheight490 = card635-255;
-            $('.card-490').css('min-height', (cardheight490));
-            var cardheight400 = card635-345;
-            $('.card-400').css('min-height', (cardheight400));
-            var height540 = card635-95-30;
-            $('.card-540').css('min-height', (height540));
-            var height265 = (card635-150)/2;
-            $('.card-265').css('min-height', (height265));
-            var height398 = card635-475;
-            $('.card-398').css('min-height', (height398));
-            var height167 = ((card635-45)/3)-75;
-            $('.card-167').css('min-height', (height167));
-            var height515 = card635-175;
-            $('.card-515').css('min-height', (height515));
-            var height440 = (card635-120)-150;
-            $('.card-440').css('min-height', (height440));
-            var height305 = (card635-600);
-            $('.card-305').css('min-height', (height305));
-            var height297 = (card635/2)-200;
-            $('.card-297').css('min-height', (height297));
-            var height511 = (card635-200);
-            $('.card-511').css('min-height', (height511));
-            var cardheight433 = card635-345;
-            $('.card-433').css('min-height', (cardheight433));
-            var cardheight149 = (cardheight433+15)/3;
-            $('.card-149').css('min-height', (cardheight149));
-            var height586 = card635-80;
-            $('.card-586').css('min-height', (height586));
-            var height559 = ((card635/2)-196)+height297+240;
-            $('.card-559').css('min-height', (height559));
-            var height279 = (((card635/2)-196)+height297+240)/2;
-            $('.card-279').css('min-height', (height279));
-        } else if($('html').height() > 1899 && $('html').height() < 2700) {
-            var margin67 = (card635-106-20)/8;
-            $('li.list-group-item-portofolio').css('min-height', (margin67));
-            var height330 = card635-470;
-            $('.card-330').css('min-height', (height330));
-            var cardheight490 = card635-205;
-            $('.card-490').css('min-height', (cardheight490));
-            var cardheight400 = card635-295;
-            $('.card-400').css('min-height', (cardheight400));
-            var height540 = card635-95;
-            $('.card-540').css('min-height', (height540));
-            var height265 = (card635-130)/2;
-            $('.card-265').css('min-height', (height265));
-            var height398 = card635-350;
-            $('.card-398').css('min-height', (height398));
-            var height167 = ((card635-45)/3)-50;
-            $('.card-167').css('min-height', (height167));
-            var height515 = card635-150;
-            $('.card-515').css('min-height', (height515));
-            var height440 = (card635-120)-120;
-            $('.card-440').css('min-height', (height440));
-            var height305 = (card635-475);
-            $('.card-305').css('min-height', (height305));
-            var height297 = (card635/2)-120;
-            $('.card-297').css('min-height', (height297));
-            var height511 = (card635-170);
-            $('.card-511').css('min-height', (height511));
-            var cardheight433 = card635-275;
-            $('.card-433').css('min-height', (cardheight433));
-            var cardheight149 = (cardheight433+9)/3;
-            $('.card-149').css('min-height', (cardheight149));
-            var height586 = card635-60;
-            $('.card-586').css('min-height', (height586));
-            var height559 = ((card635/2)-196)+height297+170;
-            $('.card-559').css('min-height', (height559));
-            var height279 = (((card635/2)-196)+height297+170)/2;
-            $('.card-279').css('min-height', (height279));
-        } else if($('html').height() > 1499 && $('html').height() < 1900) {
-            var margin67 = (card635-106-20)/8;
-            $('li.list-group-item-portofolio').css('min-height', (margin67));
-            var height330 = card635-350;
-            $('.card-330').css('min-height', (height330));
-            var cardheight445 = card635-190;
-            $('.card-445').css('min-height', (cardheight445));
-            var cardheight490 = card635-145;
-            $('.card-490').css('min-height', (cardheight490));
-            var cardheight400 = card635-235;
-            $('.card-400').css('min-height', (cardheight400));
-            var height540 = card635-95;
-            $('.card-540').css('min-height', (height540));
-            var height265 = (card635-105)/2;
-            $('.card-265').css('min-height', (height265));
-            var height398 = card635-237;
-            $('.card-398').css('min-height', (height398));
-            var height167 = ((card635-45)/3)-29;
-            $('.card-167').css('min-height', (height167));
-            var height515 = card635-120;
-            $('.card-515').css('min-height', (height515));
-            var height440 = (card635-120)-75;
-            $('.card-440').css('min-height', (height440));
-            var height305 = (card635-330);
-            $('.card-305').css('min-height', (height305));
-            var height297 = (card635/2)-21;
-            $('.card-297').css('min-height', (height297));
-            var height511 = (card635-124);
-            $('.card-511').css('min-height', (height511));
-            var cardheight433 = card635-202;
-            $('.card-433').css('min-height', (cardheight433));
-            var cardheight149 = (cardheight433+14)/3;
-            $('.card-149').css('min-height', (cardheight149));
-            var height586 = card635-49;
-            $('.card-586').css('min-height', (height586));
-            var height559 = ((card635/2)-196)+height297+141;
-            $('.card-559').css('min-height', (height559));
-            var height279 = (((card635/2)-196)+height297+141)/2;
-            $('.card-279').css('min-height', (height279));
-        } else {
-            var margin67 = (card635-106)/8;
-            $('li.list-group-item-portofolio').css('min-height', (margin67));
-            var height330 = card635-305;
-            $('.card-330').css('min-height', (height330));
-            var cardheight445 = card635-190;
-            $('.card-445').css('min-height', (cardheight445));
-            var cardheight490 = card635-145;
-            $('.card-490').css('min-height', (cardheight490));
-            var cardheight400 = card635-235;
-            $('.card-400').css('min-height', (cardheight400));
-            var height540 = card635-95;
-            $('.card-540').css('min-height', (height540));
-            var height265 = (card635-105)/2;
-            $('.card-265').css('min-height', (height265));
-            var height398 = card635-237;
-            $('.card-398').css('min-height', (height398));
-            var height167 = ((card635-45)/3)-29;
-            $('.card-167').css('min-height', (height167));
-            var height515 = card635-120;
-            $('.card-515').css('min-height', (height515));
-            var height440 = (card635-120)-75;
-            $('.card-440').css('min-height', (height440));
-            var height305 = (card635-330);
-            $('.card-305').css('min-height', (height305));
-            var height297 = (card635/2)-21;
-            $('.card-297').css('min-height', (height297));
-            var height511 = (card635-124);
-            $('.card-511').css('min-height', (height511));
-            var cardheight433 = card635-202;
-            $('.card-433').css('min-height', (cardheight433));
-            var cardheight149 = (cardheight433+14)/3;
-            $('.card-149').css('min-height', (cardheight149));
-            var height586 = card635-49;
-            $('.card-586').css('min-height', (height586));
-            var height559 = ((card635/2)-196)+height297+141;
-            $('.card-559').css('min-height', (height559));
-            var height279 = (((card635/2)-196)+height297+141)/2;
-            $('.card-279').css('min-height', (height279));
-
-            //Margin
-            if($('html').height() > 2499) {
-                var sideMargin = ((height667/440)*100)/13+'%';
-                $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
-            } else if($('html').height() > 1536 && $('html').height() < 2500) {
-                var sideMargin = ((height667/440)*100)/10+'%';
-                $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
-            } else if($('html').height() > 1319 && $('html').height() < 1537) {
-                var sideMargin = ((height667/440)*100)/7.35+'%';
-                $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
-            } else if($('html').height() > 1100 && $('html').height() < 1320) {
-                var sideMargin = ((height667/440)*100)/6.5+'%';
-                $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
-            } else if($('html').height() > 1042 && $('html').height() < 1099) {
-                var sideMargin = ((height667/440)*100)/7.5+'%';
-                $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
-            } else if($('html').height() > 1023 && $('html').height() < 1043) {
-                var sideMargin = ((height667/440)*100)/6.75+'%';
-                $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
-            } else if($('html').height() > 951 && $('html').height() < 1024) {
-                var sideMargin = ((height667/440)*100)/7.5+'%';
-                $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
-            } else if($('html').height() > 875 && $('html').height() < 950) {
-                var sideMargin = ((height667/440)*100)/8+'%';
-                $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
-            } else if($('html').height() > 772 && $('html').height() < 876) {
-                var sideMargin = ((height667/440)*100)/9+'%';
-                $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
-            } else if($('html').height() > 695 && $('html').height() < 773) {
-                var sideMargin = ((height667/440)*100)/12.5+'%';
-                $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
-            } else if($('html').height() < 515){
-                var sideMargin = '1%';
-                $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
-            } else{
-                var sideMargin = '13%';
-                $('.my-sidebar').css({'margin-top':sideMargin, 'margin-bottom':sideMargin});
-            }
-
-            //Zoom Padding
-            if($('html').height() > 2601)  {
-                var liveTrade = 4.4;
-                $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
-                var pyForm = '4rem';
-                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
-            } else if ($('html').height() > 2201 && $('html').height() < 2600) {
-                var liveTrade = 3.5;
-                $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
-                var pyForm = '4.5rem';
-                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
-            } else if($('html').height() > 2049 && $('html').height() < 2200) {
-                var liveTrade = 3.1;
-                $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
-                var pyForm = '4rem';
-                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
-            } else if($('html').height() > 1533 && $('html').height() < 2050) {
-                var liveTrade = 2.3;
-                $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
-                var pyForm = '3.5rem';
-                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
-            } else if($('html').height() > 1319 && $('html').height() < 1534) {
-                var liveTrade = 2.1;
-                $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
-                var pyForm = '3rem';
-                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
-            } else if($('html').height() > 1100 && $('html').height() < 1320) {
-                var liveTrade = 1.63;
-                $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
-                var pyForm = '2.4rem';
-                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
-            } else if($('html').height() > 1042 && $('html').height() < 1099) {
-                var liveTrade = 1.5;
-                $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
-                var pyForm = '1.9rem';
-                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
-            } else if($('html').height() > 1023 && $('html').height() < 1043) {
-                var liveTrade = 1.4;
-                $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
-                var pyForm = '1.75rem';
-                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
-            } else if($('html').height() > 951 && $('html').height() < 1024) {
-                var liveTrade = 1.31;
-                $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
-                var pyForm = '1.4rem';
-                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
-            } else if($('html').height() > 875 && $('html').height() < 950) {
-                var liveTrade = 1.29;
-                $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
-                var pyForm = '1.15rem';
-                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
-            } else if($('html').height() > 772 && $('html').height() < 876) {
-                var liveTrade = 1.14;
-                $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
-                var pyForm = '.5rem';
-                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
-            } else{
-                var liveTrade = 1;
-                $('.myLiveTrade').css({'zoom':liveTrade, '-moz-transform':'scale('+liveTrade+')'});
-                var pyForm = '0px';
-                $('.py-form').css({'padding-top':pyForm, 'padding-bottom':pyForm});
-            }
-        }
-    }
 
   openContentFullscreen = () => {
       /* let elem = document.querySelector('.content'); */
@@ -1093,7 +574,7 @@ class MainPage_Base extends React.Component {
           document.documentElement.msRequestFullscreen();
       }
 
-      this.resizeResponsive();
+      ResizeResponsive();
 
       this.setState({
           fullscreenmode : true
@@ -1120,7 +601,7 @@ class MainPage_Base extends React.Component {
               document.msExitFullscreen();
           }
 
-          this.resizeResponsive();
+          ResizeResponsive();
           this.setState({
               fullscreenmode : false
           })
@@ -1138,7 +619,7 @@ class MainPage_Base extends React.Component {
               document.documentElement.msRequestFullscreen();
           }
 
-          this.resizeResponsive();
+          ResizeResponsive();
           this.setState({
               fullscreenmode : true
           })
@@ -1191,28 +672,29 @@ class MainPage_Base extends React.Component {
     }
 
     render () {
-      document.body.style.setProperty('--warna-dasar', this.props.thememode === true  ? "#010101" : "#FCFCFC");
-      document.body.style.setProperty('--warna-header-card', this.props.thememode === true  ? "#181818" : "#E7E8E8");
+      document.body.style.setProperty('--warna-dasar', this.props.thememode === true  ? "#040421" : "#FCFCFC");
+      document.body.style.setProperty('--warna-header-card', this.props.thememode === true  ? "#202542" : "#E7E8E8");
       document.body.style.setProperty('--warna-text-basic', this.props.thememode === true  ? "#FFFFFF" : "#878787");
-      document.body.style.setProperty('--warna-black-white', this.props.thememode === true  ? "#000000" : "#FCFCFC");
-      document.body.style.setProperty('--warna-black-white-gradient', this.props.thememode === true  ? "#212121" : "#F9FAFB");
-      document.body.style.setProperty('--warna-cssmenu', this.props.thememode === true  ? "#F7F7F7" : "#878787");
-      document.body.style.setProperty('--warna-gray', this.props.thememode === true  ? "#4D4E4E" : "#999999");
-      document.body.style.setProperty('--warna-inactive-gradient', this.props.thememode === true  ? "#0F0F10" : "#F9FAFB");
-      document.body.style.setProperty('--warna-btn-dark', this.props.thememode === true  ? "#3D3E3F" : "#CDCDCE");
-      document.body.style.setProperty('--warna-btn-dark-hover', this.props.thememode === true  ? "#333332" : "#CDCDDD");
-      document.body.style.setProperty('--warna-scroll', this.props.thememode === true  ? "#676767" : "#B3B4B4");
+      document.body.style.setProperty('--warna-text-header', this.props.thememode === true  ? "#A1A7C4" : "#878787");
+      document.body.style.setProperty('--warna-black-white', this.props.thememode === true  ? "#070821" : "#FCFCFC");
+      document.body.style.setProperty('--warna-black-white-gradient', this.props.thememode === true  ? "#242437" : "#F9FAFB");
+      document.body.style.setProperty('--warna-cssmenu', this.props.thememode === true  ? "#A1A6C5" : "#878787");
+      document.body.style.setProperty('--warna-gray', this.props.thememode === true  ? "#2D3866" : "#999999");
+      document.body.style.setProperty('--warna-inactive-gradient', this.props.thememode === true  ? "#0E0F20" : "#F9FAFB");
+      document.body.style.setProperty('--warna-btn-dark', this.props.thememode === true  ? "#516198" : "#CDCDCE");
+      document.body.style.setProperty('--warna-btn-dark-hover', this.props.thememode === true  ? "#2D3866" : "#CDCDDD");
+      document.body.style.setProperty('--warna-scroll', this.props.thememode === true  ? "#5D617F" : "#B3B4B4");
       document.body.style.setProperty('--warna-black-white-semantic', this.props.thememode === true  ? "#FFFFFF" : "#010101");
-      document.body.style.setProperty('--warna-background-semantic', this.props.thememode === true  ? "#333332" : "#FEFEFE");
-      document.body.style.setProperty('--warna-background-semantic-gradient', this.props.thememode === true  ? "#010101" : "#FFFFFF");
-      document.body.style.setProperty('--warna-d-border', this.props.thememode === true  ? "#565252" : "#999999");
-      document.body.style.setProperty('--warna-d-border-bold', this.props.thememode === true  ? "#FFFFFF" : "#999999");
-      document.body.style.setProperty('--warna-d-border-black', this.props.thememode === true  ? "#010101" : "#E7E7E7");
-      document.body.style.setProperty('--warna-bg-dark-grey', this.props.thememode === true  ? "#1A1A1A" : "#E9E9E9");
-      document.body.style.setProperty('--warna-bg-trading-gray', this.props.thememode === true  ? "#262626" : "#E3E3E3");
+      document.body.style.setProperty('--warna-background-semantic', this.props.thememode === true  ? "#2D3866" : "#FEFEFE");
+      document.body.style.setProperty('--warna-background-semantic-gradient', this.props.thememode === true  ? "#040421" : "#FFFFFF");
+      document.body.style.setProperty('--warna-d-border', this.props.thememode === true  ? "#506096" : "#999999");
+      document.body.style.setProperty('--warna-d-border-bold', this.props.thememode === true  ? "#A1A7C4" : "#999999");
+      document.body.style.setProperty('--warna-d-border-black', this.props.thememode === true  ? "#040421" : "#E7E7E7");
+      document.body.style.setProperty('--warna-bg-dark-grey', this.props.thememode === true  ? "#202542" : "#E9E9E9");
+      document.body.style.setProperty('--warna-bg-trading-gray', this.props.thememode === true  ? "#21253F" : "#E3E3E3");
       document.body.style.setProperty('--warna-text-menu', this.props.thememode === true  ? "#FFFFFF" : "#E7E7E7");
-      document.body.style.setProperty('--warna-hover-menu', this.props.thememode === true  ? "#111111" : "#CCCCCC");
-      document.body.style.setProperty('--warna-table-striped', this.props.thememode === true  ? "#272727" : "#E7E8E8");
+      document.body.style.setProperty('--warna-hover-menu', this.props.thememode === true  ? "#151733" : "#CCCCCC");
+      document.body.style.setProperty('--warna-table-striped', this.props.thememode === true  ? "#202441" : "#E7E8E8");
     /*
       Important system components:
 
@@ -1239,43 +721,43 @@ class MainPage_Base extends React.Component {
                           {
                               landingPage:
                                   <div className="text-align-center">
-                                      <i className="icon-icon-investment-board fs-icon-bips"></i> <br/>
+                                      <i className="icon-icon-investment-board fs-icon-bips"></i> <br/><br/>
                                       <span className="fs-text-bips">MY ACCOUNT</span>
                                   </div>,
                               marketstatistikPage:
                                   <div className="text-align-center">
-                                      <i className="icon-icon-market-statistic fs-icon-bips"></i> <br/>
+                                      <i className="icon-icon-market-statistic fs-icon-bips"></i> <br/><br/>
                                       <span className="fs-text-bips" style={{padding: "0px 6.5px"}}>MARKET &</span><br/>
                                       <span className="fs-text-bips">STATISTIC</span>
                                   </div>,
                               stockPage:
                                   <div className="text-align-center">
-                                      <i className="icon-icon-stock-page fs-icon-bips"></i> <br/>
+                                      <i className="icon-icon-stock-page fs-icon-bips"></i> <br/><br/>
                                       <span className="fs-text-bips" style={{padding: "0px 15.3px"}}>
                                   STOCK
                                 </span>
                                   </div>,
                               tradePage:
                                   <div className="text-align-center">
-                                      <i className="icon-icon-trade-page fs-icon-bips"></i> <br/>
+                                      <i className="icon-icon-trade-page fs-icon-bips"></i> <br/><br/>
                                       <span className="fs-text-bips" style={{padding: "0px 15.3px"}}>
                                   TRADE
                                 </span>
                                   </div>,
                               analyticPage:
                                   <div className="text-align-center">
-                                      <i className="icon-icon-analytic_page fs-icon-bips"></i> <br/>
+                                      <i className="icon-icon-analytic_page fs-icon-bips"></i> <br/><br/>
                                       <span className="fs-text-bips" style={{padding: "0px 7.8px"}}>ANALYTIC</span>
                                   </div>,
                               livetradePage:
                                   <div className="text-align-center">
-                                      <i className="icon-icon-live-trade fs-icon-bips"></i> <br/>
+                                      <i className="icon-icon-live-trade fs-icon-bips"></i> <br/><br/>
                                       <span className="fs-text-bips" style={{padding: "0px 21.09px"}}>LIVE</span><br/>
                                       <span className="fs-text-bips">TRADE</span>
                                   </div>,
                               chatsupportPage:
                                   <div className="text-align-center">
-                                      <i className="icon-icon-chat-support fs-icon-bips"></i> <br/>
+                                      <i className="icon-icon-chat-support fs-icon-bips"></i> <br/><br/>
                                       <span className="fs-text-bips" style={{padding: "0px 11.1px"}}>CHATS &</span><br/>
                                       <span className="fs-text-bips">SUPPORT</span>
                                   </div>
@@ -1283,14 +765,14 @@ class MainPage_Base extends React.Component {
                       }
                       />
 
-                  <div className="row col-sm-12 px-0 mx-0 card card-667">
+                  <div className="row col-sm-12 px-0 mx-0 card card-575 d-border-bottom">
                       <SideBar/>
-                      <div className="col-sm-contentbar px-0 mx-0 d-border-bottom">
-                          <div className="card-635">
+                      <div className="col-sm-contentbar px-0 mx-0">
                               <AppFrame headerComponent={CustomFrameHeader}/>
-                          </div>{/*zaky*/}
-                          <div className="d-border-top card-32 runningText">
-                              <p className="marquee">
+                      </div>
+                  </div>
+                  <div className="h-32 runningText">
+                      <p className="marquee">
                                   <span>
                                       <kbd>{this.state.spanData[0].code}</kbd>&nbsp;
                                       <i
@@ -1303,8 +785,8 @@ class MainPage_Base extends React.Component {
                                           {this.state.spanData[0].change}&nbsp;{this.state.spanData[0].persen}%
                                       </text>
                                   </span>
-                              </p>
-                              <p className="marquee marquee2">
+                      </p>
+                      <p className="marquee marquee2">
                                   <span>
                                       <kbd>{this.state.spanData[1].code}</kbd>&nbsp;
                                       <i
@@ -1317,8 +799,8 @@ class MainPage_Base extends React.Component {
                                           {this.state.spanData[1].change}&nbsp;{this.state.spanData[1].persen}%
                                       </text>
                                   </span>
-                              </p>
-                              <p className="marquee marquee3">
+                      </p>
+                      <p className="marquee marquee3">
                                   <span>
                                       <kbd>{this.state.spanData[2].code}</kbd>&nbsp;
                                       <i
@@ -1331,8 +813,8 @@ class MainPage_Base extends React.Component {
                                           {this.state.spanData[2].change}&nbsp;{this.state.spanData[2].persen}%
                                       </text>
                                   </span>
-                              </p>
-                              <p className="marquee marquee4">
+                      </p>
+                      <p className="marquee marquee4">
                                   <span>
                                       <kbd>{this.state.spanData[3].code}</kbd>&nbsp;
                                       <i
@@ -1345,8 +827,8 @@ class MainPage_Base extends React.Component {
                                           {this.state.spanData[3].change}&nbsp;{this.state.spanData[3].persen}%
                                       </text>
                                   </span>
-                              </p>
-                              <p className="marquee marquee5">
+                      </p>
+                      <p className="marquee marquee5">
                                   <span>
                                       <kbd>{this.state.spanData[4].code}</kbd>&nbsp;
                                       <i
@@ -1359,8 +841,8 @@ class MainPage_Base extends React.Component {
                                           {this.state.spanData[4].change}&nbsp;{this.state.spanData[4].persen}%
                                       </text>
                                   </span>
-                              </p>
-                              <p className="marquee marquee6">
+                      </p>
+                      <p className="marquee marquee6">
                                   <span>
                                       <kbd>{this.state.spanData[5].code}</kbd>&nbsp;
                                       <i
@@ -1373,8 +855,8 @@ class MainPage_Base extends React.Component {
                                           {this.state.spanData[5].change}&nbsp;{this.state.spanData[5].persen}%
                                       </text>
                                   </span>
-                              </p>
-                              <p className="marquee marquee7">
+                      </p>
+                      <p className="marquee marquee7">
                                   <span>
                                       <kbd>{this.state.spanData[6].code}</kbd>&nbsp;
                                       <i
@@ -1387,8 +869,8 @@ class MainPage_Base extends React.Component {
                                           {this.state.spanData[6].change}&nbsp;{this.state.spanData[6].persen}%
                                       </text>
                                   </span>
-                              </p>
-                              <p className="marquee marquee8">
+                      </p>
+                      <p className="marquee marquee8">
                                   <span>
                                       <kbd>{this.state.spanData[7].code}</kbd>&nbsp;
                                       <i
@@ -1401,8 +883,8 @@ class MainPage_Base extends React.Component {
                                           {this.state.spanData[7].change}&nbsp;{this.state.spanData[7].persen}%
                                       </text>
                                   </span>
-                              </p>
-                              <p className="marquee marquee9">
+                      </p>
+                      <p className="marquee marquee9">
                                   <span>
                                       <kbd>{this.state.spanData[8].code}</kbd>&nbsp;
                                       <i
@@ -1415,8 +897,8 @@ class MainPage_Base extends React.Component {
                                           {this.state.spanData[8].change}&nbsp;{this.state.spanData[8].persen}%
                                       </text>
                                   </span>
-                              </p>
-                              <p className="marquee marquee10">
+                      </p>
+                      <p className="marquee marquee10">
                                   <span>
                                       <kbd>{this.state.spanData[9].code}</kbd>&nbsp;
                                       <i
@@ -1429,9 +911,7 @@ class MainPage_Base extends React.Component {
                                           {this.state.spanData[9].change}&nbsp;{this.state.spanData[9].persen}%
                                       </text>
                                   </span>
-                              </p>
-                          </div>
-                      </div>
+                      </p>
                   </div>
                   <i onClick={this.state.fullscreenmode == false ? this.openContentFullscreen : this.closeContentFullscreen}
                      className={this.state.fullscreenmode == false ? "icon-icon-fullscreen-in myBtn" : "icon-exit-fullscreen myBtn"}></i>
@@ -1454,4 +934,5 @@ const MainPage = ContextConnector(BIPSAppContext,
 )(MainPage_Base);
 
 export default MainPage;
+export {ResizeResponsive};
 
