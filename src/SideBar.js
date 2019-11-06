@@ -1,8 +1,10 @@
 import React from "react";
-import {Button} from "react-bootstrap";
+import {Button, Table} from "react-bootstrap";
 import Select from "react-select";
 import {cssmode} from "./App";
 import {Dropdown} from "semantic-ui-react";
+import {RegisterAmendModal} from "./app_pages/stockPage";
+import {AppFrameAction} from "./appframe";
 
 
 const option = [
@@ -16,77 +18,131 @@ const option = [
 class SideBar extends React.Component{
     constructor(props) {
         super(props);
+        this.state = {
+            rowData: [
+                {
+                    name: "AALI",
+                    last: "41,560",
+                },
+                {
+                    name: "ADHI",
+                    last: "12,750",
+                },
+                {
+                    name: "ANTM",
+                    last: "15,350",
+                },
+                {
+                    name: "ASII",
+                    last: "30,540",
+                },
+                {
+                    name: "TLKM",
+                    last: "70,000",
+                },
+                {
+                    name: "WSKT",
+                    last: "12,500",
+                },
+                {
+                    name: "INDF",
+                    last: "24,600",
+                },
+                {
+                    name: "BBCA",
+                    last: "58,950",
+                },
+                {
+                    name: "SMGR",
+                    last: "5,400",
+                },
+                {
+                    name: "BUMI",
+                    last: "1,025",
+                },
+            ],
+        }
+    }
+
+    closeClick = (e) => {
+        this.refs.frameAction.closeModal(100);
+    }
+
+    buttonClickAmendRegister = (e) => {
+        this.refs.frameAction.showModal({
+            headerClass: () => <div className="text-right"><i className="icofont icofont-close text-icofont-close text-border click-pointer"
+                                                              onClick={this.closeClick}></i></div>,
+            size: 'tiny',
+            contentClass: RegisterAmendModal,
+            onClose: (result) => {console.log('Modal 1 result = ', result)}
+        })
     }
 
     render(){
         return(
             <>
-                <div id="mySideBar" className="col-sm-sidebar px-0 mx-0 bg-black-trading d-border">
+                <AppFrameAction ref="frameAction" />
+                <div id="mySideBar" className="col-sm-sidebar px-0 mx-0 bg-black-trading d-border-right d-border-left d-border-top">
                     <div className="flex-grow-1">
                         <div className="flex-lg-column mb-1 cssmenu">
                             <div className="align-self-center text-center d-border-bottom col-sm-12 paddingY-2 px-0 mx-0 click-pointer">
                                 <i className="fa-2x icon-icon-stock-list"></i>
                             </div>
                         </div>
+                        <div className="align-self-center text-center px-1 py-0 h-25">
+                            <buttom className="f-9 col-sm-12 px-0 my-0 py-2 btn btn-sm btn-dark h-22" onClick={this.buttonClickAmendRegister}>
+                                <i className="icofont icofont-edit"></i> &nbsp; Modify
+                            </buttom>
+                        </div>
                         <div className="nav flex-lg-column">
-                            <div className="nav-link align-self-center text-center px-0 d-border col-sm-12 my-0 py-0">
-                                <Dropdown placeholder='Group' search selection options={option} className={"f-9 text-center align-self-center col-sm-12 grey"} defaultValue="groupA"/>
+                            <div className="nav-link align-self-center text-center px-0 d-border col-sm-12 mt-0 mb-3 py-0">
+                                <Dropdown placeholder='Group' search selection options={option} className={"f-9 text-center align-self-center col-sm-12 grey h-31"} defaultValue="groupA"/>
                             </div>
-                            <div className="align-self-center text-center px-sidebar my-sidebar click-pointer">
-                                <h5>AALI</h5>
-                                <p className="f-11-center mb-1 text-danger">12,650</p>
-                                <hr className="bg-white my-0"/>
+                            <div className="d-sidebar-potrait">
+                                <Table size="sm" borderless className="card-452 mb-0 table-hover">
+                                    <tbody>
+                                    {
+                                        this.state.rowData.map((charx, index) => {
+                                            return (
+                                                <tr>
+                                                    <td className="py-0 px-3">
+                                                        <div className="align-self-center text-center click-pointer d-border-bottom">
+                                                            <h5 className="mb-1">{charx.name}</h5>
+                                                            <p className="f-11-center mb-1 text-danger">{charx.last}</p>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            )
+                                        })
+                                    }
+                                    <tr>
+                                        <td className="py-0 px-3">
+                                            <div className="align-self-center text-center click-pointer">
+                                                <i className="icofont icofont-ui-next text-bips-dark f-16"></i>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </Table>
                             </div>
-                            <div className="align-self-center text-center px-sidebar my-sidebar click-pointer">
-                                <h5>ADHI</h5>
-                                <p className="f-11-center mb-1 text-danger">1,529</p>
-                                <hr className="bg-white my-0"/>
-                            </div>
-                            <div className="align-self-center text-center px-sidebar my-sidebar click-pointer">
-                                <h5>ANTM</h5>
-                                <p className="f-11-center mb-1 text-danger">27,400</p>
-                                <hr className="bg-white my-0"/>
-                            </div>
-                            <div className="align-self-center text-center px-sidebar my-sidebar click-pointer">
-                                <h5>ASII</h5>
-                                <p className="f-11-center mb-1 text-danger">1,025</p>
-                                <hr className="bg-white my-0"/>
-                            </div>
-                            <div className="align-self-center text-center px-sidebar my-sidebar click-pointer">
-                                <h5>TLKM</h5>
-                                <p className="f-11-center mb-1 text-danger">1,025</p>
-                                <hr className="bg-white my-0"/>
-                            </div>
-                            <div className="align-self-center text-center px-sidebar my-sidebar click-pointer">
-                                <h5>WSKT</h5>
-                                <p className="f-11-center mb-1 text-danger">1,025</p>
-                                <hr className="bg-white my-0"/>
-                            </div>
-                            <div className="align-self-center text-center px-sidebar my-sidebar click-pointer">
-                                <h5>INDF</h5>
-                                <p className="f-11-center mb-1 text-danger">1,025</p>
-                                <hr className="bg-white my-0"/>
-                            </div>
-                            <div className="align-self-center text-center px-sidebar my-sidebar click-pointer">
-                                <h5>BBCA</h5>
-                                <p className="f-11-center mb-1 text-danger">1,025</p>
-                                <hr className="bg-white my-0"/>
-                            </div>
-                            <div className="align-self-center text-center px-sidebar my-sidebar click-pointer">
-                                <h5>SMGR</h5>
-                                <p className="f-11-center mb-1 text-danger">1,025</p>
-                                <hr className="bg-white my-0"/>
-                            </div>
-                            <div className="align-self-center text-center px-sidebar my-sidebar click-pointer">
-                                <h5>BBRI</h5>
-                                <p className="f-11-center mb-1 text-danger">1,025</p>
-                                <hr className="bg-white my-0"/>
-                            </div>
-                            <div className="align-self-center text-center px-1 py-2">
-                                <buttom className="f-9 col-sm-12 px-0 my-0 py-2 btn btn-sm btn-dark op-05">
-                                    Load more
-                                </buttom>
-                            </div>
+
+                                {
+                                    this.state.rowData.map((charx, index) => {
+                                        return (
+                                            <div
+                                                className="align-self-center text-center px-sidebar my-sidebar click-pointer d-border-bottom d-sidebar-landscape">
+                                                <h5 className="mb-2">{charx.name}</h5>
+                                                <p className="f-11-center mb-1 text-danger">{charx.last}</p>
+                                            </div>
+                                        )
+                                    })
+                                }
+
+                                <div className="align-self-center text-center px-sidebar py-0 d-sidebar-landscape">
+                                    <div className="align-self-center text-center click-pointer">
+                                        <i className="icofont icofont-ui-next text-bips-dark f-16"></i>
+                                    </div>
+                                </div>
                         </div>
                     </div>
                 </div>
