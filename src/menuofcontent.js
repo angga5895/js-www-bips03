@@ -11,8 +11,8 @@ const MenuOfContent_Base = (props) => {
     // linkTitles: object, mapping instanceName to link title
     return (
         /*<Menu pointing secondary>*/
-        <div className="align-self-center ui-menu-padding pb-3">
-            <ul className="ul-menu">
+        <div className="align-self-center ui-menu-padding py-1">
+            <ul className="ul-menu h-25">
                 {
                     Object.keys(props.instances).map((k) => {
                         var e = props.instances[k];
