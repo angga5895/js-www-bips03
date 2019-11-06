@@ -9,7 +9,6 @@ import {ContextConnector} from "../appcontext";
 import {BIPSAppContext} from "../AppData";
 import $ from 'jquery';
 window.$ = window.jQuery = $;
-
 class LiveTradePage extends React.PureComponent {
     closeClick = (e) => {
         this.refs.frameAction.closeModal(100);
@@ -41,19 +40,39 @@ class LiveTradePage extends React.PureComponent {
     }
 
     state = {
-        value: "watchlist"
+        value: "watchlist",
+        value2: true,
     }
 
     render () {
+        const Switch = () => {
+            return (
+                <>
+                    <input
+                        checked={this.state.value2}
+                        onChange={() => this.setState({value2:!this.state.value2})}
+                        className="react-switch-checkbox"
+                        id={`react-switch-new`}
+                        type="checkbox"
+                    />
+                    <label
+                        className={`react-switch-label ${(this.state.value2) ? 'switchActive':''}`}
+                        htmlFor={`react-switch-new`}
+                    >
+                        <span className={`react-switch-button`} />
+                    </label>
+                </>
+            );
+        };
         return (
             <div>
                 <AppFrameAction ref="frameAction" />
                 <WSConnectionAction />
-                <div className="col-sm-12 px-0 mx-0 row">
+                <div className="col-sm-12 px-0 mx-0 row h-45">
                     <div className="col-mbl-radio px-0 mx-0 row">
-                        <ul className="ul-radio col-sm-12 px-0 mx-0 row">
+                        <ul className="ul-radio col-sm-12 px-0 mx-0 row h-37">
 
-                            <li className="li-radio col-title-radio px-0 mx-0" onClick={
+                            <li className="li-radio col-radio-sm px-0 mx-0" onClick={
                                 (e) => {
                                     this.setState({
                                         value : "all"
@@ -103,6 +122,10 @@ class LiveTradePage extends React.PureComponent {
                                 <label htmlFor="t-option">Tick</label>
 
                                 <div className="check"></div>
+                            </li>
+
+                            <li className="li-radio col-title-radio px-0 mx-0 col-sm-2">
+                                <Switch />
                             </li>
                         </ul>
                     </div>
@@ -474,7 +497,7 @@ class LiveTradeAgGrid_Base extends React.PureComponent {
         return (
             <>
                 <div
-                    className="card card-559 ag-theme-balham-dark ag-header-border-gray-live-trade"
+                    className="card card-515 ag-theme-balham-dark ag-header-border-gray-live-trade"
                     style={{
                         width: 'auto' }}>
                     <span className="myLiveTrade">
