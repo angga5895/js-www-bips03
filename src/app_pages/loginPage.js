@@ -15,6 +15,7 @@ import FormDocument       from "../app_sign_up/form_document";
 import FormAddress        from "../app_sign_up/form_address";
 import FormSource         from "../app_sign_up/form_source";
 import FormAdditonal      from "../app_sign_up/form_additional";
+import { Checkbox } from 'semantic-ui-react'
 
 class DisclaimerModal extends React.Component {
     closeClick = (e) => {
@@ -51,7 +52,7 @@ class DisclaimerModal extends React.Component {
                         assume those risks, and give indemnity to PT. Bahana Securities.
                     </p>
                     <div className="text-center">
-                            <button className="btn btn-primary col-sm-3" onClick={this.closeClick}>Close</button>
+                        <button className="btn btn-primary col-sm-3" onClick={this.closeClick}>Close</button>
                     </div>
                 </div>
             </>
@@ -73,7 +74,7 @@ class ForgotModal extends React.Component {
                 <div className="text-white f-12">
                     <div className="form-group">
                         <label className="col-sm-12 px-5 py-2 col-form-label">Enter your email address and we'll
-                        send link to reset your password
+                            send link to reset your password
                         </label>
                     </div>
                     <div className="form-group mb-0">
@@ -225,7 +226,33 @@ class LoginUserPage_Base extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-          passlogin : 'password'
+            passlogin : 'password',
+            seconds: 0,
+            index: 0,
+            flipped: true,
+            barInfo: [
+                {
+                    symbol: 'GBP/USD',
+                    last: '12849',
+                    change: -0.99293,
+                    percentage: -0.30,
+                },{
+                    symbol: 'USD/JPY',
+                    last: '108.59',
+                    change: 0.06,
+                    percentage: 0.06,
+                },{
+                    symbol: 'USD/CHF',
+                    last: '0.9874',
+                    change: -0.00005,
+                    percentage: -0.04,
+                },{
+                    symbol: 'AUD/JPY',
+                    last: '78.14',
+                    change: 0.05,
+                    percentage: 0.05,
+                },
+            ],
         };
     }
 
@@ -273,19 +300,19 @@ class LoginUserPage_Base extends React.PureComponent {
             $("#input-user").addClass("d-border-danger");
             $("#input-pass").addClass("d-border-danger");
 
-            $("#req_user").text("required");
+            $("#req_user").text("Required");
             $("#req_user").css("display","block");
-            $("#req_pass").text("required");
+            $("#req_pass").text("Required");
             $("#req_pass").css("display","block");
         } else if(user === ''){
             $("#input-user").addClass("d-border-danger");
 
-            $("#req_user").text("required");
+            $("#req_user").text("Required");
             $("#req_user").css("display","block");
         } else if (pass === ''){
             $("#input-pass").addClass("d-border-danger");
 
-            $("#req_pass").text("required");
+            $("#req_pass").text("Required");
             $("#req_pass").css("display","block");
         } else {
             if (user === "a" && pass === "b") {
@@ -320,6 +347,8 @@ class LoginUserPage_Base extends React.PureComponent {
     }
 
     componentDidMount() {
+        this.interval = setInterval(() => this.tick(), 1000);
+
         var input = document.getElementById("press_login");
         input.addEventListener("keyup", function(event) {
             if (event.keyCode === 13) {
@@ -329,8 +358,86 @@ class LoginUserPage_Base extends React.PureComponent {
         });
     }
 
+    tick() {
+        this.setState(prevState => ({
+            seconds: prevState.seconds + 1
+            // seconds: prevState.seconds + 0
+        }));
+        if(this.state.seconds % 5 === 0){
+            //set change every 30 sec
+            this.setState({flipped: !this.state.flipped})
+            this.setState({index: (this.state.index + 1) % this.state.barInfo.length });
+        }
+    }
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+
     render () {
         var props = this.props;
+        const logo = "https://dummyimage.com/308x244/949294/fff.jpg";
+
+        const switchPanel = () => {
+            if(this.state.flipped === true){
+                return "card is-flipped";
+            }else{
+                return "card";
+            }
+        }
+        //zaky
+        //fungsi untuk warna
+        const colorLabel = (props) => {
+            if(props < 0){
+                return "red"
+            }else{
+                return "green"
+            }
+        }
+        //zaky
+        //fungsi untuk flipped
+        const cardFace = (props) => {
+            let info = this.state.barInfo[this.state.index];
+            if(props === "front"){
+                if(this.state.flipped){
+                    return <div className="card__face card__face--front">&nbsp;</div>
+                }else{
+                    return <div className="card__face card__face--front">
+                        <table width="100%" height="100%">
+                            <tr>
+                                <td className="spanSymbol">{info.symbol}</td>
+                                <td>Last: {info.last}</td>
+
+                                <td>
+                                    <span className={colorLabel(info.change)}>{info.change}</span>&nbsp;
+                                </td>
+                                <td>
+                                    <span className={colorLabel(info.percentage)}>({info.percentage}%)</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                }
+            }else{
+                if(this.state.flipped){
+                    return <div className="card__face card__face--back">
+                        <table width="100%" height="100%">
+                            <tr>
+                                <td className="spanSymbol">{info.symbol}</td>
+                                <td>Last: {info.last}</td>
+                                <td>
+                                    <span className={colorLabel(info.change)}>{info.change}</span>&nbsp;
+                                </td>
+                                <td>
+                                    <span className={colorLabel(info.percentage)}>({info.percentage}%)</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                }else{
+                    return <div className="card__face card__face--back">&nbsp;</div>
+                }
+            }
+        }
         return (
             <>
                 {
@@ -340,84 +447,99 @@ class LoginUserPage_Base extends React.PureComponent {
                             <WSConnectionAction ref="wsAction"/>
                             <main>
                                 <div className="container-fluid p-login text-center">
-                                    <div className="card card-body bg-dark-grey d-border-active">
-                                        <h1 className="text-center my-4">BIPS</h1>
-                                        <div className="form-group mb-4">
-                                            {/*<label className="col-sm-12 px-5 py-2 col-form-label">User ID</label>*/}
-                                            <div className="col-sm-12 px-5 py-2">
-                                                {/*<input type="text" ref="userID" className="text-white input-login col-sm-12"/>*/}
-                                                <div id="input-user" className="ui left icon input col-sm-12 text-white px-0 dark">
-                                                    <input type="text" ref="userID" placeholder="User ID" id="inputuser"
-                                                           onChange={this.onChangeUser}/>
-                                                    <i aria-hidden="true" className="icon py-3">
-                                                        <i className="icon-icon-user-login"></i>&nbsp;&nbsp;|
-                                                    </i>
-                                                </div>
-                                                <div className="text-right">
-                                                    <small className="text-danger" id="req_user" style={{"display": "none"}}></small>
-                                                </div>
+                                    <div className={"card card-body d-border-active row"}>
+                                        <div id="alert-wrong" className={"col-sm-12 text-center fade-out mb-3 px-0 py-0"}>
+                                            <div id="content-alert" className={"py-2 text-white bg-danger "}>The user ID or password
+                                                did not match our records.
+                                                Please try again
                                             </div>
                                         </div>
-                                        <div className="form-group mb-0">
-                                            {/*<label className="col-sm-12 px-5 py-2 col-form-label">Password</label>*/}
-                                            <div className="col-sm-12 px-5 py-0">
-                                                {/*<input type="password" ref="password" className="text-white input-login col-sm-12"/>*/}
-                                                <div className="buttonInside">
-                                                    <div id="input-pass" className="ui left icon input col-sm-12 text-white px-0 dark">
-                                                        <input type={this.state.passlogin} ref="password" placeholder="Password"
-                                                               id="inputpass" onChange={this.onChangePass}/>
-                                                        <i aria-hidden="true" className="icon py-3">
-                                                            <i className="icon-icon-lock-login"></i>&nbsp;&nbsp;|
-                                                        </i>
+                                        <div className={"col-md-6 px-0"}>
+                                            <img src={logo} width="100%"/>
+                                        </div>
+                                        <div className="col-md-6 pt-3">
+                                            <div className="form-group row">
+                                                {/*<label className="col-sm-12 px-5 py-2 col-form-label">User ID</label>*/}
+                                                <div className="col-sm-12 text-left pl-5">Please enter ID and Password</div>
+                                                <div className="col-sm-12 pr-0 pl-5">
+                                                    {/*<input type="text" ref="userID" className="text-white input-login col-sm-12"/>*/}
+                                                    <div className={"py-2"}>
+                                                        <div id="input-user" className="ui left icon input col-sm-12 text-white px-0 dark mx-0 my-0">
+                                                            <input type="text" ref="userID" placeholder="User ID" id="inputuser"
+                                                                   onChange={this.onChangeUser}/>
+                                                            <i aria-hidden="true" className="icon py-3">
+                                                                <i className="icon-icon-user-login"></i>&nbsp;&nbsp;|
+                                                            </i>
+                                                        </div>
+                                                        <div className={"text-left"}>
+                                                            <i><small className="text-danger" id="req_user" style={{"display": "none"}}></small></i>
+                                                        </div>
                                                     </div>
-                                                    <button className="button-inside-input-login btn-dark"
-                                                            onMouseDown={this.onMouseDownPass} onMouseUp={this.onMouseUpPass}><i
-                                                        className="fa fa-eye"></i></button>
+                                                    <div className={"py-2"}>
+                                                        <div className="buttonInside">
+                                                            <div id="input-pass" className="ui left icon input col-sm-12 text-white px-0 mx-0 my-0 dark">
+                                                                <input type={this.state.passlogin} ref="password" placeholder="Password"
+                                                                       id="inputpass" onChange={this.onChangePass}/>
+                                                                <i aria-hidden="true" className="icon py-3">
+                                                                    <i className="icon-icon-lock-login"></i>&nbsp;&nbsp;|
+                                                                </i>
+                                                            </div>
+                                                            <button className="button-inside-input-login btn-dark"
+                                                                    onMouseDown={this.onMouseDownPass} onMouseUp={this.onMouseUpPass}><i
+                                                                className="fa fa-eye"></i></button>
+                                                            <div className={"text-left"}>
+                                                                <i><small className="text-danger" id="req_pass" style={{"display": "none"}}></small></i>
+                                                            </div>
+                                                        </div>
+                                                        <div className={"text-left"}>
+                                                            <Checkbox label='Remember Me' />
+                                                            <text className="text-primary text-right pull-right click-pointer mt-9" onClick={this.buttonClickForgot}>Forgot your password?
+                                                            </text>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div className="text-right">
-                                                    <small className="text-danger" id="req_pass" style={{"display": "none"}}></small>
+                                                <div className={"col-sm-12 pr-0 pl-5"}>
+                                                    <div className="justify-content-center align-items-center d-flex    ">
+                                                        <button id="click_login" type="submit" onClick={this.buttonClickLogin}
+                                                                className="btn btn-primary form-control py-0">
+                                                            Login
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div className={"col-sm-12 text-center pr-0 pl-5 mt-4"}>
+                                                    <text
+                                                        className="text-right mt-9">
+                                                        New BIPS? <span className="click-pointer text-primary" onClick={this.buttonClickSignUp}>Sign Up</span>
+                                                    </text>
+                                                </div>
+                                                <div className={"col-sm-12 text-center pr-0 pl-5 mt-2"}>
+                                                    <text
+                                                        onClick={this.buttonClickDisclaimer}
+                                                        className="text-right text-primary click-pointer">
+                                                        Disclaimer
+                                                    </text>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div className="form-group text-center mb-5">
-                                            <small className="col-sm-12 px-5 py-2 col-form-label">Forgot your password?
-                                                <span className="click-pointer btn btn-link" onClick={this.buttonClickForgot}> <small
-                                                    className="text-primary"> Click here</small></span>
-                                            </small>
-                                        </div>
+                                            {/*<div className="form-group py-0 mt-0 mb-4 text-center">*/}
+                                            {/*<small className="py-0 px-5 col-form-label">*/}
+                                            {/*<span className="click-pointer px-0 btn btn-link"*/}
+                                            {/*onClick={this.buttonClickDisclaimer}>*/}
+                                            {/*<small className="text-primary">Disclaimer</small>*/}
+                                            {/*</span>*/}
+                                            {/*</small>*/}
+                                            {/*</div>*/}
 
-                                        <div className="form-group py-0 mb-0">
-                                            <div className="justify-content-center align-items-center d-flex py-0 px-5">
-                                                <button id="click_login" type="submit" onClick={this.buttonClickLogin}
-                                                        className="btn btn-primary form-control py-0">
-                                                    Login
-                                                </button>
+
+                                        </div>
+                                        <div className={"col-sm-12 mh-45 px-0 mt-3"}>
+                                            <div className={switchPanel()}>
+                                                {cardFace("front")}
+                                                {cardFace("back")}
                                             </div>
                                         </div>
 
-                                        <div className="form-group py-0 mt-0 mb-4 text-center">
-                                            <small className="py-0 px-5 col-form-label">
-                                                    <span className="click-pointer px-0 btn btn-link"
-                                                          onClick={this.buttonClickDisclaimer}>
-                                                        <small className="text-primary">Disclaimer</small>
-                                                    </span>
-                                            </small>
-                                        </div>
-
-                                        <div className="form-group py-0 my-0 text-center">
-                                            <small className="col-sm-12 px-5 py-2 col-form-label">New BIPS?
-                                                <span className="click-pointer btn btn-link" onClick={this.buttonClickSignUp}> <small
-                                                    className="text-primary"> Sign Up</small></span>
-                                            </small>
-                                        </div>
                                     </div>
 
-                                    <div id="alert-wrong" className={"col-sm-12 text-center fade-out mt-2 px-5"}>
-                                        <div id="content-alert" className={"px-4 py-2 text-white bg-danger "}>The user ID or password
-                                            did not match our records.
-                                            Please try again
-                                        </div>
-                                    </div>
                                 </div>
                             </main>
                         </div>
