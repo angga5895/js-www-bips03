@@ -87,13 +87,13 @@ const LandingFrameHeader = (props) => {
 
 class Landing extends React.PureComponent {
 
-  render () {
-    return (
-        //hanya memanggil headernya saja
-        <div className="bg-black-trading px-0 mx-0">
-        </div>
-    );
-  }
+    render () {
+        return (
+            //hanya memanggil headernya saja
+            <div className="bg-black-trading px-0 mx-0">
+            </div>
+        );
+    }
 }
 
 class LandingPage_Base extends React.PureComponent {
@@ -118,6 +118,7 @@ class LandingPage_Base extends React.PureComponent {
         anychart.onDocumentReady(function () {
             createpie();
         });
+
 
         function createpie() {
             // create a chart and set the data
@@ -280,14 +281,14 @@ class LandingPage_Base extends React.PureComponent {
     render() {
         return (
             <div className="container-fluid px-0 bg-black-trading">
-                <div className="card-590 col-sm-12 px-0 mx-0 row">
+                <div className="card-527 col-sm-12 px-0 mx-0 row">
                     <div id="pieChart" className="col-sm-4 px-0"></div>
                     <div className="col-sm-8 px-0 d-border-left">
                         <AppFrameAction ref="frameAction"></AppFrameAction>
                         <main>
                             <div className="container-fluid px-0">
                                 <div className="container px-0 mx-0 col-sm-12 bg-grey" style={{display : this.props.stateLanding === '' ? 'block' : 'none'}}>
-                                    <div className="card-body card-590 d-border-bottom align-self-center text-center bg-grey f-14 py-3">
+                                    <div className="card-body card-527 align-self-center text-center bg-grey f-14 py-3">
                                         <div className="py-5 my-5">
                                             <div className="py-5 my-5">
                                                 <i className="icon-icon-portofolio f-25"></i>
@@ -297,7 +298,7 @@ class LandingPage_Base extends React.PureComponent {
                                     </div>
                                 </div>
                                 <div className="container px-0 mx-0 col-sm-12" style={{display : this.props.stateLanding === '0' ? 'block' : 'none'}}>
-                                    <div className="card-header card-header-investment bg-grey">
+                                    <div className="card-header card-header-investment bg-grey h-40">
                                         <div className="row col-sm-12 px-0 mx-0 py-1">
                                             <div className="col-sm-4 px-4 mx-0 f-14">
                                                 Stock Val : <span className="text-primary">15,234,000</span>
@@ -330,7 +331,7 @@ class LandingPage_Base extends React.PureComponent {
                                     </div>
                                 </div>
                                 <div className="container px-0 mx-0 col-sm-12" style={{display : this.props.stateLanding === '2' ? 'block' : 'none'}}>
-                                    <div className="card-header card-header-investment bg-grey">
+                                    <div className="card-header card-header-investment bg-grey h-40">
                                         <div className="row col-sm-12 px-0 mx-0 py-1">
                                             <div className="col-sm-5 px-4 mx-0 f-14">
                                                 Total Nominal : <span className="text-primary">46,000,000</span>
@@ -343,7 +344,7 @@ class LandingPage_Base extends React.PureComponent {
                                     </div>
                                 </div>
                                 <div className="container px-0 mx-0 col-sm-12" style={{display : this.props.stateLanding === '3' ? 'block' : 'none'}}>
-                                    <div className="card-header card-header-investment bg-grey">
+                                    <div className="card-header card-header-investment bg-grey h-40">
                                         <div className="row col-sm-12 px-0 mx-0 py-1">
                                             <div className="col-sm-4 px-4 mx-0 f-14">
                                                 Invested : <span className="text-primary">4,088,802</span>
@@ -375,7 +376,7 @@ class StockCash_Base extends React.Component{
 
         const imgdisplay = {
             display: 'inline-flex',
-            paddingTop: '3px'
+            paddingTop: '10px'
         };
 
         const paddingParagraph = {
@@ -398,28 +399,28 @@ class StockCash_Base extends React.Component{
 
                 <div className="container-fluid">
                     <div className="row f-12">
-                        <div className="col-sm-4 px-1 card-590">
-                            <div className="row stockcash-header" style={imgUser}>
-                                <div className="col-md-12" style={imgdisplay}>
+                        <div className="col-sm-2 px-1 card-527">
+                            <div className="row stockcash-header h-77" style={imgUser}>
+                                <div className="col-md-12 h-77" style={imgdisplay}>
                                     <img src={user_avatar} alt="User" className="img-avatar d-border mr-2" /><p style={paddingParagraph}>Mr. John Doe<br /><i>001-01-008538</i></p>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col-sm-12">
-                                    <ul className="list-group card-stockcash f-14 mb-0">
-                                        <li className="list-group-item-portofolio">Cash and Balance <span className="text-primary pull-right">5,911,198</span></li>
-                                        <li className="list-group-item-portofolio">P/L <span className="text-success pull-right">1,496,198</span></li>
-                                        <li className="list-group-item-portofolio">P/L Ratio <span className="text-success pull-right">+7.50%</span></li>
-                                        <li className="list-group-item-portofolio">Cash Ballance T+2 <span className="text-primary pull-right">4,500,000</span></li>
-                                        <li className="list-group-item-portofolio">Buy Limit <span className="pull-right">15,980,000</span></li>
-                                        <li className="list-group-item-portofolio">Stock Value <span className="pull-right">15,234,000</span></li>
-                                        <li className="list-group-item-portofolio">Unsettled Amt <span className="pull-right">?</span></li>
-                                        <li className="list-group-item-portofolio">Mkt. Value <span className="pull-right">4,400,000</span></li>
+                                    <ul className="list-group card-448 f-14 mb-0">
+                                        <li className="list-group-item-portofolio">Cash and Balance <br/><span className="text-primary pull-right">5,911,198</span></li>
+                                        <li className="list-group-item-portofolio">P/L <br/><span className="text-success pull-right">1,496,198</span></li>
+                                        <li className="list-group-item-portofolio">P/L Ratio <br/><span className="text-success pull-right">+7.50%</span></li>
+                                        <li className="list-group-item-portofolio">Cash Ballance T+2 <br/><span className="text-primary pull-right">4,500,000</span></li>
+                                        <li className="list-group-item-portofolio">Buy Limit <br/><span className="pull-right">15,980,000</span></li>
+                                        <li className="list-group-item-portofolio">Stock Value <br/><span className="pull-right">15,234,000</span></li>
+                                        <li className="list-group-item-portofolio">Unsettled Amt <br/><span className="pull-right">?</span></li>
+                                        <li className="list-group-item-portofolio">Mkt. Value <br/><span className="pull-right">4,400,000</span></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-sm-8 px-0">
+                        <div className="col-sm-10 px-0">
                             <div className="row">
                                 <div className="col-md-12">
                                     <StockCashAgGrid/>
@@ -428,58 +429,58 @@ class StockCash_Base extends React.Component{
                             <div className="row">
                                 <div className="col-sm-12">
                                     <div className="row">
-                                        <div className="col-sm-12">
-                                            <p className="text-left mt-3 mb-0">Settlement</p>
+                                        <div className="col-sm-12 card-221">
+                                            <p className="text-left mt-3 mb-0 h-17">Settlement</p>
                                             <div className="row">
                                                 <div className="col-sm-12">
-                                                    <table className="table text-white d-border-table bg-dark-grey table-sm table-borderless">
+                                                    <table className="table text-white d-border-table bg-dark-grey table-sm table-borderless mb-0 card-194">
                                                         <tr>
-                                                            <td className="no-wrap bg-gray-tradding d-border-tr-black">Date</td>
-                                                            <td className="d-border-tr-gray-all py-1">22/6/2019</td>
-                                                            <td className="d-border-tr-gray-all py-1">23/6/2019</td>
-                                                            <td className="d-border-tr-gray-all py-1">24/6/2019</td>
+                                                            <td className="no-wrap bg-gray-tradding d-border-tr-black py-2">Date</td>
+                                                            <td className="d-border-tr-gray-all py-2">22/6/2019</td>
+                                                            <td className="d-border-tr-gray-all py-2">23/6/2019</td>
+                                                            <td className="d-border-tr-gray-all py-2">24/6/2019</td>
                                                         </tr>
                                                         <tr>
-                                                            <td className="no-wrap bg-gray-tradding d-border-tr-black">Receiveable</td>
-                                                            <td className="d-border-tr-gray-all text-right py-1">0</td>
-                                                            <td className="d-border-tr-gray-all text-right py-1">0</td>
-                                                            <td className="d-border-tr-gray-all text-right py-1">0</td>
+                                                            <td className="no-wrap bg-gray-tradding d-border-tr-black py-2">Receiveable</td>
+                                                            <td className="d-border-tr-gray-all text-right py-2">0</td>
+                                                            <td className="d-border-tr-gray-all text-right py-2">0</td>
+                                                            <td className="d-border-tr-gray-all text-right py-2">0</td>
                                                         </tr>
                                                         <tr>
-                                                            <td className="no-wrap bg-gray-tradding d-border-tr-black">Payable</td>
-                                                            <td className="d-border-tr-gray-all text-right py-1">0</td>
-                                                            <td className="d-border-tr-gray-all text-right py-1">1,411,168</td>
-                                                            <td className="d-border-tr-gray-all text-right py-1">0</td>
+                                                            <td className="no-wrap bg-gray-tradding d-border-tr-black py-2">Payable</td>
+                                                            <td className="d-border-tr-gray-all text-right py-2">0</td>
+                                                            <td className="d-border-tr-gray-all text-right py-2">1,411,168</td>
+                                                            <td className="d-border-tr-gray-all text-right py-2">0</td>
                                                         </tr>
                                                         <tr>
-                                                            <td className="no-wrap bg-gray-tradding d-border-tr-black">Tax + Fee</td>
-                                                            <td className="d-border-tr-gray-all text-right py-1">0</td>
-                                                            <td className="d-border-tr-gray-all text-right py-1">-30</td>
-                                                            <td className="d-border-tr-gray-all text-right py-1">0</td>
+                                                            <td className="no-wrap bg-gray-tradding d-border-tr-black py-2">Tax + Fee</td>
+                                                            <td className="d-border-tr-gray-all text-right py-2">0</td>
+                                                            <td className="d-border-tr-gray-all text-right py-2">-30</td>
+                                                            <td className="d-border-tr-gray-all text-right py-2">0</td>
                                                         </tr>
                                                         <tr>
-                                                            <td className="no-wrap bg-gray-tradding d-border-tr-black">Penalty</td>
-                                                            <td className="d-border-tr-gray-all text-right py-1">0</td>
-                                                            <td className="d-border-tr-gray-all text-right py-1">0</td>
-                                                            <td className="d-border-tr-gray-all text-right py-1">0</td>
+                                                            <td className="no-wrap bg-gray-tradding d-border-tr-black py-2">Penalty</td>
+                                                            <td className="d-border-tr-gray-all text-right py-2">0</td>
+                                                            <td className="d-border-tr-gray-all text-right py-2">0</td>
+                                                            <td className="d-border-tr-gray-all text-right py-2">0</td>
                                                         </tr>
                                                         <tr>
-                                                            <td className="no-wrap bg-gray-tradding d-border-tr-black">Settlement Amount</td>
-                                                            <td className="d-border-tr-gray-all text-right py-1">0</td>
-                                                            <td className="d-border-tr-gray-all text-right py-1">- 1,411,168</td>
-                                                            <td className="d-border-tr-gray-all text-right py-1">0</td>
+                                                            <td className="no-wrap bg-gray-tradding d-border-tr-black py-2">Settlement Amount</td>
+                                                            <td className="d-border-tr-gray-all text-right py-2">0</td>
+                                                            <td className="d-border-tr-gray-all text-right py-2">- 1,411,168</td>
+                                                            <td className="d-border-tr-gray-all text-right py-2">0</td>
                                                         </tr>
                                                         <tr>
-                                                            <td className="no-wrap bg-gray-tradding d-border-tr-black">Cash Balance</td>
-                                                            <td className="d-border-tr-gray-all text-right py-1">5,911,198</td>
-                                                            <td className="d-border-tr-gray-all text-right py-1">4,500,000</td>
-                                                            <td className="d-border-tr-gray-all text-right py-1">4,500,000</td>
+                                                            <td className="no-wrap bg-gray-tradding d-border-tr-black py-2">Cash Balance</td>
+                                                            <td className="d-border-tr-gray-all text-right py-2">5,911,198</td>
+                                                            <td className="d-border-tr-gray-all text-right py-2">4,500,000</td>
+                                                            <td className="d-border-tr-gray-all text-right py-2">4,500,000</td>
                                                         </tr>
-                                                        <tr>
-                                                            <td className="no-wrap bg-gray-tradding d-border-tr-black">Total</td>
-                                                            <td className="d-border-tr-gray-all text-right py-1">5,911,198</td>
-                                                            <td className="d-border-tr-gray-all text-right py-1">4,500,000</td>
-                                                            <td className="d-border-tr-gray-all text-right py-1">4,500,000</td>
+                                                        <tr className="d-border-footer">
+                                                            <td className="no-wrap bg-gray-tradding d-border-tr-gray py-2">Total</td>
+                                                            <td className="d-border-tr-gray-all text-right py-2">5,911,198</td>
+                                                            <td className="d-border-tr-gray-all text-right py-2">4,500,000</td>
+                                                            <td className="d-border-tr-gray-all text-right py-2">4,500,000</td>
                                                         </tr>
                                                     </table>
                                                 </div>
@@ -565,7 +566,8 @@ class ModalHistorical extends React.Component {
         };
 
         const paddingParagraph = {
-            padding: '10px'
+            paddingTop: '10px',
+            paddingBottom: '0px'
         }
         const paddingParagraphBottom = {
             paddingBottom: '10px'
@@ -586,40 +588,46 @@ class ModalHistorical extends React.Component {
                 <AppFrameAction ref="frameAction" />
                 <div className="container-fluid pl-0 pr-0 f-12">
                     <div className="col-sm-12 row px-0 mx-0 d-border-bottom" style={paddingParagraphBottom}>
-                        <div className="col-sm-3">
+                        {/*<div className="col-sm-3">
                             <div className="row" style={imgUser}>
                                 <div className="col-md-12" style={imgdisplay}>
                                     <img src={user_avatar} alt="User" className="img-avatar d-border mr-2" /><p style={paddingParagraph}>Mr. John Doe<br /><i>001-01-008538</i></p>
                                 </div>
                             </div>
-                        </div>
-                        <div className="col-sm-6">
+                        </div>*/}
+                        <div className="col-sm-12 h-62">
                             <div className="ui small input col-sm-5 f-12 text-center align-self-center black ver-center">
                                 {/* <Input type="text" /> */}
-                                <div className="input-group input-daterange">
-                                    <input placeholder="Date" id="startDate1" name="startDate1" type="text" className="form-control date-clear black-dropdown" readOnly="readonly" />
-                                    <span className="input-group-addon black-dropdown">
-                                        <span className="fa fa-calendar-alt black-dropdown"></span>
-                                    </span>
-                                </div>
-                            </div>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div className="input-group input-daterange datePickStyle">
+                                                <input placeholder="Date" id="startDate1" name="startDate1" type="text" className="form-control date-clear black-dropdown" readOnly="readonly" />
+                                                <span className="input-group-addon black-dropdown">
+                                                <span className="fa fa-calendar-alt black-dropdown"></span>
+                                              </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            To&nbsp;&nbsp;
+                                        </td>
+                                        <td>
+                                            <div className="input-group input-daterange datePickStyle">
+                                                <input placeholder="Date" id="startDate1" name="startDate1" type="text" className="form-control date-clear black-dropdown" readOnly="readonly" />
+                                                <span className="input-group-addon black-dropdown">
+                                                <span className="fa fa-calendar-alt black-dropdown"></span>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button type="submit" className="btn btn-md btn-block btn-default btn-dark btnDatePick">Go</button>
+                                        </td>
+                                    </tr>
+                                </table>
 
-                            <div className="ui small input col-sm-1 text-white f-14 text-center align-self-center black">
-                                to
-                            </div>
 
-                            <div className="ui small input col-sm-5 f-12 text-center align-self-center black ver-center">
-                                {/* <Input type="text" /> */}
-                                <div className="input-group input-daterange">
-                                    <input placeholder="Date" id="startDate1" name="startDate1" type="text" className="form-control date-clear black-dropdown" readOnly="readonly" />
-                                    <span className="input-group-addon black-dropdown">
-                                        <span className="fa fa-calendar-alt black-dropdown"></span>
-                                    </span>
-                                </div>
+
                             </div>
-                        </div>
-                        <div className="col-sm-1">
-                            <button type="submit" className="btn btn-md btn-block btn-default btn-dark">Go</button>
                         </div>
                     </div>
 
@@ -661,7 +669,8 @@ class ModalTransaction extends React.Component {
         };
 
         const paddingParagraph = {
-            padding: '10px'
+            paddingTop: '10px',
+            paddingBottom: '0px'
         }
         const paddingParagraphBottom = {
             paddingBottom: '10px'
@@ -682,40 +691,46 @@ class ModalTransaction extends React.Component {
                 <AppFrameAction ref="frameAction" />
                 <div className="container-fluid pl-0 pr-0 f-12" >
                     <div className="col-sm-12 row px-0 mx-0 d-border-bottom" style={paddingParagraphBottom}>
-                        <div className="col-sm-3">
+                        {/*<div className="col-sm-3">
                             <div className="row" style={imgUser}>
                                 <div className="col-md-12" style={imgdisplay}>
                                     <img src={user_avatar} alt="User" className="img-avatar d-border mr-2" /><p style={paddingParagraph}>Mr. John Doe<br /><i>001-01-008538</i></p>
                                 </div>
                             </div>
-                        </div>
-                        <div className="col-sm-6">
-                            <div className="ui small input col-sm-5 f-12 black ver-center">
+                        </div>*/}
+                        <div className="col-sm-12 h-62">
+                            <div className="ui small input col-sm-5 f-12 text-center align-self-center black ver-center">
                                 {/* <Input type="text" /> */}
-                                <div className="input-group input-daterange">
-                                    <input placeholder="Date" id="startDate1" name="startDate1" type="text" className="form-control date-clear black-dropdown" readOnly="readonly" />
-                                    <span className="input-group-addon black-dropdown">
-                                        <span className="fa fa-calendar-alt black-dropdown"></span>
-                                    </span>
-                                </div>
-                            </div>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div className="input-group input-daterange datePickStyle">
+                                                <input placeholder="Date" id="startDate1" name="startDate1" type="text" className="form-control date-clear black-dropdown" readOnly="readonly" />
+                                                <span className="input-group-addon black-dropdown">
+                                                <span className="fa fa-calendar-alt black-dropdown"></span>
+                                              </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            To&nbsp;&nbsp;
+                                        </td>
+                                        <td>
+                                            <div className="input-group input-daterange datePickStyle">
+                                                <input placeholder="Date" id="startDate1" name="startDate1" type="text" className="form-control date-clear black-dropdown" readOnly="readonly" />
+                                                <span className="input-group-addon black-dropdown">
+                                                <span className="fa fa-calendar-alt black-dropdown"></span>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button type="submit" className="btn btn-md btn-block btn-default btn-dark btnDatePick">Go</button>
+                                        </td>
+                                    </tr>
+                                </table>
 
-                            <div className="ui small input col-sm-1 text-white f-14 text-center align-self-center black">
-                                to
-                            </div>
 
-                            <div className="ui small input col-sm-5 f-12 black ver-center">
-                                {/* <Input type="text" /> */}
-                                <div className="input-group input-daterange">
-                                    <input placeholder="Date" id="startDate1" name="startDate1" type="text" className="form-control date-clear black-dropdown" readOnly="readonly" />
-                                    <span className="input-group-addon black-dropdown">
-                                        <span className="fa fa-calendar-alt black-dropdown"></span>
-                                    </span>
-                                </div>
+
                             </div>
-                        </div>
-                        <div className="col-sm-1 ver-center">
-                            <button type="submit" className="btn btn-md btn-block btn-default btn-dark">Go</button>
                         </div>
                     </div>
 
@@ -771,7 +786,7 @@ class FundTransfer_Base extends React.PureComponent {
         };
 
         const paddingParagraph = {
-            padding: '10px'
+            paddingTop: '10px'
         }
         const paddingParagraphBottom = {
             paddingBottom: '10px'
@@ -790,32 +805,24 @@ class FundTransfer_Base extends React.PureComponent {
         return (
             <>
                 <AppFrameAction ref="frameAction" />
-                <div className="container-fluid px-2 py-2 f-12" >
-                    <div className="col-sm-12 row px-0 mx-0 d-border-bottom" style={paddingParagraphBottom}>
-                        <div className="col-sm-3">
-                            <div className="row group" style={imgUser} >
-                                <div className="col-md-12" style={imgdisplay}>
-                                    <img src={user_avatar} alt="User" className="img-avatar d-border mr-2" /><p style={paddingParagraph}>Mr. John Doe<br /><i>001-01-008538</i></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div className="container-fluid px-1 f-12" >
+
 
                     {/* <div class="ui section divider small  col-sm-12 f-12 text-center align-self-center"></div> */}
 
                     <div className="col-sm-12 px-0" style={paddingParagraph}>
                         {/* <PortofolioAgGrid/> */}
+                        <div className="cssmenu col-sm-5 mx-0 px-0 h-45">
+                            <ul className={"d-border-top d-border-left d-border-right"}>
+                                <li className={ this.state.activeTab === '1' ? 'd-border-right active click-pointer col-sm-4 px-0 mx-0 f-12 text-center' : 'd-border-right text-white click-pointer col-sm-4 px-0 mx-0 f-12 text-center' } onClick={() => { this.toggle('1'); }}><a><span className="f-11">&nbsp; FUND TRANSFER</span></a></li>
+                                <li className={ this.state.activeTab === '2' ? 'd-border-right active click-pointer col-sm-4 px-0 mx-0 f-12 text-center' : 'd-border-right text-white click-pointer col-sm-4 px-0 mx-0 f-12 text-center' } onClick={() => { this.toggle('2'); }}><a><span className="f-11">&nbsp; F/T LIST</span></a></li>
+                                <li className={ this.state.activeTab === '3' ? 'active click-pointer col-sm-4 px-0 mx-0 f-12 text-center' : 'text-white click-pointer col-sm-4 px-0 mx-0 f-12 text-center' } onClick={() => { this.toggle('3'); }}><a><span className="f-11">&nbsp; Cancel</span></a></li>
+                            </ul>
+                        </div>
+                        <div className="col-sm-12 px-4 bg-grey bg-black-trading pt-0 d-border card-472">
 
-                        <div className="col-sm-12 mt-4 bg-black-trading px-0">
-                            <div className="cssmenu pb-4 col-sm-12 mx-0 px-0">
-                                <ul>
-                                    <li className={ this.state.activeTab === '1' ? 'd-border-bottom active click-pointer col-sm-4 px-0 mx-0 f-12 text-center' : 'd-border-bottom text-white click-pointer col-sm-4 px-0 mx-0 f-12 text-center' } onClick={() => { this.toggle('1'); }}><a><span className="f-11">&nbsp; FUND TRANSFER</span></a></li>
-                                    <li className={ this.state.activeTab === '2' ? 'd-border-bottom active click-pointer col-sm-4 px-0 mx-0 f-12 text-center' : 'd-border-bottom text-white click-pointer col-sm-4 px-0 mx-0 f-12 text-center' } onClick={() => { this.toggle('2'); }}><a><span className="f-11">&nbsp; F/T LIST</span></a></li>
-                                    <li className={ this.state.activeTab === '3' ? 'd-border-bottom active click-pointer col-sm-4 px-0 mx-0 f-12 text-center' : 'd-border-bottom text-white click-pointer col-sm-4 px-0 mx-0 f-12 text-center' } onClick={() => { this.toggle('3'); }}><a><span className="f-11">&nbsp; CANCEL </span></a></li>
-                                </ul>
-                            </div>
                             <div className={this.state.activeTab === '1' ? 'd-block f-12' : 'd-none'}>
-                                <div className="container">
+                                <div className="container mx-0 pt-3">
                                     <div className="row">
                                         <div className="col-md pr-5 pl-0">
                                             <div>Available Cash (T1/T2)</div>
@@ -866,7 +873,7 @@ class FundTransfer_Base extends React.PureComponent {
                                                         IDR
                                                     </div>
                                                     <div className="col-md-3">
-                                                        <Input readonly defaultValue='' placeholder='' size='small' className="col-sm-12 pl-0 pr-0 text-center align-self-center"/>
+                                                        <Input readonly defaultValue='Astra Argo Lestari Tbk.' placeholder='Name' size='small' className="col-sm-12 pl-4 pr-0 text-center align-self-center"/>
                                                     </div>
                                                     <div className="col-md-2">
                                                         Withdrawable Amount
@@ -875,7 +882,7 @@ class FundTransfer_Base extends React.PureComponent {
                                                         IDR
                                                     </div>
                                                     <div className="col-md-3">
-                                                        <Input readonly defaultValue='' placeholder='' size='small' className="col-sm-12 pl-4 pr-0 text-center align-self-center"/>
+                                                        <Input readonly defaultValue='Astra Argo Lestari Tbk.' placeholder='Name' size='small' className="col-sm-12 pl-4 pr-0 text-center align-self-center"/>
                                                     </div>
                                                 </div>
                                                 <div className="row p-3">
@@ -886,8 +893,7 @@ class FundTransfer_Base extends React.PureComponent {
 
                                                     </div>
                                                     <div className="col-md-3">
-                                                        {/* <Input defaultValue='Astra Argo Lestari Tbk.' placeholder='Name' size='small' className="col-sm-12 pl-4 pr-0 text-center align-self-center"/>                                             */}
-                                                        <Dropdown placeholder='Choose' search selection options={stateOptionsLp} className="col-sm-12 f-12 "/>
+                                                        <Input defaultValue='Astra Argo Lestari Tbk.' placeholder='Name' size='small' className="col-sm-12 pl-4 pr-0 text-center align-self-center"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -900,6 +906,9 @@ class FundTransfer_Base extends React.PureComponent {
                                                     Via RTGS (The above amount is more than IDR 100,000,000)
                                                 </label>
                                             </div>
+                                            <div className={"col-sm-12 text-right mb-0 px-3 h-40"}>
+                                                <button className={"btn btn-primary"}><i className={"fa fa-paper-plane"}>&nbsp;Send</i></button>
+                                            </div>
                                         </div>
 
                                     </div>
@@ -909,19 +918,66 @@ class FundTransfer_Base extends React.PureComponent {
                                 <div className="d-border-transparent-grey">
                                     <div className="d-border-bottom mb-3">
                                         <div className="form-group mb-3 px-0">
+                                            <div className="col-sm-9 pl-0 h-62">
+                                                <div className="ui small pl-0 input col-sm-5 f-12 text-center align-self-center black ver-center">
+                                                    {/* <Input type="text" /> */}
+                                                    <table>
+                                                        <tr>
+                                                            <td className={"text-white"}>
+                                                                Periode&nbsp;&nbsp;
+                                                            </td>
+                                                            <td>
+                                                                <div className="input-group input-daterange datePickStyle">
+                                                                    <input placeholder="Date" id="startDate1" name="startDate1" type="text" className="form-control date-clear black-dropdown" readOnly="readonly" />
+                                                                    <span className="input-group-addon black-dropdown">
+                                                <span className="fa fa-calendar-alt black-dropdown"></span>
+                                              </span>
+                                                                </div>
+                                                            </td>
+                                                            <td className={"text-white"}>
+                                                                To&nbsp;&nbsp;
+                                                            </td>
+                                                            <td>
+                                                                <div className="input-group input-daterange datePickStyle">
+                                                                    <input placeholder="Date" id="startDate1" name="startDate1" type="text" className="form-control date-clear black-dropdown" readOnly="readonly" />
+                                                                    <span className="input-group-addon black-dropdown">
+                                                <span className="fa fa-calendar-alt black-dropdown"></span>
+                                                </span>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <button type="submit" className="btn btn-md btn-block btn-default btn-dark btnDatePick">Go</button>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+
+
+
+                                                </div>
+                                            </div>
                                             <FundAgGrid/>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                             <div className={this.state.activeTab === '3' ? 'd-block f-12' : 'd-none'}>
-                                <div className="d-border-transparent-grey">
-                                    <div className="d-border-bottom mb-3">
-                                        <div className="form-group mb-3 px-4">
-                                            Belum ada list tampilannya
+                                <div className="col-sm-12 py-0 px-0 mb-0 h-62">
+                                    <div className="row stockcash-header" style={imgUser}>
+                                        <div className="col-md-12" style={imgdisplay}>
+                                            <img src={user_avatar} alt="User" className="img-avatar d-border mr-2" /><p style={paddingParagraph}>Mr. John Doe<br /><i>001-01-008538</i></p>
                                         </div>
                                     </div>
+                                </div>
+                                <div className="d-border-transparent-grey">
+                                    <div className="d-border-bottom" style={{marginBottom : "10px"}}>
+                                        <div className="form-group px-0" style={{marginBottom : "10px"}}>
+                                            <CancelGrid/>
+                                            <CancelGrid2/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className={"col-sm-12 text-right mb-0 px-3 h-40"}>
+                                    <button className={"btn btn-primary"}><i className={"fa fa-paper-plane"}>&nbsp;Send</i></button>
                                 </div>
                             </div>
                         </div>
@@ -982,7 +1038,7 @@ class InquryAccount_Base extends React.PureComponent {
             <>
                 <AppFrameAction ref="frameAction" />
                 <div class="container-fluid px-2 py-2 f-12" >
-                    <div class="col-sm-12 row px-0 mx-0 d-border-bottom" style={paddingParagraphBottom}>
+                    {/*<div class="col-sm-12 row px-0 mx-0 d-border-bottom" style={paddingParagraphBottom}>
                         <div class="col-sm-3">
                             <div className="row" style={imgUser}>
                                 <div className="col-sm-12" style={imgdisplay}>
@@ -990,41 +1046,47 @@ class InquryAccount_Base extends React.PureComponent {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-sm-6">
+                        <div className="col-sm-9">
                             <div className="ui small input col-sm-5 f-12 text-center align-self-center black ver-center">
-                                {/* <Input type="text" /> */}
-                                <div className="input-group input-daterange">
-                                    <input placeholder="Date" id="startDate1" name="startDate1" type="text" className="form-control date-clear black-dropdown" readOnly="readonly" />
-                                    <span className="input-group-addon black-dropdown">
-                                        <span className="fa fa-calendar-alt black-dropdown"></span>
-                                    </span>
-                                </div>
-                            </div>
+                                 <Input type="text" />
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div className="input-group input-daterange datePickStyle">
+                                                <input placeholder="Date" id="startDate1" name="startDate1" type="text" className="form-control date-clear black-dropdown" readOnly="readonly" />
+                                                <span className="input-group-addon black-dropdown">
+                                                <span className="fa fa-calendar-alt black-dropdown"></span>
+                                              </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            To&nbsp;&nbsp;
+                                        </td>
+                                        <td>
+                                            <div className="input-group input-daterange datePickStyle">
+                                                <input placeholder="Date" id="startDate1" name="startDate1" type="text" className="form-control date-clear black-dropdown" readOnly="readonly" />
+                                                <span className="input-group-addon black-dropdown">
+                                                <span className="fa fa-calendar-alt black-dropdown"></span>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button type="submit" className="btn btn-md btn-block btn-default btn-dark btnDatePick">Go</button>
+                                        </td>
+                                    </tr>
+                                </table>
 
-                            <div className="ui small input col-sm-1 text-white f-14 text-center align-self-center black">
-                                to
-                            </div>
 
-                            <div className="ui small input col-sm-5 f-12 text-center align-self-center black ver-center">
-                                {/* <Input type="text" /> */}
-                                <div className="input-group input-daterange">
-                                    <input placeholder="Date" id="startDate1" name="startDate1" type="text" className="form-control date-clear black-dropdown" readOnly="readonly" />
-                                    <span className="input-group-addon black-dropdown">
-                                        <span className="fa fa-calendar-alt black-dropdown"></span>
-                                    </span>
-                                </div>
+
                             </div>
                         </div>
-                        <div className="col-sm-1">
-                            <button type="submit" className="btn btn-md btn-block btn-default btn-dark">Go</button>
-                        </div>
-                    </div>
+                    </div>*/}
 
                     {/* <div class="ui section divider small  col-sm-12 f-12 text-center align-self-center"></div> */}
 
-                    <div className="col-sm-12 px-0" style={paddingParagraph}>
+                    {/*<div className="col-sm-12 px-0" style={paddingParagraph}>
                         <InquryAgGrid/>
-                    </div>
+                    </div>*/}
                 </div>
             </>
         );
@@ -1223,14 +1285,14 @@ class PortofolioAgGrid extends React.PureComponent {
             },
             rowData: [
                 { code: "AALI",
-                avgprice: "12,650",
-                lastprice: "12,650",
-                lot: "12",
-                shares: "122",
-                stockval: "12,650,000",
-                pl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
-                remark: ""   ,
-                action:""   },
+                    avgprice: "12,650",
+                    lastprice: "12,650",
+                    lot: "12",
+                    shares: "122",
+                    stockval: "12,650,000",
+                    pl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    remark: ""   ,
+                    action:""   },
                 { code: "ADHI",
                     avgprice: "1,529",
                     lastprice: "1,429",
@@ -1495,7 +1557,7 @@ class PortofolioAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className={"card-550 ag-theme-balham-dark ag-bordered"}
+                    className={"card-487 ag-theme-balham-dark ag-bordered"}
                     id="myGrid"
                     style={{
                         width: "100%"
@@ -1684,7 +1746,7 @@ class FixedIncomeAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className={"card-550 ag-theme-balham-dark ag-striped-odd"}
+                    className={"card-487 ag-theme-balham-dark ag-striped-odd"}
                     id="myGrid"
                     style={{
                         width: "100%"
@@ -1859,7 +1921,7 @@ class MutualFundAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className={"card-550 ag-theme-balham-dark"}
+                    className={"card-487 ag-theme-balham-dark"}
                     id="myGrid"
                     style={{
                         width: "100%"
@@ -1884,84 +1946,124 @@ class StockCashAgGrid extends React.PureComponent {
         const self = this;
         this.state = {
             columnDefs: [
-                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 69 : 150, lockPosition: true, lockVisible: true,
+                { field: "codeTop", headerName: "", sortable: true,
+                    filter: "agTextColumnFilter", resizable: true,
+                    width: this.props.gridView == 'grid' ? 69 : 150, minWidth: this.props.gridView == 'grid' ? 69 : 150, lockPosition: true, lockVisible: true,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12 locked-visible locked-col";
-                    }, suppressSizeToFit: true
-                },
-                { field: "avgprice", headerName: "Avg. Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 94 : 206,
+                        return " grid-table text-center f-12 locked-visible locked-col d-border-right-grey";
+                    }, suppressSizeToFit: true, children: [{
+                        field: "codeR", headerName: "Code", sortable: true,
+                        filter: "agTextColumnFilter", resizable: true,
+                        width: this.props.gridView == 'grid' ? 69 : 150, lockPosition: true, lockVisible: true,
+                        cellClass : function (params) {
+                            return " grid-table text-center f-12 locked-visible locked-col d-border-right-grey";
+                        }, suppressSizeToFit: true
+                    },]},
+                { field: "avgpriceTop", headerName: "", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 94 : 206,
                     cellClass : function (params) {
-                        return " text-right grid-table f-12";
-                    }
+                        return " text-right grid-table f-12 d-border-right-grey";
+                    }, children: [
+                        { field: "avgpriceR", headerName: "Avg. Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 94 : 206,
+                            cellClass : function (params) {
+                                return " text-right grid-table f-12 d-border-right-grey";
+                            }
+                        },
+                    ],
                 },
-                { field: "lastprice", headerName: "Last Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 92 : 207,
+                { field: "lastpriceTop", headerName: "", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 92 : 207,
                     cellClass : function (params) {
                         var pl = params.data.pl;
-                        return pl.includes('-') === true ? "text-danger text-right  grid-table f-12" :
-                            "text-success text-right  grid-table f-12";
-                    }
+                        return pl.includes('-') === true ? "text-danger text-right  grid-table f-12 d-border-right-grey" :
+                            "text-success text-right  grid-table f-12 d-border-right-grey";
+                    }, children: [{ field: "lastpriceR", headerName: "Last Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 92 : 207,
+                        cellClass : function (params) {
+                            var pl = params.data.plR;
+                            return pl.includes('-') === true ? "text-danger text-right  grid-table f-12 d-border-right-grey" :
+                                "text-success text-right  grid-table f-12 d-border-right-grey";
+                        }
+                    },
+                    ],
                 },
                 { field: "port", headerName: "Portofolio", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 58 : 124,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table f-12 d-border-right-grey";
                     }
                     ,
                     children: [
                         { field: "plot", headerName: "Lot", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 58 : 124,
                             cellClass : function (params) {
-                                return " text-right grid-table f-12";
+                                return " text-right grid-table f-12 d-border-right-grey";
                             }
                         },
                         { field: "pshares", headerName: "Shares", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 76 :124,
                             cellClass : function (params) {
-                                return " text-right grid-table f-12";
+                                return " text-right grid-table f-12 d-border-right-grey";
                             },
                         }
                     ]
                 },
 
-                { field: "mktvalue", headerName: "Mkt. Val", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
+                { field: "mktvalueTop", headerName: "", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
-                        return " text-right grid-table f-12";
-                    }
+                        return " text-right grid-table f-12 d-border-right-grey";
+                    },children:[{ field: "mktvalueR", headerName: "Mkt. Val", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
+                        cellClass : function (params) {
+                            return " text-right grid-table f-12 d-border-right-grey";
+                        }
+                    },]
                 },
-                { field: "pl", headerName: "P/L", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 207,
+                { field: "plTop", headerName: "", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 207,
                     cellClass : function (params) {
                         var pl = params.data.pl;
-                        return pl.includes('-') === true ? "text-danger text-right  grid-table f-12":
-                            "text-success text-right  grid-table f-12";
-                    }
+                        return pl.includes('-') === true ? "text-danger text-right  grid-table f-12 d-border-right-grey":
+                            "text-success text-right  grid-table f-12 d-border-right-grey";
+                    }, children: [{ field: "plR", headerName: "P/L", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 207,
+                        cellClass : function (params) {
+                            var pl = params.data.plR;
+                            return pl.includes('-') === true ? "text-danger text-right  grid-table f-12 d-border-right-grey":
+                                "text-success text-right  grid-table f-12 d-border-right-grey";
+                        }
+                    },]
                 },
 
                 { field: "sellable", headerName: "Sellable Balance", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 58 : 124,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table f-12 ";
                     }
                     ,
                     children: [
                         { field: "slot", headerName: "Lot", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 58 : 124,
                             cellClass : function (params) {
-                                return " text-right grid-table f-12";
+                                return " text-right grid-table f-12 d-border-right-grey";
                             }
                         },
                         { field: "sshares", headerName: "Shares", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 76 :124,
                             cellClass : function (params) {
-                                return " text-right grid-table f-12";
+                                return " text-right grid-table f-12 d-border-right-grey";
                             },
                         }
                     ]
                 },
-                { field: "lqVal", headerName: "Lq. Val", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 207,
+                { field: "lqValTop", headerName: "", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 207,
                     cellClass : function (params) {
-                        return "text-success text-right  grid-table f-12";
-                    }
+                        return "text-success text-right  grid-table f-12 d-border-right-grey";
+                    },children:[{ field: "lqValR", headerName: "Lq. Val", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 207,
+                        cellClass : function (params) {
+                            return "text-success text-right  grid-table f-12 d-border-right-grey";
+                        }
+                    },]
                 },
 
-                { field: "stockVal", headerName: "Stock Val (Avg.)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 207,
+                { field: "stockValTop", headerName: "", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 207,
                     cellClass : function (params) {
                         var pl = params.data.pl;
-                        return "text-success text-right  grid-table f-12";
-                    }
+                        return "text-success text-right  grid-table f-12 d-border-right-grey";
+                    },children:[ { field: "stockValR", headerName: "Stock Val (Avg.)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 207,
+                        cellClass : function (params) {
+                            var pl = params.data.pl;
+                            return "text-success text-right  grid-table f-12 d-border-right-grey";
+                        }
+                    }]
                 }
             ],
             defaultColDef: {
@@ -1969,149 +2071,149 @@ class StockCashAgGrid extends React.PureComponent {
                 filter: true,
             },
             rowData: [
-                { code: "AALI",
-                    avgprice: "12,650",
-                    lastprice: "12,650",
+                { codeR: "AALI",
+                    avgpriceR: "12,650",
+                    lastpriceR: "12,650",
                     plot: "12",
                     pshares: "122",
-                    mktvalue: "12,650,000",
-                    pl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    mktvalueR: "12,650,000",
+                    plR: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
                     slot: "12",
                     sshares: "122",
-                    lqVal: "12,650"   ,
-                    stockVal:"12,650,000"   },
-                { code: "ADHI",
-                    avgprice: "12,650",
-                    lastprice: "12,650",
+                    lqValR: "12,650"   ,
+                    stockValR:"12,650,000"   },
+                { codeR: "ADHI",
+                    avgpriceR: "12,650",
+                    lastpriceR: "12,650",
                     plot: "12",
                     pshares: "122",
-                    mktvalue: "12,650,000",
-                    pl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    mktvalueR: "12,650,000",
+                    plR: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
                     slot: "12",
                     sshares: "122",
-                    lqVal: "12,650"   ,
-                    stockVal:"12,650,000"   },
-                { code: "ANTM",
-                    avgprice: "12,650",
-                    lastprice: "12,650",
+                    lqValR: "12,650"   ,
+                    stockValR:"12,650,000"   },
+                { codeR: "ANTM",
+                    avgpriceR: "12,650",
+                    lastpriceR: "12,650",
                     plot: "12",
                     pshares: "122",
-                    mktvalue: "12,650,000",
-                    pl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    mktvalueR: "12,650,000",
+                    plR: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
                     slot: "12",
                     sshares: "122",
-                    lqVal: "12,650"   ,
-                    stockVal:"12,650,000"   },
-                { code: "BBCA",
-                    avgprice: "12,650",
-                    lastprice: "12,650",
+                    lqValR: "12,650"   ,
+                    stockValR:"12,650,000"   },
+                { codeR: "BBCA",
+                    avgpriceR: "12,650",
+                    lastpriceR: "12,650",
                     plot: "12",
                     pshares: "122",
-                    mktvalue: "12,650,000",
-                    pl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    mktvalueR: "12,650,000",
+                    plR: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
                     slot: "12",
                     sshares: "122",
-                    lqVal: "12,650"   ,
-                    stockVal:"12,650,000"   },
-                { code: "BBRI",
-                    avgprice: "12,650",
-                    lastprice: "12,650",
+                    lqValR: "12,650"   ,
+                    stockValR:"12,650,000"   },
+                { codeR: "BBRI",
+                    avgpriceR: "12,650",
+                    lastpriceR: "12,650",
                     plot: "12",
                     pshares: "122",
-                    mktvalue: "12,650,000",
-                    pl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    mktvalueR: "12,650,000",
+                    plR: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
                     slot: "12",
                     sshares: "122",
-                    lqVal: "12,650"   ,
-                    stockVal:"12,650,000"   },
-                { code: "BUMI",
-                    avgprice: "12,650",
-                    lastprice: "12,650",
+                    lqValR: "12,650"   ,
+                    stockValR:"12,650,000"   },
+                { codeR: "BUMI",
+                    avgpriceR: "12,650",
+                    lastpriceR: "12,650",
                     plot: "12",
                     pshares: "122",
-                    mktvalue: "12,650,000",
-                    pl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    mktvalueR: "12,650,000",
+                    plR: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
                     slot: "12",
                     sshares: "122",
-                    lqVal: "12,650"   ,
-                    stockVal:"12,650,000"   },
-                { code: "BBNI",
-                    avgprice: "12,650",
-                    lastprice: "12,650",
+                    lqValR: "12,650"   ,
+                    stockValR:"12,650,000"   },
+                { codeR: "BBNI",
+                    avgpriceR: "12,650",
+                    lastpriceR: "12,650",
                     plot: "12",
                     pshares: "122",
-                    mktvalue: "12,650,000",
-                    pl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    mktvalueR: "12,650,000",
+                    plR: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
                     slot: "12",
                     sshares: "122",
-                    lqVal: "12,650"   ,
-                    stockVal:"12,650,000"   },
-                { code: "WSKT",
-                    avgprice: "12,650",
-                    lastprice: "12,650",
+                    lqValR: "12,650"   ,
+                    stockValR:"12,650,000"   },
+                { codeR: "WSKT",
+                    avgpriceR: "12,650",
+                    lastpriceR: "12,650",
                     plot: "12",
                     pshares: "122",
-                    mktvalue: "12,650,000",
-                    pl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    mktvalueR: "12,650,000",
+                    plR: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
                     slot: "12",
                     sshares: "122",
-                    lqVal: "12,650"   ,
-                    stockVal:"12,650,000"   },
-                { code: "UNIF",
-                    avgprice: "12,650",
-                    lastprice: "12,650",
+                    lqValR: "12,650"   ,
+                    stockValR:"12,650,000"   },
+                { codeR: "UNIF",
+                    avgpriceR: "12,650",
+                    lastpriceR: "12,650",
                     plot: "12",
                     pshares: "122",
-                    mktvalue: "12,650,000",
-                    pl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    mktvalueR: "12,650,000",
+                    plR: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
                     slot: "12",
                     sshares: "122",
-                    lqVal: "12,650"   ,
-                    stockVal:"12,650,000"   },
-                { code: "PPTP",
-                    avgprice: "12,650",
-                    lastprice: "12,650",
+                    lqValR: "12,650"   ,
+                    stockValR:"12,650,000"   },
+                { codeR: "PPTP",
+                    avgpriceR: "12,650",
+                    lastpriceR: "12,650",
                     plot: "12",
                     pshares: "122",
-                    mktvalue: "12,650,000",
-                    pl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    mktvalueR: "12,650,000",
+                    plR: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
                     slot: "12",
                     sshares: "122",
-                    lqVal: "12,650"   ,
-                    stockVal:"12,650,000"   },
-                { code: "SMRG",
-                    avgprice: "12,650",
-                    lastprice: "12,650",
+                    lqValR: "12,650"   ,
+                    stockValR:"12,650,000"   },
+                { codeR: "SMRG",
+                    avgpriceR: "12,650",
+                    lastpriceR: "12,650",
                     plot: "12",
                     pshares: "122",
-                    mktvalue: "12,650,000",
-                    pl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    mktvalueR: "12,650,000",
+                    plR: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
                     slot: "12",
                     sshares: "122",
-                    lqVal: "12,650"   ,
-                    stockVal:"12,650,000"   },
-                { code: "BNGA",
-                    avgprice: "12,650",
-                    lastprice: "12,650",
+                    lqValR: "12,650"   ,
+                    stockValR:"12,650,000"   },
+                { codeR: "BNGA",
+                    avgpriceR: "12,650",
+                    lastpriceR: "12,650",
                     plot: "12",
                     pshares: "122",
-                    mktvalue: "12,650,000",
-                    pl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    mktvalueR: "12,650,000",
+                    plR: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
                     slot: "12",
                     sshares: "122",
-                    lqVal: "12,650"   ,
-                    stockVal:"12,650,000"   },
-                { code: "UNIV",
-                    avgprice: "12,650",
-                    lastprice: "12,650",
+                    lqValR: "12,650"   ,
+                    stockValR:"12,650,000"   },
+                { codeR: "UNIV",
+                    avgpriceR: "12,650",
+                    lastpriceR: "12,650",
                     plot: "12",
                     pshares: "122",
-                    mktvalue: "12,650,000",
-                    pl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    mktvalueR: "12,650,000",
+                    plR: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
                     slot: "12",
                     sshares: "122",
-                    lqVal: "12,650"   ,
-                    stockVal:"12,650,000"   },
+                    lqValR: "12,650"   ,
+                    stockValR:"12,650,000"   },
             ],
             sideBar: {
                 toolPanels: [
@@ -2166,7 +2268,7 @@ class StockCashAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className={"card-330 ag-theme-balham-dark ag-bordered ag-header-gray table-bordered"}
+                    className={"card-305 ag-theme-balham-dark ag-bordered ag-header-gray table-bordered"}
                     id="myGrid"
                     style={{
                         width: "100%",
@@ -2205,7 +2307,7 @@ class TradeListAgGrid extends React.PureComponent {
                         return "text-center  grid-table f-12";
                     }
                 },
-                { field: "cmd", headerName: "Cmd", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
+                { field: "cmd", headerName: "Action", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
                         var cmd = params.data.cmd;
                         return cmd.includes('BUY') === true ? "text-danger text-center  grid-table f-12" :
@@ -2362,7 +2464,7 @@ class TradeListAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className={"card-445 ag-theme-balham-dark ag-bordered table-bordered"}
+                    className={"card-406 ag-theme-balham-dark ag-bordered table-bordered"}
                     id="myGrid"
                     style={{
                         width: "100%",
@@ -2553,7 +2655,7 @@ class TransactionAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className={"card-445 ag-theme-balham-dark ag-bordered table-bordered"}
+                    className={"card-406 ag-theme-balham-dark ag-bordered table-bordered"}
                     id="myGrid"
                     style={{
                         width: "100%",
@@ -2571,60 +2673,61 @@ class TransactionAgGrid extends React.PureComponent {
     }
 }
 
+
 class FundAgGrid extends React.PureComponent {
     constructor(props) {
         super(props);
         const self = this;
         this.state = {
             columnDefs: [
-                { field: "date", headerName: "Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 80 : 100,
+                { field: "date", headerName: "Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 100,
                     cellClass : function (params) {
                         return " grid-table text-center f-12";
                     }, suppressSizeToFit: true
                 },
-                { field: "order", headerName: "Order#", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 80 : 100,
+                { field: "order", headerName: "Order#", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 121,
                     cellClass : function (params) {
                         return " text-center grid-table f-12";
                     }
                 },
-                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 80 : 100,
+                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 126,
                     cellClass : function (params) {
                         return "text-center  grid-table f-12";
                     }
                 },
-                { field: "cmd", headerName: "Cmd", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 80 : 100,
+                { field: "cmd", headerName: "Cmd", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 126,
                     cellClass : function (params) {
                         var cmd = params.data.cmd;
                         return cmd.includes('BUY') === true ? "text-danger text-center  grid-table f-12" :
                             "text-success text-center  grid-table f-12";
                     }
                 },
-                { field: "type", headerName: "Type", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 80 : 100,
+                { field: "type", headerName: "Type", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 126,
                     cellClass : function (params) {
                         return "text-center  grid-table f-12";
                     }
                 },
-                { field: "mkt", headerName: "Mkt", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 80 : 100,
+                { field: "mkt", headerName: "Mkt", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 126,
                     cellClass : function (params) {
                         return " text-center grid-table f-12";
                     }
                 },
-                { field: "vol", headerName: "Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 80 : 100,
+                { field: "vol", headerName: "Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 126,
                     cellClass : function (params) {
                         return " text-center grid-table f-12";
                     }
                 },
-                { field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 80 : 100,
+                { field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 126,
                     cellClass : function (params) {
                         return " text-center grid-table f-12";
                     }
                 },
-                { field: "amount", headerName: "Amount", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 80 : 100,
+                { field: "amount", headerName: "Amount", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 126,
                     cellClass : function (params) {
                         return " text-center grid-table f-12";
                     }
                 },
-                { field: "time", headerName: "Time", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 80 : 100,
+                { field: "time", headerName: "Time", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 124,
                     cellClass : function (params) {
                         return " text-center grid-table f-12";
                     }
@@ -2754,7 +2857,7 @@ class FundAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className={"card-400 ag-theme-balham-dark ag-bordered table-bordered"}
+                    className={"card-381 ag-theme-balham-dark ag-bordered table-bordered"}
                     id="myGrid"
                     style={{
                         width: "100%",
@@ -2771,6 +2874,248 @@ class FundAgGrid extends React.PureComponent {
         );
     }
 }
+
+class CancelGrid extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        const self = this;
+        this.state = {
+            columnDefs: [
+                { field: "cw", headerName: "Cw#", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 84,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    }, suppressSizeToFit: true
+                },
+                { field: "amount", headerName: "Amount", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 649,
+                    cellClass : function (params) {
+                        return " text-right grid-table f-12";
+                    }
+                },
+                { field: "fee", headerName: "Fee", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 485,
+                    cellClass : function (params) {
+                        return "text-right  grid-table f-12";
+                    }
+                },
+            ],
+            defaultColDef: {
+                sortable: true,
+                filter: true,
+            },
+            rowData: [
+                {   cw: "Cwxx",
+                    amount: "1,223,222",
+                    fee: "0",
+                }, {   cw: "Cwxx",
+                    amount: "1,223,222",
+                    fee: "0",
+                }, {   cw: "Cwxx",
+                    amount: "1,223,222",
+                    fee: "0",
+                }, {   cw: "Cwxx",
+                    amount: "1,223,222",
+                    fee: "0",
+                },
+
+            ],
+            sideBar: {
+                toolPanels: [
+                    {
+                        id: "columns",
+                        labelDefault: "Columns",
+                        labelKey: "columns",
+                        iconKey: "columns",
+                        toolPanel: "agColumnsToolPanel",
+                        toolPanelParams: {
+                            suppressRowGroups: true,
+                            suppressValues: true,
+                            suppressPivots: true,
+                            suppressPivotMode: true,
+                            suppressSideButtons: true,
+                            suppressColumnFilter: true,
+                            suppressColumnSelectAll: true,
+                            suppressColumnExpandAll: true
+                        },
+                    }, {
+                        id: "filters",
+                        labelDefault: "Filters",
+                        labelKey: "filters",
+                        iconKey: "filter",
+                        toolPanel: "agFiltersToolPanel"
+                    }
+                ],
+                defaultToolPanel: ""
+            },
+        }
+    }
+
+    onGridReady = params => {
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
+
+        params.api.sizeColumnsToFit();
+        window.addEventListener("resize", function() {
+            setTimeout(function() {
+                params.api.sizeColumnsToFit();
+            });
+        });
+
+        params.api.sizeColumnsToFit();
+    };
+
+    onFirstDataRendered(params) {
+        params.api.sizeColumnsToFit();
+    }
+
+    render() {
+        return (
+            <div style={{ width: "100%", height: "100%" }}>
+                <div
+                    className={"card-155 ag-theme-balham-dark ag-bordered table-bordered h-100"}
+                    id="myGrid"
+                    style={{
+                        width: "100%",
+                    }}>
+                    <AgGridReact
+                        columnDefs={this.state.columnDefs}
+                        rowData={this.state.rowData}
+                        defaultColDef={this.state.defaultColDef}
+                        onGridReady={this.onGridReady}
+                        onFirstDataRendered={this.onFirstDataRendered.bind(this)}>
+                    </AgGridReact>
+                </div>
+            </div>
+        );
+    }
+}
+
+class CancelGrid2 extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        const self = this;
+        this.state = {
+            columnDefs: [
+                { field: "cw", headerName: "Cw #", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 100,
+                    cellClass : function (params) {
+                        return " grid-table text-center f-12";
+                    }, suppressSizeToFit: true
+                },
+                { field: "requestdate", headerName: "Request Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 282,
+                    cellClass : function (params) {
+                        return " text-center grid-table f-12";
+                    }
+                },
+                { field: "transferdate", headerName: "Transfer Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 283,
+                    cellClass : function (params) {
+                        return "text-center  grid-table f-12";
+                    }
+                },
+                { field: "amount", headerName: "Amount", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 283,
+                    cellClass : function (params) {
+                        return "text-right  grid-table f-12";
+                    }
+                },
+
+                { field: "fee", headerName: "Fee", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 280,
+                    cellClass : function (params) {
+                        return "text-right grid-table f-12";
+                    }
+                },
+            ],
+            defaultColDef: {
+                sortable: true,
+                filter: true,
+            },
+            rowData: [
+                {   cw: "CWxx",
+                    requestdate: "1/12/2018",
+                    transferdate: "10/12/2018",
+                    amount: "1,223,333",
+                    fee:"0",
+                }, {   cw: "CWxx",
+                    requestdate: "1/12/2018",
+                    transferdate: "10/12/2018",
+                    amount: "1,223,333",
+                    fee:"0",
+                }, {   cw: "CWxx",
+                    requestdate: "1/12/2018",
+                    transferdate: "10/12/2018",
+                    amount: "1,223,333",
+                    fee:"0",
+                },
+            ],
+            sideBar: {
+                toolPanels: [
+                    {
+                        id: "columns",
+                        labelDefault: "Columns",
+                        labelKey: "columns",
+                        iconKey: "columns",
+                        toolPanel: "agColumnsToolPanel",
+                        toolPanelParams: {
+                            suppressRowGroups: true,
+                            suppressValues: true,
+                            suppressPivots: true,
+                            suppressPivotMode: true,
+                            suppressSideButtons: true,
+                            suppressColumnFilter: true,
+                            suppressColumnSelectAll: true,
+                            suppressColumnExpandAll: true
+                        },
+                    }, {
+                        id: "filters",
+                        labelDefault: "Filters",
+                        labelKey: "filters",
+                        iconKey: "filter",
+                        toolPanel: "agFiltersToolPanel"
+                    }
+                ],
+                defaultToolPanel: ""
+            },
+        }
+    }
+
+    onGridReady = params => {
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
+
+        params.api.sizeColumnsToFit();
+        window.addEventListener("resize", function() {
+            setTimeout(function() {
+                params.api.sizeColumnsToFit();
+            });
+        });
+
+        params.api.sizeColumnsToFit();
+    };
+
+    onFirstDataRendered(params) {
+        params.api.sizeColumnsToFit();
+    }
+
+    render() {
+        return (
+            <div style={{ width: "100%", height: "100%" }}>
+                <div
+                    className={"card-155 ag-theme-balham-dark ag-bordered table-bordered"}
+                    id="myGrid"
+                    style={{
+                        width: "100%",
+                        marginTop: "30px"
+                    }}>
+                    <AgGridReact
+                        columnDefs={this.state.columnDefs}
+                        rowData={this.state.rowData}
+                        defaultColDef={this.state.defaultColDef}
+                        onGridReady={this.onGridReady}
+                        onFirstDataRendered={this.onFirstDataRendered.bind(this)}>
+                    </AgGridReact>
+                </div>
+            </div>
+        );
+    }
+}
+
+
 
 class InquryAgGrid extends React.PureComponent {
     constructor(props) {
@@ -2793,7 +3138,7 @@ class InquryAgGrid extends React.PureComponent {
                         return "text-center  grid-table f-12";
                     }
                 },
-                { field: "cmd", headerName: "Cmd", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
+                { field: "cmd", headerName: "Action", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
                         var cmd = params.data.cmd;
                         return cmd.includes('BUY') === true ? "text-danger text-center  grid-table f-12" :
