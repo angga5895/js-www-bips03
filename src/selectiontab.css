@@ -42,7 +42,12 @@ input[type="radio"]:checked .radioAccount ~ label{
     background: red !important;
 }
 .spanSymbol{
+    color: white!important;
+    background-image: linear-gradient(#C3C3C3, #5B5B5C) !important;
     font-size: 20px !important;
+}
+.lastColor{
+    color: black!important;
 }
 .red {
     color: red;
@@ -80,16 +85,16 @@ input[type="radio"]:checked .radioAccount ~ label{
     font-weight: bold;
     font-size: 15px;
     backface-visibility: hidden;
-    padding-top: 5px;
+    padding-top: 0px;
 }
 .card__face table td{
     padding:3px 15px;
 }
 .card__face--front {
-    background-image: linear-gradient(var(--warna-black-white-gradient),var(--warna-black-white));
+    background-image: linear-gradient(#8BC641,#1be25c);
 }
 
 .card__face--back {
-    background-image: linear-gradient(var(--warna-black-white-gradient),var(--warna-black-white));
+    background-image: linear-gradient(#8BC641, #1be25c);
     transform: rotateX(180deg);
 }

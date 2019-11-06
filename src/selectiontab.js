@@ -41,7 +41,7 @@ class MenuHeader extends React.PureComponent {
                             var e = this.props.id.instances[k];
                             return (
                                 <Menu.Item
-                                    className = {this.props.ms === "menuscale" ? "col-sm-tab-scale" : "col-sm-tab"}
+                                    className = {this.props.ms === "menuscale" ? "col-sm-tab-scale" : "col-sm-tab h-79"}
                                     key={e.instanceName}
                                     name={e.instanceName}
                                     active={this.props.id.activeInstance === e}
@@ -69,14 +69,14 @@ const UISelectionTab_Base = (props) => {
     // activateFrame: (instanceName) => {} hook to activate selected frame ID
     // linkTitles: object, mapping instanceName to link title
     return (
-        <div>
-            <div className="d-xxl-none d-xxl-block d-border-bottom-bold mb-1">
+        <div class="h-84 mb-1">
+            <div className="d-xxl-none d-xxl-block d-border-bottom mb-1">
                 <div className="header-normal-menu">
                     <Menu className="row">
                         <div className="col-sm-header-logo px-0 text-center align-middle align-self-center text-white click-pointer">
                             <Navbar.Brand href="/" className="text-white pr-0 pl-3"><h2>BIPS</h2></Navbar.Brand>
                         </div>
-                        <div className="d-border-left d-border-right row col-sm-header-menu px-0 mr-2">
+                        <div className="d-border-left d-border-right row main-header col-sm-header-menu px-0 mr-2">
                             <MenuHeader id={props}/>
 
                             {/*Zaky*/}
@@ -124,7 +124,7 @@ const UISelectionTab_Base = (props) => {
                                 </div>
                             </div>
                             <MenuCollapse>
-                                <Menu className="row col-sm-12">
+                                <Menu className="row col-sm-12" style={{zIndex:"1"}}>
                                     <MenuHeader id={props} ms="menuscale"/>
                                 </Menu>
                             </MenuCollapse>
@@ -133,7 +133,7 @@ const UISelectionTab_Base = (props) => {
                 </div>
             </div>
 
-            <div className="d-sml-none d-sml-block d-border-bottom-bold mb-1">
+            <div className="d-sml-none d-sml-block d-border-bottom mb-1">
                 <Navbar className="navbar-trading my-0">
                     <div className="col-sm-12 px-0 mx-0 row">
                         <div className="col-sm-1 px-0 mx-0 align-self-center text-center click-pointer">
@@ -169,7 +169,7 @@ const UISelectionTab_Base = (props) => {
                 </Navbar>
             </div>
 
-            <div className="d-xsml-none d-xsml-block d-border-bottom-bold mb-1">
+            <div className="d-xsml-none d-xsml-block d-border-bottom mb-1">
                 <Navbar className="navbar-trading my-0">
                     <div className="col-smb-12 px-0 mx-0 row">
                         <div className="col-smb-1 px-0 mx-0 align-self-center text-center click-pointer">
@@ -205,7 +205,7 @@ const UISelectionTab_Base = (props) => {
                 </Navbar>
             </div>
 
-            <div className="d-xxsml-none d-xxsml-block d-border-bottom-bold mb-1">
+            <div className="d-xxsml-none d-xxsml-block d-border-bottom mb-1">
                 <Navbar className="navbar-trading my-0">
                     <div className="col-smb-12 px-0 mx-0 row">
                         <div className="col-smb-1 px-0 mx-0 align-self-center text-center click-pointer">
@@ -240,7 +240,7 @@ const UISelectionTab_Base = (props) => {
                 </Navbar>
             </div>
 
-            <div className="d-xsm-none d-xsm-block d-border-bottom-bold mb-1">
+            <div className="d-xsm-none d-xsm-block d-border-bottom mb-1">
                 <Navbar className="navbar-trading my-0">
                     <div className="col-smb-12 px-0 mx-0 row text-center align-self-center">
                         <div className="col-smb-3 px-2 text-center align-self-center click-pointer">
@@ -390,14 +390,12 @@ class SelectItem1 extends React.PureComponent {
                     return <div className="card__face card__face--front">&nbsp;</div>
                 }else{
                     return <div className="card__face card__face--front">
-                        <table width="100%">
+                        <table width="100%" height="100%">
                             <tr>
-                                <td rowSpan="2" className="spanSymbol">{info.symbol}</td>
-                                <td colSpan="2">Last: {info.last}</td>
-
-                            </tr>
-                            <tr>
+                                <td className="spanSymbol">{info.symbol}</td>
+                                <td className="lastColor">{info.last}</td>
                                 <td>
+                                    <span className={colorLabel(info.change)+" icofont icofont-caret-up"}></span>&nbsp;
                                     <span className={colorLabel(info.change)}>{info.change}</span>&nbsp;
                                 </td>
                                 <td>
@@ -410,13 +408,12 @@ class SelectItem1 extends React.PureComponent {
             }else{
                 if(this.state.flipped){
                     return <div className="card__face card__face--back">
-                        <table width="100%">
+                        <table width="100%" height="100%">
                             <tr>
-                                <td rowSpan="2" className="spanSymbol">{info.symbol}</td>
-                                <td colspan="2">Last: {info.last}</td>
-                            </tr>
-                            <tr>
+                                <td className="spanSymbol">{info.symbol}</td>
+                                <td className="lastColor">{info.last}</td>
                                 <td>
+                                    <span className={colorLabel(info.change)+" icofont icofont-caret-down"}></span>&nbsp;
                                     <span className={colorLabel(info.change)}>{info.change}</span>&nbsp;
                                 </td>
                                 <td>
@@ -431,7 +428,7 @@ class SelectItem1 extends React.PureComponent {
             }
         }
         return (
-            <div className="nav-link col-sm-12 px-0 mx-0 py-3 text-white">
+            <div className="nav-link col-sm-12 px-0 mx-0 py-2 text-white">
                 <div className="col-md-12 bg-black-trading px-0 text-center">
                     {/*zaky
                     Element Flipped*/}
@@ -499,7 +496,7 @@ class SelectItem2_Base extends React.Component {
 class InfoCash extends React.Component {
     render() {
         return (
-            <div className="nav-link px-0 mx-0 pt-4 pb-0 text-white align-self-center">
+            <div className="nav-link px-0 mx-0 pt-1 pb-0 text-white align-self-center">
                 <Dropdown icon={null} text={
                     <div>
                         <Table size="sm" className="text-white cursor-menu py-0 my-0">
@@ -707,7 +704,7 @@ class UserInfo_Base extends React.Component {
             }
         }
         return(
-            <div className="nav-link px-0 mx-0 py-1 text-white">
+            <div className="nav-link px-0 mx-0 py-0 text-white">
                 <AppFrameAction ref="frameAction" />
                 {/*Zaky*/}
                 {/*perubahan nama*/}
@@ -715,7 +712,7 @@ class UserInfo_Base extends React.Component {
                     <tr>
                         <td className="py-0">
                             <Dropdown icon={null} text={
-                    <div className="cursor-menu py-2">
+                    <div className="cursor-menu pt-1">
                         <img src={user_avatar} alt="User" className="img-avatar d-border mr-2"/><i className="f-11-center text-gray-tradding oi oi-caret-bottom"></i>
                     </div>
                 } className="text-white align-self-center">
