@@ -19,6 +19,8 @@ import FormBuy from "./../app_transaction/form_buy";
 import FormSell from "../app_transaction/form_sell";
 import StockChart from "./stockChart";
 
+import {ResizeResponsive} from "./mainPage";
+
 //datepicker
 import '../bootstrap-3.3.7/bootstrap-datepicker.min.css';
 import $ from 'jquery';
@@ -93,8 +95,8 @@ const StockInfo = (props) => {
             }>
             {/*<BIPSAppProvider>*/}
             <WSConnectionAction />
-            <div className="row col-sm-12 px-0 mx-0 pt-1">
-                <div className="col-sm-12 px-2">
+            <div className="row col-sm-12 px-0 mx-0 pt-1 card-190">
+                <div className="col-sm-12 px-0 h-30">
                     <MenuOfContent linkTitles={
                         {
                             stockInfoTable : 'STOCK INFO',
@@ -103,7 +105,7 @@ const StockInfo = (props) => {
                         }
                     } />
                 </div>
-                <div className="col-sm-12 px-2">
+                <div className="col-sm-12 px-0 d-border card-160">
                     <AppFrame headerComponent={StockInfoFrameHeader}/>
                 </div>
             </div>
@@ -118,7 +120,7 @@ class TableStockInfo extends React.PureComponent{
             <>
                 <AppFrameAction ref="frameAction" />
                 <WSConnectionAction ref="wsAction" />
-                <TableBS responsive size="sm" className="text-white my-2 d-border-table bg-dark-grey" borderless>
+                <TableBS responsive size="sm" className="text-white my-0 d-border-table bg-dark-grey card-158" borderless>
                     <thead></thead>
                     <tbody>
                     <tr>
@@ -201,7 +203,7 @@ class TableCorpAction extends React.PureComponent{
                 <WSConnectionAction ref="wsAction" />
                 <main>
                     <div className="container px-0 mx-0 col-sm-12">
-                        <div className="bg-black-inactive card card-small">
+                        <div className="bg-black-inactive card card-156">
                             <CorpActionAgGrid />
                         </div>
                     </div>
@@ -217,7 +219,11 @@ const StockInfoFrameHeader = (props) => {
     );
 }
 
-class StockPage extends React.PureComponent {
+class StockPage_Base extends React.PureComponent {
+    constructor(props) {
+        super(props);
+    }
+
     closeClick = (e) => {
         this.refs.frameAction.closeModal(100);
     }
@@ -242,7 +248,56 @@ class StockPage extends React.PureComponent {
         })
     }
 
+    selectSelectionTab = theme => ({
+        ...theme,
+        borderRadius: 5,
+        colors: {
+            ...theme.colors,
+            neutral0: this.props.thememode === true ? '#202542' : '#E9E9E9',
+            neutral20: this.props.thememode === true ? '#2D3866' : '#CDCDCE',
+            neutral30: this.props.thememode === true ? '#2D3866' : '#CDCDCE',
+            neutral40: this.props.thememode === true ? '#202542' : '#1A1A1A',
+            neutral80: this.props.thememode === true ? '#A1A7C4' : '#878787',
+            primary75: this.props.thememode === true ? '#FFFFFF' : '#FFFFFF',
+            primary50: this.props.thememode === true ? '#2D3866' : '#4D4D4E',
+            primary25: this.props.thememode === true ? '#3f5798' : '#dedbdc',
+            primary: '#0071BC',
+        },
+    });
+
     render () {
+        const stockOptions = [
+            { value: 'aali', label: 'AALI' },
+            { value: 'adhi', label: 'ADHI' },
+            { value: 'antm', label: 'ANTM' },
+            { value: 'asii', label: 'ASII' },
+            { value: 'tlkm', label: 'TLKM' },
+            { value: 'wskt', label: 'WSKT' },
+            { value: 'indf', label: 'INDF' },
+            { value: 'bbca', label: 'BBCA' },
+            { value: 'smgr', label: 'SMGR' },
+            { value: 'bbri', label: 'BBRI' }
+        ];
+
+        const customStyles = {
+            control: (base, state) => ({
+                ...base,
+                // match with the menu
+                borderRadius: 0,
+                border: "var(--warna-d-border) 1px solid"
+            }),
+            menu: base => ({
+                ...base,
+                // override border radius to match the box
+                borderRadius: 0,
+            }),
+            menuList: base => ({
+                ...base,
+                // override border radius to match the box
+                borderRadius: 0
+            })
+        };
+
         return (
             <div className="bg-black-trading card card-75">
                 <AppFrameAction ref="frameAction" />
@@ -250,11 +305,14 @@ class StockPage extends React.PureComponent {
                 <main>
                     <div className="container-fluid f-12">
                         <div className="py-2">
-                            <div className="px-1 mx-0 my-2 col-sm-12 row">
-                                <div className="col-sm-2 px-0 mx-0 row">
+                            <div className="px-1 mx-0 my-0 col-sm-12 row h-40">
+                                <div className="col-sm-3 px-0 mx-0 row">
                                     <label className="align-self-center col-sm-2 px-0 mx-0">Code</label>
-                                    <Input defaultValue='AALI' placeholder='Code' size='small' className="col-sm-8 text-center align-self-center"/>
-                                    <div className="col-sm-2 text-left align-self-center px-2"><i className="fa fa-search fa-2x click-pointer text-dark"></i></div>
+                                    {/*<Input defaultValue='AALI' placeholder='Code' size='small' className="col-sm-8 text-center align-self-center"/>*/}
+                                    <div className="col-sm-10 text-left align-self-center">
+                                        <Select maxMenuHeight={75} styles={customStyles} placeholder={<div>Search..</div>} options={stockOptions} className="stockPageSelect text-left" theme={this.selectSelectionTab}/>
+                                    </div>
+                                    {/*<div className="col-sm-2 text-left align-self-center px-2"><i className="fa fa-search fa-2x click-pointer text-dark"></i></div>*/}
                                     {/*<Input defaultValue='Arga Argo Lestari Tbk.' placeholder='Name' size='small' className="col-sm-3 align-self-center"/>*/}
                                 </div>
                                 <div className="col-sm-6 row mx-0 px-0 align-self-center">
@@ -269,19 +327,19 @@ class StockPage extends React.PureComponent {
                                         -175 (-1.36%)
                                     </label>
                                 </div>
-                                <div className="col-sm-4 align-self-center mx-0 px-0">
+                                <div className="col-sm-3 align-self-center mx-0 px-0">
                                     <button className="d-border mx-1 pull-right col-sm-5 col-md-3 btn btn-success" onClick={this.buttonClickSell}><span>Sell</span></button>
                                     <button className="d-border mx-1 pull-right col-sm-5 col-md-3 btn btn-danger" onClick={this.buttonClickBuy}><span>Buy</span></button>
                                 </div>
                             </div>
                             <div className="px-1 mx-0 col-sm-12 row">
                                 <div className="col-md-7 px-1 py-2">
-                                    <div id="stock-chart" className="card card-305 bg-trading-gray">
+                                    <div id="stock-chart" className="card card-282 bg-trading-gray">
                                         <StockChart/>
                                     </div>
                                     <StockInfo/>
                                 </div>
-                                <div className="col-md-5 px-1 py-2">
+                                <div className="col-md-5 px-1 py-0">
                                     <TableInfoTransaction lotshare="stockInfoBuy" />
                                 </div>
                             </div>
@@ -293,7 +351,7 @@ class StockPage extends React.PureComponent {
     }
 }
 
-class StockHistoryPage extends React.PureComponent {
+class StockHistoryPage_Base extends React.PureComponent {
     constructor(props){
         super(props);
         this.state = {
@@ -323,6 +381,23 @@ class StockHistoryPage extends React.PureComponent {
         })
     }
 
+    selectSelectionTab = theme => ({
+        ...theme,
+        borderRadius: 5,
+        colors: {
+            ...theme.colors,
+            neutral0: this.props.thememode === true ? '#202542' : '#E9E9E9',
+            neutral20: this.props.thememode === true ? '#2D3866' : '#CDCDCE',
+            neutral30: this.props.thememode === true ? '#2D3866' : '#CDCDCE',
+            neutral40: this.props.thememode === true ? '#202542' : '#1A1A1A',
+            neutral80: this.props.thememode === true ? '#A1A7C4' : '#878787',
+            primary75: this.props.thememode === true ? '#FFFFFF' : '#FFFFFF',
+            primary50: this.props.thememode === true ? '#2D3866' : '#4D4D4E',
+            primary25: this.props.thememode === true ? '#3f5798' : '#dedbdc',
+            primary: '#0071BC',
+        },
+    });
+
     render () {
         const changeTabNumber = (props) => {
             this.setState({
@@ -343,6 +418,36 @@ class StockHistoryPage extends React.PureComponent {
                 return <HistoryBrokerAgGridSecond/>
             }
         }
+        const customStyles = {
+            control: (base, state) => ({
+                ...base,
+                // match with the menu
+                borderRadius: 0,
+                border: "var(--warna-d-border) 1px solid"
+            }),
+            menu: base => ({
+                ...base,
+                // override border radius to match the box
+                borderRadius: 0,
+            }),
+            menuList: base => ({
+                ...base,
+                // override border radius to match the box
+                borderRadius: 0
+            })
+        };
+        const stockOptions = [
+            { value: 'aali', label: 'AALI' },
+            { value: 'adhi', label: 'ADHI' },
+            { value: 'antm', label: 'ANTM' },
+            { value: 'asii', label: 'ASII' },
+            { value: 'tlkm', label: 'TLKM' },
+            { value: 'wskt', label: 'WSKT' },
+            { value: 'indf', label: 'INDF' },
+            { value: 'bbca', label: 'BBCA' },
+            { value: 'smgr', label: 'SMGR' },
+            { value: 'bbri', label: 'BBRI' }
+        ];
 
         return (
             <div className="bg-black-trading">
@@ -350,11 +455,14 @@ class StockHistoryPage extends React.PureComponent {
                 <main>
                     <div className="container-fluid f-12">
                         <div className="py-2">
-                            <div className="px-1 mx-0 my-2 col-sm-12 row">
-                                <div className="col-sm-2 px-0 mx-0 row">
+                            <div className="px-1 mx-0 my-0 col-sm-12 row h-40">
+                                <div className="col-sm-3 px-0 mx-0 row">
                                     <label className="align-self-center col-sm-2 px-0 mx-0">Code</label>
-                                    <Input defaultValue='AALI' placeholder='Code' size='small' className="col-sm-8 text-center align-self-center"/>
-                                    <div className="col-sm-2 text-left align-self-center px-2"><i className="fa fa-search fa-2x click-pointer text-dark"></i></div>
+                                    {/*<Input defaultValue='AALI' placeholder='Code' size='small' className="col-sm-8 text-center align-self-center"/>*/}
+                                    <div className="col-sm-10 text-left align-self-center">
+                                        <Select maxMenuHeight={75} styles={customStyles} placeholder={<div>Search..</div>} options={stockOptions} className="stockPageSelect" theme={this.selectSelectionTab}/>
+                                    </div>
+                                    {/*<div className="col-sm-2 text-left align-self-center px-2"><i className="fa fa-search fa-2x click-pointer text-dark"></i></div>*/}
                                     {/*<Input defaultValue='Arga Argo Lestari Tbk.' placeholder='Name' size='small' className="col-sm-3 align-self-center"/>*/}
                                 </div>
                                 <div className="col-sm-6 row mx-0 px-0 align-self-center">
@@ -364,28 +472,28 @@ class StockHistoryPage extends React.PureComponent {
                                 </div>
                             </div>
 
-                            <div className="px-2 mx-0 mt-3 col-sm-12 mb-3 row">
+                            <div className="px-2 mx-0 mt-3 col-sm-12 mb-3 row h-40">
                                 <div className="col-sm-4 px-0 mx-0">
-                                    <div className="input-group input-daterange">
-                                        <span className="input-group-addon">Start</span>
-                                        <input placeholder="dd/mm/yyyy" id="startDate1" name="startDate1" type="text" className="form-control date-clear" readOnly="readonly" />
-                                        <span className="input-group-addon">
+                                    <div className="input-group input-daterange h-35" style={{"z-index":0}}>
+                                        <span className="input-group-addon h-35">Start</span>
+                                        <input placeholder="dd/mm/yyyy" id="startDate1" name="startDate1" type="text" className="form-control date-clear h-35" readOnly="readonly" />
+                                        <span className="input-group-addon h-35">
                                             <span className="fa fa-calendar-alt"></span>
                                         </span>
-                                        <span className="input-group-addon">to</span>
-                                        <input placeholder="dd/mm/yyyy" id="endDate1" name="endDate1" type="text" className="form-control date-clear" readOnly="readonly" />
-                                        <span className="input-group-addon">
+                                        <span className="input-group-addon h-35">to</span>
+                                        <input placeholder="dd/mm/yyyy" id="endDate1" name="endDate1" type="text" className="form-control date-clear h-35" readOnly="readonly" />
+                                        <span className="input-group-addon h-35">
                                             <span className="fa fa-calendar-alt"></span>
                                         </span>
-                                        <span id="btn-clear-date" className="input-group-addon bg-gold click-pointer hover-gold">
+                                        <span id="btn-clear-date" className="input-group-addon bg-gold click-pointer hover-gold h-35">
                                             <span className="ion ion-ios-close"></span>
                                         </span>
                                     </div>
                                 </div>
-                                <div className="col-sm-8 px-2 mx-0 align-self-center">
-                                    <TableBS borderless responsive size="sm" className="bg-black-trading mb-0">
+                                <div className="col-sm-8 pl-2 pr-0 mx-0 align-self-center">
+                                    <TableBS borderless size="sm" className="bg-black-trading mb-0 h-35">
                                         <thead></thead>
-                                        <tbody className="t-border-top t-border-bottom">
+                                        <tbody className="d-border-top d-border-bottom">
                                         <tr>
                                             <td>
                                                 Last <span className="text-danger"> 3,870</span>
@@ -418,18 +526,18 @@ class StockHistoryPage extends React.PureComponent {
                                 <div className="col-sm-8 px-1 py-2">
                                     {/*Zaky*/}
                                     {/*Add menu tab*/}
-                                    <div className="cssmenu d-border-bottom d-border-top d-border-left mb-2 small">
-                                        <ul class="ul-menu">
+                                    <div className="cssmenu d-border-bottom d-border-top d-border-left mb-2 small h-30">
+                                        <ul class="ul-menu h-27">
                                             <li name="stockPage"
                                                 className={tabActive(1)} onClick={()=>changeTabNumber(1)}>
-                                                <a className="linkCustomStockTab">
+                                                <a className="linkCustomStockTab h-27">
                                                     <span
-                                                        className="f-12" >Tab 1</span></a></li>
+                                                        className="f-12" >BROKER SUMMARY</span></a></li>
                                             <li name="stockWatchlistPage"
                                                 className={tabActive(2)} onClick={()=>changeTabNumber(2)}>
-                                                <a className="linkCustomStockTab">
+                                                <a className="linkCustomStockTab h-27">
                                                     <span
-                                                        className="f-12">Tab 2</span></a></li>
+                                                        className="f-12">FOREIGN NET</span></a></li>
 
                                         </ul>
                                     </div>
@@ -440,14 +548,14 @@ class StockHistoryPage extends React.PureComponent {
                                     </div>
                                 </div>
 
-                                <div className="col-sm-4 px-1 py-2">
-                                    <div className="bg-trading-gray mb-3">
+                                <div className="col-sm-4 px-1 pt-2 pb-0">
+                                    <div className="bg-trading-gray" style={{marginBottom : "10px"}}>
                                         <HistoryPriceAgGrid/>
                                     </div>
-                                    <div className="bg-trading-gray mb-3">
+                                    <div className="bg-trading-gray" style={{marginBottom : "10px"}}>
                                         <HistoryBuyerAgGrid/>
                                     </div>
-                                    <div className="bg-trading-gray mb-3">
+                                    <div className="bg-trading-gray">
                                         <HistorySellerAgGrid/>
                                     </div>
                                 </div>
@@ -474,25 +582,22 @@ const StockWatchlist = (props) => {
                 ]
             }>
             {/* <BIPSAppProvider> */}
-            <div className="row col-sm-12 pl-2 mx-0 pt-1">
+            <div className="row col-sm-12 pl-2 mx-0 py-0">
                 <div className="col-sm-4 px-0 mx-0">
                     <AppModal/>
                     <TableStockWatchlist/>
                 </div>
-                <div className="col-sm-8 px-0 mx-0">
+                <div className="col-sm-8 px-0 mx-0 card-527">
                     {/*<div className="col-sm-12 px-2 d-border-bottom">*/}
-                    <div className="col-sm-12 px-2 row mx-0">
-                        <div className="col-sm-6"></div>
-                        <div className="col-sm-6 px-0">
-                            <MenuOfContent linkTitles={
-                                {
-                                    stockWatchlistBuy : 'BUY',
-                                    stockWatchlistSell: 'SELL',
-                                }
-                            } />
-                        </div>
-                    </div>
-                    <div className="col-sm-12 px-2 pt-4">
+                    <div className="col-sm-12 px-2 pt-3">
+                        {/*<div className="cssmenumodal bg-dark-grey pb-4 col-sm-12 mx-0 px-0">*/}
+                        {/*<ul>*/}
+                        {/*<li className={ this.state.activeTab === '1' ? 'd-border-bottom active click-pointer col-sm-6 px-0 mx-0 f-12 text-center' : 'd-border-bottom text-white click-pointer col-sm-6 px-0 mx-0 f-12 text-center' } onClick={() => { this.toggle('1'); }}><a><span className="f-11">&nbsp; Buy</span></a></li>*/}
+                        {/*<li className={ this.state.activeTab === '2' ? 'd-border-bottom active click-pointer col-sm-6 px-0 mx-0 f-12 text-center' : 'd-border-bottom text-white click-pointer col-sm-6 px-0 mx-0 f-12 text-center' } onClick={() => { this.toggle('2'); }}><a><span className="f-11">&nbsp; Sell</span></a></li>*/}
+                        {/*<li>Helloo</li>*/}
+                        {/*<li>Hello2</li>*/}
+                        {/*</ul>*/}
+                        {/*</div>*/}
                         <AppFrame headerComponent={StockWatchlistFrameHeader}/>
                     </div>
                 </div>
@@ -530,14 +635,14 @@ class TableStockWatchlist_Base extends React.Component{
                 <WSConnectionAction ref="wsAction" /> {/* websocket connection component */}
                 <div className="bg-black-trading f-12">
                     <AppFrameAction ref="frameAction" />
-                    <div>
+                    {/*<div>
                         <div className="col-sm-12 px-0">
                             <div className="col-sm-12 mx-0 pt-3 pb-2">
                                 <button className="btn btn-sm btn-grey" onClick={this.buttonClickAmendRegister}>Modify Watchlist</button>
                             </div>
                         </div>
-                    </div>
-                    <div className="pl-4 pr-2 pt-4">
+                    </div>*/}
+                    <div className="pl-4 pr-2 pt-3">
                         <StockWatchlistAgGrid />
                     </div>
                 </div>
@@ -547,17 +652,47 @@ class TableStockWatchlist_Base extends React.Component{
 }
 
 class BuyPage extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state= {
+            activeTab: 1,
+        };
+    }
+    toggle(no){
+        this.setState({
+            activeTab: no,
+        });
+    }
     render(){
+        const swapContent = () => {
+            if(this.state.activeTab === 1){
+                return <FormBuy idPrice="stockBuyPrice" idVol="stockBuyVol" idValue="stockBuyValue" columnSm="col-sm-12" />
+            }else{
+                return <FormSell idPrice="stockSellPrice" idVol="stockSellVol" idValue="stockSellValue" columnSm="col-sm-12"/>
+            }
+        }
         return(
             <>
                 <AppFrameAction ref="frameAction" />
                 <WSConnectionAction /> {/* websocket connection component */}
                 <div className="col sm-8 px-0 mx-0 row">
-                    <div className="col-sm-6 pr-3 pl-0 mt-0 f-12">
-                        <TableInfoTransaction lotshare="buyPage" />
+                    <div className="col-sm-6 py-4 px-3 mt-0 f-12 bg-dark-grey d-border-active">
+                        <TableInfoTransaction lotshare={(this.state.activeTab === 1) ? "buyPage" : "sellPage"} />
                     </div>
-                    <div className="col-sm-6 mt-0 d-border-active bg-dark-grey pt-3 pb-3 px-3">
-                        <FormBuy idPrice="stockBuyPrice" idVol="stockBuyVol" idValue="stockBuyValue" columnSm="col-sm-12" />
+                    <div className="col-sm-6 mt-0 d-border-active bg-dark-grey pt-0 pb-3 px-3 card-515">
+                        <div className="cssmenumodal bg-dark-grey pb-0 col-sm-12 mx-0 px-0 h-33">
+                            <ul>
+                                <li className={ (this.state.activeTab === 1)  ? 'd-border-bottom active click-pointer col-sm-6 px-0 mx-0 f-12 text-center' : 'd-border-bottom text-white click-pointer col-sm-6 px-0 mx-0 f-12 text-center' }
+                                    onClick={() => { this.toggle(1); }}><a className="pt-1 pb-2"><span className="f-12">
+                                    &nbsp; Buy
+                                </span></a></li>
+                                <li className={ (this.state.activeTab === 2) ? 'd-border-bottom active click-pointer col-sm-6 px-0 mx-0 f-12 text-center' : 'd-border-bottom text-white click-pointer col-sm-6 px-0 mx-0 f-12 text-center' }
+                                    onClick={() => { this.toggle(2); }}><a className="pt-1 pb-2"><span className="f-12">
+                                    &nbsp; Sell
+                                </span></a></li>
+                            </ul>
+                        </div>
+                        {swapContent()}
                     </div>
                 </div>
             </>
@@ -573,7 +708,7 @@ class SellPage extends React.Component{
                 <AppFrameAction ref="frameAction" />
                 <WSConnectionAction /> {/* websocket connection component */}
                 <div className="col sm-8 px-0 mx-0 row">
-                    <div className="col-sm-6 pr-3 pl-0 mt-0 f-12">
+                    <div className="col-sm-6 py-4 px-3 mt-0 f-12 bg-dark-grey d-border-active">
                         <TableInfoTransaction lotshare="sellPage" />
                     </div>
                     <div className="col-sm-6 mt-0 d-border-active bg-dark-grey pt-3 pb-3 px-3">
@@ -655,14 +790,14 @@ class RegisterAmendModal_Base extends React.Component {
         borderRadius: 5,
         colors: {
             ...theme.colors,
-            neutral0: this.props.thememode === true ? '#3D3E3F' : '#CDCDCE',
-            neutral20: this.props.thememode === true ? '#333332' : '#E9E9E9',
-            neutral30: this.props.thememode === true ? '#333332' : '#E9E9E9',
-            neutral40: this.props.thememode === true ? '#1A1A1A' : '#1A1A1A',
-            neutral80: this.props.thememode === true ? '#FFFFFF' : '#878787',
+            neutral0: this.props.thememode === true ? '#506096' : '#999999',
+            neutral20: this.props.thememode === true ? '#2D3866' : '#CDCDCE',
+            neutral30: this.props.thememode === true ? '#2D3866' : '#CDCDCE',
+            neutral40: this.props.thememode === true ? '#202542' : '#1A1A1A',
+            neutral80: this.props.thememode === true ? '#A1A7C4' : '#FFFFFF',
             primary75: this.props.thememode === true ? '#FFFFFF' : '#FFFFFF',
-            primary50: this.props.thememode === true ? '#4D4D4E' : '#4D4D4E',
-            primary25: this.props.thememode === true ? '#202020' : '#ece9ea',
+            primary50: this.props.thememode === true ? '#2D3866' : '#4D4D4E',
+            primary25: this.props.thememode === true ? '#677ac0' : '#c5c2c3',
             primary: '#0071BC',
         },
     });
@@ -680,6 +815,26 @@ class RegisterAmendModal_Base extends React.Component {
             { value: 'smgr', label: 'SMGR' },
             { value: 'bbri', label: 'BBRI' }
         ];
+        const customStyles = {
+            control: (base, state) => ({
+                ...base,
+                // match with the menu
+                borderRadius: 0,
+                border: "var(--warna-d-border) 1px solid",
+                color : "white!important"
+            }),
+            menu: base => ({
+                ...base,
+                // override border radius to match the box
+                borderRadius: 0,
+            }),
+            menuList: base => ({
+                ...base,
+                // override border radius to match the box
+                borderRadius: 0,
+                color : "white!important"
+            })
+        };
         return (
             <>
                 <AppFrameAction ref="frameAction" />
@@ -708,8 +863,8 @@ class RegisterAmendModal_Base extends React.Component {
                                     <AmendGroupCodeAgGrid />
                                 </div>
                                 <div className="form-group row col-sm-12 px-0 mx-0 my-4 py-3 text-white">
-                                    <div className="form-group col-sm-8 my-1">
-                                        <Select maxMenuHeight={100} options={stockOptions} className="stockPageSelect" theme={this.selectSelectionTab}/>
+                                    <div className="form-group col-sm-8 my-1 text-left">
+                                        <Select maxMenuHeight={100} styles={customStyles} placeholder={<div style={{color:"white"}}>Search..</div>} options={stockOptions} className="stockPageSelect text-left" theme={this.selectSelectionTab}/>
                                     </div>
                                     <div className="col-sm-1 px-0 mx-0 align-self-center align-middle">
                                         <button className="btn btn-sm bg-gray-tradding border-gray-tradding"><i className="fa fa-plus"></i></button>
@@ -740,9 +895,9 @@ class RegisterAmendModal_Base extends React.Component {
                                     <AddGroupCodeAgGrid />
                                 </div>
                                 <div className="form-group row col-sm-12 px-0 mx-0 my-4 py-3 z-99 text-white">
-                                    <div className="form-group col-sm-8 my-1">
+                                    <div className="form-group col-sm-8 my-1 text-left">
                                         {/*997*/}
-                                        <Select maxMenuHeight={150} options={stockOptions} className="stockPageSelect" theme={this.selectSelectionTab}/>
+                                        <Select maxMenuHeight={150} styles={customStyles} placeholder={<div style={{color:"white"}}>Search..</div>} options={stockOptions} className="stockPageSelect text-left" theme={this.selectSelectionTab}/>
                                     </div>
                                     <div className="col-sm-1 px-0 mx-0 align-self-center align-middle">
                                         <button className="btn btn-sm bg-gray-tradding border-gray-tradding"><i className="fa fa-plus"></i></button>
@@ -989,7 +1144,7 @@ class HistoryBrokerAgGridSecond extends React.PureComponent {
         return (
             <>
                 <div
-                    className="card card-433 ag-theme-balham-dark ag-header-border-gray"
+                    className="card card-372 ag-theme-balham-dark ag-header-border-gray"
                     style={{
                         width: 'auto' }}>
                     <AgGridReact
@@ -1263,7 +1418,7 @@ class StockWatchlistAgGrid extends React.PureComponent {
         return (
             <>
                 <div
-                    className="card-511 ag-theme-balham-dark ag-header-border d-border"
+                    className="card-515 ag-theme-balham-dark ag-header-border d-border"
                     style={{
                         width: 'auto' }}>
                     <AgGridReact
@@ -1773,7 +1928,7 @@ class HistoryBrokerAgGrid extends React.PureComponent {
                 {/*Zaky*/}
                 {/*update ukuran card*/}
                 <div
-                    className="card card-433 ag-theme-balham-dark ag-header-border-gray"
+                    className="card card-372 ag-theme-balham-dark ag-header-border-gray"
                     style={{
                         width: 'auto' }}>
                     <AgGridReact
@@ -1909,7 +2064,7 @@ class HistoryPriceAgGrid extends React.PureComponent {
         return (
             <>
                 <div
-                    className="card card-149 ag-theme-balham-dark ag-header-border-gray"
+                    className="card card-129 ag-theme-balham-dark ag-header-border-gray"
                     style={{
                         width: 'auto' }}>
                     <AgGridReact
@@ -2051,7 +2206,7 @@ class HistoryBuyerAgGrid extends React.PureComponent {
         return (
             <>
                 <div
-                    className="card card-149 ag-theme-balham-dark ag-header-border-gray"
+                    className="card card-129 ag-theme-balham-dark ag-header-border-gray"
                     style={{
                         width: 'auto' }}>
                     <AgGridReact
@@ -2193,7 +2348,7 @@ class HistorySellerAgGrid extends React.PureComponent {
         return (
             <>
                 <div
-                    className="card card-149 ag-theme-balham-dark ag-header-border-gray"
+                    className="card card-129 ag-theme-balham-dark ag-header-border-gray"
                     style={{
                         width: 'auto' }}>
                     <AgGridReact
@@ -2325,7 +2480,7 @@ class CorpActionAgGrid extends React.PureComponent {
         return (
             <>
                 <div
-                    className="card card-small ag-theme-balham-dark ag-striped-odd ag-header-border"
+                    className="card card-156 ag-theme-balham-dark ag-striped-odd ag-header-border"
                     style={{
                         width: 'auto' }}>
                     <AgGridReact
@@ -2347,5 +2502,15 @@ const RegisterAmendModal = ContextConnector(BIPSAppContext,
         chartMode: vars.chartMode
     }),
 )(RegisterAmendModal_Base);
+const StockPage = ContextConnector(BIPSAppContext,
+    (vars, actions) => ({
+        thememode: vars.thememode
+    }),
+)(StockPage_Base);
+const StockHistoryPage = ContextConnector(BIPSAppContext,
+    (vars, actions) => ({
+        thememode: vars.thememode
+    }),
+)(StockHistoryPage_Base);
 export { CustomFrameHeaderStock, Stock, BuyPage, SellPage, AmendGroupNameAgGrid, AmendGroupCodeAgGrid, AddGroupCodeAgGrid, BuyModal, SellModal, RegisterAmendModal };
 export default StockPage;
