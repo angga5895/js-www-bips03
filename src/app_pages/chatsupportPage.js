@@ -764,7 +764,7 @@ class ChatListEmpty extends  React.PureComponent{
     render(){
         return(
             <>
-                <div className="card-body card-586 align-self-center text-center bg-grey f-14 py-3">
+                <div className="card-body card-527 align-self-center text-center bg-grey f-14 py-3">
                     <div className="py-5 my-5">
                         <div className="py-5 my-5">
                             <i className="icofont icofont-warning-alt f-25"></i>

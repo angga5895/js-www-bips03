@@ -5,16 +5,16 @@
     border-top-left-radius: 0px!important;
     border-top-right-radius: 0px!important;
     border: var(--warna-d-border) solid 1px !important;
-    height: var(--card-586) !important;
+    height: var(--card-527) !important;
 }
 .rsc-content{
-    height: calc(var(--card-586) - 133px)!important;
+    height: calc(var(--card-527) - 133px)!important;
     background: var(--warna-background-semantic)!important;
 
 }
 .scroll.rsc-scroll{
     overflow-y: scroll;
-    max-height: calc(var(--card-586) - 40px)!important;
+    max-height: calc(var(--card-527) - 40px)!important;
 }
 
 .i-pointer{
