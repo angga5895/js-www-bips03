@@ -14,7 +14,7 @@ class TableInfoTransaction extends React.PureComponent{
     render(){
         return(
             <>
-                <div className="col-sm-12 row px-0 mx-0">
+                <div className="col-sm-12 row px-0 mx-0 h-30 my-2">
                     <div className="col-sm-3-6 px-0 mx-0">
                         {/*<InputGroup size="sm">
                             <Input className="col-sm-12 d-border bg-dark-grey" value="AALI" size="sm"/>
@@ -57,9 +57,9 @@ class TableInfoTransaction extends React.PureComponent{
                     </div>
                 </div>
 
-                <div className="my-3"><i className="fa fa-info-circle text-danger"></i>&nbsp; Not yet submit annual financial report</div>
+                
 
-                <Table responsive borderless size="sm" className="text-white d-border-table bg-dark-grey card-121">
+                <Table responsive borderless size="sm" className="text-white d-border-table bg-dark-grey card-111 mb-2">
                     <thead></thead>
                     <tbody>
                     <tr>
@@ -105,13 +105,13 @@ class TableInfoTransaction extends React.PureComponent{
                     </tbody>
                 </Table>
 
-                <div className="my-3"></div>
+                {/*<div className="my-3"></div>*/}
 
                 <div className="bg-dark-grey">
                     <div className="col-sm-12 row mx-0 px-0">
                         <div className="col-sm-6 mx-0 px-0">
                             <div className="container-fluid px-0 mx-0">
-                                <Table responsive borderless size="sm" className="text-white bg-dark-grey px-0 mx-0 card-297">
+                                <Table responsive borderless size="sm" className="text-white bg-dark-grey px-0 mx-0 card-324 mb-0">
                                 <thead className="d-border-top d-border-bottom">
                                 <tr>
                                     <th className="no-wrap py-3 text-center bg-dark-grey">
@@ -187,7 +187,7 @@ class TableInfoTransaction extends React.PureComponent{
                         </div>
                         <div className="col-sm-6 mx-0 px-0">
                             <div className="container-fluid px-0 mx-0">
-                                <Table responsive borderless size="sm" className="text-white bg-dark-grey px-0 mx-0 card-297">
+                                <Table responsive borderless size="sm" className="text-white bg-dark-grey px-0 mx-0 card-324 mb-0">
                                 <thead className="d-border-top d-border-bottom">
                                 <tr>
                                     <th className="no-wrap py-3 text-center bg-dark-grey">Offer</th>
@@ -315,7 +315,7 @@ class TableInfoTransactionWithButton extends React.PureComponent{
                     </div>
                 </div>
 
-                <Table responsive borderless size="sm" className="text-white d-border-table bg-dark-grey card-121">
+                <Table responsive borderless size="sm" className="text-white d-border-table bg-dark-grey card-111">
                     <thead></thead>
                     <tbody>
                     <tr>
@@ -365,7 +365,7 @@ class TableInfoTransactionWithButton extends React.PureComponent{
                     <div className="col-sm-12 row mx-0 px-0">
                         <div className="col-sm-6 mx-0 px-0">
                             <div className="container-fluid px-0 mx-0">
-                                <Table responsive borderless size="sm" className="text-white bg-dark-grey px-0 mx-0 card-297">
+                                <Table responsive borderless size="sm" className="text-white bg-dark-grey px-0 mx-0 card-305">
                                     <thead className="d-border-top d-border-bottom">
                                     <tr>
                                         <th className="no-wrap py-3 text-center bg-dark-grey">
@@ -441,7 +441,7 @@ class TableInfoTransactionWithButton extends React.PureComponent{
                         </div>
                         <div className="col-sm-6 mx-0 px-0">
                             <div className="container-fluid px-0 mx-0">
-                                <Table responsive borderless size="sm" className="text-white bg-dark-grey px-0 mx-0 card-297">
+                                <Table responsive borderless size="sm" className="text-white bg-dark-grey px-0 mx-0 card-305">
                                     <thead className="d-border-top d-border-bottom">
                                     <tr>
                                         <th className="no-wrap py-3 text-center bg-dark-grey">Offer</th>
