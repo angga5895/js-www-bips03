@@ -988,28 +988,23 @@ class FundTransfer_Base extends React.PureComponent {
     }
 }
 
+//Acccc
 class InquryAccount_Base extends React.PureComponent {
     constructor(props) {
         super(props);
+        this.state={
+            activeTab: '1',
+        }
+    }
+    toggle(tab) {
+        if (this.state.activeTab !== tab) {
+            this.setState({
+                activeTab: tab
+            });
+        }
     }
 
-    componentDidMount() {
-        $(document).ready(function() {
-            var sd = new Date(), ed = new Date();
-            var isRtl = $('html').attr('dir') === 'rtl';
-            $('.input-daterange').datepicker({
-                orientation: isRtl ? 'auto right' : 'auto left',
-                format: "dd/mm/yyyy",
-                changeMonth: true,
-                changeYear: true,
-                startDate: '01/01/1920',
-                autoclose: true,
-                endDate : sd,
-                todayHighlight: true,
-                todayBtn: "linked",
-            });
-        });
-    }
+
 
     render () {
         const imgdisplay = {
@@ -1018,7 +1013,7 @@ class InquryAccount_Base extends React.PureComponent {
         };
 
         const paddingParagraph = {
-            padding: '10px'
+            paddingTop: '10px'
         }
         const paddingParagraphBottom = {
             paddingBottom: '10px'
@@ -1037,61 +1032,327 @@ class InquryAccount_Base extends React.PureComponent {
         return (
             <>
                 <AppFrameAction ref="frameAction" />
-                <div class="container-fluid px-2 py-2 f-12" >
-                    {/*<div class="col-sm-12 row px-0 mx-0 d-border-bottom" style={paddingParagraphBottom}>
-                        <div class="col-sm-3">
-                            <div className="row" style={imgUser}>
-                                <div className="col-sm-12" style={imgdisplay}>
-                                    <img src={user_avatar} alt="User" className="img-avatar d-border mr-2" /><p style={paddingParagraph}>Mr. John Doe<br /><i>001-01-008538</i></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-sm-9">
-                            <div className="ui small input col-sm-5 f-12 text-center align-self-center black ver-center">
-                                 <Input type="text" />
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <div className="input-group input-daterange datePickStyle">
-                                                <input placeholder="Date" id="startDate1" name="startDate1" type="text" className="form-control date-clear black-dropdown" readOnly="readonly" />
-                                                <span className="input-group-addon black-dropdown">
-                                                <span className="fa fa-calendar-alt black-dropdown"></span>
-                                              </span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            To&nbsp;&nbsp;
-                                        </td>
-                                        <td>
-                                            <div className="input-group input-daterange datePickStyle">
-                                                <input placeholder="Date" id="startDate1" name="startDate1" type="text" className="form-control date-clear black-dropdown" readOnly="readonly" />
-                                                <span className="input-group-addon black-dropdown">
-                                                <span className="fa fa-calendar-alt black-dropdown"></span>
-                                                </span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <button type="submit" className="btn btn-md btn-block btn-default btn-dark btnDatePick">Go</button>
-                                        </td>
-                                    </tr>
-                                </table>
+                <div className="container-fluid px-1 f-12" >
 
-
-
-                            </div>
-                        </div>
-                    </div>*/}
 
                     {/* <div class="ui section divider small  col-sm-12 f-12 text-center align-self-center"></div> */}
 
-                    {/*<div className="col-sm-12 px-0" style={paddingParagraph}>
-                        <InquryAgGrid/>
-                    </div>*/}
+                    <div className="col-sm-12 px-0" style={paddingParagraph}>
+                        {/* <PortofolioAgGrid/> */}
+                        <div className="cssmenu col-sm-6 mx-0 px-0 h-45">
+                            <ul className={"d-border-top d-border-left d-border-right"}>
+                                <li className={ this.state.activeTab === '1' ? 'd-border-right active click-pointer col-sm-4 px-0 mx-0 f-12 text-center' : 'd-border-right text-white click-pointer col-sm-4 px-0 mx-0 f-12 text-center' } onClick={() => { this.toggle('1'); }}><a><span className="f-11">&nbsp; Account Infromation</span></a></li>
+                                <li className={ this.state.activeTab === '2' ? 'd-border-right active click-pointer col-sm-4 px-0 mx-0 f-12 text-center' : 'd-border-right text-white click-pointer col-sm-4 px-0 mx-0 f-12 text-center' } onClick={() => { this.toggle('2'); }}><a><span className="f-11">&nbsp; Contact Information</span></a></li>
+                                <li className={ this.state.activeTab === '3' ? 'active click-pointer col-sm-4 px-0 mx-0 f-12 text-center' : 'text-white click-pointer col-sm-4 px-0 mx-0 f-12 text-center' } onClick={() => { this.toggle('3'); }}><a><span className="f-11">&nbsp; RDI Bank Information</span></a></li>
+                            </ul>
+                        </div>
+                        <div className="col-sm-12 px-4 pb-0 bg-grey bg-black-trading pt-0 d-border card-472">
+
+                            <div className={this.state.activeTab === '1' ? 'd-block f-12' : 'd-none'}>
+                                <div className="container-fluid mx-0" style={{ paddingTop : "10px" }}>
+                                    <div className="row">
+                                        <div className={"col-sm-6 pl-0"}>
+                                            <table width="100%" className={"table table-bordered table-responsive mb-0 card-448"}>
+                                                <tr>
+                                                    <td className={"d-border"}>KSEI A/C No</td>
+                                                    <td width="50%" className={"d-border"}>928237217312</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Alt Code</td>
+                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>KSEI SID</td>
+                                                    <td width="50%" className={"d-border"} ></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>User ID</td>
+                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>A/C Status Name</td>
+                                                    <td width="50%" className={"d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>ID Type</td>
+                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>ID No</td>
+                                                    <td width="50%" className={"d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>ID Expire Date</td>
+                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Customer Type</td>
+                                                    <td width="50%" className={"d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Country</td>
+                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Mother's Name</td>
+                                                    <td width="50%" className={"d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Sub Name</td>
+                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Job</td>
+                                                    <td width="50%" className={"d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Opening Date</td>
+                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>A/C Closing Date</td>
+                                                    <td width="50%" className={"d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Opening Branch</td>
+                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div className={"col-sm-6 pr-0"}>
+                                            <table width="100%" className={"table table-bordered table-responsive mb-0 card-448"}>
+
+                                                <tr>
+                                                    <td width="50%" className={"d-border"} >Withholding Tax</td>
+                                                    <td width="50%" className={"d-border"}></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td className={"d-border"}>Dividend Tax</td>
+                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Commission Type</td>
+                                                    <td width="50%" className={"d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Bank Code</td>
+                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Account No</td>
+                                                    <td width="50%" className={"d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Account Name</td>
+                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Branch</td>
+                                                    <td width="50%" className={"d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Auto Transfer</td>
+                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Virtual Account No</td>
+                                                    <td width="50%" className={"d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Penalty Type</td>
+                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>No. of PIN Error</td>
+                                                    <td width="50%" className={"d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>PIN Code Initialize</td>
+                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Managing Branch</td>
+                                                    <td width="50%" className={"d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Tax Rate</td>
+                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Initial Deposit Amount</td>
+                                                    <td width="50%" className={"d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Order Permit</td>
+                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={this.state.activeTab === '2' ? 'd-block f-12' : 'd-none'}>
+                                <div className="container-fluid mx-0" style={{ paddingTop : "30px" }}>
+                                    <div className="row">
+                                        <div className={"col-sm-6 px-0"}>
+                                            <table width="100%" className={"table table-bordered table-responsive mb-0 card-169"}>
+                                                <tr>
+                                                    <td className={"d-border"}>Date of Birth</td>
+                                                    <td width="50%" className={"d-border"}>928237217312</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Place of Birth</td>
+                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Marriage</td>
+                                                    <td width="50%" className={"d-border"} ></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Spouse's Name</td>
+                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Manager</td>
+                                                    <td width="50%" className={"d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Recommender</td>
+                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                </tr>
+                                            </table>
+                                            <table className={"table table-borderder table-responsive card-113"}>
+                                                <tr>
+                                                    <td className={"d-border text-center td-bluelight"}>Item</td>
+                                                    <td className={"d-border text-center td-bluelight"}>Tel No</td>
+                                                    <td className={"d-border text-center td-bluelight"}>Fax No</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>&nbsp;</td>
+                                                    <td className={"d-border"}></td>
+                                                    <td className={"d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>&nbsp;</td>
+                                                    <td className={"d-border"}></td>
+                                                    <td className={"d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>&nbsp;</td>
+                                                    <td className={"d-border"}></td>
+                                                    <td className={"d-border"}></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div className={"col-sm-6 pr-0"}>
+                                            <table width="100%" className={"table table-bordered table-responsive card-281"}>
+
+                                                <tr>
+                                                    <td width="50%" className={"d-border"} >Position</td>
+                                                    <td width="50%" className={"d-border"}></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td className={"d-border"}>Company Name</td>
+                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Company Officer</td>
+                                                    <td width="50%" className={"d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Company Type</td>
+                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Interest Type</td>
+                                                    <td width="50%" className={"d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Affiliatied Co</td>
+                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Unknown Addr/Phone</td>
+                                                    <td width="50%" className={"d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Email</td>
+                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Mobile1</td>
+                                                    <td width="50%" className={"d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>Mobile2</td>
+                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                </tr>
+
+                                            </table>
+                                        </div>
+                                        <div className={"col-sm-12 px-0"}>
+                                            <table className={"table table-borderder table-responsive card-113"}>
+                                                <tr>
+                                                    <td className={"d-border text-center td-bluelight"}>Item</td>
+                                                    <td className={"d-border text-center td-bluelight"}>Pos No</td>
+                                                    <td className={"d-border text-center td-bluelight"}>Address</td>
+                                                    <td className={"d-border text-center td-bluelight"} width="50%">Address1</td>
+                                                </tr>
+                                                <tr className={"even-td"}>
+                                                    <td className={"d-border"}>&nbsp;</td>
+                                                    <td className={"d-border"}></td>
+                                                    <td className={"d-border"}></td>
+                                                    <td className={"d-border"}></td>
+                                                </tr>
+                                                <tr >
+                                                    <td className={"d-border"}>&nbsp;</td>
+                                                    <td className={"d-border"}></td>
+                                                    <td className={"d-border"}></td>
+                                                    <td className={"d-border"}></td>
+                                                </tr>
+                                                <tr className={"even-td"}>
+                                                    <td className={"d-border"}>&nbsp;</td>
+                                                    <td className={"d-border"}></td>
+                                                    <td className={"d-border"}></td>
+                                                    <td className={"d-border"}></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={this.state.activeTab === '3' ? 'd-block f-12' : 'd-none'}>
+                                <div className="container-fluid mx-0 pt-3">
+                                    <div className="row">
+                                        <div className={"col-sm-12 pl-0 pr-0"}>
+                                            <table width="100%" className={"table table-bordered table-responsive"}>
+                                                <tr>
+                                                    <td className={"d-border"}>RDI Bank</td>
+                                                    <td width="50%" className={"d-border"}>928237217312</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>RDI Account Number</td>
+                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                </tr>
+                                                <tr>
+                                                    <td className={"d-border"}>RDI Account Name</td>
+                                                    <td width="50%" className={"d-border"} ></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </>
         );
     }
 }
+
 
 class BuyModal extends React.Component {
     closeClick = (e) => {
