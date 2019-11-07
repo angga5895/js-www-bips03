@@ -93,6 +93,9 @@
   --card-129 : 129px;
   --card-257 : 257px;
   --card-475 : 475px;
+  --card-169 : 169px;
+  --card-113 : 113px;
+  --card-281 : 281px;
 
 
   /*Data lama*/
@@ -158,24 +161,7 @@
   /*width: 2000px !important;*/
 }
 /*Zaky upadate media*/
-@media (max-width: 1440px) {
-  .runningText p{
-    width: 1350px !important;
-  }
-}
-@media (min-width: 1441px) and (max-width: 1599px) {
-  .runningText p{
-    width: 1430px !important;
-  }
-}@media (min-width: 1600px) and (max-width: 1999px) {
-  .runningText p{
-    width: 1830px !important;
-  }
-}@media (min-width: 2000px) {
-  .runningText p{
-    width: 1930px !important;
-  }
-}
+
 .runningText p {
   /*position: absolute;*/
   display: inline-block;

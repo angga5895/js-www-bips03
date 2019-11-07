@@ -1,3 +1,14 @@
+.h-100{
+    height: 100px !important;
+}
+
+.even-td{
+    background: var(--warna-background-semantic);
+}
+.td-bluelight{
+    background-color: #5A7378;
+}
+
 .text-bips-dark{
     color: var(--warna-btn-dark) !important;
 }
@@ -2603,6 +2614,18 @@ button.bg-gold:hover {
 
 .card-475{
     height: var(--card-475);
+}
+
+.card-169{
+    height: var(--card-169);
+}
+
+.card-113{
+    height: var(--card-113);
+}
+
+.card-281{
+    height: var(--card-281);
 }
 
 
