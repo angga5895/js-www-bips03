@@ -161,7 +161,7 @@ const UISelectionTab_Base = (props) => {
                             </div>
                         </div>
                         <MenuCollapse>
-                            <Menu className="row col-sm-12">
+                            <Menu className="row col-sm-12" style={{zIndex:"1"}}>
                                 <MenuHeader id={props}/>
                             </Menu>
                         </MenuCollapse>
@@ -197,7 +197,7 @@ const UISelectionTab_Base = (props) => {
                             </div>
                         </div>
                         <MenuCollapse>
-                            <Menu className="row col-smb-12">
+                            <Menu className="row col-smb-12" style={{zIndex:"1"}}>
                                 <MenuHeader id={props}/>
                             </Menu>
                         </MenuCollapse>
@@ -232,7 +232,7 @@ const UISelectionTab_Base = (props) => {
                             </div>
                         </div>
                         <MenuCollapse>
-                            <Menu className="row col-smb-12">
+                            <Menu className="row col-smb-12" style={{zIndex:"1"}}>
                                 <MenuHeader id={props}/>
                             </Menu>
                         </MenuCollapse>
@@ -260,7 +260,7 @@ const UISelectionTab_Base = (props) => {
                         </div>
 
                         <MenuCollapse>
-                            <Menu className="row col-smb-12">
+                            <Menu className="row col-smb-12" style={{zIndex:"1"}}>
                                 <MenuHeader id={props}/>
                             </Menu>
                         </MenuCollapse>
@@ -381,6 +381,13 @@ class SelectItem1 extends React.PureComponent {
                 return "green"
             }
         }
+        const colorIcon = (props) => {
+            if(props < 0){
+                return "icofont icofont-caret-down"
+            }else{
+                return "icofont icofont-caret-up"
+            }
+        }
         //zaky
         //fungsi untuk flipped
         const cardFace = (props) => {
@@ -395,8 +402,8 @@ class SelectItem1 extends React.PureComponent {
                                 <td className="spanSymbol">{info.symbol}</td>
                                 <td className="lastColor">{info.last}</td>
                                 <td>
-                                    <span className={colorLabel(info.change)+" icofont icofont-caret-up"}></span>&nbsp;
-                                    <span className={colorLabel(info.change)}>{info.change}</span>&nbsp;
+                                    <span className={colorLabel(info.change)+' '+colorIcon(info.change)}>&nbsp;
+                                        {info.change}</span>&nbsp;
                                 </td>
                                 <td>
                                     <span className={colorLabel(info.percentage)}>({info.percentage}%)</span>
@@ -413,8 +420,8 @@ class SelectItem1 extends React.PureComponent {
                                 <td className="spanSymbol">{info.symbol}</td>
                                 <td className="lastColor">{info.last}</td>
                                 <td>
-                                    <span className={colorLabel(info.change)+" icofont icofont-caret-down"}></span>&nbsp;
-                                    <span className={colorLabel(info.change)}>{info.change}</span>&nbsp;
+                                    <span className={colorLabel(info.change)+' '+colorIcon(info.change)}>&nbsp;
+                                        {info.change}</span>&nbsp;
                                 </td>
                                 <td>
                                     <span className={colorLabel(info.percentage)}>({info.percentage}%)</span>

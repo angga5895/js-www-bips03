@@ -115,6 +115,8 @@ class SideBar extends React.Component{
                                             )
                                         })
                                     }
+                                    </tbody>
+                                    <tfoot>
                                     <tr>
                                         <td className="py-0 px-3">
                                             <div className="align-self-center text-center click-pointer">
@@ -122,7 +124,7 @@ class SideBar extends React.Component{
                                             </div>
                                         </td>
                                     </tr>
-                                    </tbody>
+                                    </tfoot>
                                 </Table>
                             </div>
 
