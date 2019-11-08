@@ -513,7 +513,7 @@ class GeneralNewResearchPage extends React.PureComponent {
                 <div className="col sm-12 px-0 mx-0 row">
                     <div className="col-sm-8 px-0 mx-0 f-12">
                         <div className="card card-479 d-border-right">
-                            <div className="card-header px-3 text-white h-73">
+                            <div className="card-header px-3 text-white h-73 d-border-bottom">
                                 <h3>
                                     Investor Asing Jual Saham Hampir Rp 2 Triliun,<br />
                                     IHSG Ditutup Turun 56,23 Poin
@@ -619,7 +619,7 @@ class StockNewResearchPage extends React.PureComponent {
                 <div className="col sm-12 px-0 mx-0 row">
                     <div className="col-sm-8 px-0 mx-0 f-12">
                         <div className="card card-479 d-border-right">
-                            <div className="card-header px-3 text-white h-73">
+                            <div className="card-header px-3 text-white h-73 d-border-bottom">
                                 <h3>
                                     Investor Asing Jual Saham Hampir Rp 2 Triliun,<br />
                                     IHSG Ditutup Turun 56,23 Poin
@@ -725,7 +725,7 @@ class MutualNewResearchPage extends React.PureComponent {
                 <div className="col sm-12 px-0 mx-0 row">
                     <div className="col-sm-8 px-0 mx-0 f-12">
                         <div className="card card-479 d-border-right">
-                            <div className="card-header px-3 text-white h-73">
+                            <div className="card-header px-3 text-white h-73 d-border-bottom">
                                 <h3>
                                     Investor Asing Jual Saham Hampir Rp 2 Triliun,<br />
                                     IHSG Ditutup Turun 56,23 Poin
@@ -831,7 +831,7 @@ class ReseacrhNewResearchPage extends React.PureComponent {
                 <div className="col sm-12 px-0 mx-0 row">
                     <div className="col-sm-8 px-0 mx-0 f-12">
                         <div className="card card-479 d-border-right">
-                            <div className="card-header px-3 text-white h-73">
+                            <div className="card-header px-3 text-white h-73 d-border-bottom">
                                 <h3>
                                     Investor Asing Jual Saham Hampir Rp 2 Triliun,<br />
                                     IHSG Ditutup Turun 56,23 Poin
@@ -1709,7 +1709,7 @@ class MarketStatistikGrid extends React.PureComponent {
         const CodeCell = ({ value, style, ...restProps }) => (
             <Table.Cell
                 {...restProps}
-                className={"grid-table f-12 text-primary"}>
+                className={"grid-table d-border-aggrid-right f-12 text-primary"}>
                 {value}
             </Table.Cell>
         );
@@ -1717,7 +1717,7 @@ class MarketStatistikGrid extends React.PureComponent {
         const HighlightedCell = ({ value, style, ...restProps }) => (
             <Table.Cell
                 {...restProps}
-                className={"grid-table f-12"}>
+                className={"grid-table d-border-aggrid-right f-12"}>
                 {value}
             </Table.Cell>
         );
@@ -1731,46 +1731,46 @@ class MarketStatistikGrid extends React.PureComponent {
                 if (column.name == 'code') {
                     return <Table.Cell
                         {...restProps}
-                        className={"grid-table f-12 text-primary"}>{value}</Table.Cell>;
+                        className={"grid-table d-border-aggrid-right f-12 text-primary"}>{value}</Table.Cell>;
                 } else if (column.name == 'open') {
                     var open = parseFloat(value.replace(/,/g,""));
                     return <Table.Cell
                         {...restProps}
-                        className={open < prev ? "grid-table f-12 text-danger" : open > prev ? "grid-table f-12 text-success" : "grid-table f-12 text-warning" }>{value}</Table.Cell>;
+                        className={open < prev ? "grid-table d-border-aggrid-right f-12 text-danger" : open > prev ? "grid-table d-border-aggrid-right f-12 text-success" : "grid-table d-border-aggrid-right f-12 text-warning" }>{value}</Table.Cell>;
                 } else if (column.name == 'low') {
                     var low = parseFloat(value.replace(/,/g,""));
                     return <Table.Cell
                         {...restProps}
-                        className={low < prev ? "grid-table f-12 text-danger" : low > prev ? "grid-table f-12 text-success" : "grid-table f-12 text-warning" }>{value}</Table.Cell>;
+                        className={low < prev ? "grid-table d-border-aggrid-right f-12 text-danger" : low > prev ? "grid-table d-border-aggrid-right f-12 text-success" : "grid-table d-border-aggrid-right f-12 text-warning" }>{value}</Table.Cell>;
                 } else if (column.name == 'high') {
                     var high = parseFloat(value.replace(/,/g,""));
                     return <Table.Cell
                         {...restProps}
-                        className={high < prev ? "grid-table f-12 text-danger" : high > prev ? "grid-table f-12 text-success" : "grid-table f-12 text-warning" }>{value}</Table.Cell>;
+                        className={high < prev ? "grid-table d-border-aggrid-right f-12 text-danger" : high > prev ? "grid-table d-border-aggrid-right f-12 text-success" : "grid-table d-border-aggrid-right f-12 text-warning" }>{value}</Table.Cell>;
                 } else if (column.name == 'avg') {
                     var avg = parseFloat(value.replace(/,/g,""));
                     return <Table.Cell
                         {...restProps}
-                        className={avg < prev ? "grid-table f-12 text-danger" : avg > prev ? "grid-table f-12 text-success" : "grid-table f-12 text-warning" }>{value}</Table.Cell>;
+                        className={avg < prev ? "grid-table d-border-aggrid-right f-12 text-danger" : avg > prev ? "grid-table d-border-aggrid-right f-12 text-success" : "grid-table d-border-aggrid-right f-12 text-warning" }>{value}</Table.Cell>;
                 } else if (column.name == 'prev') {
                     return <Table.Cell
                         {...restProps}
-                        className={"grid-table f-12 text-warning "}>{value}</Table.Cell>;
+                        className={"grid-table d-border-aggrid-right f-12 text-warning "}>{value}</Table.Cell>;
                 } else if (column.name == 'last' || column.name == 'change'
                     || column.name == 'persen'|| column.name == 'val'|| column.name == 'vol') {
                     if(column.name == 'last'){
                         return <Table.Cell
                             {...restProps}
-                            className={"grid-table f-12 text-danger"}>{value} &nbsp;&nbsp;&nbsp; <i className="icofont icofont-caret-down"></i></Table.Cell>;
+                            className={"grid-table d-border-aggrid-right f-12 text-danger"}>{value} &nbsp;&nbsp;&nbsp; <i className="icofont icofont-caret-down"></i></Table.Cell>;
                     } else{
                         return <Table.Cell
                             {...restProps}
-                            className={"grid-table f-12 text-danger"}>{value}</Table.Cell>;
+                            className={"grid-table d-border-aggrid-right f-12 text-danger"}>{value}</Table.Cell>;
                     }
                 } else if (column.name == 'action') {
                     return <Table.Cell
                         {...restProps}
-                        className={"grid-table f-12"}>
+                        className={"grid-table d-border-aggrid-right f-12"}>
                         <div className="px-4">
                             <button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button>
                             <button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button>
@@ -1779,7 +1779,7 @@ class MarketStatistikGrid extends React.PureComponent {
                 } else {
                     return <Table.Cell
                         {...restProps}
-                        className={"grid-table f-12"}>{value}</Table.Cell>;
+                        className={"grid-table d-border-aggrid-right f-12"}>{value}</Table.Cell>;
                 }
             } else if(row.change.includes('+')){
                 //global color
@@ -1787,46 +1787,46 @@ class MarketStatistikGrid extends React.PureComponent {
                 if (column.name == 'code') {
                     return <Table.Cell
                         {...restProps}
-                        className={"grid-table f-12 text-primary"}>{value}</Table.Cell>;
+                        className={"grid-table d-border-aggrid-right f-12 text-primary"}>{value}</Table.Cell>;
                 } else if (column.name == 'open') {
                     var open = parseFloat(value.replace(/,/g,""));
                     return <Table.Cell
                         {...restProps}
-                        className={open < prev ? "grid-table f-12 text-danger" : open > prev ? "grid-table f-12 text-success" : "grid-table f-12 text-warning" }>{value}</Table.Cell>;
+                        className={open < prev ? "grid-table d-border-aggrid-right f-12 text-danger" : open > prev ? "grid-table d-border-aggrid-right f-12 text-success" : "grid-table d-border-aggrid-right f-12 text-warning" }>{value}</Table.Cell>;
                 } else if (column.name == 'low') {
                     var low = parseFloat(value.replace(/,/g,""));
                     return <Table.Cell
                         {...restProps}
-                        className={low < prev ? "grid-table f-12 text-danger" : low > prev ? "grid-table f-12 text-success" : "grid-table f-12 text-warning" }>{value}</Table.Cell>;
+                        className={low < prev ? "grid-table d-border-aggrid-right f-12 text-danger" : low > prev ? "grid-table d-border-aggrid-right f-12 text-success" : "grid-table d-border-aggrid-right f-12 text-warning" }>{value}</Table.Cell>;
                 } else if (column.name == 'high') {
                     var high = parseFloat(value.replace(/,/g,""));
                     return <Table.Cell
                         {...restProps}
-                        className={high < prev ? "grid-table f-12 text-danger" : high > prev ? "grid-table f-12 text-success" : "grid-table f-12 text-warning" }>{value}</Table.Cell>;
+                        className={high < prev ? "grid-table d-border-aggrid-right f-12 text-danger" : high > prev ? "grid-table d-border-aggrid-right f-12 text-success" : "grid-table d-border-aggrid-right f-12 text-warning" }>{value}</Table.Cell>;
                 } else if (column.name == 'avg') {
                     var avg = parseFloat(value.replace(/,/g,""));
                     return <Table.Cell
                         {...restProps}
-                        className={avg < prev ? "grid-table f-12 text-danger" : avg > prev ? "grid-table f-12 text-success" : "grid-table f-12 text-warning" }>{value}</Table.Cell>;
+                        className={avg < prev ? "grid-table d-border-aggrid-right f-12 text-danger" : avg > prev ? "grid-table d-border-aggrid-right f-12 text-success" : "grid-table d-border-aggrid-right f-12 text-warning" }>{value}</Table.Cell>;
                 } else if (column.name == 'prev') {
                     return <Table.Cell
                         {...restProps}
-                        className={"grid-table f-12 text-warning "}>{value}</Table.Cell>;
+                        className={"grid-table d-border-aggrid-right f-12 text-warning "}>{value}</Table.Cell>;
                 } else if (column.name == 'last' || column.name == 'change'
                     || column.name == 'persen'|| column.name == 'val'|| column.name == 'vol') {
                     if(column.name == 'last'){
                         return <Table.Cell
                             {...restProps}
-                            className={"grid-table f-12 text-success"}>{value} &nbsp;&nbsp;&nbsp; <i className="icofont icofont-caret-up"></i></Table.Cell>;
+                            className={"grid-table d-border-aggrid-right f-12 text-success"}>{value} &nbsp;&nbsp;&nbsp; <i className="icofont icofont-caret-up"></i></Table.Cell>;
                     } else{
                         return <Table.Cell
                             {...restProps}
-                            className={"grid-table f-12 text-success"}>{value}</Table.Cell>;
+                            className={"grid-table d-border-aggrid-right f-12 text-success"}>{value}</Table.Cell>;
                     }
                 } else if (column.name == 'action') {
                     return <Table.Cell
                         {...restProps}
-                        className={"grid-table f-12"}>
+                        className={"grid-table d-border-aggrid-right f-12"}>
                         <div className="px-4">
                             <button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button>
                             <button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button>
@@ -1835,7 +1835,7 @@ class MarketStatistikGrid extends React.PureComponent {
                 } else {
                     return <Table.Cell
                         {...restProps}
-                        className={"grid-table f-12"}>{value}</Table.Cell>;
+                        className={"grid-table d-border-aggrid-right f-12"}>{value}</Table.Cell>;
                 }
             } else{
                 //global color
@@ -1843,46 +1843,46 @@ class MarketStatistikGrid extends React.PureComponent {
                 if (column.name == 'code') {
                     return <Table.Cell
                         {...restProps}
-                        className={"grid-table f-12 text-primary"}>{value}</Table.Cell>;
+                        className={"grid-table d-border-aggrid-right f-12 text-primary"}>{value}</Table.Cell>;
                 } else if (column.name == 'open') {
                     var open = parseFloat(value.replace(/,/g,""));
                     return <Table.Cell
                         {...restProps}
-                        className={open < prev ? "grid-table f-12 text-danger" : open > prev ? "grid-table f-12 text-success" : "grid-table f-12 text-warning" }>{value}</Table.Cell>;
+                        className={open < prev ? "grid-table d-border-aggrid-right f-12 text-danger" : open > prev ? "grid-table d-border-aggrid-right f-12 text-success" : "grid-table d-border-aggrid-right f-12 text-warning" }>{value}</Table.Cell>;
                 } else if (column.name == 'low') {
                     var low = parseFloat(value.replace(/,/g,""));
                     return <Table.Cell
                         {...restProps}
-                        className={low < prev ? "grid-table f-12 text-danger" : low > prev ? "grid-table f-12 text-success" : "grid-table f-12 text-warning" }>{value}</Table.Cell>;
+                        className={low < prev ? "grid-table d-border-aggrid-right f-12 text-danger" : low > prev ? "grid-table d-border-aggrid-right f-12 text-success" : "grid-table d-border-aggrid-right f-12 text-warning" }>{value}</Table.Cell>;
                 } else if (column.name == 'high') {
                     var high = parseFloat(value.replace(/,/g,""));
                     return <Table.Cell
                         {...restProps}
-                        className={high < prev ? "grid-table f-12 text-danger" : high > prev ? "grid-table f-12 text-success" : "grid-table f-12 text-warning" }>{value}</Table.Cell>;
+                        className={high < prev ? "grid-table d-border-aggrid-right f-12 text-danger" : high > prev ? "grid-table d-border-aggrid-right f-12 text-success" : "grid-table d-border-aggrid-right f-12 text-warning" }>{value}</Table.Cell>;
                 } else if (column.name == 'avg') {
                     var avg = parseFloat(value.replace(/,/g,""));
                     return <Table.Cell
                         {...restProps}
-                        className={avg < prev ? "grid-table f-12 text-danger" : avg > prev ? "grid-table f-12 text-success" : "grid-table f-12 text-warning" }>{value}</Table.Cell>;
+                        className={avg < prev ? "grid-table d-border-aggrid-right f-12 text-danger" : avg > prev ? "grid-table d-border-aggrid-right f-12 text-success" : "grid-table d-border-aggrid-right f-12 text-warning" }>{value}</Table.Cell>;
                 } else if (column.name == 'prev') {
                     return <Table.Cell
                         {...restProps}
-                        className={"grid-table f-12 text-warning "}>{value}</Table.Cell>;
+                        className={"grid-table d-border-aggrid-right f-12 text-warning "}>{value}</Table.Cell>;
                 } else if (column.name == 'last' || column.name == 'change'
                     || column.name == 'persen'|| column.name == 'val'|| column.name == 'vol') {
                     if(column.name == 'last'){
                         return <Table.Cell
                             {...restProps}
-                            className={"grid-table f-12 text-warning"}>{value} &nbsp;&nbsp;&nbsp; <i className='fa fa-circle f-11'></i></Table.Cell>;
+                            className={"grid-table d-border-aggrid-right f-12 text-warning"}>{value} &nbsp;&nbsp;&nbsp; <i className='fa fa-circle f-11'></i></Table.Cell>;
                     } else{
                         return <Table.Cell
                             {...restProps}
-                            className={"grid-table f-12 text-warning"}>{value}</Table.Cell>;
+                            className={"grid-table d-border-aggrid-right f-12 text-warning"}>{value}</Table.Cell>;
                     }
                 } else if (column.name == 'action') {
                     return <Table.Cell
                         {...restProps}
-                        className={"grid-table f-12"}>
+                        className={"grid-table d-border-aggrid-right f-12"}>
                         <div className="px-4">
                             <button className="btn btn-sm btn-danger mx-1 f-9 w-50" onClick={this.props.clickbuy}>Buy</button>
                             <button className="btn btn-sm btn-success mx-1 f-9 w-50" onClick={this.props.clicksell}>Sell</button>
@@ -1891,7 +1891,7 @@ class MarketStatistikGrid extends React.PureComponent {
                 } else {
                     return <Table.Cell
                         {...restProps}
-                        className={"grid-table f-12"}>{value}</Table.Cell>;
+                        className={"grid-table d-border-aggrid-right f-12"}>{value}</Table.Cell>;
                 }
             }
 
@@ -2256,7 +2256,7 @@ class MarketIndicesGrid extends React.PureComponent {
         const CodeCell = ({ value, style, ...restProps }) => (
             <Table.Cell
                 {...restProps}
-                className={"grid-table f-12 text-primary"}>
+                className={"grid-table d-border-aggrid-right f-12 text-primary"}>
                 {value}
             </Table.Cell>
         );
@@ -2264,7 +2264,7 @@ class MarketIndicesGrid extends React.PureComponent {
         const HighlightedCell = ({ value, style, ...restProps }) => (
             <Table.Cell
                 {...restProps}
-                className={"grid-table f-12"}>
+                className={"grid-table d-border-aggrid-right f-12"}>
                 {value}
             </Table.Cell>
         );
@@ -2277,62 +2277,62 @@ class MarketIndicesGrid extends React.PureComponent {
                 if (column.name == 'sector') {
                     return <Table.Cell
                         {...restProps}
-                        className={"grid-table f-12 text-primary"}>{value}</Table.Cell>;
+                        className={"grid-table d-border-aggrid-right f-12 text-primary"}>{value}</Table.Cell>;
                 } else if (column.name == 'open') {
                     var open = parseFloat(value.replace(/,/g,""));
                     return <Table.Cell
                         {...restProps}
-                        className={open < prevclosed ? "grid-table f-12 text-danger" : open > prevclosed ? "grid-table f-12 text-success" : "grid-table f-12 text-warning"}>{value}</Table.Cell>;
+                        className={open < prevclosed ? "grid-table d-border-aggrid-right f-12 text-danger" : open > prevclosed ? "grid-table d-border-aggrid-right f-12 text-success" : "grid-table d-border-aggrid-right f-12 text-warning"}>{value}</Table.Cell>;
                 } else if (column.name == 'high') {
                     var high = parseFloat(value.replace(/,/g,""));
                     return <Table.Cell
                         {...restProps}
-                        className={high < prevclosed ? "grid-table f-12 text-danger" : high > prevclosed ? "grid-table f-12 text-success" : "grid-table f-12 text-warning"}>{value}</Table.Cell>;
+                        className={high < prevclosed ? "grid-table d-border-aggrid-right f-12 text-danger" : high > prevclosed ? "grid-table d-border-aggrid-right f-12 text-success" : "grid-table d-border-aggrid-right f-12 text-warning"}>{value}</Table.Cell>;
                 } else if (column.name == 'low') {
                     var low = parseFloat(value.replace(/,/g,""));
                     return <Table.Cell
                         {...restProps}
-                        className={low < prevclosed ? "grid-table f-12 text-danger" : low > prevclosed ? "grid-table f-12 text-success" : "grid-table f-12 text-warning"}>{value}</Table.Cell>;
+                        className={low < prevclosed ? "grid-table d-border-aggrid-right f-12 text-danger" : low > prevclosed ? "grid-table d-border-aggrid-right f-12 text-success" : "grid-table d-border-aggrid-right f-12 text-warning"}>{value}</Table.Cell>;
                 } else if (column.name == 'last' || column.name == 'change'
                     || column.name == 'persen'|| column.name == 'prevclosed') {
                     return <Table.Cell
                         {...restProps}
-                        className={"grid-table f-12 text-danger"}>{value}</Table.Cell>;
+                        className={"grid-table d-border-aggrid-right f-12 text-danger"}>{value}</Table.Cell>;
                 } else {
                     return <Table.Cell
                         {...restProps}
-                        className={"grid-table f-12"}>{value}</Table.Cell>;
+                        className={"grid-table d-border-aggrid-right f-12"}>{value}</Table.Cell>;
                 }
             } else{
                 var prevclosed = parseFloat(row.prevclosed.replace(/,/g,""));
                 if (column.name == 'sector') {
                     return <Table.Cell
                         {...restProps}
-                        className={"grid-table f-12 text-primary"}>{value}</Table.Cell>;
+                        className={"grid-table d-border-aggrid-right f-12 text-primary"}>{value}</Table.Cell>;
                 } else if (column.name == 'open') {
                     var open = parseFloat(value.replace(/,/g,""));
                     return <Table.Cell
                         {...restProps}
-                        className={open < prevclosed ? "grid-table f-12 text-danger" : open > prevclosed ? "grid-table f-12 text-success" : "grid-table f-12 text-warning"}>{value}</Table.Cell>;
+                        className={open < prevclosed ? "grid-table d-border-aggrid-right f-12 text-danger" : open > prevclosed ? "grid-table d-border-aggrid-right f-12 text-success" : "grid-table d-border-aggrid-right f-12 text-warning"}>{value}</Table.Cell>;
                 } else if (column.name == 'high') {
                     var high = parseFloat(value.replace(/,/g,""));
                     return <Table.Cell
                         {...restProps}
-                        className={high < prevclosed ? "grid-table f-12 text-danger" : high > prevclosed ? "grid-table f-12 text-success" : "grid-table f-12 text-warning"}>{value}</Table.Cell>;
+                        className={high < prevclosed ? "grid-table d-border-aggrid-right f-12 text-danger" : high > prevclosed ? "grid-table d-border-aggrid-right f-12 text-success" : "grid-table d-border-aggrid-right f-12 text-warning"}>{value}</Table.Cell>;
                 } else if (column.name == 'low') {
                     var low = parseFloat(value.replace(/,/g,""));
                     return <Table.Cell
                         {...restProps}
-                        className={low < prevclosed ? "grid-table f-12 text-danger" : low > prevclosed ? "grid-table f-12 text-success" : "grid-table f-12 text-warning"}>{value}</Table.Cell>;
+                        className={low < prevclosed ? "grid-table d-border-aggrid-right f-12 text-danger" : low > prevclosed ? "grid-table d-border-aggrid-right f-12 text-success" : "grid-table d-border-aggrid-right f-12 text-warning"}>{value}</Table.Cell>;
                 } else if (column.name == 'last' || column.name == 'change'
                     || column.name == 'persen'|| column.name == 'prevclosed') {
                     return <Table.Cell
                         {...restProps}
-                        className={"grid-table f-12 text-success"}>{value}</Table.Cell>;
+                        className={"grid-table d-border-aggrid-right f-12 text-success"}>{value}</Table.Cell>;
                 } else {
                     return <Table.Cell
                         {...restProps}
-                        className={"grid-table f-12"}>{value}</Table.Cell>;
+                        className={"grid-table d-border-aggrid-right f-12"}>{value}</Table.Cell>;
                 }
             }
         };
@@ -2546,7 +2546,7 @@ class TobBrokerGrid extends React.PureComponent {
         const HighlightedCell = ({ value, style, ...restProps }) => (
             <Table.Cell
                 {...restProps}
-                className={"grid-table f-12"}>
+                className={"grid-table d-border-aggrid-right f-12"}>
                 {value}
             </Table.Cell>
         );
@@ -2559,16 +2559,16 @@ class TobBrokerGrid extends React.PureComponent {
             if (column.name == 'bval') {
                 return <Table.Cell
                     {...restProps}
-                    className={"grid-table f-12 text-danger"}>{value}</Table.Cell>;
+                    className={"grid-table d-border-aggrid-right f-12 text-danger"}>{value}</Table.Cell>;
             }
             else if (column.name == 'sval') {
                 return <Table.Cell
                     {...restProps}
-                    className={"grid-table f-12 text-success"}>{value}</Table.Cell>;
+                    className={"grid-table d-border-aggrid-right f-12 text-success"}>{value}</Table.Cell>;
             } else {
                 return <Table.Cell
                     {...restProps}
-                    className={"grid-table f-12"}>{value}</Table.Cell>;
+                    className={"grid-table d-border-aggrid-right f-12"}>{value}</Table.Cell>;
             }
         };
 
@@ -2746,7 +2746,7 @@ class TobBrokerBGrid extends React.PureComponent {
         const HighlightedCell = ({ value, style, ...restProps }) => (
             <Table.Cell
                 {...restProps}
-                className={"grid-table f-12"}>
+                className={"grid-table d-border-aggrid-right f-12"}>
                 {value}
             </Table.Cell>
         );
@@ -2759,11 +2759,11 @@ class TobBrokerBGrid extends React.PureComponent {
             if (column.name == 'bval') {
                 return <Table.Cell
                     {...restProps}
-                    className={"grid-table f-12 text-danger"}>{value}</Table.Cell>;
+                    className={"grid-table d-border-aggrid-right f-12 text-danger"}>{value}</Table.Cell>;
             } else {
                 return <Table.Cell
                     {...restProps}
-                    className={"grid-table f-12"}>{value}</Table.Cell>;
+                    className={"grid-table d-border-aggrid-right f-12"}>{value}</Table.Cell>;
             }
         };
 
@@ -2943,7 +2943,7 @@ class TobBrokerSGrid extends React.PureComponent {
         const HighlightedCell = ({ value, style, ...restProps }) => (
             <Table.Cell
                 {...restProps}
-                className={"grid-table f-12"}>
+                className={"grid-table d-border-aggrid-right f-12"}>
                 {value}
             </Table.Cell>
         );
@@ -2956,11 +2956,11 @@ class TobBrokerSGrid extends React.PureComponent {
             if (column.name == 'sval') {
                 return <Table.Cell
                     {...restProps}
-                    className={"grid-table f-12 text-success"}>{value}</Table.Cell>;
+                    className={"grid-table d-border-aggrid-right f-12 text-success"}>{value}</Table.Cell>;
             } else {
                 return <Table.Cell
                     {...restProps}
-                    className={"grid-table f-12"}>{value}</Table.Cell>;
+                    className={"grid-table d-border-aggrid-right f-12"}>{value}</Table.Cell>;
             }
         };
 
@@ -3030,23 +3030,23 @@ class MarketStatistikAgGrid extends React.PureComponent {
             columnDefs: [
                 { field: "no", headerName: "#", sortable: true, width: 60,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12";
+                        return " grid-table d-border-aggrid-right text-center f-12";
                     }},
                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 90,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12 text-primary";
+                        return " grid-table d-border-aggrid-right text-center f-12 text-primary";
                     }},
                 { field: "prev", headerName: "Prev.", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12 text-warning";
+                        return " grid-table d-border-aggrid-right text-right f-12 text-warning";
                     }},
                 { field: "last", headerName: "Last", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 81,
                     cellClass : function (params) {
                         var prev = parseFloat(params.data.prev.replace(/,/g,""));
                         var last = parseFloat(params.data.last.replace(/,/g,""));
-                        return last < prev ? "text-danger text-right  grid-table f-12":
-                            last > prev ? "text-success text-right grid-table f-12" :
-                                "text-warning text-right grid-table f-12";
+                        return last < prev ? "text-danger text-right  grid-table d-border-aggrid-right f-12":
+                            last > prev ? "text-success text-right grid-table d-border-aggrid-right f-12" :
+                                "text-warning text-right grid-table d-border-aggrid-right f-12";
                     },
                     cellRenderer : function (params) {
                         var prev = parseFloat(params.data.prev.replace(/,/g,""));
@@ -3060,93 +3060,93 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     cellClass : function (params) {
                         var prev = parseFloat(params.data.prev.replace(/,/g,""));
                         var last = parseFloat(params.data.last.replace(/,/g,""));
-                        return last < prev ? "text-danger text-right  grid-table f-12":
-                            last > prev ? "text-success text-right grid-table f-12" :
-                                "text-warning text-right grid-table f-12";
+                        return last < prev ? "text-danger text-right  grid-table d-border-aggrid-right f-12":
+                            last > prev ? "text-success text-right grid-table d-border-aggrid-right f-12" :
+                                "text-warning text-right grid-table d-border-aggrid-right f-12";
                     } },
                 { field: "persen", headerName: "%", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 73,
                     cellClass : function (params) {
                         var prev = parseFloat(params.data.prev.replace(/,/g,""));
                         var last = parseFloat(params.data.last.replace(/,/g,""));
-                        return last < prev ? "text-danger text-right  grid-table f-12":
-                            last > prev ? "text-success text-right grid-table f-12" :
-                                "text-warning text-right grid-table f-12";
+                        return last < prev ? "text-danger text-right  grid-table d-border-aggrid-right f-12":
+                            last > prev ? "text-success text-right grid-table d-border-aggrid-right f-12" :
+                                "text-warning text-right grid-table d-border-aggrid-right f-12";
                     } },
                 { field: "open", headerName: "Open", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 91,
                     cellClass : function (params) {
                         var prev = parseFloat(params.data.prev.replace(/,/g,""));
                         var last = parseFloat(params.data.last.replace(/,/g,""));
-                        return last < prev ? "text-danger text-right  grid-table f-12":
-                            last > prev ? "text-success text-right grid-table f-12" :
-                                "text-warning text-right grid-table f-12";
+                        return last < prev ? "text-danger text-right  grid-table d-border-aggrid-right f-12":
+                            last > prev ? "text-success text-right grid-table d-border-aggrid-right f-12" :
+                                "text-warning text-right grid-table d-border-aggrid-right f-12";
                     } },
                 { field: "low", headerName: "Low", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 82,
                     cellClass : function (params) {
                         var prev = parseFloat(params.data.prev.replace(/,/g,""));
                         var last = parseFloat(params.data.last.replace(/,/g,""));
-                        return last < prev ? "text-danger text-right  grid-table f-12":
-                            last > prev ? "text-success text-right grid-table f-12" :
-                                "text-warning text-right grid-table f-12";
+                        return last < prev ? "text-danger text-right  grid-table d-border-aggrid-right f-12":
+                            last > prev ? "text-success text-right grid-table d-border-aggrid-right f-12" :
+                                "text-warning text-right grid-table d-border-aggrid-right f-12";
                     } },
                 { field: "high", headerName: "High", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 86,
                     cellClass : function (params) {
                         var prev = parseFloat(params.data.prev.replace(/,/g,""));
                         var last = parseFloat(params.data.last.replace(/,/g,""));
-                        return last < prev ? "text-danger text-right  grid-table f-12":
-                            last > prev ? "text-success text-right grid-table f-12" :
-                                "text-warning text-right grid-table f-12";
+                        return last < prev ? "text-danger text-right  grid-table d-border-aggrid-right f-12":
+                            last > prev ? "text-success text-right grid-table d-border-aggrid-right f-12" :
+                                "text-warning text-right grid-table d-border-aggrid-right f-12";
                     } },
                 { field: "avg", headerName: "Avg.", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 82,
                     cellClass : function (params) {
                         var prev = parseFloat(params.data.prev.replace(/,/g,""));
                         var last = parseFloat(params.data.last.replace(/,/g,""));
-                        return last < prev ? "text-danger text-right  grid-table f-12":
-                            last > prev ? "text-success text-right grid-table f-12" :
-                                "text-warning text-right grid-table f-12";
+                        return last < prev ? "text-danger text-right  grid-table d-border-aggrid-right f-12":
+                            last > prev ? "text-success text-right grid-table d-border-aggrid-right f-12" :
+                                "text-warning text-right grid-table d-border-aggrid-right f-12";
                     } },
                 { field: "val", headerName: "Val(T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 102,
                     cellClass : function (params) {
                         var prev = parseFloat(params.data.prev.replace(/,/g,""));
                         var last = parseFloat(params.data.last.replace(/,/g,""));
-                        return last < prev ? "text-danger text-right  grid-table f-12":
-                            last > prev ? "text-success text-right grid-table f-12" :
-                                "text-warning text-right grid-table f-12";
+                        return last < prev ? "text-danger text-right  grid-table d-border-aggrid-right f-12":
+                            last > prev ? "text-success text-right grid-table d-border-aggrid-right f-12" :
+                                "text-warning text-right grid-table d-border-aggrid-right f-12";
                     } },
                 { field: "vol", headerName: "Vol (Lot)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 75,
                     cellClass : function (params) {
                         var prev = parseFloat(params.data.prev.replace(/,/g,""));
                         var last = parseFloat(params.data.last.replace(/,/g,""));
-                        return last < prev ? "text-danger text-right  grid-table f-12":
-                            last > prev ? "text-success text-right grid-table f-12" :
-                                "text-warning text-right grid-table f-12";
+                        return last < prev ? "text-danger text-right  grid-table d-border-aggrid-right f-12":
+                            last > prev ? "text-success text-right grid-table d-border-aggrid-right f-12" :
+                                "text-warning text-right grid-table d-border-aggrid-right f-12";
                     } },
                 { field: "freq", headerName: "Freq", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 82,
                     cellClass : function (params) {
                         var prev = parseFloat(params.data.prev.replace(/,/g,""));
                         var last = parseFloat(params.data.last.replace(/,/g,""));
-                        return last < prev ? "text-danger text-right  grid-table f-12":
-                            last > prev ? "text-success text-right grid-table f-12" :
-                                "text-warning text-right grid-table f-12";
+                        return last < prev ? "text-danger text-right  grid-table d-border-aggrid-right f-12":
+                            last > prev ? "text-success text-right grid-table d-border-aggrid-right f-12" :
+                                "text-warning text-right grid-table d-border-aggrid-right f-12";
                     } },
                 { field: "fbuy", headerName: "F.Buy (T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 90,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12";
+                        return " grid-table d-border-aggrid-right text-right f-12";
                     } },
                 { field: "fsell", headerName: "F.Sell (T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 89,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12";
+                        return " grid-table d-border-aggrid-right text-right f-12";
                     } },
                 { field: "fnet", headerName: "F.Net (T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 89,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12";
+                        return " grid-table d-border-aggrid-right text-right f-12";
                     } },
                 { field: "financial", headerName: "Financial (M)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 130, hide:true,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12";
+                        return " grid-table d-border-aggrid-right text-right f-12";
                     } },
                 { field: "action", headerName: "Action", width: 100, pinned: "right", lockPosition: true, lockVisible: true,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12 locked-col locked-visible";
+                        return " grid-table d-border-aggrid-right text-center f-12 locked-col locked-visible";
                     },
                     cellRenderer : function (params) {
                         var eDiv = document.createElement('div');
@@ -3816,7 +3816,7 @@ class MarketStatistikAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className={this.props.typegrid =="summary" ? "card-478 ag-theme-balham-dark" : "card-202 ag-theme-balham-dark"}
+                    className={this.props.typegrid =="summary" ? "card-478 ag-theme-balham-dark ag-striped-odd" : "card-202 ag-theme-balham-dark ag-striped-odd"}
                     id="myGrid"
                     style={{
                         width: "100%"
@@ -3843,76 +3843,76 @@ class MarketIndicesAgGrid extends React.PureComponent {
                 { field: "sector", headerName: "Sector", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 125,
                     lockVisible:true, lockPosition:true,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12 text-primary locked-col locked-visible";
+                        return " grid-table d-border-aggrid-right text-center f-12 text-primary locked-col locked-visible";
                     },suppressSizeToFit: true, pinned: 'left'},
                 { field: "last", headerName: "Last", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 128,
                     cellClass : function (params) {
                         var change = parseFloat(params.data.change.replace(/,/g,""));
-                        return change < 0 ? "text-danger text-right  grid-table f-12":
-                            change > 0 ? "text-success text-right grid-table f-12" :
-                                "text-warning text-right grid-table f-12";
+                        return change < 0 ? "text-danger text-right  grid-table d-border-aggrid-right f-12":
+                            change > 0 ? "text-success text-right grid-table d-border-aggrid-right f-12" :
+                                "text-warning text-right grid-table d-border-aggrid-right f-12";
                     }},
                 { field: "change", headerName: "Change", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 122,
                     cellClass : function (params) {
                         var change = parseFloat(params.data.change.replace(/,/g,""));
-                        return change < 0 ? "text-danger text-right  grid-table f-12":
-                            change > 0 ? "text-success text-right grid-table f-12" :
-                                "text-warning text-right grid-table f-12";
+                        return change < 0 ? "text-danger text-right  grid-table d-border-aggrid-right f-12":
+                            change > 0 ? "text-success text-right grid-table d-border-aggrid-right f-12" :
+                                "text-warning text-right grid-table d-border-aggrid-right f-12";
                     }},
                 { field: "persen", headerName: "%" , sortable: true, filter: "agTextColumnFilter", resizable: true, width: 122,
                     cellClass : function (params) {
                         var change = parseFloat(params.data.change.replace(/,/g,""));
-                        return change < 0 ? "text-danger text-right  grid-table f-12":
-                            change > 0 ? "text-success text-right grid-table f-12" :
-                                "text-warning text-right grid-table f-12";
+                        return change < 0 ? "text-danger text-right  grid-table d-border-aggrid-right f-12":
+                            change > 0 ? "text-success text-right grid-table d-border-aggrid-right f-12" :
+                                "text-warning text-right grid-table d-border-aggrid-right f-12";
                     }},
                 { field: "prevclosed", headerName: "Prev. Closed", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 122,
                     cellClass : function (params) {
                         var change = parseFloat(params.data.change.replace(/,/g,""));
-                        return change < 0 ? "text-danger text-right  grid-table f-12":
-                            change > 0 ? "text-success text-right grid-table f-12" :
-                                "text-warning text-right grid-table f-12";
+                        return change < 0 ? "text-danger text-right  grid-table d-border-aggrid-right f-12":
+                            change > 0 ? "text-success text-right grid-table d-border-aggrid-right f-12" :
+                                "text-warning text-right grid-table d-border-aggrid-right f-12";
                     }},
                 { field: "open", headerName: "Open", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 122,
                     cellClass : function (params) {
                         var change = parseFloat(params.data.change.replace(/,/g,""));
-                        return change < 0 ? "text-danger text-right  grid-table f-12":
-                            change > 0 ? "text-success text-right grid-table f-12" :
-                                "text-warning text-right grid-table f-12";
+                        return change < 0 ? "text-danger text-right  grid-table d-border-aggrid-right f-12":
+                            change > 0 ? "text-success text-right grid-table d-border-aggrid-right f-12" :
+                                "text-warning text-right grid-table d-border-aggrid-right f-12";
                     }},
                 { field: "high", headerName: "High", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 122,
                     cellClass : function (params) {
                         var change = parseFloat(params.data.change.replace(/,/g,""));
-                        return change < 0 ? "text-danger text-right  grid-table f-12":
-                            change > 0 ? "text-success text-right grid-table f-12" :
-                                "text-warning text-right grid-table f-12";
+                        return change < 0 ? "text-danger text-right  grid-table d-border-aggrid-right f-12":
+                            change > 0 ? "text-success text-right grid-table d-border-aggrid-right f-12" :
+                                "text-warning text-right grid-table d-border-aggrid-right f-12";
                     }},
                 { field: "low", headerName: "Low", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 122,
                     cellClass : function (params) {
                         var change = parseFloat(params.data.change.replace(/,/g,""));
-                        return change < 0 ? "text-danger text-right  grid-table f-12":
-                            change > 0 ? "text-success text-right grid-table f-12" :
-                                "text-warning text-right grid-table f-12";
+                        return change < 0 ? "text-danger text-right  grid-table d-border-aggrid-right f-12":
+                            change > 0 ? "text-success text-right grid-table d-border-aggrid-right f-12" :
+                                "text-warning text-right grid-table d-border-aggrid-right f-12";
                     }},
                 { field: "volume", headerName: "Volume", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 122,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12";
+                        return " grid-table d-border-aggrid-right text-center f-12";
                     } },
                 { field: "value", headerName: "Value (T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 122,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12";
+                        return " grid-table d-border-aggrid-right text-right f-12";
                     } },
                 { field: "fbuy", headerName: "F.Buy (T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 122,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12";
+                        return " grid-table d-border-aggrid-right text-right f-12";
                     } },
                 { field: "fsell", headerName: "F.Sell (T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 122,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12";
+                        return " grid-table d-border-aggrid-right text-right f-12";
                     } },
                 { field: "fnet", headerName: "F.Net (T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 122,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12";
+                        return " grid-table d-border-aggrid-right text-right f-12";
                     } },
             ],
             defaultColDef: {
@@ -4135,36 +4135,36 @@ class TopBrokerAgGrid extends React.PureComponent {
             columnDefs: [
                 { field: "no", headerName: "#", sortable: true, width: 84,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12";
+                        return " grid-table d-border-aggrid-right text-center f-12";
                     }},
                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 213,
                     suppressSizeToFit:true, lockVisible:true,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12 locked-visible";
+                        return " grid-table d-border-aggrid-right text-center f-12 locked-visible";
                     }},
                 { field: "company", headerName: "Company", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 213,
                     cellClass : function (params) {
-                        return " grid-table text-left f-12";
+                        return " grid-table d-border-aggrid-right text-left f-12";
                     }},
                 { field: "tval", headerName: "T. Val(T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 213,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12";
+                        return " grid-table d-border-aggrid-right text-right f-12";
                     }},
                 { field: "bval", headerName: "B. Val(T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 213,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12 text-danger";
+                        return " grid-table d-border-aggrid-right text-right f-12 text-danger";
                     }},
                 { field: "sval", headerName: "S. Val(T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 213,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12 text-success";
+                        return " grid-table d-border-aggrid-right text-right f-12 text-success";
                     } },
                 { field: "tvol", headerName: "T. Vol(Lot)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 213,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12";
+                        return " grid-table d-border-aggrid-right text-right f-12";
                     } },
                 { field: "tfreq", headerName: "T. Freq", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 213,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12";
+                        return " grid-table d-border-aggrid-right text-right f-12";
                     } },
             ],
             defaultColDef: {
@@ -4292,7 +4292,7 @@ class TopBrokerAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className="card-175 ag-theme-balham-dark"
+                    className="card-175 ag-theme-balham-dark ag-striped-odd"
                     id="myGrid"
                     style={{
                         width: "100%"
@@ -4319,32 +4319,32 @@ class TopBrokerBAgGrid extends React.PureComponent {
             columnDefs: [
                 { field: "no", headerName: "#", sortable: true, width: 81,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12";
+                        return " grid-table d-border-aggrid-right text-center f-12";
                     }},
                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
                     suppressSizeToFit:true, lockVisible:true,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12 locked-visible";
+                        return " grid-table d-border-aggrid-right text-center f-12 locked-visible";
                     }},
                 { field: "company", headerName: "Company", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
                     cellClass : function (params) {
-                        return " grid-table text-left f-12";
+                        return " grid-table d-border-aggrid-right text-left f-12";
                     }},
                 { field: "tval", headerName: "T. Val(T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12";
+                        return " grid-table d-border-aggrid-right text-right f-12";
                     }},
                 { field: "bval", headerName: "B. Val(T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12 text-danger";
+                        return " grid-table d-border-aggrid-right text-right f-12 text-danger";
                     }},
                 { field: "tvol", headerName: "T. Vol(Lot)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12";
+                        return " grid-table d-border-aggrid-right text-right f-12";
                     } },
                 { field: "tfreq", headerName: "T. Freq", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12";
+                        return " grid-table d-border-aggrid-right text-right f-12";
                     } },
             ],
             defaultColDef: {
@@ -4448,7 +4448,7 @@ class TopBrokerBAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className="card-138 ag-theme-balham-dark"
+                    className="card-138 ag-theme-balham-dark ag-striped-odd"
                     id="myGrid"
                     style={{
                         width: "100%"
@@ -4475,32 +4475,32 @@ class TopBrokerSAgGrid extends React.PureComponent {
             columnDefs: [
                 { field: "no", headerName: "#", sortable: true, width: 81,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12";
+                        return " grid-table d-border-aggrid-right text-center f-12";
                     }},
                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
                     suppressSizeToFit:true, lockVisible:true,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12 locked-visible";
+                        return " grid-table d-border-aggrid-right text-center f-12 locked-visible";
                     }},
                 { field: "company", headerName: "Company", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
                     cellClass : function (params) {
-                        return " grid-table text-left f-12";
+                        return " grid-table d-border-aggrid-right text-left f-12";
                     }},
                 { field: "tval", headerName: "T. Val(T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12";
+                        return " grid-table d-border-aggrid-right text-right f-12";
                     }},
                 { field: "sval", headerName: "S. Val(T)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12 text-success";
+                        return " grid-table d-border-aggrid-right text-right f-12 text-success";
                     }},
                 { field: "tvol", headerName: "T. Vol(Lot)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12";
+                        return " grid-table d-border-aggrid-right text-right f-12";
                     } },
                 { field: "tfreq", headerName: "T. Freq", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 249,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12";
+                        return " grid-table d-border-aggrid-right text-right f-12";
                     } },
             ],
             defaultColDef: {
@@ -4600,7 +4600,7 @@ class TopBrokerSAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className="card-138 ag-theme-balham-dark"
+                    className="card-138 ag-theme-balham-dark ag-striped-odd"
                     id="myGrid"
                     style={{
                         width: "100%"
