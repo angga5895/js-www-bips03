@@ -923,13 +923,13 @@ more.
 
                                     <div className="form-group">
                                         <li style={marginSelection}>
-                                            <Select options={stockOptions} placeholder={<div style={{color:"white"}}>Search..</div>} className="stockOps" styles={customStyles} theme={this.selectSelectionTab} />
+                                            <Select options={stockOptions} placeholder={<div className="text-basic">Search..</div>} className="stockOps" styles={customStyles} theme={this.selectSelectionTab} />
                                         </li>
                                     </div>
 
                                     <div className="form-group">
                                         <li style={marginSelection}>
-                                            <Select options={stockOptions} placeholder={<div style={{color:"white"}}>Search..</div>} className="stockOps" styles={customStyles} theme={this.selectSelectionTab} />
+                                            <Select options={stockOptions} placeholder={<div className="text-basic">Search..</div>} className="stockOps" styles={customStyles} theme={this.selectSelectionTab} />
                                         </li>
                                     </div>
 
