@@ -191,40 +191,40 @@ class LiveTradeAgGrid_Base extends React.PureComponent {
             columnDefs: [
                 { field: "time", headerName: "Time", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
                     cellClass : function (params) {
-                        return "text-center grid-table f-12";
+                        return "text-center grid-table d-border-aggrid-right f-12";
                     }},
                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 70,
                     suppressSizeToFit:true, lockVisible:true,
                     cellClass : function (params) {
-                        return "text-center grid-table f-12 locked-visible";
+                        return "text-center grid-table d-border-aggrid-right f-12 locked-visible";
                     }},
                 { field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 70,
                     cellClass : function (params) {
                         var change = params.data.change;
-                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
-                            "text-success text-right grid-table f-12";
+                        return change.includes('-') === true ? "text-danger text-right  grid-table d-border-aggrid-right f-12":
+                            "text-success text-right grid-table d-border-aggrid-right f-12";
                     }},
                 { field: "change", headerName: "Change", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
                     cellClass : function (params) {
                         var change = params.data.change;
-                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
-                            "text-success text-right grid-table f-12";
+                        return change.includes('-') === true ? "text-danger text-right  grid-table d-border-aggrid-right f-12":
+                            "text-success text-right grid-table d-border-aggrid-right f-12";
                     }},
                 { field: "percent", headerName: "%", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 60,
                     cellClass : function (params) {
                         var change = params.data.change;
-                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
-                            "text-success text-right grid-table f-12";
+                        return change.includes('-') === true ? "text-danger text-right  grid-table d-border-aggrid-right f-12":
+                            "text-success text-right grid-table d-border-aggrid-right f-12";
                     } },
                 { field: "vol", headerName: "Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 67,
                     cellClass : function (params) {
                         var change = params.data.change;
-                        return change.includes('-') === true ? "text-danger text-right  grid-table f-12":
-                            "text-success text-right grid-table f-12";
+                        return change.includes('-') === true ? "text-danger text-right  grid-table d-border-aggrid-right f-12":
+                            "text-success text-right grid-table d-border-aggrid-right f-12";
                     }},
                 { field: "buyer", headerName: "Buyer", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
                     cellClass : function (params) {
-                        return "text-center grid-table f-12";
+                        return "text-center grid-table d-border-aggrid-right f-12";
                     },
                     cellRenderer : function (params) {
                         var buyer = params.data.buyer;
@@ -235,7 +235,7 @@ class LiveTradeAgGrid_Base extends React.PureComponent {
                     } },
                 { field: "seller", headerName: "Seller", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
                     cellClass : function (params) {
-                        return "text-center grid-table f-12";
+                        return "text-center grid-table d-border-aggrid-right f-12";
                     },
                     cellRenderer : function (params) {
                         var seller = params.data.seller;
@@ -246,7 +246,7 @@ class LiveTradeAgGrid_Base extends React.PureComponent {
                     } },
                 { field: "board", headerName: "Board", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
                     cellClass : function (params) {
-                        return "text-center grid-table f-12";
+                        return "text-center grid-table d-border-aggrid-right f-12";
                     } },
             ],
             defaultColDef: {
@@ -497,7 +497,7 @@ class LiveTradeAgGrid_Base extends React.PureComponent {
         return (
             <>
                 <div
-                    className="card card-515 ag-theme-balham-dark ag-header-border-gray-live-trade"
+                    className="card card-515 ag-theme-balham-dark ag-header-border-gray-live-trade ag-striped-odd"
                     style={{
                         width: 'auto' }}>
                     <span className="myLiveTrade">
