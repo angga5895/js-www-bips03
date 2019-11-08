@@ -111,16 +111,16 @@ class TableInfoTransaction extends React.PureComponent{
                     <div className="col-sm-12 row mx-0 px-0">
                         <div className="col-sm-6 mx-0 px-0">
                             <div className="container-fluid px-0 mx-0">
-                                <Table responsive borderless size="sm" className="text-white bg-dark-grey px-0 mx-0 card-324 mb-0">
-                                <thead className="d-border-top d-border-bottom">
+                                <Table responsive bordered size="sm" className="text-white bg-dark-grey px-0 mx-0 card-324 mb-0 table-hover table-striped-trans">
+                                <thead className="d-border-top d-border-bottom bg-gray-tradding">
                                 <tr>
-                                    <th className="no-wrap py-3 text-center bg-dark-grey">
+                                    <th className="no-wrap py-3 text-center bg-gray-tradding">
                                         <Popup content='Number Of Buy' position='top center' trigger={
                                             <span>NoB</span>
                                         } />
                                     </th>
-                                    <th className="no-wrap py-3 text-center bg-dark-grey">Bid Vol</th>
-                                    <th className="no-wrap py-3 text-center bg-dark-grey">Bid</th>
+                                    <th className="no-wrap py-3 text-center bg-gray-tradding">Bid Vol</th>
+                                    <th className="no-wrap py-3 text-center bg-gray-tradding">Bid</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -175,11 +175,11 @@ class TableInfoTransaction extends React.PureComponent{
                                     <td className="no-wrap py-1 text-right text-danger">12,350</td>
                                 </tr>
                                 </tbody>
-                                <tfoot className="d-border-top">
+                                <tfoot className="d-border-top bg-gray-tradding">
                                 <tr>
-                                    <th className="no-wrap py-3 text-right bg-dark-grey">34</th>
-                                    <th className="no-wrap py-3 text-right bg-dark-grey">1,436</th>
-                                    <th className="no-wrap py-3 text-center bg-dark-grey">Total</th>
+                                    <th className="no-wrap py-3 text-right bg-gray-tradding">34</th>
+                                    <th className="no-wrap py-3 text-right bg-gray-tradding">1,436</th>
+                                    <th className="no-wrap py-3 text-center bg-gray-tradding">Total</th>
                                 </tr>
                                 </tfoot>
                             </Table>
@@ -187,12 +187,12 @@ class TableInfoTransaction extends React.PureComponent{
                         </div>
                         <div className="col-sm-6 mx-0 px-0">
                             <div className="container-fluid px-0 mx-0">
-                                <Table responsive borderless size="sm" className="text-white bg-dark-grey px-0 mx-0 card-324 mb-0">
-                                <thead className="d-border-top d-border-bottom">
+                                <Table responsive bordered size="sm" className="text-white bg-dark-grey px-0 mx-0 card-324 mb-0 table-hover table-striped-trans">
+                                <thead className="d-border-top d-border-bottom bg-gray-tradding">
                                 <tr>
-                                    <th className="no-wrap py-3 text-center bg-dark-grey">Offer</th>
-                                    <th className="no-wrap py-3 text-center bg-dark-grey">Offer Vol</th>
-                                    <th className="no-wrap py-3 text-center bg-dark-grey">
+                                    <th className="no-wrap py-3 text-center bg-gray-tradding">Offer</th>
+                                    <th className="no-wrap py-3 text-center bg-gray-tradding">Offer Vol</th>
+                                    <th className="no-wrap py-3 text-center bg-gray-tradding">
                                         <Popup content='Number Of Sell' position='top center' trigger={
                                             <span>NoS</span>
                                         } />
@@ -251,11 +251,11 @@ class TableInfoTransaction extends React.PureComponent{
                                     <td className="no-wrap py-1 text-right">2</td>
                                 </tr>
                                 </tbody>
-                                <tfoot className="d-border-top">
+                                <tfoot className="d-border-top bg-gray-tradding">
                                 <tr>
-                                    <th className="no-wrap py-3 text-center bg-dark-grey">Total</th>
-                                    <th className="no-wrap py-3 text-right bg-dark-grey">1,813</th>
-                                    <th className="no-wrap py-3 text-right bg-dark-grey">39</th>
+                                    <th className="no-wrap py-3 text-center bg-gray-tradding">Total</th>
+                                    <th className="no-wrap py-3 text-right bg-gray-tradding">1,813</th>
+                                    <th className="no-wrap py-3 text-right bg-gray-tradding">39</th>
                                 </tr>
                                 </tfoot>
                             </Table>
@@ -365,16 +365,16 @@ class TableInfoTransactionWithButton extends React.PureComponent{
                     <div className="col-sm-12 row mx-0 px-0">
                         <div className="col-sm-6 mx-0 px-0">
                             <div className="container-fluid px-0 mx-0">
-                                <Table responsive borderless size="sm" className="text-white bg-dark-grey px-0 mx-0 card-305">
-                                    <thead className="d-border-top d-border-bottom">
+                                <Table responsive bordered size="sm" className="text-white bg-dark-grey px-0 mx-0 card-305 table-hover table-striped-trans">
+                                    <thead className="d-border-top d-border-bottom bg-gray-tradding">
                                     <tr>
-                                        <th className="no-wrap py-3 text-center bg-dark-grey">
+                                        <th className="no-wrap py-3 text-center bg-gray-tradding">
                                             <Popup content='Number Of Buy' position='top center' trigger={
                                                 <span>NoB</span>
                                             } />
                                         </th>
-                                        <th className="no-wrap py-3 text-center bg-dark-grey">Bid Vol</th>
-                                        <th className="no-wrap py-3 text-center bg-dark-grey">Bid</th>
+                                        <th className="no-wrap py-3 text-center bg-gray-tradding">Bid Vol</th>
+                                        <th className="no-wrap py-3 text-center bg-gray-tradding">Bid</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -429,11 +429,11 @@ class TableInfoTransactionWithButton extends React.PureComponent{
                                         <td className="no-wrap py-1 text-right text-danger">12,350</td>
                                     </tr>
                                     </tbody>
-                                    <tfoot className="d-border-top">
+                                    <tfoot className="d-border-top bg-gray-tradding">
                                     <tr>
-                                        <th className="no-wrap py-3 text-right bg-dark-grey">34</th>
-                                        <th className="no-wrap py-3 text-right bg-dark-grey">1,436</th>
-                                        <th className="no-wrap py-3 text-center bg-dark-grey">Total</th>
+                                        <th className="no-wrap py-3 text-right bg-gray-tradding">34</th>
+                                        <th className="no-wrap py-3 text-right bg-gray-tradding">1,436</th>
+                                        <th className="no-wrap py-3 text-center bg-gray-tradding">Total</th>
                                     </tr>
                                     </tfoot>
                                 </Table>
@@ -441,12 +441,12 @@ class TableInfoTransactionWithButton extends React.PureComponent{
                         </div>
                         <div className="col-sm-6 mx-0 px-0">
                             <div className="container-fluid px-0 mx-0">
-                                <Table responsive borderless size="sm" className="text-white bg-dark-grey px-0 mx-0 card-305">
-                                    <thead className="d-border-top d-border-bottom">
+                                <Table responsive bordered size="sm" className="text-white bg-dark-grey px-0 mx-0 card-305 table-hover table-striped-trans">
+                                    <thead className="d-border-top d-border-bottom bg-gray-tradding">
                                     <tr>
-                                        <th className="no-wrap py-3 text-center bg-dark-grey">Offer</th>
-                                        <th className="no-wrap py-3 text-center bg-dark-grey">Offer Vol</th>
-                                        <th className="no-wrap py-3 text-center bg-dark-grey">
+                                        <th className="no-wrap py-3 text-center bg-gray-tradding">Offer</th>
+                                        <th className="no-wrap py-3 text-center bg-gray-tradding">Offer Vol</th>
+                                        <th className="no-wrap py-3 text-center bg-gray-tradding">
                                             <Popup content='Number Of Sell' position='top center' trigger={
                                                 <span>NoS</span>
                                             } />
@@ -505,11 +505,11 @@ class TableInfoTransactionWithButton extends React.PureComponent{
                                         <td className="no-wrap py-1 text-right">2</td>
                                     </tr>
                                     </tbody>
-                                    <tfoot className="d-border-top">
+                                    <tfoot className="d-border-top bg-gray-tradding">
                                     <tr>
-                                        <th className="no-wrap py-3 text-center bg-dark-grey">Total</th>
-                                        <th className="no-wrap py-3 text-right bg-dark-grey">1,813</th>
-                                        <th className="no-wrap py-3 text-right bg-dark-grey">39</th>
+                                        <th className="no-wrap py-3 text-center bg-gray-tradding">Total</th>
+                                        <th className="no-wrap py-3 text-right bg-gray-tradding">1,813</th>
+                                        <th className="no-wrap py-3 text-right bg-gray-tradding">39</th>
                                     </tr>
                                     </tfoot>
                                 </Table>

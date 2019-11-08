@@ -132,7 +132,8 @@ class FormAmend extends React.PureComponent{
 
                                     <div className="col-sm-3 mb-3 py-form">Value</div>
                                     <div className="col-sm-9 mb-3 py-form">
-                                        <NumberInput idclassname={this.props.idValue} name="sell_value" placeholder="Value" size="small" defaultValue={"12600"} className="col-sm-12 px-0 f-12 text-center align-self-center" />
+                                        <input type="text" id={this.props.idValue} name="amend_value" placeholder="Value" size="small" defaultValue={"12,600"} className="col-sm-12 f-12 text-center align-self-center form-control"
+                                               style={{"border-radius": "0px", "text-align": "right"}} readOnly={true} />
                                     </div>
                                 </div>
                                 <div className="col-sm-4 text-center align-middle align-self-center">
