@@ -339,6 +339,8 @@
   border-right: 1px solid var(--warna-bg-dark-grey) !important;
 }
 
+[col-id~="dateO"], [col-id~="timeO"], [col-id~="actionsO"], [col-id~="statusO"], [col-id~="remarksO"],
+[col-id~="priceO"],[col-id~="matchpriceO"],[col-id~="amountO"],
 [col-id~="codeR"], [col-id~="avgpriceR"], [col-id~="lastpriceR"],
 [col-id~="stockValR"], [col-id~="lqValR"], [col-id~="plR"], [col-id~="mktvalueR"]
 {
@@ -402,7 +404,7 @@
 
 .btn-dark {
   color: var(--warna-text-basic)!important;
-  background-color: var(--warna-btn-dark)!important;;
+  background-image: linear-gradient(var(--warna-btn-dark), var(--warna-btn-dark-hover)) !important;
   border-color: var(--warna-btn-dark)!important;
 }
 
@@ -3596,7 +3598,7 @@ th {
   /*color: white;*/
 }
 .table-hover > tbody > tr:hover {
-  background-color: var(--warna-btn-dark-hover);
+  background-color: var(--warna-btn-dark-hover)!important;
 }
 table col[class*="col-"] {
   position: static;
@@ -4393,7 +4395,7 @@ fieldset[disabled] .btn-default.focus {
 }
 .btn-primary {
   color: #fff;
-  background-color: #0071BC;
+  background-image: linear-gradient(#0071BC,#122b40);
   border-color: #2e6da4;
 }
 .btn-primary:focus,
@@ -4450,7 +4452,7 @@ fieldset[disabled] .btn-primary.focus {
 }
 .btn-success {
   color: #fff;
-  background-color: #5cb85c;
+  background-image: linear-gradient(#5cb85c,#255625);
   border-color: #4cae4c;
 }
 .btn-success:focus,
@@ -4507,7 +4509,7 @@ fieldset[disabled] .btn-success.focus {
 }
 .btn-info {
   color: #fff;
-  background-color: #5bc0de;
+  background-image: linear-gradient(#5bc0de, #1b6d85);
   border-color: #46b8da;
 }
 .btn-info:focus,
@@ -4621,7 +4623,7 @@ fieldset[disabled] .btn-warning.focus {
 }
 .btn-danger {
   color: #fff;
-  background-color: #d9534f;
+  background-image: linear-gradient(#d9534f,#761c19);
   border-color: #d43f3a;
 }
 .btn-danger:focus,

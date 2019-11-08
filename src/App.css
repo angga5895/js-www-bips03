@@ -1,3 +1,62 @@
+.td-even{
+    background-color: var(--warna-background-semantic) !important;
+}
+
+div.stockOps > div {
+    background-image: linear-gradient(var(--warna-btn-dark), var(--warna-btn-dark-hover)) !important;
+}
+
+.table-striped-trans > tbody > tr:nth-of-type(even) {
+    background-color: var(--warna-hover-menu);
+}
+
+.hover-tables:hover{
+    background-color: var(--warna-hover-menu) !important;
+}
+
+.d-border-aggrid-right{
+    border-right: 1px solid var(--warna-btn-dark-hover)!important;
+}
+
+/*for grid odd*/
+div.ag-theme-balham-dark.ag-striped-odd > div > div > div > div > div > div > div > div > div.ag-row-odd:hover {
+    background-color: var(--warna-hover-menu) }
+div.ag-theme-balham-dark.ag-striped-odd > div > div > div > div > div > div > div.ag-row-odd:hover {
+    background-color: var(--warna-hover-menu) }
+div.ag-theme-balham-dark.ag-striped-odd > div > div > div > div > div > div > div > div > div.ag-row-even:hover {
+    background-color: var(--warna-hover-menu); }
+div.ag-theme-balham-dark.ag-striped-odd > div > div > div > div > div > div > div.ag-row-even:hover {
+    background-color: var(--warna-hover-menu); }
+
+/*for grid even*/
+div.ag-theme-balham-dark.ag-striped-even > div > div > div > div > div > div > div > div > div.ag-row-odd:hover {
+    background-color: var(--warna-hover-menu); }
+div.ag-theme-balham-dark.ag-striped-even > div > div > div > div > div > div > div.ag-row-odd:hover {
+    background-color: var(--warna-hover-menu); }
+div.ag-theme-balham-dark.ag-striped-even > div > div > div > div > div > div > div > div > div.ag-row-even:hover {
+    background-color: var(--warna-hover-menu); }
+div.ag-theme-balham-dark.ag-striped-even > div > div > div > div > div > div > div.ag-row-even:hover {
+    background-color: var(--warna-hover-menu); }
+
+/*for grid live trade*/
+div.ag-theme-balham-dark.ag-striped-odd > span > div > div > div > div > div > div > div > div > div.ag-row-odd:hover {
+    background-color: var(--warna-hover-menu); }
+div.ag-theme-balham-dark.ag-striped-odd > span > div > div > div > div > div > div > div.ag-row-odd:hover {
+    background-color: var(--warna-hover-menu); }
+div.ag-theme-balham-dark.ag-striped-odd > span > div > div > div > div > div > div > div > div > div.ag-row-even:hover {
+    background-color: var(--warna-hover-menu); }
+div.ag-theme-balham-dark.ag-striped-odd > span > div > div > div > div > div > div > div.ag-row-even:hover {
+    background-color: var(--warna-hover-menu); }
+
+div.ag-theme-balham-dark.ag-striped-odd > span > div > div > div > div > div > div > div > div > div.ag-row-odd {
+    background-color: var(--warna-table-striped) }
+div.ag-theme-balham-dark.ag-striped-odd > span > div > div > div > div > div > div > div.ag-row-odd {
+    background-color: var(--warna-table-striped) }
+div.ag-theme-balham-dark.ag-striped-odd > span > div > div > div > div > div > div > div > div > div.ag-row-even {
+    background-color: var(--warna-dasar); }
+div.ag-theme-balham-dark.ag-striped-odd > span > div > div > div > div > div > div > div.ag-row-even {
+    background-color: var(--warna-dasar); }
+
 .h-100{
     height: 100px !important;
 }
@@ -11,6 +70,9 @@
 
 .text-bips-dark{
     color: var(--warna-btn-dark) !important;
+    background: -webkit-linear-gradient(var(--warna-btn-dark), var(--warna-btn-dark-hover)) !important;
+    -webkit-background-clip: text!important;
+    -webkit-text-fill-color: transparent!important;
 }
 
 .ui.selection.dropdown.grey{
@@ -294,7 +356,7 @@ div.main-header > .ui.menu .item{
     transform: rotateZ(0);
     min-width: 0;
     min-height: 2.71428571em;
-    background: var(--warna-btn-dark)!important;
+    background-image: linear-gradient(var(--warna-btn-dark), var(--warna-btn-dark-hover)) !important;
     display: inline-block;
     padding: 10px 10px 10px 5px!important;
     color: var(--warna-text-basic)!important;
@@ -945,7 +1007,7 @@ thead tr:nth-child(1) th {
     margin: 10px auto;
     height: 30px;
     float: left;
-    cursor: pointer;
+    /*cursor: pointer;*/
     -webkit-transition: all 0.25s linear;
 }
 
@@ -959,7 +1021,7 @@ thead tr:nth-child(1) th {
     margin-left: 20px!important;
     height: 30px;
     z-index: 9;
-    cursor: pointer;
+    /*cursor: pointer;*/
     -webkit-transition: all 0.25s linear;
 }
 
@@ -1087,7 +1149,7 @@ input[type=radio]:checked ~ label{
 
 .btn-brown {
     color: #ffffff!important;
-    background-color: #A24A20!important;
+    background-image: linear-gradient(#A24A20,#753618)!important;
     border-color: #A24A20!important;
 }
 
@@ -1121,6 +1183,44 @@ input[type=radio]:checked ~ label{
 .btn-brown:not(:disabled):not(.disabled):active:focus,
 .show>.btn-brown.dropdown-toggle:focus {
     box-shadow: 0 0 0 .2rem rgba(162, 74, 32, 0.5) !important
+}
+
+.btn-grey-gray {
+    color: #ffffff!important;
+    background-image: linear-gradient(var(--warna-d-border),var(--warna-gray))!important;
+    border-color: var(--warna-gray)!important;
+}
+
+.btn-grey-gray:hover {
+    color: #ffffff!important;
+    background-color: var(--warna-d-border)!important;
+    border-color: var(--warna-gray)!important;
+}
+
+.btn-grey-gray.focus,
+.btn-grey-gray:focus {
+    box-shadow: 0 0 0 .2rem var(--warna-gray)!important;
+}
+
+.btn-grey-gray.disabled,
+.btn-grey-gray:disabled {
+    color: #ffffff!important;
+    background-color: var(--warna-gray)!important;
+    border-color: var(--warna-gray)!important;
+}
+
+.btn-grey-gray:not(:disabled):not(.disabled).active,
+.btn-grey-gray:not(:disabled):not(.disabled):active,
+.show>.btn-grey-gray.dropdown-toggle {
+    color: #ffffff!important;
+    background-color: var(--warna-d-border)!important;
+    border-color: var(--warna-bg-dark-grey)!important;
+}
+
+.btn-grey-gray:not(:disabled):not(.disabled).active:focus,
+.btn-grey-gray:not(:disabled):not(.disabled):active:focus,
+.show>.btn-grey-gray.dropdown-toggle:focus {
+    box-shadow: 0 0 0 .2rem var(--warna-bg-dark-grey) !important
 }
 
 .fade-out {
