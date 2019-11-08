@@ -1055,67 +1055,67 @@ class InquryAccount_Base extends React.PureComponent {
                                             <table width="100%" className={"table table-bordered table-responsive mb-0 card-448"}>
                                                 <tr>
                                                     <td className={"d-border"}>KSEI A/C No</td>
-                                                    <td width="50%" className={"d-border"}>928237217312</td>
+                                                    <td width="50%" className={"d-border hover-tables"}>928237217312</td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Alt Code</td>
-                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                    <td width="50%" className={"even-td d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>KSEI SID</td>
-                                                    <td width="50%" className={"d-border"} ></td>
+                                                    <td width="50%" className={"d-border hover-tables"} ></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>User ID</td>
-                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                    <td width="50%" className={"even-td d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>A/C Status Name</td>
-                                                    <td width="50%" className={"d-border"}></td>
+                                                    <td width="50%" className={"d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>ID Type</td>
-                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                    <td width="50%" className={"even-td d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>ID No</td>
-                                                    <td width="50%" className={"d-border"}></td>
+                                                    <td width="50%" className={"d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>ID Expire Date</td>
-                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                    <td width="50%" className={"even-td d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Customer Type</td>
-                                                    <td width="50%" className={"d-border"}></td>
+                                                    <td width="50%" className={"d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Country</td>
-                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                    <td width="50%" className={"even-td d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Mother's Name</td>
-                                                    <td width="50%" className={"d-border"}></td>
+                                                    <td width="50%" className={"d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Sub Name</td>
-                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                    <td width="50%" className={"even-td d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Job</td>
-                                                    <td width="50%" className={"d-border"}></td>
+                                                    <td width="50%" className={"d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Opening Date</td>
-                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                    <td width="50%" className={"even-td d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>A/C Closing Date</td>
-                                                    <td width="50%" className={"d-border"}></td>
+                                                    <td width="50%" className={"d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Opening Branch</td>
-                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                    <td width="50%" className={"even-td d-border hover-tables"}></td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -1124,68 +1124,68 @@ class InquryAccount_Base extends React.PureComponent {
 
                                                 <tr>
                                                     <td width="50%" className={"d-border"} >Withholding Tax</td>
-                                                    <td width="50%" className={"d-border"}></td>
+                                                    <td width="50%" className={"d-border hover-tables"}></td>
                                                 </tr>
 
                                                 <tr>
                                                     <td className={"d-border"}>Dividend Tax</td>
-                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                    <td width="50%" className={"even-td d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Commission Type</td>
-                                                    <td width="50%" className={"d-border"}></td>
+                                                    <td width="50%" className={"d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Bank Code</td>
-                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                    <td width="50%" className={"even-td d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Account No</td>
-                                                    <td width="50%" className={"d-border"}></td>
+                                                    <td width="50%" className={"d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Account Name</td>
-                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                    <td width="50%" className={"even-td d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Branch</td>
-                                                    <td width="50%" className={"d-border"}></td>
+                                                    <td width="50%" className={"d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Auto Transfer</td>
-                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                    <td width="50%" className={"even-td d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Virtual Account No</td>
-                                                    <td width="50%" className={"d-border"}></td>
+                                                    <td width="50%" className={"d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Penalty Type</td>
-                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                    <td width="50%" className={"even-td d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>No. of PIN Error</td>
-                                                    <td width="50%" className={"d-border"}></td>
+                                                    <td width="50%" className={"d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>PIN Code Initialize</td>
-                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                    <td width="50%" className={"even-td d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Managing Branch</td>
-                                                    <td width="50%" className={"d-border"}></td>
+                                                    <td width="50%" className={"d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Tax Rate</td>
-                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                    <td width="50%" className={"even-td d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Initial Deposit Amount</td>
-                                                    <td width="50%" className={"d-border"}></td>
+                                                    <td width="50%" className={"d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Order Permit</td>
-                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                    <td width="50%" className={"even-td d-border hover-tables"}></td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -1199,27 +1199,27 @@ class InquryAccount_Base extends React.PureComponent {
                                             <table width="100%" className={"table table-bordered table-responsive mb-0 card-169"}>
                                                 <tr>
                                                     <td className={"d-border"}>Date of Birth</td>
-                                                    <td width="50%" className={"d-border"}>928237217312</td>
+                                                    <td width="50%" className={"d-border hover-tables"}>928237217312</td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Place of Birth</td>
-                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                    <td width="50%" className={"even-td d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Marriage</td>
-                                                    <td width="50%" className={"d-border"} ></td>
+                                                    <td width="50%" className={"d-border hover-tables"} ></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Spouse's Name</td>
-                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                    <td width="50%" className={"even-td d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Manager</td>
-                                                    <td width="50%" className={"d-border"}></td>
+                                                    <td width="50%" className={"d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Recommender</td>
-                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                    <td width="50%" className={"even-td d-border hover-tables"}></td>
                                                 </tr>
                                             </table>
                                             <table className={"table table-borderder table-responsive card-113"}>
@@ -1228,17 +1228,17 @@ class InquryAccount_Base extends React.PureComponent {
                                                     <td className={"d-border text-center td-bluelight"}>Tel No</td>
                                                     <td className={"d-border text-center td-bluelight"}>Fax No</td>
                                                 </tr>
-                                                <tr>
+                                                <tr className={"even-td hover-tables"}>
                                                     <td className={"d-border"}>&nbsp;</td>
                                                     <td className={"d-border"}></td>
                                                     <td className={"d-border"}></td>
                                                 </tr>
-                                                <tr>
+                                                <tr className={"hover-tables"}>
                                                     <td className={"d-border"}>&nbsp;</td>
                                                     <td className={"d-border"}></td>
                                                     <td className={"d-border"}></td>
                                                 </tr>
-                                                <tr>
+                                                <tr className={"even-td hover-tables"}>
                                                     <td className={"d-border"}>&nbsp;</td>
                                                     <td className={"d-border"}></td>
                                                     <td className={"d-border"}></td>
@@ -1250,44 +1250,44 @@ class InquryAccount_Base extends React.PureComponent {
 
                                                 <tr>
                                                     <td width="50%" className={"d-border"} >Position</td>
-                                                    <td width="50%" className={"d-border"}></td>
+                                                    <td width="50%" className={"d-border hover-tables"}></td>
                                                 </tr>
 
                                                 <tr>
                                                     <td className={"d-border"}>Company Name</td>
-                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                    <td width="50%" className={"even-td d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Company Officer</td>
-                                                    <td width="50%" className={"d-border"}></td>
+                                                    <td width="50%" className={"d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Company Type</td>
-                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                    <td width="50%" className={"even-td d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Interest Type</td>
-                                                    <td width="50%" className={"d-border"}></td>
+                                                    <td width="50%" className={"d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Affiliatied Co</td>
-                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                    <td width="50%" className={"even-td d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Unknown Addr/Phone</td>
-                                                    <td width="50%" className={"d-border"}></td>
+                                                    <td width="50%" className={"d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Email</td>
-                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                    <td width="50%" className={"even-td d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Mobile1</td>
-                                                    <td width="50%" className={"d-border"}></td>
+                                                    <td width="50%" className={"d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>Mobile2</td>
-                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                    <td width="50%" className={"even-td d-border hover-tables"}></td>
                                                 </tr>
 
                                             </table>
@@ -1300,19 +1300,19 @@ class InquryAccount_Base extends React.PureComponent {
                                                     <td className={"d-border text-center td-bluelight"}>Address</td>
                                                     <td className={"d-border text-center td-bluelight"} width="50%">Address1</td>
                                                 </tr>
-                                                <tr className={"even-td"}>
+                                                <tr className={"hover-tables even-td"}>
                                                     <td className={"d-border"}>&nbsp;</td>
                                                     <td className={"d-border"}></td>
                                                     <td className={"d-border"}></td>
                                                     <td className={"d-border"}></td>
                                                 </tr>
-                                                <tr >
+                                                <tr className={"hover-tables"}>
                                                     <td className={"d-border"}>&nbsp;</td>
                                                     <td className={"d-border"}></td>
                                                     <td className={"d-border"}></td>
                                                     <td className={"d-border"}></td>
                                                 </tr>
-                                                <tr className={"even-td"}>
+                                                <tr className={"even-td hover-tables"}>
                                                     <td className={"d-border"}>&nbsp;</td>
                                                     <td className={"d-border"}></td>
                                                     <td className={"d-border"}></td>
@@ -1330,15 +1330,15 @@ class InquryAccount_Base extends React.PureComponent {
                                             <table width="100%" className={"table table-bordered table-responsive"}>
                                                 <tr>
                                                     <td className={"d-border"}>RDI Bank</td>
-                                                    <td width="50%" className={"d-border"}>928237217312</td>
+                                                    <td width="50%" className={"d-border hover-tables"}>928237217312</td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>RDI Account Number</td>
-                                                    <td width="50%" className={"even-td d-border"}></td>
+                                                    <td width="50%" className={"even-td d-border hover-tables"}></td>
                                                 </tr>
                                                 <tr>
                                                     <td className={"d-border"}>RDI Account Name</td>
-                                                    <td width="50%" className={"d-border"} ></td>
+                                                    <td width="50%" className={"d-border hover-tables"} ></td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -1435,47 +1435,47 @@ class PortofolioAgGrid extends React.PureComponent {
             columnDefs: [
                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 69 : 150,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12";
+                        return " grid-table text-center f-12 d-border-aggrid-right";
                     }, suppressSizeToFit: true
                 },
                 { field: "avgprice", headerName: "Avg. Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 94 : 206,
                     cellClass : function (params) {
-                        return " text-right grid-table f-12";
+                        return " text-right grid-table f-12 d-border-aggrid-right";
                     }
                 },
                 { field: "lastprice", headerName: "Last Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 92 : 207,
                     cellClass : function (params) {
                         var pl = params.data.pl;
-                        return pl.includes('-') === true ? "text-danger text-right  grid-table f-12" :
-                            "text-success text-right  grid-table f-12";
+                        return pl.includes('-') === true ? "text-danger text-right  grid-table f-12 d-border-aggrid-right" :
+                            "text-success text-right  grid-table f-12 d-border-aggrid-right";
                     }
                 },
                 { field: "lot", headerName: "Lot", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 58 : 124,
                     cellClass : function (params) {
                         var pl = params.data.pl;
-                        return pl.includes('-') === true ? "text-danger text-right grid-table f-12":
-                            "text-success text-right  grid-table f-12";
+                        return pl.includes('-') === true ? "text-danger text-right grid-table f-12 d-border-aggrid-right":
+                            "text-success text-right  grid-table f-12 d-border-aggrid-right";
                     },
                 },
                 { field: "shares", headerName: "Shares", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 76 :124,
                     cellClass : function (params) {
                         var pl = params.data.pl;
-                        return pl.includes('-') === true ? "text-danger text-right grid-table f-12":
-                            "text-success text-right  grid-table f-12";
+                        return pl.includes('-') === true ? "text-danger text-right grid-table f-12 d-border-aggrid-right":
+                            "text-success text-right  grid-table f-12 d-border-aggrid-right";
                     },
                 },
                 { field: "stockval", headerName: "Stock Val", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
                         var pl = params.data.pl;
-                        return pl.includes('-') === true ? "text-danger text-right grid-table f-12":
-                            "text-success text-right  grid-table f-12";
+                        return pl.includes('-') === true ? "text-danger text-right grid-table f-12 d-border-aggrid-right":
+                            "text-success text-right  grid-table f-12 d-border-aggrid-right";
                     },
                 },
                 { field: "pl", headerName: "P/L", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 207,
                     cellClass : function (params) {
                         var pl = params.data.pl;
-                        return pl.includes('-') === true ? "text-danger text-right grid-table f-12":
-                            "text-success text-right  grid-table f-12";
+                        return pl.includes('-') === true ? "text-danger text-right grid-table f-12 d-border-aggrid-right":
+                            "text-success text-right  grid-table f-12 d-border-aggrid-right";
                     },
                     cellRenderer : function (params) {
                         var pl = params.data.pl;
@@ -1496,7 +1496,7 @@ class PortofolioAgGrid extends React.PureComponent {
                         return toltp;
                     },
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table f-12 d-border-aggrid-right";
                     },
                     cellRenderer : function (params) {
                         var code = params.data.code;
@@ -1522,7 +1522,7 @@ class PortofolioAgGrid extends React.PureComponent {
                 },
                 { field: "action", headerName: "Action", sortable: false, width: this.props.gridView == 'grid' ? 150 : 150, pinned: "right", lockPosition: true, lockVisible: true,
                     cellClass : function (params) {
-                        return " grid-table locked-col locked-visible";
+                        return " grid-table locked-col locked-visible d-border-aggrid-right";
                     },
                     cellRenderer : function (params) {
                         var eDiv = document.createElement('div');
@@ -1818,7 +1818,7 @@ class PortofolioAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className={"card-487 ag-theme-balham-dark ag-bordered"}
+                    className={"card-487 ag-theme-balham-dark ag-bordered ag-striped-odd"}
                     id="myGrid"
                     style={{
                         width: "100%"
@@ -1844,38 +1844,38 @@ class FixedIncomeAgGrid extends React.PureComponent {
             columnDefs: [
                 { field: "no", headerName: "#", sortable: true, filter: "agTextColumnFilter", width: this.props.gridView == 'grid' ? 25 : 56,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12";
+                        return " grid-table text-center f-12 d-border-aggrid-right";
                     }},
                 { field: "serial", headerName: "Serial", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 100 : 170,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12";
+                        return " grid-table text-center f-12 d-border-aggrid-right";
                     },suppressSizeToFit: true},
                 { field: "nominal", headerName: "Nominal (IDR)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 118 : 239,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12";
+                        return " grid-table text-right f-12 d-border-aggrid-right";
                     }},
                 { field: "coupon", headerName: "Coupon", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 84 : 239,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12";
+                        return " grid-table text-right f-12 d-border-aggrid-right";
                     } },
                 { field: "couponpdate", headerName: "Coupon Payment Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 164 : 282,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12";
+                        return " grid-table text-center f-12 d-border-aggrid-right";
                     } },
                 { field: "duedate", headerName: "Due Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 91 : 239,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12";
+                        return " grid-table text-center f-12 d-border-aggrid-right";
                     } },
                 { field: "detail", headerName: "Detail", resizable: true, width: this.props.gridView == 'grid' ? 72 : 170,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12";
+                        return " grid-table text-center f-12 d-border-aggrid-right";
                     },
                     cellRenderer : function (params) {
                         return '<i class="fa fa-search click-pointer text-danger"></i>'
                     } },
                 { field: "action", headerName: "Action", width: this.props.gridView == 'grid' ? 175 : 200, pinned: "right", lockPosition: true, lockVisible: true,
                     cellClass : function (params) {
-                        return " grid-table text-center locked-col locked-visible";
+                        return " grid-table text-center locked-col locked-visible d-border-aggrid-right";
                     },
                     cellRenderer : function (params) {
                         var eDiv = document.createElement('div');
@@ -2033,7 +2033,7 @@ class MutualFundAgGrid extends React.PureComponent {
             columnDefs: [
                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 69 : 170,
                     cellClass : function (params) {
-                        return " grid-table text-left f-12";
+                        return " grid-table d-border-aggrid-right text-left f-12";
                     },
                     cellRenderer : function (params) {
                         var code = params.data.code;
@@ -2044,21 +2044,21 @@ class MutualFundAgGrid extends React.PureComponent {
                     }, suppressSizeToFit: true },
                 { field: "nav", headerName: "NAV", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 65 : 274,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12";
+                        return " grid-table d-border-aggrid-right text-right f-12";
                     } },
                 { field: "navdate", headerName: "NAV Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 94 : 274,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12";
+                        return " grid-table d-border-aggrid-right text-right f-12";
                     } },
                 { field: "currency", headerName: "Currency", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 89 : 274,
                     cellClass : function (params) {
-                        return " grid-table text-right f-12";
+                        return " grid-table d-border-aggrid-right text-right f-12";
                     }  },
                 { field: "potentialpl", headerName: "Potential P/L", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 331,
                     cellClass : function (params) {
                         var pl = params.data.potentialpl;
-                        return pl.includes('-') === true ? 'grid-table text-right f-12 text-danger' :
-                            'grid-table text-right f-12 text-success'
+                        return pl.includes('-') === true ? 'grid-table d-border-aggrid-right text-right f-12 text-danger' :
+                            'grid-table d-border-aggrid-right text-right f-12 text-success'
                     },
                     cellRenderer : function (params) {
                         var pl = params.data.potentialpl;
@@ -2067,7 +2067,7 @@ class MutualFundAgGrid extends React.PureComponent {
                     } },
                 { field: "action", headerName: "Action", sortable: false, width: this.props.gridView == 'grid' ? 175 : 200, pinned: "right", lockPosition: true, lockVisible: true,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12 locked-col locked-visible";
+                        return " grid-table d-border-aggrid-right text-center f-12 locked-col locked-visible";
                     },
                     cellRenderer : function (params) {
                         var eDiv = document.createElement('div');
@@ -2182,7 +2182,7 @@ class MutualFundAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className={"card-487 ag-theme-balham-dark"}
+                    className={"card-487 ag-theme-balham-dark ag-striped-odd"}
                     id="myGrid"
                     style={{
                         width: "100%"
@@ -2211,22 +2211,22 @@ class StockCashAgGrid extends React.PureComponent {
                     filter: "agTextColumnFilter", resizable: true,
                     width: this.props.gridView == 'grid' ? 69 : 150, minWidth: this.props.gridView == 'grid' ? 69 : 150, lockPosition: true, lockVisible: true,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12 locked-visible locked-col d-border-right-grey";
+                        return " grid-table text-center f-12 locked-visible locked-col d-border-aggrid-right";
                     }, suppressSizeToFit: true, children: [{
                         field: "codeR", headerName: "Code", sortable: true,
                         filter: "agTextColumnFilter", resizable: true,
                         width: this.props.gridView == 'grid' ? 69 : 150, lockPosition: true, lockVisible: true,
                         cellClass : function (params) {
-                            return " grid-table text-center f-12 locked-visible locked-col d-border-right-grey";
+                            return " grid-table text-center f-12 locked-visible locked-col d-border-aggrid-right";
                         }, suppressSizeToFit: true
                     },]},
                 { field: "avgpriceTop", headerName: "", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 94 : 206,
                     cellClass : function (params) {
-                        return " text-right grid-table f-12 d-border-right-grey";
+                        return " text-right grid-table f-12 d-border-aggrid-right";
                     }, children: [
                         { field: "avgpriceR", headerName: "Avg. Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 94 : 206,
                             cellClass : function (params) {
-                                return " text-right grid-table f-12 d-border-right-grey";
+                                return " text-right grid-table f-12 d-border-aggrid-right";
                             }
                         },
                     ],
@@ -2234,31 +2234,31 @@ class StockCashAgGrid extends React.PureComponent {
                 { field: "lastpriceTop", headerName: "", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 92 : 207,
                     cellClass : function (params) {
                         var pl = params.data.pl;
-                        return pl.includes('-') === true ? "text-danger text-right  grid-table f-12 d-border-right-grey" :
-                            "text-success text-right  grid-table f-12 d-border-right-grey";
+                        return pl.includes('-') === true ? "text-danger text-right  grid-table f-12 d-border-aggrid-right" :
+                            "text-success text-right  grid-table f-12 d-border-aggrid-right";
                     }, children: [{ field: "lastpriceR", headerName: "Last Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 92 : 207,
                         cellClass : function (params) {
                             var pl = params.data.plR;
-                            return pl.includes('-') === true ? "text-danger text-right  grid-table f-12 d-border-right-grey" :
-                                "text-success text-right  grid-table f-12 d-border-right-grey";
+                            return pl.includes('-') === true ? "text-danger text-right  grid-table f-12 d-border-aggrid-right" :
+                                "text-success text-right  grid-table f-12 d-border-aggrid-right";
                         }
                     },
                     ],
                 },
                 { field: "port", headerName: "Portofolio", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 58 : 124,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12 d-border-right-grey";
+                        return " text-center grid-table f-12 d-border-aggrid-right";
                     }
                     ,
                     children: [
                         { field: "plot", headerName: "Lot", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 58 : 124,
                             cellClass : function (params) {
-                                return " text-right grid-table f-12 d-border-right-grey";
+                                return " text-right grid-table f-12 d-border-aggrid-right";
                             }
                         },
                         { field: "pshares", headerName: "Shares", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 76 :124,
                             cellClass : function (params) {
-                                return " text-right grid-table f-12 d-border-right-grey";
+                                return " text-right grid-table f-12 d-border-aggrid-right";
                             },
                         }
                     ]
@@ -2266,23 +2266,23 @@ class StockCashAgGrid extends React.PureComponent {
 
                 { field: "mktvalueTop", headerName: "", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
-                        return " text-right grid-table f-12 d-border-right-grey";
+                        return " text-right grid-table f-12 d-border-aggrid-right";
                     },children:[{ field: "mktvalueR", headerName: "Mkt. Val", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                         cellClass : function (params) {
-                            return " text-right grid-table f-12 d-border-right-grey";
+                            return " text-right grid-table f-12 d-border-aggrid-right";
                         }
                     },]
                 },
                 { field: "plTop", headerName: "", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 207,
                     cellClass : function (params) {
                         var pl = params.data.pl;
-                        return pl.includes('-') === true ? "text-danger text-right  grid-table f-12 d-border-right-grey":
-                            "text-success text-right  grid-table f-12 d-border-right-grey";
+                        return pl.includes('-') === true ? "text-danger text-right  grid-table f-12 d-border-aggrid-right":
+                            "text-success text-right  grid-table f-12 d-border-aggrid-right";
                     }, children: [{ field: "plR", headerName: "P/L", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 207,
                         cellClass : function (params) {
                             var pl = params.data.plR;
-                            return pl.includes('-') === true ? "text-danger text-right  grid-table f-12 d-border-right-grey":
-                                "text-success text-right  grid-table f-12 d-border-right-grey";
+                            return pl.includes('-') === true ? "text-danger text-right  grid-table f-12 d-border-aggrid-right":
+                                "text-success text-right  grid-table f-12 d-border-aggrid-right";
                         }
                     },]
                 },
@@ -2295,22 +2295,22 @@ class StockCashAgGrid extends React.PureComponent {
                     children: [
                         { field: "slot", headerName: "Lot", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 58 : 124,
                             cellClass : function (params) {
-                                return " text-right grid-table f-12 d-border-right-grey";
+                                return " text-right grid-table f-12 d-border-aggrid-right";
                             }
                         },
                         { field: "sshares", headerName: "Shares", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 76 :124,
                             cellClass : function (params) {
-                                return " text-right grid-table f-12 d-border-right-grey";
+                                return " text-right grid-table f-12 d-border-aggrid-right";
                             },
                         }
                     ]
                 },
                 { field: "lqValTop", headerName: "", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 207,
                     cellClass : function (params) {
-                        return "text-success text-right  grid-table f-12 d-border-right-grey";
+                        return "text-success text-right  grid-table f-12 d-border-aggrid-right";
                     },children:[{ field: "lqValR", headerName: "Lq. Val", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 207,
                         cellClass : function (params) {
-                            return "text-success text-right  grid-table f-12 d-border-right-grey";
+                            return "text-success text-right  grid-table f-12 d-border-aggrid-right";
                         }
                     },]
                 },
@@ -2318,11 +2318,11 @@ class StockCashAgGrid extends React.PureComponent {
                 { field: "stockValTop", headerName: "", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 207,
                     cellClass : function (params) {
                         var pl = params.data.pl;
-                        return "text-success text-right  grid-table f-12 d-border-right-grey";
+                        return "text-success text-right  grid-table f-12 d-border-aggrid-right";
                     },children:[ { field: "stockValR", headerName: "Stock Val (Avg.)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 207,
                         cellClass : function (params) {
                             var pl = params.data.pl;
-                            return "text-success text-right  grid-table f-12 d-border-right-grey";
+                            return "text-success text-right  grid-table f-12 d-border-aggrid-right";
                         }
                     }]
                 }
@@ -2529,7 +2529,7 @@ class StockCashAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className={"card-305 ag-theme-balham-dark ag-bordered ag-header-gray table-bordered"}
+                    className={"card-305 ag-theme-balham-dark ag-bordered ag-header-gray table-bordered ag-striped-odd"}
                     id="myGrid"
                     style={{
                         width: "100%",
@@ -2555,49 +2555,49 @@ class TradeListAgGrid extends React.PureComponent {
             columnDefs: [
                 { field: "date", headerName: "Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 69 : 150,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12";
+                        return " grid-table text-center f-12 d-border-aggrid-right";
                     }, suppressSizeToFit: true
                 },
                 { field: "trade", headerName: "Trade", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 94 : 206,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table f-12 d-border-aggrid-right";
                     }
                 },
                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 92 : 207,
                     cellClass : function (params) {
-                        return "text-center  grid-table f-12";
+                        return "text-center grid-table f-12 d-border-aggrid-right";
                     }
                 },
                 { field: "cmd", headerName: "Action", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
                         var cmd = params.data.cmd;
-                        return cmd.includes('BUY') === true ? "text-danger text-center  grid-table f-12" :
-                            "text-success text-center  grid-table f-12";
+                        return cmd.includes('BUY') === true ? "text-danger text-center grid-table f-12 d-border-aggrid-right" :
+                            "text-success text-center  grid-table f-12 d-border-aggrid-right";
                     }
                 },
                 { field: "type", headerName: "Type", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 207,
                     cellClass : function (params) {
-                        return "text-center  grid-table f-12";
+                        return "text-center  grid-table f-12 d-border-aggrid-right";
                     }
                 },
                 { field: "vol", headerName: "Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table f-12 d-border-aggrid-right";
                     }
                 },
                 { field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table f-12 d-border-aggrid-right";
                     }
                 },
                 { field: "amount", headerName: "Amount", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table f-12 d-border-aggrid-right";
                     }
                 },
                 { field: "time", headerName: "Time", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table f-12 d-border-aggrid-right";
                     }
                 }
             ],
@@ -2725,7 +2725,7 @@ class TradeListAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className={"card-406 ag-theme-balham-dark ag-bordered table-bordered"}
+                    className={"card-406 ag-theme-balham-dark ag-bordered table-bordered ag-striped-odd"}
                     id="myGrid"
                     style={{
                         width: "100%",
@@ -2751,75 +2751,75 @@ class TransactionAgGrid extends React.PureComponent {
             columnDefs: [
                 { field: "date", headerName: "Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 69 : 150,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12";
+                        return " grid-table d-border-aggrid-right text-center f-12";
                     }, suppressSizeToFit: true
                 },
                 { field: "detail", headerName: "Detail", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 94 : 206,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "amount", headerName: "Amount", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 94 : 206,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 92 : 207,
                     cellClass : function (params) {
-                        return "text-center  grid-table f-12";
+                        return "text-center  grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "inOut", headerName: "In/Ou Qty.", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
-                        return "text-center  grid-table f-12";
+                        return "text-center  grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 207,
                     cellClass : function (params) {
-                        return "text-center  grid-table f-12";
+                        return "text-center  grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "balAmount", headerName: "Bal.Amount", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "balQty", headerName: "Bal. Qty", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "fee", headerName: "Fee", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "paidAmt", headerName: "Paid Amt", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "penalty", headerName: "Add Out-standing", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "addOut", headerName: "Add Out Standing", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "tradeAmt", headerName: "Trade Amt", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table d-border-aggrid-right f-12";
                     }
                 },{ field: "wht", headerName: "WHT", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table d-border-aggrid-right f-12";
                     }
                 },{ field: "incomeTax", headerName: "Income Tax", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table d-border-aggrid-right f-12";
                     }
                 }
             ],
@@ -2916,7 +2916,7 @@ class TransactionAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className={"card-406 ag-theme-balham-dark ag-bordered table-bordered"}
+                    className={"card-406 ag-theme-balham-dark ag-bordered table-bordered ag-striped-odd"}
                     id="myGrid"
                     style={{
                         width: "100%",
@@ -2943,54 +2943,54 @@ class FundAgGrid extends React.PureComponent {
             columnDefs: [
                 { field: "date", headerName: "Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 100,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12";
+                        return " grid-table d-border-aggrid-right text-center f-12";
                     }, suppressSizeToFit: true
                 },
                 { field: "order", headerName: "Order#", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 121,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 126,
                     cellClass : function (params) {
-                        return "text-center  grid-table f-12";
+                        return "text-center  grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "cmd", headerName: "Cmd", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 126,
                     cellClass : function (params) {
                         var cmd = params.data.cmd;
-                        return cmd.includes('BUY') === true ? "text-danger text-center  grid-table f-12" :
-                            "text-success text-center  grid-table f-12";
+                        return cmd.includes('BUY') === true ? "text-danger text-center  grid-table d-border-aggrid-right f-12" :
+                            "text-success text-center  grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "type", headerName: "Type", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 126,
                     cellClass : function (params) {
-                        return "text-center  grid-table f-12";
+                        return "text-center  grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "mkt", headerName: "Mkt", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 126,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "vol", headerName: "Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 126,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 126,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "amount", headerName: "Amount", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 126,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "time", headerName: "Time", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 124,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table d-border-aggrid-right f-12";
                     }
                 }
             ],
@@ -3118,7 +3118,7 @@ class FundAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className={"card-381 ag-theme-balham-dark ag-bordered table-bordered"}
+                    className={"card-381 ag-theme-balham-dark ag-bordered table-bordered ag-striped-odd"}
                     id="myGrid"
                     style={{
                         width: "100%",
@@ -3144,17 +3144,17 @@ class CancelGrid extends React.PureComponent {
             columnDefs: [
                 { field: "cw", headerName: "Cw#", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 84,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12";
+                        return " grid-table d-border-aggrid-right text-center f-12";
                     }, suppressSizeToFit: true
                 },
                 { field: "amount", headerName: "Amount", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 649,
                     cellClass : function (params) {
-                        return " text-right grid-table f-12";
+                        return " text-right grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "fee", headerName: "Fee", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 485,
                     cellClass : function (params) {
-                        return "text-right  grid-table f-12";
+                        return "text-right  grid-table d-border-aggrid-right f-12";
                     }
                 },
             ],
@@ -3231,7 +3231,7 @@ class CancelGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className={"card-155 ag-theme-balham-dark ag-bordered table-bordered h-100"}
+                    className={"card-155 ag-theme-balham-dark ag-bordered table-bordered h-100 ag-striped-odd"}
                     id="myGrid"
                     style={{
                         width: "100%",
@@ -3257,28 +3257,28 @@ class CancelGrid2 extends React.PureComponent {
             columnDefs: [
                 { field: "cw", headerName: "Cw #", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 100,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12";
+                        return " grid-table d-border-aggrid-right text-center f-12";
                     }, suppressSizeToFit: true
                 },
                 { field: "requestdate", headerName: "Request Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 282,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "transferdate", headerName: "Transfer Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 283,
                     cellClass : function (params) {
-                        return "text-center  grid-table f-12";
+                        return "text-center  grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "amount", headerName: "Amount", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 283,
                     cellClass : function (params) {
-                        return "text-right  grid-table f-12";
+                        return "text-right  grid-table d-border-aggrid-right f-12";
                     }
                 },
 
                 { field: "fee", headerName: "Fee", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 280,
                     cellClass : function (params) {
-                        return "text-right grid-table f-12";
+                        return "text-right grid-table d-border-aggrid-right f-12";
                     }
                 },
             ],
@@ -3357,7 +3357,7 @@ class CancelGrid2 extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className={"card-155 ag-theme-balham-dark ag-bordered table-bordered"}
+                    className={"card-155 ag-theme-balham-dark ag-bordered table-bordered ag-striped-odd"}
                     id="myGrid"
                     style={{
                         width: "100%",
@@ -3386,49 +3386,49 @@ class InquryAgGrid extends React.PureComponent {
             columnDefs: [
                 { field: "date", headerName: "Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 40 : 75,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12";
+                        return " grid-table d-border-aggrid-right text-center f-12";
                     }, suppressSizeToFit: true
                 },
                 { field: "trade", headerName: "Trade", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 94 : 206,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 92 : 207,
                     cellClass : function (params) {
-                        return "text-center  grid-table f-12";
+                        return "text-center  grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "cmd", headerName: "Action", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
                         var cmd = params.data.cmd;
-                        return cmd.includes('BUY') === true ? "text-danger text-center  grid-table f-12" :
-                            "text-success text-center  grid-table f-12";
+                        return cmd.includes('BUY') === true ? "text-danger text-center  grid-table d-border-aggrid-right f-12" :
+                            "text-success text-center  grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "type", headerName: "Type", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 207,
                     cellClass : function (params) {
-                        return "text-center  grid-table f-12";
+                        return "text-center  grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "vol", headerName: "Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "amount", headerName: "Amount", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "time", headerName: "Time", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
                     cellClass : function (params) {
-                        return " text-center grid-table f-12";
+                        return " text-center grid-table d-border-aggrid-right f-12";
                     }
                 }
             ],
@@ -3490,7 +3490,7 @@ class InquryAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className={"card-490 ag-theme-balham-dark ag-bordered table-bordered"}
+                    className={"card-490 ag-theme-balham-dark ag-bordered table-bordered ag-striped-odd"}
                     id="myGrid"
                     style={{
                         width: "100%",
