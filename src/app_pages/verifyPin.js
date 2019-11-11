@@ -3,6 +3,7 @@ import PinInput from "react-pin-input";
 import {AppFrameAction} from "../appframe";
 import {Table, Alert} from "react-bootstrap";
 import AmendArrow from "./../img/amend-arrow.svg";
+import $ from "jquery";
 
 class AlertPinSalah extends React.PureComponent{
     render() {
@@ -120,6 +121,14 @@ class VerifyPIN extends React.PureComponent{
         });
     }
 
+    componentDidMount(){
+        $(".pincode-input-text").on('keypress',function(e) {
+            if(e.which == 13) {
+                $("#pin-click-verify").click();
+            }
+        });
+    }
+
     render(){
         const {value} = this.state;
         return(
@@ -156,7 +165,7 @@ class VerifyPIN extends React.PureComponent{
 
                     <div className="form-group py-3">
                         <div className="justify-content-center align-items-center d-flex py-0">
-                            <button type="submit" className=
+                            <button id="pin-click-verify" type="submit" className=
                                 {
                                     this.props.tipe === 'buy'? 'btn btn-danger form-control py-0' :
                                         this.props.tipe === 'sell'? 'btn btn-success form-control py-0' :
