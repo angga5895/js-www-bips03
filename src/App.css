@@ -1,3 +1,31 @@
+@media (min-width: 1160px) {
+    .p-pinportofolio{
+        padding-left: 27%;
+        padding-right: 27%;
+    }
+}
+
+@media (min-width: 1047px) and (max-width: 1159px) {
+    .p-pinportofolio{
+        padding-left: 24%;
+        padding-right: 24%;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1046px) {
+    .p-pinportofolio{
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+}
+
+@media (max-width: 991px) {
+    .p-pinportofolio{
+        padding-left: 12%;
+        padding-right: 12%;
+    }
+}
+
 .td-even{
     background-color: var(--warna-background-semantic) !important;
 }
