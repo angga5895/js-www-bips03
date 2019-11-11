@@ -15,7 +15,7 @@ import FillHeaderTab from "../tabheaderfill";
 import ModalBuy from './../app_modals/modal_buy';
 import ModalSell from "./../app_modals/modal_sell";
 import ModalAmend from "./../app_modals/modal_amend";
-import VerifyPIN from "./verifyPin";
+import VerifyPIN, {tanggal} from "./verifyPin";
 import ModalOrderDetail from "./../app_modals/modal_order_detail";
 import ReactTooltip from "react-tooltip";
 import {AgGridReact} from "ag-grid-react";
@@ -25,6 +25,8 @@ import $ from "jquery";
 import user_avatar from "../img/man.png";
 import MenuOfContent from "../menuofcontent";
 import '../bootstrap-3.3.7/bootstrap-datepicker.min.css';
+import PinInput from "react-pin-input";
+import {Table} from "react-bootstrap";
 
 const stateOptionsLp = [
     { key: 'lastprice', value: 'lastprice', text: 'Last Price' },
@@ -298,18 +300,23 @@ class LandingPage_Base extends React.PureComponent {
                                     </div>
                                 </div>
                                 <div className="container px-0 mx-0 col-sm-12" style={{display : this.props.stateLanding === '0' ? 'block' : 'none'}}>
-                                    <div className="card-header card-header-investment bg-grey h-40">
-                                        <div className="row col-sm-12 px-0 mx-0 py-1">
-                                            <div className="col-sm-4 px-4 mx-0 f-14">
-                                                Stock Val : <span className="text-primary">15,234,000</span>
-                                            </div>
-                                            <div className="col-sm-4 px-4 mx-0 f-14">
-                                                P/L : <span className="text-success">+1,496,198 (+7.50%)</span>
+                                    <div id="pinPortofolio" className="d-block text-center align-self-center">
+                                        <VerifyPINPortofolio/>
+                                    </div>
+                                    <div id="detailPortofolio" className="d-none">
+                                        <div className="card-header card-header-investment bg-grey h-40">
+                                            <div className="row col-sm-12 px-0 mx-0 py-1">
+                                                <div className="col-sm-4 px-4 mx-0 f-14">
+                                                    Stock Val : <span className="text-primary">15,234,000</span>
+                                                </div>
+                                                <div className="col-sm-4 px-4 mx-0 f-14">
+                                                    P/L : <span className="text-success">+1,496,198 (+7.50%)</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className="card-body">
-                                        <PortofolioAgGrid gridView="tab" classView="f-12" clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} tp1="ptooltip1" tp2="ptooltip2" tp3="ptooltip3" tp4="ptooltip4" tp5="ptooltip5"/>
+                                        <div className="card-body">
+                                            <PortofolioAgGrid gridView="tab" classView="f-12" clickbuy={this.buttonClickBuy} clicksell={this.buttonClickSell} tp1="ptooltip1" tp2="ptooltip2" tp3="ptooltip3" tp4="ptooltip4" tp5="ptooltip5"/>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="container px-0 mx-0 col-sm-12" style={{display : this.props.stateLanding === '1' ? 'block' : 'none'}}>
@@ -596,27 +603,23 @@ class ModalHistorical extends React.Component {
                             </div>
                         </div>*/}
                         <div className="col-sm-12 h-62">
-                            <div className="ui small input col-sm-5 f-12 text-center align-self-center black ver-center">
+                            <div className="ui small input col-sm-8 f-12 text-center align-self-center black ver-center">
                                 {/* <Input type="text" /> */}
+                                {/*Update Zaky*/}
                                 <table>
                                     <tr>
                                         <td>
-                                            <div className="input-group input-daterange datePickStyle">
-                                                <input placeholder="Date" id="startDate1" name="startDate1" type="text" className="form-control date-clear black-dropdown" readOnly="readonly" />
-                                                <span className="input-group-addon black-dropdown">
-                                                <span className="fa fa-calendar-alt black-dropdown"></span>
-                                              </span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            To&nbsp;&nbsp;
-                                        </td>
-                                        <td>
-                                            <div className="input-group input-daterange datePickStyle">
-                                                <input placeholder="Date" id="startDate1" name="startDate1" type="text" className="form-control date-clear black-dropdown" readOnly="readonly" />
-                                                <span className="input-group-addon black-dropdown">
-                                                <span className="fa fa-calendar-alt black-dropdown"></span>
-                                                </span>
+                                            <div className="input-group input-daterange input-daterangestock h-35" style={{"z-index":0}}>
+                                                <span className="input-group-addon h-35">Periode</span>
+                                                <input placeholder="dd/mm/yyyy" id="startDateFirst" name="startDate1" type="text" className="form-control date-clear h-35" readOnly="readonly" />
+                                                <span className="input-group-addon h-35">
+                                                                        <span className="fa fa-calendar-alt"></span>
+                                                                    </span>
+                                                <span className="input-group-addon h-35">to</span>
+                                                <input placeholder="dd/mm/yyyy" id="endDateFirst" name="endDate1" type="text" className="form-control date-clear h-35" readOnly="readonly" />
+                                                <span className="input-group-addon h-35">
+                                                                        <span className="fa fa-calendar-alt"></span>
+                                                                    </span>
                                             </div>
                                         </td>
                                         <td>
@@ -648,7 +651,7 @@ class ModalTransaction extends React.Component {
         $(document).ready(function() {
             var sd = new Date(), ed = new Date();
             var isRtl = $('html').attr('dir') === 'rtl';
-            $('.input-daterange').datepicker({
+            $('.input-daterangeTransaction').datepicker({
                 orientation: isRtl ? 'auto right' : 'auto left',
                 format: "dd/mm/yyyy",
                 changeMonth: true,
@@ -659,6 +662,7 @@ class ModalTransaction extends React.Component {
                 todayHighlight: true,
                 todayBtn: "linked",
             });
+
         });
     }
     render() {
@@ -699,27 +703,23 @@ class ModalTransaction extends React.Component {
                             </div>
                         </div>*/}
                         <div className="col-sm-12 h-62">
-                            <div className="ui small input col-sm-5 f-12 text-center align-self-center black ver-center">
+                            <div className="ui small input col-sm-8 f-12 text-center align-self-center black ver-center">
                                 {/* <Input type="text" /> */}
+                                {/* Update Zaky */}
                                 <table>
                                     <tr>
                                         <td>
-                                            <div className="input-group input-daterange datePickStyle">
-                                                <input placeholder="Date" id="startDate1" name="startDate1" type="text" className="form-control date-clear black-dropdown" readOnly="readonly" />
-                                                <span className="input-group-addon black-dropdown">
-                                                <span className="fa fa-calendar-alt black-dropdown"></span>
-                                              </span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            To&nbsp;&nbsp;
-                                        </td>
-                                        <td>
-                                            <div className="input-group input-daterange datePickStyle">
-                                                <input placeholder="Date" id="startDate1" name="startDate1" type="text" className="form-control date-clear black-dropdown" readOnly="readonly" />
-                                                <span className="input-group-addon black-dropdown">
-                                                <span className="fa fa-calendar-alt black-dropdown"></span>
-                                                </span>
+                                            <div className="input-group input-daterange input-daterangestock h-35" style={{"z-index":0}}>
+                                                <span className="input-group-addon h-35">Periode</span>
+                                                <input placeholder="dd/mm/yyyy" id="startDateFirst" name="startDate1" type="text" className="form-control date-clear h-35" readOnly="readonly" />
+                                                <span className="input-group-addon h-35">
+                                                                        <span className="fa fa-calendar-alt"></span>
+                                                                    </span>
+                                                <span className="input-group-addon h-35">to</span>
+                                                <input placeholder="dd/mm/yyyy" id="endDateFirst" name="endDate1" type="text" className="form-control date-clear h-35" readOnly="readonly" />
+                                                <span className="input-group-addon h-35">
+                                                                        <span className="fa fa-calendar-alt"></span>
+                                                                    </span>
                                             </div>
                                         </td>
                                         <td>
@@ -765,7 +765,7 @@ class FundTransfer_Base extends React.PureComponent {
         $(document).ready(function() {
             var sd = new Date(), ed = new Date();
             var isRtl = $('html').attr('dir') === 'rtl';
-            $('.input-daterange').datepicker({
+            $('.input-daterangeTransaction').datepicker({
                 orientation: isRtl ? 'auto right' : 'auto left',
                 format: "dd/mm/yyyy",
                 changeMonth: true,
@@ -774,6 +774,17 @@ class FundTransfer_Base extends React.PureComponent {
                 autoclose: true,
                 endDate : sd,
                 todayHighlight: true,
+                todayBtn: "linked",
+            });
+
+            // Zaky Update
+            $('#datepickerTest').datepicker({
+                orientation: isRtl ? 'auto right' : 'auto left',
+                format: "dd/mm/yyyy",
+                changeMonth: true,
+                changeYear: true,
+                startDate: '01/01/2000',
+                autoclose: true,
                 todayBtn: "linked",
             });
         });
@@ -863,37 +874,38 @@ class FundTransfer_Base extends React.PureComponent {
                                 <div className="row">
                                     <div className="col-md-12">
                                         <div className="p-2">If the above bank Information is wrong, please contact our call center at 14099 or by website www.directtrading.co.id</div>
-                                        <div className="d-border">
-                                            <div className="col-md-12 p-3">
-                                                <div className="row p-3">
-                                                    <div className="col-md-2">
-                                                        Amount (Not Including Fee)
-                                                    </div>
-                                                    <div className="col-md-1">
-                                                        IDR
-                                                    </div>
-                                                    <div className="col-md-3">
-                                                        <Input readonly defaultValue='Astra Argo Lestari Tbk.' placeholder='Name' size='small' className="col-sm-12 pl-4 pr-0 text-center align-self-center"/>
-                                                    </div>
-                                                    <div className="col-md-2">
-                                                        Withdrawable Amount
-                                                    </div>
-                                                    <div className="col-md-1">
-                                                        IDR
-                                                    </div>
-                                                    <div className="col-md-3">
-                                                        <Input readonly defaultValue='Astra Argo Lestari Tbk.' placeholder='Name' size='small' className="col-sm-12 pl-4 pr-0 text-center align-self-center"/>
-                                                    </div>
-                                                </div>
-                                                <div className="row p-3">
+                                            <div className="d-border">
+                                                <div className="col-md-12 p-3">
+                                                    <div className="row p-3">
+                                                        <div className="col-md-2">
+                                                            Amount (Not Including Fee)
+                                                        </div>
+                                                        <div className="col-md-1">
+                                                            IDR
+                                                        </div>
+                                                        <div className="col-md-3">
+                                                            <Input readonly defaultValue='Astra Argo Lestari Tbk.' placeholder='Name' size='small' className="col-sm-12 pl-4 pr-0 text-center align-self-center"/>
+                                                        </div>
+                                                        <div className="col-md-2">
+                                                            Withdrawable Amount
+                                                        </div>
+                                                        <div className="col-md-1">
+                                                            IDR
+                                                        </div>
+                                                        <div className="col-md-3">
+                                                            <Input readonly defaultValue='Astra Argo Lestari Tbk.' placeholder='Name' size='small' className="col-sm-12 pl-4 pr-0 text-center align-self-center"/>
+                                                        </div>
+                                                    </div> <div className="row p-3">
                                                     <div className="col-md-2">
                                                         Transfer Date (T1/T2)
                                                     </div>
                                                     <div className="col-md-1">
 
                                                     </div>
-                                                    <div className="col-md-3">
-                                                        <Input defaultValue='Astra Argo Lestari Tbk.' placeholder='Name' size='small' className="col-sm-12 pl-4 pr-0 text-center align-self-center"/>
+                                                    <div className="col-md-3 ui input" style={{paddingRight:'53px'}}>
+                                                        <Input placeholder='dd/mm/yy' size='small' id="datepickerTest" className="col-sm-12 pl-4 pr-0 text-center align-self-center"/>
+                                                        <span className="input-group-addon h-35 no-border-radius" style={{width: '100%'}}><span
+                                                            className="fa fa-calendar-alt"></span></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -919,30 +931,23 @@ class FundTransfer_Base extends React.PureComponent {
                                     <div className="d-border-bottom mb-3">
                                         <div className="form-group mb-3 px-0">
                                             <div className="col-sm-9 pl-0 h-62">
-                                                <div className="ui small pl-0 input col-sm-5 f-12 text-center align-self-center black ver-center">
+                                                <div className="ui small input col-sm-8 f-12 text-center align-self-center black ver-center">
                                                     {/* <Input type="text" /> */}
+                                                    {/* Update Zaky */}
                                                     <table>
                                                         <tr>
-                                                            <td className={"text-white"}>
-                                                                Periode&nbsp;&nbsp;
-                                                            </td>
                                                             <td>
-                                                                <div className="input-group input-daterange datePickStyle">
-                                                                    <input placeholder="Date" id="startDate1" name="startDate1" type="text" className="form-control date-clear black-dropdown" readOnly="readonly" />
-                                                                    <span className="input-group-addon black-dropdown">
-                                                <span className="fa fa-calendar-alt black-dropdown"></span>
-                                              </span>
-                                                                </div>
-                                                            </td>
-                                                            <td className={"text-white"}>
-                                                                To&nbsp;&nbsp;
-                                                            </td>
-                                                            <td>
-                                                                <div className="input-group input-daterange datePickStyle">
-                                                                    <input placeholder="Date" id="startDate1" name="startDate1" type="text" className="form-control date-clear black-dropdown" readOnly="readonly" />
-                                                                    <span className="input-group-addon black-dropdown">
-                                                <span className="fa fa-calendar-alt black-dropdown"></span>
-                                                </span>
+                                                                <div className="input-group input-daterange input-daterangestock h-35" style={{"z-index":0}}>
+                                                                    <span className="input-group-addon h-35">Periode</span>
+                                                                    <input placeholder="dd/mm/yyyy" id="startDateFirst" name="startDate1" type="text" className="form-control date-clear h-35" readOnly="readonly" />
+                                                                    <span className="input-group-addon h-35">
+                                                                    <span className="fa fa-calendar-alt"></span>
+                                                                </span>
+                                                                    <span className="input-group-addon h-35">to</span>
+                                                                    <input placeholder="dd/mm/yyyy" id="endDateFirst" name="endDate1" type="text" className="form-control date-clear h-35" readOnly="readonly" />
+                                                                    <span className="input-group-addon h-35">
+                                                                    <span className="fa fa-calendar-alt"></span>
+                                                                </span>
                                                                 </div>
                                                             </td>
                                                             <td>
@@ -3514,6 +3519,197 @@ class InquryAgGrid extends React.PureComponent {
         handleView:(isGrid)=>{actions.sendAction('handleView',{isGrid})},
     })
 )(CustomFrameHeaderLanding_Base);*/
+
+class VerifyPINPortofolio extends React.PureComponent{
+    constructor(props){
+        super(props);
+    }
+
+    state = {
+        value: "",
+        visible:false
+    }
+
+    onChange = value =>{
+        this.setState({ value });
+    };
+
+    _handleKeyPress(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            alert('Yuhu Yuhu');
+        }
+    }
+
+    onClickSubmit = (e) => {
+        if(this.state.value.length >= '6'){
+            if(this.state.value === '123456') {
+                $("#pinPortofolio").removeClass("d-block");
+                $("#pinPortofolio").addClass("d-none");
+                $("#detailPortofolio").addClass("d-block");
+                $("#detailPortofolio").removeClass("d-none");
+            } else{
+                var visible = true;
+                this.setState({ visible });
+            }
+        }
+    };
+
+    onClickCloseAlert = (e) => {
+        var visible = false;
+        var value = "";
+        this.setState({ visible });
+        this.pin.clear();
+        this.setState({ value });
+    };
+
+    forgotPIN = (e) =>{
+        var frameAction = this.refs.frameAction;
+        frameAction.showModal({
+            headerClass: () => <div className="text-white text-center"><h1 className="text-center">BIPS</h1></div>,
+            contentClass: ForgotPINPModal,
+            onClose: (result) => console.log('Second modal result = ', result),
+            size: "mini"
+        });
+    }
+
+    componentDidMount(){
+        $(".pincode-input-text").on('keypress',function(e) {
+            if(e.which == 13) {
+                $("#pin-click").click();
+            }
+        });
+    }
+
+    render(){
+        const {value} = this.state;
+        return(
+            <>
+                <AppFrameAction ref="frameAction" />
+                <div className="text-white f-12 p-pinportofolio" style={{ paddingTop: "60px" }}>
+                    <Table borderless className="card-334 mb-0">
+                        <tbody>
+                        <tr>
+                            <td className="py-0">
+
+                                <div className="text-center align-self-center align-middle">
+                                    <div className="d-border-bold img-round-icon">
+                                        <i className="icofont icofont-lock icofont-4x"></i>
+                                    </div>
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="py-0">
+
+                                <div className="form-group text-center pt-2 mb-0">
+                                    <label className="col-sm-12 px-5 py-2 col-form-label f-14 font-weight-bold">Please enter security PIN</label>
+                                    <label className="col-sm-12 px-5 py-2 col-form-label">Please fullfill with 6 digit security
+                                        PIN to verify your transaction</label>
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+
+                                <div className="form-group mb-0">
+                                    <PinInput
+                                        inputStyle={{"color":/*cssmode == 'night' ? '#FFFFFF':*/'#999999', "border":"#565252 1px solid","border-radius":"10%","width":"15.25%"}}
+                                        inputFocusStyle={{"color":/*cssmode == 'night' ? '#FFFFFF':*/'#999999', "border":"#065A96 1px solid", "border-radius":"10%","width":"15.25%"}}
+                                        length={6}
+                                        focus
+                                        secret
+                                        ref={p => (this.pin = p)}
+                                        type="numeric"
+                                        onChange={this.onChange}
+                                    />
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+
+                                <div className="form-group">
+                                    <label className="col-sm-12 py-2 px-1 col-form-label">Forgot your PIN?
+                                        <span className="click-pointer btn btn-link text-primary" onClick={this.forgotPIN}> Click here</span>
+                                    </label>
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+
+                                <div className="form-group py-3 mb-0">
+                                    <div className="justify-content-center align-items-center d-flex py-0">
+                                        <button id="pin-click" type="submit" className={'btn btn-grey-gray form-control py-0'}
+                                                onClick={this.onClickSubmit}>
+                                            Submit
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </Table>
+
+                    <div className={this.state.visible ? "col-sm-12 text-center bg-danger fade-in" : "col-sm-12 text-center bg-danger fade-out"}>
+                        <div className={/*{cssmode == 'night'? */"px-2 pt-2 text-right text-white" /*: "px-2 pt-2 text-right text-black"*/}><i className="click-pointer icofont icofont-close" onClick={this.onClickCloseAlert}></i></div>
+                        <div className={/*cssmode == 'night'? */"px-2 py-4 text-white" /*: "px-2 py-4 text-black"*/}>
+                            PIN is wrong!
+                        </div>
+                    </div>
+                </div>
+            </>
+        );
+    }
+}
+
+class ForgotPINPModal extends React.Component {
+    closeClick = (e) => {
+        this.refs.frameAction.closeModal(100);
+    }
+
+    render() {
+        return (
+            <div className="f-12">
+                <AppFrameAction ref="frameAction" />
+                <label className="col-sm-12 px-5 py-2 col-form-label text-gray-tradding">Forgot PIN</label>
+                <div className="text-white">
+                    <div className="form-group">
+                        <label className="col-sm-12 px-5 py-2 col-form-label">Enter your email address and we'll
+                            send link to reset your PIN
+                        </label>
+                    </div>
+                    <div className="form-group mb-0">
+                        <label className="col-sm-12 px-5 py-2 col-form-label">Email</label>
+                        <div className="col-sm-12 px-5 py-0">
+                            <input type="email" className="text-white input-login col-sm-12"/>
+                        </div>
+                    </div>
+
+                    <div className="form-group py-3">
+                        <div className="justify-content-center align-items-center d-flex py-0 px-5">
+                            <button type="submit" className="btn btn-primary form-control py-0">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+
+                    <div className="form-group text-center">
+                        <label className="col-sm-12 px-5 py-2 col-form-label">
+                            <span className="click-pointer btn btn-link text-primary" onClick={this.closeClick}> Back to Verify PIN</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+}
 
 const LandingPage = ContextConnector(BIPSAppContext,
     (vars, actions, props) => ({
