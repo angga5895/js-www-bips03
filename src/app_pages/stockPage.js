@@ -675,11 +675,11 @@ class BuyPage extends React.Component{
             <>
                 <AppFrameAction ref="frameAction" />
                 <WSConnectionAction /> {/* websocket connection component */}
-                <div className="col sm-8 px-0 mx-0 row">
-                    <div className="col-sm-6 py-4 px-3 mt-0 f-12 bg-dark-grey d-border-active">
+                <div className="col sm-8 px-0 mx-0 row d-border">
+                    <div className="col-sm-6 py-4 px-3 mt-0 f-12 bg-dark-grey">
                         <TableInfoTransaction lotshare={(this.state.activeTab === 1) ? "buyPage" : "sellPage"} />
                     </div>
-                    <div className="col-sm-6 mt-0 d-border-active bg-dark-grey pt-0 pb-3 px-3 card-515">
+                    <div className="col-sm-6 mt-0 bg-dark-grey pt-0 pb-3 px-3 card-515">
                         <div className="cssmenumodal bg-dark-grey pb-0 col-sm-12 mx-0 px-0 h-33">
                             <ul>
                                 <li className={ (this.state.activeTab === 1)  ? 'd-border-bottom active click-pointer col-sm-6 px-0 mx-0 f-12 text-center' : 'd-border-bottom text-white click-pointer col-sm-6 px-0 mx-0 f-12 text-center' }
