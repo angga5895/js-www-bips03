@@ -404,97 +404,83 @@ class StockCash_Base extends React.Component{
             <>
                 <AppFrameAction ref="frameAction" />
 
-                <div className="container-fluid">
-                    <div className="row f-12">
-                        <div className="col-sm-2 px-1 card-527">
-                            <div className="row stockcash-header h-77" style={imgUser}>
-                                <div className="col-md-12 h-77" style={imgdisplay}>
+                <div className="container-fluid px-0 bg-black-trading f-12">
+                    <div className="card-527 col-sm-12 px-0 mx-0 row">
+                        <div className="col-sm-2 px-1">
+                            <div className="stockcash-header h-77" style={imgUser}>
+                                <div className="col-sm-12 h-77" style={imgdisplay}>
                                     <img src={user_avatar} alt="User" className="img-avatar d-border mr-2" /><p style={paddingParagraph}>Mr. John Doe<br /><i>001-01-008538</i></p>
                                 </div>
                             </div>
-                            <div className="row">
-                                <div className="col-sm-12">
-                                    <ul className="list-group card-448 f-14 mb-0">
-                                        <li className="list-group-item-portofolio">Cash and Balance <br/><span className="text-primary pull-right">5,911,198</span></li>
-                                        <li className="list-group-item-portofolio">P/L <br/><span className="text-success pull-right">1,496,198</span></li>
-                                        <li className="list-group-item-portofolio">P/L Ratio <br/><span className="text-success pull-right">+7.50%</span></li>
-                                        <li className="list-group-item-portofolio">Cash Ballance T+2 <br/><span className="text-primary pull-right">4,500,000</span></li>
-                                        <li className="list-group-item-portofolio">Buy Limit <br/><span className="pull-right">15,980,000</span></li>
-                                        <li className="list-group-item-portofolio">Stock Value <br/><span className="pull-right">15,234,000</span></li>
-                                        <li className="list-group-item-portofolio">Unsettled Amt <br/><span className="pull-right">?</span></li>
-                                        <li className="list-group-item-portofolio">Mkt. Value <br/><span className="pull-right">4,400,000</span></li>
-                                    </ul>
-                                </div>
+                            <div className="col-sm-12 px-0">
+                                <ul className="list-group card-448 f-14 mb-0">
+                                    <li className="list-group-item-portofolio">Cash and Balance <br/><span className="text-primary pull-right">5,911,198</span></li>
+                                    <li className="list-group-item-portofolio">P/L <br/><span className="text-success pull-right">1,496,198</span></li>
+                                    <li className="list-group-item-portofolio">P/L Ratio <br/><span className="text-success pull-right">+7.50%</span></li>
+                                    <li className="list-group-item-portofolio">Cash Ballance T+2 <br/><span className="text-primary pull-right">4,500,000</span></li>
+                                    <li className="list-group-item-portofolio">Buy Limit <br/><span className="pull-right">15,980,000</span></li>
+                                    <li className="list-group-item-portofolio">Stock Value <br/><span className="pull-right">15,234,000</span></li>
+                                    <li className="list-group-item-portofolio">Unsettled Amt <br/><span className="pull-right">?</span></li>
+                                    <li className="list-group-item-portofolio">Mkt. Value <br/><span className="pull-right">4,400,000</span></li>
+                                </ul>
                             </div>
                         </div>
                         <div className="col-sm-10 px-0">
-                            <div className="row">
-                                <div className="col-md-12">
-                                    <StockCashAgGrid/>
-                                </div>
+                            <div className="col-sm-12 px-0">
+                                <StockCashAgGrid/>
                             </div>
-                            <div className="row">
-                                <div className="col-sm-12">
-                                    <div className="row">
-                                        <div className="col-sm-12 card-221">
-                                            <p className="text-left mt-3 mb-0 h-17">Settlement</p>
-                                            <div className="row">
-                                                <div className="col-sm-12">
-                                                    <table className="table text-white d-border-table bg-dark-grey table-sm table-borderless mb-0 card-194">
-                                                        <tr>
-                                                            <td className="no-wrap bg-gray-tradding d-border-tr-black py-2">Date</td>
-                                                            <td className="d-border-tr-gray-all py-2">22/6/2019</td>
-                                                            <td className="d-border-tr-gray-all py-2">23/6/2019</td>
-                                                            <td className="d-border-tr-gray-all py-2">24/6/2019</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td className="no-wrap bg-gray-tradding d-border-tr-black py-2">Receiveable</td>
-                                                            <td className="d-border-tr-gray-all text-right py-2">0</td>
-                                                            <td className="d-border-tr-gray-all text-right py-2">0</td>
-                                                            <td className="d-border-tr-gray-all text-right py-2">0</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td className="no-wrap bg-gray-tradding d-border-tr-black py-2">Payable</td>
-                                                            <td className="d-border-tr-gray-all text-right py-2">0</td>
-                                                            <td className="d-border-tr-gray-all text-right py-2">1,411,168</td>
-                                                            <td className="d-border-tr-gray-all text-right py-2">0</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td className="no-wrap bg-gray-tradding d-border-tr-black py-2">Tax + Fee</td>
-                                                            <td className="d-border-tr-gray-all text-right py-2">0</td>
-                                                            <td className="d-border-tr-gray-all text-right py-2">-30</td>
-                                                            <td className="d-border-tr-gray-all text-right py-2">0</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td className="no-wrap bg-gray-tradding d-border-tr-black py-2">Penalty</td>
-                                                            <td className="d-border-tr-gray-all text-right py-2">0</td>
-                                                            <td className="d-border-tr-gray-all text-right py-2">0</td>
-                                                            <td className="d-border-tr-gray-all text-right py-2">0</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td className="no-wrap bg-gray-tradding d-border-tr-black py-2">Settlement Amount</td>
-                                                            <td className="d-border-tr-gray-all text-right py-2">0</td>
-                                                            <td className="d-border-tr-gray-all text-right py-2">- 1,411,168</td>
-                                                            <td className="d-border-tr-gray-all text-right py-2">0</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td className="no-wrap bg-gray-tradding d-border-tr-black py-2">Cash Balance</td>
-                                                            <td className="d-border-tr-gray-all text-right py-2">5,911,198</td>
-                                                            <td className="d-border-tr-gray-all text-right py-2">4,500,000</td>
-                                                            <td className="d-border-tr-gray-all text-right py-2">4,500,000</td>
-                                                        </tr>
-                                                        <tr className="d-border-footer">
-                                                            <td className="no-wrap bg-gray-tradding d-border-tr-gray py-2">Total</td>
-                                                            <td className="d-border-tr-gray-all text-right py-2">5,911,198</td>
-                                                            <td className="d-border-tr-gray-all text-right py-2">4,500,000</td>
-                                                            <td className="d-border-tr-gray-all text-right py-2">4,500,000</td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div className="col-sm-12 card-221 px-0">
+                                <p className="text-left mt-3 mb-0 h-17">Settlement</p>
+                                <table className="table text-white d-border-table bg-dark-grey table-sm table-borderless mb-0 card-194">
+                                    <tr>
+                                        <td className="no-wrap bg-gray-tradding d-border-tr-black py-2">Date</td>
+                                        <td className="d-border-tr-gray-all py-2">22/6/2019</td>
+                                        <td className="d-border-tr-gray-all py-2">23/6/2019</td>
+                                        <td className="d-border-tr-gray-all py-2">24/6/2019</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="no-wrap bg-gray-tradding d-border-tr-black py-2">Receiveable</td>
+                                        <td className="d-border-tr-gray-all text-right py-2">0</td>
+                                        <td className="d-border-tr-gray-all text-right py-2">0</td>
+                                        <td className="d-border-tr-gray-all text-right py-2">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="no-wrap bg-gray-tradding d-border-tr-black py-2">Payable</td>
+                                        <td className="d-border-tr-gray-all text-right py-2">0</td>
+                                        <td className="d-border-tr-gray-all text-right py-2">1,411,168</td>
+                                        <td className="d-border-tr-gray-all text-right py-2">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="no-wrap bg-gray-tradding d-border-tr-black py-2">Tax + Fee</td>
+                                        <td className="d-border-tr-gray-all text-right py-2">0</td>
+                                        <td className="d-border-tr-gray-all text-right py-2">-30</td>
+                                        <td className="d-border-tr-gray-all text-right py-2">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="no-wrap bg-gray-tradding d-border-tr-black py-2">Penalty</td>
+                                        <td className="d-border-tr-gray-all text-right py-2">0</td>
+                                        <td className="d-border-tr-gray-all text-right py-2">0</td>
+                                        <td className="d-border-tr-gray-all text-right py-2">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="no-wrap bg-gray-tradding d-border-tr-black py-2">Settlement Amount</td>
+                                        <td className="d-border-tr-gray-all text-right py-2">0</td>
+                                        <td className="d-border-tr-gray-all text-right py-2">- 1,411,168</td>
+                                        <td className="d-border-tr-gray-all text-right py-2">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="no-wrap bg-gray-tradding d-border-tr-black py-2">Cash Balance</td>
+                                        <td className="d-border-tr-gray-all text-right py-2">5,911,198</td>
+                                        <td className="d-border-tr-gray-all text-right py-2">4,500,000</td>
+                                        <td className="d-border-tr-gray-all text-right py-2">4,500,000</td>
+                                    </tr>
+                                    <tr className="d-border-footer">
+                                        <td className="no-wrap bg-gray-tradding d-border-tr-gray py-2">Total</td>
+                                        <td className="d-border-tr-gray-all text-right py-2">5,911,198</td>
+                                        <td className="d-border-tr-gray-all text-right py-2">4,500,000</td>
+                                        <td className="d-border-tr-gray-all text-right py-2">4,500,000</td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -3534,12 +3520,6 @@ class VerifyPINPortofolio extends React.PureComponent{
         this.setState({ value });
     };
 
-    _handleKeyPress(event) {
-        if (event.keyCode === 13) {
-            event.preventDefault();
-            alert('Yuhu Yuhu');
-        }
-    }
 
     onClickSubmit = (e) => {
         if(this.state.value.length >= '6'){
@@ -3574,6 +3554,7 @@ class VerifyPINPortofolio extends React.PureComponent{
     }
 
     componentDidMount(){
+        this.pin.clear();
         $(".pincode-input-text").on('keypress',function(e) {
             if(e.which == 13) {
                 $("#pin-click").click();
@@ -3621,7 +3602,7 @@ class VerifyPINPortofolio extends React.PureComponent{
                                         length={6}
                                         focus
                                         secret
-                                        ref={p => (this.pin = p)}
+                                        ref={p => this.pin = p}
                                         type="numeric"
                                         onChange={this.onChange}
                                     />
