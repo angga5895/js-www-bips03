@@ -1,3 +1,13 @@
+.d-border-gray{
+    border: 1px solid var(--warna-gray)!important;
+}
+
+.d-border-left-half{
+    border-left: 0.5px solid var(--warna-gray)!important;
+}.d-border-right-half{
+    border-right: 0.5px solid var(--warna-gray)!important;
+}
+
 @media (min-width: 1160px) {
     .p-pinportofolio{
         padding-left: 27%;
@@ -43,7 +53,7 @@ div.stockOps > div {
 }
 
 .d-border-aggrid-right{
-    border-right: 1px solid var(--warna-btn-dark-hover)!important;
+    border-right: 1px solid var(--warna-dasar)!important;
 }
 
 /*for grid odd*/
@@ -108,7 +118,7 @@ div.ag-theme-balham-dark.ag-striped-odd > span > div > div > div > div > div > d
 }
 
 .table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td{
-    border : 1px solid var(--warna-d-border)!important;
+    border : 1px solid var(--warna-hover-menu)!important;
 }
 
 .d-border-footer{
