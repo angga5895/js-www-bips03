@@ -253,14 +253,14 @@ class StockPage_Base extends React.PureComponent {
         borderRadius: 5,
         colors: {
             ...theme.colors,
-            neutral0: this.props.thememode === true ? '#202542' : '#E9E9E9',
-            neutral20: this.props.thememode === true ? '#2D3866' : '#CDCDCE',
-            neutral30: this.props.thememode === true ? '#2D3866' : '#CDCDCE',
-            neutral40: this.props.thememode === true ? '#202542' : '#1A1A1A',
-            neutral80: this.props.thememode === true ? '#A1A7C4' : '#878787',
+            neutral0: this.props.thememode === true ? '#3D3E3F' : '#CDCDCE',
+            neutral20: this.props.thememode === true ? '#333332' : '#E9E9E9',
+            neutral30: this.props.thememode === true ? '#333332' : '#E9E9E9',
+            neutral40: this.props.thememode === true ? '#1A1A1A' : '#1A1A1A',
+            neutral80: this.props.thememode === true ? '#FFFFFF' : '#878787',
             primary75: this.props.thememode === true ? '#FFFFFF' : '#FFFFFF',
-            primary50: this.props.thememode === true ? '#2D3866' : '#4D4D4E',
-            primary25: this.props.thememode === true ? '#3f5798' : '#dedbdc',
+            primary50: this.props.thememode === true ? '#4D4D4E' : '#4D4D4E',
+            primary25: this.props.thememode === true ? '#202020' : '#ece9ea',
             primary: '#0071BC',
         },
     });
@@ -386,14 +386,14 @@ class StockHistoryPage_Base extends React.PureComponent {
         borderRadius: 5,
         colors: {
             ...theme.colors,
-            neutral0: this.props.thememode === true ? '#202542' : '#E9E9E9',
-            neutral20: this.props.thememode === true ? '#2D3866' : '#CDCDCE',
-            neutral30: this.props.thememode === true ? '#2D3866' : '#CDCDCE',
-            neutral40: this.props.thememode === true ? '#202542' : '#1A1A1A',
-            neutral80: this.props.thememode === true ? '#A1A7C4' : '#878787',
+            neutral0: this.props.thememode === true ? '#3D3E3F' : '#CDCDCE',
+            neutral20: this.props.thememode === true ? '#333332' : '#E9E9E9',
+            neutral30: this.props.thememode === true ? '#333332' : '#E9E9E9',
+            neutral40: this.props.thememode === true ? '#1A1A1A' : '#1A1A1A',
+            neutral80: this.props.thememode === true ? '#FFFFFF' : '#878787',
             primary75: this.props.thememode === true ? '#FFFFFF' : '#FFFFFF',
-            primary50: this.props.thememode === true ? '#2D3866' : '#4D4D4E',
-            primary25: this.props.thememode === true ? '#3f5798' : '#dedbdc',
+            primary50: this.props.thememode === true ? '#4D4D4E' : '#4D4D4E',
+            primary25: this.props.thememode === true ? '#202020' : '#ece9ea',
             primary: '#0071BC',
         },
     });
@@ -582,7 +582,7 @@ const StockWatchlist = (props) => {
                 ]
             }>
             {/* <BIPSAppProvider> */}
-            <div className="row col-sm-12 pl-2 mx-0 py-0">
+            <div className="row col-sm-12 px-2 mx-0 py-0">
                 <div className="col-sm-4 px-0 mx-0">
                     <AppModal/>
                     <TableStockWatchlist/>
@@ -642,7 +642,7 @@ class TableStockWatchlist_Base extends React.Component{
                             </div>
                         </div>
                     </div>*/}
-                    <div className="pl-4 pr-2 pt-3">
+                    <div className="pl-2 pr-2 pt-3">
                         <StockWatchlistAgGrid />
                     </div>
                 </div>
@@ -790,14 +790,14 @@ class RegisterAmendModal_Base extends React.Component {
         borderRadius: 5,
         colors: {
             ...theme.colors,
-            neutral0: this.props.thememode === true ? '#506096' : '#999999',
-            neutral20: this.props.thememode === true ? '#2D3866' : '#CDCDCE',
-            neutral30: this.props.thememode === true ? '#2D3866' : '#CDCDCE',
-            neutral40: this.props.thememode === true ? '#202542' : '#1A1A1A',
-            neutral80: this.props.thememode === true ? '#A1A7C4' : '#FFFFFF',
+            neutral0: this.props.thememode === true ? '#565252' : '#999999',
+            neutral20: this.props.thememode === true ? '#333332' : '#CDCDCE',
+            neutral30: this.props.thememode === true ? '#333332' : '#CDCDCE',
+            neutral40: this.props.thememode === true ? '#1A1A1A' : '#1A1A1A',
+            neutral80: this.props.thememode === true ? '#FFFFFF' : '#FFFFFF',
             primary75: this.props.thememode === true ? '#FFFFFF' : '#FFFFFF',
-            primary50: this.props.thememode === true ? '#2D3866' : '#4D4D4E',
-            primary25: this.props.thememode === true ? '#677ac0' : '#c5c2c3',
+            primary50: this.props.thememode === true ? '#333332' : '#4D4D4E',
+            primary25: this.props.thememode === true ? '#7e7a7a' : '#c5c2c3',
             primary: '#0071BC',
         },
     });
