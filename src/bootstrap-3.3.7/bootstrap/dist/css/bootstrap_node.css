@@ -28,7 +28,7 @@
   --warna-dasar : #010101;
   --warna-header-card : #181818;
   --warna-text-basic : #FFFFFF;
-  --warna-text-header : #EEEEEE;
+  --warna-text-header : #FEFEFE;
   --warna-black-white : #000000;
   --warna-black-white-gradient : #212121;
   --warna-cssmenu : #F7F7F7;
@@ -49,6 +49,13 @@
   --warna-hover-menu: #111111;
   --warna-table-striped: #272727;
 
+  --warna-navy-odd: #040421;
+  --warna-navy-even: #2D3866;
+  --warna-text-danger: #EA0904;
+  --warna-text-success: #05FE01;
+  --warna-text-warning: #FFC107;
+
+
   /*variabel column*/
   --column-col-sm-3-6 : 25%;
   --column-col-sm-2-4 : 16.666667%;
@@ -60,6 +67,7 @@
   /*variabel card*/
   --height-container-custom: 520px;
 
+  --card-695 : 695px;
   --card-575 : 575px;
   --card-527 : 527px;
   --card-452 : 452px;
@@ -2335,11 +2343,11 @@ a.text-primary:focus {
   color: #286090;
 }
 .text-success {
-  color: #28A745;
+  color: var(--warna-text-success);
 }
 a.text-success:hover,
 a.text-success:focus {
-  color: #2b542c;
+  color: var(--warna-text-success);
 }
 .text-info {
   color: #31708f;
@@ -2349,18 +2357,18 @@ a.text-info:focus {
   color: #245269;
 }
 .text-warning {
-  color: #FFC107;
+  color: var(--warna-text-warning);
 }
 a.text-warning:hover,
 a.text-warning:focus {
-  color: #66512c;
+  color: var(--warna-text-warning);
 }
 .text-danger {
-  color: #DC3545;
+  color: var(--warna-text-danger);
 }
 a.text-danger:hover,
 a.text-danger:focus {
-  color: #843534;
+  color: var(--warna-text-danger);
 }
 .bg-primary {
   color: #fff;

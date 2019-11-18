@@ -1,3 +1,43 @@
+.card-695{
+    height: 695px;
+}
+
+.bg-navy-gradient-odd{
+    background-image: linear-gradient(var(--warna-navy-even),var(--warna-navy-odd));
+}
+.bg-navy-gradient{
+    background-image: linear-gradient(var(--warna-navy-odd), var(--warna-navy-even));
+}
+.bg-box-gradient{
+    background-image: radial-gradient(var(--warna-bg-trading-gray), var(--warna-navy-odd), var(--warna-btn-dark-hover)) !important;
+}
+
+.table-sidebar > tbody > tr {
+    /*background-image: linear-gradient(var(--warna-btn-dark-hover),var(--warna-bg-trading-gray));*/
+    background-image: linear-gradient(var(--warna-black-white-gradient),var(--warna-black-white));
+}.table-sidebar > tbody > tr:hover {
+    background: var(--warna-hover-menu);
+}
+
+.table-sidebar > thead > tr > th,
+.table-sidebar > tbody > tr > th,
+.table-sidebar > thead > tr > td,
+.table-sidebar > tbody > tr > td,
+.table-sidebar > tfoot > tr > td {
+    align-self: center!important;
+    vertical-align: middle!important;
+    padding-bottom: 4px!important;
+    padding-top: 4px!important;
+}
+
+.table-sidebar > tfoot > tr > th,
+.table-sidebar > tfoot > tr > td {
+    align-self: center!important;
+    vertical-align: middle!important;
+    padding-bottom: 3px!important;
+    padding-top: 3px!important;
+}
+
 .d-border-gray{
     border: 1px solid var(--warna-gray)!important;
 }
@@ -53,28 +93,47 @@ div.stockOps > div {
 }
 
 .d-border-aggrid-right{
-    border-right: 1px solid var(--warna-dasar)!important;
+    border-right: 1px solid var(--warna-hover-menu)!important;
 }
 
 /*for grid odd*/
 div.ag-theme-balham-dark.ag-striped-odd > div > div > div > div > div > div > div > div > div.ag-row-odd:hover {
-    background-color: var(--warna-hover-menu) }
+    background-color: var(--warna-btn-dark-hover)!important; }
 div.ag-theme-balham-dark.ag-striped-odd > div > div > div > div > div > div > div.ag-row-odd:hover {
-    background-color: var(--warna-hover-menu) }
+    background-color: var(--warna-btn-dark-hover)!important; }
 div.ag-theme-balham-dark.ag-striped-odd > div > div > div > div > div > div > div > div > div.ag-row-even:hover {
-    background-color: var(--warna-hover-menu); }
+    background-color: var(--warna-btn-dark-hover)!important; }
 div.ag-theme-balham-dark.ag-striped-odd > div > div > div > div > div > div > div.ag-row-even:hover {
-    background-color: var(--warna-hover-menu); }
+    background-color: var(--warna-btn-dark-hover)!important; }
+
+div.ag-theme-balham-dark.ag-striped-odd > div > div > div > div > div > div > div > div > div.ag-row-odd {
+    background-color: var(--warna-bg-dark-grey) !important; }
+div.ag-theme-balham-dark.ag-striped-odd > div > div > div > div > div > div > div.ag-row-odd {
+    background-color: var(--warna-bg-dark-grey) !important; }
+div.ag-theme-balham-dark.ag-striped-odd > div > div > div > div > div > div > div > div > div.ag-row-even {
+    background-color: var(--warna-hover-menu) !important; }
+div.ag-theme-balham-dark.ag-striped-odd > div > div > div > div > div > div > div.ag-row-even {
+    background-color: var(--warna-hover-menu) !important; }
 
 /*for grid even*/
 div.ag-theme-balham-dark.ag-striped-even > div > div > div > div > div > div > div > div > div.ag-row-odd:hover {
-    background-color: var(--warna-hover-menu); }
+    background-color: var(--warna-btn-dark-hover)!important; }
 div.ag-theme-balham-dark.ag-striped-even > div > div > div > div > div > div > div.ag-row-odd:hover {
-    background-color: var(--warna-hover-menu); }
+    background-color: var(--warna-btn-dark-hover)!important; }
 div.ag-theme-balham-dark.ag-striped-even > div > div > div > div > div > div > div > div > div.ag-row-even:hover {
-    background-color: var(--warna-hover-menu); }
+    background-color: var(--warna-btn-dark-hover)!important; }
 div.ag-theme-balham-dark.ag-striped-even > div > div > div > div > div > div > div.ag-row-even:hover {
-    background-color: var(--warna-hover-menu); }
+    background-color: var(--warna-btn-dark-hover)!important; }
+
+
+div.ag-theme-balham-dark.ag-striped-even > div > div > div > div > div > div > div > div > div.ag-row-odd {
+    background-color: var(--warna-bg-dark-grey) !important }
+div.ag-theme-balham-dark.ag-striped-even > div > div > div > div > div > div > div.ag-row-odd {
+    background-color: var(--warna-bg-dark-grey) !important }
+div.ag-theme-balham-dark.ag-striped-even > div > div > div > div > div > div > div > div > div.ag-row-even {
+    background-color: var(--warna-hover-menu)!important; }
+div.ag-theme-balham-dark.ag-striped-even > div > div > div > div > div > div > div.ag-row-even {
+    background-color: var(--warna-hover-menu)!important; }
 
 /*for grid live trade*/
 div.ag-theme-balham-dark.ag-striped-odd > span > div > div > div > div > div > div > div > div > div.ag-row-odd:hover {
@@ -163,7 +222,7 @@ div.ag-theme-balham-dark.ag-striped-odd > span > div > div > div > div > div > d
     height: 84px!important;
 }.h-32{
     height: 32px!important;
-    background-image: linear-gradient(var(--warna-black-white-gradient),var(--warna-black-white))!important;
+    background-image: linear-gradient(var(--warna-navy-even), var(--warna-navy-odd)) !important;
 }
 
 .scene{
@@ -1729,8 +1788,8 @@ button.bg-gold:hover {
     .p-login {
         padding-right: 25% !important;
         padding-left: 25% !important;
-        padding-top: 120px !important;
-        padding-bottom: 120px !important;
+        /*padding-top: 120px !important;
+        padding-bottom: 120px !important;*/
     }
 }
 
@@ -1738,8 +1797,8 @@ button.bg-gold:hover {
     .p-login {
         padding-right: 20% !important;
         padding-left: 20% !important;
-        padding-top: 100px !important;
-        padding-bottom: 100px !important;
+        /*padding-top: 100px !important;
+        padding-bottom: 100px !important;*/
     }
 }
 
@@ -1747,8 +1806,8 @@ button.bg-gold:hover {
     .p-login {
         padding-right: 27.5% !important;
         padding-left: 27.5% !important;
-        padding-top: 100px !important;
-        padding-bottom: 100px !important;
+        /*padding-top: 100px !important;
+        padding-bottom: 100px !important;*/
     }
 }
 
@@ -1756,8 +1815,8 @@ button.bg-gold:hover {
     .p-login {
         padding-right: 5% !important;
         padding-left: 5% !important;
-        padding-top: 100px !important;
-        padding-bottom: 100px !important;
+        /*padding-top: 100px !important;
+        padding-bottom: 100px !important;*/
     }
 }
 
@@ -2449,7 +2508,7 @@ button.bg-gold:hover {
     display: none;
 }
 .cssmenu ul li.active a {
-    color: #0071BC;
+    color: var(--warna-text-basic);
 }
 .cssmenu ul li.active a:before {
     width: 100%;

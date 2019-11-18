@@ -528,7 +528,7 @@
 
   div.ag-theme-balham-dark.ag-bordered > div > div > div > div > div > div > div > div > div.ag-row  {
     border-style: solid;
-    border-color: var(--warna-dasar)!important;
+    border-color: var(--warna-bg-dark-grey)!important;
     height: 28px;
     border-width: 0; }
     div.ag-theme-balham-dark.ag-bordered > div > div > div > div > div > div > div > div > div.ag-row:not(.ag-row-first) {

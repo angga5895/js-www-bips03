@@ -21081,8 +21081,8 @@ ol.ui.horizontal.list li:before {
 }
 
 .ui.menu .active.item {
-    border-bottom: #808282 solid 3px;
-    background: var(--warna-background-semantic);
+    border-bottom: #0071BC solid 4px;
+    background-image: linear-gradient(var(--warna-black-white-gradient),var(--warna-black-white));
     color: var(--warna-black-white-semantic);
     font-weight: 400;
     -webkit-box-shadow: none;
@@ -22543,7 +22543,8 @@ ol.ui.horizontal.list li:before {
 
 .ui.menu {
     font-size: 1rem;
-    background-image: linear-gradient(var(--warna-black-white-gradient),var(--warna-background-semantic-gradient));
+    /*background-image: linear-gradient(var(--warna-black-white-gradient),var(--warna-background-semantic-gradient));*/
+    background-image: linear-gradient(var(--warna-navy-odd), var(--warna-navy-even)) !important;
 }
 
 .ui.vertical.menu {
