@@ -442,12 +442,12 @@ class LoginUserPage_Base extends React.PureComponent {
             <>
                 {
                     <div style={{display: !props.signupState ? "block" : "none"}}>
-                        <div className="bg-black-trading f-12" id="press_login">
+                        <div className="bg-navy-gradient f-12 card-695" id="press_login">
                             <AppFrameAction ref="frameAction"/>
                             <WSConnectionAction ref="wsAction"/>
                             <main>
                                 <div className="container-fluid p-login text-center">
-                                    <div className={"card card-body d-border-active row"}>
+                                    <div className={"card card-body d-border-active row bg-box-gradient mx-0"}>
                                         <div id="alert-wrong" className={"col-sm-12 text-center fade-out mb-3 px-0 py-0"}>
                                             <div id="content-alert" className={"py-2 text-white bg-danger "}>The user ID or password
                                                 did not match our records.
