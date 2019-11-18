@@ -95,18 +95,18 @@ class SideBar extends React.Component{
                             </buttom>
                         </div>
                         <div className="nav flex-lg-column">
-                            <div className="nav-link align-self-center text-center px-0 d-border col-sm-12 mt-0 mb-3 py-0">
+                            <div className="nav-link align-self-center text-center px-0 d-border col-sm-12 mt-0 mb-0 py-0">
                                 <Dropdown placeholder='Group' search selection options={option} className={"f-9 text-center align-self-center col-sm-12 grey h-31"} defaultValue="groupA"/>
                             </div>
-                            <div className="d-sidebar-potrait">
-                                <Table size="sm" borderless className="card-452 mb-0 table-hover">
+                            <div className="d-sidebar-potrait px-0">
+                                <Table size="sm" borderless className="table-sidebar card-452 mb-0">
                                     <tbody>
                                     {
                                         this.state.rowData.map((charx, index) => {
                                             return (
-                                                <tr>
-                                                    <td className="py-0 px-3">
-                                                        <div className="align-self-center text-center click-pointer d-border-bottom">
+                                                <tr className="d-border-bottom px-3">
+                                                    <td className="px-3">
+                                                        <div className="align-self-center text-center click-pointer">
                                                             <h5 className="mb-1">{charx.name}</h5>
                                                             <p className="f-11-center mb-1 text-danger">{charx.last}</p>
                                                         </div>
