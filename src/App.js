@@ -20,6 +20,8 @@ import LiveTradePage from './app_pages/livetradePage';
 import MarketStatistikPage, { CustomFrameHeaderMarketStatistik, MarketStatistik } from './app_pages/marketstatistikPage';
 import StockPage, { CustomFrameHeaderStock, Stock } from './app_pages/stockPage';
 import { Trade, CustomFrameHeaderTrade } from './app_pages/tradePage';
+import MutualFundPage from './app_pages/mutualFundPage';
+import EsbnPage from './app_pages/esbnPage';
 
 class App extends React.Component {
   /*
@@ -31,7 +33,7 @@ class App extends React.Component {
   render() {
     return (
       <AppFrameProvider
-        initialClasses={{ Landing, MarketStatistik, Stock, Trade, ChatSupportPage, LiveTradePage, Analytic }}
+        initialClasses={{ Landing, MarketStatistik, Stock, Trade, ChatSupportPage, LiveTradePage, Analytic, MutualFundPage, EsbnPage }}
         initialFrames={
           [
             { className: 'Landing', title: <CustomFrameHeaderLanding />, instanceName: 'landingPage' },
@@ -40,6 +42,8 @@ class App extends React.Component {
             { className: 'Trade', title: <CustomFrameHeaderTrade />, instanceName: 'tradePage' },
             { className: 'Analytic', title: <CustomFrameHeaderAnalytic />, instanceName: 'analyticPage' },
             { className: 'LiveTradePage', title: '', instanceName: 'livetradePage' },
+            { className: 'EsbnPage', title: '', instanceName: 'esbnPage' },
+            { className: 'MutualFundPage', title: '', instanceName: 'mutualfundPage' },
             { className: 'ChatSupportPage', title: <CustomFrameHeaderChatSupportPage />, instanceName: 'chatsupportPage' },
           ]
         }
