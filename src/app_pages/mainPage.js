@@ -28,6 +28,12 @@ const ResizeResponsive = () => {
     $('.runningText p').css('width', (marquee));
     $('.runningText').css('width', (marquee));
 
+    var height695 = $('html').height();
+    $('.card-695').css('min-height', (height695));
+    var plogin = ($('html').height()-$('.p-login').height())/2;
+    $('.p-login').css('padding-top', (plogin));
+    $('.p-login').css('padding-bottom', (plogin));
+
     var height575 = $('html').height()-84-32-5;
     $('.card-575').css('min-height', (height575));
     var height527 = height575-$('.tabheaderfill').height()-3;
@@ -202,6 +208,12 @@ class MainPage_Base extends React.Component {
           var marquee = $('html').width();
           $('.runningText p').css('width', (marquee));
           $('.runningText').css('width', (marquee));
+
+          var height695 = $('html').height();
+          $('.card-695').css('min-height', (height695));
+          var plogin = ($('html').height()-$('.p-login').height())/2;
+          $('.p-login').css('padding-top', (plogin));
+          $('.p-login').css('padding-bottom', (plogin));
 
           var height575 = $('html').height()-84-32-5;
           $('.card-575').css('min-height', (height575));
@@ -463,29 +475,35 @@ class MainPage_Base extends React.Component {
     }
 
     render () {
-      document.body.style.setProperty('--warna-dasar', this.props.thememode === true  ? "#040421" : "#FCFCFC");
-      document.body.style.setProperty('--warna-header-card', this.props.thememode === true  ? "#202542" : "#E7E8E8");
-      document.body.style.setProperty('--warna-text-basic', this.props.thememode === true  ? "#FFFFFF" : "#878787");
-      document.body.style.setProperty('--warna-text-header', this.props.thememode === true  ? "#A1A7C4" : "#878787");
-      document.body.style.setProperty('--warna-black-white', this.props.thememode === true  ? "#070821" : "#FCFCFC");
-      document.body.style.setProperty('--warna-black-white-gradient', this.props.thememode === true  ? "#242437" : "#F9FAFB");
-      document.body.style.setProperty('--warna-cssmenu', this.props.thememode === true  ? "#A1A6C5" : "#878787");
-      document.body.style.setProperty('--warna-gray', this.props.thememode === true  ? "#2D3866" : "#999999");
-      document.body.style.setProperty('--warna-inactive-gradient', this.props.thememode === true  ? "#0E0F20" : "#F9FAFB");
-      document.body.style.setProperty('--warna-btn-dark', this.props.thememode === true  ? "#516198" : "#CDCDCE");
-      document.body.style.setProperty('--warna-btn-dark-hover', this.props.thememode === true  ? "#2D3866" : "#CDCDDD");
-      document.body.style.setProperty('--warna-scroll', this.props.thememode === true  ? "#5D617F" : "#B3B4B4");
+      document.body.style.setProperty('--warna-dasar', this.props.thememode === true  ? "#010101" : "#FCFCFC");
+      document.body.style.setProperty('--warna-header-card', this.props.thememode === true  ? "#181818" : "#E7E8E8");
+      document.body.style.setProperty('--warna-text-basic', this.props.thememode === true  ? "#FFFFFF" : "#272727");
+      document.body.style.setProperty('--warna-text-header', this.props.thememode === true  ? "#FEFEFE" : "#282828");
+      document.body.style.setProperty('--warna-black-white', this.props.thememode === true  ? "#000000" : "#FCFCFC");
+      document.body.style.setProperty('--warna-black-white-gradient', this.props.thememode === true  ? "#212121" : "#dcddde");
+      document.body.style.setProperty('--warna-cssmenu', this.props.thememode === true  ? "#F7F7F7" : "#878787");
+      document.body.style.setProperty('--warna-gray', this.props.thememode === true  ? "#4D4E4E" : "#999999");
+      document.body.style.setProperty('--warna-inactive-gradient', this.props.thememode === true  ? "#0F0F10" : "#F9FAFB");
+      document.body.style.setProperty('--warna-btn-dark', this.props.thememode === true  ? "#3D3E3F" : "#CDCDCE");
+      document.body.style.setProperty('--warna-btn-dark-hover', this.props.thememode === true  ? "#333332" : "#CDCDDD");
+      document.body.style.setProperty('--warna-scroll', this.props.thememode === true  ? "#676767" : "#B3B4B4");
       document.body.style.setProperty('--warna-black-white-semantic', this.props.thememode === true  ? "#FFFFFF" : "#010101");
-      document.body.style.setProperty('--warna-background-semantic', this.props.thememode === true  ? "#2D3866" : "#FEFEFE");
-      document.body.style.setProperty('--warna-background-semantic-gradient', this.props.thememode === true  ? "#040421" : "#FFFFFF");
-      document.body.style.setProperty('--warna-d-border', this.props.thememode === true  ? "#506096" : "#999999");
-      document.body.style.setProperty('--warna-d-border-bold', this.props.thememode === true  ? "#A1A7C4" : "#999999");
-      document.body.style.setProperty('--warna-d-border-black', this.props.thememode === true  ? "#040421" : "#E7E7E7");
-      document.body.style.setProperty('--warna-bg-dark-grey', this.props.thememode === true  ? "#202542" : "#E9E9E9");
-      document.body.style.setProperty('--warna-bg-trading-gray', this.props.thememode === true  ? "#21253F" : "#E3E3E3");
+      document.body.style.setProperty('--warna-background-semantic', this.props.thememode === true  ? "#333332" : "#FEFEFE");
+      document.body.style.setProperty('--warna-background-semantic-gradient', this.props.thememode === true  ? "#010101" : "#FFFFFF");
+      document.body.style.setProperty('--warna-d-border', this.props.thememode === true  ? "#565252" : "#999999");
+      document.body.style.setProperty('--warna-d-border-bold', this.props.thememode === true  ? "#FFFFFF" : "#999999");
+      document.body.style.setProperty('--warna-d-border-black', this.props.thememode === true  ? "#010101" : "#E7E7E7");
+      document.body.style.setProperty('--warna-bg-dark-grey', this.props.thememode === true  ? "#1A1A1A" : "#E9E9E9");
+      document.body.style.setProperty('--warna-bg-trading-gray', this.props.thememode === true  ? "#262626" : "#E3E3E3");
       document.body.style.setProperty('--warna-text-menu', this.props.thememode === true  ? "#FFFFFF" : "#E7E7E7");
-      document.body.style.setProperty('--warna-hover-menu', this.props.thememode === true  ? "#151733" : "#CCCCCC");
-      document.body.style.setProperty('--warna-table-striped', this.props.thememode === true  ? "#202441" : "#E7E8E8");
+      document.body.style.setProperty('--warna-hover-menu', this.props.thememode === true  ? "#111111" : "#f4f4f4");
+      document.body.style.setProperty('--warna-table-striped', this.props.thememode === true  ? "#272727" : "#E7E8E8");
+
+      document.body.style.setProperty('--warna-navy-odd', this.props.thememode === true  ? "#040421" : "#02ADEB");
+      document.body.style.setProperty('--warna-navy-even', this.props.thememode === true  ? "#2D3866" : "#efefef");
+      document.body.style.setProperty('--warna-text-danger', this.props.thememode === true  ? "#EA0904" : "#eb404b");
+      document.body.style.setProperty('--warna-text-success', this.props.thememode === true  ? "#05FE01" : "#449b52");
+      document.body.style.setProperty('--warna-text-warning', this.props.thememode === true  ? "#FFC107" : "#f58f0d");
     /*
       Important system components:
 
@@ -545,6 +563,19 @@ class MainPage_Base extends React.Component {
                                       <i className="icon-icon-live-trade fs-icon-bips"></i> <br/><br/>
                                       <span className="fs-text-bips" style={{padding: "0px 21.09px"}}>LIVE</span><br/>
                                       <span className="fs-text-bips">TRADE</span>
+                                  </div>,
+                              esbnPage:
+                                  <div className="text-align-center">
+                                      <i className="icon-icon-fund fs-icon-bips"></i> <br/><br/>
+                                      <span className="fs-text-bips" style={{padding: "0px 15.3px"}}>
+                                        E-SBN
+                                      </span>
+                                  </div>,
+                              mutualfundPage:
+                                  <div className="text-align-center">
+                                      <i className="icon-icon-inquiry fs-icon-bips"></i> <br/><br/>
+                                      <span className="fs-text-bips" style={{padding: "0px 11.1px"}}>MUTUAL</span><br/>
+                                      <span className="fs-text-bips">FUND</span>
                                   </div>,
                               chatsupportPage:
                                   <div className="text-align-center">
