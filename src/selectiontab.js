@@ -80,7 +80,7 @@ const UISelectionTab_Base = (props) => {
                             <MenuHeader id={props}/>
 
                             {/*Zaky*/}
-                            <Menu.Menu className="col-sm-5 ml-5 px-0 align-self-center">
+                            <Menu.Menu className="px-1 align-self-center mx-0" style={{ flex:"auto" }}>
                                 <SelectItem1 />
                             </Menu.Menu>
                         </div>
@@ -399,8 +399,8 @@ class SelectItem1 extends React.PureComponent {
                     return <div className="card__face card__face--front">
                         <table width="100%" height="100%">
                             <tr>
-                                <td className="spanSymbol">{info.symbol}</td>
-                                <td className="lastColor">{info.last}</td>
+                                <td className="spanSymbol px-0">{info.symbol}</td>
+                                <td className="lastColor px-0">{info.last}</td>
                                 <td>
                                     <span className={colorLabel(info.change)+' '+colorIcon(info.change)}>&nbsp;
                                         {info.change}</span>&nbsp;
@@ -417,8 +417,8 @@ class SelectItem1 extends React.PureComponent {
                     return <div className="card__face card__face--back">
                         <table width="100%" height="100%">
                             <tr>
-                                <td className="spanSymbol">{info.symbol}</td>
-                                <td className="lastColor">{info.last}</td>
+                                <td className="spanSymbol px-0">{info.symbol}</td>
+                                <td className="lastColor px-0">{info.last}</td>
                                 <td>
                                     <span className={colorLabel(info.change)+' '+colorIcon(info.change)}>&nbsp;
                                         {info.change}</span>&nbsp;
@@ -514,7 +514,7 @@ class InfoCash extends React.Component {
                                 <td>Cash Balance</td>
                                 <td rowSpan="2" className="py-2"><i className="f-11-center text-gray-tradding oi oi-caret-bottom"></i></td>
                             </tr>
-                            <tr className="f-16 text-primary">
+                            <tr className="f-16 text-white">
                                 <td colSpan="2" className="text-center">15,911,198</td>
                             </tr>
                             </tbody>
