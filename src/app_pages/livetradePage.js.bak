@@ -7,30 +7,8 @@ import TableInfoTransaction from "./../app_transaction/tableInfoTransaction";
 import {AgGridReact} from "ag-grid-react";
 import {ContextConnector} from "../appcontext";
 import {BIPSAppContext} from "../AppData";
-import Switch from "react-switch";
 import $ from 'jquery';
 window.$ = window.jQuery = $;
-
-class NewSwitch extends React.PureComponent {
-    constructor() {
-        super();
-        this.state = { checked: false };
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    handleChange(checked) {
-        this.setState({ checked });
-    }
-
-    render() {
-        return (
-            <div className="switchClass">
-                <Switch onChange={this.handleChange} height={20} checked={this.state.checked} />
-            </div>
-    );
-    }
-}
-
 class LiveTradePage extends React.PureComponent {
     closeClick = (e) => {
         this.refs.frameAction.closeModal(100);
@@ -63,9 +41,29 @@ class LiveTradePage extends React.PureComponent {
 
     state = {
         value: "watchlist",
+        value2: true,
     }
 
     render () {
+        const Switch = () => {
+            return (
+                <>
+                    <input
+                        checked={this.state.value2}
+                        onChange={() => this.setState({value2:!this.state.value2})}
+                        className="react-switch-checkbox"
+                        id={`react-switch-new`}
+                        type="checkbox"
+                    />
+                    <label
+                        className={`react-switch-label ${(this.state.value2) ? 'switchActive':''}`}
+                        htmlFor={`react-switch-new`}
+                    >
+                        <span className={`react-switch-button`} />
+                    </label>
+                </>
+            );
+        };
         return (
             <div>
                 <AppFrameAction ref="frameAction" />
@@ -127,7 +125,7 @@ class LiveTradePage extends React.PureComponent {
                             </li>
 
                             <li className="li-radio col-title-radio px-0 mx-0 col-sm-2">
-                               <NewSwitch/>
+                                <Switch />
                             </li>
                         </ul>
                     </div>
