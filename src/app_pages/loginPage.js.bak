@@ -60,75 +60,6 @@ class DisclaimerModal extends React.Component {
     }
 }
 
-class HelpModal extends React.Component {
-    closeClick = (e) => {
-        this.refs.frameAction.closeModal(100);
-    }
-
-    render() {
-        return (
-            <>
-                <AppFrameAction ref="frameAction" />
-                <WSConnectionAction ref="wsAction" />
-                <div className="text-white f-12">
-                    <p className="text-center px-5 mx-5 py-1">
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        Coming Soon
-                        <br/>
-                        <br/>
-                        <br/>
-                    </p>
-                    <div className="text-center">
-                        <button className="btn btn-primary col-sm-3" onClick={this.closeClick}>Close</button>
-                    </div>
-                </div>
-            </>
-        );
-    }
-}
-
-class FindIdModal extends React.Component {
-    closeClick = (e) => {
-        this.refs.frameAction.closeModal(100);
-    }
-
-    render() {
-        return (
-            <>
-                <AppFrameAction ref="frameAction" />
-                <WSConnectionAction ref="wsAction" />
-                <div className="text-white f-12">
-                       <div className="form-group row col-sm-12 px-0 mx-0 my-4 py-3 text-white">
-                           <div className="col-sm-4 pt-2">
-                               <label className="col-sm-12">Email</label></div>
-                           <div className="col-sm-8">
-                               <div className="ui small input gray px-0 col-sm-12 align-self-center"><input
-                                   placeholder="" autoFocus={true} type="email"/>
-                               </div>
-                           </div>
-                       </div>
-                    <div className="col-sm-12 text-right">
-                            <button className="btn btn-primary col-sm-3">Find</button>
-                    </div>
-                    <div className="form-group row col-sm-12 px-0 mx-0 my-4 py-3 text-white">
-                        <div className="col-sm-4 pt-2">
-                            <label className="col-sm-12">User Id</label></div>
-                        <div className="col-sm-8 px-0">
-                            <div className="ui small input gray col-sm-12 align-self-center"><input
-                                placeholder="" type="text"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </>
-        );
-    }
-}
-
-
 class ForgotModal extends React.Component {
     closeClick = (e) => {
         this.refs.frameAction.closeModal(100);
@@ -333,24 +264,6 @@ class LoginUserPage_Base extends React.PureComponent {
             onClose: (result) => {console.log('Modal 1 result = ', result)}
         })
     }
-    buttonClickHelp = (e) => {
-        this.refs.frameAction.showModal({
-            headerClass: () => <div className="text-white text-center">Help</div>,
-            closeIcon: false,
-            contentClass: HelpModal,
-            onClose: (result) => {console.log('Modal help result = ', result)}
-        })
-    }
-    buttonFindHelp = (e) => {
-        this.refs.frameAction.showModal({
-            headerClass: () => <div className="text-white text-left">Find Id</div>,
-            closeIcon: false,
-            size: 'mini',
-            contentClass: FindIdModal,
-            onClose: (result) => {console.log('Modal find result = ', result)}
-        })
-    }
-
 
     buttonClickForgot = (e) => {
         this.refs.frameAction.showModal({
@@ -450,8 +363,8 @@ class LoginUserPage_Base extends React.PureComponent {
             seconds: prevState.seconds + 1
             // seconds: prevState.seconds + 0
         }));
-        if(this.state.seconds % 20 === 0){
-            //set change every 20 sec
+        if(this.state.seconds % 5 === 0){
+            //set change every 30 sec
             this.setState({flipped: !this.state.flipped})
             this.setState({index: (this.state.index + 1) % this.state.barInfo.length });
         }
@@ -480,13 +393,6 @@ class LoginUserPage_Base extends React.PureComponent {
                 return "green"
             }
         }
-        const colorIcon = (props) => {
-            if(props < 0){
-                return "icofont icofont-caret-down"
-            }else{
-                return "icofont icofont-caret-up"
-            }
-        }
         //zaky
         //fungsi untuk flipped
         const cardFace = (props) => {
@@ -502,7 +408,7 @@ class LoginUserPage_Base extends React.PureComponent {
                                 <td>Last: {info.last}</td>
 
                                 <td>
-                                    <span className={colorLabel(info.change) +" "+ colorIcon(info.change)}>{info.change}</span>&nbsp;
+                                    <span className={colorLabel(info.change)}>{info.change}</span>&nbsp;
                                 </td>
                                 <td>
                                     <span className={colorLabel(info.percentage)}>({info.percentage}%)</span>
@@ -519,7 +425,7 @@ class LoginUserPage_Base extends React.PureComponent {
                                 <td className="spanSymbol">{info.symbol}</td>
                                 <td>Last: {info.last}</td>
                                 <td>
-                                    <span className={colorLabel(info.change) +" "+ colorIcon(info.change)}>{info.change}</span>&nbsp;
+                                    <span className={colorLabel(info.change)}>{info.change}</span>&nbsp;
                                 </td>
                                 <td>
                                     <span className={colorLabel(info.percentage)}>({info.percentage}%)</span>
@@ -600,13 +506,19 @@ class LoginUserPage_Base extends React.PureComponent {
                                                         </button>
                                                     </div>
                                                 </div>
-                                                <div className={"col-sm-12 text-right pr-0 pl-5 mt-4"}>
+                                                <div className={"col-sm-12 text-center pr-0 pl-5 mt-4"}>
                                                     <text
                                                         className="text-right mt-9">
                                                         New BIPS? <span className="click-pointer text-primary" onClick={this.buttonClickSignUp}>Sign Up</span>
                                                     </text>
                                                 </div>
-
+                                                <div className={"col-sm-12 text-center pr-0 pl-5 mt-2"}>
+                                                    <text
+                                                        onClick={this.buttonClickDisclaimer}
+                                                        className="text-right text-primary click-pointer">
+                                                        Disclaimer
+                                                    </text>
+                                                </div>
                                             </div>
                                             {/*<div className="form-group py-0 mt-0 mb-4 text-center">*/}
                                             {/*<small className="py-0 px-5 col-form-label">*/}
@@ -619,32 +531,10 @@ class LoginUserPage_Base extends React.PureComponent {
 
 
                                         </div>
-                                        <div className={"col-sm-12 mh-45 px-0 mt-3 mb-0"}>
+                                        <div className={"col-sm-12 mh-45 px-0 mt-3"}>
                                             <div className={switchPanel()}>
                                                 {cardFace("front")}
                                                 {cardFace("back")}
-                                            </div>
-                                        </div>
-                                        <div className={"col-sm-12 mh-45 px-0 f-11"}>
-                                            <div className="card_help">
-                                                <table width="100%" height="100%">
-                                                    <tr>
-                                                        <td>CALL CENTER 14009</td>
-                                                        <td>www.directtrading.co.id</td>
-                                                        <td>
-                                                            <button onClick={this.buttonClickHelp} className="btn btn-sm px-1 py-0 btn-block btn-default btn-dark">
-                                                                <i className="icofont-exclamation"></i>
-                                                                &nbsp;Help</button>
-                                                        </td>
-                                                        <td>
-                                                            <button onClick={this.buttonFindHelp} className="btn btn-sm px-1 py-0 btn-block btn-default btn-dark">
-                                                                <i className="icofont-search-1"></i>&nbsp;
-                                                                Find Id
-                                                            </button>
-                                                        </td>
-                                                        <td ><u className="click-pointer" onClick={this.buttonClickDisclaimer}>Disclaimer</u></td>
-                                                    </tr>
-                                                </table>
                                             </div>
                                         </div>
 

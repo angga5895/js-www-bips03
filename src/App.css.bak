@@ -3878,20 +3878,3 @@ textarea {
 .mh-45{
     min-height: 45px;
 }
-.switchClass{
-    padding-top: 14px;
-    margin-left: 19vh;
-}
-.card_help{
-    background: var(--warna-bg-dark-grey);
-    min-height: 30px;
-    font-size: 11px !important;
-}
-.card_help button{
-    padding:1px 2px !important;
-    font-size: 11px;
-    min-height: 12px !important;
-}
-.card-530{
-    height: 410px;
-}
