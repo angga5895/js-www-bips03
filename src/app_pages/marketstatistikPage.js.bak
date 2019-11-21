@@ -3034,7 +3034,7 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     }},
                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 90,
                     cellClass : function (params) {
-                        return " grid-table d-border-aggrid-right text-center f-12";
+                        return " grid-table d-border-aggrid-right text-center f-12 text-primary";
                     }},
                 { field: "prev", headerName: "Prev.", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 85,
                     cellClass : function (params) {
@@ -3824,7 +3824,6 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     <AgGridReact
                         columnDefs={this.state.columnDefs}
                         rowData={this.state.rowData}
-                        rowHeight={(this.props.typegrid == "summary")? 25:33}
                         defaultColDef={this.state.defaultColDef}
                         onFirstDataRendered={this.onFirstDataRendered.bind(this)}
                         onGridReady={this.onGridReady}>
