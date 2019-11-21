@@ -47,7 +47,7 @@ const FillHeaderTab_Base = (props) => {
                                             :
 
                                             e.instanceName.search('tradePage') >= 0 ?
-                                                e.instanceName.search('tradePageOrderbook') >= 0?
+                                                e.instanceName.search('tradePageWatchList') >= 0?
                                                     'active col-sm-6 bg-navy-gradient-odd click-pointer text-center'
                                                 :
                                                     'active col-sm-6 bg-navy-gradient-odd click-pointer text-center d-border-right'
@@ -106,10 +106,10 @@ const FillHeaderTab_Base = (props) => {
                                             :
 
                                             e.instanceName.search('tradePage') >= 0 ?
-                                                e.instanceName.search('tradePageOrderbook') >= 0?
-                                                    'col-sm-6 click-pointer text-center'
+                                                e.instanceName.search('tradePageWatchList') >= 0?
+                                                    'col-sm-4 click-pointer text-center'
                                                     :
-                                                    'col-sm-6 click-pointer text-center d-border-right'
+                                                    'col-sm-4 click-pointer text-center d-border-right'
 
                                             :
 
