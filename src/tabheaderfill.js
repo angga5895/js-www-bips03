@@ -25,60 +25,60 @@ const FillHeaderTab_Base = (props) => {
 
                                             e.instanceName.search('Invboard') >= 0 ?
                                                 e.instanceName.search('mutualFund') >= 0?
-                                                    'active col-mn-5 bg-navy-gradient-odd click-pointer text-center'
+                                                    'active col-mn-5 click-pointer text-center'
                                                 :
-                                                    'active col-mn-5 bg-navy-gradient-odd click-pointer d-border-right text-center'
+                                                    'active col-mn-5 click-pointer d-border-right text-center'
                                             :
 
                                             e.instanceName.search('stock') >= 0 ?
                                                 e.instanceName.search('stockHistory') >= 0?
-                                                    'active col-sm-4 bg-navy-gradient-odd click-pointer text-center'
+                                                    'active col-sm-4 active click-pointer text-center'
                                                 :
-                                                    'active col-sm-4 bg-navy-gradient-odd click-pointer d-border-right text-center'
+                                                    'active col-sm-4 active click-pointer d-border-right text-center'
 
                                             :
 
                                             e.instanceName.search('StatistikPage') >= 0 ?
                                                 e.instanceName.search('newResearch') >= 0?
-                                                    'active col-mn-5 bg-navy-gradient-odd click-pointer text-center'
+                                                    'active col-mn-5 click-pointer text-center'
                                                 :
-                                                    'active col-mn-5 bg-navy-gradient-odd click-pointer d-border-right text-center'
+                                                    'active col-mn-5 click-pointer d-border-right text-center'
 
                                             :
 
                                             e.instanceName.search('tradePage') >= 0 ?
                                                 e.instanceName.search('tradePageWatchList') >= 0?
-                                                    'active col-sm-6 bg-navy-gradient-odd click-pointer text-center'
+                                                    'active col-sm-4 bg-navy-gradient-odd click-pointer text-center'
                                                 :
-                                                    'active col-sm-6 bg-navy-gradient-odd click-pointer text-center d-border-right'
+                                                    'active col-sm-4 bg-navy-gradient-odd click-pointer text-center d-border-right'
 
                                             :
 
                                             e.instanceName.search('Chat') >= 0 ?
                                                 e.instanceName.search('ChatCommentPage') >= 0?
-                                                    'active col-sm-4 bg-navy-gradient-odd click-pointer text-center'
+                                                    'active col-sm-4 click-pointer text-center'
                                                     :
-                                                    'active col-sm-4 bg-navy-gradient-odd click-pointer text-center d-border-right'
+                                                    'active col-sm-4 click-pointer text-center d-border-right'
 
                                             :
 
                                             e.instanceName.search('automaticO') >= 0 ?
                                                 e.instanceName.search('automaticODailyTrade') >= 0?
-                                                    'active col-sm-4 bg-navy-gradient-odd click-pointer text-center'
+                                                    'active col-sm-4 click-pointer text-center'
                                                 :
-                                                    'active col-sm-4 bg-navy-gradient-odd click-pointer text-center d-border-right'
+                                                    'active col-sm-4 click-pointer text-center d-border-right'
 
                                             :
 
                                             e.instanceName.search('AnalyticPage') >= 0 ?
                                                 e.instanceName.search('RelativePerformanceAnalyticPage') >= 0 ?
-                                                    'active col-sm-3 bg-navy-gradient-odd click-pointer text-center'
+                                                    'active col-sm-3 click-pointer text-center'
                                                     :
-                                                    'active col-sm-3 bg-navy-gradient-odd click-pointer text-center d-border-right'
+                                                    'active col-sm-3 click-pointer text-center d-border-right'
 
                                             :
 
-                                            'active click-pointer bg-navy-gradient-odd d-border-right text-center'
+                                            'active click-pointer d-border-right text-center'
                                         :
 
                                             e.instanceName.search('Invboard') >= 0 ?
