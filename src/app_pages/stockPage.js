@@ -1,3 +1,13 @@
+import React from "react";
+
+const changeActiveGridHistory = () => {
+    if(this.state.tabNumber === 1){
+        return <HistoryBrokerAgGridThird/>
+    } else if(this.state.tabNumber === 2){
+        return <HistoryBrokerAgGrid/>
+    }else{
+        return <HistoryBrokerAgGridSecond/>
+    }
 import React from 'react';
 import Select from 'react-select';
 import {AppFrame, AppFrameAction, AppFrameProvider, AppModal} from "../appframe";
@@ -415,12 +425,10 @@ class StockHistoryPage_Base extends React.PureComponent {
             if(this.state.tabNumber === 1){
                 return <HistoryBrokerAgGridThird/>
             } else if(this.state.tabNumber === 2){
-                return <HistoryBrokerAgGridSecond/>
-            }else{
                 return <HistoryBrokerAgGrid/>
+            }else{
+                return <HistoryBrokerAgGridSecond/>
             }
-
-
         }
         const customStyles = {
             control: (base, state) => ({
