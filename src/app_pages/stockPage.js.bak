@@ -1,3 +1,13 @@
+import React from "react";
+
+const changeActiveGridHistory = () => {
+    if(this.state.tabNumber === 1){
+        return <HistoryBrokerAgGridThird/>
+    } else if(this.state.tabNumber === 2){
+        return <HistoryBrokerAgGrid/>
+    }else{
+        return <HistoryBrokerAgGridSecond/>
+    }
 import React from 'react';
 import Select from 'react-select';
 import {AppFrame, AppFrameAction, AppFrameProvider, AppModal} from "../appframe";
@@ -406,15 +416,17 @@ class StockHistoryPage_Base extends React.PureComponent {
         }
         const tabActive = (props) => {
             if (this.state.tabNumber == props) {
-                return "col-sm-6 click-pointer d-border-right text-center active";
+                return "col-sm-4 click-pointer d-border-right text-center active";
             } else {
-                return "col-sm-6 click-pointer d-border-right text-center"
+                return "col-sm-4 click-pointer d-border-right text-center"
             }
         }
         const changeActiveGridHistory = () => {
             if(this.state.tabNumber === 1){
+                return <HistoryBrokerAgGridThird/>
+            } else if(this.state.tabNumber === 2){
                 return <HistoryBrokerAgGrid/>
-            } else{
+            }else{
                 return <HistoryBrokerAgGridSecond/>
             }
         }
@@ -528,13 +540,18 @@ class StockHistoryPage_Base extends React.PureComponent {
                                     {/*Add menu tab*/}
                                     <div className="cssmenu d-border-bottom d-border-top d-border-left mb-2 small h-30">
                                         <ul class="ul-menu h-27">
-                                            <li name="stockPage"
+                                            <li name="stockDaily"
                                                 className={tabActive(1)} onClick={()=>changeTabNumber(1)}>
+                                                <a className="linkCustomStockTab h-27">
+                                                    <span
+                                                        className="f-12">DAILY</span></a></li>
+                                            <li name="stockPage"
+                                                className={tabActive(2)} onClick={()=>changeTabNumber(2)}>
                                                 <a className="linkCustomStockTab h-27">
                                                     <span
                                                         className="f-12" >BROKER SUMMARY</span></a></li>
                                             <li name="stockWatchlistPage"
-                                                className={tabActive(2)} onClick={()=>changeTabNumber(2)}>
+                                                className={tabActive(3)} onClick={()=>changeTabNumber(3)}>
                                                 <a className="linkCustomStockTab h-27">
                                                     <span
                                                         className="f-12">FOREIGN NET</span></a></li>
@@ -582,7 +599,7 @@ const StockWatchlist = (props) => {
                 ]
             }>
             {/* <BIPSAppProvider> */}
-            <div className="row col-sm-12 px-2 mx-0 py-0">
+            <div className="row col-sm-12 pl-2 mx-0 py-0">
                 <div className="col-sm-4 px-0 mx-0">
                     <AppModal/>
                     <TableStockWatchlist/>
@@ -642,7 +659,7 @@ class TableStockWatchlist_Base extends React.Component{
                             </div>
                         </div>
                     </div>*/}
-                    <div className="pl-2 pr-2 pt-3">
+                    <div className="pl-4 pr-2 pt-3">
                         <StockWatchlistAgGrid />
                     </div>
                 </div>
@@ -1089,6 +1106,120 @@ class HistoryBrokerAgGridSecond extends React.PureComponent {
                     fSellVal: 100,
                     fSellVol: 150,
                     fNetVal: 100,
+                },
+            ],
+            sideBar: {
+                toolPanels: [
+                    {
+                        id: "columns",
+                        labelDefault: "Columns",
+                        labelKey: "columns",
+                        iconKey: "columns",
+                        toolPanel: "agColumnsToolPanel",
+                        toolPanelParams: {
+                            suppressRowGroups: true,
+                            suppressValues: true,
+                            suppressPivots: true,
+                            suppressPivotMode: true,
+                            suppressSideButtons: true,
+                            suppressColumnFilter: true,
+                            suppressColumnSelectAll: true,
+                            suppressColumnExpandAll: true
+                        },
+                    }, {
+                        id: "filters",
+                        labelDefault: "Filters",
+                        labelKey: "filters",
+                        iconKey: "filter",
+                        toolPanel: "agFiltersToolPanel"
+                    }
+                ],
+                defaultToolPanel: ""
+            },
+        }
+    }
+
+    onGridReady = params => {
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
+
+        params.api.sizeColumnsToFit();
+        window.addEventListener("resize", function() {
+            setTimeout(function() {
+                params.api.sizeColumnsToFit();
+            });
+        });
+
+        params.api.sizeColumnsToFit();
+    };
+
+    onFirstDataRendered(params) {
+        params.api.sizeColumnsToFit();
+    }
+
+    render() {
+        return (
+            <>
+                <div
+                    className="card card-372 ag-theme-balham-dark ag-header-border-gray ag-striped-odd"
+                    style={{
+                        width: 'auto' }}>
+                    <AgGridReact
+                        columnDefs={this.state.columnDefs}
+                        rowData={this.state.rowData}
+                        defaultColDef={this.state.defaultColDef}
+                        getRowHeight={this.state.getRowHeight}
+                        onGridReady={this.onGridReady}
+                        onFirstDataRendered={this.onFirstDataRendered}>
+                    </AgGridReact>
+                </div>
+            </>
+        );
+    }
+}
+
+class HistoryBrokerAgGridThird extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        const self = this;
+        this.state = {
+            columnDefs: [
+                { field: 'date', headerName: "Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 100,
+                    lockVisible:true, lockPosition:true, suppressSizeToFit:true,
+                    cellClass : function (params) {
+                        return "text-center grid-table d-border-aggrid-right f-12 text-warning locked-position locked-visible";
+                    },},
+                { field: 'last', headerName: "Last", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 150,
+                    cellClass : function (params) {
+                        return "text-right grid-table d-border-aggrid-right f-12 text-success";
+                    },},
+                { field: 'change', headerName: "Change(%)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 130,
+                    cellClass : function (params) {
+                        return "text-right grid-table d-border-aggrid-right f-12 text-success";
+                    }, },
+                { field: 'volume', headerName: "Volume", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 220,
+                    cellClass : function (params) {
+                        return "text-right grid-table d-border-aggrid-right f-12 text-success";
+                    }, },
+                { field: 'value', headerName: "Value", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 220,
+                    cellClass : function (params) {
+                        return "text-right grid-table d-border-aggrid-right f-12 text-success";
+                    },},
+            ],
+            defaultColDef: {
+                sortable: true,
+                filter: true,
+            },
+            getRowHeight : function(params){
+                return 27.5;
+            },
+            rowData: [
+                {
+                    date: "2019-02-01",
+                    last: '3,850',
+                    change: -20,
+                    volume: '150.000',
+                    value: '150.000.000',
                 },
             ],
             sideBar: {
@@ -1676,11 +1807,11 @@ class HistoryBrokerAgGrid extends React.PureComponent {
                     cellClass : function (params) {
                         return "text-center grid-table d-border-aggrid-right f-12 text-warning locked-position locked-visible";
                     },},
-                { field: 'bidvol', headerName: "Bid Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                { field: 'buyvol', headerName: "Buy Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
                     cellClass : function (params) {
                         return "text-center grid-table d-border-aggrid-right f-12 text-success";
                     },},
-                { field: 'bidval', headerName: "Bid Val (Bn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                { field: 'buyval', headerName: "Buy Val (Bn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
                     cellClass : function (params) {
                         return "text-center grid-table d-border-aggrid-right f-12 text-success";
                     }, },
@@ -1714,160 +1845,88 @@ class HistoryBrokerAgGrid extends React.PureComponent {
             },
             rowData: [
                 { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
+                    buyvol: "2,000",
+                    buyval: "2,000",
                     avgbid: "10,800",
                     sellvol: "3,000",
                     sellval: "3,000",
                     avgsell: "2,100",
                     netval: "500,000"},
                 { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
+                    buyvol: "2,000",
+                    buyval: "2,000",
                     avgbid: "10,800",
                     sellvol: "3,000",
                     sellval: "3,000",
                     avgsell: "2,100",
                     netval: "500,000"},
                 { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
+                    buyvol: "2,000",
+                    buyval: "2,000",
                     avgbid: "10,800",
                     sellvol: "3,000",
                     sellval: "3,000",
                     avgsell: "2,100",
                     netval: "500,000"},
                 { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
+                    buyvol: "2,000",
+                    buyval: "2,000",
                     avgbid: "10,800",
                     sellvol: "3,000",
                     sellval: "3,000",
                     avgsell: "2,100",
                     netval: "500,000"},
                 { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
+                    buyvol: "2,000",
+                    buyval: "2,000",
                     avgbid: "10,800",
                     sellvol: "3,000",
                     sellval: "3,000",
                     avgsell: "2,100",
                     netval: "500,000"},
                 { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
+                    buyvol: "2,000",
+                    buyval: "2,000",
                     avgbid: "10,800",
                     sellvol: "3,000",
                     sellval: "3,000",
                     avgsell: "2,100",
                     netval: "500,000"},
                 { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
+                    buyvol: "2,000",
+                    buyval: "2,000",
                     avgbid: "10,800",
                     sellvol: "3,000",
                     sellval: "3,000",
                     avgsell: "2,100",
                     netval: "500,000"},
                 { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
+                    buyvol: "2,000",
+                    buyval: "2,000",
                     avgbid: "10,800",
                     sellvol: "3,000",
                     sellval: "3,000",
                     avgsell: "2,100",
                     netval: "500,000"},
                 { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
+                    buyvol: "2,000",
+                    buyval: "2,000",
                     avgbid: "10,800",
                     sellvol: "3,000",
                     sellval: "3,000",
                     avgsell: "2,100",
                     netval: "500,000"},
                 { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
+                    buyvol: "2,000",
+                    buyval: "2,000",
                     avgbid: "10,800",
                     sellvol: "3,000",
                     sellval: "3,000",
                     avgsell: "2,100",
                     netval: "500,000"},
                 { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    bidvol: "2,000",
-                    bidval: "2,000",
+                    buyvol: "2,000",
+                    buyval: "2,000",
                     avgbid: "10,800",
                     sellvol: "3,000",
                     sellval: "3,000",

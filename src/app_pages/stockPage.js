@@ -1,13 +1,3 @@
-import React from "react";
-
-const changeActiveGridHistory = () => {
-    if(this.state.tabNumber === 1){
-        return <HistoryBrokerAgGridThird/>
-    } else if(this.state.tabNumber === 2){
-        return <HistoryBrokerAgGrid/>
-    }else{
-        return <HistoryBrokerAgGridSecond/>
-    }
 import React from 'react';
 import Select from 'react-select';
 import {AppFrame, AppFrameAction, AppFrameProvider, AppModal} from "../appframe";
