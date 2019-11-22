@@ -53,6 +53,13 @@ const FillHeaderTab_Base = (props) => {
                                                     'active col-sm-4 bg-navy-gradient-odd click-pointer text-center d-border-right'
 
                                             :
+                                                e.instanceName.search('Aut') >= 0 ?
+                                                    e.instanceName.search('AutSentOrder') >= 0?
+                                                        'active col-sm-6 bg-navy-gradient-odd click-pointer text-center'
+                                                        :
+                                                        'active col-sm-6 bg-navy-gradient-odd click-pointer text-center d-border-right'
+
+                                                    :
 
                                             e.instanceName.search('Chat') >= 0 ?
                                                 e.instanceName.search('ChatCommentPage') >= 0?
@@ -104,14 +111,26 @@ const FillHeaderTab_Base = (props) => {
                                                     'col-mn-5 click-pointer d-border-right text-center'
 
                                             :
-
-                                            e.instanceName.search('tradePage') >= 0 ?
-                                                e.instanceName.search('tradePageWatchList') >= 0?
-                                                    'col-sm-4 click-pointer text-center'
+                                                e.instanceName.search('tradePage') >= 0 ?
+                                                    e.instanceName.search('tradePageWatchList') >= 0?
+                                                        'col-sm-4 click-pointer text-center'
+                                                        :
+                                                        'col-sm-4 click-pointer text-center d-border-right'
                                                     :
-                                                    'col-sm-4 click-pointer text-center d-border-right'
+                                            e.instanceName.search('Aut') >= 0 ?
+                                                e.instanceName.search('AutSentOrder') >= 0?
+                                                    'col-sm-6 click-pointer text-center'
+                                                    :
+                                                    'col-sm-6 click-pointer text-center d-border-right'
 
                                             :
+                                                e.instanceName.search('orderSetting') >= 0 ?
+                                                    e.instanceName.search('sentOrder') >= 0?
+                                                        'active col-sm-6 bg-navy-gradient-odd click-pointer text-center'
+                                                        :
+                                                        'active col-sm-6 bg-navy-gradient-odd click-pointer text-center d-border-right'
+
+                                                    :
 
                                             e.instanceName.search('Chat') >= 0 ?
                                                 e.instanceName.search('ChatCommentPage') >= 0?

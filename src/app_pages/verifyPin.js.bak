@@ -95,12 +95,6 @@ class VerifyPIN extends React.PureComponent{
                         onClose: (result) => console.log('Second modal result = ', result),
                         size: "mini"
                     });
-                } else {
-                    var visible = false;
-                    var value = "";
-                    this.setState({ visible });
-                    this.pin.clear();
-                    this.setState({ value });
                 }
             } else{
                 var visible = true;
@@ -176,7 +170,7 @@ class VerifyPIN extends React.PureComponent{
                                     this.props.tipe === 'buy'? 'btn btn-danger form-control py-0' :
                                         this.props.tipe === 'sell'? 'btn btn-success form-control py-0' :
                                             this.props.tipe === 'amend'? 'btn btn-primary form-control py-0' :
-                                                'btn btn-danger form-control py-0'
+                                                'btn btn-brown form-control py-0'
                                 }
                                     onClick={this.onClickSubmit}>
                                 Submit

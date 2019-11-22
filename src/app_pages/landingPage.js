@@ -315,7 +315,7 @@ class LandingPage_Base extends React.PureComponent {
                                 </div>
                                 <div className="container px-0 mx-0 col-sm-12" style={{display : this.props.stateLanding === '0' ? 'block' : 'none'}}>
                                     <div id="pinPortofolio" className="d-block text-center align-self-center">
-                                        <VerifyPINPortofolio/>
+                                        <VerifyPINPortofolio pos="portofolio"/>
                                     </div>
                                     <div id="detailPortofolio" className="d-none">
                                         <div className="card-header card-header-investment bg-grey h-40">
@@ -431,8 +431,12 @@ class StockCash_Base extends React.Component{
         return (
             <>
                 <AppFrameAction ref="frameAction" />
+                {/*krj*/}
+                <div className="card-527 col-sm-12 px-0 mx-0 row d-block" id="verifyPinStockCash">
+                    <VerifyPINPortofolio pos="stock"/>
+                </div>
 
-                <div className="container-fluid px-0 bg-black-trading f-12">
+                <div className="container-fluid px-0 bg-black-trading f-12 d-none" id="contentPinStockCash">
                     <div className="card-527 col-sm-12 px-0 mx-0 row">
                         <div className="col-sm-2 px-1">
                             <div className="stockcash-header h-77" style={imgUser}>
@@ -789,6 +793,18 @@ class ModalTransaction extends React.Component {
     }
 }
 
+class PINVerify extends React.Component {
+
+    render() {
+        return (
+            <>
+                <AppFrameAction ref="frameAction" />
+                <VerifyPIN tipe = 'fundtransfer'/>
+            </>
+        );
+    }
+}
+
 class FundTransfer_Base extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -848,7 +864,19 @@ class FundTransfer_Base extends React.PureComponent {
             return "s100";
         }
     }
-
+    buttonClickPIN = (e) => {
+        console.log('clicked');
+        var frameAction = this.refs.frameAction;
+        frameAction.showModal({
+            headerClass: () => <div className="text-right">
+                <i
+                    className="icofont icofont-close text-icofont-close text-border click-pointer"
+                                                              onClick={this.closeClick}></i></div>,
+            contentClass: PINVerify,
+            onClose: (result) => console.log('Second modal result = ', result),
+            size: "mini"
+        });
+    }
     render () {
         const imgdisplay = {
             display: 'inline-flex',
@@ -875,7 +903,10 @@ class FundTransfer_Base extends React.PureComponent {
         return (
             <>
                 <AppFrameAction ref="frameAction" />
-                <div className="container-fluid px-1 f-12" >
+                <div className="container-fluid px-1 f-12" id="FundPin">
+                    <VerifyPINPortofolio pos="fund"/>
+                </div>
+                <div className="container-fluid px-1 f-12 d-none" id="ContentFund">
 
 
                     {/* <div class="ui section divider small  col-sm-12 f-12 text-center align-self-center"></div> */}
@@ -978,7 +1009,7 @@ class FundTransfer_Base extends React.PureComponent {
                                                 </label>
                                             </div>
                                             <div className={"col-sm-12 text-right mb-0 px-3 h-40"}>
-                                                <button className={"btn btn-primary"}><i className={"fa fa-paper-plane"}>&nbsp;Send</i></button>
+                                                <button onClick={this.buttonClickPIN} className={"btn btn-primary"}><i className={"fa fa-paper-plane"}>&nbsp;Send</i></button>
                                             </div>
                                         </div>
 
@@ -1041,7 +1072,7 @@ class FundTransfer_Base extends React.PureComponent {
                                     </div>
                                 </div>
                                 <div className={"col-sm-12 text-right mb-0 px-3 h-40"}>
-                                    <button className={"btn btn-primary"}><i className={"fa fa-paper-plane"}>&nbsp;Send</i></button>
+                                    <button onClick={this.buttonClickPIN} className={"btn btn-primary"}><i className={"fa fa-paper-plane"}>&nbsp;Send</i></button>
                                 </div>
                             </div>
                         </div>
@@ -3650,6 +3681,17 @@ class VerifyPINPortofolio extends React.PureComponent{
                 $("#pinPortofolio").addClass("d-none");
                 $("#detailPortofolio").addClass("d-block");
                 $("#detailPortofolio").removeClass("d-none");
+
+                $("#contentPinStockCash").removeClass("d-none");
+                $("#contentPinStockCash").addClass("d-block");
+
+                $("#verifyPinStockCash").removeClass("d-block");
+                $("#verifyPinStockCash").addClass("d-none");
+
+                $("#FundPin").addClass("d-none");
+                $("#ContentFund").removeClass("d-none");
+                $("#ContentFund").addClass("d-block");
+
             } else{
                 var visible = true;
                 this.setState({ visible });
@@ -3689,7 +3731,9 @@ class VerifyPINPortofolio extends React.PureComponent{
         return(
             <>
                 <AppFrameAction ref="frameAction" />
-                <div className="text-white f-12 p-pinportofolio" style={{ paddingTop: "60px" }}>
+
+                <div className={`text-white f-12 ${(this.props.pos == "portofolio") ? 'p-pinportofolio' : 'p-pinlanding' }`} style={{ paddingTop: "60px"}}>
+
                     <Table borderless className="card-334 mb-0">
                         <tbody>
                         <tr>
