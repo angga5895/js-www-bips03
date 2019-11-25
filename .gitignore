@@ -1,0 +1,5 @@
+#ignore folder named
+node_modules/
+build/
+copy-file-didalam-ke-folder-build/
+*.bak
