@@ -1804,8 +1804,8 @@ button.bg-gold:hover {
     .p-login {
         padding-right: 25% !important;
         padding-left: 25% !important;
-        padding-top: 120px !important;
-        padding-bottom: 120px !important;
+        padding-top: 23vh !important;
+        /*padding-bottom: 10px !important;*/
         min-height: 100vh;
     }
 }
