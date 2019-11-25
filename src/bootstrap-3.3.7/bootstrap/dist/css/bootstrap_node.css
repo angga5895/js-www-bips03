@@ -350,7 +350,8 @@
 [col-id~="dateO"], [col-id~="timeO"], [col-id~="actionsO"], [col-id~="statusO"], [col-id~="remarksO"],
 [col-id~="priceO"],[col-id~="matchpriceO"],[col-id~="amountO"],
 [col-id~="codeR"], [col-id~="avgpriceR"], [col-id~="lastpriceR"],
-[col-id~="stockValR"], [col-id~="lqValR"], [col-id~="plR"], [col-id~="mktvalueR"]
+[col-id~="stockValR"], [col-id~="lqValR"], [col-id~="plR"], [col-id~="mktvalueR"],
+[col-id~="persenR"]
 {
   padding-bottom: 25px;
   /*z-index: 9999;*/

@@ -92,7 +92,7 @@ var BIPSAppVars = {
   isGrid:true,
   isManual:true,
   signupState : false,
-  thememode : false,
+  thememode : true,
   scaleState : "100",
   chatId : "",
   chartMode : false,
