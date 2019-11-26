@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73c41686-1cd0-465d-ad62-d8be6f6e464a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app_pages/landingPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app_pages/landingPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app_pages/landingPage.js.bak" beforeDir="false" afterPath="$PROJECT_DIR$/src/app_pages/landingPage.js.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bootstrap-3.3.7/bootstrap/dist/css/bootstrap_node.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/bootstrap-3.3.7/bootstrap/dist/css/bootstrap_node.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tabheaderfill.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/tabheaderfill.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app_pages/tradePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app_pages/tradePage.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,94 +15,57 @@
     <session id="-1505869256">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.58" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="css" value="2" />
           <entry key="gitignore" value="1" />
-          <entry key="js" value="2" />
+          <entry key="js" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JavaScript" value="2" />
+          <entry key="CSS" value="2" />
+          <entry key="JavaScript" value="5" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="TypeScriptServerServiceImpl" value="1" />
+          <entry key="TypeScriptServerServiceImpl" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="761" />
+          <entry key="js" value="3013" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="761" />
+          <entry key="JavaScript" value="3013" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppData.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="83" column="21" selection-start-line="83" selection-start-column="21" selection-end-line="83" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+        <entry file="file://$PROJECT_DIR$/src/app_pages/tradePage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app_pages/landingPage.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="3422" column="40" selection-start-line="3422" selection-start-column="40" selection-end-line="3422" selection-end-column="40" />
+            <state relative-caret-position="239">
+              <caret line="113" column="56" selection-start-line="113" selection-start-column="56" selection-end-line="113" selection-end-column="56" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-                <element signature="e#81041#84039#0" />
-                <element signature="e#86754#103864#0" />
-                <element signature="e#103894#104229#0" />
-                <element signature="e#85435#103839#0" />
-                <element signature="e#0#6#0" expanded="true" />
-                <element signature="e#6#12#0" expanded="true" />
-                <element signature="e#12#18#0" expanded="true" />
-                <element signature="e#18#24#0" expanded="true" />
-                <element signature="e#24#30#0" expanded="true" />
-                <element signature="e#0#6#0" expanded="true" />
-                <element signature="e#6#12#0" expanded="true" />
-                <element signature="e#12#18#0" expanded="true" />
-                <element signature="e#18#24#0" expanded="true" />
-                <element signature="e#24#30#0" expanded="true" />
-                <element signature="e#103082#103837#0" />
-                <element signature="e#0#6#0" expanded="true" />
-                <element signature="e#6#12#0" expanded="true" />
-                <element signature="e#12#18#0" expanded="true" />
-                <element signature="e#18#24#0" expanded="true" />
-                <element signature="e#24#30#0" expanded="true" />
-                <element signature="e#0#6#0" expanded="true" />
-                <element signature="e#6#12#0" expanded="true" />
-                <element signature="e#12#18#0" expanded="true" />
-                <element signature="e#18#24#0" expanded="true" />
-                <element signature="e#24#30#0" expanded="true" />
+                <element signature="e#51501#53166#0" />
+                <element signature="e#48#54#0" expanded="true" />
+                <element signature="e#54#60#0" expanded="true" />
+                <element signature="e#41#47#0" expanded="true" />
+                <element signature="e#47#53#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -126,6 +82,12 @@
       <find>TradeListHistory</find>
       <find>TradeListHistory_Base</find>
       <find>TradeListHistory_Base2</find>
+      <find>amend</find>
+      <find>BUY</find>
+      <find>Edit</find>
+      <find>Amend</find>
+      <find>on</find>
+      <find>Sent</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -137,6 +99,7 @@
         <option value="$PROJECT_DIR$/src/AppData.js" />
         <option value="$PROJECT_DIR$/src/app_pages/landingPage.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/app_pages/tradePage.js" />
       </list>
     </option>
   </component>
@@ -239,12 +202,13 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574670372928</updated>
-      <workItem from="1574670375690" duration="5308000" />
+      <workItem from="1574670375690" duration="5995000" />
+      <workItem from="1574733641802" duration="13799000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5308000" />
+    <option name="totallyTimeSpent" value="19794000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -259,16 +223,10 @@
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="npm" sideWeight="0.5016129" side_tool="true" weight="0.24962178" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4983871" visible="true" weight="0.19969743" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49519232" weight="0.20272315" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="TypeScript" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.32903227" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="npm" order="2" sideWeight="0.5048077" side_tool="true" weight="0.20272315" />
+      <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32903227" />
@@ -276,10 +234,16 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32903227" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TypeScript" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="12" visible="true" weight="0.32903227" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,14 +255,10 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/app_pages/landingPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
+        <state relative-caret-position="334">
           <caret line="3422" column="40" selection-start-line="3422" selection-start-column="40" selection-end-line="3422" selection-end-column="40" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#81041#84039#0" />
-            <element signature="e#86754#103864#0" />
-            <element signature="e#103894#104229#0" />
-            <element signature="e#85435#103839#0" />
             <element signature="e#0#6#0" expanded="true" />
             <element signature="e#6#12#0" expanded="true" />
             <element signature="e#12#18#0" expanded="true" />
@@ -309,7 +269,6 @@
             <element signature="e#12#18#0" expanded="true" />
             <element signature="e#18#24#0" expanded="true" />
             <element signature="e#24#30#0" expanded="true" />
-            <element signature="e#103082#103837#0" />
             <element signature="e#0#6#0" expanded="true" />
             <element signature="e#6#12#0" expanded="true" />
             <element signature="e#12#18#0" expanded="true" />
@@ -321,6 +280,13 @@
             <element signature="e#18#24#0" expanded="true" />
             <element signature="e#24#30#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="20" selection-start-column="20" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -334,10 +300,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/app_pages/streamChart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="190">
+          <caret line="114" selection-start-line="114" selection-end-line="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/react/my-app/src/App.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://D:/react/my-app/src/App.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://D:/react/my-app/src/index.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app_pages/tradePage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="113" column="56" selection-start-line="113" selection-start-column="56" selection-end-line="113" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#51501#53166#0" />
+            <element signature="e#48#54#0" expanded="true" />
+            <element signature="e#54#60#0" expanded="true" />
+            <element signature="e#41#47#0" expanded="true" />
+            <element signature="e#47#53#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

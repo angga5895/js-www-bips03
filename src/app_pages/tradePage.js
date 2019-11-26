@@ -96,7 +96,7 @@ const CustomFrameHeaderTrade_Base = (props) => {
                     initialFrames={
                         [
                             {className: 'OrderSetting', title: 'ORDER SETTING', instanceName: 'AutOrderSetting'},
-                            {className: 'SentOrder', title: 'SENT ORDER', instanceName: 'AutSentOrder'},
+                            {className: 'SentOrder', title: 'SEND ORDER', instanceName: 'AutSentOrder'},
                         ]
                     }
                     initActions={[
@@ -111,7 +111,7 @@ const CustomFrameHeaderTrade_Base = (props) => {
                             <FillHeaderTab linkTitles={
                                 {
                                     AutOrderSetting: 'ORDER SETTING',
-                                    AutSentOrder : 'SENT ORDER',
+                                    AutSentOrder : 'SEND ORDER',
                                 }
                             } />
                         </div>
@@ -940,18 +940,45 @@ class OrderSettingListAgGrid extends React.PureComponent{
         super(props);
         const self = this;
         this.state = {
+            list: [42, 33, 68],
             columnDefs: [
+
                 { field: "on", headerName: "#", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 80, lockPosition:true, lockVisible:true,
                     cellClass : function (params) {
                         return "text-center grid-table d-border-aggrid-right f-12 locked-col locked-visible";
-                    }, suppressSizeToFit: true},
+                    },
+                    // cellRenderer : function (params) {
+                    // var cmd = params.data.on;
+                    // var eDiv = document.createElement('div');
+                    // eDiv.innerHTML = '<span class="px-1">';
+                    // if(cmd){
+                    //     eDiv.innerHTML = '<span class="px-1"><button class="btn-cellOn btn btn-sm btn-primary mx-1 f-9">On</button></span>';
+                    // }else{
+                    //     eDiv.innerHTML = '<span class="px-1"><button class="btn-cellOn btn btn-sm btn-danger mx-1 f-9">Off</button></span>';
+                    // }
+                    // var onButton = eDiv.querySelectorAll('.btn-cellOn')[0];
+                    // onButton.addEventListener('click', alert('ganteng'));
+                    //     return eDiv;
+                    // },
+                    cellRendererFramework: function(params) {
+                        var cmd = params.data.on;
+                        var idorder = params.data.orderId;
+                        if(cmd){
+                           return <button className="btn-cellOn btn btn-sm btn-success mx-1 f-9" onClick={() => self.onUpdateItem(idorder) }> On </button>
+                        }else{
+                            return <button className="btn-cellOn btn btn-sm btn-danger mx-1 f-9" onClick={() => self.onUpdateItem(idorder) }> Off </button>
+                        }
+                    },
+                    suppressSizeToFit: true,
+                },
                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 100,
                     cellClass : function (params) {
                         return "text-center grid-table d-border-aggrid-right f-12 locked-col locked-visible";
                     }, suppressSizeToFit: true},
                 { field: "cmd", headerName: "Cmd.", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 100,
                     cellClass : function (params) {
-                        return "text-center grid-table d-border-aggrid-right f-12 locked-col locked-visible";
+                        return params.data.cmd == "Buy" ? "text-center text-danger grid-table d-border-aggrid-right f-12 locked-col locked-visible"
+                            : "text-center text-success grid-table d-border-aggrid-right f-12 locked-col locked-visible";
                     }, suppressSizeToFit: true},
                 { field: "condition", headerName: "Condition", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 180,
                     cellClass : function (params) {
@@ -997,7 +1024,9 @@ class OrderSettingListAgGrid extends React.PureComponent{
                 return 32;
             },
             rowData: [
-                { on: "on",
+                {
+                    orderId: "12344112",
+                    on: true,
                     price: "3,870",
                     code: "AALI",
                     cmd: "Sell",
@@ -1005,35 +1034,49 @@ class OrderSettingListAgGrid extends React.PureComponent{
                     exp: "4/7/2019",
                     vol: "10 Lot",
                 },
-                { on: "on",
+                {
+                    orderId: "12344113",
+                    on: true,
                     price: "3,870",
                     cmd: "Buy",
                     code: "AALI",
                     condition: "Last price <= 12,750",
                     exp: "4/7/2019",
                     vol: "3 Lot",
-                },{ on: "on",
+                },
+                {
+                    orderId: "12344114",
+                    on: false,
                     price: "3,870",
                     cmd: "Buy",
                     code: "AALI",
                     condition: "Last price <= 12,750",
                     exp: "4/7/2019",
                     vol: "1 Lot",
-                },{ on: "on",
+                },
+                {
+                    orderId: "12344115",
+                    on: true,
                     price: "3,870",
                     cmd: "Sell",
                     code: "AALI",
                     condition: "Last price <= 12,750",
                     exp: "4/7/2019",
                     vol: "4 Lot",
-                },{ on: "on",
+                },
+                {
+                    orderId: "12344116",
+                    on: false,
                     price: "3,870",
                     code: "AALI",
                     cmd: "Buy",
                     condition: "Last price <= 12,750",
                     exp: "4/7/2019",
                     vol: "7 Lot",
-                },{ on: "on",
+                },
+                {
+                    orderId: "12344117",
+                    on: true,
                     price: "3,870",
                     code: "AALI",
                     cmd: "Buy",
@@ -1074,6 +1117,19 @@ class OrderSettingListAgGrid extends React.PureComponent{
         }
     }
 
+    updateStateOn = params => {
+       this.setState(state => {
+           const rowData = state.rowData.map((item, j) => {
+               if(item.orderId == params){
+                   return item.on = !item.on;
+               }else{
+                   return item;
+               }
+           });
+           return  { rowData, };
+       })
+    };
+
     onGridReady = params => {
         this.gridApi = params.api;
         this.gridColumnApi = params.columnApi;
@@ -1091,7 +1147,33 @@ class OrderSettingListAgGrid extends React.PureComponent{
     onFirstDataRendered(params) {
         params.api.sizeColumnsToFit();
     }
-
+    onUpdateItem = i => {
+        console.log('kepencet '+i);
+        this.setState(state => {
+            const rowData = state.rowData.map((item, j) => {
+                if (item.orderId === i) {
+                    console.log('ketemu');
+                    var baru = {
+                        'orderId': item.orderId,
+                        'on': !item.on,
+                        'price': item.price,
+                        'code': item.code,
+                        'cmd': item.cmd,
+                        'condition': item.condition,
+                        'exp': item.exp,
+                        'vol': item.vol,
+                    };
+                    return baru;
+                } else {
+                    console.log('engga');
+                    return item;
+                }
+            });
+            return {
+                rowData,
+            };
+        });
+    };
     render() {
         return (
             <>
