@@ -947,19 +947,6 @@ class OrderSettingListAgGrid extends React.PureComponent{
                     cellClass : function (params) {
                         return "text-center grid-table d-border-aggrid-right f-12 locked-col locked-visible";
                     },
-                    // cellRenderer : function (params) {
-                    // var cmd = params.data.on;
-                    // var eDiv = document.createElement('div');
-                    // eDiv.innerHTML = '<span class="px-1">';
-                    // if(cmd){
-                    //     eDiv.innerHTML = '<span class="px-1"><button class="btn-cellOn btn btn-sm btn-primary mx-1 f-9">On</button></span>';
-                    // }else{
-                    //     eDiv.innerHTML = '<span class="px-1"><button class="btn-cellOn btn btn-sm btn-danger mx-1 f-9">Off</button></span>';
-                    // }
-                    // var onButton = eDiv.querySelectorAll('.btn-cellOn')[0];
-                    // onButton.addEventListener('click', alert('ganteng'));
-                    //     return eDiv;
-                    // },
                     cellRendererFramework: function(params) {
                         var cmd = params.data.on;
                         var idorder = params.data.orderId;
@@ -1177,10 +1164,14 @@ class OrderSettingListAgGrid extends React.PureComponent{
     render() {
         return (
             <>
+                <div className="col-sm-12 px-0 mx-0 bg-gray-tradding text-center">
+                    <div className="bg-grey-tradding col-sm-12 px-0 mx-0 text-center py-3 f-16">ORDER SETTINGS LIST</div>
+                </div>
                 <div
-                    className="card-190 ag-theme-balham-dark ag-header-border d-border ag-striped-odd"
+                    className="card-233 ag-theme-balham-dark ag-header-border d-border ag-striped-odd"
                     style={{
                         width: 'auto' }}>
+
                     <AgGridReact
                         columnDefs={this.state.columnDefs}
                         rowData={this.state.rowData}
@@ -1253,7 +1244,21 @@ class TradeWatchlist extends React.PureComponent{
                     clickwithdraw={this.buttonClickWithdraw}/>
                 <div className="container-fluid row px-0 ml-0 mt-2" style={{'width':'100%'}}>
                     <div className="col-sm-6 pl-0 pr-2">
-                        <TradeListOrderListAgGrid/>
+                        <div className="col-sm-12 pl-2 pr-0">
+                            <div className="cssmenu d-border-bottom d-border-top d-border-left small h-30">
+                                <ul className="ul-menu h-27">
+                                    <li name="stockDaily"
+                                        className="col-sm-12 click-pointer active d-border-right text-center">
+                                        <a className="linkCustomStockTab h-27">
+                                                    <span
+                                                        className="f-12">TRADE LIST</span></a></li>
+                                </ul>
+                                <div style={{display: "block"}}>
+                                    <TradeListOrderListAgGrid/>
+                                    {/*<CekOrder/>*/}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div className="col-sm-6 pl-2 pr-0">
                         <div className="cssmenu d-border-bottom d-border-top d-border-left small h-30">
@@ -1271,7 +1276,6 @@ class TradeWatchlist extends React.PureComponent{
                             </ul>
                             <div style={{display: this.state.activeTab == 1 ? "block" : "none"}}>
                                 <TradeOrderSummaryAgGrid/>
-                                {/*<CekOrder/>*/}
 
                             </div>
                             <div style={{display: this.state.activeTab == 2 ? "block" : "none"}}>
@@ -1290,91 +1294,7 @@ const ATradeWatchlist = (props) => {
         <SettingInWatchlist/>
     );
 }
-//watchlistautomatic - ahaya
-const ATradeWatchlist2 = (props) => {
-    return(
-        <AppFrameProvider
-            initialClasses={{SettingInWatchlist2, OrderHistoryAgGrid}}
-            initialFrames={
-                [
-                    {className: 'SettingInWatchlist2', title: 'TRADE WATCHLIST BUY', instanceName: 'autoPageSetting'},
-                    {className: 'OrderHistoryAgGrid', title: 'TRADE WATCHLIST SELL', instanceName: 'autoPageHistory'},
-                ]
-            }>
-            {/* <BIPSAppProvider> */}
-            <div className="row col-sm-12 pl-2 mx-0 pt-1">
-                {/*<div className="col-sm-12 px-2">*/}
-                {/*<MenuOfContent linkTitles={*/}
-                {/*{*/}
-                {/*autoPageSetting : 'ORDER SETTING',*/}
-                {/*autoPageHistory: 'SENT ORDER',*/}
-                {/*}*/}
-                {/*} />*/}
-                {/*</div>*/}
-                <div className="col-sm-12 px-0 mx-0">
-                    <div className="cssmenu d-border-bottom d-border-top d-border-left small h-30">
-                        <ul className="ul-menu h-27">
-                            <li name="stockDaily"
-                                className={`col-sm-6 click-pointer d-border-right text-center${(this.state.activeTab == 1) ? ' active' : ''}`} onClick={() => this.setState({activeTab: 1})}>
-                                <a className="linkCustomStockTab h-27">
-                                                    <span
-                                                        className="f-12">ORDER SUMMARY</span></a></li>
-                            <li name="stockPage"
-                                className={`col-sm-6 click-pointer d-border-right text-center${(this.state.activeTab == 2) ? ' active' : ''}`} onClick={() => this.setState({activeTab: 2})}>
-                                <a className="linkCustomStockTab h-27">
-                                                    <span
-                                                        className="f-12">TRADE SUMMARY</span></a></li>
-                        </ul>
-                        <div style={{display: this.state.activeTab == 1 ? "block" : "none"}}>
-                            <TradeOrderSummaryAgGrid/>
-                        </div>
 
-                        <div style={{display: this.state.activeTab == 2 ? "block" : "none"}}>
-                            <TradeTradeSummaryAgGrid/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {/* </BIPSAppProvider> */}
-        </AppFrameProvider>
-    );
-}
-
-//gakepake
-const ATradeTick = (props) => {
-    return(
-        <AppFrameProvider
-            initialClasses={{SettingInTick, OrderHistoryAgGrid}}
-            initialFrames={
-                [
-                    {className: 'SettingInTick', title: 'TRADE WATCHLIST BUY', instanceName: 'autoPageSetting'},
-                    {className: 'OrderHistoryAgGrid', title: 'TRADE WATCHLIST SELL', instanceName: 'autoPageHistory'},
-                ]
-            }>
-            {/* <BIPSAppProvider> */}
-            <div className="row col-sm-12 pl-2 mx-0 pt-1">
-                <div className="col-sm-4 px-0 mx-0">
-                    <AppModal/>
-                    <TableTradeWatchlist/>
-                </div>
-                <div className="col-sm-8 px-0 mx-0">
-                    <div className="col-sm-12 px-2">
-                        <MenuOfContent linkTitles={
-                            {
-                                autoPageSetting : 'ORDER SETTING',
-                                autoPageHistory: 'AUTOMATIC ORDER HISTORY',
-                            }
-                        } />
-                    </div>
-                    <div className="col-sm-12 px-2 pt-0">
-                        <AppFrame headerComponent={TradeWatchlistFrameHeader}/>
-                    </div>
-                </div>
-            </div>
-            {/* </BIPSAppProvider> */}
-        </AppFrameProvider>
-    );
-}
 
 const ATradeDaily = (props) => {
     return(
@@ -1893,291 +1813,7 @@ class SellPage extends React.Component{
     }
 
 }
-//zzzz
-// class CekOrder extends React.PureComponent {
-//     constructor(props) {
-//         super(props);
-//         const self = this;
-//         this.state = {
-//             columnDefs: [
-//                 { field: "order", headerName: "Order#", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 70, lockPosition:true, lockVisible:true,
-//                     // cellClass : function (params) {
-//                     //     var cmd = params.data.cmd;
-//                     //     return true;
-//                         // return cmd.includes('BUY') === true ? "text-center grid-table f-12 text-danger locked-col locked-visible" : "text-center grid-table f-12 text-success locked-col locked-visible";
-//                     // },
-//                     // cellRenderer : function (params) {
-//                     //     var order = params.data.order;
-//                         // var eDiv = document.createElement('div');
-//                         // eDiv.innerHTML = '<span class="btn-cellorder px-1">' +order+ '</span>';
-//                         // var aButton = eDiv.querySelectorAll('.btn-cellorder')[0];
-//
-//                         // aButton.addEventListener('dblclick', self.props.clickorderdetail);
-//                         // return eDiv;
-//                         // return true;
-//                     // },
-//                 suppressSizeToFit : true},
-//                 { field: "marketorder", headerName: "Market Order#", sortable: true, filter: "agTextColumnFilter", resizable: true, width:139,
-//                     cellClass : function (params) {
-//                         return " grid-table d-border-aggrid-right text-center f-12";
-//                     },
-//                 },
-//                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width:88,
-//                     cellClass : function (params) {
-//                         return " grid-table d-border-aggrid-right text-center text-primary f-12";
-//                     },
-//                 },
-//                 { field: "cmd", headerName: "Cmd", sortable: true, filter: "agTextColumnFilter", resizable: true, width:85,
-//                     cellClass : function (params) {
-//                         var cmd = params.data.cmd;
-//                         return cmd.includes('BUY') === true ? " text-danger grid-table d-border-aggrid-right f-12" :
-//                             " text-success grid-table d-border-aggrid-right f-12";
-//                     },
-//                 },
-//                 { field: "status", headerName: "Status", sortable: true, filter: "agTextColumnFilter", resizable: true, width:93,
-//                     cellClass : function (params) {
-//                         return " grid-table d-border-aggrid-right f-12";
-//                     },
-//                 },
-//                 { field: "remark", headerName: "Remark", sortable: true, filter: "agTextColumnFilter", resizable: true, width:101,
-//                     cellClass : function (params) {
-//                         return " grid-table d-border-aggrid-right f-12";
-//                     },
-//                     cellRenderer : function (params) {
-//                         var status = params.data.status;
-//                         return status.includes('Sending') === true ? '<i class="fas fa-hourglass-half text-tosca"></i>&nbsp;&nbsp;'+ params.data.remark:
-//                             '<i class="fa fa-check text-success"></i> &nbsp;&nbsp;'+ params.data.remark;
-//                     }
-//                 },
-//                 { field: "type", headerName: "Type", sortable: true, filter: "agTextColumnFilter", resizable: true, width:85,
-//                     cellClass : function (params) {
-//                         return " grid-table d-border-aggrid-right f-12";
-//                     },
-//                 },
-//                 { field: "mkt", headerName: "Mkt", sortable: true, filter: "agTextColumnFilter", resizable: true, width:81,
-//                     cellClass : function (params) {
-//                         return " grid-table d-border-aggrid-right f-12";
-//                     },
-//                 },
-//                 { field: "vlot", headerName: "Vol. Lot", sortable: true, filter: "agTextColumnFilter", resizable: true, width:100,
-//                     cellClass : function (params) {
-//                         return " grid-table d-border-aggrid-right text-right f-12";
-//                     },
-//                 },
-//                 { field: "vshares", headerName: "Vol. Shares", sortable: true, filter: "agTextColumnFilter", resizable: true, width:118,
-//                     cellClass : function (params) {
-//                         return " grid-table d-border-aggrid-right text-right f-12";
-//                     },
-//                 },
-//                 { field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width:86,
-//                     cellClass : function (params) {
-//                         return " grid-table d-border-aggrid-right text-right f-12";
-//                     },
-//                 },
-//                 { field: "mlot", headerName: "Match Vol. Lot", sortable: true, filter: "agTextColumnFilter", resizable: true, width:136,
-//                     cellClass : function (params) {
-//                         return " grid-table d-border-aggrid-right text-right f-12";
-//                     },
-//                 },
-//                 { field: "mshares", headerName: "Match Vol. Shares", sortable: true, filter: "agTextColumnFilter", resizable: true, width:154,
-//                     cellClass : function (params) {
-//                         return " grid-table d-border-aggrid-right text-right f-12";
-//                     },
-//                 },
-//                 { field: "avgmatchprice", headerName: "Avg. Match Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width:150,
-//                     cellClass : function (params) {
-//                         return " grid-table d-border-aggrid-right text-right f-12";
-//                     },
-//                 },
-//                 { field: "amount", headerName: "Amount", sortable: true, filter: "agTextColumnFilter", resizable: true, width:103,
-//                     cellClass : function (params) {
-//                         return " grid-table d-border-aggrid-right text-right f-12";
-//                     },
-//                 },
-//                 { field: "time", headerName: "Time", sortable: true, filter: "agTextColumnFilter", resizable: true, width:86,
-//                     cellClass : function (params) {
-//                         return " grid-table d-border-aggrid-right text-center f-12";
-//                     },
-//                 },
-//                 { field: "action", headerName: "Action", sortable: true, filter: "agTextColumnFilter", width:150, pinned: "right", lockPosition: true, lockVisible: true,
-//                     cellClass : function (params) {
-//                         return " grid-table d-border-aggrid-right locked-col locked-visible";
-//                     },
-//                     cellRenderer : function (params) {
-//                         var eDiv = document.createElement('div');
-//                         eDiv.innerHTML = '<span class="px-1">' +
-//                             '<button class="btn-cellamend btn btn-sm btn-primary mx-1 f-9 w-50">Amend</button>' +
-//                             '<button class="btn-cellwithdraw btn btn-sm btn-brown mx-1 f-9">Withdraw</button>'+
-//                             '</span>';
-//                         var aButton = eDiv.querySelectorAll('.btn-cellamend')[0];
-//                         var wButton = eDiv.querySelectorAll('.btn-cellwithdraw')[0];
-//
-//                         aButton.addEventListener('click', self.props.clickamend);
-//                         wButton.addEventListener('click', self.props.clickwithdraw);
-//
-//                         return eDiv;
-//                     }, suppressSizeToFit: true
-//                 },
-//             ],
-//             defaultColDef: {
-//                 sortable: true,
-//                 filter: true,
-//                 headerCheckboxSelection: isFirstColumn,
-//                 checkboxSelection: isFirstColumn,
-//             },
-//             rowSelection: "multiple",
-//             getRowHeight : function(params){
-//                 return 27;
-//             },
-//             rowData: [
-//                 {order : "001700",
-//                     marketorder :"MKT012",
-//                     code : "AALI",
-//                     cmd : "SELL",
-//                     status :"Done",
-//                     remark : "",
-//                     type :"Day",
-//                     mkt :"RG",
-//                     vlot :"10",
-//                     vshares :"1000",
-//                     price :"12,650",
-//                     mlot :"10",
-//                     mshares :"1000",
-//                     avgmatchprice :"12,650",
-//                     amount :"12,650,000",
-//                     time :"11:20:17",
-//                     action: "",},
-//                 {order : "001699",
-//                     marketorder :"MKT010",
-//                     code : "AALI",
-//                     cmd : "BUY",
-//                     status :"Partial",
-//                     remark : "Amended",
-//                     type :"Day",
-//                     mkt :"RG",
-//                     vlot :"15",
-//                     vshares :"1500",
-//                     price :"12,650",
-//                     mlot :"5",
-//                     mshares :"500",
-//                     avgmatchprice :"12,650",
-//                     amount :"12,650,000",
-//                     time :"11:19:17",
-//                     action: "",},
-//                 {order : "001698",
-//                     marketorder :"MKT009",
-//                     code : "BBCA",
-//                     cmd : "BUY",
-//                     status :"Open",
-//                     remark : "Amended",
-//                     type :"Day",
-//                     mkt :"RG",
-//                     vlot :"8",
-//                     vshares :"0",
-//                     price :"29,500",
-//                     mlot :"0",
-//                     mshares :"0",
-//                     avgmatchprice :"29,500",
-//                     amount :"23,600,000",
-//                     time :"11:10:12",
-//                     action: "",},
-//                 {order : "001697",
-//                     marketorder :"MKT021",
-//                     code : "AALI",
-//                     cmd : "BUY",
-//                     status :"Done",
-//                     remark : "",
-//                     type :"Day",
-//                     mkt :"RG",
-//                     vlot :"10",
-//                     vshares :"100",
-//                     price :"12,625",
-//                     mlot :"10",
-//                     mshares :"100",
-//                     avgmatchprice :"12,625",
-//                     amount :"12,625,000",
-//                     time :"11:22:17",
-//                     action: "",},
-//             ],
-//             sideBar: {
-//                 toolPanels: [
-//                     {
-//                         id: "columns",
-//                         labelDefault: "Columns",
-//                         labelKey: "columns",
-//                         iconKey: "columns",
-//                         toolPanel: "agColumnsToolPanel",
-//                         toolPanelParams: {
-//                             suppressRowGroups: true,
-//                             suppressValues: true,
-//                             suppressPivots: true,
-//                             suppressPivotMode: true,
-//                             suppressSideButtons: true,
-//                             suppressColumnFilter: true,
-//                             suppressColumnSelectAll: true,
-//                             suppressColumnExpandAll: true
-//                         },
-//                     }, {
-//                         id: "filters",
-//                         labelDefault: "Filters",
-//                         labelKey: "filters",
-//                         iconKey: "filter",
-//                         toolPanel: "agFiltersToolPanel"
-//                     }
-//                 ],
-//                 defaultToolPanel: ""
-//             },
-//         }
-//
-//         function isFirstColumn(params) {
-//             var displayedColumns = params.columnApi.getAllDisplayedColumns();
-//             var thisIsFirstColumn = displayedColumns[0] === params.column;
-//             return thisIsFirstColumn;
-//         }
-//
-//     }
-//
-//     onGridReady = params => {
-//         this.gridApi = params.api;
-//         this.gridColumnApi = params.columnApi;
-//
-//         params.api.sizeColumnsToFit();
-//         window.addEventListener("resize", function() {
-//             setTimeout(function() {
-//                 params.api.sizeColumnsToFit();
-//             });
-//         });
-//
-//         params.api.sizeColumnsToFit();
-//     };
-//
-//     onFirstDataRendered(params) {
-//         params.api.sizeColumnsToFit();
-//     }
-//
-//     render() {
-//         return (
-//             <>
-//                 <div
-//                     className="card card-xmini ag-theme-balham-dark ag-header-border"
-//                     style={{
-//                         width: 'auto' }}>
-//                     <AgGridReact
-//                         columnDefs={this.state.columnDefs}
-//                         rowData={this.state.rowData}
-//                         defaultColDef={this.state.defaultColDef}
-//                         getRowHeight={this.state.getRowHeight}
-//                         rowSelection={this.state.rowSelection}
-//                         onGridReady={this.onGridReady}
-//                         rowMultiSelectWithClick={false}
-//                         onFirstDataRendered={this.onFirstDataRendered}>
-//                     </AgGridReact>
-//
-//                </div>
-//             </>
-//         );
-//     }
-// }
+
 
 //Sent Order
 class OrderHistoryAgGrid extends React.PureComponent {
@@ -2200,11 +1836,13 @@ class OrderHistoryAgGrid extends React.PureComponent {
                     },},
                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 75,
                     cellClass : function (params) {
-                        return "text-center grid-table d-border-aggrid-right f-12";
+                        return "text-center text-primary grid-table d-border-aggrid-right f-12";
                     }, },
                 { field: "cmd", headerName: "Cmd", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 80,
                     cellClass : function (params) {
-                        return "text-center grid-table d-border-aggrid-right f-12";
+                        var cmd = params.data.cmd;
+                        return cmd.includes('BUY') === true ? " text-center text-danger grid-table d-border-aggrid-right f-12" :
+                            " text-center text-success grid-table d-border-aggrid-right f-12";
                     },},
                 { field: "qty", headerName: "Qty", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 80,
                     cellClass : function (params) {
@@ -2226,7 +1864,7 @@ class OrderHistoryAgGrid extends React.PureComponent {
                     cellClass : function (params) {
                         return "text-center grid-table d-border-aggrid-right f-12";
                     }, },
-                { field: "setdate", headerName: "Set Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 100,
+                { field: "setdate", headerName: "Set Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 110,
                     cellClass : function (params) {
                         return "text-center grid-table d-border-aggrid-right f-12";
                     }, },
@@ -2248,86 +1886,26 @@ class OrderHistoryAgGrid extends React.PureComponent {
             rowData: [
                 { date: "28/11/2018",
                     time: "08:21:33",
-                    order : "BUY",
+                    order : "001",
                     code: "AALI",
                     qty: "2",
-                    cmd: "1",
+                    cmd: "BUY",
                     price: "12.000",
                     mqty: "2",
                     mprice: "3.000",
-                    result: "Delay",
+                    result: "Match",
                     setdate: "12/11/2019",
                     dateuntil: "13/11/2019",
                 },{ date: "28/11/2018",
                     time: "08:21:33",
-                    cmd: "1",
-                    order : "BUY",
+                    order : "001",
                     code: "AALI",
                     qty: "2",
+                    cmd: "SELL",
                     price: "12.000",
                     mqty: "2",
                     mprice: "3.000",
-                    result: "Delay",
-                    setdate: "12/11/2019",
-                    dateuntil: "13/11/2019",
-                },{ date: "28/11/2018",
-                    time: "08:21:33",
-                    order : "BUY",
-                    code: "AALI",
-                    cmd: "1",
-                    qty: "2",
-                    price: "12.000",
-                    mqty: "2",
-                    mprice: "3.000",
-                    result: "Delay",
-                    setdate: "12/11/2019",
-                    dateuntil: "13/11/2019",
-                },{ date: "28/11/2018",
-                    time: "08:21:33",
-                    order : "BUY",
-                    code: "AALI",
-                    qty: "2",
-                    price: "12.000",
-                    cmd: "1",
-                    mqty: "2",
-                    mprice: "3.000",
-                    result: "Delay",
-                    setdate: "12/11/2019",
-                    dateuntil: "13/11/2019",
-                },{ date: "28/11/2018",
-                    time: "08:21:33",
-                    order : "BUY",
-                    code: "AALI",
-                    qty: "2",
-                    cmd: "1",
-                    price: "12.000",
-                    mqty: "2",
-                    mprice: "3.000",
-                    result: "Delay",
-                    setdate: "12/11/2019",
-                    dateuntil: "13/11/2019",
-                },{ date: "28/11/2018",
-                    time: "08:21:33",
-                    order : "BUY",
-                    code: "AALI",
-                    qty: "2",
-                    price: "12.000",
-                    cmd: "1",
-                    mqty: "2",
-                    mprice: "3.000",
-                    result: "Delay",
-                    setdate: "12/11/2019",
-                    dateuntil: "13/11/2019",
-                },{ date: "28/11/2018",
-                    time: "08:21:33",
-                    order : "BUY",
-                    code: "AALI",
-                    cmd: "1",
-                    qty: "2",
-                    price: "12.000",
-                    mqty: "2",
-                    mprice: "3.000",
-                    result: "Delay",
+                    result: "Match",
                     setdate: "12/11/2019",
                     dateuntil: "13/11/2019",
                 },
@@ -2392,7 +1970,7 @@ class OrderHistoryAgGrid extends React.PureComponent {
             <>
                 {/*senttttt*/}
                 <div
-                    className="card-530 pl-2 ag-theme-balham-dark d-border bg-dark-grey ag-bordered ag-striped-odd d-border"
+                    className="card-530 ag-theme-balham-dark d-border bg-dark-grey ag-bordered ag-striped-odd d-border"
                     style={{
                         width: 'auto',height: '480px', }}>
                     <AgGridReact
@@ -2410,13 +1988,28 @@ class OrderHistoryAgGrid extends React.PureComponent {
     }
 }
 //oooooooo
+let timer = 0;
+let delay = 200;
+let prevent = false;
+
+
+
 class OrderListAgGrid extends React.PureComponent {
     constructor(props) {
         super(props);
         const self = this;
         this.state = {
             columnDefs: [
-                { field: "order", headerName: "Order#", sortable: true, filter: "agTextColumnFilter", resizable: true, width:98,
+                { field: "-", headerName: "#", sortable: true, filter: "agTextColumnFilter", resizable: true, width:35,
+                    cellClass : function (params) {
+                        return " grid-table d-border-aggrid-right text-center text-primary f-12 click-pointer";
+                    },
+                    cellRendererFramework: function(params){
+                        var orderId = params.data.order;
+                        return <text>&nbsp;</text>
+                    },
+                    suppressSizeToFit: true
+                }, { field: "-", headerName: "Order#", sortable: true, filter: "agTextColumnFilter", resizable: true, width:98,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center text-primary f-12 click-pointer";
                     },
@@ -2428,7 +2021,8 @@ class OrderListAgGrid extends React.PureComponent {
 
                         aButton.addEventListener('dblclick', self.props.clickorderdetail);
                         return eDiv;
-                    }, suppressSizeToFit: true
+                    },
+                    suppressSizeToFit: true
                 },
                 { field: "marketorder", headerName: "Market Order#", sortable: true, filter: "agTextColumnFilter", resizable: true, width:139,
                     cellClass : function (params) {
@@ -2443,8 +2037,8 @@ class OrderListAgGrid extends React.PureComponent {
                 { field: "cmd", headerName: "Cmd", sortable: true, filter: "agTextColumnFilter", resizable: true, width:85,
                     cellClass : function (params) {
                         var cmd = params.data.cmd;
-                        return cmd.includes('BUY') === true ? " text-danger grid-table d-border-aggrid-right f-12" :
-                            " text-success grid-table d-border-aggrid-right f-12";
+                        return cmd.includes('BUY') === true ? " text-center text-danger grid-table d-border-aggrid-right f-12" :
+                            " text-center text-success grid-table d-border-aggrid-right f-12";
                     },
                 },
                 { field: "status", headerName: "Status", sortable: true, filter: "agTextColumnFilter", resizable: true, width:93,
@@ -2512,7 +2106,7 @@ class OrderListAgGrid extends React.PureComponent {
                         return " grid-table d-border-aggrid-right text-center f-12";
                     },
                 },
-                { field: "action", headerName: "Action", sortable: true, filter: "agTextColumnFilter", width:150, pinned: "right", lockPosition: true, lockVisible: true,
+                { field: "action", headerName: "Action", sortable: true, filter: "agTextColumnFilter", width:130, pinned: "right", lockPosition: true, lockVisible: true,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right locked-col locked-visible";
                     },
@@ -2532,12 +2126,16 @@ class OrderListAgGrid extends React.PureComponent {
                     }, suppressSizeToFit: true
                 },
             ],
+
             defaultColDef: {
                 sortable: true,
                 filter: true,
                 headerCheckboxSelection: isFirstColumn,
                 checkboxSelection: isFirstColumn,
-                rowSelection: "multiple",
+            },
+            rowSelection: "multiple",
+            getRowHeight : function(params){
+                return 28;
             },
             rowData: [
                 {order : "001700",
@@ -3068,9 +2666,7 @@ class OrderListAgGrid extends React.PureComponent {
                     time :"11:22:10",
                     action: "",},
             ],
-            getRowHeight : function (params) {
-                return 32;
-            },
+
             sideBar: {
                 toolPanels: [
                     {
@@ -3106,7 +2702,6 @@ class OrderListAgGrid extends React.PureComponent {
             return thisIsFirstColumn;
         }
     }
-
     onGridReady = params => {
         this.gridApi = params.api;
         this.gridColumnApi = params.columnApi;
@@ -3125,7 +2720,20 @@ class OrderListAgGrid extends React.PureComponent {
         params.api.sizeColumnsToFit();
     }
 
+    buttonClickOrderDetailOrderPage = (e) => {
+        this.refs.frameAction.showModal({
+            headerClass: () =>
+                <div className="col-sm-12 px-0 mx-0 text-right">
+                    <i className="icofont icofont-close text-icofont-close text-border click-pointer" onClick={this.closeClick}></i>
+                </div>,
+            size: 'large',
+            contentClass: OrderDetailModal,
+            onClose: (result) => {console.log('Modal 1 result = ', result)}
+        })
+    }
+
     render() {
+
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
@@ -3138,43 +2746,52 @@ class OrderListAgGrid extends React.PureComponent {
                         columnDefs={this.state.columnDefs}
                         rowData={this.state.rowData}
                         defaultColDef={this.state.defaultColDef}
-                        onGridReady={this.onGridReady}
                         getRowHeight={this.state.getRowHeight}
-                        onFirstDataRendered={this.onFirstDataRendered.bind(this)}>
+                        rowSelection={this.state.rowSelection}
+                        onGridReady={this.onGridReady}
+                        onFirstDataRendered={this.onFirstDataRendered}
+                    >
                     </AgGridReact>
                 </div>
             </div>
         );
     }
 }
-
+//duin
 class TradeListOrderListAgGrid extends React.PureComponent {
     constructor(props) {
         super(props);
         const self = this;
         this.state = {
             columnDefs: [
-                { field: "time", headerName: "Time", sortable: true, filter: "agTextColumnFilter", resizable: true, width:86,
+                { field: "time", headerName: "Time", sortable: true, filter: "agTextColumnFilter", resizable: true, width:80,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12";
                     },
-                },{ field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width:86,
+                },{ field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width:78,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12";
                     },
                 },{ field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width:86,
                     cellClass : function (params) {
-                        return " grid-table d-border-aggrid-right text-center f-12";
+                        return " grid-table text-right d-border-aggrid-right text-center f-12";
                     },
-                },{ field: "change", headerName: "Change", sortable: true, filter: "agTextColumnFilter", resizable: true, width:86,
+                },{ field: "change", headerName: "Change", sortable: true, filter: "agTextColumnFilter", resizable: true, width:140,
+                    cellClass : function (params) {
+                        var pl = params.data.change;
+                        return pl.includes('-') === true ? "text-danger text-center grid-table f-12 d-border-aggrid-right":
+                            "text-success text-center  grid-table f-12 d-border-aggrid-right";
+                    },
+                    cellRenderer : function (params) {
+                        var pl = params.data.change;
+                        return pl.includes('-') === true ? '<i class="icofont icofont-caret-down text-danger"></i> '+pl :
+                            '<i class="icofont icofont-caret-up text-success"></i> '+pl;
+                    }
+                },{ field: "vol", headerName: "Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width:60,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12";
                     },
-                },{ field: "vol", headerName: "Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width:86,
-                    cellClass : function (params) {
-                        return " grid-table d-border-aggrid-right text-center f-12";
-                    },
-                },{ field: "val", headerName: "Val", sortable: true, filter: "agTextColumnFilter", resizable: true, width:86,
+                },{ field: "val", headerName: "Val", sortable: true, filter: "agTextColumnFilter", resizable: true, width:60,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12";
                     },
@@ -3186,9 +2803,15 @@ class TradeListOrderListAgGrid extends React.PureComponent {
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12";
                     },
-                },{ field: "tradeid", headerName: "TradeID", sortable: true, filter: "agTextColumnFilter", resizable: true, width:86,
+                },{ field: "tradeId", headerName: "TradeID", sortable: true, filter: "agTextColumnFilter", resizable: true, width:90,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12";
+                    },
+                },{ field: "cmd", headerName: "Cmd", sortable: true, filter: "agTextColumnFilter", resizable: true, width:80,
+                    cellClass : function (params) {
+                        var cmd = params.data.cmd;
+                        return cmd.includes('BUY') === true ? " text-center text-danger grid-table d-border-aggrid-right f-12" :
+                            " text-center text-success grid-table d-border-aggrid-right f-12";
                     },
                 },
             ],
@@ -3197,54 +2820,72 @@ class TradeListOrderListAgGrid extends React.PureComponent {
                 filter: true,
             },
             rowData: [
-                {time : "08:02:12",
-                    code :"MKT012",
+                {
+                    time : "08:02:12",
+                    code :"AALI",
                     price : "13.000",
-                    change : "5.3",
+                    change: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
                     vol :"2",
                     val : "3",
                     buyer :"Day",
                     seller :"RG",
-                },{time : "08:42:12",
-                    code :"MKT092",
-                    price : "11.000",
-                    change : "2.3",
+                    cmd: "BUY",
+                    tradeId: "2991672"
+                },{
+                    time : "09:01:12",
+                    code :"AALI",
+                    price : "11.400",
+                    change: "10,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"0,30%",
                     vol :"1",
-                    val : "1",
+                    val : "3",
+                    buyer :"Night",
+                    seller :"RG",
+                    cmd: "SELL",
+                    tradeId: "2991673"
+                },{
+                    time : "08:02:12",
+                    code :"AALI",
+                    price : "13.000",
+                    change: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
+                    vol :"2",
+                    val : "3",
                     buyer :"Day",
                     seller :"RG",
-                },{time : "08:42:12",
-                    code :"MKT092",
-                    price : "11.000",
-                    change : "2.3",
+                    cmd: "BUY",
+                    tradeId: "2991672"
+                },{
+                    time : "09:01:12",
+                    code :"AALI",
+                    price : "11.400",
+                    change: "20,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"0,90%",
                     vol :"1",
-                    val : "1",
+                    val : "3",
+                    buyer :"Night",
+                    seller :"RG",
+                    cmd: "SELL",
+                    tradeId: "2991673"
+                },{
+                    time : "08:02:12",
+                    code :"AALI",
+                    price : "13.000",
+                    change: "60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"0,40%",
+                    vol :"2",
+                    val : "3",
                     buyer :"Day",
                     seller :"RG",
-                },{time : "08:42:12",
-                    code :"MKT092",
-                    price : "11.000",
-                    change : "2.3",
+                    cmd: "BUY",
+                    tradeId: "2991672"
+                },{
+                    time : "09:01:12",
+                    code :"AALI",
+                    price : "11.400",
+                    change: "-20,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,90%",
                     vol :"1",
-                    val : "1",
-                    buyer :"Day",
+                    val : "3",
+                    buyer :"Night",
                     seller :"RG",
-                },{time : "08:42:12",
-                    code :"MKT092",
-                    price : "11.000",
-                    change : "2.3",
-                    vol :"1",
-                    val : "1",
-                    buyer :"Day",
-                    seller :"RG",
-                },{time : "08:42:12",
-                    code :"MKT092",
-                    price : "11.000",
-                    change : "2.3",
-                    vol :"1",
-                    val : "1",
-                    buyer :"Day",
-                    seller :"RG",
+                    cmd: "SELL",
+                    tradeId: "2991673"
                 },
             ],
             getRowHeight : function (params) {
@@ -3308,7 +2949,7 @@ class TradeListOrderListAgGrid extends React.PureComponent {
         return (
             <div style={{ width: "100%", height: "100%" }}>
                 <div
-                    className={"card-202 ag-theme-balham-dark ag-bordered ag-striped-odd d-border"}
+                    className={"card-175 ag-theme-balham-dark ag-bordered ag-striped-odd d-border"}
                     id="myGrid"
                     style={{
                         width: "100%"
@@ -3351,7 +2992,9 @@ class TradeOrderSummaryAgGrid extends React.PureComponent {
                     },
                 },{ field: "cmd", headerName: "Cmd", sortable: true, filter: "agTextColumnFilter", resizable: true, width:100,
                     cellClass : function (params) {
-                        return " grid-table d-border-aggrid-right text-center f-12";
+                        var cmd = params.data.cmd;
+                        return cmd.includes('BUY') === true ? " text-center text-danger grid-table d-border-aggrid-right f-12" :
+                            " text-center text-success grid-table d-border-aggrid-right f-12";
                     },},
             ],
             defaultColDef: {
@@ -3365,31 +3008,31 @@ class TradeOrderSummaryAgGrid extends React.PureComponent {
                     leaveVol :"5",
                     tradeVol : "5",
                     avgPrice : "12,635.00",
-                    cmd :"Buy",
+                    cmd :"BUY",
                 },{
                     code : "AALI",
                     leaveVol :"3",
                     tradeVol : "5",
                     avgPrice : "13,635.00",
-                    cmd :"Buy",
+                    cmd :"SELL",
                 },{
                     code : "AALI",
                     leaveVol :"2",
                     tradeVol : "5",
                     avgPrice : "12,635.00",
-                    cmd :"Buy",
+                    cmd :"SELL",
                 },{
                     code : "AALI",
                     leaveVol :"7",
                     tradeVol : "1",
                     avgPrice : "9,635.00",
-                    cmd :"Sell",
+                    cmd :"BUY",
                 },{
                     code : "AALI",
                     leaveVol :"1",
                     tradeVol : "2",
                     avgPrice : "5,135.00",
-                    cmd :"Sell",
+                    cmd :"SELL",
                 },
             ],
             getRowHeight : function (params) {
@@ -3478,17 +3121,23 @@ class TradeTradeSummaryAgGrid extends React.PureComponent {
         const self = this;
         this.state = {
             columnDefs: [
-                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width:180,
+                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width:150,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12";
                     },
-                },{ field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width:225,
+                },{ field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width:150,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12";
                     },
-                },{ field: "vol", headerName: "Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width:220,
+                },{ field: "vol", headerName: "Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width:110,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12";
+                    },
+                },{ field: "cmd", headerName: "Cmd", sortable: true, filter: "agTextColumnFilter", resizable: true, width:150,
+                    cellClass : function (params) {
+                        var cmd = params.data.cmd;
+                        return cmd.includes('BUY') === true ? " text-center text-danger grid-table d-border-aggrid-right f-12" :
+                            " text-center text-success grid-table d-border-aggrid-right f-12";
                     },
                 },
             ],
@@ -3502,18 +3151,24 @@ class TradeTradeSummaryAgGrid extends React.PureComponent {
                     code : "AALI",
                     price :"15,000",
                     vol : "3",
+                    cmd: "BUY",
                 },{
                     code : "AALI",
                     price :"25,000",
                     vol : "4",
+                    cmd: "BUY",
+
                 },{
                     code : "AALI",
                     price :"35,000",
                     vol : "2",
+                    cmd: "BUY",
                 },{
                     code : "AALI",
                     price :"5,000",
                     vol : "1",
+                    cmd: "SELL",
+
                 },
             ],
             getRowHeight : function (params) {
