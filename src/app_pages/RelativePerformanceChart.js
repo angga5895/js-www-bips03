@@ -952,9 +952,10 @@ more.
                                             <input type="hidden" id={"chartDataSelect" + this.state.stockType} value="" data-json="./msft.json" />
                                             <input type="hidden" id={"chartDataSelect2" + this.state.stockType} value="" data-json="./ibm.json" />
 
-                                            <div className="form-group">
-                                                <input id={"rc"} list="brow" className="select selectpicker show-tick form-control mr-1"
-                                                       onChange={this.changelist} placeholder="-- Pilih --"/>
+                                            <div className="input-group mr-1">
+                                                <input id={"rc"} style={{borderRight:'none'}} list="brow"
+                                                       className="select selectpicker stockOptionInput2 show-tick form-control"
+                                                       onChange={this.changelist} placeholder="Search"/>
                                                 <datalist id="brow">
                                                     <option value="AALI"/>
                                                     <option value="ADHI"/>
@@ -965,11 +966,15 @@ more.
                                                     <option value="BBCA"/>
                                                     <option value="SMGR"/>
                                                 </datalist>
+                                                <span
+                                                    className="input-group-addon ml-0 pl-1 n-border-left">
+                                                    <i className="fa fa-search"></i></span>
                                             </div>
 
-                                            <div className="form-group">
-                                                <input id={"rc2"} list="brow" className="select selectpicker show-tick form-control mr-1"
-                                                       onChange={this.changelist} placeholder="-- Pilih --"/>
+                                            <div className="input-group mr-1">
+                                                <input id={"rc2"} style={{borderRight:'none'}} list="brow"
+                                                       className="select selectpicker stockOptionInput2 show-tick form-control"
+                                                       onChange={this.changelist} placeholder="Search"/>
                                                 <datalist id="brow">
                                                     <option value="AALI"/>
                                                     <option value="ADHI"/>
@@ -980,6 +985,8 @@ more.
                                                     <option value="BBCA"/>
                                                     <option value="SMGR"/>
                                                 </datalist>
+                                                <span style={{borderLeft:'none'}}
+                                                    className="input-group-addon ml-0 pl-1 n-border-left"><i className="fa fa-search"></i></span>
                                             </div>
 
                                             <select data-width={elemWidthanotation} data-size="10" data-dropup-auto="false" data-style="btn-dark" defaultValue={'default'} id={"typeSelect" + this.state.stockType} onclick="create()" className="select selectpicker show-tick form-control" title="Select Annotation Type">

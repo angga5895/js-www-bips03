@@ -945,10 +945,9 @@ more.
                                     <div className="form-group">
                                         <li style={marginSelection}>
                                             <input type="hidden" id={"chartDataSelect" + this.state.stockType} value={this.state.stockAlias} data-json={"./" + this.state.stockData} />
-
-                                            <div className="form-group">
-                                                <input id={"stockoption"+this.state.stockType} list="brow" className="select selectpicker show-tick mr-1 stockOptionInput form-control"
-                                                       onChange={this.changelist} placeholder="-- Pilih --"/>
+                                            <div className="input-group mr-1">
+                                                <input id={"stockoption"+this.state.stockType} style={{borderRight:'none'}} list="brow" className="select selectpicker show-tick stockOptionInput n-border-right form-control"
+                                                       onChange={this.changelist} placeholder="Search"/>
                                                 <datalist id="brow" className="text-basic listOpt">
                                                     <option value="AALI"/>
                                                     <option value="ADHI"/>
@@ -961,6 +960,8 @@ more.
                                                     <option value="SMGR"/>
                                                     <option value="BBRI"/>
                                                 </datalist>
+                                                <span
+                                                    className="input-group-addon ml-0 pl-1 n-border-left"><i className="fa fa-search"></i></span>
                                             </div>
                                             <select data-width={elemWidthanotation} data-size="10" data-dropup-auto="false" data-style="btn-dark" defaultValue={'default'} id={"typeSelect" + this.state.stockType} onclick="create()" className="select selectpicker show-tick form-control" title="Select Annotation Type">
                                                 <option value="default" selected>Annotation Type</option>

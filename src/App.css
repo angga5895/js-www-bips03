@@ -3917,5 +3917,25 @@ textarea {
     margin-bottom: 2px;
 }
 .stockOptionInput {
-    width: 100px !important;
+    width: 70px !important;
+}
+.stockOptionInput2 {
+    width: 150px !important;
+}
+.stockOptionInput, .stockOptionInput2{
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    /*text-indent: 0.1;*/
+    text-overflow: '';
+}
+
+.stockOptionInput::-webkit-calendar-picker-indicator,.stockOptionInput2::-webkit-calendar-picker-indicator {
+    display: none;
+}
+n-border-left{
+    border-left: none !important;
+}
+n-border-right{
+    border-right: none !important;
 }

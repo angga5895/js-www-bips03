@@ -3112,7 +3112,8 @@ class MarketStatistikAgGrid extends React.PureComponent {
                             last > prev ? "text-success text-right grid-table d-border-aggrid-right f-12" :
                                 "text-warning text-right grid-table d-border-aggrid-right f-12";
                     } },
-                { field: "vol", headerName: "Vol (Lot)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 75,
+                { field: "vol", headerName: "Vol (Lot)", sortable: true, filter: "agTextColumnFilter", resizable: true,
+                    width: 110, minWidth: 110,
                     cellClass : function (params) {
                         var prev = parseFloat(params.data.prev.replace(/,/g,""));
                         var last = parseFloat(params.data.last.replace(/,/g,""));
@@ -3140,11 +3141,13 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-right f-12";
                     } },
-                { field: "financial", headerName: "Financial (M)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 130, hide:true,
+                { field: "financial", headerName: "Financial (M)", sortable: true, filter: "agTextColumnFilter", resizable: true,
+                    width: 130, hide:true,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-right f-12";
                     } },
-                { field: "action", headerName: "Action", width: 100, pinned: "right", lockPosition: true, lockVisible: true,
+                { field: "action", headerName: "Action", width: 100, pinned: "right", lockPosition: true,
+                    lockVisible: true,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12 locked-col locked-visible";
                     },
@@ -3791,9 +3794,10 @@ class MarketStatistikAgGrid extends React.PureComponent {
                 ],
                 defaultToolPanel: ""
             },
+
         }
     }
-
+    //lagi
     onFirstDataRendered(params) {
         params.api.sizeColumnsToFit();
     }
@@ -3824,7 +3828,7 @@ class MarketStatistikAgGrid extends React.PureComponent {
                     <AgGridReact
                         columnDefs={this.state.columnDefs}
                         rowData={this.state.rowData}
-                        rowHeight={(this.props.typegrid == "summary")? 25:33}
+                        rowHeight= "32"
                         defaultColDef={this.state.defaultColDef}
                         onFirstDataRendered={this.onFirstDataRendered.bind(this)}
                         onGridReady={this.onGridReady}>
