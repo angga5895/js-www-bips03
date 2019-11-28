@@ -3916,3 +3916,6 @@ textarea {
     margin-top: 4px;
     margin-bottom: 2px;
 }
+.stockOptionInput {
+    width: 100px !important;
+}

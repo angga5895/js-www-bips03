@@ -34,6 +34,9 @@ import $ from 'jquery';
 window.$ = window.jQuery = $;
 require('../../node_modules/bootstrap/dist/js/bootstrap.js');
 
+var $valueAnalyticChart = "";
+var $valueAnalyticChart2 = "";
+
 const stockOptions = [
     { value: 'aali', label: 'AALI' },
     { value: 'adhi', label: 'ADHI' },
@@ -54,7 +57,8 @@ class RelativePerfomanceChart_Base extends React.PureComponent {
         this.state = {
             stockType: props.charVal,
             stockKey: props.key,
-            modeView: props.viewMode
+            modeView: props.viewMode,
+            sessId: props.sessId,
         };
     }
 
@@ -93,6 +97,7 @@ class RelativePerfomanceChart_Base extends React.PureComponent {
 
         const stockName = this.state.stockType;
         const viewMode = this.state.modeView;
+        const sessID = this.state.sessId;
 
         function setColClass($el) {
             // column count for row
@@ -188,7 +193,7 @@ class RelativePerfomanceChart_Base extends React.PureComponent {
             var appSettingsCache = {};
             appSettingsCache['data'] = {};
             appSettingsCache['data2'] = {};
-            appSettingsCache['chartType'] = $seriesTypeSelect.val();
+            appSettingsCache['chartType'] = 'line';
             appSettingsCache['scale'] = 'linear';
             appSettingsCache['theme'] = $themeSelect.val();
             appSettingsCache['indicators'] = {};
@@ -309,6 +314,92 @@ class RelativePerfomanceChart_Base extends React.PureComponent {
 
             $(window).on('resize', initHeightChart);
 
+            $("#rc").change(function() {
+                getStock($valueAnalyticChart,$valueAnalyticChart2);
+            });
+            $("#rc2").change(function() {
+                getStock($valueAnalyticChart,$valueAnalyticChart2);
+            });
+
+
+            $("#relativeChart").on('keypress', function(e){
+                if(e.which === 13){
+                    e.preventDefault();
+                    var data1 = $("#stockChart1").children().children().children().html();
+                    var data2 = $("#stockChart2").children().children().children().html();
+                    getStock(data1,data2);
+                }
+            });
+
+            $("#relativeChart2").on('keypress', function(e){
+                if(e.which === 13){
+                    e.preventDefault();
+                    var data1 = $("#stockChart1").children().children().children().html();
+                    var data2 = $("#stockChart2").children().children().children().html();
+                    getStock(data1,data2);
+                }
+            });
+
+            function getStock(stok,stok2){
+
+                var sessIdbaru = $("#sessIdAhay").val();
+                app.removeChart();
+                appSettingsCache['indicators'] = {};
+                appSettingsCache['scale'] = 'linear';
+                appSettingsCache['chartType'] = 'line';
+                appSettingsCache['annotation'] = 'remove';
+                appSettingsCache['theme'] = 'defaultTheme';
+                console.log(stok+" "+stok2);
+                if(stok === 'undefined'){
+                    appSettingsCache['data'][$chartDataSelect.val().toLowerCase().trim()] = [[]];
+                }else {
+                    $.ajax({
+                        type: "GET",
+                        url: "http://bahana.ihsansolusi.co.id:5050/chart/" + stok,
+                        contentType: "application/json; charset=utf-8",
+                        headers: {
+                            "Authorization": sessIdbaru,
+                        },
+                        dataType: 'json',
+                        success: function (result) {
+                            $('#chartDataSelectchrtRelative').val(stok);
+                            appSettingsCache['data'][$chartDataSelect.val().toLowerCase().trim()] = JSON.parse(result.data.data);
+                        }
+                    });
+                }
+                if(typeof stok2 == 'undefined'){
+                    appSettingsCache['data2'][$chartDataSelect2.val().toLowerCase().trim()] = [[]];
+                }else {
+                    $.ajax({
+                        type: "GET",
+                        url: "http://bahana.ihsansolusi.co.id:5050/chart/" + stok2,
+                        contentType: "application/json; charset=utf-8",
+                        headers: {
+                            "Authorization": sessIdbaru,
+                        },
+                        dataType: 'json',
+                        success: function (result2) {
+                            $('#chartDataSelect2chrtRelative').val(stok2);
+                            appSettingsCache['data2'][$chartDataSelect2.val().toLowerCase().trim()] = JSON.parse(result2.data.data);
+                        }
+                    });
+                }
+
+                $annotationType.val('default').selectpicker('refresh');
+                // select series type
+                $seriesTypeSelect.val('line').selectpicker('refresh');
+                // reset indicators select
+                $indicatorTypeSelect.val('').selectpicker('refresh');
+                // select chart theme
+                $themeSelect.val('defaultTheme').selectpicker('refresh');
+
+                // init, create chart
+                app.createChart(chartContainer);
+
+                appSettingsCache['annotation'] = 'remove';
+
+            }
+
             anychart.onDocumentReady(function () {
                 // To work with the data adapter you need to reference the data adapter script file from AnyChart CDN
                 // (https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js)
@@ -317,11 +408,11 @@ class RelativePerfomanceChart_Base extends React.PureComponent {
 
                 //multiple data load ===========================
                 anychart.data.loadJsonFile($chartDataSelect.data().json, function (data) {
-                    appSettingsCache['data'][$chartDataSelect.val().toLowerCase().trim()] = data;
+                    appSettingsCache['data'][$chartDataSelect.val().toLowerCase().trim()] = [[]];
                 });
 
                 anychart.data.loadJsonFile($chartDataSelect2.data().json, function (data2) {
-                    appSettingsCache['data2'][$chartDataSelect2.val().toLowerCase().trim()] = data2;
+                    appSettingsCache['data2'][$chartDataSelect2.val().toLowerCase().trim()] = [[]];
 
                     // init, create chart
                     app.createChart(chartContainer);
@@ -520,7 +611,7 @@ class RelativePerfomanceChart_Base extends React.PureComponent {
 
             function initHeightChart() {
                 var creditsHeight = 10;
-                var heightView = (viewMode) ? 452 : 295;
+                var heightView = (viewMode) ? 600 : 295;
 
                 // ganti 440 dengan $(window).height() untuk tinggi otomatis
                 $('#chart-container' + stockName).height(heightView - $indicatorNavPanel.outerHeight() - creditsHeight);
@@ -600,10 +691,10 @@ class RelativePerfomanceChart_Base extends React.PureComponent {
 
                 } else {
                     // create line series
-                    series = plot[seriesType](mapping);
+                    series = plot['line'](mapping);
                     series.name(dataName.toUpperCase());
 
-                    series2 = plot[seriesType](mapping2);
+                    series2 = plot['line'](mapping2);
                     series2.name(dataName2.toUpperCase());
                 }
 
@@ -742,6 +833,22 @@ class RelativePerfomanceChart_Base extends React.PureComponent {
         },
     });
 
+    changelist(e){
+        if(e.target.value.length > 0) {
+            if(e.target.id == "rc"){
+                $valueAnalyticChart = e.target.value;
+                $("#rc").change();
+                console.log('he');
+            }else{
+                $valueAnalyticChart2 = e.target.value;
+                $("#rc2").change();
+                console.log('ha');
+            }
+        }else{
+            return false;
+        }
+    }
+
     render() {
 
         let styleses = {
@@ -842,8 +949,38 @@ more.
                                 <div className="form-inline">
                                     <div className="form-group">
                                         <li style={marginSelection}>
-                                            <input type="hidden" id={"chartDataSelect" + this.state.stockType} value="TLKM" data-json="./msft.json" />
-                                            <input type="hidden" id={"chartDataSelect2" + this.state.stockType} value="ANTM" data-json="./ibm.json" />
+                                            <input type="hidden" id={"chartDataSelect" + this.state.stockType} value="" data-json="./msft.json" />
+                                            <input type="hidden" id={"chartDataSelect2" + this.state.stockType} value="" data-json="./ibm.json" />
+
+                                            <div className="form-group">
+                                                <input id={"rc"} list="brow" className="select selectpicker show-tick form-control mr-1"
+                                                       onChange={this.changelist} placeholder="-- Pilih --"/>
+                                                <datalist id="brow">
+                                                    <option value="AALI"/>
+                                                    <option value="ADHI"/>
+                                                    <option value="ANTM"/>
+                                                    <option value="ASII"/>
+                                                    <option value="WSKT"/>
+                                                    <option value="INDF"/>
+                                                    <option value="BBCA"/>
+                                                    <option value="SMGR"/>
+                                                </datalist>
+                                            </div>
+
+                                            <div className="form-group">
+                                                <input id={"rc2"} list="brow" className="select selectpicker show-tick form-control mr-1"
+                                                       onChange={this.changelist} placeholder="-- Pilih --"/>
+                                                <datalist id="brow">
+                                                    <option value="AALI"/>
+                                                    <option value="ADHI"/>
+                                                    <option value="ANTM"/>
+                                                    <option value="ASII"/>
+                                                    <option value="WSKT"/>
+                                                    <option value="INDF"/>
+                                                    <option value="BBCA"/>
+                                                    <option value="SMGR"/>
+                                                </datalist>
+                                            </div>
 
                                             <select data-width={elemWidthanotation} data-size="10" data-dropup-auto="false" data-style="btn-dark" defaultValue={'default'} id={"typeSelect" + this.state.stockType} onclick="create()" className="select selectpicker show-tick form-control" title="Select Annotation Type">
                                                 <option value="default" selected>Annotation Type</option>
@@ -862,31 +999,6 @@ more.
                                                 <option value="trend-channel">Trend Channel</option>
                                                 <option value="triangle">Triangle</option>
                                                 <option value="vertical-line">Vertical Line</option>
-                                            </select>
-                                        </li>
-                                    </div>
-
-                                    <div className="form-group">
-                                        <li style={marginSelection}>
-                                            <select name="" id={"seriesTypeSelect" + this.state.stockType} data-width={elemWidthanotation} data-size="10" data-dropup-auto="false" data-style="btn-dark" className="select selectpicker show-tick form-control">
-                                                {/* <!--series constructors--> */}
-                                                <option value="area">Area Chart</option>
-                                                <option value="candlestick">Candlestick Chart</option>
-                                                <option value="column">Column Chart</option>
-                                                <option value="jumpLine">Jump Line Chart</option>
-                                                <option value="line" selected>Line Chart</option>
-                                                <option value="marker">Marker Chart</option>
-                                                <option value="ohlc">OHLC Chart</option>
-                                                <option value="rangeArea">Range Area Chart</option>
-                                                <option value="rangeColumn">Range Column Chart</option>
-                                                <option value="rangeSplineArea">Range Spline Area Chart</option>
-                                                <option value="rangeStepArea">Range Step Area Chart</option>
-                                                <option value="spline">Spline Chart</option>
-                                                <option value="splineArea">Spline Area Chart</option>
-                                                <option value="stepArea">Step Area Chart</option>
-                                                <option value="stepLine">Step Line Chart</option>
-                                                <option value="stick">Stick Chart</option>
-                                                {/* <!----> */}
                                             </select>
                                         </li>
                                     </div>
@@ -921,17 +1033,7 @@ more.
                                         </li>
                                     </div>
 
-                                    <div className="form-group">
-                                        <li style={marginSelection}>
-                                            <Select options={stockOptions} placeholder={<div className="text-basic">Search..</div>} className="stockOps" styles={customStyles} theme={this.selectSelectionTab} />
-                                        </li>
-                                    </div>
 
-                                    <div className="form-group">
-                                        <li style={marginSelection}>
-                                            <Select options={stockOptions} placeholder={<div className="text-basic">Search..</div>} className="stockOps" styles={customStyles} theme={this.selectSelectionTab} />
-                                        </li>
-                                    </div>
 
                                     <div className="form-group">
                                         <li style={marginSelection}><a className="btn btn-danger" style={customStylesBtn} href="" id={"resetButton" + this.state.stockType}>Reset</a></li>
@@ -941,6 +1043,7 @@ more.
                         </div>
                     </div>
                 </div>
+                <input type="hidden" value={this.props.sessId} id={"sessIdAhay"}/>
                 <div id={"chart-container" + this.state.stockType} className="card-452" style={containerStyle}></div>
             </div>
         );
@@ -950,7 +1053,8 @@ more.
 const RelativePerfomanceChart = ContextConnector(BIPSAppContext,
     (vars, actions) => ({
         thememode: vars.thememode,
-        chartMode: vars.chartMode
+        chartMode: vars.chartMode,
+        sessId: vars.sessionID,
     }),
 )(RelativePerfomanceChart_Base);
 

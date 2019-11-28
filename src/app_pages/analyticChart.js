@@ -47,6 +47,8 @@ const stockOptions = [
     { value: 'bbri', label: 'BBRI' }
 ]
 
+var $valueAnalyticChart = "";
+
 class AnalyticChart_Base extends React.PureComponent {
 
     constructor(props) {
@@ -56,7 +58,8 @@ class AnalyticChart_Base extends React.PureComponent {
             stockData: props.chartData,
             stockAlias: props.chartAlias,
             stockKey: props.key,
-            modeView: props.viewMode
+            modeView: props.viewMode,
+            sessID: props.sessId,
         };
     }
 
@@ -88,6 +91,7 @@ class AnalyticChart_Base extends React.PureComponent {
 
     componentDidMount() {
 
+
         $('.stockOps').css({
             'color': '#000000',
             'width': '100px'
@@ -95,6 +99,7 @@ class AnalyticChart_Base extends React.PureComponent {
 
         const stockName = this.state.stockType;
         const viewMode = this.state.modeView;
+        const sessID = this.state.sessID;
 
         function setColClass($el) {
             // column count for row
@@ -173,6 +178,18 @@ class AnalyticChart_Base extends React.PureComponent {
         $('#indicatorSettingsModal' + stockName).css({ zoom: zoomLevel, '-moz-transform': 'scale(' + zoomLevel + ')' });
         $('#formInputIndicators' + stockName).css({ zoom: zoomLevel, '-moz-transform': 'scale(' + zoomLevel + ')' });
 
+        function GetRangeDate(type,data){
+            if(data.length){
+                if(type === 'start'){
+                    var start = data[0]
+                    return start[0]
+                }else if(type === 'finish'){
+                    var finish = data[data.length-1]
+                    return finish[0]
+                }
+            }
+        }
+
         (function () {
             var $chartDataSelect = $('#chartDataSelect' + stockName);
             var $seriesTypeSelect = $('#seriesTypeSelect' + stockName);
@@ -185,7 +202,8 @@ class AnalyticChart_Base extends React.PureComponent {
             var $indicatorForm = $('#indicatorForm' + stockName);
             var $loader = $('#loader' + stockName);
             var $annotationType = $('#typeSelect' + stockName);
-
+            var firstDate = '';
+            var lastDate = '';
             var appSettingsCache = {};
             appSettingsCache['data'] = {};
             appSettingsCache['chartType'] = $seriesTypeSelect.val();
@@ -313,12 +331,14 @@ class AnalyticChart_Base extends React.PureComponent {
                 // (https://cdn.anychart.com/releases/v8/js/anychart-data-adapter.min.js)
                 // Load JSON data and create a chart by JSON data.
 
+                firstDate = GetRangeDate('start', '');
+                lastDate = GetRangeDate('finish', '');
                 //perubahan menjadi single data ===========================
-                anychart.data.loadJsonFile($chartDataSelect.data().json, function (data) {
-                    appSettingsCache['data'][$chartDataSelect.val().toLowerCase().trim()] = data;
+                // anychart.data.loadJsonFile($chartDataSelect.data().json, function (data) {
+                    appSettingsCache['data'][$chartDataSelect.val().toLowerCase().trim()] = [[]];
                     // init, create chart
                     app.createChart(chartContainer);
-                });
+                // });
 
 
                 // event to set data to chart
@@ -472,6 +492,32 @@ class AnalyticChart_Base extends React.PureComponent {
                     appSettingsCache['annotation'] = 'remove';
                 });
 
+                //Zaky ampe end
+                $("#stockoptionchrtStock").change(function() {
+                    getStock($valueAnalyticChart,'analytic stock');
+                });
+
+                $("#stockoptionchart1").change(function() {
+                    getStock($valueAnalyticChart,'chart 1');
+                });
+
+                $("#stockoptionchart2").change(function() {
+                    getStock($valueAnalyticChart,'chart 2');
+                });
+
+                $("#stockoptionchart3").change(function() {
+                    getStock($valueAnalyticChart,'chart 3');
+                });
+
+                $("#stockoptionchart4").change(function() {
+                    getStock($valueAnalyticChart,'chart 4');
+                });
+                $("#stockoptionchrtIndice").change(function() {
+                    getStock($valueAnalyticChart,'indice stock');
+                });
+
+                //Zaky end
+
                 // event to add indicator
                 $addIndicatorBtn.on('click', function () {
                     var mapping = dataTable.mapAs({ 'value': 1, 'volume': 1, 'open': 1, 'high': 2, 'low': 3, 'close': 4 });
@@ -508,6 +554,40 @@ class AnalyticChart_Base extends React.PureComponent {
                     $('#allwrap' + stockName).show();
                     $('#chart-container' + stockName).show();
                 });
+
+                function getStock(stok,to){
+                    var sessidbaru = $("#sessIdAhay").val();
+                    $.ajax({
+                        type: "GET",
+                        url: "http://bahana.ihsansolusi.co.id:5050/chart/"+stok,
+                        contentType: "application/json; charset=utf-8",
+                        headers: {
+                            "Authorization": sessidbaru,
+                        },
+                        dataType: 'json',
+                        success: function (result) {
+                            app.removeChart();
+                            appSettingsCache['indicators'] = {};
+                            appSettingsCache['scale'] = 'linear';
+                            appSettingsCache['chartType'] = 'line';
+                            appSettingsCache['annotation'] = 'remove';
+                            appSettingsCache['theme'] = 'defaultTheme';
+                            appSettingsCache['data'][to] = JSON.parse(result.data.data);
+                            $annotationType.val('default').selectpicker('refresh');
+
+                            // select series type
+                            $seriesTypeSelect.val('candlestick').selectpicker('refresh');
+                            // reset indicators select
+                            $indicatorTypeSelect.val('').selectpicker('refresh');
+                            // select chart theme
+                            $themeSelect.val('defaultTheme').selectpicker('refresh');
+                            // init, create chart
+                            app.createChart(chartContainer);
+
+                            appSettingsCache['annotation'] = 'remove';
+                        }
+                    });
+                }
 
             });
 
@@ -610,7 +690,7 @@ class AnalyticChart_Base extends React.PureComponent {
                 chart.scroller().line(mapping);
 
                 // set chart selected date/time range
-                chart.selectRange('2004-11-14', '2007-11-15');
+                chart.selectRange(firstDate, lastDate);
 
                 // set container id for the chart
                 chart.container(container);
@@ -739,6 +819,17 @@ class AnalyticChart_Base extends React.PureComponent {
         },
     });
 
+    changelist(e){
+        // $("#stockoption "+selop).change();
+        // console.log(e.target.id);
+        if(e.target.value.length > 0) {
+            $valueAnalyticChart = e.target.value;
+            $("#" + (e.target.id)).change();
+        }else{
+            return false;
+        }
+    }
+
     render() {
 
         let styleses = {
@@ -855,6 +946,22 @@ more.
                                         <li style={marginSelection}>
                                             <input type="hidden" id={"chartDataSelect" + this.state.stockType} value={this.state.stockAlias} data-json={"./" + this.state.stockData} />
 
+                                            <div className="form-group">
+                                                <input id={"stockoption"+this.state.stockType} list="brow" className="select selectpicker show-tick mr-1 stockOptionInput form-control"
+                                                       onChange={this.changelist} placeholder="-- Pilih --"/>
+                                                <datalist id="brow" className="text-basic listOpt">
+                                                    <option value="AALI"/>
+                                                    <option value="ADHI"/>
+                                                    <option value="ANTM"/>
+                                                    <option value="ASII"/>
+                                                    <option value="TLKM"/>
+                                                    <option value="WSKT"/>
+                                                    <option value="INDF"/>
+                                                    <option value="BBCA"/>
+                                                    <option value="SMGR"/>
+                                                    <option value="BBRI"/>
+                                                </datalist>
+                                            </div>
                                             <select data-width={elemWidthanotation} data-size="10" data-dropup-auto="false" data-style="btn-dark" defaultValue={'default'} id={"typeSelect" + this.state.stockType} onclick="create()" className="select selectpicker show-tick form-control" title="Select Annotation Type">
                                                 <option value="default" selected>Annotation Type</option>
                                                 <option value="andrews-pitchfork">Andrews' Pitchfork</option>
@@ -931,11 +1038,6 @@ more.
                                         </li>
                                     </div>
 
-                                    <div className="form-group">
-                                        <li style={marginSelection} className="text-left">
-                                            <Select options={stockOptions} placeholder={<div className="text-basic">Search..</div>} className="stockOps text-left" styles={customStyles} theme={this.selectSelectionTab} />
-                                        </li>
-                                    </div>
 
                                     <div className="form-group">
                                         <li style={marginSelection}><a className="btn btn-danger" style={customStylesBtn} href="" id={"resetButton" + this.state.stockType}>Reset</a></li>
@@ -945,6 +1047,7 @@ more.
                         </div>
                     </div>
                 </div>
+                <input type="hidden" value={this.props.sessId} id={"sessIdAhay"}/>
                 <div id={"chart-container" + this.state.stockType} className={classChart} style={containerStyle}></div>
             </div>
         );
@@ -954,7 +1057,9 @@ more.
 const AnalyticChart = ContextConnector(BIPSAppContext,
     (vars, actions) => ({
         thememode: vars.thememode,
-        chartMode: vars.chartMode
+        chartMode: vars.chartMode,
+        sessId: vars.sessionID,
+
     }),
 )(AnalyticChart_Base);
 
