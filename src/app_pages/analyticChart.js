@@ -945,7 +945,7 @@ more.
                                     <div className="form-group">
                                         <li style={marginSelection}>
                                             <input type="hidden" id={"chartDataSelect" + this.state.stockType} value={this.state.stockAlias} data-json={"./" + this.state.stockData} />
-                                            <div className="input-group mr-1">
+                                            <div className="input-group mr-1 stockOptionInputGroup">
                                                 <input id={"stockoption"+this.state.stockType} style={{borderRight:'none'}} list="brow" className="select selectpicker show-tick stockOptionInput n-border-right form-control"
                                                        onChange={this.changelist} placeholder="Search"/>
                                                 <datalist id="brow" className="text-basic listOpt">

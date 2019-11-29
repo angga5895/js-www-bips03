@@ -3928,14 +3928,25 @@ textarea {
     appearance: none;
     /*text-indent: 0.1;*/
     text-overflow: '';
+    box-shadow:none !important;
 }
 
 .stockOptionInput::-webkit-calendar-picker-indicator,.stockOptionInput2::-webkit-calendar-picker-indicator {
     display: none;
 }
-n-border-left{
+.n-border-left{
     border-left: none !important;
 }
-n-border-right{
+.n-border-right{
     border-right: none !important;
+}
+.stockOptionInput:focus ~ .input-group-addon, .stockOptionInput2:focus ~ .input-group-addon{
+    box-shadow: 0 0 1px rgba(81, 203, 238, 1);
+    border: 1px solid rgba(81, 203, 238, 1);
+}
+.input-group-addon{
+    -webkit-transition: all 0.20s ease-in-out;
+    -moz-transition: all 0.20s ease-in-out;
+    -ms-transition: all 0.20s ease-in-out;
+    -o-transition: all 0.20s ease-in-out;
 }
