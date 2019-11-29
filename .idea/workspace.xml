@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="73c41686-1cd0-465d-ad62-d8be6f6e464a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app_pages/analyticChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app_pages/analyticChart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app_pages/marketstatistikPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app_pages/marketstatistikPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app_pages/tradePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app_pages/tradePage.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,16 +28,16 @@
         <counts>
           <entry key="css" value="7" />
           <entry key="gitignore" value="1" />
-          <entry key="js" value="21" />
-          <entry key="ts" value="1" />
+          <entry key="js" value="22" />
+          <entry key="ts" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="7" />
-          <entry key="JavaScript" value="21" />
+          <entry key="JavaScript" value="22" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="TypeScript" value="1" />
+          <entry key="TypeScript" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -50,20 +48,20 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="702" />
-          <entry key="js" value="7115" />
+          <entry key="js" value="7164" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="702" />
-          <entry key="JavaScript" value="7115" />
+          <entry key="JavaScript" value="7164" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app_pages/marketstatistikPage.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-2216">
@@ -85,6 +83,22 @@
                 <element signature="e#12#18#0" expanded="true" />
                 <element signature="e#18#24#0" expanded="true" />
                 <element signature="e#24#30#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app_pages/tradePage.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="284" column="58" selection-start-line="284" selection-start-column="58" selection-end-line="284" selection-end-column="58" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#48#54#0" expanded="true" />
+                <element signature="e#54#60#0" expanded="true" />
+                <element signature="e#41#47#0" expanded="true" />
+                <element signature="e#47#53#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -127,11 +141,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>//sent order</find>
-      <find>order#</find>
-      <find>card-515</find>
-      <find>watchlist</find>
-      <find>--warna-dasar</find>
       <find>brew</find>
       <find>brow</find>
       <find>listbaru</find>
@@ -157,6 +166,11 @@
       <find>index</find>
       <find>last</find>
       <find>sectoral Index</find>
+      <find>order se</find>
+      <find>order#</find>
+      <find>summary</find>
+      <find>ORDER SETTINGS LIST</find>
+      <find>trade sum</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -169,12 +183,12 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/bootstrap-3.3.7/bootstrap_node.css" />
         <option value="$PROJECT_DIR$/src/app_pages/mainPage.js" />
-        <option value="$PROJECT_DIR$/src/app_pages/tradePage.js" />
         <option value="$PROJECT_DIR$/src/AppData.js" />
         <option value="$PROJECT_DIR$/src/app_pages/RelativePerformanceChart.js" />
         <option value="$PROJECT_DIR$/src/app_pages/analyticChart.js" />
         <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/src/app_pages/marketstatistikPage.js" />
+        <option value="$PROJECT_DIR$/src/app_pages/tradePage.js" />
       </list>
     </option>
   </component>
@@ -311,12 +325,12 @@
       <workItem from="1574733641802" duration="20730000" />
       <workItem from="1574820814722" duration="18456000" />
       <workItem from="1574907668045" duration="20347000" />
-      <workItem from="1574994300217" duration="6692000" />
+      <workItem from="1574994300217" duration="8448000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72220000" />
+    <option name="totallyTimeSpent" value="73976000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -329,8 +343,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4903846" weight="0.2065053" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4903846" visible="true" weight="0.2065053" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" sideWeight="0.50961536" side_tool="true" weight="0.2065053" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -346,7 +361,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32903227" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="12" visible="true" weight="0.3276923" />
+      <window_info anchor="bottom" id="Terminal" order="12" visible="true" weight="0.3276923" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -382,13 +397,6 @@
     </entry>
     <entry file="file://D:/react/my-app/src/index.css">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/ag-grid-react/main.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app_pages/landingPage.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -431,13 +439,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/appcontext.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app_pages/tradePage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="3149" selection-start-line="3149" selection-end-line="3149" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bootstrap-3.3.7/bootstrap/dist/css/bootstrap_node.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -504,6 +505,27 @@
             <element signature="e#12#18#0" expanded="true" />
             <element signature="e#18#24#0" expanded="true" />
             <element signature="e#24#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/ag-grid-react/main.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="49">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app_pages/tradePage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="284" column="58" selection-start-line="284" selection-start-column="58" selection-end-line="284" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#48#54#0" expanded="true" />
+            <element signature="e#54#60#0" expanded="true" />
+            <element signature="e#41#47#0" expanded="true" />
+            <element signature="e#47#53#0" expanded="true" />
           </folding>
         </state>
       </provider>

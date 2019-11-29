@@ -282,7 +282,7 @@ class OrderbookPage extends React.PureComponent {
         return (
             <div className="col-sm-12 px-2 mx-0 pt-1">
                 <WSConnectionAction ref="wsAction" /> {/* websocket connection component */}
-                <div className="bg-black-trading f-12">
+                <div className="bg-black-trading f-12 mt-1">
                     <AppFrameAction ref="frameAction" />
                     {/*<div className="d-border-bottom">
                         <div className="col-sm-4 px-0 row">
@@ -292,7 +292,7 @@ class OrderbookPage extends React.PureComponent {
                             <div className="col-sm-6 px-0 mx-0 text-right pt-3 pb-1"></div>
                         </div>
                     </div>*/}
-                    <div className="card-515 col-sm-12 pt-3 pr-2 mr-0 row">
+                    <div className="card-515 col-sm-12 pt-3 pr-2 mr-0 mt-3 row">
                         <div className="col-sm-4 pl-4 pr-0">
                             <div className={this.state.box1 === 1 ? "bg-grey pt-1 d-active" : "bg-grey pt-1"} onClick={this.clickBox1}>
                                 <TableInfoTransactionWithButton saham="AALI"/>
@@ -1246,7 +1246,7 @@ class TradeWatchlist extends React.PureComponent{
                     <div className="col-sm-6 pl-0 pr-2">
                         <div className="col-sm-12 pl-0 pr-0">
                             <div className="col-sm-12 px-0 mx-0 bg-gray-tradding text-center">
-                                <div className="col-sm-12 px-0 mx-0 text-center pt-3 pb-2 f-12" style={{backgroundColor: '#333f50'}}>ORDER SETTINGS LIST</div>
+                                <div className="col-sm-12 px-0 mx-0 text-center pt-3 pb-2 f-12" style={{backgroundColor: '#333f50'}}>TRADE LIST</div>
                             </div>
                             <TradeListOrderListAgGrid/>
                         </div>
@@ -2824,13 +2824,6 @@ class TradeListOrderListAgGrid extends React.PureComponent {
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12";
                     },
-                },{ field: "cmd", headerName: "Cmd", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width:80, minWidth: 80,
-                    cellClass : function (params) {
-                        var cmd = params.data.cmd;
-                        return cmd.includes('BUY') === true ? " text-center text-danger grid-table d-border-aggrid-right f-12" :
-                            " text-center text-success grid-table d-border-aggrid-right f-12";
-                    },
                 },
             ],
             defaultColDef: {
@@ -2847,7 +2840,6 @@ class TradeListOrderListAgGrid extends React.PureComponent {
                     val : "3",
                     buyer :"Day",
                     seller :"RG",
-                    cmd: "BUY",
                     tradeId: "2991672"
                 },{
                     time : "09:01:12",
@@ -2858,7 +2850,6 @@ class TradeListOrderListAgGrid extends React.PureComponent {
                     val : "3",
                     buyer :"Night",
                     seller :"RG",
-                    cmd: "SELL",
                     tradeId: "2991673"
                 },{
                     time : "08:02:12",
@@ -2869,7 +2860,6 @@ class TradeListOrderListAgGrid extends React.PureComponent {
                     val : "3",
                     buyer :"Day",
                     seller :"RG",
-                    cmd: "BUY",
                     tradeId: "2991672"
                 },{
                     time : "09:01:12",
@@ -2880,7 +2870,6 @@ class TradeListOrderListAgGrid extends React.PureComponent {
                     val : "3",
                     buyer :"Night",
                     seller :"RG",
-                    cmd: "SELL",
                     tradeId: "2991673"
                 },{
                     time : "08:02:12",
@@ -2891,7 +2880,6 @@ class TradeListOrderListAgGrid extends React.PureComponent {
                     val : "3",
                     buyer :"Day",
                     seller :"RG",
-                    cmd: "BUY",
                     tradeId: "2991672"
                 },{
                     time : "09:01:12",
@@ -2902,7 +2890,6 @@ class TradeListOrderListAgGrid extends React.PureComponent {
                     val : "3",
                     buyer :"Night",
                     seller :"RG",
-                    cmd: "SELL",
                     tradeId: "2991673"
                 },
             ],
@@ -3008,7 +2995,7 @@ class TradeOrderSummaryAgGrid extends React.PureComponent {
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12";
                     },
-                },{ field: "cmd", headerName: "Cmd", sortable: true, filter: "agTextColumnFilter", resizable: true, width:100,
+                },{ field: "cmd", headerName: "Cmd", sortable: true, filter: "agTextColumnFilter", resizable: true, width:97,
                     cellClass : function (params) {
                         var cmd = params.data.cmd;
                         return cmd.includes('BUY') === true ? " text-center text-danger grid-table d-border-aggrid-right f-12" :
@@ -3139,23 +3126,20 @@ class TradeTradeSummaryAgGrid extends React.PureComponent {
         const self = this;
         this.state = {
             columnDefs: [
-                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width:160,
+                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true,
+                    width:220,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12";
                     },
-                },{ field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width:170,
+                },{ field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true,
+                    width:207,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12";
                     },
-                },{ field: "vol", headerName: "Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width:140,
+                },{ field: "vol", headerName: "Vol", sortable: true, filter: "agTextColumnFilter",
+                    resizable: true, width:200,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12";
-                    },
-                },{ field: "cmd", headerName: "Cmd", sortable: true, filter: "agTextColumnFilter", resizable: true, width:150,
-                    cellClass : function (params) {
-                        var cmd = params.data.cmd;
-                        return cmd.includes('BUY') === true ? " text-center text-danger grid-table d-border-aggrid-right f-12" :
-                            " text-center text-success grid-table d-border-aggrid-right f-12";
                     },
                 },
             ],
@@ -3169,24 +3153,18 @@ class TradeTradeSummaryAgGrid extends React.PureComponent {
                     code : "AALI",
                     price :"15,000",
                     vol : "3",
-                    cmd: "BUY",
                 },{
                     code : "AALI",
                     price :"25,000",
                     vol : "4",
-                    cmd: "BUY",
-
                 },{
                     code : "AALI",
                     price :"35,000",
                     vol : "2",
-                    cmd: "BUY",
-                },{
+               },{
                     code : "AALI",
                     price :"5,000",
                     vol : "1",
-                    cmd: "SELL",
-
                 },
             ],
             getRowHeight : function (params) {
