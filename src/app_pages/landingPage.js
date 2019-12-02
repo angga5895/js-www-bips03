@@ -379,7 +379,7 @@ class LandingPage_Base extends React.PureComponent {
                                         </div>
                                     </div>
                                     <div className="card-body">
-                                        <MutualFundAgGrid gridView="tab" classView="f-12" />
+                                        <MutualFundAgGrid size={this.ceksize()} gridView="tab" classView="f-12" />
                                     </div>
                                 </div>
                             </div>
@@ -1873,10 +1873,12 @@ class PortofolioAgGrid extends React.PureComponent {
     constructor(props) {
         super(props);
         const self = this;
+        const s = this.props.size;
         this.state = {
             columnDefs: [
                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width: 80, minWidth: 80,
+                    width: 80,
+                    minWidth: 80,
                     cellClass : function (params) {
                         return " grid-table text-center f-12 d-border-aggrid-right";
                     }, suppressSizeToFit: true
@@ -2487,6 +2489,7 @@ class MutualFundAgGrid extends React.PureComponent {
     constructor(props) {
         super(props);
         const self = this;
+        const s = props.size;
         this.state = {
             columnDefs: [
                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true,
@@ -2512,12 +2515,14 @@ class MutualFundAgGrid extends React.PureComponent {
                         return " grid-table d-border-aggrid-right text-right f-12";
                     } },
                 { field: "currency", headerName: "Currency", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width: 150, minWidth: 150,
+                    width: s=="s90"?180:150,
+                    minWidth: 150,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-right f-12";
                     }  },
                 { field: "potentialpl", headerName: "Potential P/L", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width: 165, minWidth: 165,
+                    width: s=="s90" ? 190:165,
+                    minWidth: 165,
                     cellClass : function (params) {
                         var pl = params.data.potentialpl;
                         return pl.includes('-') === true ? 'grid-table d-border-aggrid-right text-right f-12 text-danger' :
@@ -2558,7 +2563,7 @@ class MutualFundAgGrid extends React.PureComponent {
             },
             rowData: [
                 { code: "000D7Q-RDPT BUMN Fund...",
-                    nav: "12,650",
+                    nav: "12,650"+s,
                     navdate: "06/03/2019",
                     currency: "12,650,000",
                     potentialpl: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",

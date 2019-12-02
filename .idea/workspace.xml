@@ -4,8 +4,6 @@
     <list default="true" id="73c41686-1cd0-465d-ad62-d8be6f6e464a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app_pages/landingPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app_pages/landingPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app_pages/livetradePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app_pages/livetradePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app_pages/stockPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app_pages/stockPage.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,31 +58,41 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-444512287">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.49" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts">
+        <counts>
+          <entry key="TypeScriptServerServiceImpl" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="js" value="139" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JavaScript" value="139" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app_pages/marketstatistikPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2216">
+            <state relative-caret-position="50881">
               <caret line="3024" column="6" selection-start-line="3024" selection-start-column="6" selection-end-line="3024" selection-end-column="6" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-                <element signature="e#0#6#0" expanded="true" />
-                <element signature="e#6#12#0" expanded="true" />
-                <element signature="e#12#18#0" expanded="true" />
-                <element signature="e#18#24#0" expanded="true" />
-                <element signature="e#24#30#0" expanded="true" />
-                <element signature="e#0#6#0" expanded="true" />
-                <element signature="e#6#12#0" expanded="true" />
-                <element signature="e#12#18#0" expanded="true" />
-                <element signature="e#18#24#0" expanded="true" />
-                <element signature="e#24#30#0" expanded="true" />
-                <element signature="e#0#6#0" expanded="true" />
-                <element signature="e#6#12#0" expanded="true" />
-                <element signature="e#12#18#0" expanded="true" />
-                <element signature="e#18#24#0" expanded="true" />
-                <element signature="e#24#30#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -93,14 +101,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app_pages/tradePage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
+            <state relative-caret-position="4454">
               <caret line="284" column="58" selection-start-line="284" selection-start-column="58" selection-end-line="284" selection-end-column="58" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-                <element signature="e#48#54#0" expanded="true" />
-                <element signature="e#54#60#0" expanded="true" />
-                <element signature="e#41#47#0" expanded="true" />
-                <element signature="e#47#53#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -109,7 +113,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app_pages/stockPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-94">
+            <state relative-caret-position="38437">
               <caret line="2284" column="6" selection-start-line="2284" selection-start-column="6" selection-end-line="2284" selection-end-column="6" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -121,30 +125,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app_pages/livetradePage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
+            <state relative-caret-position="3519">
               <caret line="217" column="44" selection-start-line="217" selection-start-column="44" selection-end-line="217" selection-end-column="44" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-                <element signature="e#34#40#0" expanded="true" />
-                <element signature="e#40#46#0" expanded="true" />
-                <element signature="e#46#52#0" expanded="true" />
-                <element signature="e#52#58#0" expanded="true" />
-                <element signature="e#58#64#0" expanded="true" />
-                <element signature="e#34#40#0" expanded="true" />
-                <element signature="e#40#46#0" expanded="true" />
-                <element signature="e#46#52#0" expanded="true" />
-                <element signature="e#52#58#0" expanded="true" />
-                <element signature="e#58#64#0" expanded="true" />
-                <element signature="e#34#40#0" expanded="true" />
-                <element signature="e#40#46#0" expanded="true" />
-                <element signature="e#46#52#0" expanded="true" />
-                <element signature="e#52#58#0" expanded="true" />
-                <element signature="e#58#64#0" expanded="true" />
-                <element signature="e#34#40#0" expanded="true" />
-                <element signature="e#40#46#0" expanded="true" />
-                <element signature="e#46#52#0" expanded="true" />
-                <element signature="e#52#58#0" expanded="true" />
-                <element signature="e#58#64#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -153,8 +137,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app_pages/landingPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="3520" column="29" lean-forward="true" selection-start-line="3520" selection-start-column="29" selection-end-line="3520" selection-end-column="29" />
+            <state relative-caret-position="172">
+              <caret line="381" column="79" lean-forward="true" selection-start-line="381" selection-start-column="79" selection-end-line="381" selection-end-column="79" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#0#6#0" expanded="true" />
@@ -185,8 +169,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app_pages/analyticChart.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="963" column="63" lean-forward="true" selection-start-line="963" selection-start-column="63" selection-end-line="963" selection-end-column="80" />
+            <state relative-caret-position="15878">
+              <caret line="963" column="63" selection-start-line="963" selection-start-column="63" selection-end-line="963" selection-end-column="80" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -197,7 +181,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app_pages/RelativePerformanceChart.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
+            <state relative-caret-position="16303">
               <caret line="988" column="68" selection-start-line="988" selection-start-column="68" selection-end-line="988" selection-end-column="68" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -209,7 +193,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
+            <state relative-caret-position="67014">
               <caret line="3942" column="64" selection-start-line="3942" selection-start-column="64" selection-end-line="3942" selection-end-column="64" />
             </state>
           </provider>
@@ -219,8 +203,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>yak ngele</find>
-      <find>select</find>
       <find>stockoptions</find>
       <find>13</find>
       <find>BBCA</find>
@@ -249,6 +231,8 @@
       <find>orderBook</find>
       <find>stock trade H</find>
       <find>aggrid</find>
+      <find>portofolio</find>
+      <find>mutualFund</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -360,7 +344,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="D:\bips-merge\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="E:\REACT\js-www-bips03\node_modules\typescript\lib" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -406,11 +390,13 @@
       <workItem from="1574820814722" duration="18456000" />
       <workItem from="1574907668045" duration="20347000" />
       <workItem from="1574994300217" duration="15564000" />
+      <workItem from="1575256656866" duration="348000" />
+      <workItem from="1575258053766" duration="4618000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81092000" />
+    <option name="totallyTimeSpent" value="86058000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -422,15 +408,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4903846" weight="0.2065053" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" id="npm" order="2" sideWeight="0.50961536" side_tool="true" visible="true" weight="0.2065053" />
+      <window_info id="npm" order="2" sideWeight="0.50961536" side_tool="true" weight="0.2065053" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.31384614" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32419354" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -440,7 +426,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32903227" />
-      <window_info anchor="bottom" id="Terminal" order="12" weight="0.3276923" />
+      <window_info anchor="bottom" id="Terminal" order="12" weight="0.32741934" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -468,15 +454,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/react/my-app/src/App.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://D:/react/my-app/src/App.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://D:/react/my-app/src/index.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://D:/react/my-app/src/App.css" />
+    <entry file="file://D:/react/my-app/src/App.js" />
+    <entry file="file://D:/react/my-app/src/index.css" />
     <entry file="file://$PROJECT_DIR$/src/app_pages/mainPage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="387">
@@ -523,88 +503,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app_pages/analyticChart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="963" column="63" lean-forward="true" selection-start-line="963" selection-start-column="63" selection-end-line="963" selection-end-column="80" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app_pages/RelativePerformanceChart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="988" column="68" selection-start-line="988" selection-start-column="68" selection-end-line="988" selection-end-column="68" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="3942" column="64" selection-start-line="3942" selection-start-column="64" selection-end-line="3942" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/ag-grid-react/main.d.ts" />
     <entry file="file://$PROJECT_DIR$/src/app_pages/marketstatistikPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2216">
+        <state relative-caret-position="50881">
           <caret line="3024" column="6" selection-start-line="3024" selection-start-column="6" selection-end-line="3024" selection-end-column="6" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#0#6#0" expanded="true" />
-            <element signature="e#6#12#0" expanded="true" />
-            <element signature="e#12#18#0" expanded="true" />
-            <element signature="e#18#24#0" expanded="true" />
-            <element signature="e#24#30#0" expanded="true" />
-            <element signature="e#0#6#0" expanded="true" />
-            <element signature="e#6#12#0" expanded="true" />
-            <element signature="e#12#18#0" expanded="true" />
-            <element signature="e#18#24#0" expanded="true" />
-            <element signature="e#24#30#0" expanded="true" />
-            <element signature="e#0#6#0" expanded="true" />
-            <element signature="e#6#12#0" expanded="true" />
-            <element signature="e#12#18#0" expanded="true" />
-            <element signature="e#18#24#0" expanded="true" />
-            <element signature="e#24#30#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/ag-grid-react/main.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app_pages/tradePage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
+        <state relative-caret-position="4454">
           <caret line="284" column="58" selection-start-line="284" selection-start-column="58" selection-end-line="284" selection-end-column="58" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#48#54#0" expanded="true" />
-            <element signature="e#54#60#0" expanded="true" />
-            <element signature="e#41#47#0" expanded="true" />
-            <element signature="e#47#53#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app_pages/stockPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-94">
+        <state relative-caret-position="38437">
           <caret line="2284" column="6" selection-start-line="2284" selection-start-column="6" selection-end-line="2284" selection-end-column="6" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -614,38 +539,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app_pages/livetradePage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
+        <state relative-caret-position="3519">
           <caret line="217" column="44" selection-start-line="217" selection-start-column="44" selection-end-line="217" selection-end-column="44" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#34#40#0" expanded="true" />
-            <element signature="e#40#46#0" expanded="true" />
-            <element signature="e#46#52#0" expanded="true" />
-            <element signature="e#52#58#0" expanded="true" />
-            <element signature="e#58#64#0" expanded="true" />
-            <element signature="e#34#40#0" expanded="true" />
-            <element signature="e#40#46#0" expanded="true" />
-            <element signature="e#46#52#0" expanded="true" />
-            <element signature="e#52#58#0" expanded="true" />
-            <element signature="e#58#64#0" expanded="true" />
-            <element signature="e#34#40#0" expanded="true" />
-            <element signature="e#40#46#0" expanded="true" />
-            <element signature="e#46#52#0" expanded="true" />
-            <element signature="e#52#58#0" expanded="true" />
-            <element signature="e#58#64#0" expanded="true" />
-            <element signature="e#34#40#0" expanded="true" />
-            <element signature="e#40#46#0" expanded="true" />
-            <element signature="e#46#52#0" expanded="true" />
-            <element signature="e#52#58#0" expanded="true" />
-            <element signature="e#58#64#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app_pages/analyticChart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15878">
+          <caret line="963" column="63" selection-start-line="963" selection-start-column="63" selection-end-line="963" selection-end-column="80" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app_pages/RelativePerformanceChart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16303">
+          <caret line="988" column="68" selection-start-line="988" selection-start-column="68" selection-end-line="988" selection-end-column="68" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67014">
+          <caret line="3942" column="64" selection-start-line="3942" selection-start-column="64" selection-end-line="3942" selection-end-column="64" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app_pages/landingPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="3520" column="29" lean-forward="true" selection-start-line="3520" selection-start-column="29" selection-end-line="3520" selection-end-column="29" />
+        <state relative-caret-position="172">
+          <caret line="381" column="79" lean-forward="true" selection-start-line="381" selection-start-column="79" selection-end-line="381" selection-end-column="79" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#0#6#0" expanded="true" />
