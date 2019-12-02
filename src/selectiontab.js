@@ -298,22 +298,22 @@ class SelectItem1 extends React.PureComponent {
             flipped: true,
             barInfo: [
                 {
-                    symbol: 'GBP/USD',
+                    symbol: 'COMPOSITE INDEX',
                     last: '12849',
                     change: -0.99293,
                     percentage: -0.30,
                 },{
-                    symbol: 'USD/JPY',
+                    symbol: 'INFRASTRUCTUR',
                     last: '108.59',
                     change: 0.06,
                     percentage: 0.06,
                 },{
-                    symbol: 'USD/CHF',
+                    symbol: 'AGRI',
                     last: '0.9874',
                     change: -0.00005,
                     percentage: -0.04,
                 },{
-                    symbol: 'AUD/JPY',
+                    symbol: 'MINING',
                     last: '78.14',
                     change: 0.05,
                     percentage: 0.05,
@@ -399,8 +399,10 @@ class SelectItem1 extends React.PureComponent {
                     return <div className="card__face card__face--front">
                         <table width="100%" height="100%">
                             <tr>
-                                <td className="spanSymbol px-0">{info.symbol}</td>
-                                <td className="lastColor px-0">{info.last}</td>
+                                <td rowSpan="2" className="spanSymbol px-0">{info.symbol}</td>
+                                <td colSpan="2" className="lastColor px-0">{info.last}</td>
+                            </tr>
+                            <tr>
                                 <td>
                                     <span className={colorLabel(info.change)+' '+colorIcon(info.change)}>&nbsp;
                                         {info.change}</span>&nbsp;
@@ -417,8 +419,10 @@ class SelectItem1 extends React.PureComponent {
                     return <div className="card__face card__face--back">
                         <table width="100%" height="100%">
                             <tr>
-                                <td className="spanSymbol px-0">{info.symbol}</td>
-                                <td className="lastColor px-0">{info.last}</td>
+                                <td rowSpan="2" className="spanSymbol px-0">{info.symbol}</td>
+                                <td colSpan="2" className="lastColor px-0">{info.last}</td>
+                            </tr>
+                            <tr>
                                 <td>
                                     <span className={colorLabel(info.change)+' '+colorIcon(info.change)}>&nbsp;
                                         {info.change}</span>&nbsp;

@@ -1,3 +1,7 @@
+.bg-blue-white{
+    background-image: linear-gradient(#67AAD7,#0071BC) !important;
+}
+
 .card-695{
     height: 695px;
 }
@@ -3520,7 +3524,7 @@ padding-left: 8px !important;
 }
 
 .ui.menu .item {
-    border-right: 0.25px solid var(--warna-text-header) !important;
+    /*border-right: 0.25px solid var(--warna-text-header) !important;*/
     color:var(--warna-text-header) !important;
 }
 

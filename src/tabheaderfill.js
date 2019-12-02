@@ -25,67 +25,67 @@ const FillHeaderTab_Base = (props) => {
 
                                             e.instanceName.search('Invboard') >= 0 ?
                                                 e.instanceName.search('tcAndSoe') >= 0?
-                                                    'active col-sm-2 click-pointer text-center'
+                                                    'active col-sm-2 click-pointer text-center bg-blue-white'
                                                 :
-                                                    'active col-sm-2 click-pointer d-border-right text-center'
+                                                    'active col-sm-2 click-pointer d-border-right text-center bg-blue-white'
                                             :
 
                                             e.instanceName.search('stock') >= 0 ?
                                                 e.instanceName.search('stockHistory') >= 0?
-                                                    'active col-sm-4 active click-pointer text-center'
+                                                    'active col-sm-4 click-pointer text-center bg-blue-white'
                                                 :
-                                                    'active col-sm-4 active click-pointer d-border-right text-center'
+                                                    'active col-sm-4 click-pointer d-border-right text-center bg-blue-white'
 
                                             :
 
                                             e.instanceName.search('StatistikPage') >= 0 ?
                                                 e.instanceName.search('newResearch') >= 0?
-                                                    'active col-mn-5 click-pointer text-center'
+                                                    'active col-mn-5 click-pointer text-center bg-blue-white'
                                                 :
-                                                    'active col-mn-5 click-pointer d-border-right text-center'
+                                                    'active col-mn-5 click-pointer d-border-right text-center bg-blue-white'
 
                                             :
 
                                             e.instanceName.search('tradePage') >= 0 ?
                                                 e.instanceName.search('tradePageWatchList') >= 0?
-                                                    'active col-sm-4 bg-navy-gradient-odd click-pointer text-center'
+                                                    'active col-sm-4 bg-blue-white click-pointer text-center bg-blue-white'
                                                 :
-                                                    'active col-sm-4 bg-navy-gradient-odd click-pointer text-center d-border-right'
+                                                    'active col-sm-4 bg-blue-white click-pointer text-center d-border-right bg-blue-white'
 
                                             :
                                                 e.instanceName.search('Aut') >= 0 ?
                                                     e.instanceName.search('AutSentOrder') >= 0?
-                                                        'active col-sm-6 bg-navy-gradient-odd click-pointer text-center'
+                                                        'active col-sm-6 bg-blue-white click-pointer text-center bg-blue-white'
                                                         :
-                                                        'active col-sm-6 bg-navy-gradient-odd click-pointer text-center d-border-right'
+                                                        'active col-sm-6 bg-blue-white click-pointer text-center d-border-right bg-blue-white'
 
                                                     :
 
                                             e.instanceName.search('Chat') >= 0 ?
                                                 e.instanceName.search('ChatCommentPage') >= 0?
-                                                    'active col-sm-4 click-pointer text-center'
+                                                    'active col-sm-4 click-pointer text-center bg-blue-white'
                                                     :
-                                                    'active col-sm-4 click-pointer text-center d-border-right'
+                                                    'active col-sm-4 click-pointer text-center d-border-right bg-blue-white'
 
                                             :
 
                                             e.instanceName.search('automaticO') >= 0 ?
                                                 e.instanceName.search('automaticODailyTrade') >= 0?
-                                                    'active col-sm-4 click-pointer text-center'
+                                                    'active col-sm-4 click-pointer text-center bg-blue-white'
                                                 :
-                                                    'active col-sm-4 click-pointer text-center d-border-right'
+                                                    'active col-sm-4 click-pointer text-center d-border-right bg-blue-white'
 
                                             :
 
                                             e.instanceName.search('AnalyticPage') >= 0 ?
                                                 e.instanceName.search('RelativePerformanceAnalyticPage') >= 0 ?
-                                                    'active col-sm-3 click-pointer text-center'
+                                                    'active col-sm-3 click-pointer text-center bg-blue-white'
                                                     :
-                                                    'active col-sm-3 click-pointer text-center d-border-right'
+                                                    'active col-sm-3 click-pointer text-center d-border-right bg-blue-white'
 
                                             :
 
-                                            'active click-pointer d-border-right text-center'
+                                            'active click-pointer d-border-right text-center bg-blue-white'
                                         :
 
                                             e.instanceName.search('Invboard') >= 0 ?
@@ -126,9 +126,9 @@ const FillHeaderTab_Base = (props) => {
                                             :
                                                 e.instanceName.search('orderSetting') >= 0 ?
                                                     e.instanceName.search('sentOrder') >= 0?
-                                                        'active col-sm-6 bg-navy-gradient-odd click-pointer text-center'
+                                                        'active col-sm-6 bg-blue-white click-pointer text-center'
                                                         :
-                                                        'active col-sm-6 bg-navy-gradient-odd click-pointer text-center d-border-right'
+                                                        'active col-sm-6 bg-blue-white click-pointer text-center d-border-right'
 
                                                     :
 
