@@ -64,7 +64,21 @@ class LiveTradePage extends React.PureComponent {
     state = {
         value: "watchlist",
     }
-
+    ceksize(){
+        if(window.innerWidth > 1370 && window.innerWidth < 1520) {
+            return "s90";
+        }else if(window.innerWidth > 1521 && window.innerWidth < 1800){
+            return "s80";
+        }else if(window.innerWidth > 1801 && window.innerWidth < 2030){
+            return "s75";
+        }else if(window.innerWidth > 2045 && window.innerWidth < 2700){
+            return "s67";
+        }else if(window.innerWidth > 2701){
+            return "s50";
+        }else{
+            return "s100";
+        }
+    }
     render () {
         return (
             <div>
@@ -141,7 +155,7 @@ class LiveTradePage extends React.PureComponent {
                 <div className="col-sm-12 row px-0 mx-0 row">
                     <div className="col-sm-7 px-2 mx-0">
                         <div className="bg-trading-gray">
-                            <LiveTradeAgGrid />
+                            <LiveTradeAgGrid size={this.ceksize()}/>
                         </div>
                     </div>
                     <div className="col-sm-5 px-2 mx-0 bg-grey">
@@ -189,6 +203,7 @@ class LiveTradeAgGrid_Base extends React.PureComponent {
     constructor(props) {
         super(props);
         const self = this;
+        const s = props.size;
         this.state = {
             columnDefs: [
                 { field: "time", headerName: "Time", sortable: true, filter: "agTextColumnFilter", resizable: true,
@@ -229,7 +244,7 @@ class LiveTradeAgGrid_Base extends React.PureComponent {
                             "text-success text-right grid-table d-border-aggrid-right f-12";
                     }},
                 { field: "buyer", headerName: "Buyer", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width: 85,
+                    width: s=="s75"?110:s=="s80"?110:s=="s90"?110:85,
                     cellClass : function (params) {
                         return "text-center grid-table d-border-aggrid-right f-12";
                     },
@@ -241,7 +256,7 @@ class LiveTradeAgGrid_Base extends React.PureComponent {
                             '<span class="text-warning">'+sBuyer[0]+'</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+sBuyer[1];
                     } },
                 { field: "seller", headerName: "Seller", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width: 85,
+                    width: s=="s75"?110:s=="s80"?110:s=="s90"?110:85,
                     cellClass : function (params) {
                         return "text-center grid-table d-border-aggrid-right f-12";
                     },
@@ -253,7 +268,7 @@ class LiveTradeAgGrid_Base extends React.PureComponent {
                             '<span class="text-warning">'+sSeller[0]+'</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+sSeller[1];
                     } },
                 { field: "board", headerName: "Board", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width: 90, minWidth: 90,
+                    width: s=="75"?120:s=="s80"?120:s=="s90"?120:90, minWidth: 90,
                     cellClass : function (params) {
                         return "text-center grid-table d-border-aggrid-right f-12";
                     } },
@@ -274,7 +289,39 @@ class LiveTradeAgGrid_Base extends React.PureComponent {
             },
             rowData: [
                 { time: "09:13:37",
-                    code: "TLKM",
+                    code: "TLKM"+props.size,
+                    price: "3,879",
+                    change: "-20",
+                    percent: "-0.5",
+                    vol: "156,450",
+                    buyer: "F-DE",
+                    seller: "F-DE",
+                    board: "RG" }, { time: "09:13:37",
+                    code: "TLKM"+props.size,
+                    price: "3,879",
+                    change: "-20",
+                    percent: "-0.5",
+                    vol: "156,450",
+                    buyer: "F-DE",
+                    seller: "F-DE",
+                    board: "RG" }, { time: "09:13:37",
+                    code: "TLKM"+props.size,
+                    price: "3,879",
+                    change: "-20",
+                    percent: "-0.5",
+                    vol: "156,450",
+                    buyer: "F-DE",
+                    seller: "F-DE",
+                    board: "RG" }, { time: "09:13:37",
+                    code: "TLKM"+props.size,
+                    price: "3,879",
+                    change: "-20",
+                    percent: "-0.5",
+                    vol: "156,450",
+                    buyer: "F-DE",
+                    seller: "F-DE",
+                    board: "RG" }, { time: "09:13:37",
+                    code: "TLKM"+props.size,
                     price: "3,879",
                     change: "-20",
                     percent: "-0.5",
