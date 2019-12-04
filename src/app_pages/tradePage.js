@@ -134,86 +134,6 @@ const TradeFrameHeader = (props) => {
     );
 }
 
-const ManualOrdered = (props) => {
-    return(
-        <>
-            <AppFrameProvider
-                initialClasses={{ TradeWatchlist, OrderbookPage, AmendGroupNameAgGrid, AmendGroupCodeAgGrid}}
-                initialFrames={
-                    [
-                        {className: 'AmendGroupNameAgGrid', title: 'WATCHLIST PAGES', instanceName: 'amendWatchlist'},
-                        {className: 'AmendGroupCodeAgGrid', title: 'ORDERBOOK PAGE', instanceName: 'amendOrderbook'},
-                        {className: 'TradeWatchlist', title: 'WATCHLIST PAGES', instanceName: 'tradePageWatchlist'},
-                        {className: 'OrderbookPage', title: 'ORDERBOOK PAGE', instanceName: 'tradePageOrderbook'},
-                    ]
-                }
-                initActions={[
-                    ['switchPage', {instanceName: 'tradePageOrderbook'}],
-                ]}
-            >
-                {/* <BIPSAppProvider> */}
-                <WSConnectionAction />
-                <div className="col-sm-12 px-0 mx-0 align-self-center row">
-                    <div className="col-sm-10 px-0 mx-0 d-border-bottom">
-                        <FillHeaderTab linkTitles={
-                            {
-                                tradePageWatchlist : 'WATCHLIST',
-                                tradePageOrderbook: 'ORDERBOOK',
-                                amendOrderbook : 'Amend 1',
-                                amendWatchlist : 'Amend 2',
-                            }
-                        } />
-                    </div>
-                    <div className="col-sm-2 pr-4 mx-0 text-right d-border-bottom d-border-left cssmenu">
-                        <button className="my-2 mx-0 col-sm-12 btn btn-md btn-dark" onClick={()=>{props.handleView(props.isGrid)}}>{"Manual Order"}</button>
-                    </div>
-                </div>
-                <AppFrame headerComponent={TradeFrameHeader}/>
-                <AppModal/>
-                {/* </BIPSAppProvider> */}
-            </AppFrameProvider>
-        </>
-    );
-}
-
-const AutomaticOrdered = (props) => {
-    return(
-        <>
-            <AppFrameProvider
-                initialClasses={{ TradeWatchlist, OrderbookPage}}
-                initialFrames={
-                    [
-                        {className: 'TradeWatchlist', title: 'WATCHLIST PAGES', instanceName: 'tradePageWatchlist'},
-                        {className: 'OrderbookPage', title: 'ORDERBOOK PAGE', instanceName: 'tradePageOrderbook'},
-                    ]
-                }
-                initActions={[
-                    ['switchPage', {instanceName: 'tradePageOrderbook'}],
-                ]}
-            >
-                {/* <BIPSAppProvider> */}
-                <WSConnectionAction />
-                <div className="col-sm-12 px-0 mx-0 align-self-center row">
-                    <div className="col-sm-10 px-0 mx-0 d-border-bottom">
-                        <FillHeaderTab linkTitles={
-                            {
-                                tradePageWatchlist : 'WATCHLIST',
-                                tradePageOrderbook: 'Test',
-                            }
-                        } />
-                    </div>
-                    <div className="col-sm-2 pr-4 mx-0 text-right d-border-bottom d-border-left cssmenu">
-                        <button className="my-2 mx-0 col-sm-12 btn btn-md btn-dark" onClick={()=>{props.handleView(props.isGrid)}}>{"Manual Order"}</button>
-                    </div>
-                </div>
-                <AppFrame headerComponent={TradeFrameHeader}/>
-                <AppModal/>
-                {/* </BIPSAppProvider> */}
-            </AppFrameProvider>
-        </>
-    );
-}
-
 class Trade extends React.PureComponent {
     //hanya memanggil headernya saja
     render () {
@@ -440,72 +360,31 @@ class SentOrder extends React.PureComponent{
         super(props);
 
     }
+    ceksize(){
+        if(window.innerWidth > 1370 && window.innerWidth < 1520) {
+            return "s90";
+        }else if(window.innerWidth > 1521 && window.innerWidth < 1800){
+            return "s80";
+        }else if(window.innerWidth > 1801 && window.innerWidth < 2030){
+            return "s75";
+        }else if(window.innerWidth > 2045 && window.innerWidth < 2700){
+            return "s67";
+        }else if(window.innerWidth > 2701){
+            return "s50";
+        }else{
+            return "s100";
+        }
+    }
     render(){
         return(
             <AppFrameProvider>
                 <div className="col-sm-12 pl-2 mt-2">
-                    <OrderHistoryAgGrid/>
+                    <OrderHistoryAgGrid size={this.ceksize()}/>
                 </div>
             </AppFrameProvider>
             )
     }
 
-}
-class AutomaticOrderPage extends React.PureComponent {
-    constructor(props) {
-        super(props);
-        this.state = {
-            activeTab: 1,
-        };
-
-    }
-
-    render() {
-        return (
-            <AppFrameProvider>
-                {/* <BIPSAppProvider> */}
-                <div className="row col-sm-12 pl-2 mx-0 pt-1">
-                    <div className="col-sm-8 px-0 mx-0">
-                        <div className="cssmenu d-border-bottom d-border-top d-border-left small h-30">
-                            <ul className="ul-menu h-27">
-                                <li name="stockDaily"
-                                    className={`col-sm-6 click-pointer d-border-right text-center${(this.state.activeTab == 1) ? ' active' : ''}`}
-                                    onClick={() => this.setState({activeTab: 1})}>
-                                    <a className="linkCustomStockTab h-27">
-                                                    <span
-                                                        className="f-12">ORDER SETTINGS</span></a></li>
-                                <li name="stockPage"
-                                    className={`col-sm-6 click-pointer d-border-right text-center${(this.state.activeTab == 2) ? ' active' : ''}`}
-                                    onClick={() => this.setState({activeTab: 2})}>
-                                    <a className="linkCustomStockTab h-27">
-                                                    <span
-                                                        className="f-12">SENT ORDER</span></a></li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="container-fluid pl-2">
-                    <div style={{display: this.state.activeTab == 1 ? "block" : "none"}} className="col-sm-12 pl-2">
-                        {/*laggggi kerjain ini*/}
-                        {/*<TradeOrderSummaryAgGrid/>*/}
-                        <div className="row">
-                            <div className="col-sm-4 pr-3 pl-3 f-12">
-                                <TableInfoTransactionLayout/>
-                            </div>
-                            <div className="col-sm-8 pr-0 mt-2">
-                                <TableInfoTransactionLayout2/>
-                            </div>
-                        </div>
-                    </div>
-                    <div style={{display: this.state.activeTab == 2 ? "block" : "none"}} className="col-sm-12 pl-0 pr-0">
-                        <OrderHistoryAgGrid/>
-                    </div>
-                </div>
-                {/* </BIPSAppProvider> */}
-            </AppFrameProvider>
-        );
-    }
 }
 class TableInfoTransactionLayout extends React.PureComponent{
     constructor(props) {
@@ -790,6 +669,21 @@ class TableInfoTransactionLayout2 extends React.PureComponent{
             });
         });
     }
+    ceksize(){
+        if(window.innerWidth > 1370 && window.innerWidth < 1520) {
+            return "s90";
+        }else if(window.innerWidth > 1521 && window.innerWidth < 1800){
+            return "s80";
+        }else if(window.innerWidth > 1801 && window.innerWidth < 2030){
+            return "s75";
+        }else if(window.innerWidth > 2045 && window.innerWidth < 2700){
+            return "s67";
+        }else if(window.innerWidth > 2701){
+            return "s50";
+        }else{
+            return "s100";
+        }
+    }
     render(){
         return(
             <>
@@ -927,7 +821,7 @@ class TableInfoTransactionLayout2 extends React.PureComponent{
                     </div>
                 </div>
                 <div className="col-sm-12 d-border mt-2 px-0">
-                    <OrderSettingListAgGrid/>
+                    <OrderSettingListAgGrid size={this.ceksize()}/>
                 </div>
 
             </>
@@ -939,6 +833,7 @@ class OrderSettingListAgGrid extends React.PureComponent{
     constructor(props) {
         super(props);
         const self = this;
+        const s = props.size;
         this.state = {
             list: [42, 33, 68],
             columnDefs: [
@@ -971,15 +866,18 @@ class OrderSettingListAgGrid extends React.PureComponent{
                     cellClass : function (params) {
                         return "text-center grid-table d-border-aggrid-right f-12 locked-col locked-visible";
                     }, suppressSizeToFit: true},
-                { field: "vol", headerName: "Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 80,
+                { field: "vol", headerName: "Vol", sortable: true, filter: "agTextColumnFilter", resizable: true,
+                    width: s=="s75"?170:s=="s80"?150:80,
                     cellClass : function (params) {
                         return "text-center grid-table d-border-aggrid-right f-12 locked-col locked-visible";
                     }, suppressSizeToFit: true},
-                { field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 120,
+                { field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true,
+                    width: s=="s75"?190:s=="s80"?160:120,
                     cellClass : function (params) {
                         return "text-center grid-table d-border-aggrid-right f-12 locked-col locked-visible";
                     }, suppressSizeToFit: true},
-                { field: "exp", headerName: "Expired Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 135,
+                { field: "exp", headerName: "Expired Date", sortable: true, filter: "agTextColumnFilter", resizable: true,
+                    width: s=="s75"?185:s=="s80"?165:s=="s90"?155:135,
                     cellClass : function (params) {
                         return "text-right grid-table d-border-aggrid-right f-12";
                     } },
@@ -1231,7 +1129,21 @@ class TradeWatchlist extends React.PureComponent{
             onClose: (result) => {console.log('Modal 1 result = ', result)}
         })
     }
-
+    ceksize(){
+        if(window.innerWidth > 1370 && window.innerWidth < 1520) {
+            return "s90";
+        }else if(window.innerWidth > 1521 && window.innerWidth < 1800){
+            return "s80";
+        }else if(window.innerWidth > 1801 && window.innerWidth < 2030){
+            return "s75";
+        }else if(window.innerWidth > 2045 && window.innerWidth < 2700){
+            return "s67";
+        }else if(window.innerWidth > 2701){
+            return "s50";
+        }else{
+            return "s100";
+        }
+    }
     render() {
         return (
             <div className="row col-sm-12 px-2 mx-0 py-0">
@@ -1248,7 +1160,7 @@ class TradeWatchlist extends React.PureComponent{
                             <div className="col-sm-12 px-0 mx-0 bg-gray-tradding text-center">
                                 <div className="col-sm-12 px-0 mx-0 text-center pt-3 pb-2 f-12" style={{backgroundColor: '#333f50'}}>TRADE LIST</div>
                             </div>
-                            <TradeListOrderListAgGrid/>
+                            <TradeListOrderListAgGrid size={this.ceksize()}/>
                         </div>
                     </div>
                     <div className="col-sm-6 pl-2 pr-0">
@@ -1266,11 +1178,11 @@ class TradeWatchlist extends React.PureComponent{
                                                         className="f-12">TRADE SUMMARY</span></a></li>
                             </ul>
                             <div style={{display: this.state.activeTab == 1 ? "block" : "none"}}>
-                                <TradeOrderSummaryAgGrid/>
+                                <TradeOrderSummaryAgGrid size={this.ceksize()}/>
 
                             </div>
                             <div style={{display: this.state.activeTab == 2 ? "block" : "none"}}>
-                                <TradeTradeSummaryAgGrid/>
+                                <TradeTradeSummaryAgGrid size={this.ceksize()}/>
                             </div>
                         </div>
                     </div>
@@ -1810,6 +1722,7 @@ class OrderHistoryAgGrid extends React.PureComponent {
     constructor(props) {
         super(props);
         const self = this;
+        const s = props.size;
         this.state = {
             columnDefs: [
                 { field: "date", headerName: "Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 90, lockPosition:true, lockVisible:true,
@@ -1846,19 +1759,23 @@ class OrderHistoryAgGrid extends React.PureComponent {
                     cellClass : function (params) {
                         return "text-center grid-table d-border-aggrid-right f-12";
                     }, },
-                { field: "mprice", headerName: "M Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 120,
+                { field: "mprice", headerName: "M Price", sortable: true, filter: "agTextColumnFilter", resizable: true,
+                    width: s=="s75"?193:s=="s80"?173:s=="s90"?133:120,
                     cellClass : function (params) {
                         return "text-center grid-table d-border-aggrid-right f-12";
                     }, },
-                { field: "result", headerName: "Result", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 120,
+                { field: "result", headerName: "Result", sortable: true, filter: "agTextColumnFilter",
+                    resizable: true, width: s=="s75"?220:s=="s80"?200:s=="s90"?160:120,
                     cellClass : function (params) {
                         return "text-center grid-table d-border-aggrid-right f-12";
                     }, },
-                { field: "setdate", headerName: "Set Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 110,
+                { field: "setdate", headerName: "Set Date", sortable: true, filter: "agTextColumnFilter",
+                    resizable: true, width: s=="s75"?240:s=="s80"?210:s=="s90"?160:110,
                     cellClass : function (params) {
                         return "text-center grid-table d-border-aggrid-right f-12";
                     }, },
-                { field: "dateuntil", headerName: "Date Until", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 110,
+                { field: "dateuntil", headerName: "Date Until", sortable: true, filter: "agTextColumnFilter",
+                    resizable: true, width: s=="s75"?240:s=="s80"?210:s=="s90"?160:110,
                     cellClass : function (params) {
                         return "text-center grid-table d-border-aggrid-right f-12";
                     }, },
@@ -2770,6 +2687,7 @@ class TradeListOrderListAgGrid extends React.PureComponent {
     constructor(props) {
         super(props);
         const self = this;
+        const s = props.size;
         this.state = {
             columnDefs: [
                 { field: "time", headerName: "Time", sortable: true, filter: "agTextColumnFilter", resizable: true,
@@ -2815,12 +2733,12 @@ class TradeListOrderListAgGrid extends React.PureComponent {
                         return " grid-table d-border-aggrid-right text-center f-12";
                     },
                 },{ field: "seller", headerName: "Seller", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width:86, minWidth: 86,
+                    width: 86, minWidth: 86,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12";
                     },
                 },{ field: "tradeId", headerName: "TradeID", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width:90, minWidth: 90,
+                    width:s=="s75"?167:s=="s80"?100:90, minWidth: 90,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12";
                     },
@@ -2977,6 +2895,7 @@ class TradeOrderSummaryAgGrid extends React.PureComponent {
     constructor(props) {
         super(props);
         const self = this;
+        const s = props.size;
         this.state = {
             columnDefs: [
                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width:90,
@@ -2991,11 +2910,13 @@ class TradeOrderSummaryAgGrid extends React.PureComponent {
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12";
                     },
-                },{ field: "avgPrice", headerName: "Avg. Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width:150,
+                },{ field: "avgPrice", headerName: "Avg. Price", sortable: true, filter: "agTextColumnFilter", resizable: true,
+                    width:s=="s75"?245:s=="s80"?205:s=="s90"?185:150,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12";
                     },
-                },{ field: "cmd", headerName: "Cmd", sortable: true, filter: "agTextColumnFilter", resizable: true, width:97,
+                },{ field: "cmd", headerName: "Cmd", sortable: true, filter: "agTextColumnFilter", resizable: true,
+                    width: s=="s75"?225:s=="s80"?210:s=="s90"?130:97,
                     cellClass : function (params) {
                         var cmd = params.data.cmd;
                         return cmd.includes('BUY') === true ? " text-center text-danger grid-table d-border-aggrid-right f-12" :
@@ -3124,6 +3045,7 @@ class TradeTradeSummaryAgGrid extends React.PureComponent {
     constructor(props) {
         super(props);
         const self = this;
+        const s = props.size;
         this.state = {
             columnDefs: [
                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true,
@@ -3132,12 +3054,12 @@ class TradeTradeSummaryAgGrid extends React.PureComponent {
                         return " grid-table d-border-aggrid-right text-center f-12";
                     },
                 },{ field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width:207,
+                    width: s=="s76"?467:s=="s80"?277:s=="s90"?227:207,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12";
                     },
                 },{ field: "vol", headerName: "Vol", sortable: true, filter: "agTextColumnFilter",
-                    resizable: true, width:200,
+                    resizable: true, width: s=="s75"?416:s=="s80"?290:s=="s90"?250:200,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12";
                     },
