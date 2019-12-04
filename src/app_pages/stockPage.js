@@ -411,21 +411,6 @@ class StockHistoryPage_Base extends React.PureComponent {
             primary: '#0071BC',
         },
     });
-    ceksize(){
-        if(window.innerWidth > 1370 && window.innerWidth < 1520) {
-            return "s90";
-        }else if(window.innerWidth > 1521 && window.innerWidth < 1800){
-            return "s80";
-        }else if(window.innerWidth > 1801 && window.innerWidth < 2030){
-            return "s75";
-        }else if(window.innerWidth > 2045 && window.innerWidth < 2700){
-            return "s67";
-        }else if(window.innerWidth > 2701){
-            return "s50";
-        }else{
-            return "s100";
-        }
-    }
     render () {
         const changeTabNumber = (props) => {
             this.setState({
@@ -608,14 +593,7 @@ class StockHistoryPage_Base extends React.PureComponent {
 // StockWatchlist
 const StockWatchlist = (props) => {
     return(
-        <AppFrameProvider
-            initialClasses={{BuyPage, SellPage}}
-            initialFrames={
-                [
-                    {className: 'BuyPage', title: 'STOCK WATCHLIST BUY', instanceName: 'stockWatchlistBuy'},
-                    {className: 'SellPage', title: 'STOCK WATCHLIST SELL', instanceName: 'stockWatchlistSell'},
-                ]
-            }>
+        <div>
             {/* <BIPSAppProvider> */}
             <div className="row col-sm-12 pl-2 mx-0 py-0">
                 <div className="col-sm-4 px-0 mx-0">
@@ -633,12 +611,14 @@ const StockWatchlist = (props) => {
                         {/*<li>Hello2</li>*/}
                         {/*</ul>*/}
                         {/*</div>*/}
-                        <AppFrame headerComponent={StockWatchlistFrameHeader}/>
+                        {/*<AppFrame headerComponent={StockWatchlistFrameHeader}/>*/}
+                        <BuyPage/>
+
                     </div>
                 </div>
             </div>
             {/* </BIPSAppProvider> */}
-        </AppFrameProvider>
+        </div>
     );
 }
 
