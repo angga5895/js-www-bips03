@@ -24,7 +24,7 @@ class NewSwitch extends React.PureComponent {
 
     render() {
         return (
-            <div className="switchClass">
+            <div>
                 <Switch onChange={this.handleChange} height={20} checked={this.state.checked} />
             </div>
     );
@@ -58,12 +58,11 @@ class LiveTradePage extends React.PureComponent {
 
     constructor(props) {
         super(props);
-
+        this.state = {
+            selected: "1",
+        }
     }
 
-    state = {
-        value: "watchlist",
-    }
     ceksize(){
         if(window.innerWidth > 1370 && window.innerWidth < 1520) {
             return "s90";
@@ -84,72 +83,60 @@ class LiveTradePage extends React.PureComponent {
             <div>
                 <AppFrameAction ref="frameAction" />
                 <WSConnectionAction />
-                <div className="col-sm-12 px-0 mx-0 row h-45">
-                    <div className="col-mbl-radio px-0 mx-0 row">
-                        <ul className="ul-radio col-sm-12 px-0 mx-0 row h-37">
-
-                            <li className="li-radio col-radio-sm px-0 mx-0" onClick={
-                                (e) => {
-                                    this.setState({
-                                        value : "all"
-                                    })
-                                }
-                            }>
-                                <input type="radio" id="a-option" name="selector" checked={this.state.value == "all" ? true : false}/>
-                                <label htmlFor="a-option">All</label>
-
-                                <div className="check"></div>
-                            </li>
-
-                            <li className="li-radio col-radio px-0 mx-0" onClick={
-                                (e) => {
-                                    this.setState({
-                                        value : "watchlist"
-                                    })
-                                }
-                            }>
-                                <input type="radio" id="f-option" name="selector" checked={this.state.value == "watchlist" ? true : false}/>
-                                <label htmlFor="f-option">Watchlist</label>
-
-                                <div className="check"></div>
-                            </li>
-
-                            <li className="li-radio col-radio px-0 mx-0" onClick={
-                                (e) => {
-                                    this.setState({
-                                        value : "foreign"
-                                    })
-                                }
-                            }>
-                                <input type="radio" id="s-option" name="selector" checked={this.state.value == "foreign" ? true : false}/>
-                                <label htmlFor="s-option">Foreign</label>
-
-                                <div className="check"></div>
-                            </li>
-
-                            <li className="li-radio col-radio px-0 mx-0" onClick={
-                                (e) => {
-                                    this.setState({
-                                        value : "tick"
-                                    })
-                                }
-                            }>
-                                <input type="radio" id="t-option" name="selector" checked={this.state.value == "tick" ? true : false}/>
-                                <label htmlFor="t-option">Tick</label>
-
-                                <div className="check"></div>
-                            </li>
-
-                            <li className="li-radio col-title-radio px-0 mx-0 col-sm-2">
-                               <NewSwitch/>
-                            </li>
-                        </ul>
+                <div className="row pl-4 mt-2 mb-3">
+                    <div
+                        className={`col-md-1 px-0 pt-3 text-center
+                        ${this.state.selected == 1?"livetradeMenuActive":"livetradeMenu"}`}
+                        onClick={()=>this.setState({selected:1})}
+                    >
+                        <i className={this.state.selected == 1 ? "far fa-dot-circle" : "far fa-circle"}></i>
+                        &nbsp;&nbsp;&nbsp;
+                        All
                     </div>
-                    <div className="col-mbl-radio-o px-0 mx-0">
-                        <div className="title-radio-right col-sm-12 pull-right text-right pt-2">
-                            <button className="d-border mx-1 col-sm-3 btn btn-success" onClick={this.buttonClickSell}><span>Sell</span></button>
-                            <button className="d-border mx-1 col-sm-3 btn btn-danger" onClick={this.buttonClickBuy}><span>Buy</span></button>
-                        </div>
+                    <div
+                        className={`col-md-1 px-0 pt-3 text-center
+                        ${this.state.selected == 2?"livetradeMenuActive":"livetradeMenu"}`}
+                        onClick={()=>this.setState({selected:2})}
+                    >
+                        <i className={this.state.selected == 2 ? "far fa-dot-circle" : "far fa-circle"}></i>
+                        &nbsp;
+                        WatchList
+                    </div>
+                    <div
+                        className={`col-md-1 px-0 pt-3 text-center
+                        ${this.state.selected == 3?"livetradeMenuActive":"livetradeMenu"}`}
+                        onClick={()=>this.setState({selected:3})}
+                    >
+                        <i className={this.state.selected == 3 ? "far fa-dot-circle" : "far fa-circle"}></i>
+                        &nbsp;
+                        Foreign
+                    </div>
+                    <div
+                        className={`col-md-1 px-0 pt-3 text-center
+                        ${this.state.selected == 4?"livetradeMenuActive":"livetradeMenu"}`}
+                        onClick={()=>this.setState({selected:4})}
+                    >
+                        <i className={this.state.selected == 4 ? "far fa-dot-circle" : "far fa-circle"}></i>
+                        &nbsp;
+                        Tick
+                    </div>
+                    <div
+                        className={`col-md-1 px-0 pt-3 text-center
+                        ${this.state.selected == 5?"livetradeMenuActive":"livetradeMenu"}`}
+                        onClick={()=>this.setState({selected:5})}
+                    >
+                        <i className={this.state.selected == 5 ? "far fa-dot-circle" : "far fa-circle"}></i>
+                        &nbsp;
+                        Non-RG</div>
+                    <div className="col-md-1"></div>
+                    <div className="col-md-1 pt-3">
+                        <NewSwitch/>
+                    </div>
+                    <div className="col-md-2"></div>
+                    <div className="col-md-3 pt-1 text-center pr-0">
+                            <button className="d-border col-sm-5 btn btn-success mr-3" onClick={this.buttonClickSell}><span>Sell</span></button>
+                            <button className="d-border col-sm-5 btn btn-danger" onClick={this.buttonClickBuy}><span>Buy</span></button>
+
                     </div>
                 </div>
                 <div className="col-sm-12 row px-0 mx-0 row">

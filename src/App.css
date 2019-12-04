@@ -3954,3 +3954,16 @@ textarea {
     -ms-transition: all 0.20s ease-in-out;
     -o-transition: all 0.20s ease-in-out;
 }
+.livetradeMenu{
+    font-size: 1.25em!important;
+    font-weight: 300;
+    cursor:pointer;
+    -webkit-transition: all 0.25s linear;
+}
+.livetradeMenuActive{
+    font-size: 1.25em!important;
+    font-weight: 300;
+    cursor:pointer;
+    color: #0d71bb;
+    -webkit-transition: all 0.25s linear;
+}
