@@ -91,7 +91,13 @@ const LandingFrameHeader = (props) => {
 }
 
 class Landing extends React.PureComponent {
-
+    componentDidMount(){
+        $(".pincode-input-text").on('keypress',function(e) {
+            if(e.which == 13) {
+                $("#pin-click-verify").click();
+            }
+        });
+    }
     render () {
         return (
             //hanya memanggil headernya saja
@@ -2302,6 +2308,7 @@ class PortofolioAgGrid extends React.PureComponent {
                     <AgGridReact
                         columnDefs={this.state.columnDefs}
                         rowData={this.state.rowData}
+                        rowHeight={32}
                         defaultColDef={this.state.defaultColDef}
                         onGridReady={this.onGridReady}
                         onFirstDataRendered={this.onFirstDataRendered.bind(this)}>
@@ -3904,144 +3911,6 @@ class CancelGrid2 extends React.PureComponent {
 }
 
 
-
-class InquryAgGrid extends React.PureComponent {
-    constructor(props) {
-        super(props);
-        const self = this;
-        this.state = {
-            columnDefs: [
-                { field: "date", headerName: "Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 40 : 75,
-                    cellClass : function (params) {
-                        return " grid-table d-border-aggrid-right text-center f-12";
-                    }, suppressSizeToFit: true
-                },
-                { field: "trade", headerName: "Trade", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 94 : 206,
-                    cellClass : function (params) {
-                        return " text-center grid-table d-border-aggrid-right f-12";
-                    }
-                },
-                { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 92 : 207,
-                    cellClass : function (params) {
-                        return "text-center  grid-table d-border-aggrid-right f-12";
-                    }
-                },
-                { field: "cmd", headerName: "Action", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
-                    cellClass : function (params) {
-                        var cmd = params.data.cmd;
-                        return cmd.includes('BUY') === true ? "text-danger text-center  grid-table d-border-aggrid-right f-12" :
-                            "text-success text-center  grid-table d-border-aggrid-right f-12";
-                    }
-                },
-                { field: "type", headerName: "Type", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 120 : 207,
-                    cellClass : function (params) {
-                        return "text-center  grid-table d-border-aggrid-right f-12";
-                    }
-                },
-                { field: "vol", headerName: "Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
-                    cellClass : function (params) {
-                        return " text-center grid-table d-border-aggrid-right f-12";
-                    }
-                },
-                { field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
-                    cellClass : function (params) {
-                        return " text-center grid-table d-border-aggrid-right f-12";
-                    }
-                },
-                { field: "amount", headerName: "Amount", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
-                    cellClass : function (params) {
-                        return " text-center grid-table d-border-aggrid-right f-12";
-                    }
-                },
-                { field: "time", headerName: "Time", sortable: true, filter: "agTextColumnFilter", resizable: true, width: this.props.gridView == 'grid' ? 90 : 207,
-                    cellClass : function (params) {
-                        return " text-center grid-table d-border-aggrid-right f-12";
-                    }
-                }
-            ],
-            defaultColDef: {
-                sortable: true,
-                filter: true,
-            },
-            rowData: [],
-            sideBar: {
-                toolPanels: [
-                    {
-                        id: "columns",
-                        labelDefault: "Columns",
-                        labelKey: "columns",
-                        iconKey: "columns",
-                        toolPanel: "agColumnsToolPanel",
-                        toolPanelParams: {
-                            suppressRowGroups: true,
-                            suppressValues: true,
-                            suppressPivots: true,
-                            suppressPivotMode: true,
-                            suppressSideButtons: true,
-                            suppressColumnFilter: true,
-                            suppressColumnSelectAll: true,
-                            suppressColumnExpandAll: true
-                        },
-                    }, {
-                        id: "filters",
-                        labelDefault: "Filters",
-                        labelKey: "filters",
-                        iconKey: "filter",
-                        toolPanel: "agFiltersToolPanel"
-                    }
-                ],
-                defaultToolPanel: ""
-            },
-        }
-    }
-
-    onGridReady = params => {
-        this.gridApi = params.api;
-        this.gridColumnApi = params.columnApi;
-
-        params.api.sizeColumnsToFit();
-        window.addEventListener("resize", function() {
-            setTimeout(function() {
-                params.api.sizeColumnsToFit();
-            });
-        });
-
-        params.api.sizeColumnsToFit();
-    };
-
-    onFirstDataRendered(params) {
-        params.api.sizeColumnsToFit();
-    }
-
-    render() {
-        return (
-            <div style={{ width: "100%", height: "100%" }}>
-                <div
-                    className={"card-490 ag-theme-balham-dark ag-bordered table-bordered ag-striped-odd"}
-                    id="myGrid"
-                    style={{
-                        width: "100%",
-                    }}>
-                    <AgGridReact
-                        columnDefs={this.state.columnDefs}
-                        rowData={this.state.rowData}
-                        defaultColDef={this.state.defaultColDef}
-                        onGridReady={this.onGridReady}
-                        onFirstDataRendered={this.onFirstDataRendered.bind(this)}>
-                    </AgGridReact>
-                </div>
-            </div>
-        );
-    }
-}
-
-/*const CustomFrameHeaderLanding = ContextConnector(BIPSAppContext,
-    (vars, actions, props) => ({
-        isGrid:vars.isGrid,
-        handleView:(isGrid)=>{actions.sendAction('handleView',{isGrid})},
-    })
-)(CustomFrameHeaderLanding_Base);*/
-
 class VerifyPINPortofolio extends React.PureComponent{
     constructor(props){
         super(props);
@@ -4132,10 +4001,9 @@ class VerifyPINPortofolio extends React.PureComponent{
                         </tr>
                         <tr>
                             <td className="py-0">
-
-                                <div className="form-group text-center pt-2 mb-0">
-                                    <label className="col-sm-12 px-5 py-2 col-form-label f-14 font-weight-bold">Please enter security PIN</label>
-                                    <label className="col-sm-12 px-5 py-2 col-form-label">Please fullfill with 6 digit security
+                                <div className="form-group text-center pt-2 mb-5">
+                                    <label className="col-sm-12 px-5 py-1 col-form-label f-14 font-weight-bold">Please enter security PIN</label>
+                                    <label className="col-sm-12 px-5 py-1 col-form-label">Please fullfill with 6 digit security
                                         PIN to verify your transaction</label>
                                 </div>
 
@@ -4143,8 +4011,7 @@ class VerifyPINPortofolio extends React.PureComponent{
                         </tr>
                         <tr>
                             <td>
-
-                                <div className="form-group mb-0">
+                                <div className="form-group mb-0 py-0">
                                     <PinInput
                                         inputStyle={{"color":/*cssmode == 'night' ? '#FFFFFF':*/'#999999', "border":"#565252 1px solid","border-radius":"10%","width":"15.25%"}}
                                         inputFocusStyle={{"color":/*cssmode == 'night' ? '#FFFFFF':*/'#999999', "border":"#065A96 1px solid", "border-radius":"10%","width":"15.25%"}}
@@ -4160,22 +4027,20 @@ class VerifyPINPortofolio extends React.PureComponent{
                             </td>
                         </tr>
                         <tr>
-                            <td>
-
-                                <div className="form-group">
-                                    <label className="col-sm-12 py-2 px-1 col-form-label">Forgot your PIN?
-                                        <span className="click-pointer btn btn-link text-primary" onClick={this.forgotPIN}> Click here</span>
+                            <td className="my-0 py-0">
+                                <div className="form-group py-0 my-0 text-left">
+                                    <label className="col-sm-12 py-1 px-1 mt-1 col-form-label">Forgot your PIN?
+                                        <span className="click-pointer btn btn-link text-primary my-0 py-0" onClick={this.forgotPIN}> Click here</span>
                                     </label>
                                 </div>
 
                             </td>
                         </tr>
                         <tr>
-                            <td>
-
+                            <td className="my-0 py-0">
                                 <div className="form-group py-3 mb-0">
                                     <div className="justify-content-center align-items-center d-flex py-0">
-                                        <button id="pin-click" type="submit" className={'btn btn-grey-gray form-control py-0'}
+                                        <button id="pin-click" type="submit" className={'btn btn-danger form-control py-0'}
                                                 onClick={this.onClickSubmit}>
                                             Submit
                                         </button>

@@ -3944,6 +3944,9 @@ textarea {
 .n-border-right{
     border-right: none !important;
 }
+.n-border{
+    border:none !important;
+}
 .stockOptionInput:focus ~ .input-group-addon, .stockOptionInput2:focus ~ .input-group-addon{
     box-shadow: 0 0 1px rgba(81, 203, 238, 1);
     border: 1px solid rgba(81, 203, 238, 1);
@@ -3960,10 +3963,10 @@ textarea {
     cursor:pointer;
     -webkit-transition: all 0.25s linear;
 }
-.livetradeMenuActive{
-    font-size: 1.25em!important;
+.livetradeMenuActive {
+    font-size: 1.25em !important;
     font-weight: 300;
-    cursor:pointer;
+    cursor: pointer;
     color: #0d71bb;
     -webkit-transition: all 0.25s linear;
 }
