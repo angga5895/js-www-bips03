@@ -163,13 +163,13 @@ class VerifyPIN extends React.PureComponent{
                             onChange={this.onChange}
                         />
                     </div>
-                    <div className="form-group">
-                        <label className="col-sm-12 py-2 px-1 col-form-label">Forgot your PIN?
+                    <div className="form-group mx-0 my-0 py-2">
+                        <label className="col-sm-12 my-0 py-0 px-1 col-form-label">Forgot your PIN?
                             <span className="click-pointer btn btn-link text-primary" onClick={this.forgotPIN}> Click here</span>
                         </label>
                     </div>
 
-                    <div className="form-group py-3">
+                    <div className="form-group pt-1 pb-1 mb-0 pb-0">
                         <div className="justify-content-center align-items-center d-flex py-0">
                             <button id="pin-click-verify" type="submit" className=
                                 {
@@ -182,6 +182,9 @@ class VerifyPIN extends React.PureComponent{
                                 Submit
                             </button>
                         </div>
+                    </div>
+                    <div className="form-group text-center f-12 mb-0 mt-2">
+                        <span className="click-pointer btn btn-link text-primary text-underline" onClick={(e) => this.refs.frameAction.closeModal(100)}> Cancel</span>
                     </div>
 
                     <div className={this.state.visible ? "col-sm-12 text-center bg-danger fade-in" : "col-sm-12 text-center bg-danger fade-out"}>
