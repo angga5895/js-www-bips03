@@ -10,7 +10,7 @@ import { BIPSAppContext } from '../AppData.js';
 import UISelectionTab from '../selectiontab.js';
 import { ContextConnector } from '../appcontext.js';
 import SideBar from "../SideBar";
-import './../bootstrap-3.3.7/dark_chart_style.min';
+// import './../bootstrap-3.3.7/dark_chart_style.min';
 import LoginUserPage from './loginPage';
 import $ from 'jquery';
 window.$ = window.jQuery = $;
