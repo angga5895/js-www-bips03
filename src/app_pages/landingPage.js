@@ -111,11 +111,9 @@ class LandingPage_Base extends React.PureComponent {
     constructor(props) {
         super(props);
     }
-
     componentDidMount() {
         var props = this.props;
         $('#pieChart').css('height', '100%');
-
         // create data
         var data = [
             {x: "Portfolio Equity", value: 207166 },
@@ -129,6 +127,7 @@ class LandingPage_Base extends React.PureComponent {
         anychart.onDocumentReady(function () {
             createpie();
         });
+
 
 
         function createpie() {
@@ -829,7 +828,6 @@ class FundTransfer_Base extends React.PureComponent {
         }
     }
     buttonClickPIN = (e) => {
-        console.log('clicked');
         var frameAction = this.refs.frameAction;
         frameAction.showModal({
             headerClass: () => <div className="text-right">
@@ -1878,6 +1876,22 @@ class WithdrawModal extends React.Component {
             <>
                 <AppFrameAction ref="frameAction" />
                 <VerifyPIN tipe = 'withdraw'/>
+            </>
+        );
+    }
+}
+
+
+class PinModal extends React.Component {
+    closeClick = (e) => {
+        this.refs.frameAction.closeModal(100);
+    }
+
+    render() {
+        return (
+            <>
+                <AppFrameAction ref="frameAction" />
+                <VerifyPIN tipe = 'pinLanding'/>
             </>
         );
     }
@@ -3970,14 +3984,23 @@ class VerifyPINPortofolio extends React.PureComponent{
     }
 
     componentDidMount(){
-        this.pin.clear();
-        $(".pincode-input-text").on('keypress',function(e) {
+        // this.pin.clear();
+        $(".pincode-input-te    xt").on('keypress',function(e) {
             if(e.which == 13) {
                 $("#pin-click").click();
             }
         });
     }
-
+    buttonClickPin = (e) => {
+        this.refs.frameAction.showModal({
+            headerClass: () => <div className="text-right">
+                <i className="icofont icofont-close text-icofont-close text-border click-pointer"
+                                                              onClick={this.closeClick}></i></div>,
+            size: 'mini',
+            contentClass: PinModal,
+            onClose: (result) => {console.log('Modal 1 result = ', result)}
+        })
+    }
     render(){
         const {value} = this.state;
         return(
@@ -3985,72 +4008,27 @@ class VerifyPINPortofolio extends React.PureComponent{
                 <AppFrameAction ref="frameAction" />
 
                 <div className={`text-white f-12 ${(this.props.pos == "portofolio") ? 'p-pinportofolio' : 'p-pinlanding' }`} style={{ paddingTop: "60px"}}>
+                    <div className="card-334 pt-5 mt-5">
+                        <div className="text-center align-self-center align-middle mb-3">
+                            <div className="d-border-bold img-round-icon">
+                                <i className="icofont icofont-lock icofont-4x"></i>
+                            </div>
+                        </div>
 
-                    <Table borderless className="card-334 mb-0">
-                        <tbody>
-                        <tr>
-                            <td className="py-0">
-
-                                <div className="text-center align-self-center align-middle">
-                                    <div className="d-border-bold img-round-icon">
-                                        <i className="icofont icofont-lock icofont-4x"></i>
-                                    </div>
-                                </div>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="py-0">
-                                <div className="form-group text-center pt-2 mb-5">
-                                    <label className="col-sm-12 px-5 py-1 col-form-label f-14 font-weight-bold">Please enter security PIN</label>
-                                    <label className="col-sm-12 px-5 py-1 col-form-label">Please fullfill with 6 digit security
-                                        PIN to verify your transaction</label>
-                                </div>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div className="form-group mb-0 py-0">
-                                    <PinInput
-                                        inputStyle={{"color":/*cssmode == 'night' ? '#FFFFFF':*/'#999999', "border":"#565252 1px solid","border-radius":"10%","width":"15.25%"}}
-                                        inputFocusStyle={{"color":/*cssmode == 'night' ? '#FFFFFF':*/'#999999', "border":"#065A96 1px solid", "border-radius":"10%","width":"15.25%"}}
-                                        length={6}
-                                        focus
-                                        secret
-                                        ref={p => this.pin = p}
-                                        type="numeric"
-                                        onChange={this.onChange}
-                                    />
-                                </div>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="my-0 py-0">
-                                <div className="form-group py-0 my-0 text-left">
-                                    <label className="col-sm-12 py-1 px-1 mt-1 col-form-label">Forgot your PIN?
-                                        <span className="click-pointer btn btn-link text-primary my-0 py-0" onClick={this.forgotPIN}> Click here</span>
-                                    </label>
-                                </div>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="my-0 py-0">
-                                <div className="form-group py-3 mb-0">
-                                    <div className="justify-content-center align-items-center d-flex py-0">
-                                        <button id="pin-click" type="submit" className={'btn btn-danger form-control py-0'}
-                                                onClick={this.onClickSubmit}>
-                                            Submit
-                                        </button>
-                                    </div>
-                                </div>
-
-                            </td>
-                        </tr>
-                        </tbody>
-                    </Table>
+                        <div className="form-group text-center pt-2 mb-3">
+                            <label className="col-sm-12 px-5 py-1 col-form-label f-16 font-weight-bold mb-2">ACCESS DENIED</label>
+                            <label className="col-sm-12 px-5 py-1 col-form-label">
+                                Seems like you are not allowed to access this page
+                            </label>
+                        </div>
+                        <div className="text-center">
+                            <button
+                                onClick={() => this.buttonClickPin()}
+                                id="pin-click" type="submit" className={'btn btn-danger form-control py-0 col-md-3'}>
+                                Unlock
+                            </button>
+                        </div>
+                    </div>
 
                     <div className={this.state.visible ? "col-sm-12 text-center bg-danger fade-in" : "col-sm-12 text-center bg-danger fade-out"}>
                         <div className={/*{cssmode == 'night'? */"px-2 pt-2 text-right text-white" /*: "px-2 pt-2 text-right text-black"*/}><i className="click-pointer icofont icofont-close" onClick={this.onClickCloseAlert}></i></div>

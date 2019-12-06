@@ -3973,7 +3973,11 @@ textarea {
     color: #0d71bb;
     -webkit-transition: all 0.25s linear;
 }
-
+@media (min-width: 1100px){
+    .table-market>thead>tr>th,.table-market>tbody>tr>td{
+        padding: 10px 5px !important;
+    }
+}
 @media (min-width: 1360px) and (max-width: 1370px) {
     .table-market>thead>tr>th,.table-market>tbody>tr>td{
         padding: 10px 5px !important;
@@ -3997,5 +4001,10 @@ textarea {
 @media (min-width: 2045px) and (max-width: 2700px) {
     .table-market>thead>tr>th,.table-market>tbody>tr>td{
         padding: 28px 5px 26px 5px !important;
+    }
+}
+@media (min-width: 2730px){
+    .table-market>thead>tr>th,.table-market>tbody>tr>td{
+    padding: 44px 5px 43px 5px !important;
     }
 }

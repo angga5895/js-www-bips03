@@ -95,6 +95,24 @@ class VerifyPIN extends React.PureComponent{
                         onClose: (result) => console.log('Second modal result = ', result),
                         size: "mini"
                     });
+                }else if (this.props.tipe === 'pinLanding'){
+                    this.refs.frameAction.closeModal(100);
+
+                    $("#pinPortofolio").removeClass("d-block");
+                    $("#pinPortofolio").addClass("d-none");
+                    $("#detailPortofolio").addClass("d-block");
+                    $("#detailPortofolio").removeClass("d-none");
+
+                    $("#contentPinStockCash").removeClass("d-none");
+                    $("#contentPinStockCash").addClass("d-block");
+
+                    $("#verifyPinStockCash").removeClass("d-block");
+                    $("#verifyPinStockCash").addClass("d-none");
+
+                    $("#FundPin").addClass("d-none");
+                    $("#ContentFund").removeClass("d-none");
+                    $("#ContentFund").addClass("d-block");
+
                 } else {
                     var visible = false;
                     var value = "";
