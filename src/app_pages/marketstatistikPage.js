@@ -350,17 +350,17 @@ class StatisticMarketStatistikPage_Base extends React.PureComponent {
                 <div className="px-1 mx-0 col-sm-12 row f-12 card-527">
                     <div className="col-sm-7 px-1 py-2 d-border-table-right">
                         <div className="card card-515 bg-black-trading">
-                            <div className="card-header py-3 pr-0 h-121">
-                                <div className="col-sm-12 mb-4 row text-center">
-                                    <label className="align-self-center col-sm-3 px-0 mx-0 f-16">Index</label>
+                            <div className="card-header py-3 pr-0 h-121 n-border-bottom">
+                                <div className="col-sm-12 mb-4 row text-left ml-1">
+                                    <label className="align-self-center col-sm-2 px-0 mx-0 f-16">Index</label>
                                     {/*<Input defaultValue='AGRI' placeholder='Code' size='small' className="col-sm-7 text-center align-self-center"/>*/}
-                                    <div className="col-sm-9 mr-0 pr-0 text-left align-self-center">
+                                    <div className="col-sm-10 mr-0 pl-0 pr-0 text-left align-self-center">
                                         <Select maxMenuHeight={150} styles={customStyles} size="small" placeholder={<div>Search..</div>} options={stockOptions} className="stockPageSelect" theme={this.selectSelectionTab}/>
                                     </div>
                                     {/*<div className="col-sm-2 text-left align-self-center px-2"><i className="fa fa-search fa-2x click-pointer text-dark"></i></div>*/}
                                 </div>
                                 <div className="col-sm-12 mb-4 row">
-                                    <div className="col-sm-3 text-white f-16">6,384.90</div>
+                                    <div className="col-sm-2 text-white f-16">6,384.90</div>
                                     <div className="col-sm-4 text-success f-16">+5.21 (0.082%) <i className="icofont icofont-caret-up"></i></div>
                                 </div>
                                 <div className="col-sm-12 f-14">
@@ -380,7 +380,9 @@ class StatisticMarketStatistikPage_Base extends React.PureComponent {
                     <div className="col-sm-5 px-1 py-2 d-border-table-left">
                         <div className="card card-515 bg-black-trading text-white">
                             <div className="card-body px-3">
-                                <TableBS responsive bordered size="sm" className="table-hover table-striped text-center align-self-center align-middle card-230 mb-1 mt-0">
+                                <div className="bg-grey-0 text-center py-4 h-40"><a className="text-white">BOARD SUMMARY</a></div>
+                                <TableBS responsive bordered size="sm"
+                                         className="table-hover table-striped text-center align-self-center align-middle mb-5 mt-3 table-market">
                                     <thead className="text-white t-statistic">
                                     <tr>
                                         <th className="py-1 bg-gray-tradding">BOARD</th>
@@ -416,8 +418,13 @@ class StatisticMarketStatistikPage_Base extends React.PureComponent {
                                     </tr>
                                     </tbody>
                                 </TableBS>
-                                <div className="bg-grey-0 text-center py-4 h-40"><a className="text-white text-underline">FOREIGN ACTIVITY</a></div>
-                                <TableBS responsive bordered size="sm" className="table-hover table-striped text-center align-self-center align-middle card-230 mb-0 mt-1">
+                                <div className="bg-grey-0 text-center py-4 h-40">
+                                    <a className="text-white">FOREIGN ACTIVITY</a></div>
+                                <TableBS
+                                    responsive
+                                    bordered
+                                    size="sm"
+                                    className="table-hover table-striped text-center align-self-center align-middle mb-1 mt-3 table-market">
                                     <thead className="text-white t-statistic">
                                     <tr>
                                         <th className="py-1 bg-gray-tradding">FOREIGN</th>
@@ -434,10 +441,10 @@ class StatisticMarketStatistikPage_Base extends React.PureComponent {
                                         <td className="text-danger text-right py-1">63,578 </td>
                                     </tr>
                                     <tr>
-                                        <td className="text-center">F.Sell</td>
-                                        <td className="text-success text-right py-1">3.02 T</td>
-                                        <td className="text-success text-right py-1">11.44 M</td>
-                                        <td className="text-success text-right py-1">84,982 </td>
+                                        <td className="text-center text-white py-1">F.Sell</td>
+                                        <td className="text-right text-success py-1">3.02 T</td>
+                                        <td className="text-right text-success py-1">11.44 M</td>
+                                        <td className="text-right text-success py-1">85,982 </td>
                                     </tr>
                                     <tr>
                                         <td className="text-center text-white py-1">F.TOTAL</td>

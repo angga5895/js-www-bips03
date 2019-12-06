@@ -3947,6 +3947,9 @@ textarea {
 .n-border{
     border:none !important;
 }
+.n-border-bottom{
+    border-bottom: none !important;
+}
 .stockOptionInput:focus ~ .input-group-addon, .stockOptionInput2:focus ~ .input-group-addon{
     box-shadow: 0 0 1px rgba(81, 203, 238, 1);
     border: 1px solid rgba(81, 203, 238, 1);
@@ -3969,4 +3972,30 @@ textarea {
     cursor: pointer;
     color: #0d71bb;
     -webkit-transition: all 0.25s linear;
+}
+
+@media (min-width: 1360px) and (max-width: 1370px) {
+    .table-market>thead>tr>th,.table-market>tbody>tr>td{
+        padding: 10px 5px !important;
+    }
+}
+@media (min-width: 1371px) and (max-width: 1520px) {
+    .table-market>thead>tr>th,.table-market>tbody>tr>td{
+        padding: 15px 5px 13px 5px !important;
+    }
+}
+@media (min-width: 1521px) and (max-width: 1800px) {
+    .table-market>thead>tr>th,.table-market>tbody>tr>td{
+        padding: 19px 5px 18px 5px !important;
+    }
+}
+@media (min-width: 1801px) and (max-width: 2030px) {
+    .table-market>thead>tr>th,.table-market>tbody>tr>td{
+        padding: 22px 5px 21px 5px !important;
+    }
+}
+@media (min-width: 2045px) and (max-width: 2700px) {
+    .table-market>thead>tr>th,.table-market>tbody>tr>td{
+        padding: 28px 5px 26px 5px !important;
+    }
 }
