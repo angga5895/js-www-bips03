@@ -25,6 +25,7 @@ const CustomFrameHeader = (props) => {
 
 const ResizeResponsive = () => {
     var marquee = $('html').width();
+    marquee = marquee + 20;
     $('.runningText p').css('width', (marquee));
     $('.runningText').css('width', (marquee));
 
@@ -206,6 +207,7 @@ class MainPage_Base extends React.Component {
 
       var setElementHeightWeb = function () {
           var marquee = $('html').width();
+          marquee = marquee + 20;
           $('.runningText p').css('width', (marquee));
           $('.runningText').css('width', (marquee));
 
