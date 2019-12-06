@@ -543,7 +543,7 @@ class LiveTradeAgGrid_Base extends React.PureComponent {
                     className="card card-515 ag-theme-balham-dark ag-header-border-gray-live-trade ag-striped-odd"
                     style={{
                         width: 'auto' }}>
-                    <span className="myLiveTrade">
+                    <span>
                         <AgGridReact
                             columnDefs={this.state.columnDefs}
                             rowData={this.state.rowData}
