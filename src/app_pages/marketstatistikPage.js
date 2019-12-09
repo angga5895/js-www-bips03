@@ -379,10 +379,10 @@ class StatisticMarketStatistikPage_Base extends React.PureComponent {
 
                     <div className="col-sm-5 px-1 py-2 d-border-table-left">
                         <div className="card card-515 bg-black-trading text-white">
-                            <div className="card-body px-3">
-                                <div className="bg-grey-0 text-center py-4 h-40"><a className="text-white">BOARD SUMMARY</a></div>
+                            <div className="card-body px-3 pt-3">
+                                <div className="bg-grey-0 text-center py-4 h-40"><span className="text-white">BOARD SUMMARY</span></div>
                                 <TableBS responsive bordered size="sm"
-                                         className="table-hover table-striped text-center align-self-center align-middle mb-5 mt-3 table-market">
+                                         className="table-hover table-striped text-center align-self-center align-middle mb-3 table-market">
                                     <thead className="text-white t-statistic">
                                     <tr>
                                         <th className="py-1 bg-gray-tradding">BOARD</th>
@@ -418,13 +418,13 @@ class StatisticMarketStatistikPage_Base extends React.PureComponent {
                                     </tr>
                                     </tbody>
                                 </TableBS>
-                                <div className="bg-grey-0 text-center py-4 h-40">
-                                    <a className="text-white">FOREIGN ACTIVITY</a></div>
+                                <div className="bg-grey-0 text-center py-4 h-40 mt-1">
+                                    <span className="text-white">FOREIGN ACTIVITY</span></div>
                                 <TableBS
                                     responsive
                                     bordered
                                     size="sm"
-                                    className="table-hover table-striped text-center align-self-center align-middle mb-1 mt-3 table-market">
+                                    className="table-hover table-striped text-center align-self-center align-middle table-market">
                                     <thead className="text-white t-statistic">
                                     <tr>
                                         <th className="py-1 bg-gray-tradding">FOREIGN</th>
