@@ -20788,7 +20788,7 @@ ol.ui.horizontal.list li:before {
     text-transform: none;
     color: #767171;
     border: #5f68ad solid 1px;
-    margin: 3px 1px;
+    margin: 3px 3px;
     border-radius: 5px!important;
     font-weight: 400;
     -webkit-transition: background .1s ease, color .1s ease, -webkit-box-shadow .1s ease;
