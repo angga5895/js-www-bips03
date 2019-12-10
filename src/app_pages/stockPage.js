@@ -1293,7 +1293,7 @@ class StockWatchlistAgGrid extends React.PureComponent {
                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true,
                     width: 80, minWidth: 80, lockVisible:true, lockPosition:true, suppressSizeToFit:true,
                     cellClass : function (params) {
-                        return "text-center grid-table d-border-aggrid-right f-12 locked-col locked-visible";
+                        return "text-left grid-table d-border-aggrid-right f-12 locked-col locked-visible";
                     }},
                 { field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true,
                     width: 90, minWidth: 90,
