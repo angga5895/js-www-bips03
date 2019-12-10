@@ -501,8 +501,8 @@ class MainPage_Base extends React.Component {
       document.body.style.setProperty('--warna-hover-menu', this.props.thememode === true  ? "#111111" : "#f4f4f4");
       document.body.style.setProperty('--warna-table-striped', this.props.thememode === true  ? "#272727" : "#E7E8E8");
 
-      document.body.style.setProperty('--warna-navy-odd', this.props.thememode === true  ? "#040421" : "#02ADEB");
-      document.body.style.setProperty('--warna-navy-even', this.props.thememode === true  ? "#2D3866" : "#efefef");
+      document.body.style.setProperty('--warna-navy-odd', this.props.thememode === true  ? "#0E0E20" : "#02ADEB");
+      document.body.style.setProperty('--warna-navy-even', this.props.thememode === true  ? "#2E3354" : "#efefef");
       document.body.style.setProperty('--warna-text-danger', this.props.thememode === true  ? "#EA0904" : "#eb404b");
       document.body.style.setProperty('--warna-text-success', this.props.thememode === true  ? "#05FE01" : "#449b52");
       document.body.style.setProperty('--warna-text-warning', this.props.thememode === true  ? "#FFC107" : "#f58f0d");
