@@ -201,7 +201,7 @@ class LiveTradeAgGrid_Base extends React.PureComponent {
                     width: 70,
                     suppressSizeToFit:true, lockVisible:true,
                     cellClass : function (params) {
-                        return "text-center grid-table d-border-aggrid-right f-12 locked-visible";
+                        return "text-left grid-table d-border-aggrid-right f-12 locked-visible";
                     }},
                 { field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true,
                     width: 80, minWidth: 80, cellClass : function (params) {
