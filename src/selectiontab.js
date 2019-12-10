@@ -41,7 +41,7 @@ class MenuHeader extends React.PureComponent {
                             var e = this.props.id.instances[k];
                             return (
                                 <Menu.Item
-                                    className = {this.props.ms === "menuscale" ? "col-sm-tab-scale" : "col-sm-tab h-79"}
+                                    className = {this.props.ms === "menuscale" ? "col-sm-tab-scale" : "col-sm-tab h-72-77"}
                                     key={e.instanceName}
                                     name={e.instanceName}
                                     active={this.props.id.activeInstance === e}
@@ -76,7 +76,7 @@ const UISelectionTab_Base = (props) => {
                         <div className="col-sm-header-logo px-0 text-center align-middle align-self-center text-white click-pointer">
                             <Navbar.Brand href="/" className="text-white pr-0 pl-3"><h2>BIPS</h2></Navbar.Brand>
                         </div>
-                        <div className="d-border-left d-border-right row main-header col-sm-header-menu px-0 mr-2">
+                        <div className="d-border-left d-border-right row main-header col-sm-header-menu px-0 mr-0 py-1 h-87">
                             <MenuHeader id={props}/>
 
                             {/*Zaky*/}
@@ -85,12 +85,12 @@ const UISelectionTab_Base = (props) => {
                             </Menu.Menu>
                         </div>
 
-                        <div className="col-sm-header-user row mx-2">
-                            <Menu.Menu className="col-sm-8 px-4 mx-0">
+                        <div className="col-sm-header-user row mx-0">
+                            <Menu.Menu className="col-sm-8 px-2 mx-0">
                                 <InfoCash/>
                             </Menu.Menu>
 
-                            <Menu.Menu className="px-0">
+                            <Menu.Menu className="px-0 mx-0">
                                 <UserInfo/>
                             </Menu.Menu>
                         </div>
@@ -300,17 +300,17 @@ class SelectItem1 extends React.PureComponent {
                 {
                     symbol: 'COMPOSITE INDEX',
                     last: '12849',
-                    change: -0.99293,
+                    change: -0.99,
                     percentage: -0.30,
                 },{
                     symbol: 'INFRASTRUCTUR',
                     last: '108.59',
-                    change: 0.06,
-                    percentage: 0.06,
+                    change: 0,
+                    percentage: 0,
                 },{
                     symbol: 'AGRI',
                     last: '0.9874',
-                    change: -0.00005,
+                    change: -0.05,
                     percentage: -0.04,
                 },{
                     symbol: 'MINING',
@@ -374,18 +374,31 @@ class SelectItem1 extends React.PureComponent {
         }
         //zaky
         //fungsi untuk warna
-        const colorLabel = (props) => {
+        const colorLabelFront = (props) => {
             if(props < 0){
-                return "red"
+                return "card__face--front-red"
+            }if(props > 0){
+                return "card__face--front"
             }else{
-                return "green"
+                return "card__face--front-yellow"
+            }
+        }
+        const colorLabelBack = (props) => {
+            if(props < 0){
+                return "card__face--back-red"
+            }if(props > 0){
+                return "card__face--back"
+            }else{
+                return "card__face--back-yellow"
             }
         }
         const colorIcon = (props) => {
             if(props < 0){
                 return "icofont icofont-caret-down"
-            }else{
+            }if(props > 0){
                 return "icofont icofont-caret-up"
+            }else{
+                return "icofont icofont-minus"
             }
         }
         //zaky
@@ -394,9 +407,9 @@ class SelectItem1 extends React.PureComponent {
             let info = this.state.barInfo[this.state.index];
             if(props === "front"){
                 if(this.state.flipped){
-                    return <div className="card__face card__face--front">&nbsp;</div>
+                    return <div className={"card__face"+' '+colorLabelFront(info.change)}>&nbsp;</div>
                 }else{
-                    return <div className="card__face card__face--front">
+                    return <div className={"card__face"+' '+colorLabelFront(info.change)}>
                         <table width="100%" height="100%">
                             <tr>
                                 <td rowSpan="2" className="spanSymbol px-0">{info.symbol}</td>
@@ -404,11 +417,11 @@ class SelectItem1 extends React.PureComponent {
                             </tr>
                             <tr>
                                 <td>
-                                    <span className={colorLabel(info.change)+' '+colorIcon(info.change)}>&nbsp;
+                                    <span className={'white '+colorIcon(info.change)}>&nbsp;
                                         {info.change}</span>&nbsp;
                                 </td>
                                 <td>
-                                    <span className={colorLabel(info.percentage)}>({info.percentage}%)</span>
+                                    <span className="white">({info.percentage}%)</span>
                                 </td>
                             </tr>
                         </table>
@@ -416,7 +429,7 @@ class SelectItem1 extends React.PureComponent {
                 }
             }else{
                 if(this.state.flipped){
-                    return <div className="card__face card__face--back">
+                    return <div className={"card__face"+' '+colorLabelBack(info.change)}>
                         <table width="100%" height="100%">
                             <tr>
                                 <td rowSpan="2" className="spanSymbol px-0">{info.symbol}</td>
@@ -424,17 +437,17 @@ class SelectItem1 extends React.PureComponent {
                             </tr>
                             <tr>
                                 <td>
-                                    <span className={colorLabel(info.change)+' '+colorIcon(info.change)}>&nbsp;
+                                    <span className={'white '+colorIcon(info.change)}>&nbsp;
                                         {info.change}</span>&nbsp;
                                 </td>
                                 <td>
-                                    <span className={colorLabel(info.percentage)}>({info.percentage}%)</span>
+                                    <span className="white">({info.percentage}%)</span>
                                 </td>
                             </tr>
                         </table>
                     </div>
                 }else{
-                    return <div className="card__face card__face--back">&nbsp;</div>
+                    return <div className={"card__face"+' '+colorLabelBack(info.change)}>&nbsp;</div>
                 }
             }
         }
@@ -519,7 +532,7 @@ class InfoCash extends React.Component {
                                 <td rowSpan="2" className="py-2"><i className="f-11-center text-gray-tradding oi oi-caret-bottom"></i></td>
                             </tr>
                             <tr className="f-16 text-white">
-                                <td colSpan="2" className="text-center">15,911,198</td>
+                                <td colSpan="2" className="text-center">1,000,150,911,198</td>
                             </tr>
                             </tbody>
                         </Table>

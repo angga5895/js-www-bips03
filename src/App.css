@@ -1,3 +1,13 @@
+.h-72-77{
+    height: 72.77px!important;
+}.h-87{
+    height: 87px!important;
+}
+
+.ui.menu{
+    height: 87px!important;
+}
+
 .bg-blue-white{
     background-image: linear-gradient(#67AAD7,#0071BC) !important;
 }
@@ -372,14 +382,14 @@ div.main-header > .ui.menu .item{
 }
 
 .col-sm-header-menu {
-    flex: 0 0 72.5%;
-    max-width: 72.5%;
+    flex: 0 0 74%;
+    max-width: 74%;
 
 }
 
 .col-sm-header-user {
-    flex: 0 0 20%;
-    max-width: 20%;
+    flex: 0 0 19.5%;
+    max-width: 19.5%;
 }
 
 .col-sm-sidebar{
