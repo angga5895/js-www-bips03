@@ -568,7 +568,7 @@ class LoginUserPage_Base extends React.PureComponent {
             <>
                 {
                     <div style={{display: !props.signupState ? "block" : "none"}}>
-                        <div className="bg-navy-gradient f-12 card-695" id="press_login">
+                        <div className="bg-navy-gradient f-12" id="press_login">
                             <AppFrameAction ref="frameAction"/>
                             <WSConnectionAction ref="wsAction"/>
                             <main>
