@@ -116,10 +116,91 @@ class LandingPage_Base extends React.PureComponent {
         $('#pieChart').css('height', '100%');
         // create data
         var data = [
-            {x: "Portfolio Equity", value: 207166 },
-            {x: "Pawnshop", value: 78662 },
-            {x: "Fixed Income", value: 148662 },
-            {x: "Mutual Fund", value: 142163 },
+            // {
+            //     x: "Portfolio Equity", value: 207166
+            // },
+            {
+                x: "Portfolio Equity", value: 298173,
+                normal:  {
+                    fill: "#64b5f6",
+                },
+                hovered: {
+                    outline: {
+                        enabled: false,
+                    }
+                },
+                selected: {
+                    outline: {
+                        enabled: false,
+                    }
+                }
+                },
+
+            {
+                x: "Pawnshop", value: 208173,
+                normal:  {
+                    fill: "#ef6c00",
+                },
+                hovered: {
+                    outline: {
+                        enabled: false,
+                    }
+                },
+                selected: {
+                    outline: {
+                        enabled: false,
+                    }
+                }
+            },
+
+            {
+                x: "Fixed Income", value: 198173,
+                normal:  {
+                    fill: "#455a64",
+                },
+                hovered: {
+                    outline: {
+                        enabled: false,
+                    }
+                },
+                selected: {
+                    outline: {
+                        enabled: false,
+                    }
+                }
+            },
+            {
+                x: "Mutual Fund", value: 66173,
+                normal:  {
+                    fill: "#ffd64f",
+                },
+                hovered: {
+                    outline: {
+                        enabled: false,
+                    }
+                },
+                selected: {
+                    outline: {
+                        enabled: false,
+                    }
+                }
+            },
+            {
+                x: "Cash", value: 100173,
+                normal:  {
+                    fill: "#1976d2",
+                },
+                hovered: {
+                    outline: {
+                        enabled: false,
+                    }
+                },
+                selected: {
+                    outline: {
+                        enabled: false,
+                    }
+                }
+            },
         ];
 
         var chart = anychart.pie(data);
@@ -145,7 +226,7 @@ class LandingPage_Base extends React.PureComponent {
             /*chart.selected().explode("3%");
             chart.hovered().explode("3%");*/
             // configure outlines
-            chart.normal().outline().enabled(true);
+            chart.normal().outline().enabled(false);
             chart.normal().outline().width("5%");
             chart.hovered().outline().width("10%");
             chart.selected().outline().width("3");
@@ -170,34 +251,42 @@ class LandingPage_Base extends React.PureComponent {
                 if (points === 0){
                     props.changeStateLanding('0');
                     if (e.point.selected()) {
-                        chart.unselect([1,2,3]);
+                        chart.unselect([1,2,3,4]);
                     } else {
-                        chart.unselect([1,2,3]);
+                        chart.unselect([1,2,3,4]);
                         chart.select(0);
                     }
                 } else if (points === 1){
                     props.changeStateLanding('1');
                     if (e.point.selected()) {
-                        chart.unselect([0,2,3]);
+                        chart.unselect([0,2,3,4]);
                     } else {
-                        chart.unselect([0,2,3]);
+                        chart.unselect([0,2,3,4]);
                         chart.select(1);
                     }
                 } else if (points === 2){
                     props.changeStateLanding('2');
                     if (e.point.selected()) {
-                        chart.unselect([0,1,3]);
+                        chart.unselect([0,1,3,4]);
                     } else {
-                        chart.unselect([0,1,3]);
+                        chart.unselect([0,1,3,4]);
                         chart.select(2);
                     }
                 } else if (points === 3){
                     props.changeStateLanding('3');
                     if (e.point.selected()) {
-                        chart.unselect([0,1,2]);
+                        chart.unselect([0,1,2,4]);
                     } else {
-                        chart.unselect([0,1,2]);
+                        chart.unselect([0,1,2,4]);
                         chart.select(3);
+                    }
+                } else if (points === 4){
+                    props.changeStateLanding('4');
+                    if (e.point.selected()) {
+                        chart.unselect([0,1,2,3]);
+                    } else {
+                        chart.unselect([0,1,2,3]);
+                        chart.select(4);
                     }
                 }
             });
@@ -208,16 +297,19 @@ class LandingPage_Base extends React.PureComponent {
                 chart.select([4]);
                 if (legend === 0){
                     props.changeStateLanding('0');
-                    chart.unselect([1,2,3]);
+                    chart.unselect([1,2,3,4]);
                 } else if (legend === 1){
                     props.changeStateLanding('1');
-                    chart.unselect([0,2,3]);
+                    chart.unselect([0,2,3,4]);
                 } else if (legend === 2){
                     props.changeStateLanding('2');
-                    chart.unselect([0,1,3]);
+                    chart.unselect([0,1,3,4]);
                 } else if (legend === 3){
                     props.changeStateLanding('3');
-                    chart.unselect([0,1,2]);
+                    chart.unselect([0,1,2,4]);
+                }else if (legend === 4){
+                    props.changeStateLanding('4');
+                    chart.unselect([0,1,2,3]);
                 }
             });
 
@@ -1921,7 +2013,7 @@ class PortofolioAgGrid extends React.PureComponent {
                     width: 80,
                     minWidth: 80,
                     cellClass : function (params) {
-                        return " grid-table text-center f-12 d-border-aggrid-right";
+                        return " grid-table text-left f-12 d-border-aggrid-right";
                     }, suppressSizeToFit: true
                 },
                 { field: "avgprice", headerName: "Avg. Price", sortable: true, filter: "agTextColumnFilter", resizable: true,
@@ -2740,7 +2832,7 @@ class StockCashAgGrid extends React.PureComponent {
                         width: 85,
                         lockPosition: true, lockVisible: true,
                         cellClass : function (params) {
-                            return " grid-table text-center f-12 locked-visible locked-col d-border-aggrid-right";
+                            return " grid-table text-left f-12 locked-visible locked-col d-border-aggrid-right";
                         }, suppressSizeToFit: true
                     },]},
                 { field: "avgpriceTop", headerName: "", sortable: true, filter: "agTextColumnFilter", resizable: true,
@@ -3133,7 +3225,7 @@ class TradeListAgGrid extends React.PureComponent {
                 { field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true,
                     width: s=="s50"?250:100,
                     cellClass : function (params) {
-                        return "text-center text-primary grid-table f-12 d-border-aggrid-right";
+                        return "text-left grid-table f-12 d-border-aggrid-right";
                     }
                 },
                 { field: "cmd", headerName: "Cmd", sortable: true, filter: "agTextColumnFilter", resizable: true,
@@ -3347,7 +3439,7 @@ class TransactionAgGrid extends React.PureComponent {
                 },{ field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true,
                     width: s=="s50"?130:100,
                     cellClass : function (params) {
-                        return "text-center text-primary grid-table d-border-aggrid-right f-12";
+                        return "text-left grid-table d-border-aggrid-right f-12";
                     }
                 },{ field: "inOut", headerName: "In/Out Qty", sortable: true, filter: "agTextColumnFilter", resizable: true,
                     width: s=="s50"?150:130,
@@ -3526,13 +3618,13 @@ class FundAgGrid extends React.PureComponent {
                 { field: "date", headerName: "Date", sortable: true, filter: "agTextColumnFilter", resizable: true,
                     width: 150, minWidth: 130,
                     cellClass : function (params) {
-                        return " grid-table d-border-aggrid-right text-right f-12";
+                        return " grid-table d-border-aggrid-right text-left f-12";
                     }, suppressSizeToFit: true
                 },{ field: "no", headerName: "No", sortable: true, filter: "agTextColumnFilter", resizable: true,
                     width: s=="s75"?125:s=="s80"?110:100,
                     minWidth: 80,
                     cellClass : function (params) {
-                        return " grid-table d-border-aggrid-right text-right f-12";
+                        return " grid-table d-border-aggrid-right text-left f-12";
                     },
                 },{ field: "amount", headerName: "Amount", sortable: true, filter: "agTextColumnFilter", resizable: true,
                     width: s=="s75"?191:s=="s80"?180:s=="s90"?160:130,
