@@ -92,7 +92,6 @@ const CustomFrameHeaderTrade_Base = (props) => {
             <div className={props.isManual? "d-none" : "d-block"}>
                 <AppFrameProvider
                     initialClasses={{ OrderSetting,SentOrder }}
-                    // initialClasses={{ ATradeWatchlist, ATradeDaily, ATradeTick}}
                     initialFrames={
                         [
                             {className: 'OrderSetting', title: 'ORDER SETTING', instanceName: 'AutOrderSetting'},
@@ -204,14 +203,7 @@ class OrderbookPage extends React.PureComponent {
                 <WSConnectionAction ref="wsAction" /> {/* websocket connection component */}
                 <div className="bg-black-trading f-12 mt-1">
                     <AppFrameAction ref="frameAction" />
-                    {/*<div className="d-border-bottom">
-                        <div className="col-sm-4 px-0 row">
-                            <div className="col-sm-6 px-5 mx-0 text-left pt-3 pb-3">
-                                <button className="btn btn-sm btn-grey" onClick={this.buttonClickAmendRegister}>Modify Watchlist</button>
-                            </div>
-                            <div className="col-sm-6 px-0 mx-0 text-right pt-3 pb-1"></div>
-                        </div>
-                    </div>*/}
+
                     <div className="card-515 col-sm-12 pt-3 pr-2 mr-0 mt-3 row">
                         <div className="col-sm-4 pl-4 pr-0">
                             <div className={this.state.box1 === 1 ? "bg-grey pt-1 d-active" : "bg-grey pt-1"} onClick={this.clickBox1}>
@@ -294,14 +286,7 @@ class WatchList extends React.PureComponent {
                 <WSConnectionAction ref="wsAction" /> {/* websocket connection component */}
                 <div className="bg-black-trading f-12">
                     <AppFrameAction ref="frameAction" />
-                    {/*<div className="d-border-bottom">
-                        <div className="col-sm-4 px-0 row">
-                            <div className="col-sm-6 px-5 mx-0 text-left pt-3 pb-3">
-                                <button className="btn btn-sm btn-grey" onClick={this.buttonClickAmendRegister}>Modify Watchlist</button>
-                            </div>
-                            <div className="col-sm-6 px-0 mx-0 text-right pt-3 pb-1"></div>
-                        </div>
-                    </div>*/}
+
                     <div className="card-515 col-sm-12 pt-3 pr-2 mr-0 row">
                         <div className="col-sm-4 pl-4 pr-0">
                             <div className={this.state.box1 === 1 ? "bg-grey pt-1 d-active" : "bg-grey pt-1"} onClick={this.clickBox1}>
@@ -378,7 +363,7 @@ class SentOrder extends React.PureComponent{
     render(){
         return(
             <AppFrameProvider>
-                <div className="col-sm-12 pl-2 mt-2">
+                <div className="col-sm-12 pl-2 mt-2 pr-3">
                     <OrderHistoryAgGrid size={this.ceksize()}/>
                 </div>
             </AppFrameProvider>
@@ -483,7 +468,8 @@ class TableInfoTransactionLayout extends React.PureComponent{
                     <div className="col-sm-12 row mx-0 px-0 d-border-gray">
                         <div className="col-sm-6 mx-0 px-0 d-border-right-half">
                             <div className="container-fluid px-0 mx-0">
-                                <Table responsive bordered size="sm" className="text-white bg-dark-grey px-0 mx-0 card-324 mb-0 table-hover table-striped-trans">
+                                <Table responsive bordered size="sm"
+                                       className="text-white bg-dark-grey px-0 mx-0 card-autOrd mb-0 table-hover table-striped-trans">
                                     <thead className="d-border-top d-border-bottom bg-gray-tradding">
                                     <tr>
                                         <th className="no-wrap py-3 text-center bg-gray-tradding">
@@ -559,7 +545,8 @@ class TableInfoTransactionLayout extends React.PureComponent{
                         </div>
                         <div className="col-sm-6 mx-0 px-0 d-border-left-half">
                             <div className="container-fluid px-0 mx-0">
-                                <Table responsive bordered size="sm" className="text-white bg-dark-grey px-0 mx-0 card-324 mb-0 table-hover table-striped-trans">
+                                <Table responsive bordered size="sm"
+                                       className="text-white bg-dark-grey px-0 mx-0 card-autOrd mb-0 table-hover table-striped-trans">
                                     <thead className="d-border-top d-border-bottom bg-gray-tradding">
                                     <tr>
                                         <th className="no-wrap py-3 text-center bg-gray-tradding">Offer</th>
@@ -1659,7 +1646,7 @@ class TradeWatchlistAgGrid extends React.PureComponent {
         return (
             <>
                 <div
-                    className="card-515 ag-theme-balham-dark ag-header-border d-border ml-2 ag-striped-odd"
+                    className="card-tradeAgW ag-theme-balham-dark ag-header-border d-border ml-2 ag-striped-odd"
                     style={{
                         width: 'auto' }}>
                     <AgGridReact
@@ -1675,48 +1662,6 @@ class TradeWatchlistAgGrid extends React.PureComponent {
         );
     }
 }
-
-class BuyPage extends React.Component{
-    render(){
-        return(
-            <>
-                <AppFrameAction ref="frameAction" />
-                <WSConnectionAction /> {/* websocket connection component */}
-                <div className="col sm-8 px-0 mx-0 row">
-                    <div className="col-sm-6 pr-3 pl-0 mt-4 f-12">
-                        <TableInfoTransaction lotshare="buyPage" />
-                    </div>
-                    <div className="col-sm-6 mt-4 d-border-active bg-dark-grey pb-3">
-                        <FormBuy idPrice="tradeBuyPrice" idVol="tradeBuyVol" idValue="tradeBuyValue" columnSm="col-sm-12"/>
-                    </div>
-                </div>
-            </>
-        );
-    }
-
-}
-
-class SellPage extends React.Component{
-    render(){
-        return(
-            <>
-                <AppFrameAction ref="frameAction" />
-                <WSConnectionAction /> {/* websocket connection component */}
-                <div className="col sm-8 px-0 mx-0 row">
-                    <div className="col-sm-6 pr-3 pl-0 mt-4 f-12">
-                        <TableInfoTransaction lotshare="sellPage" />
-                    </div>
-                    <div className="col-sm-6 mt-4 d-border-active bg-dark-grey pb-3">
-                        <FormSell idPrice="tradeSellPrice" idVol="tradeSellVol" idValue="tradeSellValue" columnSm="col-sm-12"/>
-                    </div>
-                </div>
-            </>
-        );
-    }
-
-}
-
-
 //Sent Order
 class OrderHistoryAgGrid extends React.PureComponent {
     constructor(props) {
@@ -1877,9 +1822,8 @@ class OrderHistoryAgGrid extends React.PureComponent {
             <>
                 {/*senttttt*/}
                 <div
-                    className="card-530 ag-theme-balham-dark d-border bg-dark-grey ag-bordered ag-striped-odd d-border"
-                    style={{
-                        width: 'auto',height: '480px', }}>
+                    className="card-autSend ag-theme-balham-dark d-border bg-dark-grey ag-bordered ag-striped-odd d-border"
+                    >
                     <AgGridReact
                         columnDefs={this.state.columnDefs}
                         rowData={this.state.rowData}
@@ -1917,7 +1861,8 @@ class OrderListAgGrid extends React.PureComponent {
                         return <text>&nbsp;</text>
                     },
                     suppressSizeToFit: true
-                }, { field: "-", headerName: "Order#", sortable: true, filter: "agTextColumnFilter", resizable: true,
+                },
+                { field: "-", headerName: "Order#", sortable: true, filter: "agTextColumnFilter", resizable: true,
                     width:85, minWidth: 85,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center text-primary f-12 click-pointer";
@@ -2025,7 +1970,7 @@ class OrderListAgGrid extends React.PureComponent {
                     },
                 },
                 { field: "time", headerName: "Time", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width:80, minWidth:80,
+                    width:140, minWidth:140,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12";
                     },
@@ -2705,18 +2650,6 @@ class TradeListOrderListAgGrid extends React.PureComponent {
                     cellClass : function (params) {
                         return " grid-table text-right d-border-aggrid-right text-center f-12";
                     },
-                },{ field: "change", headerName: "Change", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width:140, minWidth: 140,
-                    cellClass : function (params) {
-                        var pl = params.data.change;
-                        return pl.includes('-') === true ? "text-danger text-center grid-table f-12 d-border-aggrid-right":
-                            "text-success text-center  grid-table f-12 d-border-aggrid-right";
-                    },
-                    cellRenderer : function (params) {
-                        var pl = params.data.change;
-                        return pl.includes('-') === true ? '<i class="icofont icofont-caret-down text-danger"></i> '+pl :
-                            '<i class="icofont icofont-caret-up text-success"></i> '+pl;
-                    }
                 },{ field: "vol", headerName: "Vol", sortable: true, filter: "agTextColumnFilter", resizable: true,
                     width:60, minWidth: 60,
                     cellClass : function (params) {
