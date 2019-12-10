@@ -120,7 +120,7 @@ class TableStockInfo extends React.PureComponent{
             <>
                 <AppFrameAction ref="frameAction" />
                 <WSConnectionAction ref="wsAction" />
-                <TableBS responsive size="sm" className="text-white my-0 d-border-table bg-dark-grey card-158" borderless>
+                <TableBS responsive size="sm" className="text-white my-0 bg-dark-grey card-158 ">
                     <thead></thead>
                     <tbody>
                     <tr>
@@ -601,19 +601,8 @@ const StockWatchlist = (props) => {
                     <TableStockWatchlist/>
                 </div>
                 <div className="col-sm-8 px-0 mx-0 card-527">
-                    {/*<div className="col-sm-12 px-2 d-border-bottom">*/}
                     <div className="col-sm-12 px-2 pt-3">
-                        {/*<div className="cssmenumodal bg-dark-grey pb-4 col-sm-12 mx-0 px-0">*/}
-                        {/*<ul>*/}
-                        {/*<li className={ this.state.activeTab === '1' ? 'd-border-bottom active click-pointer col-sm-6 px-0 mx-0 f-12 text-center' : 'd-border-bottom text-white click-pointer col-sm-6 px-0 mx-0 f-12 text-center' } onClick={() => { this.toggle('1'); }}><a><span className="f-11">&nbsp; Buy</span></a></li>*/}
-                        {/*<li className={ this.state.activeTab === '2' ? 'd-border-bottom active click-pointer col-sm-6 px-0 mx-0 f-12 text-center' : 'd-border-bottom text-white click-pointer col-sm-6 px-0 mx-0 f-12 text-center' } onClick={() => { this.toggle('2'); }}><a><span className="f-11">&nbsp; Sell</span></a></li>*/}
-                        {/*<li>Helloo</li>*/}
-                        {/*<li>Hello2</li>*/}
-                        {/*</ul>*/}
-                        {/*</div>*/}
-                        {/*<AppFrame headerComponent={StockWatchlistFrameHeader}/>*/}
                         <BuyPage/>
-
                     </div>
                 </div>
             </div>
@@ -621,13 +610,6 @@ const StockWatchlist = (props) => {
         </div>
     );
 }
-
-const StockWatchlistFrameHeader = (props) => {
-    return (
-        <></>
-    );
-}
-
 // tael Watchlist
 class TableStockWatchlist_Base extends React.Component{
     closeClick = (e) => {
@@ -664,13 +646,6 @@ class TableStockWatchlist_Base extends React.Component{
                 <WSConnectionAction ref="wsAction" /> {/* websocket connection component */}
                 <div className="bg-black-trading f-12">
                     <AppFrameAction ref="frameAction" />
-                    {/*<div>
-                        <div className="col-sm-12 px-0">
-                            <div className="col-sm-12 mx-0 pt-3 pb-2">
-                                <button className="btn btn-sm btn-grey" onClick={this.buttonClickAmendRegister}>Modify Watchlist</button>
-                            </div>
-                        </div>
-                    </div>*/}
                     <div className="pl-4 pr-2 pt-3">
                         <StockWatchlistAgGrid size={this.ceksize()}/>
                     </div>
@@ -705,7 +680,7 @@ class BuyPage extends React.Component{
                 <AppFrameAction ref="frameAction" />
                 <WSConnectionAction /> {/* websocket connection component */}
                 <div className="col sm-8 px-0 mx-0 row d-border">
-                    <div className="col-sm-6 py-4 px-3 mt-0 f-12 bg-dark-grey">
+                    <div className="col-sm-6 pt-4 pb-0 px-3 mt-0 f-12 bg-dark-grey">
                         <TableInfoTransaction lotshare={(this.state.activeTab === 1) ? "buyPage" : "sellPage"} />
                     </div>
                     <div className="col-sm-6 mt-0 bg-dark-grey pt-0 pb-3 px-3 card-515">
@@ -1335,7 +1310,7 @@ class StockWatchlistAgGrid extends React.PureComponent {
                             "text-success text-right grid-table d-border-aggrid-right f-12";
                     } },
                 { field: "persen", headerName: "(%)", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width: s=="s75"?130:s=="s80"?115:s=="s90"?85:50, minWidth: 50,
+                    width: s=="s75"?140:s=="s80"?125:s=="s90"?95:60, minWidth: 50,
                     cellClass : function (params) {
                         var change = params.data.change;
                         return change.includes('-') === true ? "text-danger text-right  grid-table d-border-aggrid-right f-12":
@@ -1571,7 +1546,7 @@ class StockWatchlistAgGrid extends React.PureComponent {
         return (
             <>
                 <div
-                    className="card-515 ag-theme-balham-dark ag-header-border d-border ag-striped-odd"
+                    className="card-watchlistAggrid ag-theme-balham-dark ag-header-border d-border ag-striped-odd"
                     style={{
                         width: 'auto' }}>
                     <AgGridReact

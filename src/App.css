@@ -3973,11 +3973,29 @@ textarea {
     color: #0d71bb;
     -webkit-transition: all 0.25s linear;
 }
-/*110%*/
-@media (min-width: 1100px){
-    .table-market>thead>tr>th,.table-market>tbody>tr>td{
-        padding: 10px 5px !important;
-    }
+.card-watchlistAggrid{
+    height: 524px;
+}
+.card-swt{
+    height: 332px;
+}
+.card-bwt{
+    height: 336px;
+}
+.card-twl{
+    height: 362px;
+}
+.card-tradeAgW{
+    height: 520px;
+}
+.table-market>thead>tr>th,.table-market>tbody>tr>td{
+    padding: 10px 5px !important;
+}
+.card-autOrd{
+    height: 358px;
+}
+.card-autSend{
+    height: 518px;
 }
 /*100%*/
 @media (min-width: 1360px) and (max-width: 1370px) {
@@ -3991,6 +4009,12 @@ textarea {
         .card-mc {
             height: 332px;
         }
+        .card-sib{
+            height: 322px;
+        }
+        .card-watchlistAggrid{
+            height: 517px;
+        }
     }
     @media (min-height: 760px){
         .table-market>thead>tr>th{
@@ -4001,6 +4025,30 @@ textarea {
         }
         .card-mc {
             height: 404px;
+        }
+        .card-sib{
+            height: 375px;
+        }
+        .card-watchlistAggrid{
+            height: 589px;
+        }
+        .card-swt{
+            height: 377px;
+        }
+        .card-bwt{
+            height: 380px;
+        }
+        .card-twl{
+            height: 418px;
+        }
+        .card-tradeAgW{
+            height: 593px;
+        }
+        .card-autOrd{
+            height: 412px;
+        }
+        .card-autSend{
+            height: 590px;
         }
     }
 }
@@ -4016,6 +4064,31 @@ textarea {
         .card-mc {
             height: 406px;
         }
+        .card-sib{
+            height: 380px;
+        }
+        .card-watchlistAggrid{
+            height: 593px;
+        }
+        .card-swt{
+            height: 379px;
+        }
+        .card-bwt{
+            height: 383px;
+        }
+        .card-twl{
+            height: 420px;
+        }
+        .card-tradeAgW{
+            height: 595px;
+        }
+        .card-autOrd{
+            height: 415px;
+        }
+        .card-autSend{
+            height: 594px;
+        }
+
     }
     @media (min-height: 700px) and (min-height: 780px){
         .table-market>thead>tr>th{
@@ -4026,6 +4099,30 @@ textarea {
         }
         .card-mc {
             height: 487px;
+        }
+        .card-sib{
+            height: 438px;
+        }
+        .card-watchlistAggrid{
+            height: 674px;
+        }
+        .card-swt{
+            height: 428px;
+        }
+        .card-bwt{
+            height: 430px;
+        }
+        .card-twl{
+            height: 480px;
+        }
+        .card-tradeAgW{
+            height: 675px;
+        }
+        .card-autOrd{
+            height: 476px;
+        }
+        .card-autSend{
+            height: 676px;
         }
     }
 }
@@ -4041,7 +4138,31 @@ textarea {
             .card-mc{
                 height: 503px;
             }
-        }
+             .card-sib{
+                 height: 448px;
+             }
+             .card-watchlistAggrid{
+                 height: 690px;
+             }
+             .card-swt{
+                 height: 436px;
+             }
+             .card-bwt{
+                 height: 441px;
+             }
+             .card-twl{
+                 height: 494px;
+             }
+             .card-tradeAgW{
+                 height: 693px;
+             }
+             .card-autOrd{
+                 height: 487px;
+             }
+             .card-autSend{
+                 height: 691px;
+             }
+         }
         @media (min-height: 950px){
             .table-market > thead > tr > th {
                 padding: 25px 5px!important;
@@ -4051,6 +4172,30 @@ textarea {
             }
             .card-mc{
                 height: 593px;
+            }
+            .card-sib{
+                height: 514px;
+            }
+            .card-watchlistAggrid{
+                height: 781px;
+            }
+            .card-swt{
+                height: 494px;
+            }
+            .card-bwt{
+                height: 498px;
+            }
+            .card-twl{
+                height: 563px;
+            }
+            .card-tradeAgW{
+                height: 784px;
+            }
+            .card-autOrd{
+                height: 556px;
+            }
+            .card-autSend{
+                height: 781px;
             }
         }
 }
@@ -4065,6 +4210,30 @@ textarea {
           .card-mc{
               height: 559px;
           }
+        .card-sib{
+            height: 491px;
+        }
+        .card-watchlistAggrid{
+            height: 747px;
+        }
+        .card-swt{
+            height: 474px;
+        }
+        .card-bwt{
+            height: 478px;
+        }
+        .card-twl{
+            height: 544px;
+        }
+        .card-tradeAgW{
+            height: 757px;
+        }
+        .card-autOrd{
+            height: 532px;
+        }
+        .card-autSend{
+            height: 748px;
+        }
     }
     @media (min-height: 1020px) {
         .table-market > thead > tr > th{
@@ -4075,6 +4244,30 @@ textarea {
         .card-mc{
             height: 656px;
         }
+        .card-sib{
+            height: 560px;
+        }
+        .card-watchlistAggrid{
+            height: 845px;
+        }
+        .card-swt{
+            height: 534px;
+        }
+        .card-bwt{
+            height: 536px;
+        }
+        .card-twl{
+            height:610px;
+        }
+        .card-tradeAgW{
+            height: 846px;
+        }
+        .card-autOrd{
+            height: 606px;
+        }
+        .card-autSend{
+            height: 844px;
+        }
     }
 }
 /*67%*/
@@ -4083,24 +4276,71 @@ textarea {
         .table-market > thead > tr > th {
             padding: 30px 5px 30px 5px !important;
         }
-
         .table-market > tbody > tr > td {
             padding: 29px 5px 28px 5px !important;
         }
         .card-mc {
             height: 673px;
         }
+        .card-sib{
+            height: 575px;
+        }
+        .card-watchlistAggrid{
+            height: 864px;
+        }
+        .card-swt{
+            height: 542px;
+        }
+        .card-bwt{
+            height: 547px;
+        }
+        .card-twl{
+            height: 626px;
+        }
+        .card-tradeAgW{
+            height: 865px;
+        }
+        .card-autOrd{
+            height: 619px;
+        }
+        .card-autSend{
+            height: 864px;
+        }
+
     }
     @media (min-height: 1150px) {
         .table-market > thead > tr > th {
             padding: 37px 5px !important;
         }
-
         .table-market > tbody > tr > td {
             padding: 34px 5px !important;
         }
         .card-mc {
             height: 780px;
+        }
+        .card-sib{
+            height: 655px;
+        }
+        .card-watchlistAggrid{
+            height: 973px;
+        }
+        .card-swt{
+            height: 609px;
+        }
+        .card-bwt{
+            height: 612px;
+        }
+        .card-twl{
+            height: 708px;
+        }
+        .card-tradeAgW{
+            height: 977px;
+        }
+        .card-autOrd{
+            height: 701px;
+        }
+        .card-autSend{
+            height: 974px;
         }
     }
 }
@@ -4116,6 +4356,30 @@ textarea {
         .card-mc{
             height: 1014px;
         }
+        .card-sib{
+            height: 826px;
+        }
+        .card-watchlistAggrid{
+            height: 1210px;
+        }
+        .card-swt{
+            height: 750px;
+        }
+        .card-bwt{
+            height: 753px;
+        }
+        .card-twl{
+            height: 887px;
+        }
+        .card-tradeAgW{
+            height: 1214px;
+        }
+        .card-autOrd{
+            height: 890px;
+        }
+        .card-autSend{
+            height: 1206px;
+        }
     }
     @media (min-height: 1534px) {
         .table-market > thead > tr > th {
@@ -4126,6 +4390,30 @@ textarea {
         }
         .card-mc{
             height: 1159px;
+        }
+        .card-sib{
+            height: 934px;
+        }
+        .card-watchlistAggrid{
+            height: 1357px;
+        }
+        .card-swt{
+            height: 840px;
+        }
+        .card-bwt{
+            height: 843px;
+        }
+        .card-twl{
+            height: 997px;
+        }
+        .card-tradeAgW{
+            height: 1359px;
+        }
+        .card-autOrd{
+            height: 1001px;
+        }
+        .card-autSend{
+            height: 1352px;
         }
     }
 }
