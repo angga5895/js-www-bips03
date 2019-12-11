@@ -5,6 +5,7 @@ import { AppFrameAction, AppFrame, AppModal } from '../appframe.js';
 
 // application-logic libraries
 import { BIPSAppContext } from '../AppData.js';
+import { AlertProvider, AlertWrapper } from "react-alerts-plus";
 
 // application-common-UI libraries goes here
 import UISelectionTab from '../selectiontab.js';
@@ -528,6 +529,7 @@ class MainPage_Base extends React.Component {
             </div>
         }{
               <div style={{display: props.loginState ? "block" : "none"}}>
+                  <AlertProvider>
                       <UISelectionTab linkTitles={
                           {
                               landingPage:
@@ -588,27 +590,103 @@ class MainPage_Base extends React.Component {
                           }
                       }
                       />
-                  <div className="d-sidebar-landscape">
-                      <MarqueePage />
-                  </div>
-                  <div className="row col-sm-12 px-0 mx-0 card card-575 d-border-bottom">
-                      <SideBar/>
-                      <div className="col-sm-contentbar px-0 mx-0">
-                              <AppFrame headerComponent={CustomFrameHeader}/>
+                      <div className="d-sidebar-landscape">
+                          <MarqueePage />
                       </div>
-                  </div>
-                  <div className="d-sidebar-potrait">
-                      <MarqueePage />
-                  </div>
-                  <i onClick={this.state.fullscreenmode == false ? this.openContentFullscreen : this.closeContentFullscreen}
-                     className={this.state.fullscreenmode == false ? "icon-icon-fullscreen-in myBtn" : "icon-exit-fullscreen myBtn"}></i>
-                  <AppModal/>
+                      <div className="row col-sm-12 px-0 mx-0 card card-575 d-border-bottom">
+                          <SideBar/>
+                          <div className="col-sm-contentbar px-0 mx-0">
+                                  <AppFrame headerComponent={CustomFrameHeader}/>
+                          </div>
+                      </div>
+                      <div className="d-sidebar-potrait">
+                          <MarqueePage />
+                      </div>
+                      <i onClick={this.state.fullscreenmode == false ? this.openContentFullscreen : this.closeContentFullscreen}
+                         className={this.state.fullscreenmode == false ? "icon-icon-fullscreen-in myBtn" : "icon-exit-fullscreen myBtn"}></i>
+                      {props.loginState ? <AlertBips/> : ''}
+                      <AppModal/>
+                  </AlertProvider>
               </div>
           }
       </div>
     );
   }
 }
+
+class AlertBips extends React.PureComponent{
+    constructor(props) {
+        super(props);
+        this.state = {
+            alertMessage : "Default Message"
+        }
+    }
+
+    alertclick(){
+        $("#btn-alert").click();
+    }
+
+    componentDidMount(){
+        this.alertInterval = setInterval(() => this.alertclick(), 10000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
+        clearInterval(this.alertInterval);
+    }
+
+    render() {
+        const offset = "25px";
+        const { alertMessage } = this.state;
+
+        const topRight = {
+            message: alertMessage,
+            style: {
+                borderColor: "navy",
+                borderRadius: 0
+            },
+            position: "top right",
+            offset,
+            duration: 5000,
+            showProgressBar: false
+        };
+
+        return (
+            <>
+                <AlertWrapper>
+                    {({ show, close }) => (
+                        <div>
+                            <button
+                                id="btn-alert"
+                                className="btn btn-primary d-none"
+                                onClick={() => show(topRight)}>
+                                Alert
+                            </button>
+                        </div>
+                    )}
+                </AlertWrapper>
+            </>
+        );
+    }
+}
+
+/*class MyButton extends React.Component {
+    render() {
+        const { onClick, name } = this.props;
+        return (
+            <button
+                type="button"
+                style={{
+                    borderRadius: 0,
+                    height: '35px',
+                    marginRight: '10px'
+                }}
+                onClick={onClick}>
+                {name}
+            </button>
+        );
+    }
+}*/
 
 class MarqueePage extends React.PureComponent{
     constructor(props) {
