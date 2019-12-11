@@ -452,8 +452,8 @@ class SelectItem1 extends React.PureComponent {
             }
         }
         return (
-            <div className="nav-link col-sm-12 px-0 mx-0 py-2 text-white">
-                <div className="col-md-12 bg-black-trading px-0 text-center">
+            <div className="nav-link col-sm-12 px-0 mx-0 py-0 text-white">
+                <div className="col-sm-12 bg-black-trading px-0 text-center" style={{ borderRadius : "5px" }}>
                     {/*zaky
                     Element Flipped*/}
                     <div className="scene scene--card">
@@ -471,10 +471,16 @@ class SelectItem1 extends React.PureComponent {
                         theme={this.selectSelectionTab}
                     />*/}
                 </div>
-                {/*<label className="col-md-12 f-11-center">11/03/2019 | 09.45 <span className="text-success"> Open</span></label>*/}
+                <label className="col-sm-12 text-center pt-1 my-0 pb-0 f-12">{fullDate()} | <span className="text-success"> Open</span></label>
             </div>
         );
     }
+}
+
+function fullDate() {
+    var fullDate = new Date().toLocaleString();
+    var splitDate = fullDate.replace(/\./g,':')
+    return splitDate;
 }
 
 class SelectItem2_Base extends React.Component {
