@@ -601,7 +601,7 @@ const StockWatchlist = (props) => {
                     <TableStockWatchlist/>
                 </div>
                 <div className="col-sm-8 px-0 mx-0 card-527">
-                    <div className="col-sm-12 px-2 pt-3">
+                    <div className="col-sm-12 px-2 pt-2">
                         <BuyPage/>
                     </div>
                 </div>
@@ -670,20 +670,20 @@ class BuyPage extends React.Component{
     render(){
         const swapContent = () => {
             if(this.state.activeTab === 1){
-                return <FormBuy idPrice="stockBuyPrice" idVol="stockBuyVol" idValue="stockBuyValue" columnSm="col-sm-12" />
+                return <FormBuy idPrice="stockBuyPrice" part="stockInfo" idVol="stockBuyVol" idValue="stockBuyValue" columnSm="col-sm-12" />
             }else{
-                return <FormSell idPrice="stockSellPrice" idVol="stockSellVol" idValue="stockSellValue" columnSm="col-sm-12"/>
+                return <FormSell idPrice="stockSellPrice" part="stockInfo" idVol="stockSellVol" idValue="stockSellValue" columnSm="col-sm-12"/>
             }
         }
         return(
             <>
                 <AppFrameAction ref="frameAction" />
                 <WSConnectionAction /> {/* websocket connection component */}
-                <div className="col sm-8 px-0 mx-0 row d-border">
-                    <div className="col-sm-6 pt-4 pb-0 px-3 mt-0 f-12 bg-dark-grey">
-                        <TableInfoTransaction lotshare={(this.state.activeTab === 1) ? "buyPage" : "sellPage"} />
+                <div className="col-sm-12 px-2 pt-1 mx-0 row">
+                    <div className="col-sm-6 pr-3 pl-0 f-12">
+                    <TableInfoTransaction lotshare="buyPage"/>
                     </div>
-                    <div className="col-sm-6 mt-0 bg-dark-grey pt-0 pb-3 px-3 card-515">
+                    <div className="col-sm-6 mt-0 bg-dark-grey pt-0 pb-3 px-3 card-515 d-border">
                         <div className="cssmenumodal bg-dark-grey pb-0 col-sm-12 mx-0 px-0 h-33">
                             <ul>
                                 <li className={ (this.state.activeTab === 1)  ? 'd-border-bottom active click-pointer col-sm-6 px-0 mx-0 f-12 text-center' : 'd-border-bottom text-white click-pointer col-sm-6 px-0 mx-0 f-12 text-center' }
