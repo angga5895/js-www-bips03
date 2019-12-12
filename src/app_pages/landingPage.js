@@ -303,7 +303,7 @@ class LandingPage_Base extends React.PureComponent {
             chart.legend().listen("legendItemClick", function(e) {
                 var legend = e.itemIndex;
                 // Set disturber.
-                chart.select([4]);
+                chart.select([5]);
                 if (legend === 0){
                     props.changeStateLanding('0');
                     chart.unselect([1,2,3,4]);
