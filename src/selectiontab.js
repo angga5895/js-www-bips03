@@ -483,48 +483,25 @@ function fullDate() {
     return splitDate;
 }
 
-class SelectItem2_Base extends React.Component {
+class InfoCash_Base extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            balanceOpt : this.props.balanceOpt,
+            balanceVal : this.props.balanceVal,
+        }
     }
 
-    selectSelectionTab = theme => ({
-        ...theme,
-        borderRadius: 0,
-        colors: {
-            ...theme.colors,
-            neutral0  : this.props.thememode === true ? '#181717':'#F8F9F9',
-            neutral20 : this.props.thememode === true ? '#565252':'#DDDDDD',
-            neutral30 : this.props.thememode === true ? '#565252':'#DDDDDD',
-            neutral40 : this.props.thememode === true ? '#cccccc':'#767676',
-            neutral80 : this.props.thememode === true ? '#FFFFFF':'#999999',
-            primary75 : this.props.thememode === true ? '#FFFFFF':'#999999',
-            primary50 : this.props.thememode === true ? '#4D4D4E':'#F3F3F3',
-            primary25 : this.props.thememode === true ? '#4D4D4E':'#F3F3F3',
-            primary   : '#0071BC',
-        },
-    });
-
     render() {
-        return (
-            <div className="nav-link col-sm-12 px-0 mx-0 py-3 text-white">
-                <div className="col-md-12 bg-black-trading px-0">
-                    <Select
-                        className="f-12-fix"
-                        defaultValue={options[0]}
-                        label="Single select"
-                        options={options}
-                        theme={this.selectSelectionTab}
-                    />
-                </div>
-                <label className="col-md-12 f-11-center text-success">6,453,98 +68.8 (+1.08%)</label>
-            </div>
-        );
-    }
-}
+        const changeBalanceOpt = (props) => {
+            var value = (props == 'cashBalance') ? document.getElementById('cashBalanceVal').innerHTML:document.getElementById('buyLimitVal').innerHTML;
 
-class InfoCash extends React.Component {
-    render() {
+            this.setState({
+                balanceOpt: props,
+                balanceVal: value,
+            });
+            // this.props.changeAccountType(props);
+        }
         return (
             <div className="nav-link px-0 mx-0 pt-1 pb-0 text-white align-self-center">
                 <Dropdown icon={null} text={
@@ -534,28 +511,35 @@ class InfoCash extends React.Component {
                             <tbody>
                             <tr className="f-12-fix text-center">
                                 <td className="text-success"><i className="fa fa-square"></i></td>
-                                <td>Cash Balance</td>
+                                <td>{this.state.balanceOpt == 'cashBalance' ? 'Cash Balance':'Buy Limit'}</td>
                                 <td rowSpan="2" className="py-2"><i className="f-11-center text-gray-tradding oi oi-caret-bottom"></i></td>
                             </tr>
                             <tr className="f-16 text-white">
-                                <td colSpan="2" className="text-center">1,000,150,911,198</td>
+                                <td colSpan="2" className="text-center">{this.state.balanceVal}</td>
                             </tr>
                             </tbody>
                         </Table>
                     </div>
-                } className="text-white align-self-center">
+                }
+                          className="text-white align-self-center">
                     <Dropdown.Menu className={'bg-black-trading f-14 w-100 d-border'}>
-                        <Dropdown.Item className="item-hover text-white text-left px-2" text={
+                        <Dropdown.Item
+                            className="item-hover text-white text-left px-2" text={
                             <div>
                                 Cash Balance
-                                <div className="text-primary text-right">5,911,198</div>
+                                <div className="text-primary text-right" id={"cashBalanceVal"}>{this.props.balanceVal}</div>
                             </div>
-                        } />
+                        }
+                        onClick={()=>changeBalanceOpt('cashBalance')}
+                        />
                         <Dropdown.Divider className='d-border' />
-                        <Dropdown.Item className="item-hover text-white text-left px-2" text={
+                        <Dropdown.Item
+                            className="item-hover text-white text-left px-2"
+                            onClick={()=>changeBalanceOpt('buyLimit')}
+                            text={
                             <div>
                                 Buy Limit
-                                <div className="text-primary text-right">15,000,981</div>
+                                <div className="text-primary text-right" id={"buyLimitVal"}>{this.props.buyLimitVal}</div>
                             </div>
                         } />
                     </Dropdown.Menu>
@@ -597,112 +581,6 @@ class UserInfo_Base extends React.Component {
             onClose: (result) => { console.log('Modal 1 result = ', result) }
         })
     }
-
-    /*buttonClickPortofolio = (e) => {
-        this.refs.frameAction.showModal({
-            headerClass: () =>
-                <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-sm">
-                            <div className="text-white text-left"><span class="pull-left icon-icon-portofolio"></span> <h4>&nbsp;&nbsp;Portofolio & Balance</h4></div>
-                        </div>
-                        <div className="col-sm text-right">
-                            <i className="icofont icofont-close text-icofont-close text-border click-pointer"
-                               onClick={this.closeClick}></i>
-                        </div>
-                    </div>
-                </div>,
-
-            size: 'fullscreen',
-            contentClass: PortofolioModal,
-            onClose: (result) => { console.log('Modal 1 result = ', result) }
-        })
-    }
-
-    buttonClickHistorical = (e) => {
-        this.refs.frameAction.showModal({
-            headerClass: () =>
-                <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-sm">
-                            <div className="text-white text-left"><span class="pull-left icon-icon-historical"></span> <h4>&nbsp;&nbsp;Historical Trade List</h4></div>
-                        </div>
-                        <div className="col-sm text-right">
-                            <i className="icofont icofont-close text-icofont-close text-border click-pointer"
-                               onClick={this.closeClick}></i>
-                        </div>
-                    </div>
-                </div>,
-
-            size: 'fullscreen',
-            contentClass: HistoricalModal,
-            onClose: (result) => { console.log('Modal 1 result = ', result) }
-        })
-    }
-
-    buttonClickFund = (e) => {
-        this.refs.frameAction.showModal({
-            headerClass: () =>
-                <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-sm">
-                            <div className="text-white text-left"><span class="pull-left icon-icon-fund"></span> <h4>&nbsp;&nbsp;Fund Transfer</h4></div>
-                        </div>
-                        <div className="col-sm text-right">
-                            <i className="icofont icofont-close text-icofont-close text-border click-pointer"
-                               onClick={this.closeClick}></i>
-                        </div>
-                    </div>
-                </div>,
-
-            size: 'fullscreen',
-            contentClass: FundModal,
-            onClose: (result) => { console.log('Modal 1 result = ', result) }
-        })
-    }
-
-    buttonClickTransactionHistory = (e) => {
-        this.refs.frameAction.showModal({
-            headerClass: () =>
-                <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-sm">
-                            <div className="text-white text-left"><span class="pull-left icon-icon-transactional"></span> <h4>&nbsp;&nbsp;Transaction History</h4></div>
-                        </div>
-                        <div className="col-sm text-right">
-                            <i className="icofont icofont-close text-icofont-close text-border click-pointer"
-                               onClick={this.closeClick}></i>
-                        </div>
-                    </div>
-                </div>,
-
-            size: 'fullscreen',
-            contentClass: TransactionHistoryModal,
-            onClose: (result) => { console.log('Modal 1 result = ', result) }
-        })
-    }
-
-    buttonClickInquiry = (e) => {
-        this.refs.frameAction.showModal({
-            headerClass: () =>
-                <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-sm">
-                            <div className="text-white text-left"><span class="pull-left icon-icon-inquiry"></span> <h4>&nbsp;&nbsp;Inquiry of Account Info</h4></div>
-                        </div>
-                        <div className="col-sm text-right">
-                            <i className="icofont icofont-close text-icofont-close text-border click-pointer"
-                               onClick={this.closeClick}></i>
-                        </div>
-                    </div>
-                </div>,
-
-            size: 'fullscreen',
-            contentClass: InquiryModal,
-            onClose: (result) => { console.log('Modal 1 result = ', result) }
-        })
-    }*/
-
     buttonClickChangePassPin = (e) => {
         this.refs.frameAction.showModal({
             headerClass: () => <div className="text-right"><i className="icofont icofont-close text-icofont-close text-border click-pointer"
@@ -743,7 +621,8 @@ class UserInfo_Base extends React.Component {
                         <td className="py-0">
                             <Dropdown icon={null} text={
                     <div className="cursor-menu pt-1">
-                        <img src={user_avatar} alt="User" className="img-avatar d-border mr-2"/><i className="f-11-center text-gray-tradding oi oi-caret-bottom"></i>
+                        <img src={user_avatar} alt="User" className="img-avatar d-border mr-2"/>
+                        <i className="f-11-center text-gray-tradding oi oi-caret-bottom"></i>
                     </div>
                 } className="text-white align-self-center">
                     <Dropdown.Menu className={'bg-black-trading f-14 w-300 d-border'} style={{ left: 'auto', right: 0 }}>
@@ -787,37 +666,6 @@ class UserInfo_Base extends React.Component {
                             </tr>
                             </tbody>
                         </table>
-                        {/*End*/}
-                        {/*<Dropdown.Divider className="d-border py-0 my-0" />
-                        <Dropdown.Item className="item-hover text-white text-left" onClick={this.buttonClickPortofolio} text={
-                            <div>
-                                <i className="icon-icon-portofolio"></i>&nbsp;&nbsp; Portofolio & Balance
-                            </div>
-                        }/>
-                        <Dropdown.Divider className="d-border py-0 my-0" />
-                        <Dropdown.Item className="item-hover text-white text-left" onClick={this.buttonClickHistorical} text={
-                            <div>
-                                <i className="icon-icon-historical"></i>&nbsp;&nbsp; Historical Trade List
-                            </div>
-                        }/>
-                        <Dropdown.Divider className="d-border py-0 my-0" />
-                        <Dropdown.Item className="item-hover text-white text-left" onClick={this.buttonClickFund} text={
-                            <div>
-                                <i className="icon-icon-fund"></i>&nbsp;&nbsp; Fund Transfer
-                            </div>
-                        }/>
-                        <Dropdown.Divider className="d-border py-0 my-0" />
-                        <Dropdown.Item className="item-hover text-white text-left" onClick={this.buttonClickTransactionHistory} text={
-                            <div>
-                                <i className="icon-icon-transactional"></i>&nbsp;&nbsp; Transaction History
-                            </div>
-                        }/>
-                        <Dropdown.Divider className="d-border py-0 my-0" />
-                        <Dropdown.Item className="item-hover text-white text-left" onClick={this.buttonClickInquiry} text={
-                            <div>
-                                <i className="icon-icon-inquiry"></i>&nbsp;&nbsp; Inquiry Of Account
-                            </div>
-                        }/>*/}
                         <Dropdown.Divider className="d-border py-0 my-0" />
                         <Dropdown.Item className="item-hover text-white text-left" onClick={this.buttonClickChangePassPin} text={
                             <div>
@@ -861,82 +709,6 @@ class SettingModal extends React.Component {
             <>
                 <AppFrameAction ref="frameAction" />
                 <ModalSetting />
-            </>
-        );
-    }
-}
-
-
-class PortofolioModal extends React.Component {
-    closeClick = (e) => {
-        this.refs.frameAction.closeModal(100);
-    }
-
-    render() {
-        return (
-            <>
-                <AppFrameAction ref="frameAction" />
-                <ModalPortofolio />
-            </>
-        );
-    }
-}
-
-class HistoricalModal extends React.Component {
-    closeClick = (e) => {
-        this.refs.frameAction.closeModal(100);
-    }
-
-    render() {
-        return (
-            <>
-                <AppFrameAction ref="frameAction" />
-                <ModalHistorical />
-            </>
-        );
-    }
-}
-
-class FundModal extends React.Component {
-    closeClick = (e) => {
-        this.refs.frameAction.closeModal(100);
-    }
-
-    render() {
-        return (
-            <>
-                <AppFrameAction ref="frameAction" />
-                <ModalFund />
-            </>
-        );
-    }
-}
-
-class TransactionHistoryModal extends React.Component {
-    closeClick = (e) => {
-        this.refs.frameAction.closeModal(100);
-    }
-
-    render() {
-        return (
-            <>
-                <AppFrameAction ref="frameAction" />
-                <ModalTransactionHistory />
-            </>
-        );
-    }
-}
-
-class InquiryModal extends React.Component {
-    closeClick = (e) => {
-        this.refs.frameAction.closeModal(100);
-    }
-
-    render() {
-        return (
-            <>
-                <AppFrameAction ref="frameAction" />
-                <ModalInquiry />
             </>
         );
     }
@@ -986,37 +758,6 @@ class MenuCollapse extends React.Component {
     }
 }
 
-class MenuScaleN_Base extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <div style={{ display : this.props.scaleState === "80" ||
-                this.props.scaleState === "90" ||
-                this.props.scaleState === "100" ? "block" : "none"}}>
-                {this.props.children}
-            </div>
-        );
-    }
-}
-
-class MenuScaleZ_Base extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <div style={{ display : this.props.scaleState === "110" ||
-                this.props.scaleState === "120" ? "block" : "none"}}>
-                {this.props.children}
-            </div>
-        );
-    }
-}
-
 //Zaky
 const UserInfo = ContextConnector(BIPSAppContext,
     (vars, actions) => ({
@@ -1026,10 +767,13 @@ const UserInfo = ContextConnector(BIPSAppContext,
     })
 )(UserInfo_Base);
 
-const SelectItem2 = ContextConnector(BIPSAppContext,
+const InfoCash = ContextConnector(BIPSAppContext,
     (vars, actions) => ({
-        thememode : vars.thememode,
-    }),
-)(SelectItem2_Base)
+        balanceOpt: vars.balanceOpt,
+        balanceVal: vars.balanceVal,
+        buyLimitVal: vars.buyLimitVal,
+        changeBalanceOpt : (balanceOpt) => {actions.sendAction('changeBalanceType', {balanceOpt})}
+    })
+)(InfoCash_Base);
 
 export default UISelectionTab;
