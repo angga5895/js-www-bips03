@@ -1,13 +1,12 @@
 import React from 'react';
 
-import ReactTooltip from 'react-tooltip'
 // internal framework libraries
 import { WSConnectionAction } from '../appnetwork.js';
 import { AppFrameAction } from '../appframe.js';
 import { ContextConnector } from '../appcontext.js';
 import { BIPSAppContext } from '../AppData.js';
 
-import {CommentActions, Dropdown} from 'semantic-ui-react';
+import {Dropdown} from 'semantic-ui-react';
 import $ from "jquery";
 
 //Form signup

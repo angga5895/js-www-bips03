@@ -1,7 +1,7 @@
 import React from 'react';
 
 // internal framework libraries
-import { AppFrameAction, AppFrame, AppModal } from '../appframe.js';
+import { AppFrame, AppModal } from '../appframe.js';
 
 // application-logic libraries
 import { BIPSAppContext } from '../AppData.js';
@@ -32,9 +32,6 @@ const ResizeResponsive = () => {
 
     var height695 = $('html').height();
     $('.card-695').css('min-height', (height695));
-    var plogin = ($('html').height()-$('.p-login').height())/2;
-    // $('.p-login').css('padding-top', (plogin));
-    // $('.p-login').css('padding-bottom', (plogin));
 
     var height575 = $('html').height()-84-32-5;
     $('.card-575').css('min-height', (height575));
@@ -160,47 +157,12 @@ const ResizeResponsive = () => {
     }
 }
 
-class LoginPage extends React.Component {
-  /*
-    expected props: onLogin(uid, password)
-  */
-
-  onButtonClick = () => {
-    this.props.onLogin(this.refs.userID.value, this.refs.password.value);
-  }
-
-  render () {
-
-    return <div>
-        <h1>Login to BIPS</h1>
-        <p>&nbsp;</p>
-        <label>User ID&nbsp;&nbsp;</label><input ref="userID" /><br />
-        <br />
-        <label>Password&nbsp;&nbsp;</label><input ref="password" type="password"/><br />
-        <br />
-        <button onClick={this.onButtonClick}>LOGIN</button>
-      </div>
-
-  }
-}
-
 class MainPage_Base extends React.Component {
     constructor (props) {
     super(props);
-
-    /*
-      expected props:
-
-      loginState,
-      networkState,
-      doLogin,
-    */
-
-      //zaky
     this.state ={
         fullscreenmode:false,
     }
-    //zaky
   }
 
   componentDidMount(){
@@ -353,10 +315,10 @@ class MainPage_Base extends React.Component {
           setElementLiveZoom();
       }).resize();
 
-      $(window).on("click", function () {
-          setElementHeightWeb();
-          setElementLiveZoom();
-      }).resize();
+      // $(window).on("click", function () {
+      //     setElementHeightWeb();
+      //     setElementLiveZoom();
+      // }).resize();
   }
 
   doLogin = (userID, password) => {
@@ -432,7 +394,6 @@ class MainPage_Base extends React.Component {
       }
 
   }
-    //zaky
     tick() {
         this.setState(prevState => ({
             seconds: prevState.seconds + 1
@@ -627,7 +588,7 @@ class AlertBips extends React.PureComponent{
     }
 
     componentDidMount(){
-        this.alertInterval = setInterval(() => this.alertclick(), 10000);
+        this.alertInterval = setInterval(() => this.alertclick(), 990000);
     }
 
     componentWillUnmount() {
@@ -669,24 +630,6 @@ class AlertBips extends React.PureComponent{
         );
     }
 }
-
-/*class MyButton extends React.Component {
-    render() {
-        const { onClick, name } = this.props;
-        return (
-            <button
-                type="button"
-                style={{
-                    borderRadius: 0,
-                    height: '35px',
-                    marginRight: '10px'
-                }}
-                onClick={onClick}>
-                {name}
-            </button>
-        );
-    }
-}*/
 
 class MarqueePage extends React.PureComponent{
     constructor(props) {
