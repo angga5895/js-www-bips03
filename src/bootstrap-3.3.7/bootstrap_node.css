@@ -5,6 +5,7 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 :root{
+  --warna-header-ag: #F7F7F7;
   --warna-dasar : #010101;
   --warna-header-card : #181818;
   --warna-text-basic : #FFFFFF;
