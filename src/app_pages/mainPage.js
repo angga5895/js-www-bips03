@@ -873,6 +873,10 @@ class MarqueePage extends React.PureComponent{
                 <p className="marquee">
                                   <span>
                                       <kbd>{this.state.spanData[0].code}</kbd>&nbsp;
+                                      <text
+                                          className={(this.state.spanData[0].change.includes("-"))?"text-danger":"text-success"}>
+                                          {this.state.spanData[0].price}&nbsp;
+                                      </text>
                                       <i
                                           className={(this.state.spanData[0].change.includes("-"))
                                               ?"icofont icofont-caret-down text-danger":
@@ -880,13 +884,17 @@ class MarqueePage extends React.PureComponent{
                                       </i>
                                       <text
                                           className={(this.state.spanData[0].change.includes("-"))?"text-danger":"text-success"}>
-                                          {this.state.spanData[0].change}&nbsp;{this.state.spanData[0].persen}%
+                                          {this.state.spanData[0].change}&nbsp;({this.state.spanData[0].persen}%) &nbsp;
                                       </text>
                                   </span>
                 </p>
                 <p className="marquee marquee2">
                                   <span>
                                       <kbd>{this.state.spanData[1].code}</kbd>&nbsp;
+                                      <text
+                                          className={(this.state.spanData[1].change.includes("-"))?"text-danger":"text-success"}>
+                                          {this.state.spanData[1].price}&nbsp;
+                                      </text>
                                       <i
                                           className={(this.state.spanData[1].change.includes("-"))
                                               ?"icofont icofont-caret-down text-danger":
@@ -894,13 +902,17 @@ class MarqueePage extends React.PureComponent{
                                       </i>
                                       <text
                                           className={(this.state.spanData[1].change.includes("-"))?"text-danger":"text-success"}>
-                                          {this.state.spanData[1].change}&nbsp;{this.state.spanData[1].persen}%
+                                          {this.state.spanData[1].change}&nbsp;({this.state.spanData[1].persen}%) &nbsp;
                                       </text>
                                   </span>
                 </p>
                 <p className="marquee marquee3">
                                   <span>
                                       <kbd>{this.state.spanData[2].code}</kbd>&nbsp;
+                                      <text
+                                          className={(this.state.spanData[2].change.includes("-"))?"text-danger":"text-success"}>
+                                          {this.state.spanData[2].price}&nbsp;
+                                      </text>
                                       <i
                                           className={(this.state.spanData[2].change.includes("-"))
                                               ?"icofont icofont-caret-down text-danger":
@@ -908,13 +920,17 @@ class MarqueePage extends React.PureComponent{
                                       </i>
                                       <text
                                           className={(this.state.spanData[2].change.includes("-"))?"text-danger":"text-success"}>
-                                          {this.state.spanData[2].change}&nbsp;{this.state.spanData[2].persen}%
+                                          {this.state.spanData[2].change}&nbsp;({this.state.spanData[2].persen}%) &nbsp;
                                       </text>
                                   </span>
                 </p>
                 <p className="marquee marquee4">
                                   <span>
                                       <kbd>{this.state.spanData[3].code}</kbd>&nbsp;
+                                      <text
+                                          className={(this.state.spanData[3].change.includes("-"))?"text-danger":"text-success"}>
+                                          {this.state.spanData[3].price}&nbsp;
+                                      </text>
                                       <i
                                           className={(this.state.spanData[3].change.includes("-"))
                                               ?"icofont icofont-caret-down text-danger":
@@ -922,13 +938,17 @@ class MarqueePage extends React.PureComponent{
                                       </i>
                                       <text
                                           className={(this.state.spanData[3].change.includes("-"))?"text-danger":"text-success"}>
-                                          {this.state.spanData[3].change}&nbsp;{this.state.spanData[3].persen}%
+                                          {this.state.spanData[3].change}&nbsp;({this.state.spanData[3].persen}%) &nbsp;
                                       </text>
                                   </span>
                 </p>
                 <p className="marquee marquee5">
                                   <span>
-                                      <kbd>{this.state.spanData[4].code}</kbd>&nbsp;
+                                      <kbd>{this.state.spanData[4].code}</kbd>
+                                       <text
+                                           className={(this.state.spanData[4].change.includes("-"))?"text-danger":"text-success"}>
+                                          {this.state.spanData[4].price}&nbsp;
+                                      </text>
                                       <i
                                           className={(this.state.spanData[4].change.includes("-"))
                                               ?"icofont icofont-caret-down text-danger":
@@ -936,13 +956,17 @@ class MarqueePage extends React.PureComponent{
                                       </i>
                                       <text
                                           className={(this.state.spanData[4].change.includes("-"))?"text-danger":"text-success"}>
-                                          {this.state.spanData[4].change}&nbsp;{this.state.spanData[4].persen}%
+                                          {this.state.spanData[4].change}&nbsp;({this.state.spanData[4].persen}%) &nbsp;
                                       </text>
                                   </span>
                 </p>
                 <p className="marquee marquee6">
                                   <span>
                                       <kbd>{this.state.spanData[5].code}</kbd>&nbsp;
+                                      <text
+                                          className={(this.state.spanData[5].change.includes("-"))?"text-danger":"text-success"}>
+                                          {this.state.spanData[5].price}&nbsp;
+                                      </text>
                                       <i
                                           className={(this.state.spanData[5].change.includes("-"))
                                               ?"icofont icofont-caret-down text-danger":
@@ -950,13 +974,17 @@ class MarqueePage extends React.PureComponent{
                                       </i>
                                       <text
                                           className={(this.state.spanData[5].change.includes("-"))?"text-danger":"text-success"}>
-                                          {this.state.spanData[5].change}&nbsp;{this.state.spanData[5].persen}%
+                                          {this.state.spanData[5].change}&nbsp;({this.state.spanData[5].persen}%) &nbsp;
                                       </text>
                                   </span>
                 </p>
                 <p className="marquee marquee7">
                                   <span>
                                       <kbd>{this.state.spanData[6].code}</kbd>&nbsp;
+                                      <text
+                                          className={(this.state.spanData[6].change.includes("-"))?"text-danger":"text-success"}>
+                                          {this.state.spanData[6].price}&nbsp;
+                                      </text>
                                       <i
                                           className={(this.state.spanData[6].change.includes("-"))
                                               ?"icofont icofont-caret-down text-danger":
@@ -964,13 +992,17 @@ class MarqueePage extends React.PureComponent{
                                       </i>
                                       <text
                                           className={(this.state.spanData[6].change.includes("-"))?"text-danger":"text-success"}>
-                                          {this.state.spanData[6].change}&nbsp;{this.state.spanData[6].persen}%
+                                          {this.state.spanData[6].change}&nbsp;({this.state.spanData[6].persen}%) &nbsp;
                                       </text>
                                   </span>
                 </p>
                 <p className="marquee marquee8">
                                   <span>
                                       <kbd>{this.state.spanData[7].code}</kbd>&nbsp;
+                                      <text
+                                          className={(this.state.spanData[7].change.includes("-"))?"text-danger":"text-success"}>
+                                          {this.state.spanData[7].price}&nbsp;
+                                      </text>
                                       <i
                                           className={(this.state.spanData[7].change.includes("-"))
                                               ?"icofont icofont-caret-down text-danger":
@@ -978,13 +1010,17 @@ class MarqueePage extends React.PureComponent{
                                       </i>
                                       <text
                                           className={(this.state.spanData[7].change.includes("-"))?"text-danger":"text-success"}>
-                                          {this.state.spanData[7].change}&nbsp;{this.state.spanData[7].persen}%
+                                          {this.state.spanData[7].change}&nbsp;({this.state.spanData[7].persen}%) &nbsp;
                                       </text>
                                   </span>
                 </p>
                 <p className="marquee marquee9">
                                   <span>
                                       <kbd>{this.state.spanData[8].code}</kbd>&nbsp;
+                                      <text
+                                          className={(this.state.spanData[8].change.includes("-"))?"text-danger":"text-success"}>
+                                          {this.state.spanData[8].price}&nbsp;
+                                      </text>
                                       <i
                                           className={(this.state.spanData[8].change.includes("-"))
                                               ?"icofont icofont-caret-down text-danger":
@@ -992,13 +1028,17 @@ class MarqueePage extends React.PureComponent{
                                       </i>
                                       <text
                                           className={(this.state.spanData[8].change.includes("-"))?"text-danger":"text-success"}>
-                                          {this.state.spanData[8].change}&nbsp;{this.state.spanData[8].persen}%
+                                          {this.state.spanData[8].change}&nbsp;({this.state.spanData[8].persen}%) &nbsp;
                                       </text>
                                   </span>
                 </p>
                 <p className="marquee marquee10">
                                   <span>
                                       <kbd>{this.state.spanData[9].code}</kbd>&nbsp;
+                                      <text
+                                          className={(this.state.spanData[9].change.includes("-"))?"text-danger":"text-success"}>
+                                          {this.state.spanData[9].price}&nbsp;
+                                      </text>
                                       <i
                                           className={(this.state.spanData[9].change.includes("-"))
                                               ?"icofont icofont-caret-down text-danger":
@@ -1006,7 +1046,7 @@ class MarqueePage extends React.PureComponent{
                                       </i>
                                       <text
                                           className={(this.state.spanData[9].change.includes("-"))?"text-danger":"text-success"}>
-                                          {this.state.spanData[9].change}&nbsp;{this.state.spanData[9].persen}%
+                                          {this.state.spanData[9].change}&nbsp;({this.state.spanData[9].persen}%) &nbsp;
                                       </text>
                                   </span>
                 </p>
