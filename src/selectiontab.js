@@ -417,8 +417,8 @@ class SelectItem1 extends React.PureComponent {
                             </tr>
                             <tr>
                                 <td>
-                                    <span className={'white '+colorIcon(info.change)}>&nbsp;
-                                        {info.change}</span>&nbsp;
+                                    <span className={'white '+colorIcon(info.change)}></span>
+                                    <span className="white">{info.change}</span>
                                 </td>
                                 <td>
                                     <span className="white">({info.percentage}%)</span>
@@ -437,8 +437,8 @@ class SelectItem1 extends React.PureComponent {
                             </tr>
                             <tr>
                                 <td>
-                                    <span className={'white '+colorIcon(info.change)}>&nbsp;
-                                        {info.change}</span>&nbsp;
+                                    <span className={'white '+colorIcon(info.change)}></span>
+                                    <span className="white">{info.change}</span>
                                 </td>
                                 <td>
                                     <span className="white">({info.percentage}%)</span>
