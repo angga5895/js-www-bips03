@@ -2372,7 +2372,13 @@ class TradeOrderSummaryAgGrid extends React.PureComponent {
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12";
                     },
-                },{ field: "avgPrice", headerName: "Avg. Price", sortable: true, filter: "agTextColumnFilter", resizable: true,
+                },{ field: "vol", headerName: "Vol", sortable: true, filter: "agTextColumnFilter", resizable: true,
+                    width: 80,
+                    cellClass : function (params) {
+                        return " grid-table d-border-aggrid-right text-center f-12";
+                    },
+                },
+                { field: "avgPrice", headerName: "Avg. Price", sortable: true, filter: "agTextColumnFilter", resizable: true,
                     width:s=="s75"?245:s=="s80"?205:s=="s90"?185:150,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12";
@@ -2397,30 +2403,35 @@ class TradeOrderSummaryAgGrid extends React.PureComponent {
                     tradeVol : "5",
                     avgPrice : "12,635.00",
                     cmd :"BUY",
+                    vol: 1,
                 },{
                     code : "AALI",
                     leaveVol :"3",
                     tradeVol : "5",
                     avgPrice : "13,635.00",
                     cmd :"SELL",
+                    vol: 12,
                 },{
                     code : "AALI",
                     leaveVol :"2",
                     tradeVol : "5",
                     avgPrice : "12,635.00",
                     cmd :"SELL",
+                    vol: 5,
                 },{
                     code : "AALI",
                     leaveVol :"7",
                     tradeVol : "1",
                     avgPrice : "9,635.00",
                     cmd :"BUY",
+                    vol: 8,
                 },{
                     code : "AALI",
                     leaveVol :"1",
                     tradeVol : "2",
                     avgPrice : "5,135.00",
                     cmd :"SELL",
+                    vol: 21,
                 },
             ],
             getRowHeight : function (params) {
