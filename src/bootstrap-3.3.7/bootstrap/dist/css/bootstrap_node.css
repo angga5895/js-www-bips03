@@ -55,6 +55,11 @@
   --warna-text-success: #05FE01;
   --warna-text-warning: #FFC107;
 
+  --warna-text-jam : #6DCCDC;
+  --warna-navy-headermenu-odd: #0E0E20;
+  --warna-navy-headermenu-even: #2E3354;
+  --warna-shadow : #000000;
+  --warna-border-headermenu : #5f68ad;
 
   /*variabel column*/
   --column-col-sm-3-6 : 25%;
