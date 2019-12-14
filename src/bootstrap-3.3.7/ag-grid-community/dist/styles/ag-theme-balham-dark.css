@@ -574,6 +574,7 @@
     border-bottom: 1px solid var(--warna-text-basic)!important;
     border-top: 1px solid var(--warna-text-basic)!important;
     background: var(--warna-bg-trading-gray)!important;
+    color: var(--warna-text-basic) !important;
   }
   div.ag-theme-balham-dark.ag-header-border-gray-live-trade > span > div >  div > div > div > div.ag-body-viewport {
     background: var(--warna-bg-trading-gray)!important;
@@ -587,6 +588,7 @@
     border-bottom: 1px solid var(--warna-text-basic)!important;
     border-top: 1px solid var(--warna-text-basic)!important;
     background: var(--warna-bg-trading-gray)!important;
+    color: var(--warna-text-basic) !important;
   }
   div.ag-theme-balham-dark.ag-header-border-gray > div > div > div > div > div.ag-body-viewport {
     background: var(--warna-bg-trading-gray)!important;
