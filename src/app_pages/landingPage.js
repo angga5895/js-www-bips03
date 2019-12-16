@@ -636,42 +636,14 @@ class ModalHistorical extends React.Component {
         }
     }
     render() {
-
-        const imgdisplay = {
-            display: 'inline-flex',
-            paddingTop: '3px'
-        };
-
-        const paddingParagraph = {
-            paddingTop: '10px',
-            paddingBottom: '0px'
-        }
         const paddingParagraphBottom = {
             paddingBottom: '10px'
         }
-
-        const divMargin = {
-            marginBottom: '15px'
-        }
-
-        const imgUser = {
-            margin: 'auto',
-            backgroundColor: 'var(--warna-bg-trading-gray)',
-            // borderBottom: '2px solid var(--warna-inactive-gradient)'
-        }
-
-        return (
+                return (
             <>
                 <AppFrameAction ref="frameAction" />
                 <div className="container-fluid pl-0 pr-0 f-12">
                     <div className="col-sm-12 row px-0 mx-0 d-border-bottom" style={paddingParagraphBottom}>
-                        {/*<div className="col-sm-3">
-                            <div className="row" style={imgUser}>
-                                <div className="col-md-12" style={imgdisplay}>
-                                    <img src={user_avatar} alt="User" className="img-avatar d-border mr-2" /><p style={paddingParagraph}>Mr. John Doe<br /><i>001-01-008538</i></p>
-                                </div>
-                            </div>
-                        </div>*/}
                         <div className="col-sm-12 h-62">
                             <div className="ui small input col-sm-8 f-12 text-center align-self-center black ver-center">
 
@@ -1820,6 +1792,32 @@ class TradeControlPageAgGrid extends React.PureComponent{
                     stockSell: "BBNI",
                     amountBuy: "6,350,000",
                     amountSell: "12,500",
+                },{
+                    order: "\xa0",
+                },{
+                    order: "\xa0",
+                },{
+                    order: "\xa0",
+                },{
+                    order: "\xa0",
+                },{
+                    order: "\xa0",
+                },{
+                    order: "\xa0",
+                },{
+                    order: "\xa0",
+                },{
+                    order: "\xa0",
+                },{
+                    order: "\xa0",
+                },{
+                    order: "\xa0",
+                },{
+                    order: "\xa0",
+                },{
+                    order: "\xa0",
+                },{
+                    order: "\xa0",
                 },
 
             ],
@@ -1924,37 +1922,6 @@ class SellModal extends React.Component {
     }
 }
 
-class AmendModal extends React.Component {
-    closeClick = (e) => {
-        this.refs.frameAction.closeModal(100);
-    }
-
-    render() {
-        return (
-            <>
-                <AppFrameAction ref="frameAction" />
-                <ModalAmend/>
-            </>
-        );
-    }
-}
-
-class WithdrawModal extends React.Component {
-    closeClick = (e) => {
-        this.refs.frameAction.closeModal(100);
-    }
-
-    render() {
-        return (
-            <>
-                <AppFrameAction ref="frameAction" />
-                <VerifyPIN tipe = 'withdraw'/>
-            </>
-        );
-    }
-}
-
-
 class PinModal extends React.Component {
     closeClick = (e) => {
         this.refs.frameAction.closeModal(100);
@@ -1970,18 +1937,6 @@ class PinModal extends React.Component {
     }
 }
 
-
-class OrderDetailModal extends React.Component {
-
-    render() {
-        return (
-            <>
-                <AppFrameAction ref="frameAction" />
-                <ModalOrderDetail/>
-            </>
-        );
-    }
-}
 
 class PortofolioAgGrid extends React.PureComponent {
     constructor(props) {
@@ -2114,7 +2069,7 @@ class PortofolioAgGrid extends React.PureComponent {
                 filter: true,
             },
             rowData: [
-                { code: "AALI",
+                { code: s,
                     avgprice: "12,650",
                     lastprice: "12,650",
                     lot: "12",
@@ -3187,18 +3142,18 @@ class TradeListAgGrid extends React.PureComponent {
         this.state = {
             columnDefs: [
                 { field: "date", headerName: "Date", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width: s=="s50"?300:s=="s67"?240:s=="s75"?250:s=="s80"?240:s=="s90"?180:114,
+                    width: s=="s50"?300:s=="s67"?240:s=="s75"?190:s=="s80"?185:s=="s90"?125:114,
                     cellClass : function (params) {
                         return " grid-table text-left f-12 d-border-aggrid-right";
                     }, suppressSizeToFit: true
                 },
                 { field: "trade", headerName: "Trade#", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width: s=="s50"?300:s=="s67"?240:s=="s75"?235:s=="s80"?230:s=="s90"?160:100,
+                    width: s=="s50"?300:s=="s67"?240:s=="s75"?215:s=="s80"?190:s=="s90"?160:100,
                     cellClass : function (params) {
                         return " text-center grid-table f-12 d-border-aggrid-right";
                     }
                 },{ field: "order", headerName: "Order#", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width: s=="s50"?300:s=="s67"?240:s=="s75"?235:s=="s80"?230:s=="s90"?160:100,
+                    width: s=="s50"?300:s=="s67"?240:s=="s75"?215:s=="s80"?200:s=="s90"?160:100,
                     cellClass : function (params) {
                         return " text-center grid-table f-12 d-border-aggrid-right";
                     }
@@ -3210,13 +3165,13 @@ class TradeListAgGrid extends React.PureComponent {
                     }
                 },
                 { field: "cmd", headerName: "Cmd", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width: s=="s50"?290:s=="s67"?250:s=="s75"?255:s=="s80"?250:s=="s90"?150:147,
+                    width: s=="s50"?290:s=="s67"?250:s=="s75"?235:s=="s80"?210:s=="s90"?150:147,
                     cellClass : function (params) {
                         return "text-center grid-table f-12 d-border-aggrid-right";
                     }
                 },
                 { field: "type", headerName: "Type", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width: s=="s50"?190:s=="s67"?150:s=="s75"?143:s=="s80"?140:107,
+                    width: s=="s50"?190:s=="s67"?150:s=="s75"?143:s=="s80"?110:107,
                     cellClass : function (params) {
                         return "text-center  grid-table f-12 d-border-aggrid-right";
                     }
@@ -3310,6 +3265,143 @@ class TradeListAgGrid extends React.PureComponent {
                 },
 
                 {   date: "22/06/2019",
+                    trade: "0000002027",
+                    order: "00162",
+                    code: "AALI",
+                    cmd: "BUY",
+                    type: "day",
+                    mkt: "RG",
+                    vol: "1"   ,
+                    price:"12650"  ,
+                    amount:"1265000",
+                    time:"11:22:17"
+                },{   date: "22/06/2019",
+                    trade: "0000002027",
+                    order: "00162",
+                    code: "AALI",
+                    cmd: "BUY",
+                    type: "day",
+                    mkt: "RG",
+                    vol: "1"   ,
+                    price:"12650"  ,
+                    amount:"1265000",
+                    time:"11:22:17"
+                },
+
+                {   date: "22/06/2019",
+                    trade: "0000002027",
+                    order: "00162",
+                    code: "AALI",
+                    cmd: "BUY",
+                    type: "day",
+                    mkt: "RG",
+                    vol: "1"   ,
+                    price:"12650"  ,
+                    amount:"1265000",
+                    time:"11:22:17"
+                },
+
+                {   date: "22/06/2019",
+                    trade: "0000002027",
+                    order: "00162",
+                    code: "AALI",
+                    cmd: "AMEND",
+                    type: "day",
+                    mkt: "RG",
+                    vol: "1"   ,
+                    price:"12650"  ,
+                    amount:"1265000",
+                    time:"11:22:17"
+                },
+
+                {   date: "22/06/2019",
+                    trade: "0000002027",
+                    order: "00162",
+                    code: "AALI",
+                    cmd: "WITHDRAW",
+                    type: "day",
+                    mkt: "RG",
+                    vol: "1"   ,
+                    price:"12650"  ,
+                    amount:"1265000",
+                    time:"11:22:17"
+                },
+
+                {   date: "22/06/2019",
+                    trade: "0000002027",
+                    order: "00162",
+                    code: "AALI",
+                    cmd: "BUY",
+                    type: "day",
+                    mkt: "RG",
+                    vol: "1"   ,
+                    price:"12650"  ,
+                    amount:"1265000",
+                    time:"11:22:17"
+                },{   date: "22/06/2019",
+                    trade: "0000002027",
+                    order: "00162",
+                    code: "AALI",
+                    cmd: "BUY",
+                    type: "day",
+                    mkt: "RG",
+                    vol: "1"   ,
+                    price:"12650"  ,
+                    amount:"1265000",
+                    time:"11:22:17"
+                },
+
+                {   date: "22/06/2019",
+                    trade: "0000002027",
+                    order: "00162",
+                    code: "AALI",
+                    cmd: "BUY",
+                    type: "day",
+                    mkt: "RG",
+                    vol: "1"   ,
+                    price:"12650"  ,
+                    amount:"1265000",
+                    time:"11:22:17"
+                },
+
+                {   date: "22/06/2019",
+                    trade: "0000002027",
+                    order: "00162",
+                    code: "AALI",
+                    cmd: "AMEND",
+                    type: "day",
+                    mkt: "RG",
+                    vol: "1"   ,
+                    price:"12650"  ,
+                    amount:"1265000",
+                    time:"11:22:17"
+                },
+
+                {   date: "22/06/2019",
+                    trade: "0000002027",
+                    order: "00162",
+                    code: "AALI",
+                    cmd: "WITHDRAW",
+                    type: "day",
+                    mkt: "RG",
+                    vol: "1"   ,
+                    price:"12650"  ,
+                    amount:"1265000",
+                    time:"11:22:17"
+                },
+
+                {   date: "22/06/2019",
+                    trade: "0000002027",
+                    order: "00162",
+                    code: "AALI",
+                    cmd: "BUY",
+                    type: "day",
+                    mkt: "RG",
+                    vol: "1"   ,
+                    price:"12650"  ,
+                    amount:"1265000",
+                    time:"11:22:17"
+                }, {   date: "22/06/2019",
                     trade: "0000002027",
                     order: "00162",
                     code: "AALI",
@@ -3515,6 +3607,184 @@ class TransactionAgGrid extends React.PureComponent {
                     wht: '15',
                     incomeTax: '0',
                     price: '200',
+                },{
+                    date: "22/06/2019",
+                    detail: "Sell TS",
+                    amount: "34,500",
+                    code: 'AALI',
+                    inOut: '130',
+                    balA: '88,232',
+                    balQ: '10',
+                    fee: '100',
+                    paidAmt: '0',
+                    penalty: '0',
+                    add: '0',
+                    tradeAmt: '21,111',
+                    wht: '15',
+                    incomeTax: '0',
+                    price: '200',
+                },{
+                    date: "22/06/2019",
+                    detail: "Sell TS",
+                    amount: "34,500",
+                    code: 'AALI',
+                    inOut: '130',
+                    balA: '88,232',
+                    balQ: '10',
+                    fee: '100',
+                    paidAmt: '0',
+                    penalty: '0',
+                    add: '0',
+                    tradeAmt: '21,111',
+                    wht: '15',
+                    incomeTax: '0',
+                    price: '200',
+                },{
+                    date: "22/06/2019",
+                    detail: "Sell TS",
+                    amount: "34,500",
+                    code: 'AALI',
+                    inOut: '130',
+                    balA: '88,232',
+                    balQ: '10',
+                    fee: '100',
+                    paidAmt: '0',
+                    penalty: '0',
+                    add: '0',
+                    tradeAmt: '21,111',
+                    wht: '15',
+                    incomeTax: '0',
+                    price: '200',
+                },{
+                    date: "22/06/2019",
+                    detail: "Sell TS",
+                    amount: "34,500",
+                    code: 'AALI',
+                    inOut: '130',
+                    balA: '88,232',
+                    balQ: '10',
+                    fee: '100',
+                    paidAmt: '0',
+                    penalty: '0',
+                    add: '0',
+                    tradeAmt: '21,111',
+                    wht: '15',
+                    incomeTax: '0',
+                    price: '200',
+                },{
+                    date: "22/06/2019",
+                    detail: "Sell TS",
+                    amount: "34,500",
+                    code: 'AALI',
+                    inOut: '130',
+                    balA: '88,232',
+                    balQ: '10',
+                    fee: '100',
+                    paidAmt: '0',
+                    penalty: '0',
+                    add: '0',
+                    tradeAmt: '21,111',
+                    wht: '15',
+                    incomeTax: '0',
+                    price: '200',
+                },{
+                    date: "22/06/2019",
+                    detail: "Sell TS",
+                    amount: "34,500",
+                    code: 'AALI',
+                    inOut: '130',
+                    balA: '88,232',
+                    balQ: '10',
+                    fee: '100',
+                    paidAmt: '0',
+                    penalty: '0',
+                    add: '0',
+                    tradeAmt: '21,111',
+                    wht: '15',
+                    incomeTax: '0',
+                    price: '200',
+                },{
+                    date: "22/06/2019",
+                    detail: "Sell TS",
+                    amount: "34,500",
+                    code: 'AALI',
+                    inOut: '130',
+                    balA: '88,232',
+                    balQ: '10',
+                    fee: '100',
+                    paidAmt: '0',
+                    penalty: '0',
+                    add: '0',
+                    tradeAmt: '21,111',
+                    wht: '15',
+                    incomeTax: '0',
+                    price: '200',
+                },{
+                    date: "22/06/2019",
+                    detail: "Sell TS",
+                    amount: "34,500",
+                    code: 'AALI',
+                    inOut: '130',
+                    balA: '88,232',
+                    balQ: '10',
+                    fee: '100',
+                    paidAmt: '0',
+                    penalty: '0',
+                    add: '0',
+                    tradeAmt: '21,111',
+                    wht: '15',
+                    incomeTax: '0',
+                    price: '200',
+                },{
+                    date: "22/06/2019",
+                    detail: "Sell TS",
+                    amount: "34,500",
+                    code: 'AALI',
+                    inOut: '130',
+                    balA: '88,232',
+                    balQ: '10',
+                    fee: '100',
+                    paidAmt: '0',
+                    penalty: '0',
+                    add: '0',
+                    tradeAmt: '21,111',
+                    wht: '15',
+                    incomeTax: '0',
+                    price: '200',
+                },{
+                    date: "22/06/2019",
+                    detail: "Sell TS",
+                    amount: "34,500",
+                    code: 'AALI',
+                    inOut: '130',
+                    balA: '88,232',
+                    balQ: '10',
+                    fee: '100',
+                    paidAmt: '0',
+                    penalty: '0',
+                    add: '0',
+                    tradeAmt: '21,111',
+                    wht: '15',
+                    incomeTax: '0',
+                    price: '200',
+                },{
+                    date: "",
+                },{
+                    date: "",
+                },{
+                    date: "",
+                },{
+                    date: "",
+                },{
+                    date: "",
+                },{
+                    date: "",
+                },{
+                    date: "",
+                },{
+                    date: "",
+                },{
+                    date: "",
                 },
             ],
             sideBar: {
@@ -3608,19 +3878,19 @@ class FundAgGrid extends React.PureComponent {
                         return " grid-table d-border-aggrid-right text-left f-12";
                     },
                 },{ field: "amount", headerName: "Amount", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width: s=="s50"?300:s=="s67"?215:s=="s75"?191:s=="s80"?180:s=="s90"?160:130,
+                    width: s=="s50"?300:s=="s67"?215:s=="s75"?191:s=="s80"?180:s=="s90"?150:130,
                     minWidth: 115,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-right f-12";
                     },
                 },{ field: "fee", headerName: "Fee", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width: s=="s50"?370:s=="s67"?315:s=="s75"?235:s=="s80"?230:s=="s90"?190:130,
+                    width: s=="s50"?370:s=="s67"?315:s=="s75"?235:s=="s80"?200:s=="s90"?180:130,
                     minWidth: 115,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-right f-12";
                     },
                 },{ field: "bank", headerName: "Bank", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width: s=="s50"?380:s=="s67"?315:s=="s75"?285:s=="s80"?280:s=="s90"?200:150,
+                    width: s=="s50"?380:s=="s67"?315:s=="s75"?285:s=="s80"?240:s=="s90"?200:150,
                     minWidth: 115,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12";
@@ -3674,6 +3944,50 @@ class FundAgGrid extends React.PureComponent {
                     reqData: "03/07/2019",
                     reqTime: "19:30:21",
                     status:"Completing The Process",
+                },{
+                    date: "",
+                },
+                {
+                    date: "",
+                },
+                {
+                    date: "",
+                },
+                {
+                    date: "",
+                },
+                {
+                    date: "",
+                },
+                {
+                    date: "",
+                },
+                {
+                    date: "",
+                },
+                {
+                    date: "",
+                },
+                {
+                    date: "",
+                },
+                {
+                    date: "",
+                },
+                {
+                    date: "",
+                },
+                {
+                    date: "",
+                },
+                {
+                    date: "",
+                },
+                {
+                    date: "",
+                },
+                {
+                    date: "",
                 },
 
             ],
