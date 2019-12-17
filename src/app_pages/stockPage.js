@@ -267,16 +267,16 @@ class StockPage_Base extends React.PureComponent {
 
     render () {
         const stockOptions = [
-            { value: 'aali', label: 'AALI' },
-            { value: 'adhi', label: 'ADHI' },
-            { value: 'antm', label: 'ANTM' },
-            { value: 'asii', label: 'ASII' },
-            { value: 'tlkm', label: 'TLKM' },
-            { value: 'wskt', label: 'WSKT' },
-            { value: 'indf', label: 'INDF' },
-            { value: 'bbca', label: 'BBCA' },
-            { value: 'smgr', label: 'SMGR' },
-            { value: 'bbri', label: 'BBRI' }
+            { value:'bmpt', code: 'BMPT', saham: 'Bumi Mega Pertama ' },
+            { value:'bnmp-ppt', code: 'BNMP-PPT', saham: 'Bumi Nusa Putra ' },
+            { value:'bumi', code: 'BUMI', saham: 'Bumi Resource ' },
+            { value:'asii', code: 'ASII', saham: 'Argo Astra Lestari ' },
+            { value:'tlkm', code: 'TLKM', saham: 'Telekomunikasi Indonesia ' },
+            { value:'wskt', code: 'WSKT', saham: 'Waskita ' },
+            { value:'indf', code: 'INDF', saham: 'Indofood ' },
+            { value:'bbca', code: 'BBCA', saham: 'Bank BCA ' },
+            { value:'smrg', code: 'SMGR', saham: 'Semen Indonesia ' },
+            { value:'bbri', code: 'BBRI', saham: 'Bank BRI ' }
         ];
 
         const customStyles = {
@@ -298,6 +298,22 @@ class StockPage_Base extends React.PureComponent {
             })
         };
 
+        //Add your search logic here.
+        const customFilter  = (option, searchText) => {
+            var code = option.data.code.toLowerCase().includes(searchText.toLowerCase());
+            var saham = option.data.saham.toLowerCase().includes(searchText.toLowerCase());
+
+            if(searchText.toLowerCase().includes(' ')){
+                if(saham){
+                    return true;
+                }
+            } else {
+                if (code) {
+                    return true;
+                }
+            }
+        };
+
         return (
             <div className="bg-black-trading card card-75">
                 <AppFrameAction ref="frameAction" />
@@ -310,7 +326,10 @@ class StockPage_Base extends React.PureComponent {
                                     <label className="align-self-center col-sm-2 px-0 mx-0">Code</label>
                                     {/*<Input defaultValue='AALI' placeholder='Code' size='small' className="col-sm-8 text-center align-self-center"/>*/}
                                     <div className="col-sm-10 text-left align-self-center">
-                                        <Select maxMenuHeight={75} styles={customStyles} placeholder={<div>Search..</div>} options={stockOptions} className="stockPageSelect text-left" theme={this.selectSelectionTab}/>
+                                        <Select
+                                            getOptionLabel={(option) => `${option.code} - ${option.saham}`}
+                                            filterOption={customFilter} isSearchable={true}
+                                            maxMenuHeight={75} styles={customStyles} placeholder={<div>Search..</div>} options={stockOptions} className="stockPageSelect text-left" theme={this.selectSelectionTab}/>
                                     </div>
                                     {/*<div className="col-sm-2 text-left align-self-center px-2"><i className="fa fa-search fa-2x click-pointer text-dark"></i></div>*/}
                                     {/*<Input defaultValue='Arga Argo Lestari Tbk.' placeholder='Name' size='small' className="col-sm-3 align-self-center"/>*/}
@@ -452,17 +471,33 @@ class StockHistoryPage_Base extends React.PureComponent {
             })
         };
         const stockOptions = [
-            { value: 'aali', label: 'AALI' },
-            { value: 'adhi', label: 'ADHI' },
-            { value: 'antm', label: 'ANTM' },
-            { value: 'asii', label: 'ASII' },
-            { value: 'tlkm', label: 'TLKM' },
-            { value: 'wskt', label: 'WSKT' },
-            { value: 'indf', label: 'INDF' },
-            { value: 'bbca', label: 'BBCA' },
-            { value: 'smgr', label: 'SMGR' },
-            { value: 'bbri', label: 'BBRI' }
+            { value:'bmpt', code: 'BMPT', saham: 'Bumi Mega Pertama ' },
+            { value:'bnmp-ppt', code: 'BNMP-PPT', saham: 'Bumi Nusa Putra ' },
+            { value:'bumi', code: 'BUMI', saham: 'Bumi Resource ' },
+            { value:'asii', code: 'ASII', saham: 'Argo Astra Lestari ' },
+            { value:'tlkm', code: 'TLKM', saham: 'Telekomunikasi Indonesia ' },
+            { value:'wskt', code: 'WSKT', saham: 'Waskita ' },
+            { value:'indf', code: 'INDF', saham: 'Indofood ' },
+            { value:'bbca', code: 'BBCA', saham: 'Bank BCA ' },
+            { value:'smrg', code: 'SMGR', saham: 'Semen Indonesia ' },
+            { value:'bbri', code: 'BBRI', saham: 'Bank BRI ' }
         ];
+
+        //Add your search logic here.
+        const customFilter  = (option, searchText) => {
+            var code = option.data.code.toLowerCase().includes(searchText.toLowerCase());
+            var saham = option.data.saham.toLowerCase().includes(searchText.toLowerCase());
+
+            if(searchText.toLowerCase().includes(' ')){
+                if(saham){
+                    return true;
+                }
+            } else {
+                if (code) {
+                    return true;
+                }
+            }
+        };
 
         return (
             <div className="bg-black-trading">
@@ -475,7 +510,10 @@ class StockHistoryPage_Base extends React.PureComponent {
                                     <label className="align-self-center col-sm-2 px-0 mx-0">Code</label>
                                     {/*<Input defaultValue='AALI' placeholder='Code' size='small' className="col-sm-8 text-center align-self-center"/>*/}
                                     <div className="col-sm-10 text-left align-self-center">
-                                        <Select maxMenuHeight={75} styles={customStyles} placeholder={<div>Search..</div>} options={stockOptions} className="stockPageSelect" theme={this.selectSelectionTab}/>
+                                        <Select
+                                            getOptionLabel={(option) => `${option.code} - ${option.saham}`}
+                                            filterOption={customFilter} isSearchable={true}
+                                            maxMenuHeight={75} styles={customStyles} placeholder={<div>Search..</div>} options={stockOptions} className="stockPageSelect" theme={this.selectSelectionTab}/>
                                     </div>
                                     {/*<div className="col-sm-2 text-left align-self-center px-2"><i className="fa fa-search fa-2x click-pointer text-dark"></i></div>*/}
                                     {/*<Input defaultValue='Arga Argo Lestari Tbk.' placeholder='Name' size='small' className="col-sm-3 align-self-center"/>*/}
@@ -808,16 +846,16 @@ class RegisterAmendModal_Base extends React.Component {
     render() {
 
         const stockOptions = [
-            { value: 'aali', label: 'AALI' },
-            { value: 'adhi', label: 'ADHI' },
-            { value: 'antm', label: 'ANTM' },
-            { value: 'asii', label: 'ASII' },
-            { value: 'tlkm', label: 'TLKM' },
-            { value: 'wskt', label: 'WSKT' },
-            { value: 'indf', label: 'INDF' },
-            { value: 'bbca', label: 'BBCA' },
-            { value: 'smgr', label: 'SMGR' },
-            { value: 'bbri', label: 'BBRI' }
+            { value:'bmpt', code: 'BMPT', saham: 'Bumi Mega Pertama ' },
+            { value:'bnmp-ppt', code: 'BNMP-PPT', saham: 'Bumi Nusa Putra ' },
+            { value:'bumi', code: 'BUMI', saham: 'Bumi Resource ' },
+            { value:'asii', code: 'ASII', saham: 'Argo Astra Lestari ' },
+            { value:'tlkm', code: 'TLKM', saham: 'Telekomunikasi Indonesia ' },
+            { value:'wskt', code: 'WSKT', saham: 'Waskita ' },
+            { value:'indf', code: 'INDF', saham: 'Indofood ' },
+            { value:'bbca', code: 'BBCA', saham: 'Bank BCA ' },
+            { value:'smrg', code: 'SMGR', saham: 'Semen Indonesia ' },
+            { value:'bbri', code: 'BBRI', saham: 'Bank BRI ' }
         ];
         const customStyles = {
             control: (base, state) => ({
@@ -838,6 +876,22 @@ class RegisterAmendModal_Base extends React.Component {
                 borderRadius: 0,
                 color : "white!important"
             })
+        };
+
+        //Add your search logic here.
+        const customFilter  = (option, searchText) => {
+            var code = option.data.code.toLowerCase().includes(searchText.toLowerCase());
+            var saham = option.data.saham.toLowerCase().includes(searchText.toLowerCase());
+
+            if(searchText.toLowerCase().includes(' ')){
+                if(saham){
+                    return true;
+                }
+            } else {
+                if (code) {
+                    return true;
+                }
+            }
         };
         return (
             <>
@@ -868,7 +922,10 @@ class RegisterAmendModal_Base extends React.Component {
                                 </div>
                                 <div className="form-group row col-sm-12 px-0 mx-0 my-4 py-3 text-white">
                                     <div className="form-group col-sm-8 my-1 text-left">
-                                        <Select maxMenuHeight={100} styles={customStyles} placeholder={<div style={{color:"white"}}>Search..</div>} options={stockOptions} className="stockPageSelect text-left" theme={this.selectSelectionTab}/>
+                                        <Select
+                                            getOptionLabel={(option) => `${option.code} - ${option.saham}`}
+                                            filterOption={customFilter} isSearchable={true}
+                                            maxMenuHeight={100} styles={customStyles} placeholder={<div style={{color:"white"}}>Search..</div>} options={stockOptions} className="stockPageSelect text-left" theme={this.selectSelectionTab}/>
                                     </div>
                                     <div className="col-sm-1 px-0 mx-0 align-self-center align-middle">
                                         <button className="btn btn-sm bg-gray-tradding border-gray-tradding"><i className="fa fa-plus"></i></button>
@@ -901,7 +958,10 @@ class RegisterAmendModal_Base extends React.Component {
                                 <div className="form-group row col-sm-12 px-0 mx-0 my-4 py-3 z-99 text-white">
                                     <div className="form-group col-sm-8 my-1 text-left">
                                         {/*997*/}
-                                        <Select maxMenuHeight={150} styles={customStyles} placeholder={<div style={{color:"white"}}>Search..</div>} options={stockOptions} className="stockPageSelect text-left" theme={this.selectSelectionTab}/>
+                                        <Select
+                                            getOptionLabel={(option) => `${option.code} - ${option.saham}`}
+                                            filterOption={customFilter} isSearchable={true}
+                                            maxMenuHeight={150} styles={customStyles} placeholder={<div style={{color:"white"}}>Search..</div>} options={stockOptions} className="stockPageSelect text-left" theme={this.selectSelectionTab}/>
                                     </div>
                                     <div className="col-sm-1 px-0 mx-0 align-self-center align-middle">
                                         <button className="btn btn-sm bg-gray-tradding border-gray-tradding"><i className="fa fa-plus"></i></button>
