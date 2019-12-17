@@ -3990,15 +3990,21 @@ textarea {
 .n-border-bottom{
     border-bottom: none !important;
 }
-.stockOptionInput:focus ~ .input-group-addon, .stockOptionInput2:focus ~ .input-group-addon{
-    box-shadow: 0 0 1px rgba(81, 203, 238, 1);
-    border: 1px solid rgba(81, 203, 238, 1);
+.stockOptionInput:hover ~ .input-group-addon, .stockOptionInput2:hover ~ .input-group-addon{
+    /*box-shadow: 0 0 1px rgba(81, 203, 238, 1);*/
+    border: 1px solid #0071BC;
 }
+.stockOptionInput{
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    text-overflow-ellipsis: true;
+}
+
 .input-group-addon{
-    -webkit-transition: all 0.20s ease-in-out;
-    -moz-transition: all 0.20s ease-in-out;
-    -ms-transition: all 0.20s ease-in-out;
-    -o-transition: all 0.20s ease-in-out;
+    -webkit-transition: all 0.01s ease-in-out;
+    -moz-transition: all 0.01s ease-in-out;
+    -ms-transition: all 0.01s ease-in-out;
+    -o-transition: all 0.01s ease-in-out;
 }
 .livetradeMenu{
     font-size: 1.25em!important;
@@ -4631,5 +4637,3 @@ textarea {
         }
     }
 }
-
-/*NEW CARD ZAKY*/

@@ -1,14 +1,14 @@
 import React from 'react';
-import { AppFrameAction } from '../appframe.js';
+
 import anychart from 'anychart';
 import '../../node_modules/anychart/dist/css/anychart-ui.min.css';
 import '../../node_modules/anychart/dist/js/anychart-ui.min.js';
 import '../../node_modules/anychart/dist/fonts/css/anychart-font.min.css';
 import '../../node_modules/anychart/dist/js/anychart-data-adapter.min.js';
+
 import { ContextConnector } from '../appcontext.js';
 import { BIPSAppContext } from '../AppData.js';
 
-// import '../../node_modules/anychart/dist/js/dark_earth.min.js';
 import '../../node_modules/anychart/dist/js/coffee.min.js';
 import '../../node_modules/anychart/dist/js/dark_blue.min.js';
 import '../../node_modules/anychart/dist/js/dark_glamour.min.js';
@@ -31,21 +31,9 @@ import Select from 'react-select';
 import '../../node_modules/bootstrap-select/dist/css/bootstrap-select.min.css';
 import '../../node_modules/bootstrap-select/dist/js/bootstrap-select.min.js';
 import $ from 'jquery';
+import {Dropdown} from "semantic-ui-react";
 window.$ = window.jQuery = $;
 require('../../node_modules/bootstrap/dist/js/bootstrap.js');
-
-const stockOptions = [
-    { value: 'aali', label: 'AALI' },
-    { value: 'adhi', label: 'ADHI' },
-    { value: 'antm', label: 'ANTM' },
-    { value: 'asii', label: 'ASII' },
-    { value: 'tlkm', label: 'TLKM' },
-    { value: 'wskt', label: 'WSKT' },
-    { value: 'indf', label: 'INDF' },
-    { value: 'bbca', label: 'BBCA' },
-    { value: 'smgr', label: 'SMGR' },
-    { value: 'bbri', label: 'BBRI' }
-]
 
 var $valueAnalyticChart = "";
 
@@ -60,7 +48,8 @@ class AnalyticChart_Base extends React.PureComponent {
             stockKey: props.key,
             modeView: props.viewMode,
             sessID: props.sessId,
-        };
+            default: '',
+        }
     }
 
     static getDerivedStateFromProps(props, state) {
@@ -819,19 +808,32 @@ class AnalyticChart_Base extends React.PureComponent {
         },
     });
 
-    changelist(e){
+    // changelist = (e, {id,value}) => {
         // $("#stockoption "+selop).change();
-        // console.log(e.target.id);
-        if(e.target.value.length > 0) {
-            $valueAnalyticChart = e.target.value;
-            $("#" + (e.target.id)).change();
-        }else{
-            return false;
-        }
+        // console.log(e);
+        // if(e.target.value.length > 0) {
+        //     $valueAnalyticChart = value;
+            // $("#"+id).change();
+        // }else{
+        //     return false;
+        // }
+    // }
+
+    changelist = event => {
+        // $("#stockoption "+selop).change();
+        console.log(event);
+        // if(e.target.value.length > 0) {
+        $valueAnalyticChart = event.value;
+        $("#stockoption"+event.id).change();
+        // }else{
+        //     return false;
+        // }
     }
 
-    render() {
+    handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
+    render() {
+        const { selecteddd } = this.state.default;
         let styleses = {
             display: 'flex',
             padding: '5px 10px 0px 10px',
@@ -859,10 +861,24 @@ class AnalyticChart_Base extends React.PureComponent {
             marginLeft: '1px'
         }
 
+        const option = [
+            { value: 'aali', label: 'AALI - AGRO ASTRA LIBRARY' , id: this.state.stockType},
+            { value: 'adhi', label: 'ADHI' , id: this.state.stockType},
+            { value: 'antm', label: 'ANTM' , id: this.state.stockType},
+            { value: 'asii', label: 'ASII' , id: this.state.stockType},
+            { value: 'tlkm', label: 'TLKM' , id: this.state.stockType},
+            { value: 'wskt', label: 'WSKT' , id: this.state.stockType},
+            { value: 'indf', label: 'INDF' , id: this.state.stockType},
+            { value: 'bbca', label: 'BBCA' , id: this.state.stockType},
+            { value: 'smgr', label: 'SMGR' , id: this.state.stockType},
+            { value: 'bbri', label: 'BBRI' , id: this.state.stockType}
+        ];
+
         const customStyles = {
             control: (base, state) => ({
                 ...base,
                 height: '34px',
+                width: '170px',
                 'min-height': '34px',
             }),
         };
@@ -937,6 +953,8 @@ more.
                     </div>
                 </div >
 
+
+
                 <div id={"allwrap" + this.state.stockType} className="f-12" style={formButton}>
                     <div className="row" id={"formInputIndicators" + this.state.stockType}>
                         <div className="col-xs-12 col-sm-6 col-md-12">
@@ -944,25 +962,24 @@ more.
                                 <div className="form-inline">
                                     <div className="form-group">
                                         <li style={marginSelection}>
+                                                <Select
+                                                    maxMenuHeight={200}
+                                                    styles={customStyles}
+                                                    placeholder={<div>Search..</div>}
+                                                    options={option}
+                                                    id={"stockoption"+this.state.stockType}
+                                                    className="stockPageSelect text-left"
+                                                    theme={this.selectSelectionTab}
+                                                    onChange={this.changelist}
+                                                    value={selecteddd}
+                                                />
+                                        </li>
+                                    </div>
+
+                                    <div className="form-group">
+                                        <li style={marginSelection}>
                                             <input type="hidden" id={"chartDataSelect" + this.state.stockType} value={this.state.stockAlias} data-json={"./" + this.state.stockData} />
-                                            <div className="input-group mr-1 stockOptionInputGroup">
-                                                <input id={"stockoption"+this.state.stockType} style={{borderRight:'none'}} list="brow" className="select selectpicker show-tick stockOptionInput n-border-right form-control"
-                                                       onChange={this.changelist} placeholder="Search"/>
-                                                <datalist id="brow" className="text-basic listOpt">
-                                                    <option value="AALI"/>
-                                                    <option value="ADHI"/>
-                                                    <option value="ANTM"/>
-                                                    <option value="ASII"/>
-                                                    <option value="TLKM"/>
-                                                    <option value="WSKT"/>
-                                                    <option value="INDF"/>
-                                                    <option value="BBCA"/>
-                                                    <option value="SMGR"/>
-                                                    <option value="BBRI"/>
-                                                </datalist>
-                                                <span
-                                                    className="input-group-addon ml-0 pl-1 n-border-left"><i className="fa fa-search"></i></span>
-                                            </div>
+
                                             <select data-width={elemWidthanotation} data-size="10" data-dropup-auto="false" data-style="btn-dark" defaultValue={'default'} id={"typeSelect" + this.state.stockType} onclick="create()" className="select selectpicker show-tick form-control" title="Select Annotation Type">
                                                 <option value="default" selected>Annotation Type</option>
                                                 <option value="andrews-pitchfork">Andrews' Pitchfork</option>
@@ -986,7 +1003,11 @@ more.
 
                                     <div className="form-group">
                                         <li style={marginSelection}>
-                                            <select name="" id={"seriesTypeSelect" + this.state.stockType} data-width={elemWidthanotation} data-size="10" data-dropup-auto="false" data-style="btn-dark" className="select selectpicker show-tick form-control">
+                                            <select
+                                                name="" id={"seriesTypeSelect" + this.state.stockType}
+                                                data-width={elemWidthanotation}
+                                                data-size="10" data-dropup-auto="false"
+                                                data-style="btn-dark" className="select selectpicker show-tick form-control">
                                                 {/* <!--series constructors--> */}
                                                 <option value="area">Area Chart</option>
                                                 <option value="candlestick" selected>Candlestick Chart</option>
@@ -1011,7 +1032,7 @@ more.
 
                                     <div className="form-group">
                                         <li style={marginSelection}>
-                                            <select className="select show-tick form-control" data-size="10" data-dropup-auto="false" data-style="btn-dark" multiple name="" data-width={elemWidthIndicator} id={"indicatorTypeSelect" + this.state.stockType}
+                                            <select className="select show-tick form-control" data-size="10" data-dropup-auto="false" data-style="btn-dark" multiple name="" id={"indicatorTypeSelect" + this.state.stockType}
                                                 title="Add Indicator">
                                             </select>
                                         </li>
