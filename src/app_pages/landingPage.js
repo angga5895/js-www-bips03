@@ -4069,13 +4069,14 @@ class CancelGrid extends React.PureComponent {
         const size = this.props.size;
         this.state = {
             columnDefs: [
-                { field: "cw", headerName: "Cw#", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 84, minWidth: 84,
+                { field: "cw", headerName: "Cw#", sortable: true, filter: "agTextColumnFilter", resizable:
+                        true, width: size=="s75"?190:84, minWidth: 84,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12";
                     }, suppressSizeToFit: true
                 },
                 { field: "amount", headerName: "Amount", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width: size=='s90'?734:size == 's80'?836:size=='s75'?898:size=='s67'?846:size=='s50'?1397:644,
+                    width: size=='s90'?734:size == 's80'?836:size=='s75'?870:size=='s67'?846:size=='s50'?1397:644,
                     cellClass : function (params) {
                         return " text-right grid-table d-border-aggrid-right f-12";
                     }
@@ -4092,13 +4093,13 @@ class CancelGrid extends React.PureComponent {
                 filter: true,
             },
             rowData: [
-                {   cw: "Cwxx",
+                {   cw: "Cwxx"+size,
                     amount: "1,223,222",
                     fee: "0",
-                }, {   cw: "Cwxx",
+                }, {   cw: "Cwxx"+size,
                     amount: "1,223,222",
                     fee: "0",
-                }, {   cw: "Cwxx",
+                }, {   cw: "Cwxx"+size,
                     amount: "1,223,222",
                     fee: "0",
                 }, {   cw: "Cwxx",
@@ -4186,32 +4187,32 @@ class CancelGrid2 extends React.PureComponent {
         this.state = {
             columnDefs: [
                 { field: "cw", headerName: "Cw #", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width: 100,
+                    width: size=="s75"?230:100,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-center f-12";
                     }, suppressSizeToFit: true
                 },
                 { field: "requestdate", headerName: "Request Date", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width: size=="s90"?319:size=="s80"?363:size=="s75"?389:size=="s67"?442:size=="s50"?603:283,
+                    width: size=="s90"?319:size=="s80"?363:size=="s75"?375:size=="s67"?442:size=="s50"?603:283,
                     cellClass : function (params) {
-                        return " text-center grid-table d-border-aggrid-right f-12";
+                        return " text-lelft grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "transferdate", headerName: "Transfer Date", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width: size=="s90"?321:size=="s80"?366:size=="s75"?393:size=="s67"?447:size=="s50"?610:285,
+                    width: size=="s90"?321:size=="s80"?366:size=="s75"?380:size=="s67"?447:size=="s50"?610:285,
                     cellClass : function (params) {
-                        return "text-center  grid-table d-border-aggrid-right f-12";
+                        return "text-left  grid-table d-border-aggrid-right f-12";
                     }
                 },
                 { field: "amount", headerName: "Amount", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width: size=="s90"?321:size=="s80"?366:size=="s75"?393:size=="s67"?447:size=="s50"?610:304,
+                    width: size=="s90"?321:size=="s80"?366:size=="s75"?380:size=="s67"?447:size=="s50"?610:304,
                     cellClass : function (params) {
                         return "text-right  grid-table d-border-aggrid-right f-12";
                     }
                 },
 
                 { field: "fee", headerName: "Fee", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width: size=="s90"?326:size=="s80"?370:size=="s75"?398:size=="s67"?448:size=="s50"?599:269,
+                    width: size=="s90"?326:size=="s80"?370:size=="s75"?380:size=="s67"?448:size=="s50"?599:269,
                     cellClass : function (params) {
                         return "text-right grid-table d-border-aggrid-right f-12";
                     }
@@ -4222,15 +4223,15 @@ class CancelGrid2 extends React.PureComponent {
                 filter: true,
             },
             rowData: [
-                {   cw: "CWxx",
+                {   cw: "CWxx"+size,
                     requestdate: "1/12/2018",
                     transferdate: "10/12/2018",
                     amount: "1,223,333",
                     fee:"0",
-                }, {   cw: "CWxx",
+                }, {   cw: "CWxx"+size,
                     requestdate: "1/12/2018",
                     transferdate: "10/12/2018",
-                    amount: "1,223,333",
+                    amount: "1,223,333"+size,
                     fee:"0",
                 }, {   cw: "CWxx",
                     requestdate: "1/12/2018",

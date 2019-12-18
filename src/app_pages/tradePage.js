@@ -1210,15 +1210,18 @@ class OrderHistoryAgGrid extends React.PureComponent {
         const s = props.size;
         this.state = {
             columnDefs: [
-                { field: "date", headerName: "Date", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 90, lockPosition:true, lockVisible:true,
+                { field: "date", headerName: "Date", sortable: true, filter: "agTextColumnFilter", resizable: true,
+                    width: s=="s75"?120:90, lockPosition:true, lockVisible:true,
                     cellClass : function (params) {
                         return "text-center grid-table d-border-aggrid-right f-12";
                     },},
-                { field: "time", headerName: "Time", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 80,
+                { field: "time", headerName: "Time", sortable: true, filter: "agTextColumnFilter", resizable: true,
+                    width: s=="s75"?100:80,
                     cellClass : function (params) {
                         return "text-center grid-table d-border-aggrid-right f-12";
                     },},
-                { field: "order", headerName: "Order#", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 135,
+                { field: "order", headerName: "Order#", sortable: true, filter: "agTextColumnFilter", resizable: true,
+                    width: s=="s75"?140:135,
                     cellClass : function (params) {
                         return "text-center grid-table d-border-aggrid-right f-12";
                     },},
@@ -1240,12 +1243,13 @@ class OrderHistoryAgGrid extends React.PureComponent {
                     cellClass : function (params) {
                         return "text-center grid-table d-border-aggrid-right f-12";
                     },},
-                { field: "mqty", headerName: "M Qty", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 110,
+                { field: "mqty", headerName: "M Qty", sortable: true, filter: "agTextColumnFilter", resizable: true,
+                    width: s=="s75"?130:110,
                     cellClass : function (params) {
                         return "text-center grid-table d-border-aggrid-right f-12";
                     }, },
                 { field: "mprice", headerName: "M Price", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width: s=="s75"?193:s=="s80"?173:s=="s90"?133:120,
+                    width: s=="s75"?200:s=="s80"?173:s=="s90"?133:120,
                     cellClass : function (params) {
                         return "text-center grid-table d-border-aggrid-right f-12";
                     }, },
@@ -2165,44 +2169,44 @@ class TradeListOrderListAgGrid extends React.PureComponent {
         this.state = {
             columnDefs: [
                 { field: "time", headerName: "Time", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width:80, minWidth: 80,
+                    width:s=="s75"?110:80, minWidth: 80,
                     cellClass : function (params) {
-                        return " grid-table d-border-aggrid-right text-center f-12";
+                        return " grid-table d-border-aggrid-right text-left f-12";
                     },
                 },{ field: "code", headerName: "Code", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width:78, minWidth:78,
+                    width:s=="s75"?110:78, minWidth:78,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-left f-12";
                     },
                 },{ field: "price", headerName: "Price", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width:86, minWidth: 86,
+                    width:s=="s75"?90:86, minWidth: 86,
                     cellClass : function (params) {
                         return " grid-table text-right d-border-aggrid-right text-center f-12";
                     },
                 },{ field: "vol", headerName: "Vol", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width:60, minWidth: 60,
+                    width:s=="s75"?90:60, minWidth: 60,
                     cellClass : function (params) {
-                        return " grid-table d-border-aggrid-right text-center f-12";
+                        return " grid-table d-border-aggrid-right text-right f-12";
                     },
                 },{ field: "val", headerName: "Val", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width:60, minWidth: 60,
+                    width:s=="s75"?100:60, minWidth: 60,
                     cellClass : function (params) {
-                        return " grid-table d-border-aggrid-right text-center f-12";
+                        return " grid-table d-border-aggrid-right text-right f-12";
                     },
                 },{ field: "buyer", headerName: "Buyer", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width:86, minWidth: 86,
+                    width:s=="s75"?100:86, minWidth: 86,
                     cellClass : function (params) {
-                        return " grid-table d-border-aggrid-right text-center f-12";
+                        return " grid-table d-border-aggrid-right text-left f-12";
                     },
                 },{ field: "seller", headerName: "Seller", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width: 86, minWidth: 86,
+                    width: s=="s75"?100:86, minWidth: 86,
                     cellClass : function (params) {
-                        return " grid-table d-border-aggrid-right text-center f-12";
+                        return " grid-table d-border-aggrid-right text-left f-12";
                     },
                 },{ field: "tradeId", headerName: "TradeID", sortable: true, filter: "agTextColumnFilter", resizable: true,
                     width:s=="s75"?167:s=="s80"?100:90, minWidth: 90,
                     cellClass : function (params) {
-                        return " grid-table d-border-aggrid-right text-center f-12";
+                        return " grid-table d-border-aggrid-right text-left f-12";
                     },
                 },
             ],
@@ -2212,7 +2216,7 @@ class TradeListOrderListAgGrid extends React.PureComponent {
             },
             rowData: [
                 {
-                    time : "08:02:12",
+                    time : "08:02:12"+s,
                     code :"AALI",
                     price : "13.000",
                     change: "-60,240"+ "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +"-0,40%",
