@@ -19,9 +19,6 @@ import FormBuy from "./../app_transaction/form_buy";
 import FormSell from "../app_transaction/form_sell";
 import StockChart from "./stockChart";
 
-import {ResizeResponsive} from "./mainPage";
-
-//datepicker
 import '../bootstrap-3.3.7/bootstrap-datepicker.min.css';
 import $ from 'jquery';
 import {AgGridReact} from "ag-grid-react";
@@ -29,7 +26,6 @@ window.$ = window.jQuery = $;
 require('../../node_modules/bootstrap/dist/js/bootstrap.js');
 require('../bootstrap-3.3.7/bootstrap-datepicker.standalone.min.css');
 require('../../node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.js');
-
 
 const CustomFrameHeaderStock = (props) => {
     return (
@@ -628,7 +624,6 @@ class StockHistoryPage_Base extends React.PureComponent {
     }
 }
 
-// StockWatchlist
 const StockWatchlist = (props) => {
     return(
         <div>
@@ -648,7 +643,7 @@ const StockWatchlist = (props) => {
         </div>
     );
 }
-// tael Watchlist
+
 class TableStockWatchlist_Base extends React.Component{
     closeClick = (e) => {
         this.refs.frameAction.closeModal(100);
@@ -692,6 +687,7 @@ class TableStockWatchlist_Base extends React.Component{
         );
     }
 }
+
 
 class BuyPage extends React.Component{
     constructor(props) {
@@ -795,17 +791,7 @@ class SellModal extends React.Component  {
     }
 }
 
-const TableStockWatchlist = ContextConnector(BIPSAppContext,
-    (vars, actions, props)=>({
-        subscribeMsg: vars.subscribeMsg,
-        stockSummary:vars.stockSummary,
-        sessionID:vars.sessionID,
-        subscribeStock:(sessionID) => {actions.sendAction('subscribeStock', {sessionID})}
-    })
-)(TableStockWatchlist_Base)
 
-
-//update zaky 25/10/2019
 class RegisterAmendModal_Base extends React.Component {
     closeClick = (e) => {
         this.refs.frameAction.closeModal(100);
@@ -984,8 +970,214 @@ class RegisterAmendModal_Base extends React.Component {
     }
 }
 
-//Zaky
-//Penambahan Grid baru
+
+class HistoryBrokerAgGrid extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        const self = this;
+        this.state = {
+            columnDefs: [
+                { field: 'broker', headerName: "Broker", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    lockVisible:true, lockPosition:true, suppressSizeToFit:true,
+                    cellClass : function (params) {
+                        return "text-center grid-table d-border-aggrid-right f-12 text-warning locked-position locked-visible";
+                    },},
+                { field: 'buyvol', headerName: "Buy Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table d-border-aggrid-right f-12 text-success";
+                    },},
+                { field: 'buyval', headerName: "Buy Val (Bn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table d-border-aggrid-right f-12 text-success";
+                    }, },
+                { field: 'avgbid', headerName: "Avg. Bid", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table d-border-aggrid-right f-12 text-success";
+                    }, },
+                { field: 'sellvol', headerName: "Sell Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table d-border-aggrid-right f-12 text-success";
+                    },},
+                { field: 'sellval', headerName: "Sell Val (Bn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table d-border-aggrid-right f-12 text-success";
+                    },},
+                { field: 'avgsell', headerName: "Avg. Sell", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table d-border-aggrid-right f-12 text-success";
+                    }, },
+                { field: 'netval', headerName: "Net Val (Bn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
+                    cellClass : function (params) {
+                        return "text-center grid-table d-border-aggrid-right f-12 text-success";
+                    }, },
+            ],
+            defaultColDef: {
+                sortable: true,
+                filter: true,
+            },
+            getRowHeight : function(params){
+                return 27.5;
+            },
+            rowData: [
+                { broker: "DX",
+                    buyvol: "2,000",
+                    buyval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    buyvol: "2,000",
+                    buyval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    buyvol: "2,000",
+                    buyval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    buyvol: "2,000",
+                    buyval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    buyvol: "2,000",
+                    buyval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    buyvol: "2,000",
+                    buyval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    buyvol: "2,000",
+                    buyval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    buyvol: "2,000",
+                    buyval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    buyvol: "2,000",
+                    buyval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    buyvol: "2,000",
+                    buyval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},
+                { broker: "DX",
+                    buyvol: "2,000",
+                    buyval: "2,000",
+                    avgbid: "10,800",
+                    sellvol: "3,000",
+                    sellval: "3,000",
+                    avgsell: "2,100",
+                    netval: "500,000"},],
+            sideBar: {
+                toolPanels: [
+                    {
+                        id: "columns",
+                        labelDefault: "Columns",
+                        labelKey: "columns",
+                        iconKey: "columns",
+                        toolPanel: "agColumnsToolPanel",
+                        toolPanelParams: {
+                            suppressRowGroups: true,
+                            suppressValues: true,
+                            suppressPivots: true,
+                            suppressPivotMode: true,
+                            suppressSideButtons: true,
+                            suppressColumnFilter: true,
+                            suppressColumnSelectAll: true,
+                            suppressColumnExpandAll: true
+                        },
+                    }, {
+                        id: "filters",
+                        labelDefault: "Filters",
+                        labelKey: "filters",
+                        iconKey: "filter",
+                        toolPanel: "agFiltersToolPanel"
+                    }
+                ],
+                defaultToolPanel: ""
+            },
+        }
+    }
+
+    onGridReady = params => {
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
+
+        params.api.sizeColumnsToFit();
+        window.addEventListener("resize", function() {
+            setTimeout(function() {
+                params.api.sizeColumnsToFit();
+            });
+        });
+
+        params.api.sizeColumnsToFit();
+    };
+
+    onFirstDataRendered(params) {
+        params.api.sizeColumnsToFit();
+    }
+
+    render() {
+        return (
+            <>
+                {/*Zaky*/}
+                {/*update ukuran card*/}
+                <div
+                    className="card card-372 ag-theme-balham-dark ag-header-border-gray ag-striped-odd"
+                    style={{
+                        width: 'auto' }}>
+                    <AgGridReact
+                        columnDefs={this.state.columnDefs}
+                        rowData={this.state.rowData}
+                        defaultColDef={this.state.defaultColDef}
+                        getRowHeight={this.state.getRowHeight}
+                        onGridReady={this.onGridReady}
+                        onFirstDataRendered={this.onFirstDataRendered}>
+                    </AgGridReact>
+                </div>
+            </>
+        );
+    }
+}
 
 class HistoryBrokerAgGridSecond extends React.PureComponent {
     constructor(props) {
@@ -1343,6 +1535,7 @@ class HistoryBrokerAgGridThird extends React.PureComponent {
     }
 }
 
+
 class StockWatchlistAgGrid extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -1622,7 +1815,7 @@ class StockWatchlistAgGrid extends React.PureComponent {
         );
     }
 }
-//zaky ubah table
+
 class AmendGroupNameAgGrid extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -1694,7 +1887,7 @@ class AmendGroupNameAgGrid extends React.PureComponent {
         );
     }
 }
-//zaky ubah table
+
 class AmendGroupCodeAgGrid extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -1773,8 +1966,7 @@ class AmendGroupCodeAgGrid extends React.PureComponent {
         );
     }
 }
-//zaky
-//ubah table
+
 class AddGroupCodeAgGrid extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -1853,213 +2045,6 @@ class AddGroupCodeAgGrid extends React.PureComponent {
     }
 }
 
-class HistoryBrokerAgGrid extends React.PureComponent {
-    constructor(props) {
-        super(props);
-        const self = this;
-        this.state = {
-            columnDefs: [
-                { field: 'broker', headerName: "Broker", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
-                    lockVisible:true, lockPosition:true, suppressSizeToFit:true,
-                    cellClass : function (params) {
-                        return "text-center grid-table d-border-aggrid-right f-12 text-warning locked-position locked-visible";
-                    },},
-                { field: 'buyvol', headerName: "Buy Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
-                    cellClass : function (params) {
-                        return "text-center grid-table d-border-aggrid-right f-12 text-success";
-                    },},
-                { field: 'buyval', headerName: "Buy Val (Bn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
-                    cellClass : function (params) {
-                        return "text-center grid-table d-border-aggrid-right f-12 text-success";
-                    }, },
-                { field: 'avgbid', headerName: "Avg. Bid", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
-                    cellClass : function (params) {
-                        return "text-center grid-table d-border-aggrid-right f-12 text-success";
-                    }, },
-                { field: 'sellvol', headerName: "Sell Vol", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
-                    cellClass : function (params) {
-                        return "text-center grid-table d-border-aggrid-right f-12 text-success";
-                    },},
-                { field: 'sellval', headerName: "Sell Val (Bn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
-                    cellClass : function (params) {
-                        return "text-center grid-table d-border-aggrid-right f-12 text-success";
-                    },},
-                { field: 'avgsell', headerName: "Avg. Sell", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
-                    cellClass : function (params) {
-                        return "text-center grid-table d-border-aggrid-right f-12 text-success";
-                    }, },
-                { field: 'netval', headerName: "Net Val (Bn)", sortable: true, filter: "agTextColumnFilter", resizable: true, width: 95,
-                    cellClass : function (params) {
-                        return "text-center grid-table d-border-aggrid-right f-12 text-success";
-                    }, },
-            ],
-            defaultColDef: {
-                sortable: true,
-                filter: true,
-            },
-            getRowHeight : function(params){
-                return 27.5;
-            },
-            rowData: [
-                { broker: "DX",
-                    buyvol: "2,000",
-                    buyval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    buyvol: "2,000",
-                    buyval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    buyvol: "2,000",
-                    buyval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    buyvol: "2,000",
-                    buyval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    buyvol: "2,000",
-                    buyval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    buyvol: "2,000",
-                    buyval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    buyvol: "2,000",
-                    buyval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    buyvol: "2,000",
-                    buyval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    buyvol: "2,000",
-                    buyval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    buyvol: "2,000",
-                    buyval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},
-                { broker: "DX",
-                    buyvol: "2,000",
-                    buyval: "2,000",
-                    avgbid: "10,800",
-                    sellvol: "3,000",
-                    sellval: "3,000",
-                    avgsell: "2,100",
-                    netval: "500,000"},],
-            sideBar: {
-                toolPanels: [
-                    {
-                        id: "columns",
-                        labelDefault: "Columns",
-                        labelKey: "columns",
-                        iconKey: "columns",
-                        toolPanel: "agColumnsToolPanel",
-                        toolPanelParams: {
-                            suppressRowGroups: true,
-                            suppressValues: true,
-                            suppressPivots: true,
-                            suppressPivotMode: true,
-                            suppressSideButtons: true,
-                            suppressColumnFilter: true,
-                            suppressColumnSelectAll: true,
-                            suppressColumnExpandAll: true
-                        },
-                    }, {
-                        id: "filters",
-                        labelDefault: "Filters",
-                        labelKey: "filters",
-                        iconKey: "filter",
-                        toolPanel: "agFiltersToolPanel"
-                    }
-                ],
-                defaultToolPanel: ""
-            },
-        }
-    }
-
-    onGridReady = params => {
-        this.gridApi = params.api;
-        this.gridColumnApi = params.columnApi;
-
-        params.api.sizeColumnsToFit();
-        window.addEventListener("resize", function() {
-            setTimeout(function() {
-                params.api.sizeColumnsToFit();
-            });
-        });
-
-        params.api.sizeColumnsToFit();
-    };
-
-    onFirstDataRendered(params) {
-        params.api.sizeColumnsToFit();
-    }
-
-    render() {
-        return (
-            <>
-                {/*Zaky*/}
-                {/*update ukuran card*/}
-                <div
-                    className="card card-372 ag-theme-balham-dark ag-header-border-gray ag-striped-odd"
-                    style={{
-                        width: 'auto' }}>
-                    <AgGridReact
-                        columnDefs={this.state.columnDefs}
-                        rowData={this.state.rowData}
-                        defaultColDef={this.state.defaultColDef}
-                        getRowHeight={this.state.getRowHeight}
-                        onGridReady={this.onGridReady}
-                        onFirstDataRendered={this.onFirstDataRendered}>
-                    </AgGridReact>
-                </div>
-            </>
-        );
-    }
-}
 
 class HistoryPriceAgGrid extends React.PureComponent {
     constructor(props) {
@@ -2620,21 +2605,34 @@ class CorpActionAgGrid extends React.PureComponent {
         );
     }
 }
+
 const RegisterAmendModal = ContextConnector(BIPSAppContext,
     (vars, actions) => ({
         thememode: vars.thememode,
         chartMode: vars.chartMode
     }),
 )(RegisterAmendModal_Base);
+
 const StockPage = ContextConnector(BIPSAppContext,
     (vars, actions) => ({
         thememode: vars.thememode
     }),
 )(StockPage_Base);
+
 const StockHistoryPage = ContextConnector(BIPSAppContext,
     (vars, actions) => ({
         thememode: vars.thememode
     }),
 )(StockHistoryPage_Base);
+
+const TableStockWatchlist = ContextConnector(BIPSAppContext,
+    (vars, actions, props)=>({
+        subscribeMsg: vars.subscribeMsg,
+        stockSummary:vars.stockSummary,
+        sessionID:vars.sessionID,
+        subscribeStock:(sessionID) => {actions.sendAction('subscribeStock', {sessionID})}
+    })
+)(TableStockWatchlist_Base);
+
 export { CustomFrameHeaderStock, Stock, BuyPage, SellPage, AmendGroupNameAgGrid, AmendGroupCodeAgGrid, AddGroupCodeAgGrid, BuyModal, SellModal, RegisterAmendModal };
 export default StockPage;
