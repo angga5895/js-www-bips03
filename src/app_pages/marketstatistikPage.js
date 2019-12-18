@@ -2989,7 +2989,7 @@ class TopBrokerAgGrid extends React.PureComponent {
                         return " grid-table d-border-aggrid-right text-right f-12";
                     } },
                 { field: "tfreq", headerName: "T. Freq", sortable: true, filter: "agTextColumnFilter", resizable: true,
-                    width: s=="s75"?230:s=="s80"?210:s=="s90"?190:170,
+                    width: s=="s75"?320:s=="s80"?210:s=="s90"?190:170,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-right f-12";
                     } },
@@ -2999,7 +2999,7 @@ class TopBrokerAgGrid extends React.PureComponent {
                 filter: true,
             },
             rowData: [
-                { no: 1,
+                { no: 1+s,
                 code: "DX",
                 company: "Bahana Sekuritas",
                 tval: "99.64",
@@ -3175,7 +3175,7 @@ class TopBrokerBAgGrid extends React.PureComponent {
                         return " grid-table d-border-aggrid-right text-right f-12";
                     } },
                 { field: "tfreq", headerName: "T. Freq", sortable: true, filter: "agTextColumnFilter",
-                    resizable: true, width: s=="s75"?390:s=="s80"?350:s=="s90"?310:275,
+                    resizable: true, width: s=="s75"?480:s=="s80"?350:s=="s90"?310:275,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-right f-12";
                     } },
@@ -3338,7 +3338,7 @@ class TopBrokerSAgGrid extends React.PureComponent {
                         return " grid-table d-border-aggrid-right text-right f-12";
                     } },
                 { field: "tfreq", headerName: "T. Freq", sortable: true, filter: "agTextColumnFilter",
-                    resizable: true, width: s=="s75"?390:s=="s80"?350:s=="s90"?310:275,
+                    resizable: true, width: s=="s75"?480:s=="s80"?350:s=="s90"?310:275,
                     cellClass : function (params) {
                         return " grid-table d-border-aggrid-right text-right f-12";
                     } },
