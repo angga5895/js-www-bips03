@@ -861,18 +861,33 @@ class AnalyticChart_Base extends React.PureComponent {
             marginLeft: '1px'
         }
 
-        const option = [
-            { value: 'aali', label: 'AALI - AGRO ASTRA LIBRARY' , id: this.state.stockType},
-            { value: 'adhi', label: 'ADHI' , id: this.state.stockType},
-            { value: 'antm', label: 'ANTM' , id: this.state.stockType},
-            { value: 'asii', label: 'ASII' , id: this.state.stockType},
-            { value: 'tlkm', label: 'TLKM' , id: this.state.stockType},
-            { value: 'wskt', label: 'WSKT' , id: this.state.stockType},
-            { value: 'indf', label: 'INDF' , id: this.state.stockType},
-            { value: 'bbca', label: 'BBCA' , id: this.state.stockType},
-            { value: 'smgr', label: 'SMGR' , id: this.state.stockType},
-            { value: 'bbri', label: 'BBRI' , id: this.state.stockType}
+        const stockOptions = [
+            { value:'bmpt', code: 'BMPT', saham: 'Bumi Mega Pertama ' , id: this.state.stockType},
+            { value:'bnmp-ppt', code: 'BNMP-PPT', saham: 'Bumi Nusa Putra ' , id: this.state.stockType},
+            { value:'bumi', code: 'BUMI', saham: 'Bumi Resource ' , id: this.state.stockType},
+            { value:'asii', code: 'ASII', saham: 'Argo Astra Lestari ' , id: this.state.stockType},
+            { value:'tlkm', code: 'TLKM', saham: 'Telekomunikasi Indonesia ' , id: this.state.stockType},
+            { value:'wskt', code: 'WSKT', saham: 'Waskita ' , id: this.state.stockType},
+            { value:'indf', code: 'INDF', saham: 'Indofood ' , id: this.state.stockType},
+            { value:'bbca', code: 'BBCA', saham: 'Bank BCA ' , id: this.state.stockType},
+            { value:'smrg', code: 'SMGR', saham: 'Semen Indonesia ' , id: this.state.stockType},
+            { value:'bbri', code: 'BBRI', saham: 'Bank BRI ' , id: this.state.stockType}
         ];
+
+        const customFilter  = (option, searchText) => {
+            var code = option.data.code.toLowerCase().includes(searchText.toLowerCase());
+            var saham = option.data.saham.toLowerCase().includes(searchText.toLowerCase());
+
+            if(searchText.toLowerCase().includes(' ')){
+                if(saham){
+                    return true;
+                }
+            } else {
+                if (code) {
+                    return true;
+                }
+            }
+        };
 
         const customStyles = {
             control: (base, state) => ({
@@ -966,11 +981,13 @@ more.
                                                     maxMenuHeight={200}
                                                     styles={customStyles}
                                                     placeholder={<div>Search..</div>}
-                                                    options={option}
+                                                    options={stockOptions}
+                                                    getOptionLabel={(option) => `${option.code} - ${option.saham}`}
                                                     id={"stockoption"+this.state.stockType}
                                                     className="stockPageSelect text-left"
                                                     theme={this.selectSelectionTab}
                                                     onChange={this.changelist}
+                                                    filterOption={customFilter}
                                                     value={selecteddd}
                                                 />
                                         </li>
