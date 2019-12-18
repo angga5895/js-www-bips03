@@ -89,14 +89,14 @@
                         <div className="col-sm-6 pr-3 pl-0 f-12">
                             <TableInfoTransaction lotshare="buyPageTrade"/>
                         </div>
-                        <div className="col-sm-6 my-0 d-border-active bg-dark-grey py-0 px-0">
-                            <div className="cssmenumodal bg-dark-grey pb-2 col-sm-12 mx-0 px-0">
+                        <div className={this.state.activeTab === '1' ? "col-sm-6 my-0 d-border-active bg-danger py-0 px-0" : "col-sm-6 my-0 d-border-active bg-success py-0 px-0"}>
+                            <div className="cssmenumodal bg-dark-grey pb-0 mb-2 col-sm-12 mx-0 px-0">
                                 <ul>
-                                    <li className={ this.state.activeTab === '1' ? 'd-border-bottom active click-pointer col-sm-6 px-0 mx-0 f-12 text-center' : 'd-border-bottom text-white click-pointer col-sm-6 px-0 mx-0 f-12 text-center' } onClick={() => { this.toggle('1'); }}><a className="py-3"><span className="f-11">&nbsp; Buy</span></a></li>
-                                    <li className={ this.state.activeTab === '2' ? 'd-border-bottom active click-pointer col-sm-6 px-0 mx-0 f-12 text-center' : 'd-border-bottom text-white click-pointer col-sm-6 px-0 mx-0 f-12 text-center' } onClick={() => { this.toggle('2'); }}><a className="py-3"><span className="f-11">&nbsp; Sell</span></a></li>
+                                    <li className={ this.state.activeTab === '1' ? 'd-border-bottom active click-pointer col-sm-6 px-0 mx-0 f-12 text-center' : 'd-border-bottom text-white click-pointer col-sm-6 px-0 mx-0 f-12 text-center' } onClick={() => { this.toggle('1'); }}><a className="pb-3 pt-4"><span className="f-11">&nbsp; Buy</span></a></li>
+                                    <li className={ this.state.activeTab === '2' ? 'd-border-bottom active click-pointer col-sm-6 px-0 mx-0 f-12 text-center' : 'd-border-bottom text-white click-pointer col-sm-6 px-0 mx-0 f-12 text-center' } onClick={() => { this.toggle('2'); }}><a className="pb-3 pt-4"><span className="f-11">&nbsp; Sell</span></a></li>
                                 </ul>
                             </div>
-                            <div className='d-block f-12'>
+                            <div className='d-block f-12 px-3'>
                                 <Table borderless className="card-475 mb-0">
                                 <tbody>
                                 <tr>
@@ -104,7 +104,7 @@
                                         <div className="row mb-2">
                                             <div className={`col-sm-6 f-18 ${(this.state.activeTab == 1) ? 'text-danger' : 'text-success'}`}>
                                             {/*<div className="col-sm-6 f-18 text-success">*/}
-                                                {this.state.activeTab == 1 ? "Buy" : "Sell"}
+                                                {/*{this.state.activeTab == 1 ? "Buy" : "Sell"}*/}
                                             </div>
                                             <div className="col-sm-6 text-right"><i className="fa fa-calendar-alt"></i> {tanggal()}</div>
                                         </div>
@@ -166,7 +166,7 @@
                                                 </div>
                                             </div>
                                             <div className="col-sm-4 pl-5 row text-center align-middle align-self-center pr-0">
-                                                <label className="col-sm-5 pr-4 pl-0 mb-0 bg-dark-grey py-2 align-self-center text-left">Lot</label>
+                                                <label className={this.state.activeTab === '1' ? "col-sm-5 pr-4 pl-0 mb-0 bg-danger py-2 align-self-center text-left" : "col-sm-5 pr-4 pl-0 mb-0 bg-success py-2 align-self-center text-left"}>Lot</label>
                                                 <div className="col-sm-7 px-0 mx-0 py-0 align-self-center text-left">
                                                     {buttonCustomSetting(this.state.activeTab)}
                                                 </div>

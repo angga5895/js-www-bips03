@@ -33,14 +33,14 @@ class FormBuy extends React.PureComponent{
 
     render(){
         return(
-            <div className="f-12">
+            <div className="f-12 px-3">
                 <AppFrameAction ref="frameAction" />
                 <Table borderless className={`${(this.props.part == "stockInfo") ? 'card-sellBuy' : 'card-475' } mb-0`}>
                     <tbody>
                     <tr>
                         <td className="py-0">
                             <div className="row mb-2">
-                                <div className="col-sm-6 f-18 text-danger">Buy</div>
+                                <div className="col-sm-6 f-18 text-danger"></div>
                                 <div className="col-sm-6 text-right"><i className="fa fa-calendar-alt"></i> {tanggal()}</div>
                             </div>
                         </td>
@@ -101,7 +101,7 @@ class FormBuy extends React.PureComponent{
                                     </div>
                                 </div>
                                 <div className="col-sm-4 pl-5 row text-center align-middle align-self-center pr-0">
-                                    <label className="col-sm-5 pr-4 pl-0 mb-0 bg-dark-grey py-2 align-self-center text-left">Lot</label>
+                                    <label className="col-sm-5 pr-4 pl-0 mb-0 bg-danger py-2 align-self-center text-left">Lot</label>
                                     <button type="button"
                                             className="col-sm-7 px-0 btn btn-sm btn-dark py-2 align-self-center">Max
                                     </button>
